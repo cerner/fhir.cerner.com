@@ -79,7 +79,7 @@ your client application must first register using our [code Console][CERNER-CODE
 If you are a Cerner client developing an application, please see this [document][CLIENT-APPS-DOC] about how to make your
 self-developed app available in your domain.
 
-If registering a confidential client application (required for offline_access and
+If registering a confidential client application (and/or
 access on behalf of a system), follow the directions in the [Registering a System Account][SYSTEM-ACCOUNT-SECTION]
 section. Check the respective FHIR<sup>®</sup> implementation documentation to determine availability.
 
@@ -90,7 +90,7 @@ which is necessary in order to gain access to their protected resources.
 
 ### Registering a System Account ###
 
-If an application will be using the offline_access scope, or accessing data on behalf of a system, it will need to
+If an application will be a confidential client, or accessing data on behalf of a system, it will need to
 maintain a secret. Currently, our implementation provides management and rotation functionality for this workflow in our
 System Accounts application. In order to register one of these applications, you must first request a system account,
 and then register that as a SMART or FHIR application in our code Console.
@@ -849,28 +849,6 @@ grant response must be retained.
 
 #### Considerations for Handling 'offline_access' ####
 
-To utilize refresh tokens issued with the offline_access scope,
-Cerner requires your application is present credentials as
-part of the access token request utilizing the [BASIC
-authentication scheme][RFC2617].  The rationale is such
-that if your solution compromises a large number of
-refresh tokens that such refresh tokens need not be revoked;
-only our client credentials need to be rotated to prevent
-misues of such compromised token values.  Client credentials for
-applications using Cerner's authorization server as issued
-via [Cerner Central System Account Management][SYSTEM-ACCOUNTS].
-See the [Registering a System Account][SYSTEM-ACCOUNT-SECTION] section
-for more information on how to register these applications.
-
-It is currently not recommended to store offline_access tokens
-in persistent storage at a user's device.  Cerner's authorization
-management workflows do not currently identify individual devices,
-or provide revocation tools that would allow a user to revoke access
-to individual devices.  If your application will allow the user
-to obtain data at their client device, you must supply your
-own mechanism for authenticating and revoking such devices to
-the user and/or administrators.
-
 Cerner's authorization server can be used as an authentication
 mechanism via the use of the "openid" scope.  In this scenario,
 an offline access refresh token could be stored in your
@@ -884,8 +862,7 @@ for the user.
 
 _NOTE_:  Cerner's authorization server currently does not
 support the stand-alone "openid" workflow for patients and/or
-their authorized representatives, nor does it support
-"offline_access" for providers at this time.
+their authorized representatives.
 
 When retrieving an access token utilizing using an
 online_access refresh, the most likely cause of failures
@@ -1141,9 +1118,6 @@ preceding documentation.
   providing their own app to disable the patient-mediated
   authorization workflow when used in context with their
   organization.
-
-> _NOTE_:  Cerner currently does not support
-  offline_access support for such applications.
 
 - How can I embed my SMART<sup>®</sup> on FHIR<sup>®</sup>
   application in another application, such as inside of a web
