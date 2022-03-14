@@ -17,7 +17,7 @@ The following fields are returned if valued:
 
 * [InsurancePlan id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.status){:target="_blank"}
-* [Type](https://hl7.org/fhir/r4/insurnaceplan-definitions.html#InsurancePlan.type){:target="_blank"}
+* [Type](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.type){:target="_blank"}
 * [Name](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.name){:target="_blank"}
 * [Period](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.period){:target="_blank"}
 * [OwnedBy](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.ownedBy){:target="_blank"}

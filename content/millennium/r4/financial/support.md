@@ -8,4 +8,3 @@ layout: api
 <%= render '/millennium/r4/financial/support.*' %>
 
 * [Coverage](/millennium/r4/financial/support/coverage)
-* [InsurancePlan](/millennium/r4/financial/support/insurance-plan)
