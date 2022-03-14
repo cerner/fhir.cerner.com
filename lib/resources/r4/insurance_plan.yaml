@@ -7,6 +7,7 @@ fields:
     type: code
     description: The current state of the health insurance product.
     action: terminology
+    url: https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.status
 
   - name: type
     type: CodeableConcept
