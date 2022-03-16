@@ -4,8 +4,6 @@ title: InsurancePlan | R4 API
 
 # InsurancePlan
 
-<%= beta_tag %>
-
 * TOC
   {:toc}
 
@@ -27,8 +25,6 @@ The following fields are returned if valued:
 <%= terminology_table(:insurance_plan, :r4) %>
 
 ## Search
-
-<%= beta_tag(action: true) %>
 
 Search for InsurancePlans that meet supplied query parameters:
 
