@@ -49,7 +49,7 @@ Name                  | Required? | Type          | Description
 
 #### Request
 
-    GET https://fhir-ehr.sandboxcerner.com/r4/dacc6494-e336-45ad-8729-b789ff8663c6/InsurancePlan?owned-by=589783
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=589783
 
 #### Response
 
