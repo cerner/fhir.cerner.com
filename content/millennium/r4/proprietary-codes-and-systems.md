@@ -130,6 +130,12 @@ The ChargeItem Resource supports proprietary codes for:
 
 * The Bill Code Schedule extensions on ChargeItem are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
 
+<h4>InsurancePlan</h4>
+
+The InsurancePlan Resource supports proprietary codes for:
+
+* InsurancePlan.type codes are maintained in [Code Set 27137 Insurance plan Type](#code-set-27137-insurance-plan-type)
+
 ### General Clinical
 
 <!-- use html header to avoid showing up in toc -->
@@ -705,6 +711,17 @@ This code set includes the statuses within the billing workflow such as In Proce
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/24451,
       "code": "653931",
       "display": "In Process",
+      "userSelected": true
+    }
+
+##### Code Set 27137 Insurance Plan Type
+
+This code set defines a set of codes that can be used to indicate a type of insurance plan.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id/codeSet/27137",
+      "code": "4372138",
+      "display": "Medical Service Plan",
       "userSelected": true
     }
 
