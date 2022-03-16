@@ -134,7 +134,7 @@ The ChargeItem Resource supports proprietary codes for:
 
 The InsurancePlan Resource supports proprietary codes for:
 
-* InsurancePlan.type codes are maintained in [Code Set 27137 Insurance plan Type](#code-set-27137-insurance-plan-type)
+* InsurancePlan.type codes are maintained in [Code Set 27137 Health Plan Service Type](#code-set-27137-health-plan-service-type)
 
 ### General Clinical
 
@@ -714,7 +714,7 @@ This code set includes the statuses within the billing workflow such as In Proce
       "userSelected": true
     }
 
-##### Code Set 27137 Insurance Plan Type
+##### Code Set 27137 Health Plan Service Type
 
 This code set defines a set of codes that can be used to indicate a type of insurance plan.
 

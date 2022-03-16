@@ -5,7 +5,7 @@ title: InsurancePlan | R4 API
 # InsurancePlan
 
 * TOC
-  {:toc}
+{:toc}
 
 ## Overview
 
