@@ -37,8 +37,8 @@ Search for InsurancePlans that meet supplied query parameters:
 ### Parameters
 
 Name                  | Required? | Type          | Description
------------------------|-----------|---------------|-------------------------------------------------------
-`owned-by`                 | Yes       | [`reference`]     | Organization associated with the InsurancePlan.
+----------------------|-----------|---------------|-------------------------------------------------------
+`owned-by`            | Yes       | [`reference`] | Organization associated with the InsurancePlan.
 
 
 ### Headers
