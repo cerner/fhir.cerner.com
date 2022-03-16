@@ -10,12 +10,12 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=589783'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=589783'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/2798233',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/2798233',
           'resource': {
             'resourceType': 'InsurancePlan',
             'id': '2798233',
@@ -55,7 +55,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3132244',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3132244',
           'resource': {
             'resourceType': 'InsurancePlan',
             'id': '3132244',
@@ -95,7 +95,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3132243',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3132243',
           'resource': {
             'resourceType': 'InsurancePlan',
             'id': '3132243',
@@ -135,7 +135,7 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3226346',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3226346',
           'resource': {
             'resourceType': 'InsurancePlan',
             'id': '3226346',
