@@ -582,7 +582,7 @@ to the callback URI.
   window will allow the user to proceed with their
   original workflow.
 
-#### Native Client Applications on Mobile Platforms ####
+#### Native Client Applications ####
 
 In recent years, OS platforms have been forced to lock
 down certain behaviors within their browsers that were
@@ -597,6 +597,10 @@ on the user experience of OAuth2-based workflows by
 preventing remnant browser tabs and smoothing the
 transition between browser and app (no OS app switching
 occurs.)
+
+Refresh tokens for native applications are handled in the
+same fashion as for web-based applications; see further
+below for a detailed discussion of this topic.
 
 For more information on best practices for OAuth2-based
 workflows for native applications, please refer to the
