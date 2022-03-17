@@ -2025,21 +2025,21 @@ module Cerner
         {
           "extension": [
             {
-              "id": "ENCNTR:2822522",
-              "valueString": "ICD-9 Code",
+              "id": "ENCNTR:4047481",
+              "valueString": "Conversation",
               "url": "custom-attribute-name"
             },
             {
               "valueCodeableConcept": {
                 "coding": [
                   {
-                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
-                    "code": "12473282",
-                    "display": "Encounter Nomeclature",
-                    "userSelected": false
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100040",
+                    "code": "4630114",
+                    "display": "Register Patient",
+                    "userSelected": true
                   }
                 ],
-                "text": "Squamous odontogenic tumour"
+                "text": "Register Patient"
               },
               "url": "custom-attribute-value"
             }
