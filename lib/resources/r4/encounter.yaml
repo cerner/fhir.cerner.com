@@ -605,8 +605,10 @@ fields:
       <li>id and valueString for custom-attribute-name are required</li>
       <li>custom-attribute-value can be of type string or CodeableConcept</li>
       <li>CodeableConcept can have the following systems:</li>
-      <code>  "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature"</code>
-      <code>  "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/{code_value}"</code>
+      <ul>
+        <li>https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature</li>
+        <li>https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;</li>
+      </ul>
     </ul>
 
 - name: meta.security
