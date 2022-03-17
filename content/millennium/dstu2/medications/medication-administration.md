@@ -89,6 +89,7 @@ Notes:
 
 - Either the `_id`, or a combination of `patient`, `status`, `practitioner`, `notgiven`, `effectivetime`, or `_count` parameters must be provided. Default sort is by administration end date time.
 
+- `status` parameter supports only `completed`, `entered-in-error`, and `stopped`.
 
 ### Headers
 
