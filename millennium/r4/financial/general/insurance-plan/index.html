@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Schedule | R4 API</title>
+  <title>InsurancePlan | R4 API</title>
   
   <link href="../../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -77,7 +77,7 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="schedule">Schedule</h1>
+      <h1 id="insuranceplan">InsurancePlan</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
@@ -91,27 +91,21 @@
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
-  <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
-      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
-      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
-    </ul>
-  </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Schedule resource provides a time period (planning horizon) where time slots are defined for booking an appointment. Consumers can query by schedule id(s). The schedule ids can be obtained by querying for slots, which contain the references to associated schedules. A schedule belongs to only one service or resource (actor) and does not contain any information about actual appointments.</p>
+<p>InsurancePlan describes a health insurance offering comprised of a list of covered benefits, costs associated with those benefits, and additional information about the offering, such as who it is owned and administered by, a coverage area contact information.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Schedule id</a></li>
-  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.active" target="_blank">Active</a></li>
-  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.serviceType" target="_blank">Service Type</a></li>
-  <li><a href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.actor" target="_blank">Actor</a></li>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">InsurancePlan id</a></li>
+  <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.type" target="_blank">Type</a></li>
+  <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.name" target="_blank">Name</a></li>
+  <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.period" target="_blank">Period</a></li>
+  <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.ownedBy" target="_blank">OwnedBy</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -124,16 +118,13 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/r4/schedule-definitions.html#Schedule.serviceType">Schedule.serviceType</a>
+          <a target="_blank" href="http://hl7.org/fhir/R4/insuranceplan-definitions.html#InsurancePlan.type">InsurancePlan.type</a>
       
       </td>
     </tr>
     <tr>
       <td>
         <ul style="list-style-type: none">
-          
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>The specific service that is to be performed during this appointment.</li></ul>
           
           
 
@@ -142,9 +133,9 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-c80-practice-codes.html">Practice Setting Code Value Set</a><br>
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/codesystem-insuranceplan-type.html">Insurance Plan Type</a><br>
                       
-                        System: http://snomed.info/sct <br>
+                        System: http://terminology.hl7.org/CodeSystem/insurance-plan-type <br>
                       
                       </p>
                     
@@ -158,9 +149,9 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-14249-scheduling-appointment-type-synonyms">Millennium Scheduling Appointment Synonyms or Types</a><br>
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-27137-health-plan-service-type">Millennium Health Plan Service Type</a><br>
                       
-                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249 <br>
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/27137 <br>
                       
                       </p>
                     
@@ -181,9 +172,9 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Schedules that meet supplied query parameters:</p>
+<p>Search for InsurancePlans that meet supplied query parameters:</p>
 
-<pre><code>GET /Schedule?:parameters
+<pre><code>GET /InsurancePlan?:parameters
 </code></pre>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -205,11 +196,10 @@
   </thead>
   <tbody>
     <tr>
-      <td><code>_id</code></td>
-      <td>Y</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource. Example: <code>4062786-4062906-19875648-0</code>
-</td>
+      <td><code>owned-by</code></td>
+      <td>Yes</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>Organization associated with the InsurancePlan.</td>
     </tr>
   </tbody>
 </table>
@@ -223,7 +213,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=24477854-21304876-62852027-0
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=589783
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -232,244 +222,174 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "69eeaac3-5def-4ffd-8e51-04150cbb5385",
+  "id": "e445217e-122b-4e89-9ae3-74e0ba1c24fb",
   "type": "searchset",
+  "total": 4,
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=24477854-21304876-62852027-0"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=589783"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/24477854-21304876-62852027-0",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/2798233",
       "resource": {
-        "resourceType": "Schedule",
-        "id": "24477854-21304876-62852027-0",
-        "meta": {
-          "versionId": "34229204v992283",
-          "lastUpdated": "2020-07-06T18:46:08.000Z"
-        },
+        "resourceType": "InsurancePlan",
+        "id": "2798233",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Cerner Test, Physician - Primary Care Cerner&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Aug 14, 2015  2:32 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
-        "active": true,
-        "serviceType": [
+        "status": "active",
+        "type": [
           {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
-                "code": "24477854",
-                "display": "Established Patient",
-                "userSelected": true
-              }
-            ],
-            "text": "Established Patient"
-          }
-        ],
-        "actor": [
-          {
-            "reference": "Practitioner/593923",
-            "display": "Cerner Test, Physician - Primary Care Cerner"
-          }
-        ]
-      }
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h4 id="patient-authorization-request">Patient Authorization Request</h4>
-
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=4062786-4062906-19875648-0
-</code></pre>
-
-<h4 id="response-1">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "69eeaac3-5def-4ffd-8e51-04150cbb5385",
-  "type": "searchset",
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule?_id=4062786-4062906-19875648-0"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4062786-4062906-19875648-0",
-      "resource": {
-        "resourceType": "Schedule",
-        "id": "4062786-4062906-19875648-0",
-        "meta": {
-          "versionId": "3423v4vv168v283",
-          "lastUpdated": "2020-08-11T15:48:54Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: WH Existing Annual&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Jones, Amy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: BW Women&amp;#39;s&lt;/p&gt;&lt;/div&gt;"
-        },
-        "active": true,
-        "serviceType": [
-          {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14249",
-                "code": "4062786",
-                "display": "WH Existing Annual",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/27137",
+                "code": "4372138",
+                "display": "Medical Service Plan",
                 "userSelected": true
               },
               {
-                "system": "http://snomed.info/sct",
-                "code": "394586005",
-                "display": "Gynecology (qualifier value)"
+                "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                "code": "medical",
+                "display": "Medical",
+                "userSelected": false
               }
             ],
-            "text": "WH Existing Annual"
+            "text": "Medical Service Plan"
           }
         ],
-        "actor": [
+        "name": "Medicare Part A",
+        "period": {
+          "start": "2015-08-14T14:32:01.000Z"
+        },
+        "ownedBy": {
+          "reference": "Organization/589783"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3132244",
+      "resource": {
+        "resourceType": "InsurancePlan",
+        "id": "3132244",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part A and B&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr  3, 2018  8:37 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "type": [
           {
-            "reference": "Practitioner/709937",
-            "display": "Jones, Amy"
-          },
-          {
-            "reference": "Location/4062906",
-            "display": "BW Women's Health"
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/27137",
+                "code": "4372138",
+                "display": "Medical Service Plan",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                "code": "medical",
+                "display": "Medical",
+                "userSelected": false
+              }
+            ],
+            "text": "Medical Service Plan"
           }
-        ]
+        ],
+        "name": "Medicare Part A and B",
+        "period": {
+          "start": "2018-04-03T20:37:54.000Z"
+        },
+        "ownedBy": {
+          "reference": "Organization/589783"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3132243",
+      "resource": {
+        "resourceType": "InsurancePlan",
+        "id": "3132243",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part B&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr  3, 2018  8:36 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/27137",
+                "code": "4372138",
+                "display": "Medical Service Plan",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                "code": "medical",
+                "display": "Medical",
+                "userSelected": false
+              }
+            ],
+            "text": "Medical Service Plan"
+          }
+        ],
+        "name": "Medicare Part B",
+        "period": {
+          "start": "2018-04-03T20:36:27.000Z"
+        },
+        "ownedBy": {
+          "reference": "Organization/589783"
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan/3226346",
+      "resource": {
+        "resourceType": "InsurancePlan",
+        "id": "3226346",
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Provider Liable&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 16, 2019  5:42 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "active",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/27137",
+                "code": "4372138",
+                "display": "Medical Service Plan",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                "code": "medical",
+                "display": "Medical",
+                "userSelected": false
+              }
+            ],
+            "text": "Medical Service Plan"
+          }
+        ],
+        "name": "Medicare Provider Liable",
+        "period": {
+          "start": "2019-04-16T17:42:34.000Z"
+        },
+        "ownedBy": {
+          "reference": "Organization/589783"
+        }
       }
     }
   ]
 }</code></pre>
+
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Schedule by its id:</p>
-
-<pre><code>GET /Schedule/:id
-</code></pre>
-
-<h3 id="authorization-types-1">Authorization Types</h3>
-
-<div class="auth-types">
-<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
-</div>
-
-<h3 id="headers-1">Headers</h3>
-
-<pre class="headers"><code><a href="../../#media-types">Accept</a>: application/fhir+json
-<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
-
-<h3 id="example-1">Example</h3>
-
-<h4 id="request-1">Request</h4>
-
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/24477854-21304876-62852027-0
-</code></pre>
-
-<h4 id="response-2">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Schedule",
-  "id": "24477854-21304876-62852027-0",
-  "meta": {
-    "versionId": "34229204v992283",
-    "lastUpdated": "2020-07-06T18:46:08.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Cerner Test, Physician - Primary Care Cerner&lt;/p&gt;&lt;/div&gt;"
-  },
-  "active": true,
-  "serviceType": [
-    {
-      "coding": [
-        {
-          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
-          "code": "24477854",
-          "display": "Established Patient",
-          "userSelected": true
-        }
-      ],
-      "text": "Established Patient"
-    }
-  ],
-  "actor": [
-    {
-      "reference": "Practitioner/593923",
-      "display": "Cerner Test, Physician - Primary Care Cerner"
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
-
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Schedule/4062786-4062906-19875648-0
-</code></pre>
-
-<h4 id="response-3">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Schedule",
-  "id": "4062786-4062906-19875648-0",
-  "meta": {
-    "versionId": "3423v4vv168v283",
-    "lastUpdated": "2020-08-11T15:48:54Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Schedule&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: WH Existing Annual&lt;/p&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;: Jones, Amy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;: BW Women&amp;#39;s&lt;/p&gt;&lt;/div&gt;"
-  },
-  "active": true,
-  "serviceType": [
-    {
-      "coding": [
-        {
-          "system": "https://fhir.cerner.com/2c400054-42d8-4e74-87b7-80b5bd5fde9f/codeSet/14249",
-          "code": "4062786",
-          "display": "WH Existing Annual",
-          "userSelected": true
-        },
-        {
-          "system": "http://snomed.info/sct",
-          "code": "394586005",
-          "display": "Gynecology (qualifier value)"
-        }
-      ],
-      "text": "WH Existing Annual"
-    }
-  ],
-  "actor": [
-    {
-      "reference": "Practitioner/709937",
-      "display": "Jones, Amy"
-    },
-    {
-      "reference": "Location/4062906",
-      "display": "BW Women&amp;#39;s Health"
-    }
-  ]
-}</code></pre>
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
@@ -516,27 +436,27 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Base</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../base/">Base</a>
 </h3>
         <ul class="js-guides">
-          <li class="subtopic"><a href="../../individuals/">Individuals</a></li>
-          <li><a href="../../individuals/patient/">Patient</a></li>
-          <li><a href="../../individuals/practitioner/">Practitioner</a></li>
-          <li><a href="../../individuals/related-person/">RelatedPerson</a></li>
-          <li><a href="../../individuals/person/">Person</a></li>
+          <li class="subtopic"><a href="../../../base/individuals/">Individuals</a></li>
+          <li><a href="../../../base/individuals/patient/">Patient</a></li>
+          <li><a href="../../../base/individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../../../base/individuals/related-person/">RelatedPerson</a></li>
+          <li><a href="../../../base/individuals/person/">Person</a></li>
 
-          <li class="subtopic"><a href="../../entities/">Entities</a></li>
-          <li><a href="../../entities/organization/">Organization</a></li>
-          <li><a href="../../entities/location/">Location</a></li>
-          <li><a href="../../entities/device/">Device</a></li>
+          <li class="subtopic"><a href="../../../base/entities/">Entities</a></li>
+          <li><a href="../../../base/entities/organization/">Organization</a></li>
+          <li><a href="../../../base/entities/location/">Location</a></li>
+          <li><a href="../../../base/entities/device/">Device</a></li>
 
-          <li class="subtopic"><a href="../">Workflow</a></li>
-          <li><a href="../appointment/">Appointment</a></li>
-          <li><a href="./">Schedule</a></li>
-          <li><a href="../slot/">Slot</a></li>
+          <li class="subtopic"><a href="../../../base/workflow/">Workflow</a></li>
+          <li><a href="../../../base/workflow/appointment/">Appointment</a></li>
+          <li><a href="../../../base/workflow/schedule/">Schedule</a></li>
+          <li><a href="../../../base/workflow/slot/">Slot</a></li>
 
-          <li class="subtopic"><a href="../../management/">Management</a></li>
-          <li><a href="../../management/encounter/">Encounter</a></li>
+          <li class="subtopic"><a href="../../../base/management/">Management</a></li>
+          <li><a href="../../../base/management/encounter/">Encounter</a></li>
         </ul>
       </li>
 
@@ -573,17 +493,17 @@
       </li>
       <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../financial/">Financial</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../">Financial</a>
 </h3>
         <ul class="js-guides">
-          <li class="subtopic"><a href="../../../financial/support/">Support</a></li>
-          <li><a href="../../../financial/support/coverage/">Coverage</a></li>
+          <li class="subtopic"><a href="../../support/">Support</a></li>
+          <li><a href="../../support/coverage/">Coverage</a></li>
 
-          <li class="subtopic"><a href="../../../financial/general/">General</a></li>
-          <li><a href="../../../financial/general/account/">Account</a></li>
-          <li><a href="../../../financial/general/charge-item/">ChargeItem</a></li>
-          <li><a href="../../../financial/general/financial-transaction/">FinancialTransaction</a></li>
-          <li><a href="../../../financial/general/insurance-plan/">InsurancePlan</a></li>
+          <li class="subtopic"><a href="../">General</a></li>
+          <li><a href="../account/">Account</a></li>
+          <li><a href="../charge-item/">ChargeItem</a></li>
+          <li><a href="../financial-transaction/">FinancialTransaction</a></li>
+          <li><a href="./">InsurancePlan</a></li>
         </ul>
       </li>
 

@@ -286,6 +286,15 @@
 </li>
 </ul>
 
+<h4>InsurancePlan</h4>
+
+<p>The InsurancePlan Resource supports proprietary codes for:</p>
+
+<ul>
+  <li>InsurancePlan.type codes are maintained in <a href="#code-set-27137-health-plan-service-type">Code Set 27137 Health Plan Service Type</a>
+</li>
+</ul>
+
 <h3 id="general-clinical">General Clinical</h3>
 
 <!-- use html header to avoid showing up in toc -->
@@ -954,6 +963,18 @@
 }
 </code></pre>
 
+<h5 id="code-set-27137-health-plan-service-type">Code Set 27137 Health Plan Service Type</h5>
+
+<p>This code set defines a set of codes that can be used to indicate a type of insurance plan.</p>
+
+<pre><code>{
+  "system": "https://fhir.cerner.com/&lt;EHR source id/codeSet/27137",
+  "code": "4372138",
+  "display": "Medical Service Plan",
+  "userSelected": true
+}
+</code></pre>
+
 <h5 id="code-set-28200-pft-bill-alias-type">Code Set 28200 PFT Bill Alias Type</h5>
 
 <p>This code set includes bill alias types such as billalias, invalias, and stmtalias.</p>
@@ -1274,6 +1295,7 @@
           <li><a href="../financial/general/account/">Account</a></li>
           <li><a href="../financial/general/charge-item/">ChargeItem</a></li>
           <li><a href="../financial/general/financial-transaction/">FinancialTransaction</a></li>
+          <li><a href="../financial/general/insurance-plan/">InsurancePlan</a></li>
         </ul>
       </li>
 

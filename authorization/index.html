@@ -176,7 +176,7 @@ your client application must first register using our <a href="https://code.cern
 <p>If you are a Cerner client developing an application, please see this <a href="https://connect.cerner.com/docs/DOC-682161" title="Maing Self-Developed SMART Apps Available in Your Domain">document</a> about how to make your
 self-developed app available in your domain.</p>
 
-<p>If registering a confidential client application (required for offline_access and
+<p>If registering a confidential client application (and/or
 access on behalf of a system), follow the directions in the <a href="#registering-a-system-account" title="Registering a System Account">Registering a System Account</a>
 section. Check the respective FHIR<sup>®</sup> implementation documentation to determine availability.</p>
 
@@ -187,7 +187,7 @@ which is necessary in order to gain access to their protected resources.</p>
 
 <h3 id="registering-a-system-account">Registering a System Account</h3>
 
-<p>If an application will be using the offline_access scope, or accessing data on behalf of a system, it will need to
+<p>If an application will be a confidential client, or accessing data on behalf of a system, it will need to
 maintain a secret. Currently, our implementation provides management and rotation functionality for this workflow in our
 System Accounts application. In order to register one of these applications, you must first request a system account,
 and then register that as a SMART or FHIR application in our code Console.</p>
@@ -724,7 +724,7 @@ window will allow the user to proceed with their
 original workflow.</li>
 </ul>
 
-<h4 id="native-client-applications-on-mobile-platforms">Native Client Applications on Mobile Platforms</h4>
+<h4 id="native-client-applications">Native Client Applications</h4>
 
 <p>In recent years, OS platforms have been forced to lock
 down certain behaviors within their browsers that were
@@ -739,6 +739,10 @@ on the user experience of OAuth2-based workflows by
 preventing remnant browser tabs and smoothing the
 transition between browser and app (no OS app switching
 occurs.)</p>
+
+<p>Refresh tokens for native applications are handled in the
+same fashion as for web-based applications; see further
+below for a detailed discussion of this topic.</p>
 
 <p>For more information on best practices for OAuth2-based
 workflows for native applications, please refer to the
@@ -997,28 +1001,6 @@ grant response must be retained.</p>
 
 <h4 id="considerations-for-handling-offlineaccess">Considerations for Handling ‘offline_access’</h4>
 
-<p>To utilize refresh tokens issued with the offline_access scope,
-Cerner requires your application is present credentials as
-part of the access token request utilizing the <a href="https://tools.ietf.org/html/rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">BASIC
-authentication scheme</a>.  The rationale is such
-that if your solution compromises a large number of
-refresh tokens that such refresh tokens need not be revoked;
-only our client credentials need to be rotated to prevent
-misues of such compromised token values.  Client credentials for
-applications using Cerner’s authorization server as issued
-via <a href="https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help" title="Cerner System Account Management Help">Cerner Central System Account Management</a>.
-See the <a href="#registering-a-system-account" title="Registering a System Account">Registering a System Account</a> section
-for more information on how to register these applications.</p>
-
-<p>It is currently not recommended to store offline_access tokens
-in persistent storage at a user’s device.  Cerner’s authorization
-management workflows do not currently identify individual devices,
-or provide revocation tools that would allow a user to revoke access
-to individual devices.  If your application will allow the user
-to obtain data at their client device, you must supply your
-own mechanism for authenticating and revoking such devices to
-the user and/or administrators.</p>
-
 <p>Cerner’s authorization server can be used as an authentication
 mechanism via the use of the “openid” scope.  In this scenario,
 an offline access refresh token could be stored in your
@@ -1032,8 +1014,7 @@ for the user.</p>
 
 <p><em>NOTE</em>:  Cerner’s authorization server currently does not
 support the stand-alone “openid” workflow for patients and/or
-their authorized representatives, nor does it support
-“offline_access” for providers at this time.</p>
+their authorized representatives.</p>
 
 <p>When retrieving an access token utilizing using an
 online_access refresh, the most likely cause of failures
@@ -1336,11 +1317,6 @@ authorization interaction with users for our app?</li>
   providing their own app to disable the patient-mediated
   authorization workflow when used in context with their
   organization.</p>
-</blockquote>
-
-<blockquote>
-  <p><em>NOTE</em>:  Cerner currently does not support
-  offline_access support for such applications.</p>
 </blockquote>
 
 <ul>
