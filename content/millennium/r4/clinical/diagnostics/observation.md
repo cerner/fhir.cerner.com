@@ -342,6 +342,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
 [R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
-[convertedMeasurement]: http://hl7.org/fhir/StructureDefinition/iso21090-PQ-translation
-[performerFunction]: http://hl7.org/fhir/R4/extension-event-performerfunction.html
+[convertedMeasurement]: https://hl7.org/fhir/StructureDefinition/iso21090-PQ-translation
+[performerFunction]: https://hl7.org/fhir/R4/extension-event-performerfunction.html
 [Configure Blood Pressure Event Set Pairing Hierarchy]: https://wiki.cerner.com/display/public/reference/Configure+Blood+Pressure+Event+Set+Hierarchy+Pairing
