@@ -16,6 +16,7 @@ Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Inte
 The search results include the following fields if they contain values:
 
 * [Device id](https://hl7.org/fhir/r4/device-definitions.html#Device.id){:target="_blank"}
+* [Identifier](https://hl7.org/fhir/r4/device-definitions.html#identifiers){:target="_blank"}
 * [UDI carrier](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier){:target="_blank"}
   * [Device identifier](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.deviceIdentifier){:target="_blank"}
   * [Carrier HRF](https://hl7.org/fhir/r4/device-definitions.html#Device.udiCarrier.carrierHRF){:target="_blank"}
