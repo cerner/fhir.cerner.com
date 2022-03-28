@@ -15,7 +15,7 @@ Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Inte
 
 The search results include the following fields if they contain values:
 
-* [Id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Diagnostic Report Id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.status){:target="_blank"}
 * [Category](https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.category){:target="_blank"}
 * [Code](https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.code){:target="_blank"}
