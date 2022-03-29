@@ -15,6 +15,28 @@ fields:
     - display: Observation Category Codes
       system: https://terminology.hl7.org/CodeSystem/observation-category
       info_link: https://hl7.org/fhir/R4/valueset-observation-category.html
+      
+- name: code
+  required: 'Yes'
+  type: List of CodeableConcept
+  description: A code that classifies the general type of observation being made.
+  action:
+    - terminology
+    - create
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
+  description: A code that classifies the general type of observation being made.
+  binding:
+    description: Codes identifying names of simple observations.
+    terminology:
+    - display: LOINC
+      system: https://loinc.org
+      info_link: https://hl7.org/fhir/R4/loinc.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/R4/snomedct.html
+    - display: CPT
+      system: https://www.ama-assn.org/go/cpt
+      info_link: https://hl7.org/fhir/R4/cpt.html
 
 - name: code
   required: 'Yes'
@@ -42,9 +64,6 @@ fields:
     - display: SNOMED CT
       system: http://snomed.info/sct
       info_link: https://hl7.org/fhir/R4/snomedct.html
-    - display: CPT
-      system: https://www.ama-assn.org/go/cpt
-      info_link: https://hl7.org/fhir/R4/cpt.html
 
 - name: dataAbsentReason
 - name: component.dataAbsentReason

@@ -14,7 +14,7 @@ The Observation resource provides measurements or simple assertions about a pati
 Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
 The search results include the following fields if they contain values:
 
-* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Observation Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](https://hl7.org/fhir/R4/observation-definitions.html#Observation.status){:target="_blank"}
 * [Category](https://hl7.org/fhir/R4/observation-definitions.html#Observation.category){:target="_blank"}
 * [Code](https://hl7.org/fhir/R4/observation-definitions.html#Observation.code){:target="_blank"}
