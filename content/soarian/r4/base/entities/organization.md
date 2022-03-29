@@ -15,13 +15,17 @@ Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Inte
 
 The search results include the following fields if they contain values:
 
-* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Organization Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Identifier](https://hl7.org/fhir/r4/organization-definitions.html#Organization.identifier){:target="_blank"}
 * [Active](https://hl7.org/fhir/r4/organization-definitions.html#Organization.active){:target="_blank"}
 * [Type](https://hl7.org/fhir/r4/organization-definitions.html#Organization.type){:target="_blank"}
 * [Name](https://hl7.org/fhir/r4/organization-definitions.html#Organization.name){:target="_blank"}
 * [Contact Information](https://hl7.org/fhir/r4/organization-definitions.html#Organization.telecom){:target="_blank"}
 * [Address](https://hl7.org/fhir/r4/organization-definitions.html#Organization.address){:target="_blank"}
+
+## Terminology Bindings
+
+<%= terminology_table(:soarian_organization, :r4) %>
 
 
 ## Search
@@ -39,9 +43,9 @@ Search for Organization resources that meet the specified query parameters:
 
  Name          | Required?                                    | Type            | Description
 ---------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------
- `_id`         | This name, or `address`                      | [`token`]       | The logical resource ID associated with the resource.
- `name`        | This name, or `address`				      | [`string`]      | The start of the name of the organization. 
- `address`     | This name, or `address`				      | [`string`]      | The start of either the address line, city, state, postal code, or country of the organization. 
+ `_id`         | This, name, or `address`                     | [`token`]       | The logical resource ID associated with the resource.
+ `name`        | This, _id, or `address`				      | [`string`]      | The start of the name of the organization. 
+ `address`     | This, id, or, name				              | [`string`]      | The start of either the address line, city, state, postal code, or country of the organization. 
 
 
 ### Headers
