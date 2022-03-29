@@ -24,6 +24,7 @@ The search results include the following fields if they contain values:
 * [Category (medication, food, environment)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category)
 * [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code)
 * [Patient](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient)
+* [Allergy Onset](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset_x_)
 * [Adverse reaction](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction)
     * [Manifestation](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation)
     * [Severity](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity)
