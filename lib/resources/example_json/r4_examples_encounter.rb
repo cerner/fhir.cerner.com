@@ -2045,6 +2045,34 @@ module Cerner
             }
           ],
           "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          'extension': [
+            {
+              'id': 'ENCNTR:970558313',
+              'valueString': 'Gestational AGE',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueInteger': 255,
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          'extension': [
+            {
+              'id': 'ENCNTR:3339152',
+              'valueString': 'Self-Pay Follow Up Date',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueDateTime': '2020-07-03T12:00:00.000Z',
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
         }
       ]
     }.freeze
