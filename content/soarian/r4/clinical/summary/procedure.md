@@ -40,6 +40,10 @@ Search for Procedure resources that meet specified query parameters:
 
 <%= authorization_types(provider: true, patient: true, system: true)%>
 
+_Implementation Notes_
+
+* Soarian Clinicals® reports the procedure code that may have been received from an interfaced financial system. If the financial system supplied a procedure code without identifying its coding system, the coding system will not appear in the procedure FHIR® resource, and should not be assumed to be SNOMED CT®.
+
 ### Parameters
 
  Name              | Required?          | Type            | Description
@@ -94,6 +98,11 @@ List an individual Procedure resource by its ID:
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true)%>
+
+_Implementation Notes_
+
+* Soarian Clinicals® reports the procedure code that may have been received from an interfaced financial system. If the financial system supplied a procedure code without identifying its coding system, the coding system will not appear in the procedure FHIR® resource, and should not be assumed to be SNOMED CT®.
+
 
 ### Headers
 

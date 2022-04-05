@@ -9,21 +9,6 @@ fields:
   action: create
   url: https://hl7.org/fhir/r4/json.html#resources
 
-- name: status
-  required: 'Yes'
-  type: code
-  description: Codes identifying the lifecycle stage of an event.
-  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.status
-  action:
-    - terminology
-    - create
-  binding:
-    description: Codes identifying the lifecycle stage of an event.
-    terminology:
-      - display: EventStatus
-        system: http://hl7.org/fhir/event-status
-        info_link: https://hl7.org/fhir/r4/valueset-event-status.html
-
 - name: code
   required: 'Yes'
   type: CodeableConcept
@@ -37,10 +22,7 @@ fields:
     terminology:
       - display: Procedure Codes (SNOMED CT)
         system: http://snomed.info/sct
-        info_link: https://hl7.org/fhir/R4/valueset-procedure-code.html
-      - display: CPT
-        system: https://www.ama-assn.org/go/cpt
-        info_link: https://hl7.org/fhir/R4/cpt.html     
+        info_link: https://hl7.org/fhir/R4/valueset-procedure-code.html   
 
 - name: focalDevice
   required: 'No'
