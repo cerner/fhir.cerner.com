@@ -627,9 +627,9 @@ fields:
 
   note: >
     <ul>
-      <li>custom-attribute-name and custom-attribute-value are both required</li>
-      <li>id and valueString for custom-attribute-name are required</li>
-      <li>custom-attribute-value can be of type String, Integer, DateTime, or CodeableConcept</li>
+      <li>custom-attribute-name and custom-attribute-value are both required.</li>
+      <li>id and valueString for custom-attribute-name are required.</li>
+      <li>custom-attribute-value can be of type String, Integer, DateTime, or CodeableConcept.</li>
       <li>CodeableConcept can have the following systems:</li>
       <ul>
         <li>https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature</li>
