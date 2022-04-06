@@ -2021,6 +2021,30 @@ module Cerner
             }
           ],
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          "extension": [
+            {
+              "id": 'ENCNTR:4047481',
+              "valueString": 'Conversation',
+              "url": 'custom-attribute-name'
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100040',
+                    "code": '4630114',
+                    "display": 'Register Patient',
+                    "userSelected": true
+                  }
+                ],
+                "text": 'Register Patient'
+              },
+              "url": 'custom-attribute-value'
+            }
+          ],
+          "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
         }
       ]
     }.freeze
