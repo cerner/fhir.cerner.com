@@ -4898,6 +4898,56 @@ Encounter resource.</li>
     }
   ],
   "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+},
+{
+  "extension": [
+    {
+      "id": "ENCNTR:4047481",
+      "valueString": "Conversation",
+      "url": "custom-attribute-name"
+    },
+    {
+      "valueCodeableConcept": {
+          "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100040",
+                "code": "4630114",
+                "display": "Register Patient",
+                "userSelected": true
+              }
+          ],
+          "text": "Register Patient"
+      },
+  ],
+    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+},
+{
+  "extension": [
+    {
+      "id": "ENCNTR:970558313",
+      "valueString": "Gestational AGE",
+      "url": "custom-attribute-name"
+    },
+    {
+      "valueInteger": 256,
+      "url": "custom-attribute-value"
+    }
+  ],
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+},
+{
+  "extension": [
+    {
+      "id": "ENCNTR:3339152",
+      "valueString": "Self-Pay Follow Up Date",
+      "url": "custom-attribute-name"
+    },
+    {
+      "valueDateTime": "2020-07-03T12:00:00.000Z",
+      "url": "custom-attribute-value"
+    }
+  ],
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
 }
 </pre></li></ul>
       
@@ -4908,9 +4958,14 @@ Encounter resource.</li>
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li>custom-attribute-name and custom-attribute-value are both required</li>
-  <li>id and valueString for custom-attribute-name are required</li>
-  <li>custom-attribute-value can only be of type string</li>
+  <li>custom-attribute-name and custom-attribute-value are both required.</li>
+  <li>id and valueString for custom-attribute-name are required.</li>
+  <li>custom-attribute-value can be of type string, integer, dateTime, or CodeableConcept.</li>
+  <li>CodeableConcept can have the following systems:</li>
+  <ul>
+    <li>https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature</li>
+    <li>https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;</li>
+  </ul>
 </ul>
 </li></ul>
       
@@ -5062,6 +5117,58 @@ Encounter resource.</li>
         },
         {
           "valueString": "test string",
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    },
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:4047481",
+          "valueString": "Conversation",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100040",
+                "code": "4630114",
+                "display": "Register Patient",
+                "userSelected": true
+              }
+            ],
+            "text": "Register Patient"
+          },
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    },
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:970558313",
+          "valueString": "Gestational AGE",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueInteger": 255,
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    },
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:3339152",
+          "valueString": "Self-Pay Follow Up Date",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueDateTime": "2020-07-03T12:00:00.000Z",
           "url": "custom-attribute-value"
         }
       ],

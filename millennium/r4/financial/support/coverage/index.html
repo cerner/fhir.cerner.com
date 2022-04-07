@@ -1622,7 +1622,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 <ul>
   <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a> spec.</li>
   <li>Only operations on the paths listed below are supported.</li>
-  <li>For Private Coverages, only Encounter-level Coverages may be patched.</li>
+  <li>For Private Coverages, both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the <code>/period</code> and <code>/dependent</code> operations on Patient-level Coverages.</li>
   <li>For Public Coverages, both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the <code>/period</code> and <code>/class/0/value</code> operations.</li>
 </ul>
 
