@@ -174,11 +174,11 @@ List an individual Observation by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 _Implementation Notes_
 
-* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented.
+* Patient authorization read requests are working similarly to patient authorization search requests.
 
 ### Example
 
