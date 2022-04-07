@@ -58,6 +58,7 @@ Search for Locations that meet supplied query parameters:
 ----------------------|-------------------------|--------------|-------------------------------------------------------
  `_id`                | This or `-physicalType` | [`token`]    | The logical resource id associated with the resource.
  `-physicalType`      | This or `_id`           | [`token`]    | The location’s physical type. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
+ `identifier`         | no                      | [`token`]    | The location’s identifier. Example: `653385|FSI^~BUILD^~NU` 
  [`_count`]           | no                      | [`number`]   | The maximum number of results to return. Defaults to `100`.
  `address`            | no                      | [`string`]   | A (part of the) address of the location.
  `address-city`       | no                      | [`string`]   | A city specified in an address
@@ -83,6 +84,19 @@ Search for Locations that meet supplied query parameters:
 #### Request
 
     GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?_id=21250409
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_location_bundle) %>
+
+<%= disclaimer %>
+
+### Example with identifier
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?identifier=653385|FSI^~BUILD^~NU
 
 #### Response
 
