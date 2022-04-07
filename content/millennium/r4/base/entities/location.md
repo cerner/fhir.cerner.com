@@ -17,6 +17,7 @@ The following fields are returned if valued:
 * [Status](http://hl7.org/fhir/R4/location-definitions.html#Location.status){:target="_blank"}
 * [Name](http://hl7.org/fhir/R4/location-definitions.html#Location.name){:target="_blank"}
 * [Alias](http://hl7.org/fhir/R4/location-definitions.html#Location.alias){:target="_blank"}
+* [Identifier](http://hl7.org/fhir/R4/location-definitions.html#Location.identifier){:target="_blank"}
 * [Mode](http://hl7.org/fhir/R4/location-definitions.html#Location.mode){:target="_blank"}
 * [Telecom](http://hl7.org/fhir/R4/location-definitions.html#Location.telecom){:target="_blank"}
 * [Address](http://hl7.org/fhir/R4/location-definitions.html#Location.address){:target="_blank"}
