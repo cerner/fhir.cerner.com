@@ -71,8 +71,6 @@ To follow the security best practices the DNS TXT record of your application mus
     ...
     "cerner-client-id={value N}"
 
-[EPAM Millennium and Consumer&Employer Engagement > Application Registration Prerequisites / Developer Guide (In Review) > image2022-2-7_20-18-54.png]
-
 You can use the following commands and tools to check the DNS TXT records:
 
     Using the Windows CLI:
@@ -117,7 +115,7 @@ What you should pay attention to:
 Example
 
 Using online resource https://www.ssllabs.com TLS certificate result may be as on example below:
-![Example Image](https://myoctocat.com/assets/images/base-octocat.svg)
+![Example Image](content/authorization/cert_example.png)
 </p>
 </details>
 
