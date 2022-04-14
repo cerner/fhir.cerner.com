@@ -233,3 +233,20 @@ operations:
         <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
         <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
       </ul>
+  - name: replace-participant-status
+    path: /patient-status
+    operation: replace
+    type: code
+    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status
+    description: The participant status on Patient participant types
+    example: |
+      {
+        "op": "replace",
+        "path": "/patient-status",
+        "value":  "accepted"
+      }
+    note: >
+      <ul>
+        <li>This patch operation may be used only for appointments with a "booked" status</li>
+        <li>This patch operation may be used only for Patient participants with a "tentative" status</li>
+      </ul>
