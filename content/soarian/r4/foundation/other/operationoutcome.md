@@ -9,18 +9,17 @@ title: OperationOutcome | R4 API
 
 ## Overview
 
-The Soarian Clinicals<sup>®</sup> Application Programming Interface (API) may return an OperationOutcome to provide additional context to an error that is more granular than that provided by the HTTP response codes.
+The Soarian Clinicals<sup>®</sup> Application Programming Interface (API) may return an OperationOutcome to provide more granular context for an error than what the HTTP response codes provide.
 
 ## Terminology Bindings
 
 [%s] is included in every statement. Replace it with the relevant text value.
 
-For example, if the user is searching for results in the Patient resource, then in the statement __More than 499 search results qualify for [%s] resource. Please narrow the search.__, you must replace the [%s] with `patient`. The result then is displayed as __More than 499 search results qualify for patient resource. Please narrow the search.__
-
+For example, if the user is searching for results in the Patient resource, then in the statement More than 499 search results qualify for [%s] resource. Please narrow the search., replace the [%s] with `patient`.
 
 ## Scenarios
 
-__Note:__ If the severity = error, then the accompanying http status code is 4xx. If the severity = fatal, then the accompanying http status code is 5xx. If the severity = information, the accompanying http status code is 200. Although the majority of error messages have the http status: 400 (bad request), there are a few explicitly defined cases where the scenario falls under http status: 404.
+Note: If the severity is Error, then the accompanying HTTP status code is 4xx. If the severity is Fatal, then the accompanying HTTP status code is 5xx. If the severity is Information, the accompanying HTTP status code is 200. Although the majority of error messages have the 400 HTTP status for bad requests, a few explicitly defined cases can fall under the 404 HTTP status.
 
 The following tables describe OperationOutcomes for its corresponding scenarios.
 
@@ -56,13 +55,13 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | required
 OperationOutcome.issue.__details__	      | [%s] is required and is missing.
 
-When no parameters are provided in the request [for a non-patient centered resource]:
+When no parameters are on the request [for a non-patient-centered resource]:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
 OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | required
-OperationOutcome.issue.__details__	      | No search parameter was received. At least one parameter has to be passed to perform the search. See the CapabilityStatement for the list of supported parameters.
+OperationOutcome.issue.__details__	      | No search parameter was received. At least one parameter must be passed to perform the search. See the CapabilityStatement for the list of supported parameters.
 
 When a code value or coding system is not supported for a parameter:
 
@@ -72,7 +71,7 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | not-supported
 OperationOutcome.issue.__details__	      | [code value \| code system] not supported for [%s].
 
-When a parameter that may only be included n times on the request appears n+ times on the request:
+When a parameter that can be included only n times on the request is on the request more than n times:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
@@ -88,13 +87,13 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | multiple-matches
 OperationOutcome.issue.__details__	      | Multiple results found for the given ID: [%s].
 
-When a record is not found because the patient associated with the record does not match the patient identified in the _id parameter as a result of a Merge Record action:
+When a record is not found because the patient associated with the record does not match the patient identified in the _id parameter because of a Merge Record action:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
 OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | not-found
-OperationOutcome.issue.__details__	      | No records are associated with the ID : [%s] due to a patient merge action. Target patient ID: [%s].
+OperationOutcome.issue.__details__	      | No records are associated with the ID : [%s] because of a patient merge action. Target patient ID: [%s].
 
 When too many search results qualify for a given search criteria:
 
@@ -162,7 +161,7 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | security
 OperationOutcome.issue.__details__	      | Incorrect persona.
 
-When a resource is requested to which the user does not have access:
+When a user requests a resource that they cannot access:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
@@ -170,7 +169,7 @@ OperationOutcome.issue.__severity__	      | error
 OperationOutcome.issue.__code__	          | security
 OperationOutcome.issue.__details__	      | Expected scope does not match the URL.
 
-When a catastrophic failure occurs (i.e. database corrupted) or when required configuration is missing or invalid:
+When a catastrophic failure occurs (for example, the database is corrupt) or when a required configuration setting is missing or invalid:
 
 Element                                   | Value                                    
 ------------------------------------------|------------------------------------------------------------------------------------------------------
