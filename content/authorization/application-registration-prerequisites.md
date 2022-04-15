@@ -15,23 +15,23 @@ These best practices should be considered as strongly-recommended prerequisites 
 
 ### Glossary of Terms
 
-* eTLD - Effective Top Level Domain is the base domain. eTLD values are defined in the [Public Suffix List](https://publicsuffix.org/list/public_suffix_list.dat).  Examples include: .com, .edu, .org, and .co.uk.
-* eTLD+1 - "Effective top level domain plus 1" describes a domain name that is one level deeper than the effective top level domain (eTLD). Examples include examplehealth.com, cerner.com and cerner.co.uk.
-* OV - Organization Validated - a certificate issuance process that involves the certificate authority validating the organization (business entity) requesting the certificate.
-* EV - Extended Validation - a certificate issuance process that involves the certificate authority performing extended validation of the organization (business entity) requesting the certificate.
-* DV - Domain Validated - a certificate issuance process that involves the certificate authority validating the requester owns the domain. No validation of the business entity is performed.
-* TLS - Transport Layer Security
-* DNS TXT record - a "text" record in the Domain Name System (DNS).  TXT records usually take form of name=value.
+* **eTLD** - Effective Top Level Domain is the base domain. eTLD values are defined in the [Public Suffix List](https://publicsuffix.org/list/public_suffix_list.dat).  Examples include: .com, .edu, .org, and .co.uk.
+* **eTLD+1** - "Effective top level domain plus 1" describes a domain name that is one level deeper than the effective top level domain (eTLD). Examples include examplehealth.com, cerner.com and cerner.co.uk.
+* **OV** - Organization Validated - a certificate issuance process that involves the certificate authority validating the organization (business entity) requesting the certificate.
+* **EV** - Extended Validation - a certificate issuance process that involves the certificate authority performing extended validation of the organization (business entity) requesting the certificate.
+* **DV** - Domain Validated - a certificate issuance process that involves the certificate authority validating the requester owns the domain. No validation of the business entity is performed.
+* **TLS** - Transport Layer Security
+* **DNS TXT record** - a "text" record in the Domain Name System (DNS).  TXT records usually take form of name=value.
 
 ### Technical Requirements
 
-The following technical requirements are stated using RFC-2119 terminology. These requirements focus on the security best practices that Cerner expects application developers to adhere to in order for Cerner to provide the best description of your application to end users:
+The following technical requirements are stated using [RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119) terminology. These requirements focus on the security best practices that Cerner expects application developers to adhere to in order for Cerner to provide the best description of your application to end users:
 
 * Web applications MUST support the HTTPS 1.1 protocol.
-* Application SHOULD support TLS.  (Please refer to the Cerner CODE Program's TLS guidance document for further detailed practices related to TLS.)
+* Application SHOULD support TLS.  (Please refer to the [Cerner CODE Program's TLS guidance document](http://fhir.cerner.com/authorization/tls-guidance/) for further detailed practices related to TLS.)
 * Application SHOULD use (only) port 443 for TLS.
 * Application SHOULD support and prefer TLS 1.2 or higher.
-* Application SHOULD have a valid, non-expired TLS certificate issued from a trusted authority.
+* Application SHOULD have a valid, non-expired TLS certificate issued from a [trusted authority](http://fhir.cerner.com/authorization/tls-guidance/).
 * Application SHOULD use an OV or EV certificate, if possible, instead of a DV certificate.
 * Application's web site SHOULD host a DNS TXT record containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification](https://datatracker.ietf.org/doc/html/rfc6749#page-15) ).
 * Application's name SHOULD ideally align with the name of the website hosting it and/or the legal entity operating it.
@@ -53,11 +53,11 @@ NOTE:  Please consider the [Cerner CODE Validation Program](https://code.cerner.
 
 The eTLD+1 is the effective TLD and the part of the domain just before it. For example, given a URL of https://my-project.github.io , the eTLD is .github.io and the eTLD+1 is my-project.github.io, which is considered a "site". This domain will be shown to end-users.
 
-To determine eTLD+1 please check public domains that are defined in the Public Suffix List.
+To determine eTLD+1 please check public domains that are defined in the [Public Suffix List](https://publicsuffix.org/list/public_suffix_list.dat).
 </p>
 </details>
 <details><summary>Querying DNS for your TXT record</summary>
-
+<p>
 TXT records are a type of Domain Name System (DNS) record that contains text information for sources outside of your domain. You add these records to your domain settings for further domain ownership verification by Cerner.
 
 To follow the security best practices the DNS TXT record of your application must match the following key-value format:
@@ -78,44 +78,44 @@ You can use the following commands and tools to check the DNS TXT records:
     Using the Mac/Linux terminal:
         “dig” → e.g.: dig examplehealth.com TXT
     Using the following online resources:
-        https://mxtoolbox.com/txtlookup.aspx
-        https://gf.dev/dns-lookup
+       https://mxtoolbox.com/txtlookup.aspx
+       https://gf.dev/dns-lookup
 </p>
 </details>
 <details><summary>Inspect your TLS Certificate</summary>
 
 TLS certificates are used to protect both the end users' information while it's in transfer, and to authenticate the website's organization identity to ensure users are interacting with legitimate website owners.
 
-To follow the security best practices you should utilize TLS implementations that support current IETF best practices for TLS (please refer to this documentation for more details). Cerner RECOMMENDS you utilize public testing tools, such as Qualsys SSL Labs, to verify proper functioning of your https implementation.
+To follow the security best practices you should utilize TLS implementations that support current IETF best practices for TLS (please refer to [this documentation](http://fhir.cerner.com/authorization/tls-guidance/) for more details). Cerner RECOMMENDS you utilize public testing tools, such as [Qualsys SSL Labs](http://ssllabs.com/), to verify proper functioning of your https implementation.
 
 Please follow one of below approaches to check TLS Certificates for your application:
 
-    Using OpenSSL Mac/Linux:
+   1. Using OpenSSL Mac/Linux:
         https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html
 
-    Using the following online resources:
-        https://www.ssllabs.com/ssltest/index.html
-        https://ssltools.digicert.com/checker/
-        https://www.thesslstore.com/ssltools/ssl-checker.php
+   1. Using the following online resources:
+       * https://www.ssllabs.com/ssltest/index.html
+       * https://ssltools.digicert.com/checker/
+       * https://www.thesslstore.com/ssltools/ssl-checker.php
 
 What you should pay attention to:
 
-    Supported TLS Certificates types:
-        Domain Validated (DV),
-        Organization Validated (OV),
-        Extended Validation (EV).
-    Supported TLS protocols:
-        TLS 1.2
-        TLS 1.3
-    The Certificate Revoked/not Revoked status
-    The Certificate “Valid from” date
-    The Certificate expiration date
-    The Certificate issued by one of the public Certificate Authorities.
+   1. Supported TLS Certificates types:
+       * Domain Validated (DV),
+       * Organization Validated (OV),
+       * Extended Validation (EV).
+   1. Supported TLS protocols:
+       * TLS 1.2
+       * TLS 1.3
+   1. The Certificate Revoked/not Revoked status
+   1. The Certificate “Valid from” date
+   1. The Certificate expiration date
+   1. The Certificate issued by one of the public [Certificate Authorities](https://wiki.mozilla.org/CA/Included_Certificates).
 
 Example
 
 Using online resource https://www.ssllabs.com TLS certificate result may be as on example below:
-![Example Image](content/authorization/cert_example.png)
+![Example Image](cert_example.png)
 </p>
 </details>
 
@@ -137,8 +137,8 @@ The following table explains labeling Cerner applies to applications in certain 
 
 | Label  | Conditions |
 | ------------- | ------------- |
-| "Validated"  | The "Validated" label is displayed when an application has been formally Validated through the Cerner CODE program.  |
-| "Not Validated"  | The "Not Validated" label is displayed when an application has not been formally Validated through the Cerner CODE program.   |
+| "Validated"  | The "Validated" label is displayed when an application has been formally Validated through the [Cerner CODE program](https://code.cerner.com/).  |
+| "Not Validated"  | The "Not Validated" label is displayed when an application has not been formally Validated through the [Cerner CODE program](https://code.cerner.com/).   |
 | "Unknown App"  | This is a catch-all fall back mechanism that Cerner uses when an application doesn't employ enough of the security best practices listed in the Technical Requirements section above for Cerner to describe the application.  |
 	
 
@@ -162,7 +162,7 @@ No. Cerner does not support the use of self-signed certificates.
 
 **What Certificate Authorities (CAs) does Cerner trust?**
 
-Refer to this documentation for a summary of the CAs that Cerner trusts.
+Refer to [this documentation](http://fhir.cerner.com/authorization/tls-guidance/) for a summary of the CAs that Cerner trusts.
 
 **How/when does Cerner use eTLD+1 values?**
 
@@ -174,7 +174,7 @@ This is done to help avoid confusing users (patients). Google has a [good write-
 
 **How do I get a Cerner client identifier for my application?**
 
-Cerner assigns your application a unique client identifier for your application as part of the registration process at the Cerner CODE Console (https://code-console.cerner.com/).  This Cerner client identifier is also referred to as a System Account ID in some Cerner Central tooling (https://cernercentral.com/system-accounts/).
+Cerner assigns your application a unique client identifier for your application as part of the registration process at the [Cerner CODE Console](https://code-console.cerner.com/).  This Cerner client identifier is also referred to as a System Account ID in some Cerner Central tooling https://cernercentral.com/system-accounts/.
 
 **Why is a DNS TXT record recommended?**
 
