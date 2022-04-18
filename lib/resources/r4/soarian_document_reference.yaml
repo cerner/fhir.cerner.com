@@ -46,5 +46,5 @@ fields:
     description: An identifier of the document encoding, structure, and template that the document conforms to beyond the base format indicated in the mimeType.
     terminology:
     - display: FormatCodes
-      system: https://ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem
-      info_link: https://hl7.org/fhir/R4/valueset-formatcodes.html
+      system: https://profiles.ihe.net/fhir/ihe.formatcode.fhir/ValueSet-formatcode.html
+      info_link: https://profiles.ihe.net/fhir/ihe.formatcode.fhir/ValueSet-formatcode.html
