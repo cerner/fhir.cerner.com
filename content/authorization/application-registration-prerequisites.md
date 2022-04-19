@@ -196,7 +196,7 @@ As mentioned in the overview, the goal of the practices outlined in this documen
 
 It may take up to 12 hours before the Cerner workflow will recognize TLS certificate/or DNS TXT record changes.
 
-**What should I do if the organization information being displayed for my application seems incorrect?
+**What should I do if the organization information being displayed for my application seems incorrect?**
 
 Use the steps outlined above to check the certificate being returned from the URL of your application's redirect URI.  It's possible that your organization may be employing a content delivery network (CDN) that's serving up its own certificate for your website.  If you determine this to be the case, work with your CDN provider to ensure that it's serving the proper certificate for your URL.
 
