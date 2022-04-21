@@ -60,7 +60,7 @@ Authorization is not required.
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_operation_definition_search) %>
+<%= json(:R4_OPERATION_DEFINITION_SEARCH) %>
 
 ## Retrieve by id
 
@@ -96,11 +96,11 @@ Authorization is not required.
 #### Response
 
 <%= headers status: 200 %>
-<%= json(:r4_operation_definition_bundle) %>
+<%= json(:R4_OPERATION_DEFINITION_READ) %>
 
 ## List of OperationDefinitions
 
 ID                                        |  Description
 ------------------------------------------|----------------------------------------------
-[`patient-export`]                        |  FHIR® operation to obtain a detailed set of FHIR® resources of diverse resource types      pertaining to all patients. 
-[`group-export`]                          |  FHIR® operation to obtain a detailed set of FHIR® resources of diverse resource types that  pertain to all patients in a specified group.  patients in specified Group.
+`patient-export`                          |  FHIR® operation to obtain a detailed set of FHIR® resources of diverse resource types      pertaining to all patients. 
+`group-export`                            |  FHIR® operation to obtain a detailed set of FHIR® resources of diverse resource types that  pertain to all patients in a specified group.  patients in specified Group.
