@@ -2,7 +2,7 @@
 
 ## Audience
 
-This technical specification is targeted at software developers building applications on top of Cerner's Ignite application platform as part of the [Cerner CODE ecosystem](https://code.cerner.com/).
+This technical specification is targeted at software developers building applications on top of Cerner's Ignite application platform as part of the [code program](https://code.cerner.com/).
 
 ## Overview & Purpose
 
@@ -25,31 +25,51 @@ These best practices should be considered as strongly-recommended prerequisites 
 
 ### Technical Requirements
 
-The following technical requirements are stated using [RFC-2119](https://datatracker.ietf.org/doc/html/rfc2119) terminology. These requirements focus on the security best practices that Cerner expects application developers to adhere to in order for Cerner to provide the best description of your application to end users:
+The following technical requirements are stated using [RFC-2119][RFC-2119] terminology. These requirements focus on the security best practices that Cerner expects application developers to adhere to in order for Cerner to provide the best description of your application to end users:
 
 * Web applications MUST support the HTTPS 1.1 protocol.
-* Application SHOULD support TLS.  (Please refer to the [Cerner CODE Program's TLS guidance document](http://fhir.cerner.com/authorization/tls-guidance/) for further detailed practices related to TLS.)
+* Application SHOULD support TLS.  (Please refer to the [code TLS Guidance][code TLS Guidance] document for further detailed practices related to TLS.)
 * Application SHOULD use (only) port 443 for TLS.
 * Application SHOULD support and prefer TLS 1.2 or higher.
 * Application SHOULD have a valid, non-expired TLS certificate issued from a [trusted authority](http://fhir.cerner.com/authorization/tls-guidance/).
 * Application SHOULD use an OV or EV certificate, if possible, instead of a DV certificate.
-* Application's web site SHOULD host a DNS TXT record containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification](https://datatracker.ietf.org/doc/html/rfc6749#page-15) ).
+* Application's web site SHOULD [host a DNS TXT record](#setting-up-your-domains-dns-txt-record) containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification][OAuth 2 specification] ).
 * Application's name SHOULD ideally align with the name of the website hosting it and/or the legal entity operating it.
-* Mobile/Native applications SHOULD (as suggested by [RFC-8252](https://datatracker.ietf.org/doc/html/rfc8252) ) use [claimed "https" Scheme URI redirection](https://datatracker.ietf.org/doc/html/rfc8252#section-7.2) instead of private-use URI scheme redirection.
+* Mobile/Native applications SHOULD (as suggested by [RFC-8252][RFC 8252] ) use [claimed "https" Scheme URI redirection](https://datatracker.ietf.org/doc/html/rfc8252#section-7.2) instead of private-use URI scheme redirection.
 
 
 Adhering to all the above requirements ensures that Cerner can convey the most meaningful, descriptive information about your application to end users. Failure to follow recommended (SHOULD) requirements will result in users seeing less information about your application. When Cerner is unable to determine information about your application because one or more of the requirements above have not been implemented, Cerner will display "unknown" when describing your application to users.  See the "Information Displayed to Users" section below for more details.
 
 If you'd like to better understand why Cerner has these technical requirements, please see the "*Information Displayed to Users*" and "*FAQ*" sections below.
 
-NOTE:  Please consider the [Cerner CODE Validation Program](https://code.cerner.com/apiaccess) if you would like Cerner to perform a deeper security assessment of your application.
+NOTE:  Please consider the [code Validation Program][code Validation Program] if you would like Cerner to perform a deeper security assessment of your application.
+
+### Setting Up Your Domain's DNS TXT Record ###
+
+To follow the security best practices, you will need to add a DNS TXT record to your appliction's website containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification][OAuth 2 specification] ).
+
+**Please consult your ISP's documentation for the steps to set up a DNS TXT record at your application's domain.**
+
+The DNS TXT record of your application must match the following key-value format:
+
+"cerner-client-id={value}"
+
+where value = Cerner-issued client identifier for your application
+    in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:
+
+    "cerner-client-id={value 1}"
+    "cerner-client-id={value 2}"
+
+    ...
+    "cerner-client-id={value N}"
+
 
 ### Steps to Verify Your Application's Compliance
 
 **The steps outlined below show you how you can check to see if your application complies with the technical requirements listed above.**
 
 <details><summary>Determine your eTLD+1</summary>
-<p>
+f<p>
 
 The eTLD+1 is the effective TLD and the part of the domain just before it. For example, given a URL of https://my-project.github.io , the eTLD is .github.io and the eTLD+1 is my-project.github.io, which is considered a "site". This domain will be shown to end-users.
 
@@ -127,8 +147,8 @@ The following table explains how following the security practices above result i
 |Information | Example | Source | Conditions |
 | ------------- | ------------- |------------- |------------- |
 |  Application Name  | Example Health App  | Cerner CODE Portal - Application Registration  | 	Application name is only displayed to users if a legal entity can be associated with the application's website via the use of a valid, trusted EV or OV certificate.  |
-| Organization Name  | Example Health Corporation  | EV or OV TLS Certificate  | rganization Name	Example Health Corporation	EV or OV TLS Certificate	Organization name is only displayed to users if a legal entity can be associated with the application's website via the use of a valid, trusted EV or OV certificate.   |
-| Organization Location | US, MO, Kansas City  | EV or OV TLS Certificate  | Organization Location is only displayed to users if a legal entity can be associated with the application's website via the use of a valid, trusted EV or OV certificate. |
+| Organization Name  | Example Health Corporation  | EV or OV TLS Certificate  | Organization name is only displayed to users if a legal entity can be associated with the application's website via the use of a valid, trusted EV or OV certificate.   |
+| Organization Location | US, MO, Kansas City  | EV or OV TLS Certificate  | Organization location is only displayed to users if a legal entity can be associated with the application's website via the use of a valid, trusted EV or OV certificate. |
 | Website Domain (eTLD+1)  | examplehealth.com | Cerner CODE Portal - Application Registration	  | The eTLD+1 portion of the host domain of the redirect URI will always be displayed to the end user. |
 
 ### Labels
@@ -137,8 +157,8 @@ The following table explains labeling Cerner applies to applications in certain 
 
 | Label  | Conditions |
 | ------------- | ------------- |
-| "Validated"  | The "Validated" label is displayed when an application has been formally Validated through the [Cerner CODE program](https://code.cerner.com/).  |
-| "Not Validated"  | The "Not Validated" label is displayed when an application has not been formally Validated through the [Cerner CODE program](https://code.cerner.com/).   |
+| "Validated"  | The "Validated" label is displayed when an application has been formally Validated through the [code Program][code Program].  |
+| "Not Validated"  | The "Not Validated" label is displayed when an application has not been formally Validated through the [code Program][code Program].   |
 | "Unknown App"  | This is a catch-all fall back mechanism that Cerner uses when an application doesn't employ enough of the security best practices listed in the Technical Requirements section above for Cerner to describe the application.  |
 	
 
@@ -162,7 +182,7 @@ No. Cerner does not support the use of self-signed certificates.
 
 **What Certificate Authorities (CAs) does Cerner trust?**
 
-Refer to [this documentation](http://fhir.cerner.com/authorization/tls-guidance/) for a summary of the CAs that Cerner trusts.
+Refer to [code TLS Guidance][code TLS Guidance] for a summary of the CAs that Cerner trusts.
 
 **How/when does Cerner use eTLD+1 values?**
 
@@ -174,7 +194,7 @@ This is done to help avoid confusing users (patients). Google has a [good write-
 
 **How do I get a Cerner client identifier for my application?**
 
-Cerner assigns your application a unique client identifier for your application as part of the registration process at the [Cerner CODE Console](https://code-console.cerner.com/).  This Cerner client identifier is also referred to as a System Account ID in some Cerner Central tooling https://cernercentral.com/system-accounts/.
+Cerner assigns your application a unique client identifier for your application as part of the registration process at the [code console][code console].  This Cerner client identifier is also referred to as a System Account ID in some Cerner Central tooling https://cernercentral.com/system-accounts/.
 
 **Why is a DNS TXT record recommended?**
 
@@ -202,10 +222,20 @@ Use the steps outlined above to check the certificate being returned from the UR
 
 ### References
 
-* RFC-8252: https://datatracker.ietf.org/doc/html/rfc8252
-* RFC-2119: https://datatracker.ietf.org/doc/html/rfc2119
-* RFC-6749: https://datatracker.ietf.org/doc/html/rfc6749
-* Cerner CODE Program:  https://code.cerner.com/
-* Cerner CODE Validation Program:  https://code.cerner.com/apiaccess
-* Cerner CODE Console: https://code-console.cerner.com/
-* Cerner CODE TLS Guidance: http://fhir.cerner.com/authorization/tls-guidance/ 
+* [RFC-8252][RFC 8252]
+* [RFC 2119][RFC 2119]
+* [RFC-6749][RFC-6749]
+* [code Program][code Program]
+* [code Validation Program][code Validation Program]
+* [code console][code console]
+* [code TLS Guidance][code TLS Guidance]
+
+
+[RFC 8252]: https://datatracker.ietf.org/doc/html/rfc8252 "OAuth 2.0 for Native Apps"
+[RFC 2119]: https://datatracker.ietf.org/doc/html/rfc2119 "Key words for use in RFCs to Indicate Requirement Levels"
+[RFC-6749]: https://datatracker.ietf.org/doc/html/rfc6749 "The OAuth 2.0 Authorization Framework"
+[OAuth 2 specification]: https://datatracker.ietf.org/doc/html/rfc6749#page-15 "Client Identifier section of the OAuth 2 Specification"
+[code Program]: https://code.cerner.com/ "The Cerner Open Developer Experience Program"
+[code Validation Program]: https://code.cerner.com/apiaccess "The Cerner Open Developer Experience validation of applications"
+[code console]: https://code-console.cerner.com/ "The Cerner Open Developer Experience to develop and test applications"
+[code TLS Guidance]: http://fhir.cerner.com/authorization/tls-guidance/ "The Cerner Open Developer Experience TLS Guidance"
