@@ -62,7 +62,7 @@ Authorization is not required.
 <%= headers status: 200 %>
 <%= json(:R4_OPERATION_DEFINITION_SEARCH) %>
 
-## Retrieve by id
+## Retrieve by ID
 
 List an individual OperationDefinition by its id:
 
