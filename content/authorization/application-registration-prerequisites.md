@@ -46,7 +46,7 @@ The following technical requirements are stated using [RFC-2119][RFC-2119] termi
 * Application SHOULD support TLS.  (Please refer to the [code TLS Guidance][code TLS Guidance] document for further detailed practices related to TLS.)
 * Application SHOULD use (only) port 443 for TLS.
 * Application SHOULD support and prefer TLS 1.2 or higher.
-* Application SHOULD have a valid, non-expired TLS certificate issued from a [trusted authority](http://fhir.cerner.com/authorization/tls-guidance/).
+* Application SHOULD have a valid, non-expired TLS certificate issued from a [trusted authority](https://github.com/scott-bach/fhir.cerner.com/blob/patch-1/content/authorization/tls-guidance.md#trusted-certificate-authorities).
 * Application SHOULD use an OV or EV certificate, if possible, instead of a DV certificate.
 * Application's web site SHOULD [host a DNS TXT record](#setting-up-your-domains-dns-txt-record) containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification][OAuth 2 specification] ).
 * Application's name SHOULD ideally align with the name of the website hosting it and/or the legal entity operating it.
