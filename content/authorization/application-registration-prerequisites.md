@@ -213,7 +213,7 @@ Cerner assigns your application a unique client identifier for your application 
 
 **Why is a DNS TXT record recommended?**
 
-The DNS TXT record helps prove that the website intends to host your application. Cerner does not automatically directly assume that URLs provided by a developer are associated with the website operator. By publishing a DNS TXT record, Cerner can verify that the party that controls the website address intends to associate itself with the your registered application.
+The DNS TXT record helps prove that the website intends to host your application. Cerner does not automatically assume that URLs provided by a developer are associated with the website operator. By publishing a DNS TXT record, Cerner can verify that the party that controls the website address intends to associate itself with the your registered application.
 
 **Where should the DNS TXT record be placed?**
 
