@@ -1,8 +1,23 @@
+
+
 # Application Registration Prerequisites / Developer Guide
+
+**[Audience](#audience)**  
+**[Overview & Purpose](#overview--purpose)**  
+**[Glossary](#glossary-of-terms)**  
+**[Technical Requirements](#technical-requirements)**  
+**[Setting up you domain's TXT record](#setting-up-your-domains-dns-txt-record)**  
+**[Steps to verify your application's compliance](#steps-to-verify-your-applications-compliance)**  
+**[Information displayed to users](#information-displayed-to-users)**  
+**[Application / business details](#application--business-details)**  
+**[Labels](#labels)**  
+**[FAQs](#faq)**  
+**[References](#references)**  
+
 
 ## Audience
 
-This technical specification is targeted at software developers building applications on top of Cerner's Ignite application platform as part of the [code program](https://code.cerner.com/).
+This technical specification is targeted at software developers building applications on top of Cerner's Ignite application platform as part of the [code program][code program].
 
 ## Overview & Purpose
 
@@ -139,7 +154,7 @@ Using online resource https://www.ssllabs.com TLS certificate result may be as o
 </p>
 </details>
 
-# Information Displayed to Users
+## Information Displayed to Users
 ### Application / Business Details
 
 The following table explains how following the security practices above result in users getting more information about your application and the business/organization offering it.  The table shows what information Cerner displays to end users, where it's sourced from, and under what conditions it's used.
@@ -162,7 +177,7 @@ The following table explains labeling Cerner applies to applications in certain 
 | "Unknown App"  | This is a catch-all fall back mechanism that Cerner uses when an application doesn't employ enough of the security best practices listed in the Technical Requirements section above for Cerner to describe the application.  |
 	
 
-# FAQ
+## FAQ
 
 **Are these security requirements required of all Cerner Ignite applications?**
 
