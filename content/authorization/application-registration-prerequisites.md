@@ -88,7 +88,7 @@ where value = Cerner-issued client identifier for your application
 **The steps outlined below show you how you can check to see if your application complies with the technical requirements listed above.**
 
 <details><summary>Determine your eTLD+1</summary>
-f<p>
+<p>
 
 The eTLD+1 is the effective TLD and the part of the domain just before it. For example, given a URL of https://my-project.github.io , the eTLD is .github.io and the eTLD+1 is my-project.github.io, which is considered a "site". This domain will be shown to end-users.
 
