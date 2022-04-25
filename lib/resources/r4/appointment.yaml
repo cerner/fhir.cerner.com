@@ -178,7 +178,7 @@ fields:
     required: 'Yes'
     type: code
     description: Participation status of the Patient or Location.
-    note: When creating a new appointment with a status of `booked`, this value must be either `tentative` or `accepted`. When creating a new appointment with a status of `proposed`, this value must be `needs-action`.
+    note: When creating a new appointment with a status of `booked`, this value must be `accepted`. When creating a new appointment with a status of `proposed`, this value must be `needs-action`.
     example: |
       {
         "status": "accepted"

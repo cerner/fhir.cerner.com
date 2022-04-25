@@ -415,7 +415,7 @@ _Implementation Notes_
   * `Appointment.slot` must be a list containing exactly one reference to the Slot in which this appointment is being booked. `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
   * `Appointment.participant` must be a list containing exactly one Patient participant.
   * `Appointment.participant.actor` must be a reference to a Patient.
-  * `Appointment.participant.status` must be set to either `tentative` or `accepted`.
+  * `Appointment.participant.status` must be set to `accepted`.
 * `Appointment.participant.type` must not be set.
 
 ### Authorization Types
