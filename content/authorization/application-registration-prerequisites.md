@@ -65,9 +65,13 @@ To follow the security best practices, you will need to add a DNS TXT record to 
 
 **Please consult your ISP's documentation for the steps to set up a DNS TXT record at your application's domain.**
 
-The DNS TXT record of your application must match the following key-value format:
+The DNS TXT record of your application must match the following key-value format-
 
+**Format:**  
 "cerner-client-id={value}"
+
+**Example:**  
+cerner-client-id=bxdcd0ff-5der-4c15-b2tf-r28b105aa845
 
 where value = Cerner-issued client identifier for your application
     in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:
