@@ -11,7 +11,7 @@ title: OperationDefinition | R4 API
 
 The OperationDefinition resource defines an [operation](http://hl7.org/fhir/r4/operations.html). This includes the inputs, outputs, description, and other items necessary to actually execute the operation.
 
-This resource only exposes the custom operations our server defines (group-export and patient-export). While the Health Level Seven<sup>®</sup> (HL7<sup>®</sup>) Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR<sup>®</sup>) specification also supports describing named queries with this resource, we do not currently support any custom named queries.
+This resource only exposes the custom operations our server defines (group-export and patient-export). While the Health Level Seven<sup>®</sup> (HL7<sup>®</sup>) Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR<sup>®</sup>) specification also supports describing named queries with this resource, Cerner currently does not support any custom-named queries.
 
 The following fields are returned if valued:
 
@@ -73,9 +73,9 @@ _Implementation Notes_
 * Authentication is not required to access the OperationDefinition resource
 * This resource can be retrieved by its defining URL or from the OperationDefinition resource located at the [service root URL](../../#service-root-url). For example, both of these URLs work:
 
-    `https://fhir-ehr.cerner.com/r4/OperationDefinition/binary-autogen-ccd-if`
+    `https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27e308284dd9c1/OperationDefinition?url=https://fhir-ehr-sc.cerner.com/r4/OperationDefinition/group-export`
 
-    `https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/OperationDefinition/binary-autogen-ccd-if`
+    `https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/OperationDefinition/group-export`
 
 
 ### Authorization Types
@@ -91,7 +91,7 @@ Authorization is not required.
 
 #### Request
 
-    GET https://https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/OperationDefinition/group-export
+    GET https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/OperationDefinition/group-export
 
 #### Response
 
