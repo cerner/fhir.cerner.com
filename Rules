@@ -34,6 +34,9 @@ end
 compile '/static/**/*' do
 end
 
+compile '/authorization/cert_example.png' do
+end
+
 compile '/**/faq.*' do
   filter :erb
   filter :kramdown, toc_levels: [2]
