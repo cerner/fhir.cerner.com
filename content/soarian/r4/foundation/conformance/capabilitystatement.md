@@ -9,7 +9,7 @@ title: Capability Statement | R4 API
 
 ## Overview
 
-The CapabilityStatement resource documents the functionality implemented from the HL7<sup>®</sup> FHIR<sup>®</sup> standard. Unlike most resources, this resource is found at []:serviceRootURL/metadata](https://fhir.cerner.com/millennium/r4/foundation/#service-root-url) instead of by its resource name.
+The CapabilityStatement resource documents the functionality implemented from the HL7<sup>®</sup> FHIR<sup>®</sup> standard. Unlike most resources, this resource is found at [`:serviceRootURL/metadata`] instead of by its resource name.
 
 ## Metadata
 
@@ -38,14 +38,9 @@ Authorization is not required.
 
 #### Response
 
-A successful response includes:
-* HTTP Status Code 200
-* Capability Statement_Patient persona.json
+<%= headers status: 200 %>
+<%= json(:r4_metadata) %>
 
+[`:serviceRootURL/metadata`]: ../../#service-root-url
 
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
-
-
-
-
-
