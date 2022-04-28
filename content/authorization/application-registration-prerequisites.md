@@ -1,18 +1,12 @@
-
+---
+title: Application Registration Prerequisites / Developer Guide
+layout: authorization
+---
 
 # Application Registration Prerequisites / Developer Guide
 
-**[Audience](#audience)**  
-**[Overview & Purpose](#overview--purpose)**  
-**[Glossary](#glossary-of-terms)**  
-**[Technical Requirements](#technical-requirements)**  
-**[Setting up you domain's TXT record](#setting-up-your-domains-dns-txt-record)**  
-**[Steps to verify your application's compliance](#steps-to-verify-your-applications-compliance)**  
-**[Information displayed to users](#information-displayed-to-users)**  
-**[Application / business details](#application--business-details)**  
-**[Labels](#labels)**  
-**[FAQs](#faq)**  
-**[References](#references)**  
+* TOC
+{:toc}
 
 
 ## Audience
@@ -87,16 +81,13 @@ where value = Cerner-issued client identifier for your application
 
 **The steps outlined below show you how you can check to see if your application complies with the technical requirements listed above.**
 
-<details><summary>Determine your eTLD+1</summary>
-<p>
+#### Determine your eTLD+1
 
 The eTLD+1 is the effective TLD and the part of the domain just before it. For example, given a URL of https://my-project.github.io , the eTLD is .github.io and the eTLD+1 is my-project.github.io, which is considered a "site". This domain will be shown to end-users.
 
 To determine eTLD+1 please check public domains that are defined in the [Public Suffix List](https://publicsuffix.org/list/public_suffix_list.dat).
-</p>
-</details>
-<details><summary>Querying DNS for your TXT record</summary>
-<p>
+
+#### Querying DNS for your TXT record
 TXT records are a type of Domain Name System (DNS) record that contains text information for sources outside of your domain. You add these records to your domain settings for further domain ownership verification by Cerner.
 
 To follow the security best practices the DNS TXT record of your application must match the following key-value format:
@@ -112,17 +103,15 @@ To follow the security best practices the DNS TXT record of your application mus
 
 You can use the following commands and tools to check the DNS TXT records:
 
-    Using the Windows CLI:
-        “nslookup” → e.g.: “nslookup -type=TXT examplehealth.com”
-    Using the Mac/Linux terminal:
-        “dig” → e.g.: dig examplehealth.com TXT
-    Using the following online resources:
-       https://mxtoolbox.com/txtlookup.aspx
-       https://gf.dev/dns-lookup
-</p>
-</details>
-<details><summary>Inspect your TLS Certificate</summary>
+   1. Using the Windows CLI:
+      *  `“nslookup” → e.g.: “nslookup -type=TXT examplehealth.com”`
+   1. Using the Mac/Linux terminal:
+      *  `“dig” → e.g.: dig examplehealth.com TXT`
+   1. Using the following online resources:
+      * [https://mxtoolbox.com/txtlookup.aspx](https://mxtoolbox.com/txtlookup.aspx)
+      * [https://gf.dev/dns-lookup](https://gf.dev/dns-lookup)
 
+#### Inspect your TLS Certificate
 TLS certificates are used to protect both the end users' information while it's in transfer, and to authenticate the website's organization identity to ensure users are interacting with legitimate website owners.
 
 To follow the security best practices you should utilize TLS implementations that support current IETF best practices for TLS (please refer to [this documentation](http://fhir.cerner.com/authorization/tls-guidance/) for more details). Cerner RECOMMENDS you utilize public testing tools, such as [Qualsys SSL Labs](http://ssllabs.com/), to verify proper functioning of your https implementation.
@@ -130,12 +119,12 @@ To follow the security best practices you should utilize TLS implementations tha
 Please follow one of below approaches to check TLS Certificates for your application:
 
    1. Using OpenSSL Mac/Linux:
-        https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html
+        [https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html](https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html)
 
    1. Using the following online resources:
-       * https://www.ssllabs.com/ssltest/index.html
-       * https://ssltools.digicert.com/checker/
-       * https://www.thesslstore.com/ssltools/ssl-checker.php
+       * [https://www.ssllabs.com/ssltest/index.html](https://www.ssllabs.com/ssltest/index.html)
+       * [https://ssltools.digicert.com/checker/](https://ssltools.digicert.com/checker/)
+       * [https://www.thesslstore.com/ssltools/ssl-checker.php](https://www.thesslstore.com/ssltools/ssl-checker.php)
 
 What you should pay attention to:
 
@@ -151,14 +140,13 @@ What you should pay attention to:
    1. The Certificate expiration date
    1. The Certificate issued by one of the public [Certificate Authorities](https://wiki.mozilla.org/CA/Included_Certificates).
 
-Example
+##### Example
 
 Using online resource https://www.ssllabs.com TLS certificate result may be as on example below:
-![Example Image](cert_example.png)
-</p>
-</details>
+![Example Image](/images/cert_example.png)
 
 ## Information Displayed to Users
+
 ### Application / Business Details
 
 The following table explains how following the security practices above result in users getting more information about your application and the business/organization offering it.  The table shows what information Cerner displays to end users, where it's sourced from, and under what conditions it's used.
