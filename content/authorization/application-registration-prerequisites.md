@@ -1,18 +1,12 @@
-
+---
+title: Application Registration Prerequisites / Developer Guide
+layout: authorization
+---
 
 # Application Registration Prerequisites / Developer Guide
 
-**[Audience](#audience)**  
-**[Overview & Purpose](#overview--purpose)**  
-**[Glossary](#glossary-of-terms)**  
-**[Technical Requirements](#technical-requirements)**  
-**[Setting up you domain's TXT record](#setting-up-your-domains-dns-txt-record)**  
-**[Steps to verify your application's compliance](#steps-to-verify-your-applications-compliance)**  
-**[Information displayed to users](#information-displayed-to-users)**  
-**[Application / business details](#application--business-details)**  
-**[Labels](#labels)**  
-**[FAQs](#faq)**  
-**[References](#references)**  
+* TOC
+{:toc}
 
 
 ## Audience
@@ -122,7 +116,7 @@ You can use the following commands and tools to check the DNS TXT records:
 </p>
 </details>
 <details><summary>Inspect your TLS Certificate</summary>
-
+<p>
 TLS certificates are used to protect both the end users' information while it's in transfer, and to authenticate the website's organization identity to ensure users are interacting with legitimate website owners.
 
 To follow the security best practices you should utilize TLS implementations that support current IETF best practices for TLS (please refer to [this documentation](http://fhir.cerner.com/authorization/tls-guidance/) for more details). Cerner RECOMMENDS you utilize public testing tools, such as [Qualsys SSL Labs](http://ssllabs.com/), to verify proper functioning of your https implementation.
@@ -154,7 +148,7 @@ What you should pay attention to:
 Example
 
 Using online resource https://www.ssllabs.com TLS certificate result may be as on example below:
-![Example Image](cert_example.png)
+![Example Image](/images/cert_example.png)
 </p>
 </details>
 
