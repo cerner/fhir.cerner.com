@@ -153,6 +153,7 @@ Using online resource https://www.ssllabs.com TLS certificate result may be as o
 </details>
 
 ## Information Displayed to Users
+
 ### Application / Business Details
 
 The following table explains how following the security practices above result in users getting more information about your application and the business/organization offering it.  The table shows what information Cerner displays to end users, where it's sourced from, and under what conditions it's used.
