@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Application Registration Prerequisites / Developer Guide</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/millennium_diff_table_config.js" type="text/javascript"></script>  
+  <script src="../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body class="_api">
+<div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../millennium/overview/">Millennium</a></li>
+         <li><a href="../../soarian/overview/">Soarian</a></li>
+        <li><a href="..">Authorization</a></li>
+        <li><a href="../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+<div id="wrapper">
+  <div class="content">
+    <h1 id="application-registration-prerequisites--developer-guide">Application Registration Prerequisites / Developer Guide</h1>
+
+<ul id="markdown-toc">
+  <li><a href="#audience" id="markdown-toc-audience">Audience</a></li>
+  <li>
+<a href="#overview--purpose" id="markdown-toc-overview--purpose">Overview &amp; Purpose</a>    <ul>
+      <li><a href="#glossary-of-terms" id="markdown-toc-glossary-of-terms">Glossary of Terms</a></li>
+      <li><a href="#technical-requirements" id="markdown-toc-technical-requirements">Technical Requirements</a></li>
+      <li><a href="#setting-up-your-domains-dns-txt-record" id="markdown-toc-setting-up-your-domains-dns-txt-record">Setting Up Your Domain’s DNS TXT Record</a></li>
+      <li><a href="#steps-to-verify-your-applications-compliance" id="markdown-toc-steps-to-verify-your-applications-compliance">Steps to Verify Your Application’s Compliance</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#information-displayed-to-users" id="markdown-toc-information-displayed-to-users">Information Displayed to Users</a>    <ul>
+      <li><a href="#application--business-details" id="markdown-toc-application--business-details">Application / Business Details</a></li>
+      <li><a href="#labels" id="markdown-toc-labels">Labels</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#faq" id="markdown-toc-faq">FAQ</a>    <ul>
+      <li><a href="#references" id="markdown-toc-references">References</a></li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="audience">Audience</h2>
+
+<p>This technical specification is targeted at software developers building applications on top of Cerner’s Ignite application platform as part of the <a href="https://code.cerner.com/" title="The Cerner Open Developer Experience Program">code program</a>.</p>
+
+<h2 id="overview--purpose">Overview &amp; Purpose</h2>
+
+<p>This technical specification outlines a series of security best practices that, if followed, enable Cerner to provide more detailed information about your application to end users. The goal of these best practices is to encourage the use of existing internet security features and standards. In particular, we want users to:</p>
+
+<ul>
+  <li>be assured that their data is being securely transmitted using modern transport layer security and encryption protocols</li>
+  <li>understand what legal entity they’re sharing their data with</li>
+</ul>
+
+<p>These best practices should be considered as strongly-recommended prerequisites that software developers address during the application registration process, prior to making their applications available for general use.  Failure to comply with these prerequisites will result in Cerner describing your application as an “Unknown Application” to users during the OAuth authorization workflow.</p>
+
+<h3 id="glossary-of-terms">Glossary of Terms</h3>
+
+<ul>
+  <li>
+<strong>eTLD</strong> - Effective Top Level Domain is the base domain. eTLD values are defined in the <a href="https://publicsuffix.org/list/public_suffix_list.dat">Public Suffix List</a>.  Examples include: .com, .edu, .org, and .co.uk.</li>
+  <li>
+<strong>eTLD+1</strong> - “Effective top level domain plus 1” describes a domain name that is one level deeper than the effective top level domain (eTLD). Examples include examplehealth.com, cerner.com and cerner.co.uk.</li>
+  <li>
+<strong>OV</strong> - Organization Validated - a certificate issuance process that involves the certificate authority validating the organization (business entity) requesting the certificate.</li>
+  <li>
+<strong>EV</strong> - Extended Validation - a certificate issuance process that involves the certificate authority performing extended validation of the organization (business entity) requesting the certificate.</li>
+  <li>
+<strong>DV</strong> - Domain Validated - a certificate issuance process that involves the certificate authority validating the requester owns the domain. No validation of the business entity is performed.</li>
+  <li>
+<strong>TLS</strong> - Transport Layer Security</li>
+  <li>
+<strong>DNS TXT record</strong> - a “text” record in the Domain Name System (DNS).  TXT records usually take form of name=value.</li>
+</ul>
+
+<h3 id="technical-requirements">Technical Requirements</h3>
+
+<p>The following technical requirements are stated using <a href="https://datatracker.ietf.org/doc/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC 2119</a> terminology. These requirements focus on the security best practices that Cerner expects application developers to adhere to in order for Cerner to provide the best description of your application to end users:</p>
+
+<ul>
+  <li>Web applications MUST support the HTTPS 1.1 protocol.</li>
+  <li>Application SHOULD support TLS.  (Please refer to the <a href="http://fhir.cerner.com/authorization/tls-guidance/" title="The Cerner Open Developer Experience TLS Guidance">code TLS Guidance</a> document for further detailed practices related to TLS.)</li>
+  <li>Application SHOULD use (only) port 443 for TLS.</li>
+  <li>Application SHOULD support and prefer TLS 1.2 or higher.</li>
+  <li>Application SHOULD have a valid, non-expired TLS certificate issued from a <a href="tls-guidance.md#trusted-certificate-authorities">trusted authority</a>.</li>
+  <li>Application SHOULD use an OV or EV certificate, if possible, instead of a DV certificate.</li>
+  <li>Application’s web site SHOULD <a href="#setting-up-your-domains-dns-txt-record">host a DNS TXT record</a> containing the Cerner-issued client identifier for the application (also referred to as a “system account ID” in CernerCentral or a “client identifier” in the <a href="https://datatracker.ietf.org/doc/html/rfc6749#page-15" title="Client Identifier section of the OAuth 2 Specification">OAuth 2 specification</a> ).</li>
+  <li>Application’s name SHOULD ideally align with the name of the website hosting it and/or the legal entity operating it.</li>
+  <li>Mobile/Native applications SHOULD (as suggested by <a href="https://datatracker.ietf.org/doc/html/rfc8252" title="OAuth 2.0 for Native Apps">RFC-8252</a> ) use <a href="https://datatracker.ietf.org/doc/html/rfc8252#section-7.2">claimed “https” Scheme URI redirection</a> instead of private-use URI scheme redirection.</li>
+</ul>
+
+<p>Adhering to all the above requirements ensures that Cerner can convey the most meaningful, descriptive information about your application to end users. Failure to follow recommended (SHOULD) requirements will result in users seeing less information about your application. When Cerner is unable to determine information about your application because one or more of the requirements above have not been implemented, Cerner will display “unknown” when describing your application to users.  See the “Information Displayed to Users” section below for more details.</p>
+
+<p>If you’d like to better understand why Cerner has these technical requirements, please see the “<em>Information Displayed to Users</em>” and “<em>FAQ</em>” sections below.</p>
+
+<p>NOTE:  Please consider the <a href="https://code.cerner.com/apiaccess" title="The Cerner Open Developer Experience validation of applications">code Validation Program</a> if you would like Cerner to perform a deeper security assessment of your application.</p>
+
+<h3 id="setting-up-your-domains-dns-txt-record">Setting Up Your Domain’s DNS TXT Record</h3>
+
+<p>To follow the security best practices, you will need to add a DNS TXT record to your appliction’s website containing the Cerner-issued client identifier for the application (also referred to as a “system account ID” in CernerCentral or a “client identifier” in the <a href="https://datatracker.ietf.org/doc/html/rfc6749#page-15" title="Client Identifier section of the OAuth 2 Specification">OAuth 2 specification</a> ).</p>
+
+<p><strong>Please consult your ISP’s documentation for the steps to set up a DNS TXT record at your application’s domain.</strong></p>
+
+<p>The DNS TXT record of your application must match the following key-value format-</p>
+
+<p><strong>Format:</strong><br>
+“cerner-client-id={value}”</p>
+
+<p><strong>Example:</strong><br>
+cerner-client-id=bxdcd0ff-5der-4c15-b2tf-r28b105aa845</p>
+
+<p>where value = Cerner-issued client identifier for your application
+    in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:</p>
+
+<pre><code>"cerner-client-id={value 1}"
+"cerner-client-id={value 2}"
+
+...
+"cerner-client-id={value N}"
+</code></pre>
+
+<h3 id="steps-to-verify-your-applications-compliance">Steps to Verify Your Application’s Compliance</h3>
+
+<p><strong>The steps outlined below show you how you can check to see if your application complies with the technical requirements listed above.</strong></p>
+
+<h4 id="determine-your-etld1">Determine your eTLD+1</h4>
+
+<p>The eTLD+1 is the effective TLD and the part of the domain just before it. For example, given a URL of https://my-project.github.io , the eTLD is .github.io and the eTLD+1 is my-project.github.io, which is considered a “site”. This domain will be shown to end-users.</p>
+
+<p>To determine eTLD+1 please check public domains that are defined in the <a href="https://publicsuffix.org/list/public_suffix_list.dat">Public Suffix List</a>.</p>
+
+<h4 id="querying-dns-for-your-txt-record">Querying DNS for your TXT record</h4>
+<p>TXT records are a type of Domain Name System (DNS) record that contains text information for sources outside of your domain. You add these records to your domain settings for further domain ownership verification by Cerner.</p>
+
+<p>To follow the security best practices the DNS TXT record of your application must match the following key-value format:</p>
+
+<pre><code>"cerner-client-id={value}" where value = Cerner-issued client identifier for your application
+in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:
+
+"cerner-client-id={value 1}"
+"cerner-client-id={value 2}"
+
+...
+"cerner-client-id={value N}"
+</code></pre>
+
+<p>You can use the following commands and tools to check the DNS TXT records:</p>
+
+<ol>
+  <li>Using the Windows CLI:
+    <ul>
+      <li><code>“nslookup” → e.g.: “nslookup -type=TXT examplehealth.com”</code></li>
+    </ul>
+  </li>
+  <li>Using the Mac/Linux terminal:
+    <ul>
+      <li><code>“dig” → e.g.: dig examplehealth.com TXT</code></li>
+    </ul>
+  </li>
+  <li>Using the following online resources:
+    <ul>
+      <li><a href="https://mxtoolbox.com/txtlookup.aspx">https://mxtoolbox.com/txtlookup.aspx</a></li>
+      <li><a href="https://gf.dev/dns-lookup">https://gf.dev/dns-lookup</a></li>
+    </ul>
+  </li>
+</ol>
+
+<h4 id="inspect-your-tls-certificate">Inspect your TLS Certificate</h4>
+<p>TLS certificates are used to protect both the end users’ information while it’s in transfer, and to authenticate the website’s organization identity to ensure users are interacting with legitimate website owners.</p>
+
+<p>To follow the security best practices you should utilize TLS implementations that support current IETF best practices for TLS (please refer to <a href="http://fhir.cerner.com/authorization/tls-guidance/">this documentation</a> for more details). Cerner RECOMMENDS you utilize public testing tools, such as <a href="http://ssllabs.com/">Qualsys SSL Labs</a>, to verify proper functioning of your https implementation.</p>
+
+<p>Please follow one of below approaches to check TLS Certificates for your application:</p>
+
+<ol>
+  <li>
+    <p>Using OpenSSL Mac/Linux:
+  <a href="https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html">https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html</a></p>
+  </li>
+  <li>
+    <p>Using the following online resources:</p>
+    <ul>
+      <li><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a></li>
+      <li><a href="https://ssltools.digicert.com/checker/">https://ssltools.digicert.com/checker/</a></li>
+      <li><a href="https://www.thesslstore.com/ssltools/ssl-checker.php">https://www.thesslstore.com/ssltools/ssl-checker.php</a></li>
+    </ul>
+  </li>
+</ol>
+
+<p>What you should pay attention to:</p>
+
+<ol>
+  <li>Supported TLS Certificates types:
+    <ul>
+      <li>Domain Validated (DV),</li>
+      <li>Organization Validated (OV),</li>
+      <li>Extended Validation (EV).</li>
+    </ul>
+  </li>
+  <li>Supported TLS protocols:
+    <ul>
+      <li>TLS 1.2</li>
+      <li>TLS 1.3</li>
+    </ul>
+  </li>
+  <li>The Certificate Revoked/not Revoked status</li>
+  <li>The Certificate “Valid from” date</li>
+  <li>The Certificate expiration date</li>
+  <li>The Certificate issued by one of the public <a href="https://wiki.mozilla.org/CA/Included_Certificates">Certificate Authorities</a>.</li>
+</ol>
+
+<h5 id="example">Example</h5>
+
+<p>Using online resource https://www.ssllabs.com TLS certificate result may be as on example below:
+<img src="../../images/cert_example.png" alt="Example Image"></p>
+
+<h2 id="information-displayed-to-users">Information Displayed to Users</h2>
+
+<h3 id="application--business-details">Application / Business Details</h3>
+
+<p>The following table explains how following the security practices above result in users getting more information about your application and the business/organization offering it.  The table shows what information Cerner displays to end users, where it’s sourced from, and under what conditions it’s used.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Information</th>
+      <th>Example</th>
+      <th>Source</th>
+      <th>Conditions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Application Name</td>
+      <td>Example Health App</td>
+      <td>Cerner CODE Portal - Application Registration</td>
+      <td>Application name is only displayed to users if a legal entity can be associated with the application’s website via the use of a valid, trusted EV or OV certificate.</td>
+    </tr>
+    <tr>
+      <td>Organization Name</td>
+      <td>Example Health Corporation</td>
+      <td>EV or OV TLS Certificate</td>
+      <td>Organization name is only displayed to users if a legal entity can be associated with the application’s website via the use of a valid, trusted EV or OV certificate.</td>
+    </tr>
+    <tr>
+      <td>Organization Location</td>
+      <td>US, MO, Kansas City</td>
+      <td>EV or OV TLS Certificate</td>
+      <td>Organization location is only displayed to users if a legal entity can be associated with the application’s website via the use of a valid, trusted EV or OV certificate.</td>
+    </tr>
+    <tr>
+      <td>Website Domain (eTLD+1)</td>
+      <td>examplehealth.com</td>
+      <td>Cerner CODE Portal - Application Registration</td>
+      <td>The eTLD+1 portion of the host domain of the redirect URI will always be displayed to the end user.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="labels">Labels</h3>
+
+<p>The following table explains labeling Cerner applies to applications in certain conditions.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Label</th>
+      <th>Conditions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>“Validated”</td>
+      <td>The “Validated” label is displayed when an application has been formally Validated through the <a href="https://code.cerner.com/" title="The Cerner Open Developer Experience Program">code Program</a>.</td>
+    </tr>
+    <tr>
+      <td>“Not Validated”</td>
+      <td>The “Not Validated” label is displayed when an application has not been formally Validated through the <a href="https://code.cerner.com/" title="The Cerner Open Developer Experience Program">code Program</a>.</td>
+    </tr>
+    <tr>
+      <td>“Unknown App”</td>
+      <td>This is a catch-all fall back mechanism that Cerner uses when an application doesn’t employ enough of the security best practices listed in the Technical Requirements section above for Cerner to describe the application.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="faq">FAQ</h2>
+
+<p><strong>Are these security requirements required of all Cerner Ignite applications?</strong></p>
+
+<p>The security requirements outlined in this document are currently only required for all Ignite applications targeting the patient persona. Though, Cerner encourages the use of these best practices for all end user facing applications.</p>
+
+<p><strong>Why are OV/EV certificates preferred by Cerner?</strong></p>
+
+<p>Organization-Validated (OV) and/or Extended-Validation (EV) certificates ensure that the certificate is being issued to an official business entity (with a name and address). This helps provide transparency to users (patients) about who they are sharing their data with.  Cerner does not perform validation of the incorporation of your business. By utilizing an OV or EV certificate, Cerner trusts that the certificate authority has performed such validation and will correspondingly display your organization’s name in association with the application.</p>
+
+<p><strong>Is either an OV or EV certificate acceptable?</strong></p>
+
+<p>Yes, at the time of writing Cerner does not distinguish OV and EV certificates, so either is acceptable. However, some web browsers might give preferential treatment to EV certificates.</p>
+
+<p><strong>Are self-signed certificates acceptable?</strong></p>
+
+<p>No. Cerner does not support the use of self-signed certificates.</p>
+
+<p><strong>What Certificate Authorities (CAs) does Cerner trust?</strong></p>
+
+<p>Refer to <a href="http://fhir.cerner.com/authorization/tls-guidance/" title="The Cerner Open Developer Experience TLS Guidance">code TLS Guidance</a> for a summary of the CAs that Cerner trusts.</p>
+
+<p><strong>How/when does Cerner use eTLD+1 values?</strong></p>
+
+<p>In some situations where Cerner cannot determine the business entity providing an application, Cerner falls back to using the domain name of the application’s primary redirect URI to describe the application. For brevity/consistency, the eTLD+1 value will be used in these situations.</p>
+
+<p><strong>Why does Cerner only display the eTLD+1 portion of the domain name?</strong></p>
+
+<p>This is done to help avoid confusing users (patients). Google has a <a href="https://sites.google.com/a/chromium.org/dev/Home/chromium-security/enamel">good write-up explaining the security benefits of this practice</a>.</p>
+
+<p><strong>How do I get a Cerner client identifier for my application?</strong></p>
+
+<p>Cerner assigns your application a unique client identifier for your application as part of the registration process at the <a href="https://code-console.cerner.com/" title="The Cerner Open Developer Experience to develop and test applications">code console</a>.  This Cerner client identifier is also referred to as a System Account ID in some Cerner Central tooling https://cernercentral.com/system-accounts/.</p>
+
+<p><strong>Why is a DNS TXT record recommended?</strong></p>
+
+<p>The DNS TXT record helps prove that the website intends to host your application. Cerner does not automatically assume that URLs provided by a developer are associated with the website operator. By publishing a DNS TXT record, Cerner can verify that the party that controls the website address intends to associate itself with the your registered application.</p>
+
+<p><strong>Where should the DNS TXT record be placed?</strong></p>
+
+<p>The DNS TXT record should be located on the DNS record for fully qualified domain name of your application’s primary redirect URI.</p>
+
+<p><strong>What happens if I don’t provide the DNS TXT record?</strong></p>
+
+<p>Cerner is unable to determine if the website intends to host your application. Therefore, Cerner will label the application as “Unknown App” and no information about your application except the domain name (ETLD+1) will be displayed to the user.  It will not prevent the user from using your application if he/she is comfortable with it.</p>
+
+<p><strong>Why does Cerner recommend that an application’s name align with the name of the website hosting it and/or the legal entity operating it?</strong></p>
+
+<p>As mentioned in the overview, the goal of the practices outlined in this document is to enable users (patients) to have a better understanding of who/what they’re considering sharing the protected health information (PHI) with.  Having a series of seemingly unrelated names (for application name, organization name, and website name) makes it more difficult to achieve this goal.</p>
+
+<p><strong>If I make changes to my application’s TLS certificate and/or DNS TXT record, how long before the Cerner workflow will recognize/display these changes?</strong></p>
+
+<p>It may take up to 12 hours before the Cerner workflow will recognize TLS certificate/or DNS TXT record changes.</p>
+
+<p><strong>What should I do if the organization information being displayed for my application seems incorrect?</strong></p>
+
+<p>Use the steps outlined above to check the certificate being returned from the URL of your application’s redirect URI.  It’s possible that your organization may be employing a content delivery network (CDN) that’s serving up its own certificate for your website.  If you determine this to be the case, work with your CDN provider to ensure that it’s serving the proper certificate for your URL.</p>
+
+<h3 id="references">References</h3>
+
+<ul>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc8252" title="OAuth 2.0 for Native Apps">RFC-8252</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc2119" title="Key words for use in RFCs to Indicate Requirement Levels">RFC 2119</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/rfc6749" title="The OAuth 2.0 Authorization Framework">RFC-6749</a></li>
+  <li><a href="https://code.cerner.com/" title="The Cerner Open Developer Experience Program">code Program</a></li>
+  <li><a href="https://code.cerner.com/apiaccess" title="The Cerner Open Developer Experience validation of applications">code Validation Program</a></li>
+  <li><a href="https://code-console.cerner.com/" title="The Cerner Open Developer Experience to develop and test applications">code console</a></li>
+  <li><a href="http://fhir.cerner.com/authorization/tls-guidance/" title="The Cerner Open Developer Experience TLS Guidance">code TLS Guidance</a></li>
+</ul>
+
+
+  </div>
+
+  <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="..">Authorization Overview</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../authorization-specification">Authorization Specification (1.0)</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../openid-connect">OpenId Connect</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../tls-guidance">TLS Usage Guidance</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href=".">Application Registration Prerequisites</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+</div>
+<!-- #wrapper -->
+
+<div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

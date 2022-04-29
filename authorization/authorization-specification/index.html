@@ -1022,11 +1022,9 @@ by including a fhirUser claim in the id_token.</p>
 <p>An EHR <strong>MAY</strong> include the  URI of the user’s FHIR<sup>®</sup> 
 resource.  This resource may be a Patient, Practitioner, 
 RelatedPerson, or Person resource as described by the
-<a href="http://www.hl7.org/implement/standards/FHIR/" title="FHIR&lt;sup&gt;®&lt;/sup&gt; Specification Home Page">FHIR<sup>®</sup> Specification</a>.</p>
-
-<p>The FHIR<sup>®</sup> resource server <strong>MUST</strong> allow a user access 
-to their own user resource when receiving any access token
-that represents approved access to the fhirUser scope.</p>
+<a href="http://www.hl7.org/implement/standards/FHIR/" title="FHIR&lt;sup&gt;®&lt;/sup&gt; Specification Home Page">FHIR<sup>®</sup> Specification</a>. SMART applications
+wishing to retrieve that resource <strong>MUST</strong> explicitly include
+the relevant scope(s) when requesting their access tokens.</p>
 
 <p><a id="discovery"></a></p>
 
@@ -1288,6 +1286,9 @@ modification-rights = ("read" / "write");
       </li>
       <li class="js-topic">
         <h3><a href="../tls-guidance">TLS Usage Guidance</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../application-registration-prerequisites">Application Registration Prerequisites</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->
