@@ -7,7 +7,7 @@ module Cerner
       "resourceType": 'CapabilityStatement',
       "publisher": 'Cerner Corporation',
       "date": '2022-02-07T04:02:50-05:00',
-      "url": 'https://fhir-myrecord-sc.stagingcerner.com/r4/03416cd1-2b98-4412-95ef-920e74c5194b/metadata',
+      "url": 'https://fhir-myrecord-sc.cerner.com/r4/03416cd1-2b98-4412-95ef-920e74c5194b/metadata',
       "name": 'Soarian Clinicals Capability Statement',
       "title": 'Soarian Clinicals Capability Statement',
       "status": 'active',
