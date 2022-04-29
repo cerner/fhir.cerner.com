@@ -627,6 +627,7 @@ fields:
 
   note: >
     <ul>
+      <li>The custom-attribute id field cannot be set.</li>
       <li>custom-attribute-name and custom-attribute-value are both required.</li>
       <li>id and valueString for custom-attribute-name are required.</li>
       <li>custom-attribute-value can be of type string, integer, dateTime, or CodeableConcept.</li>
