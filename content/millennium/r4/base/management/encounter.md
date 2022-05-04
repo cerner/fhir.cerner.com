@@ -109,7 +109,7 @@ Notes:
 * `_revinclude` parameter may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
 * `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 * `_count` and `status` must be provided with patient
-* `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
+* `status` valid parameters are `planned`, `in-progress`, `finished`, `cancelled`
 * The `date` parameter may be provided:
   * once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
     `date=ge2015-01-01T00:00:00.000Z`,
