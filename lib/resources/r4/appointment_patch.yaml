@@ -237,7 +237,7 @@ operations:
     path: /patient-status
     operation: replace
     type: code
-    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status
+    url: https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status
     description: The participant status on Patient participant types
     example: |
       {
