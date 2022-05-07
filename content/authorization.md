@@ -176,7 +176,7 @@ containing this information:
       "security": {
         "extension": [
           {
-            "url": "https://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
+            "url": "http://fhir-registry.smarthealthit.org/StructureDefinition/oauth-uris",
             "extension": [
               {
                 "url": "token",
