@@ -91,8 +91,8 @@ module Cerner
         "<pre class=\"#{css_override || 'body-response'}\"><code class=\"language-javascript\">"\
         "#{JSON.pretty_generate(escaped_values_hash)}</code></pre>"
       end
-	  
-	  def soarian_bulk_json(key, css_override: nil)
+
+      def soarian_bulk_json(key, css_override: nil)
         hash = get_resource(key)
         hash = yield hash if block_given?
 
