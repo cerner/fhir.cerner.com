@@ -44,7 +44,7 @@ Cerner recommends that client applications always explicitly delete requests aft
 
 Before a client application can interact with the Soarian Clinicals<sup>®</sup> Bulk API, it must obtain an asymmetric key pair and register its public key set with Cerner. Once a client application is registered, the Soarian Clinicals<sup>®</sup> Bulk API treats it as preauthorized. This enables the client application to obtain access tokens at runtime after authenticating itself. See [Authorization](https://fhir.cerner.com/authorization/) for details on registering client applications and obtaining access tokens.
 
-### Requesting Population Data—Kickoff Request
+### Population Data—Kickoff Request
 
 Soarian Clinicals<sup>®</sup> supports two endpoints for bulk data requests: one for All Patients, and another for a specific Group of Patients.
 
@@ -68,11 +68,11 @@ Depending upon the hospital’s policies and configuration, the ability to retur
 
 ### Parameters
 
-Name                    | Required? | Type       | Description
-------------------------|-----------|------------|---------------------------------------------------------------------------------------------------
-`outputFormat`          | No        | [`string`] | The format for the requested bulk data files to be generated as per [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to application/fhir+ndjson. Soarian Clinicals<sup>®</sup> accepts application/fhir+ndjson as well as the abbreviated representations application/ndjson and ndjson.
-`_since`                | No        | [`string`] | The response includes resources if their state changed after the supplied time (for example, if Resource.meta.lastUpdated is later than the supplied_since time).
-`_type`                 | No        | [`string`] | Only resources of the specified resource types are included in the response. If this parameter is omitted, Soarian Clinicals<sup>®</sup> returns all supported resources in the scope of the client application authorization.
+Name                    | Required? | Type                                                      | Description
+------------------------|-----------|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------
+`_outputFormat`          | No        | [`string`] 												| The format for the requested bulk data files to be generated as per [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to application/fhir+ndjson. Soarian Clinicals<sup>®</sup> accepts application/fhir+ndjson as well as the abbreviated representations application/ndjson and ndjson.
+`_since`                | No        | FHIR<sup>®</sup> instant 									| The response includes resources if their state changed after the supplied time (for example, if Resource.meta.lastUpdated is later than the supplied_since time).
+`_type`                 | No        | String of comma-delimited FHIR<sup>®</sup> resource types | Only resources of the specified resource types are included in the response. If this parameter is omitted, Soarian Clinicals<sup>®</sup> returns all supported resources in the scope of the client application authorization.
 
 _Notes_
 
@@ -90,7 +90,7 @@ _Notes_
 
 Request
 
-    Insert sandbox dynamic example
+    GET https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Group/All_Patients/$export?_outputFormat=ndjson&_since=2020-05-10T07:12:33.058Z&_type=Patient
 
 Response
 A successful response includes:
@@ -99,13 +99,30 @@ A successful response includes:
 * Content-Location header with the absolute URL of an endpoint for subsequent status requests (polling location)
 * FHIR<sup>®</sup> OperationOutcome resource in the body
 
-	Insert sandbox dynamic example
+<%= headers status: 202 %>
+<%= soarian_bulk_json(:SOARIAN_R4_BULK_KICKOFF_REQUEST) %>
 	
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+The following common errors and OperationOutcomes may be returned in response to the export request:
+
+ HTTP Status                    | Cause                                                                      												| Severity | Code
+--------------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|----------
+ 400                            | Badly formed URL                                    																		| error    | structure
+ 400                            | The _outputFormat parameter or _since parameter contains an Invalid or unsupported value.                                 | error    | invalid
+ 400					        | The resources in _type parameter are not supported standalone.                                                        	| error    | not-supported                                
+ 403                            | The expected scope does not match the URL.                                												| error    | Security
+ 404                            | The Population Application or Population Group is not defined or not active.                                            	| error    | not-found
+ 404                            | The Population Group is not assigned to a Population Application.                                            				| error    | not-found
+ 404                            | The Stored Procedure assigned to the Population Group with group ID was not found.                                        | error    | not-found
+ 404                            | The resources in the _type parameter are not supported.                                            						| error    | not-supported
+ 404                            | The Population Application is not configured to use the Bulk Data Patient Export.                                         | error    | not-found
+ 406		                    | The Bulk Data Server rejected an export operation with an invalid Accept or Prefer header.             					| error    | Structure
+ 409		                    | The Population Application sent a duplicate request that uses the same values in the _since and in _type parameters.      | error    | duplicate
+ 501		                    | The FHIR® operation for Patient Export is not currently enabled in this server environment due to volume and traffic considerations. Contact the institution with inquiries or modify your request to perform a Group Export.          | error    | not-found
+
 
 ## Population Data—Delete Request
 
@@ -123,7 +140,7 @@ If the bulk data export request completed previously, any files associated with 
 
 Request
 
-    Insert sandbox dynamic example
+    GET https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/bulk-api/request/6d7210a3-9c6d-4b4a-ad15-013515b524ba
 	
 In this scenario, the polling content location matches the value returned in the response to the initial bulk data request.
 
@@ -133,14 +150,23 @@ A successful response includes:
 * HTTP Status Code 202 Accepted
 * FHIR OperationOutcome resource in the body
 
-	Insert sandbox dynamic example
+<%= headers status: 202 %>
+<%= soarian_bulk_json(:SOARIAN_R4_BULK_DELETE_REQUEST) %>
 	
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+The following common errors and OperationOutcomes may be returned from the delete request:
 
+ HTTP Status                    | Cause                                                                      												| Severity | Code
+--------------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|----------
+ 404                            | The Population Application is not defined or not active.                                    								| error    | not-found
+ 404                            | The Request ID was not found.                                																| error    | not-found
+ 404					        | This request was previously canceled or has expired.                                                        				| error    | deleted                                
+ 406                            | The Bulk Data Server rejected this Status Request operation due to an invalid Accept header.                              | error    | structure
+ 500					        | An internal error occurred.                                                        										| fatal    | exception
+ 
 ## Population Data—Status Request
 
 Once a bulk data request has started, bulk client applications can query its status by issuing an HTTP GET to the polling content location associated with the bulk data request.
@@ -153,7 +179,7 @@ Once a bulk data request has started, bulk client applications can query its sta
 
 Request
 
-    Insert sandbox dynamic example
+    GET https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Group/All_Patients/$export?_outputFormat=ndjson&_since=2021-05-10T07:02:39.784Z&_type=Patient
 	
 Scenarios where polling content location matches the value returned in the response to the initial bulk data request.
 
@@ -164,45 +190,58 @@ A status request has the following possible responses:
 * In Progress: Soarian Clinicals® is building the bulk data response but has not yet finished it.
 * Error: Soarian Clinicals® encountered an error while building the bulk data response.
 * Complete: Soarian Clinicals® finished building the bulk data response and it is ready for download.
-
-	Insert sandbox dynamic example
 	
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
 #### Example – In Progress
 
 A successful response includes the following messages:
-* HTTP Status Code: - 202 Accepted
+
+* HTTP Status Code: 202 Accepted
 * X-Progress: A string estimating how much of the bulk data response has been built
 
-	Insert sandbox dynamic example
+<%= headers status: 202 %>
+* x-progress : 23.0% complete
 
 #### Example – Error
 
-A successful response includes the following messages:
+An error response includes the following information:
+
 * HTTP Status Code: 4XX or 5XX.
 * FHIR OperationOutcome: This information is included in the body of the error response.
 
-	Insert sandbox dynamic examples
+<%= soarian_bulk_json(:SOARIAN_R4_BULK_STATUS_REQUEST_ERROR) %>
 	
 This error response indicates that the operation has completely failed, that is, no NDJSON files containing bulk data have been created. In the case where the operation has partially succeeded (some— but not all— NDJSON files containing bulk data were created), the response indicates a Complete status.
 
 #### Example – Complete
 
-A successful response includes the following messages:
+A 100% successful response includes:
+
 * HTTP Status Code: 200 OK
 
 The body of the response includes a list of output file URLs in the output array element.
 
-	Insert sandbox dynamic examples	
+<%= headers status: 200 %>
+<%= soarian_bulk_json(:SOARIAN_R4_BULK_STATUS_REQUEST_COMPLETE) %>
 	
 A partially successful response also includes a list of output file URLs in the output array element, pointing to data files that were successfully created. The response body also contains an error array element, which contains a list of URLs that point to NDJSON OperationOutcome resources that detail the errors encountered.
 
-	Insert sandbox dynamic examples
+<%= headers status: 200 %>
+<%= soarian_bulk_json(:SOARIAN_R4_BULK_FILE_REQUEST) %>
 	
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+The following common errors and OperationOutcomes may be returned from the status request:
+
+ HTTP Status                    | Cause                                                                      												| Severity | Code
+--------------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|----------
+ 404                            | The Population Application is not defined or not active.                                    								| error    | not-found
+ 404                            | The Request ID was not found.                                																| error    | not-found
+ 404					        | This request was previously canceled or has expired.                                                        				| error    | deleted                                
+ 406                            | The Bulk Data Server rejected this Status Request operation due to an invalid Accept header.                              | error    | structure
+ 500					        | An internal error occurred.                                                        										| fatal    | exception
+
 
 ## Population Data – File Request
 
@@ -216,7 +255,7 @@ As mentioned in previous sections, the status response for a completed request i
 
 ### Request
 
-	Insert sandbox dynamic example
+	GET https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/bulk-api/request/173a39fc-a2c3-4df2-ae41-5445240f3612
 	
 Where the URLs point to the download location.
 
@@ -224,14 +263,23 @@ Note that a valid access token must be supplied with the download request. The m
 
 ### Response
 
-	Insert sandbox dynamic example
+<%= soarian_bulk_json(:SOARIAN_R4_BULK_FILE_REQUEST) %>
 	
 Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.
 
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+The following common errors and OperationOutcomes may be returned from the file request:
 
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+ HTTP Status                    | Cause                                                                      												| Severity | Code
+--------------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|----------
+ 403                            | The expected scope does not match the URL.                                												| error    | Security
+ 404                            | The Population Application is not defined or not active.                                    								| error    | not-found
+ 404                            | The Request ID was not found.                                																| error    | not-found
+ 404					        | This request was previously canceled or has expired.                                                        				| error    | deleted 
+ 404					        | The file was not found.                                                        											| error    | not-found 
+ 406                            | The Bulk Data Server rejected this Status Request operation due to an invalid Accept header.                              | error    | structure
+
 [`string`]: https://hl7.org/fhir/R4/search.html#string
+
+
