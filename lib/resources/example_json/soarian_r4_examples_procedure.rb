@@ -22,7 +22,7 @@ module Cerner
       },
       "subject": {
         "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-        "display": 'Mcgovern,Astrid-Anna Santiago'
+        "display": 'Mcgovern,Astrid Santiago'
       },
       "encounter": {
         "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
@@ -64,19 +64,19 @@ module Cerner
       "text": {
         "status": 'generated',
         # rubocop:disable Layout/LineLength
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
         # rubocop:enable Layout/LineLength
       }
     }.freeze
 
     SOARIAN_R4_PROCEDURE_SEARCH_BY_ID_ENTRY ||= {
       "resourceType": 'Bundle',
-      "id": '5da7c4ff-3aec-4ade-9b5b-07d6964d7f65',
+      "id": '3ea57196-7e5c-4ad6-9c3b-8761c38430c5',
       "type": 'searchset',
-      "timestamp": '2021-10-04T01:50:25-04:00',
+      "timestamp": '2022-05-11T04:42:41-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008',
           "search": {
             "mode": 'match'
           },
@@ -99,7 +99,7 @@ module Cerner
             },
             "subject": {
               "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid-Anna Santiago'
+              "display": 'Mcgovern,Astrid Santiago'
             },
             "encounter": {
               "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
@@ -141,7 +141,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -150,19 +150,19 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F'
         }
       ]
     }.freeze
 
     SOARIAN_R4_PROCEDURE_SEARCH_BY_PT_ENTRY ||= {
       "resourceType": 'Bundle',
-      "id": 'ae379b20-58a6-4b85-9eff-be232222ea7a',
+      "id": '3ea57196-7e5c-4ad6-9c3b-8761c38430c5',
       "type": 'searchset',
-      "timestamp": '2021-02-24T18:31:59-05:00',
+      "timestamp": '2022-05-11T04:42:41-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Procedure/A879904FD2FE4B2D90C89FDA84E1285F.8008',
           "search": {
             "mode": 'match'
           },
@@ -185,7 +185,7 @@ module Cerner
             },
             "subject": {
               "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid-Anna Santiago'
+              "display": 'Mcgovern,Astrid Santiago'
             },
             "encounter": {
               "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
@@ -227,7 +227,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Procedure</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Encounter</b>:Inferno,Initial;<br /><b>Status</b>:completed;<br /><b>Code</b>:<br /><b>system</b>:http://snomed.info/sct <b>code</b>:10847001 <b>display</b>:Bronchoscopy;<br /><b>Performed</b>:2020-11-13T02:02:00-05:00;<br /><b>Focal Device</b>: <br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.9005,700803007 Orthopedic prosthesis implantation instrument, reusable (physical object);<br /><b>Action</b>: <b>system</b>:http://snomed.info/sct <b>code</b>:257867005 <b>display</b>:Insertion - action;<br /><b>Manipulated</b>:Device/A879904FD2FE4B2D90C89FDA84E1285F.13004,714547008 Bone matrix implant, human derived (physical object);<br /></div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -236,7 +236,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Procedure?patient=A879904FD2FE4B2D90C89FDA84E1285F'
         }
       ]
     }.freeze
