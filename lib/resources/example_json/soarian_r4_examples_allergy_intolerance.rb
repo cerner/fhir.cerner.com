@@ -42,7 +42,7 @@ module Cerner
       },
       "patient": {
         "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-        "display": 'Mcgovern,Astrid-Anna Santiago'
+        "display": 'Mcgovern,Astrid Santiago'
       },
       "onsetString": 'unknown',
       "reaction": [
@@ -58,7 +58,7 @@ module Cerner
       "text": {
         "status": 'generated',
         # rubocop:disable Layout/LineLength
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><br /><b>Allergy Intolerance</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago<br /> <b>Clinical Status</b>: <b>Code</b>:active <b>Display</b>:Active <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical<br /><b>Verification Status</b>: <b>Code</b>:confirmed <b>Display</b>:Confirmed <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-verification<br /><b>Category</b>:medication<br /><b>Code</b>:<b>Code</b>:1191 <b>Display</b>:Aspirin <b>System</b>:http://www.nlm.nih.gov/research/umls/rxnorm <b>Text</b>:aspirin<br /><b>Onset</b>:unknown<br /><b>Reaction</b>:<b>Text</b>:Bleeding <b>Severity</b>:severe<br /><br /></div>'
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><br /><b>Allergy Intolerance</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago<br /> <b>Clinical Status</b>: <b>Code</b>:active <b>Display</b>:Active <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical<br /><b>Verification Status</b>: <b>Code</b>:confirmed <b>Display</b>:Confirmed <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-verification<br /><b>Category</b>:medication<br /><b>Code</b>:<b>Code</b>:1191 <b>Display</b>:Aspirin <b>System</b>:http://www.nlm.nih.gov/research/umls/rxnorm <b>Text</b>:aspirin<br /><b>Onset</b>:unknown<br /><b>Reaction</b>:<b>Text</b>:Bleeding <b>Severity</b>:severe<br /><br /></div>'
         # rubocop:enable Layout/LineLength
       }
     }.freeze
@@ -70,7 +70,7 @@ module Cerner
       "timestamp": '2021-09-29T06:58:11-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/AllergyIntolerance/A879904FD2FE4B2D90C89FDA84E1285F.ALG.17073',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/AllergyIntolerance/A879904FD2FE4B2D90C89FDA84E1285F.ALG.17073',
           "search": {
             "mode": 'match'
           },
@@ -113,7 +113,7 @@ module Cerner
             },
             "patient": {
               "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid-Anna Santiago'
+              "display": 'Mcgovern,Astrid Santiago'
             },
             "onsetString": 'unknown',
             "reaction": [
@@ -129,7 +129,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><br /><b>Allergy Intolerance</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago<br /> <b>Clinical Status</b>: <b>Code</b>:active <b>Display</b>:Active <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical<br /><b>Verification Status</b>: <b>Code</b>:confirmed <b>Display</b>:Confirmed <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-verification<br /><b>Category</b>:medication<br /><b>Code</b>:<b>Code</b>:1191 <b>Display</b>:Aspirin <b>System</b>:http://www.nlm.nih.gov/research/umls/rxnorm <b>Text</b>:aspirin<br /><b>Onset</b>:unknown<br /><b>Reaction</b>:<b>Text</b>:Bleeding <b>Severity</b>:severe<br /><br /></div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><br /><b>Allergy Intolerance</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago<br /> <b>Clinical Status</b>: <b>Code</b>:active <b>Display</b>:Active <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical<br /><b>Verification Status</b>: <b>Code</b>:confirmed <b>Display</b>:Confirmed <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-verification<br /><b>Category</b>:medication<br /><b>Code</b>:<b>Code</b>:1191 <b>Display</b>:Aspirin <b>System</b>:http://www.nlm.nih.gov/research/umls/rxnorm <b>Text</b>:aspirin<br /><b>Onset</b>:unknown<br /><b>Reaction</b>:<b>Text</b>:Bleeding <b>Severity</b>:severe<br /><br /></div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -138,7 +138,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/AllergyIntolerance?patient=A879904FD2FE4B2D90C89FDA84E1285F'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/AllergyIntolerance?patient=A879904FD2FE4B2D90C89FDA84E1285F'
         }
       ]
     }.freeze
@@ -150,7 +150,7 @@ module Cerner
       "timestamp": '2021-03-19T12:22:26-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/AllergyIntolerance/A879904FD2FE4B2D90C89FDA84E1285F.ALG.17073',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/AllergyIntolerance/A879904FD2FE4B2D90C89FDA84E1285F.ALG.17073',
           "search": {
             "mode": 'match'
           },
@@ -193,7 +193,7 @@ module Cerner
             },
             "patient": {
               "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid-Anna Santiago'
+              "display": 'Mcgovern,Astrid Santiago'
             },
             "onsetString": 'unknown',
             "reaction": [
@@ -209,19 +209,19 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><br /><b>Allergy Intolerance</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago<br /> <b>Clinical Status</b>: <b>Code</b>:active <b>Display</b>:Active <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical<br /><b>Verification Status</b>: <b>Code</b>:confirmed <b>Display</b>:Confirmed <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-verification<br /><b>Category</b>:medication<br /><b>Code</b>:<b>Code</b>:1191 <b>Display</b>:Aspirin <b>System</b>:http://www.nlm.nih.gov/research/umls/rxnorm <b>Text</b>:aspirin<br /><b>Onset</b>:unknown<br /><b>Reaction</b>:<b>Text</b>:Bleeding <b>Severity</b>:severe<br /><br /></div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><br /><b>Allergy Intolerance</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago<br /> <b>Clinical Status</b>: <b>Code</b>:active <b>Display</b>:Active <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical<br /><b>Verification Status</b>: <b>Code</b>:confirmed <b>Display</b>:Confirmed <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-verification<br /><b>Category</b>:medication<br /><b>Code</b>:<b>Code</b>:1191 <b>Display</b>:Aspirin <b>System</b>:http://www.nlm.nih.gov/research/umls/rxnorm <b>Text</b>:aspirin<br /><b>Onset</b>:unknown<br /><b>Reaction</b>:<b>Text</b>:Bleeding <b>Severity</b>:severe<br /><br /></div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/AllergyIntolerance/A879904FD2FE4B2D90C89FDA84E1285F.ALGIND.NOLAT.11212',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/AllergyIntolerance/A879904FD2FE4B2D90C89FDA84E1285F.ALGIND.NOCON.11212',
           "search": {
             "mode": 'match'
           },
           "resource": {
             "resourceType": 'AllergyIntolerance',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.ALGIND.NOLAT.11212',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.ALGIND.NOCON.11212',
             "meta": {
               "lastUpdated": '2020-11-11T20:40:06-05:00'
             },
@@ -244,16 +244,16 @@ module Cerner
               ]
             },
             "code": {
-              "text": 'No known latex allergy (situation)'
+              "text": 'No known contrast allergy (situation)'
             },
             "patient": {
               "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid-Anna Santiago'
+              "display": 'Mcgovern,Astrid Santiago'
             },
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><br /><b>Allergy Intolerance</b><br /><b>Patient</b>:Mcgovern,Astrid-Anna Santiago<br /> <b>Clinical Status</b>: <b>Code</b>:active <b>Display</b>:Active <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical<br /><b>Verification Status</b>: <b>Code</b>:confirmed <b>Display</b>:Confirmed <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-verification<br /><b>Code</b>: <b>Text</b>:No known latex allergy (situation)<br /></div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><br /><b>Allergy Intolerance</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago<br /> <b>Clinical Status</b>: <b>Code</b>:active <b>Display</b>:Active <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical<br /><b>Verification Status</b>: <b>Code</b>:confirmed <b>Display</b>:Confirmed <b>System</b>:http://terminology.hl7.org/CodeSystem/allergyintolerance-verification<br /><b>Code</b>: <b>Text</b>:No known contrast allergy (situation)<br /></div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -262,7 +262,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/AllergyIntolerance?patient=A879904FD2FE4B2D90C89FDA84E1285F'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/AllergyIntolerance?patient=A879904FD2FE4B2D90C89FDA84E1285F'
         }
       ]
     }.freeze
