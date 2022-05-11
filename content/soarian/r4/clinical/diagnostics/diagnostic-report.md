@@ -72,7 +72,7 @@ Search for DiagnosticReport resources that meet the specified query parameters:
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport?patient=A879904FD2FE4B2D90C89FDA84E1285F
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport?patient=A879904FD2FE4B2D90C89FDA84E1285F
 
 #### Response
 
@@ -89,7 +89,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport?_id=A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport?patient=A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221
 
 #### Response
 
@@ -120,7 +120,7 @@ List an individual DiagnosticReport resource by its ID:
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221
 
 #### Response
 

@@ -5,12 +5,12 @@ module Cerner
 
     SOARIAN_R4_DXREPORT_SEARCH_BY_PATIENT ||= {
       "resourceType": 'Bundle',
-      "id": '46639879-4ea7-491c-a082-82e1f782b60d',
+      "id": '822118d4-2466-461e-90cd-934ffaf5a8e8',
       "type": 'searchset',
-      "timestamp": '2021-05-28T07:29:56-04:00',
+      "timestamp": '2022-05-09T05:48:16-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221',
           "search": {
             "mode": 'match'
           },
@@ -139,7 +139,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.CAR.15217',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.CAR.15217',
           "search": {
             "mode": 'match'
           },
@@ -200,377 +200,12 @@ module Cerner
               # rubocop:enable Layout/LineLength
             }
           }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.LAB.31302',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'DiagnosticReport',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.LAB.31302',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "status": 'final',
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0074',
-                    "code": 'LAB',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "code": {
-              "text": 'SOURCE'
-            },
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "issued": '2021-05-07T12:02:51-04:00',
-            "performer": [
-              {
-                "reference": 'Organization/HCU.14018',
-                "display": 'RES_LAB'
-              }
-            ],
-            "presentedForm": [
-              {
-                "contentType": 'text/plain',
-                "data": 'TW9kZXJhdGUgR3Jvd3RoX0VkaXQ='
-              }
-            ],
-            "result": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31302'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31303'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31304'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31305'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31306'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>DiagnosticReport</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:final;<br /><b>Category</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/v2-0074 <b>Code</b>:LAB <b>Display</b>:Laboratory ;<br /><b>Code</b>:<br /><b>Text</b>:SOURCE;<br /><b>EffectiveDateTime</b>:2020-03-29T03:18:00-04:00;<br /></div>"
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.LAB.31303',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'DiagnosticReport',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.LAB.31303',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "status": 'preliminary',
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0074',
-                    "code": 'LAB',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "code": {
-              "text": 'RES_ORGANISM'
-            },
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "issued": '2021-05-07T12:02:51-04:00',
-            "performer": [
-              {
-                "reference": 'Organization/HCU.14018',
-                "display": 'RES_LAB'
-              }
-            ],
-            "presentedForm": [
-              {
-                "contentType": 'text/plain',
-                "data": 'R3JhbSBQb3NpdGl2ZQ=='
-              }
-            ],
-            "result": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31302'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31303'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31304'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31305'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31306'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>DiagnosticReport</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:preliminary;<br /><b>Category</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/v2-0074 <b>Code</b>:LAB <b>Display</b>:Laboratory ;<br /><b>Code</b>:<br /><b>Text</b>:RES_ORGANISM;<br /><b>EffectiveDateTime</b>:2020-03-29T03:18:00-04:00;<br /></div>"
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.LAB.31304',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'DiagnosticReport',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.LAB.31304',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "status": 'registered',
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0074',
-                    "code": 'LAB',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "code": {
-              "text": 'CULTURE SIGNIFIGANCE'
-            },
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "issued": '2021-05-07T12:02:51-04:00',
-            "performer": [
-              {
-                "reference": 'Organization/HCU.14018',
-                "display": 'RES_LAB'
-              }
-            ],
-            "presentedForm": [
-              {
-                "contentType": 'text/plain',
-                "data": 'Tm9uZQ=='
-              }
-            ],
-            "result": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31302'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31303'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31304'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31305'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31306'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>DiagnosticReport</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:registered;<br /><b>Category</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/v2-0074 <b>Code</b>:LAB <b>Display</b>:Laboratory ;<br /><b>Code</b>:<br /><b>Text</b>:CULTURE SIGNIFIGANCE;<br /><b>EffectiveDateTime</b>:2020-03-29T03:18:00-04:00;<br /></div>"
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.LAB.31305',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'DiagnosticReport',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.LAB.31305',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "status": 'registered',
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0074',
-                    "code": 'LAB',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "code": {
-              "text": 'SOURCE'
-            },
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "issued": '2021-05-07T12:02:51-04:00',
-            "performer": [
-              {
-                "reference": 'Organization/HCU.14018',
-                "display": 'RES_LAB'
-              }
-            ],
-            "presentedForm": [
-              {
-                "contentType": 'text/plain',
-                "data": 'QW1wLTE='
-              }
-            ],
-            "result": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31302'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31303'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31304'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31305'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31306'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>DiagnosticReport</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:registered;<br /><b>Category</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/v2-0074 <b>Code</b>:LAB <b>Display</b>:Laboratory ;<br /><b>Code</b>:<br /><b>Text</b>:SOURCE;<br /><b>EffectiveDateTime</b>:2020-03-29T03:18:00-04:00;<br /></div>"
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.LAB.31306',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'DiagnosticReport',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.LAB.31306',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "status": 'preliminary',
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/v2-0074',
-                    "code": 'LAB',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "code": {
-              "text": 'SOURCE'
-            },
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "issued": '2021-05-07T12:02:51-04:00',
-            "performer": [
-              {
-                "reference": 'Organization/HCU.14018',
-                "display": 'RES_LAB'
-              }
-            ],
-            "presentedForm": [
-              {
-                "contentType": 'text/plain',
-                "data": 'QW1wLTI='
-              }
-            ],
-            "result": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31302'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31303'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31304'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31305'
-              },
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31306'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>DiagnosticReport</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:preliminary;<br /><b>Category</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/v2-0074 <b>Code</b>:LAB <b>Display</b>:Laboratory ;<br /><b>Code</b>:<br /><b>Text</b>:SOURCE;<br /><b>EffectiveDateTime</b>:2020-03-29T03:18:00-04:00;<br /></div>"
-              # rubocop:enable Layout/LineLength
-            }
-          }
         }
       ],
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport?patient=A879904FD2FE4B2D90C89FDA84E1285F&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport?patient=A879904FD2FE4B2D90C89FDA84E1285F&_format=json'
         }
       ]
     }.freeze
@@ -579,10 +214,10 @@ module Cerner
       "resourceType": 'Bundle',
       "id": 'c3b2dbc0-2642-4dd6-b1b8-05de15b1b40c',
       "type": 'searchset',
-      "timestamp": '2021-05-28T07:31:49-04:00',
+      "timestamp": '2022-05-09T05:48:16-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport/A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221',
           "search": {
             "mode": 'match'
           },
@@ -639,7 +274,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>DiagnosticReport</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:final;<br /><b>Category</b>:<br /><b>System</b>:http://loinc.org <b>Code</b>:LP29684-5 <b>Display</b>:Radiology ;<br /><b>Code</b>:<br /><b>System</b>:http://loinc.org <b>Code</b>:18782-3 <b>Display</b>:Radiology Study observation (narrative) <b>Text</b>:Radiology Study Observation;<br /><b>EffectiveDateTime</b>:2020-12-01T08:15:00-05:00;<br /></div>"
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>DiagnosticReport</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:final;<br /><b>Category</b>:<br /><b>System</b>:http://loinc.org <b>Code</b>:LP29684-5 <b>Display</b>:Radiology ;<br /><b>Code</b>:<br /><b>System</b>:http://loinc.org <b>Code</b>:18782-3 <b>Display</b>:Radiology Study observation (narrative) <b>Text</b>:Radiology Study Observation;<br /><b>EffectiveDateTime</b>:2020-12-01T08:15:00-05:00;<br /></div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -648,7 +283,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/DiagnosticReport?patient=A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport?patient=A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221&_format=json'
         }
       ]
     }.freeze
