@@ -767,7 +767,7 @@ token request:
 </pre>
 
 In either circumstance, Cerner's authorization server communicates
-the parameter "error_uri", which represents a URI that contains
+the parameter `error_uri`, which represents a URI that contains
 additional information useful for end users, client app developers,
 and support personnel, along with support contact information
 for the associated organization.  It is recommended when such
@@ -868,7 +868,7 @@ experience:
   (initiate the authorization grant workflow again) as
   appropriate.
 - Offer a "more information" link/button, hyperlinked to
-  the value returned in the parameter "error_uri".
+  the value returned in the parameter `error_uri`.
 
 #### Considerations for Handling 'offline_access' ####
 
@@ -895,25 +895,23 @@ The following steps are recommended for the user experience:
 - Indicate that the application's access may have been
   suspended or revoked.
 - Offer a "more information" link/button, hyperlinked to
-  the value returned in the parameter "error_uri".
+  the value returned in the parameter `error_uri`.
 - Offer the ability for the user to re-request
   authorization for your client application.
 
 _NOTE_:  The authorization server will not explicitly indicate
 whether a token was revoked or suspended.  As a result, there
 are additional recommendations to improve the overall
-interaction with the end-user.
+interaction with the end-user as described below.
 
-The error_uri used in the hyperlink/button should be launched
+The `error_uri` used in the hyperlink/button should be launched
 in a separate browser window/tab.  This is recommended
 because there is no callback/redirect mechanism to get the
-user back into the application once they take an action.
+user back into the application once they take an action
+and the `error_uri` will only provide an opportunity for the
+user to re-approve the application if it was temporarily suspended.
 
-Additionally, the error_uri may not provide an opportunity
-for the user to re-approve the application, such as when
-the token has been fully revoked rather than just suspended.
-
-Ultimately, your application should provide a modal dialog
+Additionally, your application should provide a modal dialog
 to prompt the user for an action that coincides with
 their choice and/or action in the separate window.
 This should include options to retry the token refresh,
@@ -1079,7 +1077,7 @@ When a user revokes an application's access, its
 When the authorization server suspends a refresh token,
 the user can re-approve the application so that a
 subsequent token refresh will succeed.  The application
-must present the "error_uri" link to the user so that they
+must present the `error_uri` link to the user so that they
 can launch the management application to re-approve the token.
 However, if the user does not do this, or they deny the 
 re-approval, then the token refresh will continue to fail.
