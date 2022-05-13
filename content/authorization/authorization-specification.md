@@ -799,11 +799,9 @@ by including a fhirUser claim in the id_token.
 An EHR __MAY__ include the  URI of the user's FHIR<sup>®</sup> 
 resource.  This resource may be a Patient, Practitioner, 
 RelatedPerson, or Person resource as described by the
-[FHIR<sup>®</sup> Specification][FHIR].
-
-The FHIR<sup>®</sup> resource server __MUST__ allow a user access 
-to their own user resource when receiving any access token
-that represents approved access to the fhirUser scope. 
+[FHIR<sup>®</sup> Specification][FHIR]. SMART applications
+wishing to retrieve that resource __MUST__ explicitly include
+the relevant scope(s) when requesting their access tokens.
 
 <a id="discovery"></a>
 
