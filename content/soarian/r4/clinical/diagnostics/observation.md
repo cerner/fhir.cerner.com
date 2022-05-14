@@ -9,9 +9,9 @@ title: Observation | R4 API
 
 ## Overview
 
-The Observation resource provides measurements or simple assertions about a patient that are useful for establishing baselines or trends, monitoring a patient’s progress, and establishing diagnoses. Most observations are simple name and value pair assertions but some observations, such as blood pressure, group other observations together logically. Examples of common observations are: laboratory results (blood sugar, hemoglobin), vital signs (temperature, blood pressure), personal characteristics (height, weight), and social history (tobacco use, birth sex). See also the DiagnosticReport resource for pathology, radiology, and microbiology reports.
+The Observation resource provides measurements or simple assertions about a patient that are useful for establishing baselines or trends, monitoring a patient’s progress, and establishing diagnoses. Most observations are simple name and value pair assertions but some observations, such as blood pressure, group other observations together logically. Examples of common observations includelaboratory results (blood sugar, hemoglobin), vital signs (temperature, blood pressure), personal characteristics (height, weight), and social history (tobacco use, birth sex). Also, see the DiagnosticReport resource for pathology, radiology, and microbiology reports.
 
-Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient that is charted in Soarian Clinicals<sup>®</sup> at the time of the query. 
+Soarian Clinicals<sup>®</sup> supports a read-only Application Programming Interface (API). This API accepts `GET` and `POST` based [search] and `GET` based [read] interactions. The response represents the most current information about the patient charted in Soarian Clinicals<sup>®</sup> at the time of the query.
 The search results include the following fields if they contain values:
 
 * [Observation Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
@@ -55,7 +55,7 @@ The search results include the following fields if they contain values:
 
 ### Extensions
 
-   *  valueAttachment: The URL for this extension is defined as: `http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment` This extension is defined and referenced from the newer version of Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR<sup>®</sup>). See [Extensions for converting between versions](https://www.hl7.org/fhir/r4/versions.html#extensions) and [R5 Snapshot of Observation.value](https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_) for more information.
+   *  valueAttachment: This extension's URL is `http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`. This extension is defined and referenced from the newer version of Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR<sup>®</sup>). See [Extensions for converting between versions](https://www.hl7.org/fhir/r4/versions.html#extensions) and [R5 Snapshot of Observation.value](https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_) for more information.
 
 ## Search
 
@@ -71,14 +71,14 @@ Search for Observation resources that meet the specified query parameters:
 
  Name          | Required?           | Type            | Description
 ---------------|---------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------
- `_id`         | This, or `patient`  | [`token`]       | The logical resource ID associated with the resource.
- `patient`	   | See notes           | [`reference`]   | The patient that the observation is about. 
- `category`	   | See notes           | [`token`]       | The category of the observation report.
- `code`	       | See notes           | [`token`]       | The code of the observation.
+ `ID`         | This, or `patient`  | [`token`]       | The logical resource ID associated with the resource.
+ `patient`	   | See notes           | [`reference`]   | The patient the observation is about. 
+ `category`	   | See notes           | [`token`]       | The observation report's category.
+ `code`	       | See notes           | [`token`]       | The observation's code.
  `encounter`   | No                  | [`reference`]   | The encounter associated with the observation record. 
  `date`	       | No                  | [`date`]        | Date range into which the observation falls. Example: date=gt2014-09-24 or date=lt2015-09-24T12:00:00.000Z
  `_count_`	   | No                  | [`count`]       | The maximum number of resources returned in a page.
- `_revinclude` | No                  | [`_revinclude`] | A request to include any Provenance resource in the bundle that refers to an Observation  resource in the search results. Only supported with Provenance.
+ `_revinclude` | No                  | [`_revinclude`] | A request to include any Provenance resource in the bundle that refers to an Observation resource in the search results. Only supported with Provenance.
 
  Notes
  
@@ -86,11 +86,11 @@ Search for Observation resources that meet the specified query parameters:
 * The `category` parameter:
     * Is required with the `patient` parameter.
     * Supports the codes `laboratory`, `social-history`, and `vital-signs`.
-* The `code` parameter searches only `Observation.code`. For example, when fetching blood pressure, the resource is only returned when the search is based on `85354-9(Systolic and Diastolic BP)`. Using the component codes `8480-6(Systolic BP)` or `8462-4 (Diastolic BP)` does not return the resource.
-    * Only when the `code` requested is for `85353-1 (Vital Signs Panel)` are qualifying vital sign Observation resources grouped as member references.
+* The `code` parameter searches only `Observation.code`. For example, when fetching blood pressure, the resource is returned only when the search is based on `85354-0(Systolic and Diastolic BP)`. Using the component codes `8480-6(Systolic BP)` or `8462-4 (Diastolic BP)` does not return the resource.
+    * Qualifying vital sign Observation resources are grouped as member references only when the requested `code` is for `85353-1 (Vital Signs Panel)`.
 * The `date` parameter may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read`  or  `user/Provenance.read` scope as applicable.
+* When `_revinclude` is provided in a request, the OAuth2 token must include the `patient/Provenance.read  system/Provenance.read` or `user/Provenance.read` scope as applicable.
 
 
 ### Headers
@@ -146,7 +146,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
-List an individual Encounter by its id:
+List an individual Encounter by its ID:
 
     GET /Observation/:id
 
