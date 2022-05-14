@@ -101,7 +101,7 @@ Search for Observation resources that meet the specified query parameters:
 
 #### Request Laboratory
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=laboratory
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=laboratory
 
 #### Response
 
@@ -111,7 +111,7 @@ Search for Observation resources that meet the specified query parameters:
 
 #### Request Social History
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=social-history
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=social-history
 
 #### Response
 
@@ -120,7 +120,7 @@ Search for Observation resources that meet the specified query parameters:
 
 #### Request Vital Signs
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=vital-signs
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=vital-signs
 
 #### Response
 
@@ -131,7 +131,7 @@ Search for Observation resources that meet the specified query parameters:
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation?_id=A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation?_id=A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299
 
 #### Response
 
@@ -162,7 +162,7 @@ List an individual Encounter by its id:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299
 
 #### Response
 

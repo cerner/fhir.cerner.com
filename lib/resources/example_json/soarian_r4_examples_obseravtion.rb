@@ -5,296 +5,12 @@ module Cerner
 
     SOARIAN_R4_OBSERVATION_SEARCH_BY_PT_LAB ||= {
       "resourceType": 'Bundle',
-      "id": 'ae9a100d-fe10-43a1-9902-6b8eba508f8f',
+      "id": 'a4988626-f234-4818-af49-1e8000c69365',
       "type": 'searchset',
-      "timestamp": '2021-05-28T06:50:46-04:00',
+      "timestamp": '2022-05-14T14:00:33-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.SEN.2141',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'Observation',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.RES.SEN.2141',
-            "status": 'preliminary',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    "code": 'laboratory',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2021-05-07T12:03:00-04:00',
-            "code": {
-              "text": 'TETRACYCLINE'
-            },
-            "valueString": 'Tetra-2',
-            "derivedFrom": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31306'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:preliminary<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Laboratory<br />    <b>Effective Time</b>:2021-05-07T12:03:00-04:00<br />   <b>Code</b>:<br />    <b>Text</b>:TETRACYCLINE<br />    <b>Value</b>:Tetra-2<br />    </div>'
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31303',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'Observation',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.RES.31303',
-            "status": 'preliminary',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    "code": 'laboratory',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "code": {
-              "text": 'RES_ORGANISM'
-            },
-            "valueString": 'Gram Positive',
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:preliminary<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Laboratory<br />    <b>Effective Time</b>:2020-03-29T03:18:00-04:00<br />   <b>Code</b>:<br />    <b>Text</b>:RES_ORGANISM<br />    <b>Value</b>:Gram Positive<br />    </div>'
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31306',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'Observation',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.RES.31306',
-            "status": 'preliminary',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    "code": 'laboratory',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "code": {
-              "text": 'SOURCE'
-            },
-            "valueString": 'Amp-2',
-            "hasMember": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.SEN.2141'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:preliminary<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Laboratory<br />    <b>Effective Time</b>:2020-03-29T03:18:00-04:00<br />   <b>Code</b>:<br />    <b>Text</b>:SOURCE<br />    <b>Value</b>:Amp-2<br />    </div>'
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.SEN.2140',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'Observation',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.RES.SEN.2140',
-            "status": 'registered',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    "code": 'laboratory',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2021-05-07T12:03:00-04:00',
-            "code": {
-              "text": 'TETRACYCLINE'
-            },
-            "valueString": 'Tetra-1',
-            "derivedFrom": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31305'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:registered<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Laboratory<br />    <b>Effective Time</b>:2021-05-07T12:03:00-04:00<br />   <b>Code</b>:<br />    <b>Text</b>:TETRACYCLINE<br />    <b>Value</b>:Tetra-1<br />    </div>'
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31304',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'Observation',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.RES.31304',
-            "status": 'registered',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    "code": 'laboratory',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "code": {
-              "text": 'CULTURE SIGNIFIGANCE'
-            },
-            "valueString": 'None',
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:registered<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Laboratory<br />    <b>Effective Time</b>:2020-03-29T03:18:00-04:00<br />   <b>Code</b>:<br />    <b>Text</b>:CULTURE SIGNIFIGANCE<br />    <b>Value</b>:None<br />    </div>'
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31305',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'Observation',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.RES.31305',
-            "status": 'registered',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    "code": 'laboratory',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "code": {
-              "text": 'SOURCE'
-            },
-            "valueString": 'Amp-1',
-            "hasMember": [
-              {
-                "reference": 'Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.SEN.2140'
-              }
-            ],
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:registered<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Laboratory<br />    <b>Effective Time</b>:2020-03-29T03:18:00-04:00<br />   <b>Code</b>:<br />    <b>Text</b>:SOURCE<br />    <b>Value</b>:Amp-1<br />    </div>'
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.20216',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.20216',
           "search": {
             "mode": 'match'
           },
@@ -338,51 +54,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Laboratory<br />    <b>Effective Time</b>:2020-12-11T09:14:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:6690-2 <b>Text</b>:WBC<br />    <b>Value</b>:&gt;=100UCUM http://unitsofmeasure.org,%<br />    </div>'
-              # rubocop:enable Layout/LineLength
-            }
-          }
-        },
-        {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.RES.31302',
-          "search": {
-            "mode": 'match'
-          },
-          "resource": {
-            "resourceType": 'Observation',
-            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.RES.31302',
-            "status": 'final',
-            "meta": {
-              "lastUpdated": '2021-05-07T12:02:54-04:00'
-            },
-            "category": [
-              {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-                    "code": 'laboratory',
-                    "display": 'Laboratory'
-                  }
-                ]
-              }
-            ],
-            "subject": {
-              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
-              "display": 'Mcgovern,Astrid Santiago'
-            },
-            "encounter": {
-              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
-              "display": 'Inferno,Initial'
-            },
-            "effectiveDateTime": '2020-03-29T03:18:00-04:00',
-            "code": {
-              "text": 'SOURCE'
-            },
-            "valueString": 'Moderate Growth_Edit',
-            "text": {
-              "status": 'generated',
-              # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Laboratory<br />    <b>Effective Time</b>:2020-03-29T03:18:00-04:00<br />   <b>Code</b>:<br />    <b>Text</b>:SOURCE<br />    <b>Value</b>:Moderate Growth_Edit<br />    </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:laboratory <b>Display</b>:Laboratory<br />    <b>Effective Time</b>:2020-12-11T09:14:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:6690-2 <b>Text</b>:WBC<br />    <b>Value</b>:&gt;=100UCUM http://unitsofmeasure.org,%<br />    </div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -391,19 +63,19 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=laboratory&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=laboratory'
         }
       ]
     }.freeze
 
     SOARIAN_R4_OBSERVATION_SEARCH_BY_PT_SOCHX ||= {
       "resourceType": 'Bundle',
-      "id": 'ee0190df-00b9-4f95-b0cd-bf369f6699b9',
+      "id": '37a2aeea-8830-40ca-9bdb-8e58914f88ab',
       "type": 'searchset',
-      "timestamp": '2021-05-28T06:40:02-04:00',
+      "timestamp": '2022-05-14T14:00:33-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.SH.50306',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.SH.50306',
           "search": {
             "mode": 'match'
           },
@@ -436,19 +108,25 @@ module Cerner
             "effectiveDateTime": '2021-02-04T10:36:00-05:00',
             "issued": '2021-02-04T10:36:00-05:00',
             "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '76689-9'
+                }
+              ],
               "text": 'CCDA_BirthSex_FN'
             },
             "valueString": 'Female',
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Social History<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />    <b>Text</b>:CCDA_BirthSex_FN<br />    <b>Value</b>:Female<br />    </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:social-history <b>Display</b>:Social History<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:76689-9 <b>Text</b>:CCDA_BirthSex_FN<br />    <b>Value</b>:Female<br />    </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.SH.43091',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.SH.43091',
           "search": {
             "mode": 'match'
           },
@@ -501,7 +179,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Social History<br />   <b>Issued</b>:2020-11-15T16:37:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:37:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:72166-2 <b>Text</b>:Tobacco Use?<br />    <b>Value</b>:<br />  <b>System</b>:http://snomed.info/sct <b>Code</b>:449868002 <b>Text</b>:Daily Smoker<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:social-history <b>Display</b>:Social History<br />   <b>Issued</b>:2020-11-15T16:37:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:37:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:72166-2 <b>Text</b>:Tobacco Use?<br />    <b>Value</b>:<br />  <b>System</b>:http://snomed.info/sct <b>Code</b>:449868002 <b>Text</b>:Daily Smoker<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -510,19 +188,19 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=social-history&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=social-history'
         }
       ]
     }.freeze
 
     SOARIAN_R4_OBSERVATION_SEARCH_BY_PT_VS ||= {
       "resourceType": 'Bundle',
-      "id": '0621fd8b-370f-44bd-b743-701b65fd3dc2',
+      "id": 'c766b0b2-2d1b-4dbb-a422-cc6a48e94959',
       "type": 'searchset',
-      "timestamp": '2021-05-28T06:53:25-04:00',
+      "timestamp": '2022-05-14T14:00:33-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299',
           "search": {
             "mode": 'match'
           },
@@ -558,6 +236,10 @@ module Cerner
               "coding": [
                 {
                   "system": 'http://loinc.org',
+                  "code": '29463-7'
+                },
+                {
+                  "system": 'http://loinc.org',
                   "code": '3141-9'
                 }
               ],
@@ -572,13 +254,13 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:30<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:29463-7 <b>Text</b>:Weight<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:30<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50300',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50300',
           "search": {
             "mode": 'match'
           },
@@ -628,13 +310,69 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8302-2 <b>Text</b>:Height<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:cm <b>Unit</b>:cm <b>Value</b>:130<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8302-2 <b>Text</b>:Height<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:cm <b>Unit</b>:cm <b>Value</b>:130<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50305',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50303',
+          "search": {
+            "mode": 'match'
+          },
+          "resource": {
+            "resourceType": 'Observation',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50303',
+            "status": 'final',
+            "meta": {
+              "lastUpdated": '2021-02-04T10:38:56-05:00'
+            },
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'vital-signs',
+                    "display": 'Vital Signs'
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
+            },
+            "encounter": {
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
+            },
+            "effectiveDateTime": '2021-02-04T10:36:00-05:00',
+            "issued": '2021-02-04T10:36:00-05:00',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '9843-4'
+                }
+              ],
+              "text": 'Head Circumference'
+            },
+            "valueQuantity": {
+              "system": 'http://unitsofmeasure.org',
+              "code": 'cm',
+              "value": 55,
+              "unit": 'cm'
+            },
+            "text": {
+              "status": 'generated',
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:9843-4 <b>Text</b>:Head Circumference<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:cm <b>Unit</b>:cm <b>Value</b>:55<br />     </div>'
+              # rubocop:enable Layout/LineLength
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50305',
           "search": {
             "mode": 'match'
           },
@@ -684,13 +422,74 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:39156-5 <b>Text</b>:Body Mass Index<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg/m2 <b>Unit</b>:kg/m2 <b>Value</b>:17.75<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:39156-5 <b>Text</b>:Body Mass Index<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg/m2 <b>Unit</b>:kg/m2 <b>Value</b>:17.75<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49087',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50308',
+          "search": {
+            "mode": 'match'
+          },
+          "resource": {
+            "resourceType": 'Observation',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50308',
+            "status": 'final',
+            "meta": {
+              "lastUpdated": '2021-02-04T10:38:56-05:00'
+            },
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'vital-signs',
+                    "display": 'Vital Signs'
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
+            },
+            "encounter": {
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
+            },
+            "effectiveDateTime": '2021-02-04T10:36:00-05:00',
+            "issued": '2021-02-04T10:39:00-05:00',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '59576-9'
+                }
+              ],
+              "text": 'BMI for Age Percentile'
+            },
+            "valueQuantity": {
+              "system": 'http://unitsofmeasure.org',
+              "code": '%',
+              "value": 55,
+              "unit": '%'
+            },
+            "note": [
+              {
+                "text": 'CDC 2-20 years chart,Female'
+              }
+            ],
+            "text": {
+              "status": 'generated',
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:39:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:59576-9 <b>Text</b>:BMI for Age Percentile<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:% <b>Unit</b>:% <b>Value</b>:55<br />     </div>'
+              # rubocop:enable Layout/LineLength
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49087',
           "search": {
             "mode": 'match'
           },
@@ -726,6 +525,10 @@ module Cerner
               "coding": [
                 {
                   "system": 'http://loinc.org',
+                  "code": '29463-7'
+                },
+                {
+                  "system": 'http://loinc.org',
                   "code": '3141-9'
                 }
               ],
@@ -740,13 +543,13 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:59.9025<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:29463-7 <b>Text</b>:Weight<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:59.9025<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49088',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49088',
           "search": {
             "mode": 'match'
           },
@@ -796,13 +599,69 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8302-2 <b>Text</b>:Height<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:cm <b>Unit</b>:cm <b>Value</b>:170.18<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8302-2 <b>Text</b>:Height<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:cm <b>Unit</b>:cm <b>Value</b>:170.18<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49091',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49090',
+          "search": {
+            "mode": 'match'
+          },
+          "resource": {
+            "resourceType": 'Observation',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49090',
+            "status": 'final',
+            "meta": {
+              "lastUpdated": '2021-01-21T16:02:10-05:00'
+            },
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'vital-signs',
+                    "display": 'Vital Signs'
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
+            },
+            "encounter": {
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
+            },
+            "effectiveDateTime": '2021-01-21T15:09:00-05:00',
+            "issued": '2021-01-21T15:09:00-05:00',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '8310-5'
+                }
+              ],
+              "text": 'Body Temperature'
+            },
+            "valueQuantity": {
+              "system": 'http://unitsofmeasure.org',
+              "code": 'Cel',
+              "value": 36.667,
+              "unit": 'Cel'
+            },
+            "text": {
+              "status": 'generated',
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8310-5 <b>Text</b>:Body Temperature<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:Cel <b>Unit</b>:Cel <b>Value</b>:36.667<br />     </div>'
+              # rubocop:enable Layout/LineLength
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49091',
           "search": {
             "mode": 'match'
           },
@@ -882,13 +741,69 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:85354-9 <b>Text</b>:A_BP<br />       <b>Components</b>:  <ul><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8480-6 <b>Text</b>:A_BP<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:mm[Hg] <b>Unit</b>:mm[Hg] <b>Value</b>:124<br />    </li><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8462-4 <b>Text</b>:A_BP<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:mm[Hg] <b>Unit</b>:mm[Hg] <b>Value</b>:88<br />     </li></ul>   <br /> </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:85354-9 <b>Text</b>:A_BP<br />       <b>Components</b>:  <ul><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8480-6 <b>Text</b>:A_BP<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:mm[Hg] <b>Unit</b>:mm[Hg] <b>Value</b>:124<br />    </li><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8462-4 <b>Text</b>:A_BP<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:mm[Hg] <b>Unit</b>:mm[Hg] <b>Value</b>:88<br />     </li></ul>   <br /> </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49096',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49093',
+          "search": {
+            "mode": 'match'
+          },
+          "resource": {
+            "resourceType": 'Observation',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49093',
+            "status": 'final',
+            "meta": {
+              "lastUpdated": '2021-01-21T16:02:10-05:00'
+            },
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'vital-signs',
+                    "display": 'Vital Signs'
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
+            },
+            "encounter": {
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
+            },
+            "effectiveDateTime": '2021-01-21T15:09:00-05:00',
+            "issued": '2021-01-21T15:09:00-05:00',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '9843-4'
+                }
+              ],
+              "text": 'Head Circumference'
+            },
+            "valueQuantity": {
+              "system": 'http://unitsofmeasure.org',
+              "code": 'cm',
+              "value": 49,
+              "unit": 'cm'
+            },
+            "text": {
+              "status": 'generated',
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:9843-4 <b>Text</b>:Head Circumference<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:cm <b>Unit</b>:cm <b>Value</b>:49<br />     </div>'
+              # rubocop:enable Layout/LineLength
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49096',
           "search": {
             "mode": 'match'
           },
@@ -938,13 +853,13 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:39156-5 <b>Text</b>:Body Mass Index<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg/m2 <b>Unit</b>:kg/m2 <b>Value</b>:20.68<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:39156-5 <b>Text</b>:Body Mass Index<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg/m2 <b>Unit</b>:kg/m2 <b>Value</b>:20.68<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49097',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49097',
           "search": {
             "mode": 'match'
           },
@@ -994,13 +909,109 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8867-4 <b>Text</b>:A_Pulse<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:/min <b>Unit</b>:/min <b>Value</b>:78<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8867-4 <b>Text</b>:A_Pulse<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:/min <b>Unit</b>:/min <b>Value</b>:78<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49099',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49098',
+          "search": {
+            "mode": 'match'
+          },
+          "resource": {
+            "resourceType": 'Observation',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49098',
+            "status": 'final',
+            "meta": {
+              "lastUpdated": '2021-01-21T16:02:10-05:00'
+            },
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'vital-signs',
+                    "display": 'Vital Signs'
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
+            },
+            "encounter": {
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
+            },
+            "effectiveDateTime": '2021-01-21T15:09:00-05:00',
+            "issued": '2021-01-21T15:09:00-05:00',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '2708-6'
+                },
+                {
+                  "system": 'http://loinc.org',
+                  "code": '59408-5'
+                }
+              ],
+              "text": 'Pulse Ox (%)'
+            },
+            "valueQuantity": {
+              "system": 'http://unitsofmeasure.org',
+              "code": '%',
+              "value": 97,
+              "unit": '%'
+            },
+            "component": [
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": 'http://loinc.org',
+                      "code": '3150-0'
+                    }
+                  ],
+                  "text": 'FIO2% Actual'
+                },
+                "valueQuantity": {
+                  "system": 'http://unitsofmeasure.org',
+                  "code": '%',
+                  "value": 21,
+                  "unit": '%'
+                }
+              },
+              {
+                "code": {
+                  "coding": [
+                    {
+                      "system": 'http://loinc.org',
+                      "code": '3151-8'
+                    }
+                  ],
+                  "text": 'Liter Flow (min)'
+                },
+                "valueQuantity": {
+                  "system": 'http://unitsofmeasure.org',
+                  "code": 'L/min',
+                  "value": 3,
+                  "unit": 'L/min'
+                }
+              }
+            ],
+            "text": {
+              "status": 'generated',
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:2708-6 <b>Text</b>:Pulse Ox (%)<br />  <b>System</b>:http://loinc.org <b>Code</b>:59408-5 <b>Text</b>:Pulse Ox (%)<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:% <b>Unit</b>:% <b>Value</b>:97<br />      <b>Components</b>:  <ul><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:3150-0 <b>Text</b>:FIO2% Actual<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:% <b>Unit</b>:% <b>Value</b>:21<br />    </li><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:3151-8 <b>Text</b>:Liter Flow (min)<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:L/min <b>Unit</b>:L/min <b>Value</b>:3<br />     </li></ul>   <br /> </div>'
+              # rubocop:enable Layout/LineLength
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.49099',
           "search": {
             "mode": 'match'
           },
@@ -1050,13 +1061,13 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:9279-1 <b>Text</b>:Respirations<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:/min <b>Unit</b>:/min <b>Value</b>:15<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-01-21T15:09:00-05:00<br />   <b>Effective Time</b>:2021-01-21T15:09:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:9279-1 <b>Text</b>:Respirations<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:/min <b>Unit</b>:/min <b>Value</b>:15<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43096',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43096',
           "search": {
             "mode": 'match'
           },
@@ -1092,6 +1103,10 @@ module Cerner
               "coding": [
                 {
                   "system": 'http://loinc.org',
+                  "code": '29463-7'
+                },
+                {
+                  "system": 'http://loinc.org',
                   "code": '3141-9'
                 }
               ],
@@ -1106,13 +1121,13 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:61.235<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:29463-7 <b>Text</b>:Weight<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:61.235<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43097',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43097',
           "search": {
             "mode": 'match'
           },
@@ -1162,13 +1177,69 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8302-2 <b>Text</b>:Height<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:cm <b>Unit</b>:cm <b>Value</b>:170.18<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8302-2 <b>Text</b>:Height<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:cm <b>Unit</b>:cm <b>Value</b>:170.18<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43099',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43098',
+          "search": {
+            "mode": 'match'
+          },
+          "resource": {
+            "resourceType": 'Observation',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43098',
+            "status": 'final',
+            "meta": {
+              "lastUpdated": '2020-11-15T16:45:25-05:00'
+            },
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'vital-signs',
+                    "display": 'Vital Signs'
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
+            },
+            "encounter": {
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
+            },
+            "effectiveDateTime": '2020-11-15T16:38:00-05:00',
+            "issued": '2020-11-15T16:38:00-05:00',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '8310-5'
+                }
+              ],
+              "text": 'Body Temperature'
+            },
+            "valueQuantity": {
+              "system": 'http://unitsofmeasure.org',
+              "code": 'Cel',
+              "value": 37.778,
+              "unit": 'Cel'
+            },
+            "text": {
+              "status": 'generated',
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8310-5 <b>Text</b>:Body Temperature<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:Cel <b>Unit</b>:Cel <b>Value</b>:37.778<br />     </div>'
+              # rubocop:enable Layout/LineLength
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43099',
           "search": {
             "mode": 'match'
           },
@@ -1248,13 +1319,13 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:85354-9 <b>Text</b>:A_BP<br />       <b>Components</b>:  <ul><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8480-6 <b>Text</b>:A_BP<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:mm[Hg] <b>Unit</b>:mm[Hg] <b>Value</b>:122<br />    </li><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8462-4 <b>Text</b>:A_BP<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:mm[Hg] <b>Unit</b>:mm[Hg] <b>Value</b>:88<br />     </li></ul>   <br /> </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:85354-9 <b>Text</b>:A_BP<br />       <b>Components</b>:  <ul><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8480-6 <b>Text</b>:A_BP<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:mm[Hg] <b>Unit</b>:mm[Hg] <b>Value</b>:122<br />    </li><li>    <b>Component Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8462-4 <b>Text</b>:A_BP<br />    <b>Component Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org <b>Code</b>:mm[Hg] <b>Unit</b>:mm[Hg] <b>Value</b>:88<br />     </li></ul>   <br /> </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43102',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43102',
           "search": {
             "mode": 'match'
           },
@@ -1304,13 +1375,13 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:39156-5 <b>Text</b>:Body Mass Index<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg/m2 <b>Unit</b>:kg/m2 <b>Value</b>:21.14<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:39156-5 <b>Text</b>:Body Mass Index<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg/m2 <b>Unit</b>:kg/m2 <b>Value</b>:21.14<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43103',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43103',
           "search": {
             "mode": 'match'
           },
@@ -1360,13 +1431,73 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8867-4 <b>Text</b>:A_Pulse<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:/min <b>Unit</b>:/min <b>Value</b>:78<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:8867-4 <b>Text</b>:A_Pulse<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:/min <b>Unit</b>:/min <b>Value</b>:78<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43105',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43104',
+          "search": {
+            "mode": 'match'
+          },
+          "resource": {
+            "resourceType": 'Observation',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43104',
+            "status": 'final',
+            "meta": {
+              "lastUpdated": '2020-11-15T16:45:25-05:00'
+            },
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'vital-signs',
+                    "display": 'Vital Signs'
+                  }
+                ]
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
+            },
+            "encounter": {
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
+            },
+            "effectiveDateTime": '2020-11-15T16:38:00-05:00',
+            "issued": '2020-11-15T16:38:00-05:00',
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '2708-6'
+                },
+                {
+                  "system": 'http://loinc.org',
+                  "code": '59408-5'
+                }
+              ],
+              "text": 'Pulse Ox (%)'
+            },
+            "valueQuantity": {
+              "system": 'http://unitsofmeasure.org',
+              "code": '%',
+              "value": 98,
+              "unit": '%'
+            },
+            "text": {
+              "status": 'generated',
+              # rubocop:disable Layout/LineLength
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:2708-6 <b>Text</b>:Pulse Ox (%)<br />  <b>System</b>:http://loinc.org <b>Code</b>:59408-5 <b>Text</b>:Pulse Ox (%)<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:% <b>Unit</b>:% <b>Value</b>:98<br />     </div>'
+              # rubocop:enable Layout/LineLength
+            }
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.43105',
           "search": {
             "mode": 'match'
           },
@@ -1416,7 +1547,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:9279-1 <b>Text</b>:Respirations<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:/min <b>Unit</b>:/min <b>Value</b>:92<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2020-11-15T16:38:00-05:00<br />   <b>Effective Time</b>:2020-11-15T16:38:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:9279-1 <b>Text</b>:Respirations<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:/min <b>Unit</b>:/min <b>Value</b>:92<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -1425,19 +1556,19 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=vital-signs&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=vital-signs'
         }
       ]
     }.freeze
 
     SOARIAN_R4_OBSERVATION_SEARCH_BY_ID ||= {
       "resourceType": 'Bundle',
-      "id": 'f9bea515-c649-4fd3-8cc4-9e77e0384e7d',
+      "id": 'c766b0b2-2d1b-4dbb-a422-cc6a48e94959',
       "type": 'searchset',
-      "timestamp": '2021-05-28T06:56:40-04:00',
+      "timestamp": '2022-05-14T14:00:33-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation/A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299',
           "search": {
             "mode": 'match'
           },
@@ -1473,6 +1604,10 @@ module Cerner
               "coding": [
                 {
                   "system": 'http://loinc.org',
+                  "code": '29463-7'
+                },
+                {
+                  "system": 'http://loinc.org',
                   "code": '3141-9'
                 }
               ],
@@ -1487,7 +1622,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:30<br />     </div>'
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:29463-7 <b>Text</b>:Weight<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:30<br />     </div>'
               # rubocop:enable Layout/LineLength
             }
           }
@@ -1496,7 +1631,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Observation?_id=A879904FD2FE4B2D90C89FDA84E1285F.NRS.VS.50299&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Observation?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=vital-signs'
         }
       ]
     }.freeze
@@ -1533,6 +1668,10 @@ module Cerner
         "coding": [
           {
             "system": 'http://loinc.org',
+            "code": '29463-7'
+          },
+          {
+            "system": 'http://loinc.org',
             "code": '3141-9'
           }
         ],
@@ -1547,7 +1686,7 @@ module Cerner
       "text": {
         "status": 'generated',
         # rubocop:disable Layout/LineLength
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:30<br />     </div>'
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Observation</b><br />  <b>Patient</b>:Mcgovern,Astrid Santiago<br />   <b>Status</b>:final<br />   <b>Encounter</b>:Inferno,Initial<br />   <b>Category</b>:<br /> <b>System</b>:http://terminology.hl7.org/CodeSystem/observation-category <b>Code</b>:vital-signs <b>Display</b>:Vital Signs<br />   <b>Issued</b>:2021-02-04T10:36:00-05:00<br />   <b>Effective Time</b>:2021-02-04T10:36:00-05:00<br />   <b>Code</b>:<br />  <b>System</b>:http://loinc.org <b>Code</b>:29463-7 <b>Text</b>:Weight<br />  <b>System</b>:http://loinc.org <b>Code</b>:3141-9 <b>Text</b>:Weight<br />    <b>Value</b>:<br />  <b>System</b>:http://unitsofmeasure.org  <b>Code</b>:kg <b>Unit</b>:kg <b>Value</b>:30<br />     </div>'
         # rubocop:enable Layout/LineLength
       }
     }.freeze
