@@ -65,7 +65,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F
 
 #### Response
 
@@ -76,7 +76,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?_id=A879904FD2FE4B2D90C89FDA84E1285F.9005
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Device?_id=A879904FD2FE4B2D90C89FDA84E1285F.9005
 
 #### Response
 
@@ -108,7 +108,7 @@ List an individual Device resource by its ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F.9005
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Device?patient=A879904FD2FE4B2D90C89FDA84E1285F.9005
 
 #### Response
 
