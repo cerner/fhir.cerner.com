@@ -9,7 +9,7 @@ title: OperationOutcome | R4 API
 
 ## Overview
 
-The Soarian Clinicals<sup>®</sup> Application Programming Interface (API) may return an OperationOutcome to provide more granular context for an error than what the HTTP response codes provide.
+The Soarian Clinicals<sup>®</sup> Application Programming Interface (API) may return an OperationOutcome to provide more granular context for an error than the HTTP response codes provide.
 
 ## Terminology Bindings
 
