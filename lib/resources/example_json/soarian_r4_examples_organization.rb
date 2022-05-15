@@ -7,10 +7,21 @@ module Cerner
       "resourceType": 'Organization',
       "id": 'HCU.1',
       "meta": {
-        "lastUpdated": '2020-12-07T12:45:53-05:00'
+        "lastUpdated": '2021-08-09T15:28:54-04:00'
       },
       "name": 'Health Enterprise',
       "active": true,
+      "type": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/organization-type',
+              "code": 'prov',
+              "display": 'Healthcare Provider'
+            }
+          ]
+        }
+      ],
       "identifier": [
         {
           "system": 'http://hl7.org/fhir/sid/us-npi',
@@ -156,7 +167,7 @@ module Cerner
       "text": {
         "status": 'generated',
         # rubocop:disable Layout/LineLength
-        "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Organization</b><br /><b>Name</b>:Health Enterprise;<br /><b>Status</b>:Active;<br /><b>Identifier</b>:<br /><b>System</b>:http://hl7.org/fhir/sid/us-npi <b>Value</b>:4510000001 ;<br /><b>Telecom</b>:<br /><b>System</b>:phone <b>Value</b>:+16102196300x9082 ;<br /><b>System</b>:phone <b>Value</b>:6102196300 ;<br /><b>System</b>:phone <b>Value</b>:6102196300 ;<br /><b>System</b>:phone <b>Value</b>:610-219-6300 ;<br /><b>System</b>:phone <b>Value</b>:610-219-6300 ;<br /><b>System</b>:phone <b>Value</b>:212-555-9133 ;<br /><b>Address</b>:<br />53 Valley Stream Parkway,Malvern,PA,19355,United States;<br />105 N 9th St,Philadelphia,PA,19100,United States;<br />208 Louisiana Ave,Philadelphia,PA,19101,United States;<br />51 Valley Stream Parkway,Philadelphia,PA,19101,United States;<br />PRM Address Street,Philadelphia,PA,19104,United States;<br />15 Wells Ln,Louisville,KY,40201,United States;<br /></div>"
+        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><b>Organization</b><br /><b>Name</b>:Health Enterprise;<br /><b>Status</b>:Active;<br /><b>Identifier</b>:<br /><b>System</b>:http://hl7.org/fhir/sid/us-npi <b>Value</b>:4510000001 ;<br /><b>Telecom</b>:<br /><b>System</b>:phone <b>Value</b>:+16102196300x9082 ;<br /><b>System</b>:phone <b>Value</b>:6102196300 ;<br /><b>System</b>:phone <b>Value</b>:6102196300 ;<br /><b>System</b>:phone <b>Value</b>:610-219-6300 ;<br /><b>System</b>:phone <b>Value</b>:610-219-6300 ;<br /><b>System</b>:phone <b>Value</b>:212-555-9133 ;<br /><b>Address</b>:<br />53 Valley Stream Parkway,Malvern,PA,19355,United States;<br />105 N 9th St,Philadelphia,PA,19100,United States;<br />208 Louisiana Ave,Philadelphia,PA,19101,United States;<br />51 Valley Stream Parkway,Philadelphia,PA,19101,United States;<br />PRM Address Street,Philadelphia,PA,19104,United States;<br />15 Wells Ln,Louisville,KY,40201,United States;<br /><b>Type</b>:Healthcare Provider;<br /></div>'
         # rubocop:enable Layout/LineLength
       }
     }.freeze
@@ -173,10 +184,21 @@ module Cerner
             "resourceType": 'Organization',
             "id": 'HCU.1',
             "meta": {
-              "lastUpdated": '2020-12-07T12:45:53-05:00'
+              "lastUpdated": '2021-08-09T15:28:54-04:00'
             },
             "name": 'Health Enterprise',
             "active": true,
+            "type": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/organization-type',
+              "code": 'prov',
+              "display": 'Healthcare Provider'
+            }
+          ]
+        }
+      ],
             "identifier": [
               {
                 "system": 'http://hl7.org/fhir/sid/us-npi',
@@ -322,7 +344,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Organization</b><br /><b>Name</b>:Health Enterprise;<br /><b>Status</b>:Active;<br /><b>Identifier</b>:<br /><b>System</b>:http://hl7.org/fhir/sid/us-npi <b>Value</b>:4510000001 ;<br /><b>Telecom</b>:<br /><b>System</b>:phone <b>Value</b>:+16102196300x9082 ;<br /><b>System</b>:phone <b>Value</b>:6102196300 ;<br /><b>System</b>:phone <b>Value</b>:6102196300 ;<br /><b>System</b>:phone <b>Value</b>:610-219-6300 ;<br /><b>System</b>:phone <b>Value</b>:610-219-6300 ;<br /><b>System</b>:phone <b>Value</b>:212-555-9133 ;<br /><b>Address</b>:<br />53 Valley Stream Parkway,Malvern,PA,19355,United States;<br />105 N 9th St,Philadelphia,PA,19100,United States;<br />208 Louisiana Ave,Philadelphia,PA,19101,United States;<br />51 Valley Stream Parkway,Philadelphia,PA,19101,United States;<br />PRM Address Street,Philadelphia,PA,19104,United States;<br />15 Wells Ln,Louisville,KY,40201,United States;<br /></div>"
+              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Organization</b><br /><b>Name</b>:Health Enterprise;<br /><b>Status</b>:Active;<br /><b>Identifier</b>:<br /><b>System</b>:http://hl7.org/fhir/sid/us-npi <b>Value</b>:4510000001 ;<br /><b>Telecom</b>:<br /><b>System</b>:phone <b>Value</b>:+16102196300x9082 ;<br /><b>System</b>:phone <b>Value</b>:6102196300 ;<br /><b>System</b>:phone <b>Value</b>:6102196300 ;<br /><b>System</b>:phone <b>Value</b>:610-219-6300 ;<br /><b>System</b>:phone <b>Value</b>:610-219-6300 ;<br /><b>System</b>:phone <b>Value</b>:212-555-9133 ;<br /><b>Address</b>:<br />53 Valley Stream Parkway,Malvern,PA,19355,United States;<br />105 N 9th St,Philadelphia,PA,19100,United States;<br />208 Louisiana Ave,Philadelphia,PA,19101,United States;<br />51 Valley Stream Parkway,Philadelphia,PA,19101,United States;<br />PRM Address Street,Philadelphia,PA,19104,United States;<br />15 Wells Ln,Louisville,KY,40201,United States;<br /><b>Type</b>:Healthcare Provider;<br /></div>"
               # rubocop:enable Layout/LineLength
             }
           }
@@ -331,7 +353,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Organization?_id=HCU.1&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Organization?_id=HCU.1&_format=json'
         }
       ]
     }.freeze

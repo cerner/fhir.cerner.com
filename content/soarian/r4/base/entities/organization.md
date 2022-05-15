@@ -44,7 +44,7 @@ Search for Organization resources that meet the specified query parameters:
  Name          | Required?                                    | Type            | Description
 ---------------|----------------------------------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------
  `_id`         | This, name, or `address`                     | [`token`]       | The logical resource ID associated with the resource.
- `name`        | This, _id, or `address`				      | [`string`]      | The start of the name of the organization. 
+ `name`        | This, _id, or `address`				      | [`string`]      | The start of the organization's name.
  `address`     | This, id, or, name				              | [`string`]      | The start of either the address line, city, state, postal code, or country of the organization. 
 
 
@@ -56,7 +56,7 @@ Search for Organization resources that meet the specified query parameters:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Organization?_id=HCU.1
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Organization?_id=HCU.1
 
 #### Response
 
@@ -89,7 +89,7 @@ List an individual Organization resource by its id:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Organization/HCU.1
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Organization/HCU.1
     
 #### Response
 
