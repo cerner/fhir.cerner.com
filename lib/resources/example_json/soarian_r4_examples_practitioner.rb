@@ -10,7 +10,7 @@ module Cerner
       "timestamp": '2021-09-30T04:00:27-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D',
           "resource": {
             "resourceType": 'Practitioner',
             "id": 'DF2821C049CC47E6A37C6B796DF4CF1D',
@@ -50,7 +50,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Practitioner?_id=DF2821C049CC47E6A37C6B796DF4CF1D&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Practitioner?_id=DF2821C049CC47E6A37C6B796DF4CF1D&_format=json'
         }
       ]
     }.freeze

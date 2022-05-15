@@ -28,7 +28,7 @@ Search for Practitioner resources that meet specified query parameters:
 
 _Implementation Notes_
 
-*	A `422 Unprocessable Entity` response status code and OperationOutcome are returned when > 499 Practitioners qualify for the search criteria. Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR<sup>®</sup>) applications may prompt the user for more specific search criteria to avoid this possibility.
+*	A `422 Unprocessable Entity` response status code and OperationOutcome are returned when more than 499 Practitioners qualify for the search criteria. Fast Healthcare Interoperability Resources<sup>®</sup> (FHIR<sup>®</sup>) applications may prompt the user for more specific search criteria to avoid this possibility.
 
 ### Authorization Types
 
@@ -52,7 +52,7 @@ _Implementation Notes_
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Practitioner?_id=DF2821C049CC47E6A37C6B796DF4CF1D
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Practitioner?_id=DF2821C049CC47E6A37C6B796DF4CF1D
 	
 #### Response
 
@@ -64,7 +64,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 ### Errors
 
 *	The common [errors](#errors) and [OperationOutcomes] may be returned. 
-*	In addition, a `422 Unprocessable Entity`  HTTP response status code and OperationOutcome is returned when > 499 Practitioners qualify for the search criteria.
+*	In addition, a `422 Unprocessable Entity`  HTTP response status code and OperationOutcome is returned when more than 499 Practitioners qualify for the search criteria.
 
 ## Retrieve by ID
 
@@ -84,7 +84,7 @@ List an individual Practitioner resource by its resource ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D
 
 #### Response
 
