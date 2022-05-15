@@ -189,16 +189,16 @@ module Cerner
             "name": 'Health Enterprise',
             "active": true,
             "type": [
-        {
-          "coding": [
-            {
-              "system": 'http://terminology.hl7.org/CodeSystem/organization-type',
-              "code": 'prov',
-              "display": 'Healthcare Provider'
-            }
-          ]
-        }
-      ],
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/organization-type',
+                    "code": 'prov',
+                    "display": 'Healthcare Provider'
+                  }
+                ]
+              }
+            ],
             "identifier": [
               {
                 "system": 'http://hl7.org/fhir/sid/us-npi',
