@@ -55,11 +55,11 @@ NOTE:  Please consider the [code Validation Program][code Validation Program] if
 
 ### Setting Up Your Domain's DNS TXT Record ###
 
-To follow the security best practices, you will need to add a DNS TXT record to your appliction's website containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification][OAuth 2 specification] ).
+To follow the security best practices, you will need to add a DNS TXT record to your application's website containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification][OAuth 2 specification]).  This TXT record should be added to the eTLD+1 for the domain hosting the application.
 
-**Please consult your ISP's documentation for the steps to set up a DNS TXT record at your application's domain.**
+**Please consult your ISP's documentation for the steps to set up a DNS TXT record at your application's eTLD+1 domain.**
 
-The DNS TXT record of your application must match the following key-value format-
+The DNS TXT record of your application must match the following key-value format:
 
 **Format:**  
 "cerner-client-id={value}"
@@ -67,14 +67,13 @@ The DNS TXT record of your application must match the following key-value format
 **Example:**  
 cerner-client-id=bxdcd0ff-5der-4c15-b2tf-r28b105aa845
 
-where value = Cerner-issued client identifier for your application
-    in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:
+Where `value` is the Cerner-issued client identifier for your application.
+In the case that multiple apps are registered for the same eTLD+1 domain, multiple TXT records can be added each with the `cerner-client-id` for a specific application.  For example:
 
-    "cerner-client-id={value 1}"
-    "cerner-client-id={value 2}"
-
+    "cerner-client-id={value1}"
+    "cerner-client-id={value2}"
     ...
-    "cerner-client-id={value N}"
+    "cerner-client-id={valueN}"
 
 
 ### Steps to Verify Your Application's Compliance
@@ -83,7 +82,7 @@ where value = Cerner-issued client identifier for your application
 
 #### Determine your eTLD+1
 
-The eTLD+1 is the effective TLD and the part of the domain just before it. For example, given a URL of https://my-project.github.io , the eTLD is .github.io and the eTLD+1 is my-project.github.io, which is considered a "site". This domain will be shown to end-users.
+The eTLD+1 is the effective top level domain (TLD) and the part of the domain just before it. For example, given a URL of https://my-project.github.io, the TLD is `io` and the eTLD+1 is `github.io`, which is considered a "site". This domain will be shown to end-users.
 
 To determine eTLD+1 please check public domains that are defined in the [Public Suffix List](https://publicsuffix.org/list/public_suffix_list.dat).
 
