@@ -29,20 +29,10 @@ module Cerner
           }
         }
       ],
-      "identifier": [
-        {
-          "system": 'urn:oid:12.00.021.1.3.7.5',
-          "value": '29019'
-        },
-        {
-          "system": 'urn:oid:12.00.021.1.3.7.3',
-          "value": '1001004'
-        },
-        {
-          "system": 'urn:oid:12.00.021.1.3.7.4',
-          "value": '1001004'
-        }
-      ],
+      "serviceProvider": {
+          "reference": 'Organization/HCU.1',
+          "display": 'Health Enterprise'
+      },
       "type": [
         {
           "coding": [
@@ -77,8 +67,7 @@ module Cerner
             "start": '2020-11-11T20:53:00-05:00'
           },
           "individual": {
-            "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D',
-            "display": 'Godziszewski,Janet Kris'
+            "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D'
           }
         },
         {
@@ -98,8 +87,7 @@ module Cerner
             "start": '2020-11-11T20:53:00-05:00'
           },
           "individual": {
-            "reference": 'Practitioner/4F69EC72C5AA48988E5E73832887E634',
-            "display": 'Aguilar,Melva Delaine'
+            "reference": 'Practitioner/4F69EC72C5AA48988E5E73832887E634'
           }
         },
         {
@@ -119,8 +107,7 @@ module Cerner
             "start": '2020-11-11T20:53:00-05:00'
           },
           "individual": {
-            "reference": 'Practitioner/D8A9F3EADBE041688ADD843BBD98CAB0',
-            "display": "O'Reilly,Rose"
+            "reference": 'Practitioner/D8A9F3EADBE041688ADD843BBD98CAB0'
           }
         },
         {
@@ -140,8 +127,7 @@ module Cerner
             "start": '2020-11-11T20:53:00-05:00'
           },
           "individual": {
-            "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D',
-            "display": 'Godziszewski,Janet Kris'
+            "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D'
           }
         }
       ],
@@ -181,7 +167,7 @@ module Cerner
       "text": {
         "status": 'generated',
         # rubocop:disable Layout/LineLength
-        "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
         # rubocop:enable Layout/LineLength
       }
     }.freeze
@@ -217,18 +203,10 @@ module Cerner
               "reference": '#35202'
             }
           }],
-          "identifier": [{
-            "system": 'urn:oid:12.00.021.1.3.7.5',
-            "value": '29019'
-          },
-                         {
-                           "system": 'urn:oid:12.00.021.1.3.7.3',
-                           "value": '1001004'
-                         },
-                         {
-                           "system": 'urn:oid:12.00.021.1.3.7.4',
-                           "value": '1001004'
-                         }],
+		  "serviceProvider": {
+          "reference": 'Organization/HCU.1',
+          "display": 'Health Enterprise'
+		  },
           "type": [{
             "coding": [{
               "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
@@ -252,8 +230,7 @@ module Cerner
               "start": '2020-11-11T20:53:00-05:00'
             },
             "individual": {
-              "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D',
-              "display": 'Godziszewski,Janet Kris'
+              "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D'
             }
           },
                           {
@@ -269,8 +246,7 @@ module Cerner
                               "start": '2020-11-11T20:53:00-05:00'
                             },
                             "individual": {
-                              "reference": 'Practitioner/4F69EC72C5AA48988E5E73832887E634',
-                              "display": 'Aguilar,Melva Delaine'
+                              "reference": 'Practitioner/4F69EC72C5AA48988E5E73832887E634'
                             }
                           },
                           {
@@ -286,8 +262,7 @@ module Cerner
                               "start": '2020-11-11T20:53:00-05:00'
                             },
                             "individual": {
-                              "reference": 'Practitioner/D8A9F3EADBE041688ADD843BBD98CAB0',
-                              "display": "O'Reilly,Rose"
+                              "reference": 'Practitioner/D8A9F3EADBE041688ADD843BBD98CAB0'
                             }
                           },
                           {
@@ -303,8 +278,7 @@ module Cerner
                               "start": '2020-11-11T20:53:00-05:00'
                             },
                             "individual": {
-                              "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D',
-                              "display": 'Godziszewski,Janet Kris'
+                              "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D'
                             }
                           }],
           "contained": [{
@@ -339,7 +313,7 @@ module Cerner
           "text": {
             "status": 'generated',
             # rubocop:disable Layout/LineLength
-            "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
+            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
             # rubocop:enable Layout/LineLength
           }
         }
@@ -384,20 +358,10 @@ module Cerner
                 }
               }
             ],
-            "identifier": [
-              {
-                "system": 'urn:oid:12.00.021.1.3.7.5',
-                "value": '29019'
-              },
-              {
-                "system": 'urn:oid:12.00.021.1.3.7.3',
-                "value": '1001004'
-              },
-              {
-                "system": 'urn:oid:12.00.021.1.3.7.4',
-                "value": '1001004'
-              }
-            ],
+            "serviceProvider": {
+				"reference": 'Organization/HCU.1',
+				"display": 'Health Enterprise'
+			},
             "type": [
               {
                 "coding": [
@@ -432,8 +396,7 @@ module Cerner
                   "start": '2020-11-11T20:53:00-05:00'
                 },
                 "individual": {
-                  "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D',
-                  "display": 'Godziszewski,Janet Kris'
+                  "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D'
                 }
               },
               {
@@ -453,8 +416,7 @@ module Cerner
                   "start": '2020-11-11T20:53:00-05:00'
                 },
                 "individual": {
-                  "reference": 'Practitioner/4F69EC72C5AA48988E5E73832887E634',
-                  "display": 'Aguilar,Melva Delaine'
+                  "reference": 'Practitioner/4F69EC72C5AA48988E5E73832887E634'
                 }
               },
               {
@@ -474,8 +436,7 @@ module Cerner
                   "start": '2020-11-11T20:53:00-05:00'
                 },
                 "individual": {
-                  "reference": 'Practitioner/D8A9F3EADBE041688ADD843BBD98CAB0',
-                  "display": "O'Reilly,Rose"
+                  "reference": 'Practitioner/D8A9F3EADBE041688ADD843BBD98CAB0'
                 }
               },
               {
@@ -495,8 +456,7 @@ module Cerner
                   "start": '2020-11-11T20:53:00-05:00'
                 },
                 "individual": {
-                  "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D',
-                  "display": 'Godziszewski,Janet Kris'
+                  "reference": 'Practitioner/DF2821C049CC47E6A37C6B796DF4CF1D'
                 }
               }
             ],
@@ -536,7 +496,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
+              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
               # rubocop:enable Layout/LineLength
             }
           }
