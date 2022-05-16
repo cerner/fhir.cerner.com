@@ -188,11 +188,11 @@ module Cerner
 
     SOARIAN_R4_ENCOUNTER_SEARCH_BY_ID_ENTRY ||= {
       "resourceType": 'Bundle',
-      "id": '250f967f-c78a-49a8-929f-2782c8722020',
+      "id": 'c6273ad5-a462-4e1c-a7a1-df9f09beccf6',
       "type": 'searchset',
-      "timestamp": '2021-03-04T14:53:32-05:00',
+      "timestamp": '2022-05-16T03:21:23-04:00',
       "entry": [{
-        "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+        "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
         "resource": {
           "resourceType": 'Encounter',
           "id": 'A879904FD2FE4B2D90C89FDA84E1285F.29019',
@@ -346,18 +346,18 @@ module Cerner
       }],
       "link": [{
         "relation": 'self',
-        "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter?patient=A879904FD2FE4B2D90C89FDA84E1285F&_format=json'
+        "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Encounter?patient=A879904FD2FE4B2D90C89FDA84E1285F'
       }]
     }.freeze
 
     SOARIAN_R4_ENCOUNTER_SEARCH_BY_PT_ENTRY ||= {
       "resourceType": 'Bundle',
-      "id": '250f967f-c78a-49a8-929f-2782c8722020',
+      "id": 'c6273ad5-a462-4e1c-a7a1-df9f09beccf6',
       "type": 'searchset',
-      "timestamp": '2021-03-04T14:53:32-05:00',
+      "timestamp": '2022-05-16T03:21:23-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
           "resource": {
             "resourceType": 'Encounter',
             "id": 'A879904FD2FE4B2D90C89FDA84E1285F.29019',
@@ -545,7 +545,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter?patient=A879904FD2FE4B2D90C89FDA84E1285F&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Encounter?patient=A879904FD2FE4B2D90C89FDA84E1285F'
         }
       ]
     }.freeze
