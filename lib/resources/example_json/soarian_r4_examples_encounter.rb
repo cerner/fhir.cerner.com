@@ -30,8 +30,8 @@ module Cerner
         }
       ],
       "serviceProvider": {
-          "reference": 'Organization/HCU.1',
-          "display": 'Health Enterprise'
+        "reference": 'Organization/HCU.1',
+        "display": 'Health Enterprise'
       },
       "type": [
         {
@@ -203,10 +203,10 @@ module Cerner
               "reference": '#35202'
             }
           }],
-		  "serviceProvider": {
-          "reference": 'Organization/HCU.1',
-          "display": 'Health Enterprise'
-		  },
+          "serviceProvider": {
+            "reference": 'Organization/HCU.1',
+            "display": 'Health Enterprise'
+          },
           "type": [{
             "coding": [{
               "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
@@ -359,9 +359,9 @@ module Cerner
               }
             ],
             "serviceProvider": {
-				"reference": 'Organization/HCU.1',
-				"display": 'Health Enterprise'
-			},
+              "reference": 'Organization/HCU.1',
+              "display": 'Health Enterprise'
+            },
             "type": [
               {
                 "coding": [
