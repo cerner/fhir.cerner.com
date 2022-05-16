@@ -5,17 +5,17 @@ module Cerner
 
     SOARIAN_R4_CAREPLAN_SEARCH_BY_PT_CATEGORY ||= {
       "resourceType": 'Bundle',
-      "id": '3454991c-8073-4dad-810f-e21af8da1404',
+      "id": '5b57aff5-d3ed-4f11-aeef-e8f7440870e9',
       "type": 'searchset',
-      "timestamp": '2021-03-15T14:15:18-04:00',
+      "timestamp": '2022-05-16T03:21:23-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/CarePlan/494454CC0E254A409CD98DA791EB2E16.DDC.80014',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/CarePlan/A879904FD2FE4B2D90C89FDA84E1285F.NRS.43060',
           "resource": {
             "resourceType": 'CarePlan',
-            "id": '494454CC0E254A409CD98DA791EB2E16.DDC.80014',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.43060',
             "meta": {
-              "lastUpdated": '2021-03-15T14:15:02-04:00'
+              "lastUpdated": '2020-11-15T16:09:49-05:00'
             },
             "status": 'active',
             "intent": 'plan',
@@ -30,17 +30,17 @@ module Cerner
               }
             ],
             "subject": {
-              "reference": 'Patient/494454CC0E254A409CD98DA791EB2E16',
-              "display": 'Dillow,Raleigh Ada'
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
             },
             "encounter": {
-              "reference": 'Encounter/494454CC0E254A409CD98DA791EB2E16.1',
-              "display": 'City General,Initial'
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
             },
             "text": {
               "status": 'additional',
               # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>CarePlan</b><br /><b>Patient</b>:Dillow,Raleigh Ada<br /><b>Status</b>:active<br /><b>Encounter</b>:City General,Initial<br /><b>Intent</b>:plan<br /><b>Category : </b><b>System</b>:http://hl7.org/fhir/us/core/CodeSystem/careplan-category <b>Code</b>:assess-plan<br /><b>Assessment and Plan</b>:<ul><li>Treatment Plan: Ms. Dillow is a diabetic and her glucose on admission was 91. Her glucose will be strictly monitored during her stay and her AIC will be checked. She has been on a combination of Sitalgliptin and metformin to treat her insulin esistance diabetes. We do not have this combination medicationand will start Ms.Dillow on sliding scale insulin to control her glucose levels.</li></ul><br /></div>"
+              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>*** The appearance of the following text may differ from its appearance on the native electronic health record, but the content is the same. For example, text displayed in color may appear in regular,black type.***</b><br /><b>CarePlan</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago<br /><b>Status</b>:active<br /><b>Encounter</b>:Inferno,Initial<br /><b>Intent</b>:plan<br /><b>Category : </b><b>System</b>:http://hl7.org/fhir/us/core/CodeSystem/careplan-category <b>Code</b>:assess-plan<br /><b>Assessment and Plan</b>:<ul><li>Comments: <span><p>i. The patient was found to have Anemia and Dr Seven and his staff diagnosed</p> <p>the condition and treated Ms Rebecca for Anemia during the 2 day stay at</p> <p>Community Health Hospitals. Ms Rebecca recovered from Anemia during</p> <p>the stay and is being discharged in a stable condition. If there is fever</p> <p>greater than 101.5 F or onset of chest pain/breathlessness the patient is</p> <p>advised to contact emergency.</p></span></li></ul><br /></div>"
               # rubocop:enable Layout/LineLength
             }
           }
@@ -49,24 +49,24 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/CarePlan?patient=494454CC0E254A409CD98DA791EB2E16&category=assess-plan&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/CarePlan?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=assess-plan'
         }
       ]
     }.freeze
 
     SOARIAN_R4_CAREPLAN_SEARCH_BY_ID ||= {
       "resourceType": 'Bundle',
-      "id": '3454991c-8073-4dad-810f-e21af8da1404',
+      "id": '5b57aff5-d3ed-4f11-aeef-e8f7440870e9',
       "type": 'searchset',
-      "timestamp": '2021-03-15T14:15:18-04:00',
+      "timestamp": '2022-05-16T03:21:23-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/CarePlan/494454CC0E254A409CD98DA791EB2E16.DDC.80014',
+          "fullUrl": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/CarePlan/A879904FD2FE4B2D90C89FDA84E1285F.NRS.43060',
           "resource": {
             "resourceType": 'CarePlan',
-            "id": '494454CC0E254A409CD98DA791EB2E16.DDC.80014',
+            "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.43060',
             "meta": {
-              "lastUpdated": '2021-03-15T14:15:02-04:00'
+              "lastUpdated": '2020-11-15T16:09:49-05:00'
             },
             "status": 'active',
             "intent": 'plan',
@@ -81,17 +81,17 @@ module Cerner
               }
             ],
             "subject": {
-              "reference": 'Patient/494454CC0E254A409CD98DA791EB2E16',
-              "display": 'Dillow,Raleigh Ada'
+              "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+              "display": 'Mcgovern,Astrid Santiago'
             },
             "encounter": {
-              "reference": 'Encounter/494454CC0E254A409CD98DA791EB2E16.1',
-              "display": 'City General,Initial'
+              "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+              "display": 'Inferno,Initial'
             },
             "text": {
               "status": 'additional',
               # rubocop:disable Layout/LineLength
-              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>CarePlan</b><br /><b>Patient</b>:Dillow,Raleigh Ada<br /><b>Status</b>:active<br /><b>Encounter</b>:City General,Initial<br /><b>Intent</b>:plan<br /><b>Category : </b><b>System</b>:http://hl7.org/fhir/us/core/CodeSystem/careplan-category <b>Code</b>:assess-plan<br /><b>Assessment and Plan</b>:<ul><li>Treatment Plan: Ms. Dillow is a diabetic and her glucose on admission was 91. Her glucose will be strictly monitored during her stay and her AIC will be checked. She has been on a combination of Sitalgliptin and metformin to treat her insulin esistance diabetes. We do not have this combination medicationand will start Ms.Dillow on sliding scale insulin to control her glucose levels.</li></ul><br /></div>"
+              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>*** The appearance of the following text may differ from its appearance on the native electronic health record, but the content is the same. For example, text displayed in color may appear in regular,black type.***</b><br /><b>CarePlan</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago<br /><b>Status</b>:active<br /><b>Encounter</b>:Inferno,Initial<br /><b>Intent</b>:plan<br /><b>Category : </b><b>System</b>:http://hl7.org/fhir/us/core/CodeSystem/careplan-category <b>Code</b>:assess-plan<br /><b>Assessment and Plan</b>:<ul><li>Comments: <span><p>i. The patient was found to have Anemia and Dr Seven and his staff diagnosed</p> <p>the condition and treated Ms Rebecca for Anemia during the 2 day stay at</p> <p>Community Health Hospitals. Ms Rebecca recovered from Anemia during</p> <p>the stay and is being discharged in a stable condition. If there is fever</p> <p>greater than 101.5 F or onset of chest pain/breathlessness the patient is</p> <p>advised to contact emergency.</p></span></li></ul><br /></div>"
               # rubocop:enable Layout/LineLength
             }
           }
@@ -100,16 +100,16 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/CarePlan?patient=494454CC0E254A409CD98DA791EB2E16&category=assess-plan&_format=json'
+          "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/CarePlan?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=assess-plan'
         }
       ]
     }.freeze
 
     SOARIAN_R4_CAREPLAN_READ_BY_ID ||= {
       "resourceType": 'CarePlan',
-      "id": '494454CC0E254A409CD98DA791EB2E16.DDC.80014',
+      "id": 'A879904FD2FE4B2D90C89FDA84E1285F.NRS.43060',
       "meta": {
-        "lastUpdated": '2021-03-15T14:15:02-04:00'
+        "lastUpdated": '2020-11-15T16:09:49-05:00'
       },
       "status": 'active',
       "intent": 'plan',
@@ -124,17 +124,17 @@ module Cerner
         }
       ],
       "subject": {
-        "reference": 'Patient/494454CC0E254A409CD98DA791EB2E16',
-        "display": 'Dillow,Raleigh Ada'
+        "reference": 'Patient/A879904FD2FE4B2D90C89FDA84E1285F',
+        "display": 'Mcgovern,Astrid Santiago'
       },
       "encounter": {
-        "reference": 'Encounter/494454CC0E254A409CD98DA791EB2E16.1',
-        "display": 'City General,Initial'
+        "reference": 'Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019',
+        "display": 'Inferno,Initial'
       },
       "text": {
         "status": 'additional',
         # rubocop:disable Layout/LineLength
-        "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>CarePlan</b><br /><b>Patient</b>:Dillow,Raleigh Ada<br /><b>Status</b>:active<br /><b>Encounter</b>:City General,Initial<br /><b>Intent</b>:plan<br /><b>Category : </b><b>System</b>:http://hl7.org/fhir/us/core/CodeSystem/careplan-category <b>Code</b>:assess-plan<br /><b>Assessment and Plan</b>:<ul><li>Treatment Plan: Ms. Dillow is a diabetic and her glucose on admission was 91. Her glucose will be strictly monitored during her stay and her AIC will be checked. She has been on a combination of Sitalgliptin and metformin to treat her insulin esistance diabetes. We do not have this combination medicationand will start Ms.Dillow on sliding scale insulin to control her glucose levels.</li></ul><br /></div>"
+        "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>*** The appearance of the following text may differ from its appearance on the native electronic health record, but the content is the same. For example, text displayed in color may appear in regular,black type.***</b><br /><b>CarePlan</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago<br /><b>Status</b>:active<br /><b>Encounter</b>:Inferno,Initial<br /><b>Intent</b>:plan<br /><b>Category : </b><b>System</b>:http://hl7.org/fhir/us/core/CodeSystem/careplan-category <b>Code</b>:assess-plan<br /><b>Assessment and Plan</b>:<ul><li>Comments: <span><p>i. The patient was found to have Anemia and Dr Seven and his staff diagnosed</p> <p>the condition and treated Ms Rebecca for Anemia during the 2 day stay at</p> <p>Community Health Hospitals. Ms Rebecca recovered from Anemia during</p> <p>the stay and is being discharged in a stable condition. If there is fever</p> <p>greater than 101.5 F or onset of chest pain/breathlessness the patient is</p> <p>advised to contact emergency.</p></span></li></ul><br /></div>"
         # rubocop:enable Layout/LineLength
       }
     }.freeze
