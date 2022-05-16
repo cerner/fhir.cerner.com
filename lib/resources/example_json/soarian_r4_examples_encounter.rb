@@ -167,7 +167,7 @@ module Cerner
       "text": {
         "status": 'generated',
         # rubocop:disable Layout/LineLength
-        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
+        "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
         # rubocop:enable Layout/LineLength
       }
     }.freeze
@@ -313,7 +313,7 @@ module Cerner
           "text": {
             "status": 'generated',
             # rubocop:disable Layout/LineLength
-            "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
+            "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
             # rubocop:enable Layout/LineLength
           }
         }
@@ -496,7 +496,7 @@ module Cerner
             "text": {
               "status": 'generated',
               # rubocop:disable Layout/LineLength
-              "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
+              "div": "<div xmlns='http://www.w3.org/1999/xhtml'><b>Encounter</b><br /><b>Patient</b>:Mcgovern,Astrid Santiago;<br /><b>Status</b>:in-progress;<br /><b>Class</b>:inpatient encounter;<br /><b>Period Start Date</b>:2020-04-15T16:42:00-04:00;<br /><b>Service Provider</b>:Health Enterprise;<br /><b>Type</b>:<br /><b>System</b>:http://terminology.hl7.org/CodeSystem/data-absent-reason <b>Code</b>:unknown <b>Display</b>:Unknown ;<br /><b>Reason for Encounter - Chief Complaint</b>:Pain left side of the body;<br /><b>Location</b>:Inferno 53 Valley Stream Parkway,Malvern,PA,19355,United States;<br /></div>"
               # rubocop:enable Layout/LineLength
             }
           }
