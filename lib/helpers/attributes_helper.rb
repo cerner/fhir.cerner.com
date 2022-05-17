@@ -7,6 +7,8 @@ module AttributesHelper
         item[:version] = 'dstu2'
       elsif item.identifier.to_s.include? '/r4'
         item[:version] = 'r4'
+      elsif item.identifier.to_s.include? '/bulk-data'
+        item[:version] = 'bulk-data'
       end
     end
   end

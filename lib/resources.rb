@@ -92,6 +92,18 @@ module Cerner
         "#{JSON.pretty_generate(escaped_values_hash)}</code></pre>"
       end
 
+      def ndjson(key, css_override: nil)
+        array = get_resource(key)
+
+        ndjson_str = array.map do |h|
+          escaped_values_hash = deep_transform_values(h)
+          JSON.pretty_generate(escaped_values_hash)
+        end.join('<br>')
+
+        "<pre class=\"#{css_override || 'body-response'}\"><code class=\"language-javascript\">"\
+        "#{ndjson_str}</code></pre>"
+      end
+
       def soarian_bulk_json(key, css_override: nil)
         hash = get_resource(key)
         hash = yield hash if block_given?
