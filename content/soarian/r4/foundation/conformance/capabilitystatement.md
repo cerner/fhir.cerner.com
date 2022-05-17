@@ -57,7 +57,7 @@ Authorization is not required.
 
 #### Request
 
-The request is an HTTP GET operation with a URL that is formed by appending /.well-known/smart-configuration to the base URL. Soarian Clinicals<sup>®</sup> provides two versions of the well-known URI: one for consumer applications, and another for provider and bulk data or system applications.
+The request is an HTTP GET operation with a URL formed by appending /.well-known/smart-configuration to the base URL. Soarian Clinicals<sup>®</sup> provides two versions of the well-known URI: one for consumer applications, and another for provider and bulk data or system applications.
 
 * Patient Persona:
 
@@ -82,9 +82,9 @@ The response differs for each persona: patient versus provider or system. The re
  token_endpoint_auth_methods_supported             | An array of client authentication methods supported by the token endpoint. 																																																									| 		Y 			| 		Y
  token_endpoint_auth_signing_alg_values_supported  | JSON array containing a list of the JSON web signature (JWS) signing algorithms ("alg" values) supported by the token endpoint for the signature on the JSON web token (JWT) used to authenticate the client at the token endpoint for the "private_key_jwt" and "client_secret_jwt" authentication methods. 	| 		     		| 		Y
  scopes_supported                                  | An array of scopes that a client application can request.        																																																												| 		Y    		| 		Y
- response_types_supported                          | An array of OAuth2 response_type values that are supported.        																																																											| 		Y     		| 		Y
+ response_types_supported                          | An array of supported OAuth2 response_type values.       																																																											| 		Y     		| 		Y
  management_endpoint                               | An endpoint where a user can view which applications currently have access to data and make adjustments to those access rights. 																																												| 		Y     		| 		Y
- introspection_endpoint                            | The URL to a servers introspection endpoint that can be used to validate a token.         																																																					| 		Y    		| 		Y
+ introspection_endpoint                            | The URL to a server's introspection endpoint that can validate a token.       																																																					| 		Y    		| 		Y
  Capabilities                                      | An array of strings representing SMART<sup>®</sup> capabilities that the server supports.        																																																				| 		Y     		| 		Y
 
 ####Response Example for Patient Persona
