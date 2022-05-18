@@ -48,7 +48,7 @@ fields:
     description: Role of the participant in care team.
     note: Required if participant is given.
     binding:
-      description: Role of participant in careteam.
+      description: Role of participant in care team.
       terminology:
       - display: Participant Role
         system: https://nucc.org/provider-taxonomy
