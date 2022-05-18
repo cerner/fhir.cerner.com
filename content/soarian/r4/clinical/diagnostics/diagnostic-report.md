@@ -89,7 +89,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport?patient=A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/DiagnosticReport?_id=A879904FD2FE4B2D90C89FDA84E1285F.RAD.18221
 
 #### Response
 
