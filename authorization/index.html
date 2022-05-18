@@ -384,7 +384,7 @@ that the user has access to.)</li>
   <li>user:  Access to the resource is only constrained by the access of the user.</li>
   <li>patient:  Access to the resource is constrained within context of a single patient.</li>
   <li>system:  Used in system-based authorization workflows, as described in
-<a href="#system-authorization">“Requesting Authorization on Behalf of a System”</a>.</li>
+<a href="#requesting-authorization-on-behalf-of-a-system">“Requesting Authorization on Behalf of a System”</a>.</li>
 </ul>
 
 <p>In certain cases, the authenticated user will be presented a choice to allow your
@@ -438,7 +438,7 @@ other non-EHR managed data (examples: user-created data).</li>
 <p>The scope ‘openid’ will request that Cerner’s authorization server supply
 and <a href="http://openid.net/specs/openid-connect-core-1_0.html" title="OpenID Connect Core 1.0 incorporating errata set 1">OpenID Connect</a> identity token as part of the authorization
 workflow.  Further details on utilizing the OpenID token can be found in
-the <a href="../authorization/openid-connect">OpenID Connect Guide</a>.</p>
+the <a href="openid-connect">OpenID Connect Guide</a>.</p>
 
 <p>The scope ‘fhirUser’ will additionally request that the OpenID Connect
 token include the claim ‘fhirUser’, as defined by the
@@ -453,7 +453,7 @@ Person resource, depending on the type of user whom is authenticated.</p>
 workflow is a single token that is valid for 570 seconds (~10 minutes).
 For applications that need access to services for longer durations,
 Cerner’s Ignite platform supports the concept of
-<a href="#refresh_tokens">“refresh tokens”</a>.</p>
+<a href="#utilizing-refresh-tokens">“refresh tokens”</a>.</p>
 
 <p>With ‘online_access’, your application can continue to obtain access
 tokens on behalf of the user until:</p>
@@ -483,8 +483,8 @@ organization.</li>
 
 <p><a href="https://hl7.org/fhir/smart-app-launch/scopes-and-launch-context.html#wildcard-scopes">Wildcard Scopes</a> are currently <strong>not supported</strong>; refer to the linked document for a more detailed discussion of the challenges they pose. An application is currently required to specifically request each scope that it needs to run.</p>
 
-<p>Other combinations of scopes may be limited; please see the <a href="#faq">FAQ</a> for
-known limitations.</p>
+<p>Other combinations of scopes may be limited; please see the
+<a href="#frequently-asked-questions">FAQ</a> for known limitations.</p>
 
 <h5 id="state">State</h5>
 
@@ -913,7 +913,7 @@ token request:</p>
 </pre>
 
 <p>In either circumstance, Cerner’s authorization server communicates
-the parameter “error_uri”, which represents a URI that contains
+the parameter <code>error_uri</code>, which represents a URI that contains
 additional information useful for end users, client app developers,
 and support personnel, along with support contact information
 for the associated organization.  It is recommended when such
@@ -999,37 +999,6 @@ Date: Tue, 01 Nov 2016 20:48:32 GMT
 refresh token.  The original refresh token from the initial
 grant response must be retained.</p>
 
-<h4 id="considerations-for-handling-offlineaccess">Considerations for Handling ‘offline_access’</h4>
-
-<p>Cerner’s authorization server can be used as an authentication
-mechanism via the use of the “openid” scope.  In this scenario,
-an offline access refresh token could be stored in your
-application’s service tier and associated with the user’s
-OpenID Connect principal and issuer.  Upon subsequent
-access, the client application would invoke an authorization
-reuqest containing the “openid” scope to soley perform
-authentication to allow your service tier to identify the user
-and any refresh tokens your application currently possesses
-for the user.</p>
-
-<p><em>NOTE</em>:  Cerner’s authorization server currently does not
-support the stand-alone “openid” workflow for patients and/or
-their authorized representatives.</p>
-
-<p>When retrieving an access token utilizing using an
-online_access refresh, the most likely cause of failures
-is that access has been revoked.  The following steps are
-recommended for the user experience:</p>
-
-<ul>
-  <li>Indicate that the application’s access may have been
-revoked.</li>
-  <li>Offer a “more information” link/button, hyperlinked to
-the value returned in the parameter “error_uri”.</li>
-  <li>Offer the ability for the user to re-request
-authorization for your client application.</li>
-</ul>
-
 <h4 id="considerations-for-handling-onlineaccess">Considerations for Handling ‘online_access’</h4>
 
 <p>When retrieving an access token utilizing using an
@@ -1048,8 +1017,65 @@ user to launch the application again.</li>
 (initiate the authorization grant workflow again) as
 appropriate.</li>
   <li>Offer a “more information” link/button, hyperlinked to
-the value returned in the parameter “error_uri”.</li>
+the value returned in the parameter <code>error_uri</code>.</li>
 </ul>
+
+<h4 id="considerations-for-handling-offlineaccess">Considerations for Handling ‘offline_access’</h4>
+
+<p>Cerner’s authorization server can be used as an authentication
+mechanism via the use of the “openid” scope.  In this scenario,
+an offline access refresh token could be stored in your
+application’s service tier and associated with the user’s
+OpenID Connect principal and issuer.  Upon subsequent
+access, the client application would invoke an authorization
+request containing the “openid” scope to solely perform
+authentication to allow your service tier to identify the user
+and any refresh tokens your application currently possesses
+for the user.</p>
+
+<p><em>NOTE</em>:  Cerner’s authorization server currently does not
+support the stand-alone “openid” workflow for patients and/or
+their authorized representatives.</p>
+
+<p>When retrieving an access token utilizing using an
+offline_access refresh, the most likely cause of failures
+is that access has been suspended or completely revoked.
+The following steps are recommended for the user experience:</p>
+
+<ul>
+  <li>Indicate that the application’s access may have been
+suspended or revoked.</li>
+  <li>Offer a “more information” link/button, hyperlinked to
+the value returned in the parameter <code>error_uri</code>.</li>
+  <li>Offer the ability for the user to re-request
+authorization for your client application.</li>
+</ul>
+
+<p><em>NOTE</em>:  The authorization server will not explicitly indicate
+whether a token was revoked or suspended.  As a result, there
+are additional recommendations to improve the overall
+interaction with the end-user as described below.</p>
+
+<p>The <code>error_uri</code> used in the hyperlink/button should be launched
+in a separate browser window/tab.  This is recommended
+because there is no callback/redirect mechanism to get the
+user back into the application once they take an action
+and the <code>error_uri</code> will only provide an opportunity for the
+user to re-approve the application if it was temporarily suspended.</p>
+
+<p>Additionally, your application should provide a modal dialog
+to prompt the user for an action that coincides with
+their choice and/or action in the separate window.
+This should include options to retry the token refresh,
+request an entirely new authorization grant, and simply
+stop using the application (and log out if necessary).</p>
+
+<p>Note that the automatic suspension of a token can occur when the
+TLS or DNS information has changed since the original authorization.
+For example, if your application’s TLS certificate has expired,
+then your application’s refresh token will be suspended.
+See the <a href="application-registration-prerequisites">Application Registration Prerequisites</a>
+for additional information about TLS and DNS requirements.</p>
 
 <h2 id="utilizing-authorization">Utilizing Authorization</h2>
 
@@ -1092,8 +1118,7 @@ their current authorizations.  Generally, such links
 are presented in conjunction with menu accessible from
 a status bar.</p>
 
-<p>For information on how to discover the management
-endpoint for a user, see
+<p>For information on how to discover the management endpoint for a user, see
 <a href="authorization-specification#discovery">Discovery</a> in the
 authorization specification.</p>
 
@@ -1174,25 +1199,18 @@ FHIR<sup>®</sup> API resource documentation.</p>
 developers may pose that are not covered by the
 preceding documentation.</p>
 
-<ul>
-  <li>How can I allow users to utilize devices that do
-not provide a browser (user agent) to facilitate
-the authorization workflow?</li>
-</ul>
+<p><strong>How can I allow users to utilize devices that do
+  not provide a browser (user agent) to facilitate
+  the authorization workflow?</strong></p>
 
-<blockquote>
-  <p>Cerner currently does not have a mechanism to allow
+<p>Cerner currently does not have a mechanism to allow
   such devices to participate in the authorization
   ecosystem.</p>
-</blockquote>
 
-<ul>
-  <li>What happens when a user revokes my application’s
-access to their data?</li>
-</ul>
+<p><strong>What happens when a user revokes my application’s
+  access to their data?</strong></p>
 
-<blockquote>
-  <p>When a user revokes an application’s access, its
+<p>When a user revokes an application’s access, its
   <em>refresh</em> tokens immediately become non-functional.
   <em>Access</em> tokens cannot be directly revoked; however,
   they are only valid for a brief period in any case
@@ -1205,160 +1223,120 @@ access to their data?</li>
   as well as Section 16.18 of the
   <a href="https://openid.net/specs/openid-connect-core-1_0.html">“OpenID Connect Core 1.0”</a>
   specification.</p>
-</blockquote>
 
-<ul>
-  <li>How can my application revoke a refresh token on
-behalf of a user?</li>
-</ul>
+<p><strong>What happens if a refresh token is suspended?</strong></p>
 
-<blockquote>
-  <p>Cerner currently does not have a mechanism that allows
+<p>When the authorization server suspends a refresh token,
+the user can re-approve the application so that a
+subsequent token refresh will succeed.  The application
+must present the <code>error_uri</code> link to the user so that they
+can launch the management application to re-approve the token.
+However, if the user does not do this, or they deny the 
+re-approval, then the token refresh will continue to fail.
+As an alternative, the application can request an entirely
+new token via a new authorization grant request.</p>
+
+<p><strong>How can my application revoke a refresh token on
+  behalf of a user?</strong></p>
+
+<p>Cerner currently does not have a mechanism that allows
   client applications to revoke refresh tokens.  If/when
   such functionality is implemented, it will follow RFC 7009
   <a href="https://tools.ietf.org/html/rfc7009">“OAuth 2.0 Token Revocation”</a>.</p>
-</blockquote>
 
-<ul>
-  <li>How can my application participate in log out
-mechanisms provided by the organization’s single
-sign-on (SSO) ecosystem?</li>
-</ul>
+<p><strong>How can my application participate in log out
+  mechanisms provided by the organization’s single
+  sign-on (SSO) ecosystem?</strong></p>
 
-<blockquote>
-  <p>While the Cerner authorization server provides OpenID
+<p>While the Cerner authorization server provides OpenID
   Connect support, it does not currently implement any
   of the draft log-out specifications currently
   proposed by the community.  Cerner continues to track
   on developments in this ecosystem.</p>
-</blockquote>
 
-<blockquote>
-  <p>As an alternative, you may offer the user a link to
+<p>As an alternative, you may offer the user a link to
   “Manage Authorized Applications”, which allows the user
   to log out via their SSO system.</p>
-</blockquote>
 
-<ul>
-  <li>A browser window/tab remains after the completion of the
-authorization workflow.  How should my application handle
-this?</li>
-</ul>
+<p><strong>A browser window/tab remains after the completion of the
+  authorization workflow.  How should my application handle
+  this?</strong></p>
 
-<blockquote>
-  <p>Depending on how the browser was launched, your application
+<p>Depending on how the browser was launched, your application
   may not have the ability to close the browser window.
   If you launched a fresh browser window directly, you may
   be able to use Windows APIs to find and send a close
   command directly to the window.</p>
-</blockquote>
 
-<ul>
-  <li>Does the Cerner authorization server offer an
-authentication-only workflow (via OpenID Connect) for
-patients  and/or their authorized representatives?</li>
-</ul>
+<p><strong>Does the Cerner authorization server offer an
+  authentication-only workflow (via OpenID Connect) for
+  patients  and/or their authorized representatives?</strong></p>
 
-<blockquote>
-  <p>Cerner currently does not offer this capability at this
+<p>Cerner currently does not offer this capability at this
   time.</p>
-</blockquote>
 
-<ul>
-  <li>Can I append additional query parameters for my
-redirection URI when I send my authorization grant
-request?</li>
-</ul>
+<p><strong>Can I append additional query parameters for my
+  redirection URI when I send my authorization grant
+  request?</strong></p>
 
-<blockquote>
-  <p>Yes, Cerner’s redirection URI validation allows for
+<p>Yes, Cerner’s redirection URI validation allows for
   additional query parameters, per the OAuth specification.</p>
-</blockquote>
 
-<blockquote>
-  <p><em>NOTE</em>:  Cerner’s implementation uses strict path
+<p><em>NOTE</em>:  Cerner’s implementation uses strict path
   validation, which includes trailing slashes in your
   redirection URI.</p>
-</blockquote>
 
-<ul>
-  <li>I’m having trouble registering my redirection URI,
-what advice can you offer?</li>
-</ul>
+<p><strong>I’m having trouble registering my redirection URI,
+  what advice can you offer?</strong></p>
 
-<blockquote>
-  <p>URIs must conform with RFC 2396 and must be an
+<p>URIs must conform with RFC 2396 and must be an
   absolute URI, per that specification.  Most issues
   we encounter are individuals attempting to register
   URIs with schemes containing a net path (“//”), but
   are missing an authority component.  For example,
   “app://” is an invalid URI, but “app://callback”
   is valid.</p>
-</blockquote>
 
-<ul>
-  <li>Can I register multiple redirect URIs?</li>
-</ul>
+<p><strong>Can I register multiple redirect URIs?</strong></p>
 
-<blockquote>
-  <p>Cerner’s operations team can register multiple
+<p>Cerner’s operations team can register multiple
   redirect URIs for your application.  This function
   is not yet exposed in our developer tooling.</p>
-</blockquote>
 
-<ul>
-  <li>My organization is a Cerner client that offers an
-application directly to patients.  Can we skip the
-authorization interaction with users for our app?</li>
-</ul>
+<p><strong>My organization is a Cerner client that offers an
+  application directly to patients.  Can we skip the
+  authorization interaction with users for our app?</strong></p>
 
-<blockquote>
-  <p>Yes, Cerner offers the ability for organizations
+<p>Yes, Cerner offers the ability for organizations
   providing their own app to disable the patient-mediated
   authorization workflow when used in context with their
   organization.</p>
-</blockquote>
 
-<ul>
-  <li>How can I embed my SMART<sup>®</sup> on FHIR<sup>®</sup>
-application in another application, such as inside of a web
-view or iframe and still orchestrate the authorization
-workflow?</li>
-</ul>
+<p><strong>How can I embed my SMART<sup>®</sup> on FHIR<sup>®</sup>
+  application in another application, such as inside of a web
+  view or iframe and still orchestrate the authorization
+  workflow?</strong></p>
 
-<blockquote>
-  <p>A general-purpose framework for embedding SMART<sup>®</sup>
+<p>A general-purpose framework for embedding SMART<sup>®</sup>
   on FHIR<sup>®</sup> applications does not currently exist.</p>
-</blockquote>
 
-<ul>
-  <li>One or more offline access tokens stored by my application
-may have been compromised.  What action should I take to
-prevent their usage?</li>
-</ul>
+<p><strong>One or more offline access tokens stored by my application
+  may have been compromised.  What action should I take to
+  prevent their usage?</strong></p>
 
-<blockquote>
-  <p>Disable or rotate your system account via Cerner Central as
+<p>Disable or rotate your system account via Cerner Central as
   soon as possible via
   <a href="https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help" title="Cerner System Account Management Help">Cerner Central System Account Management</a>.</p>
-</blockquote>
 
-<ul>
-  <li>Is offline_access supported for healthcare providers?</li>
-</ul>
+<p><strong>Is offline_access supported for healthcare providers?</strong></p>
 
-<blockquote>
-  <p>Cerner does not currently have support for offline_access
+<p>Cerner does not currently have support for offline_access
   for providers.  It is currently under consideration.</p>
-</blockquote>
 
-<ul>
-  <li>How can I deliver my solution to users utilizing its own
-Citrix instance with XenApp?</li>
-</ul>
+<p><strong>How can I deliver my solution to users utilizing its own
+  Citrix instance with XenApp?</strong></p>
 
-<blockquote>
-  <p>Cerner currently does not have guidance on how to deliver
+<p>Cerner currently does not have guidance on how to deliver
   native applications running within their own dedicated
   Citrix container.  Such applications would generally
   interact with the authorization server from a browser
@@ -1366,7 +1344,6 @@ Citrix instance with XenApp?</li>
   unless other steps are taken to allow for interaction
   with the browser on the device where Citrix Receiver
   is run.</p>
-</blockquote>
 
 <h2 id="references">References</h2>
 <ul>

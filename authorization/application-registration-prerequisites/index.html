@@ -147,11 +147,11 @@
 
 <h3 id="setting-up-your-domains-dns-txt-record">Setting Up Your Domain’s DNS TXT Record</h3>
 
-<p>To follow the security best practices, you will need to add a DNS TXT record to your appliction’s website containing the Cerner-issued client identifier for the application (also referred to as a “system account ID” in CernerCentral or a “client identifier” in the <a href="https://datatracker.ietf.org/doc/html/rfc6749#page-15" title="Client Identifier section of the OAuth 2 Specification">OAuth 2 specification</a> ).</p>
+<p>To follow the security best practices, you will need to add a DNS TXT record to your application’s website containing the Cerner-issued client identifier for the application (also referred to as a “system account ID” in CernerCentral or a “client identifier” in the <a href="https://datatracker.ietf.org/doc/html/rfc6749#page-15" title="Client Identifier section of the OAuth 2 Specification">OAuth 2 specification</a>).  This TXT record should be added to the eTLD+1 for the domain hosting the application.</p>
 
-<p><strong>Please consult your ISP’s documentation for the steps to set up a DNS TXT record at your application’s domain.</strong></p>
+<p><strong>Please consult your ISP’s documentation for the steps to set up a DNS TXT record at your application’s eTLD+1 domain.</strong></p>
 
-<p>The DNS TXT record of your application must match the following key-value format-</p>
+<p>The DNS TXT record of your application must match the following key-value format:</p>
 
 <p><strong>Format:</strong><br>
 “cerner-client-id={value}”</p>
@@ -159,14 +159,13 @@
 <p><strong>Example:</strong><br>
 cerner-client-id=bxdcd0ff-5der-4c15-b2tf-r28b105aa845</p>
 
-<p>where value = Cerner-issued client identifier for your application
-    in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:</p>
+<p>Where <code>value</code> is the Cerner-issued client identifier for your application.
+In the case that multiple apps are registered for the same eTLD+1 domain, multiple TXT records can be added each with the <code>cerner-client-id</code> for a specific application.  For example:</p>
 
-<pre><code>"cerner-client-id={value 1}"
-"cerner-client-id={value 2}"
-
+<pre><code>"cerner-client-id={value1}"
+"cerner-client-id={value2}"
 ...
-"cerner-client-id={value N}"
+"cerner-client-id={valueN}"
 </code></pre>
 
 <h3 id="steps-to-verify-your-applications-compliance">Steps to Verify Your Application’s Compliance</h3>
@@ -175,7 +174,7 @@ cerner-client-id=bxdcd0ff-5der-4c15-b2tf-r28b105aa845</p>
 
 <h4 id="determine-your-etld1">Determine your eTLD+1</h4>
 
-<p>The eTLD+1 is the effective TLD and the part of the domain just before it. For example, given a URL of https://my-project.github.io , the eTLD is .github.io and the eTLD+1 is my-project.github.io, which is considered a “site”. This domain will be shown to end-users.</p>
+<p>The eTLD+1 is the effective top level domain (TLD) and the part of the domain just before it. For example, given a URL of https://my-project.github.io, the TLD is <code>io</code> and the eTLD+1 is <code>github.io</code>, which is considered a “site”. This domain will be shown to end-users.</p>
 
 <p>To determine eTLD+1 please check public domains that are defined in the <a href="https://publicsuffix.org/list/public_suffix_list.dat">Public Suffix List</a>.</p>
 
