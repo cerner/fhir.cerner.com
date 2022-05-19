@@ -80,7 +80,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter?patient=A879904FD2FE4B2D90C89FDA84E1285F
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Encounter?patient=A879904FD2FE4B2D90C89FDA84E1285F
 
 #### Response
 
@@ -93,7 +93,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter?_id=A879904FD2FE4B2D90C89FDA84E1285F.29019
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Encounter?_id=A879904FD2FE4B2D90C89FDA84E1285F.29019
 
 #### Response
 
@@ -128,7 +128,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Encounter/A879904FD2FE4B2D90C89FDA84E1285F.29019
 
 #### Response
 
