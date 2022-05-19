@@ -61,7 +61,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization?patient=4C05F5F357EE44FC874C0CF4AB249F99
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization?patient=4C05F5F357EE44FC874C0CF4AB249F99
 
 #### Response
 
@@ -74,7 +74,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization?_id=4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001&patient=4C05F5F357EE44FC874C0CF4AB249F99
+	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization?_id=4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001&patient=4C05F5F357EE44FC874C0CF4AB249F99
 
 #### Response
 
@@ -105,7 +105,7 @@ List an individual Immunization resource by its ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001
     
 #### Response
 
@@ -122,7 +122,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001
     
 #### Response
 
@@ -139,7 +139,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000010001
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000010001
     
 #### Response
 
@@ -156,7 +156,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000088001
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000088001
     
 #### Response
 

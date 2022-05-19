@@ -10,7 +10,7 @@ module Cerner
       "timestamp": '2022-05-11T06:04:34-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000083001',
+          "fullUrl": 'https://fhir-myrecord.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000083001',
           "search": {
             "mode": 'match'
           },
@@ -51,7 +51,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000110001',
+          "fullUrl": 'https://fhir-myrecord.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000110001',
           "search": {
             "mode": 'match'
           },
@@ -92,7 +92,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": 'https://fhir-myrecord.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107002',
+          "fullUrl": 'https://fhir-myrecord.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107002',
           "search": {
             "mode": 'match'
           },
@@ -131,7 +131,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization?patient=4C05F5F357EE44FC874C0CF4AB249F99&_format=json'
+          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization?patient=4C05F5F357EE44FC874C0CF4AB249F99&_format=json'
         }
       ]
     }.freeze
@@ -143,7 +143,7 @@ module Cerner
       "timestamp": '2022-05-11T06:09:06-04:00',
       "entry": [
         {
-          "fullUrl": 'https://fhir-myrecord.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001',
+          "fullUrl": 'https://fhir-myrecord.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization/4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001',
           "search": {
             "mode": 'match'
           },
@@ -182,7 +182,7 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Immunization?_id=4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001&patient=4C05F5F357EE44FC874C0CF4AB249F99&_format=json'
+          "url": 'https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Immunization?_id=4C05F5F357EE44FC874C0CF4AB249F99.000001001008000107001&patient=4C05F5F357EE44FC874C0CF4AB249F99&_format=json'
         }
       ]
     }.freeze
