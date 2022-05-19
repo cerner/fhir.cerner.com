@@ -66,7 +66,7 @@ Search for CarePlan resources that meet the specified query parameters:
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/CarePlan?patient=494454CC0E254A409CD98DA791EB2E16&category=assess-plan
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/CarePlan?patient=A879904FD2FE4B2D90C89FDA84E1285F&category=assess-plan
 
 #### Response
 
@@ -79,7 +79,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/CarePlan?_id=494454CC0E254A409CD98DA791EB2E16.DDC.80014
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/CarePlan?_id=A879904FD2FE4B2D90C89FDA84E1285F.NRS.43060
 
 #### Response
 
@@ -111,7 +111,7 @@ List an individual CarePlan resource by its ID:
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/CarePlan/494454CC0E254A409CD98DA791EB2E16.DDC.80014
+	GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/CarePlan/A879904FD2FE4B2D90C89FDA84E1285F.NRS.43060
 
 #### Response
 
