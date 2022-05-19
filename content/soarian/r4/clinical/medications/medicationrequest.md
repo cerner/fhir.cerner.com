@@ -72,7 +72,7 @@ Notes
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/MedicationRequest?patient=A879904FD2FE4B2D90C89FDA84E1285F
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/MedicationRequest?patient=A879904FD2FE4B2D90C89FDA84E1285F
 
 #### Response
 
@@ -85,7 +85,7 @@ Note: The examples provided here are non-normative and replaying them in the pub
 
 #### Request
 
-	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/MedicationRequest?_id=A879904FD2FE4B2D90C89FDA84E1285F.17864
+	GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/MedicationRequest?_id=A879904FD2FE4B2D90C89FDA84E1285F.17864
 
 #### Response
 
@@ -116,7 +116,7 @@ List an individual MedicationRequest resource by its ID:
 
 #### Request
 
-    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/MedicationRequest/A879904FD2FE4B2D90C89FDA84E1285F.17864
+    GET https://fhir-myrecord-sc.sandboxcerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/MedicationRequest/A879904FD2FE4B2D90C89FDA84E1285F.17864
     
 #### Response
 
