@@ -110,7 +110,7 @@ module Cerner
                 "id": 'CI-PH-46477780-0',
                 "extension": [
                   {
-                    "valueUrl": '2232323',
+                    "valueString": '2232323',
                     "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
                   }
                 ],
@@ -125,7 +125,7 @@ module Cerner
                 "id": 'CI-PH-9543543-1',
                 "extension": [
                   {
-                    "valueUrl": '1234567890',
+                    "valueString": '1234567890',
                     "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
                   },
                   {
@@ -146,7 +146,7 @@ module Cerner
                 "id": 'CI-PH-9543573-2',
                 "extension": [
                   {
-                    "valueUrl": '1234567890',
+                    "valueString": '1234567890',
                     "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
                   },
                   {
@@ -674,7 +674,7 @@ module Cerner
           'id': 'CI-PH-29811920-0',
           "extension": [
             {
-              "valueUrl": '(816)888-8886',
+              "valueString": '(816)888-8886',
               "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
             },
             {
