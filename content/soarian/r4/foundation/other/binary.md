@@ -44,7 +44,7 @@ The `Binary.read` scope and the `DocumentReference.read` scope is required.
 
 #### Request
 
-    GET  https://fhir-myrecord-sc.sandboxcerner.com/r4/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/Binary/5BDAC5A796D242FAA4FC038CCD357065.DM.YNIULMDWZQI6XAIPABIFNDRONA
+    GET https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/Binary/5BDAC5A796D242FAA4FC038CCD357065.DM.YNIULMDWZQI6XAIPABIFNDRONA
 
 #### Response
 
