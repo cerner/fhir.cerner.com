@@ -42,7 +42,7 @@ The following technical requirements are stated using [RFC 2119][RFC 2119] termi
 * Application SHOULD support and prefer TLS 1.2 or higher.
 * Application SHOULD have a valid, non-expired TLS certificate issued from a [trusted authority](tls-guidance.md#trusted-certificate-authorities).
 * Application SHOULD use an OV or EV certificate, if possible, instead of a DV certificate.
-* Application's web site SHOULD [host a DNS TXT record](#setting-up-your-domains-dns-txt-record) containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification][OAuth 2 specification] ).
+* Application's web site SHOULD [host a DNS TXT record](#setting-up-your-domains-dns-txt-record) containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification][OAuth 2 specification] ). This TXT record should be added to the eTLD+1 for the domain hosting the application.
 * Application's name SHOULD ideally align with the name of the website hosting it and/or the legal entity operating it.
 * Mobile/Native applications SHOULD (as suggested by [RFC-8252][RFC 8252] ) use [claimed "https" Scheme URI redirection](https://datatracker.ietf.org/doc/html/rfc8252#section-7.2) instead of private-use URI scheme redirection.
 
@@ -208,7 +208,7 @@ The DNS TXT record helps prove that the website intends to host your application
 
 **Where should the DNS TXT record be placed?**
 
-The DNS TXT record should be located on the DNS record for fully qualified domain name of your application's primary redirect URI.
+The DNS TXT record should be located on the DNS record for the eTLD+1 domain name of your application's primary redirect URI.
 
 **What happens if I don't provide the DNS TXT record?**
 
