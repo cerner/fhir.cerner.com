@@ -1,0 +1,73 @@
+---
+name: Encounter
+field_name_base_url: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter
+fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  note: resourceType must be Encounter
+  url: https://hl7.org/fhir/r4/json.html#resources
+
+- name: type
+  required: 'Yes'
+  type: List of CodeableConcept
+  description: The specific type of encounter.
+  binding:
+    description: The type of encounter.
+    terminology:
+    - display: CPT
+      system: https://www.ama-assn.org/go4/cpt
+      info_link: https://hl7.org/fhir/R4/cpt.html
+
+- name: participant
+  required: 'No'
+  type: List of BackboneElement
+  description: The list of people responsible for providing the service.
+
+  children:
+
+  - name: type
+    required: 'Yes'
+    type: List of CodeableConcept
+    description: Role of participant in encounter.
+    binding:
+      description: Role of participant in encounter.
+      terminology:
+      - display: ParticipantType
+        system: https://terminology.hl7.org/CodeSystem/v3-ParticipationType 
+        info_link: https://hl7.org/fhir/r4/valueset-encounter-participant-type.html
+
+- name: reasonCode
+  required: 'No'
+  type: List of CodeableConcept
+  description: The reason that the encounter is taking place.
+  action: create
+  binding:
+    description: Reason the encounter takes place.
+    terminology:
+    - display: ParticipantType
+      system: https://hl7.org/fhir/sid/icd-9-cm and http://hl7.org/fhir/sid/icd-10-cm
+      info_link: https://hl7.org/fhir/r4/icd.html
+
+
+- name: hospitalization
+  required: 'No'
+  type: BackboneElement
+  description: Details about the admission to a healthcare service.
+
+  children:
+
+  - name: dischargeDisposition
+    required: 'No'
+    type: CodeableConcept
+    description: Category or kind of location after discharge.
+    binding:
+      description: Discharge Disposition.
+      terminology:
+      - display: Category or kind of location after discharge
+        system: https://www.nubc.org/patient-discharge
+        info_link: https://www.nubc.org/
+
+
