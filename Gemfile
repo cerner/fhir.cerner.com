@@ -7,7 +7,7 @@ ruby '2.6.2'
 gem 'kramdown', '~> 2.3'
 gem 'nanoc', '~> 4.0'
 gem 'nokogiri', '~> 1.11.4'
-gem 'yajl-ruby', '~> 1.3'
+gem 'yajl-ruby', '~> 1.4'
 
 group :development do
   gem 'adsf'
