@@ -134,7 +134,7 @@
   <li>Application SHOULD support and prefer TLS 1.2 or higher.</li>
   <li>Application SHOULD have a valid, non-expired TLS certificate issued from a <a href="tls-guidance.md#trusted-certificate-authorities">trusted authority</a>.</li>
   <li>Application SHOULD use an OV or EV certificate, if possible, instead of a DV certificate.</li>
-  <li>Application’s web site SHOULD <a href="#setting-up-your-domains-dns-txt-record">host a DNS TXT record</a> containing the Cerner-issued client identifier for the application (also referred to as a “system account ID” in CernerCentral or a “client identifier” in the <a href="https://datatracker.ietf.org/doc/html/rfc6749#page-15" title="Client Identifier section of the OAuth 2 Specification">OAuth 2 specification</a> ).</li>
+  <li>Application’s web site SHOULD <a href="#setting-up-your-domains-dns-txt-record">host a DNS TXT record</a> containing the Cerner-issued client identifier for the application (also referred to as a “system account ID” in CernerCentral or a “client identifier” in the <a href="https://datatracker.ietf.org/doc/html/rfc6749#page-15" title="Client Identifier section of the OAuth 2 Specification">OAuth 2 specification</a> ). This TXT record should be added to the eTLD+1 for the domain hosting the application.</li>
   <li>Application’s name SHOULD ideally align with the name of the website hosting it and/or the legal entity operating it.</li>
   <li>Mobile/Native applications SHOULD (as suggested by <a href="https://datatracker.ietf.org/doc/html/rfc8252" title="OAuth 2.0 for Native Apps">RFC-8252</a> ) use <a href="https://datatracker.ietf.org/doc/html/rfc8252#section-7.2">claimed “https” Scheme URI redirection</a> instead of private-use URI scheme redirection.</li>
 </ul>
@@ -373,7 +373,7 @@ in the case when multiple apps are registered for the same domain, cerner-client
 
 <p><strong>Where should the DNS TXT record be placed?</strong></p>
 
-<p>The DNS TXT record should be located on the DNS record for fully qualified domain name of your application’s primary redirect URI.</p>
+<p>The DNS TXT record should be located on the DNS record for the eTLD+1 domain name of your application’s primary redirect URI.</p>
 
 <p><strong>What happens if I don’t provide the DNS TXT record?</strong></p>
 
