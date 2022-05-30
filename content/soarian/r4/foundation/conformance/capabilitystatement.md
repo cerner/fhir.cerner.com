@@ -35,11 +35,11 @@ Authorization is not required.
 #### Request
 Request URL for Patient persona:
 
-    https://fhir-myrecord-sc.cerner.com/r4/03416cd1-2b98-4412-95ef-920e74c5194b/metadata
+    GET https://fhir-myrecord-sc.cerner.com/r4/03416cd1-2b98-4412-95ef-920e74c5194b/metadata
 
 Request URL for Provider persona:
 
-    https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/metadata
+    GET https://fhir-ehr-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/metadata
 
 #### Response
 
@@ -66,15 +66,19 @@ The request is an HTTP GET operation with a URL formed by appending /.well-known
 
 * Patient Persona:
 
-GET https://fhir-myrecord-sc.[domainname]/r4/[tenant-id]/.well-known/smart-configuration
+    GET https://fhir-myrecord-sc.[domainname]/r4/[tenant-id]/.well-known/smart-configuration
 
-Example: https://fhir-myrecord-sc.devcerner.com/r4/4d8f311a-00a9-4133-a765-14e51625f5b4/.well-known/smart-configuration
+Example:
+
+    GET https://fhir-myrecord-sc.devcerner.com/r4/4d8f311a-00a9-4133-a765-14e51625f5b4/.well-known/smart-configuration
 
 * Provider and System Persona:
 
-GET https://fhir-ehr-sc.[domainname]/r4/[tenant-id]/.well-known/smart-configuration
+    GET https://fhir-ehr-sc.[domainname]/r4/[tenant-id]/.well-known/smart-configuration
 
-Example: https://fhir-ehr-sc.devcerner.com/r4/4d8f311a-00a9-4133-a765-14e51625f5b4/.well-known/smart-configuration
+Example:
+
+    GET https://fhir-ehr-sc.devcerner.com/r4/4d8f311a-00a9-4133-a765-14e51625f5b4/.well-known/smart-configuration
 
 #### Response
 
