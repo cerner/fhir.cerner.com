@@ -70,7 +70,7 @@ Depending upon the hospital’s policies and configuration, the ability to retur
 
 Name                    | Required? | Type                                                      | Description
 ------------------------|-----------|-----------------------------------------------------------|---------------------------------------------------------------------------------------------------
-`_outputFormat`          | No        | [`string`] 												| The format for the requested bulk data files to be generated as per [FHIR Asynchronous Request Pattern](http://hl7.org/fhir/async.html). Defaults to application/fhir+ndjson. Soarian Clinicals<sup>®</sup> accepts application/fhir+ndjson as well as the abbreviated representations application/ndjson and ndjson.
+`_outputFormat`         | No        | [`string`] 												| The format for the requested bulk data files to be generated as per [FHIR Asynchronous Request Pattern](https://hl7.org/fhir/async.html). Defaults to application/fhir+ndjson. Soarian Clinicals<sup>®</sup> accepts application/fhir+ndjson as well as the abbreviated representations application/ndjson and ndjson.
 `_since`                | No        | FHIR<sup>®</sup> instant 									| The response includes resources if their state changed after the supplied time (for example, if Resource.meta.lastUpdated is later than the supplied_since time).
 `_type`                 | No        | String of comma-delimited FHIR<sup>®</sup> resource types | Only resources of the specified resource types are included in the response. If this parameter is omitted, Soarian Clinicals<sup>®</sup> returns all supported resources in the scope of the client application authorization.
 
