@@ -2141,6 +2141,24 @@ module Cerner
             }
           }
         ]
+      },
+      {
+        'op': 'add',
+        'path': '/extension/-',
+        'value': {
+          'extension': [
+            {
+              'id': 'ENCNTR:2822522',
+              'valueString': 'ICD-9 Code',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueString': 'test string',
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        }
       }
     ].freeze
   end
