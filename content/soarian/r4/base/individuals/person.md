@@ -32,7 +32,7 @@ Search for Persons that meet supplied query parameters:
 
    | Federated Principal Alias
 ---|-------------------------------------------------------------------------------------------------------------------------------------------------------------------
-   | A unique alphanumeric string used to identify the person. The format of this unique string is known as the Federated Principal Alias (FPA). This format contains the Identity Provider’s unique identifier, a GUID issued by Cerner, and the SMART app user’s unique identifier, called the principal. Example: URN:CERNER:IDENTITY-FEDERATION:REALM:49F17659-891C-42C9-AE26-D6AE7826F62D:PRINCIPAL:38509e38-2d69-4109-ab24-08ca19ea4a65 In the example above: 49F17659-891C-42C9-AE26-D6AE7826F62D: The unique identifier of the Identity provider. 38509e38-2d69-4109-ab24-08ca19ea4a65: This value maps to the person's ID. It does not have to be a GUID. It can be an alphanumeric string that identifies the person, such as user123.
+   | A unique alphanumeric string used to identify the person. The format of this unique string is known as the Federated Principal Alias (FPA). This format contains the Identity Provider’s unique identifier, a GUID issued by Cerner, and the SMART app user’s unique identifier, called the principal. Example: URN:CERNER:IDENTITY-FEDERATION:REALM:49F17659-891C-42C9-AE26-D6AE7826F62D:PRINCIPAL:38509e38-2d69-4109-ab24-08ca19ea4a65 In the aforementioned example -  49F17659-891C-42C9-AE26-D6AE7826F62D: The unique identifier of the Identity provider. 38509e38-2d69-4109-ab24-08ca19ea4a65: This value maps to the person's ID. It does not have to be a GUID. It can be an alphanumeric string that identifies the person, such as user123.
 
     
 ### Authorization Types
