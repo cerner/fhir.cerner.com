@@ -12,7 +12,7 @@ module Nanoc::DataSources
       prefix = config[:prefix] || 'static'
 
       # Get all files under prefix dir
-      filenames = Dir[prefix + '/**/*'].select { |f| File.file?(f) }
+      filenames = Dir["#{prefix}/**/*"].select { |f| File.file?(f) }
 
       # Convert filenames to items
       filenames.map do |filename|
@@ -20,7 +20,7 @@ module Nanoc::DataSources
           extension: File.extname(filename)[1..],
           filename: filename
         }
-        identifier = filename[(prefix.length + 1)..] + '/'
+        identifier = "#{filename[(prefix.length + 1)..]}/"
 
         mtime = File.mtime(filename)
         checksum = checksum_for(filename)
