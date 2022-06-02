@@ -2,6 +2,7 @@
 title: Summary | R4 API
 layout: api
 ---
+# Summary
 
 <%= render '/soarian/r4/clinical/summary.*' %>
 

@@ -11,6 +11,11 @@ layout: api
 * [AllergyIntolerance](/soarian/r4/clinical/summary/allergy-intolerance)
 * [Condition](/soarian/r4/clinical/summary/condition)
 * [Procedure](/soarian/r4/clinical/summary/procedure)
+
+## Diagnostics
+<%= render '/soarian/r4/clinical/diagnostics.*' %>
+
+* [DiagnosticReport](/soarian/r4/clinical/diagnostics/diagnostic-report)
 * [Observation](/soarian/r4/clinical/diagnostics/observation)
 
 ## Medications
