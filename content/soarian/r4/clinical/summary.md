@@ -7,6 +7,6 @@ layout: api
 
 * [AllergyIntolerance](../summary/allergy-intolerance)
 * [Condition](../summary/condition)
-
+* [Procedure](../summary/procedure)
 
 
