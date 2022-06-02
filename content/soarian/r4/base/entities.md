@@ -5,4 +5,5 @@ layout: api
 
 <%= render '/soarian/r4/base/entities.*' %>
 
+* [Organization](../entities/organization)
 * [Device](/soarian/r4/base/entities/device)

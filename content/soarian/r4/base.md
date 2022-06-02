@@ -18,7 +18,6 @@ layout: api
 * [Organization](/soarian/r4/base/entities/organization)
 * [Device](/soarian/r4/base/entities/device)
 
-
 ## Management
 <%= render '/soarian/r4/base/management.*' %>
 
