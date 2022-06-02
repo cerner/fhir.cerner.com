@@ -4,7 +4,6 @@ title: ChargeItem | R4 API
 
 # ChargeItem
 
-<%= beta_tag %>
 
 * TOC
 {:toc}
@@ -29,6 +28,7 @@ The following fields are returned if valued:
 * [Entered Date](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.enteredDate){:target="_blank"}
 * [Reason](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason){:target="_blank"}
 * [Account](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.account){:target="_blank"}
+* [Supporting Information](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.supportingInformation){:target="_blank"}
 * [Extensions including bill code schedule, custom attribute, description, modifier code, national drug product, net price, offset by, performing location, procedure code, quantity conversion factor, replacing, revenue code, and unit price](#extensions){:target="_blank"}
 
 ## Terminology Bindings
@@ -59,7 +59,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  ID                           | Value\[x] Type                                                    | Description
 ------------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------
  `bill-code-schedule`         | [`coding`]                                                        | A defined group of bill codes that drives billing behavior.
- `custom-attribute`           | None (contains nested extensions)                                 | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`date`].
+ `custom-attribute`           | None (contains nested extensions)                                 | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], [`decimal`], or [`dateTime`].
  `description`                | [`string`]                                                        | A description providing additional details of the resource.
  `modifier-code`              | None (contains nested extensions)                                 | A code providing additional detail about a product or service.
  `national-drug-product`      | None (contains nested extensions)                                 | The national drug product used in care.
@@ -75,7 +75,6 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ## Search
 
-<%= beta_tag(action: true) %>
 
 Search for ChargeItems that meet supplied query parameters:
 
@@ -126,7 +125,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
-<%= beta_tag(action: true) %>
 
 List an individual ChargeItem by its id:
 
@@ -144,7 +142,7 @@ List an individual ChargeItem by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/292870306
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/321088041
 
 #### Response
 
@@ -159,7 +157,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Operation: charge-item-credit
 
-<%= beta_tag(action: true) %>
 
 Creates an offsetting ChargeItem for an existing debit ChargeItem.
 
@@ -212,7 +209,115 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`date`]: https://hl7.org/fhir/r4/datatypes.html#date
+## Operation: charge-item-modify
+
+
+Modifies an existing ChargeItem resulting in a newly created ChargeItem.
+
+    POST /ChargeItem/$modify
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:charge_item_modify, :modify, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/$modify
+
+#### Body
+
+<%= json(:r4_charge_item_modify) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Fri, 16 Jul 2021 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/2180632343
+Last-Modified: Fri, 16 Jul 2021 17:23:13 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Operation: charge-item-create
+
+
+Creates a charge event which can result in the creation of one or more ChargeItems.
+
+    POST /ChargeItem/:id/$create
+
+_Implementation Notes_
+
+* Only the body fields mentioned below are supported.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+json', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:charge_item_create, :create, :r4) %>
+
+### Example
+
+#### Request
+
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/$create
+
+#### Body
+
+<%= json(:r4_charge_item_create) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Thu, 11 Nov 2021 17:23:14 GMT
+Etag: W/"0"
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/ChargeItem/$create
+Last-Modified: Thu, 11 Nov 2021 17:25:14 GMT
+Vary: Origin
+X-Request-Id: 11111111111111111111111111111111
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+[`dateTime`]: https://hl7.org/fhir/r4/datatypes.html#datetime
 [`decimal`]: https://hl7.org/fhir/r4/datatypes.html#decimal
 [`integer`]: https://hl7.org/fhir/r4/datatypes.html#integer
 [`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
