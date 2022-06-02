@@ -58,7 +58,7 @@ fields:
     description: Indicates specific responsibility of an individual within the care team, such as "Primary care physician", "Trained social worker counselor", "Caregiver", etc.
     note: Required if participant is given.
     binding:
-      description: Role of participant in careteam.
+      description: Role of participant in care team.
       terminology:
       - display: Participant Role
         system: http://hl7.org/fhir/r4/valueset-participant-role.html

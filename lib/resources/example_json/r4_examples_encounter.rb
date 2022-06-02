@@ -21,6 +21,7 @@ module Cerner
       },
       'extension': [
         {
+          'id': 'CA-0',
           'extension': [
             {
               'id': 'ENCNTR:17368048',
@@ -35,6 +36,7 @@ module Cerner
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
         },
         {
+          'id': 'CA-1',
           'extension': [
             {
               'id': 'ENCNTR:2572582103',
@@ -422,6 +424,7 @@ module Cerner
             },
             "extension": [
               {
+                "id": 'CA-0',
                 "extension": [
                   {
                     "id": 'ENCNTR:3339151',
@@ -446,6 +449,7 @@ module Cerner
                 "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
               },
               {
+                "id": 'CA-1',
                 "extension": [
                   {
                     "id": 'ENCNTR:17368048',
@@ -460,6 +464,7 @@ module Cerner
                 "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
               },
               {
+                "id": 'CA-2',
                 "extension": [
                   {
                     "id": 'ENCNTR:4047481',

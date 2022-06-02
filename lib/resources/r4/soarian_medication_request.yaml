@@ -1,0 +1,39 @@
+---
+name: Medication
+field_name_base_url: https://hl7.org/fhir/R4/medicationrequest-definitions.html#Medication
+fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of FHIR<sup>®</sup> resource.
+  action: create
+  example: |
+    {
+      "resourceType": "MedicationRequest"
+    }
+  note: resourceType must be MedicationRequest
+  url: https://hl7.org/fhir/r4/json.html#resources
+- name: code
+  required: 'Yes'
+  type: CodeableConcept
+  description: A code that defines the medication
+  note: Must be of type CodeableConcept. `text` and/or one `coding` with a `system` and `code` must be provided.
+  example: |
+    {
+      "medicationCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "352362"
+          }
+        ],
+        "text": "Acetaminophen"
+      }
+    }
+  binding:
+    description: A code that defines the medication
+    terminology:
+    - display: RxNorm
+      system: https://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
+ 
