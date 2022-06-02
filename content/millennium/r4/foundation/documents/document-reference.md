@@ -57,6 +57,7 @@ Search for DocumentReferences that meet supplied query parameters:
  `type`                   | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
  `category`               | N                  | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
+ `_revinclude`            | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
 _Implementation Notes_
 
@@ -66,6 +67,12 @@ _Implementation Notes_
 
 * When searching with the `encounter` parameter:
   * Patient level documents are filtered out from responses when the encounter id is zero/blank.
+
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+
+* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=214938095&_revinclude=Provenance:target`
+
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
 ### Headers
 
@@ -83,6 +90,23 @@ _Implementation Notes_
 <%= json(:R4_DOCUMENT_REFERENCE_BUNDLE) %>
 
 <%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?_id=214938095&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_document_reference_revinclude_bundle) %>
+<%= disclaimer %>
+
 
 ### Example: search by encounter filters patients level documents
 

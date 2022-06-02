@@ -9,7 +9,7 @@ title: Patient | R4 API
 
 ## Overview
 
-The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
+The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
 
 The following fields are returned if valued:
 
@@ -19,7 +19,7 @@ The following fields are returned if valued:
 * [Patient name](https://hl7.org/fhir/R4/patient-definitions.html#Patient.name){:target="_blank"}
 * [Telecom Information (may include phone and email)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom){:target="_blank"}
 * [Gender (administrative)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender){:target="_blank"}
-* [Extensions including birth time, birth sex, ethnicity and race](#extensions){:target="_blank"}
+* [Extensions including birth time, preferred contact, birth sex, ethnicity, communication preference and race](#extensions){:target="_blank"}
 * [Date of Birth]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate){:target="_blank"}
 * [Deceased]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
 * [Address]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.address){:target="_blank"}
@@ -36,9 +36,11 @@ The following fields are returned if valued:
 ## Extensions
 
 * [Patient Birth Time]
+* [Patient Preferred Contact]
 * [US Core Race]
 * [US Core Ethnicity]
 * [US Core Birth Sex]
+* [Communication Preference]
 
 ## Search
 
@@ -69,6 +71,7 @@ _Implementation Notes_
  `address-postalcode` | This and/or any other search param, or `_id` | [`string`] | The postal code in the address details of the patient. Example: `12345`
  `gender`             | No                                           | [`token`]  | The gender of the patient. Example: `male`
  [`_count`]           | No                                           | [`number`] | The maximum number of results to return. Defaults to `20`.
+ `_revinclude`        | No                                           | [`token`]  | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 Notes:
 
@@ -80,6 +83,14 @@ Notes:
   * May be provided twice using the prefixes `le` and `ge` to indicate a date range
   * May be provided once using one of the following prefixes to imply a date range: `ge`, `le`, `gt`, `lt`, `eq`
   * Must not be provided with a time component
+* The `identifier` parameter
+    * Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the
+      Patient resource.
+    * When valid system is provided, search is performed against the specific system.
+
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+* The `_revinclude` parameter may be provided with any required search param. Example: `_id=629928&_revinclude=Provenance:target`
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
 ### Headers
 
@@ -95,6 +106,22 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_patient_bundle) %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?_id=629928&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_patient_revinclude_bundle) %>
+<%= disclaimer %>
 
 ### Errors
 
@@ -280,7 +307,9 @@ See [Health Cards] documentation for more details about this operation.
 [errors]: ../../#client-errors
 [OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
+[Patient Preferred Contact]: https://www.hl7.org/fhir/extension-organization-preferredcontact.html
 [US Core Race]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html
 [US Core Ethnicity]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html
 [US Core Birth Sex]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html
+[Communication Preference]: https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json
 [Health Cards]: /millennium/r4/other/health-cards/

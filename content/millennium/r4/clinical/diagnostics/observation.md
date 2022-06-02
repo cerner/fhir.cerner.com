@@ -46,9 +46,11 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [convertedMeasurement]
+  This extension returns a converted measurement of a different measurement system than the original quantity.
+* [performerFunction]
 * valueAttachment: URL for this extension is defined as: `http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`
   This extension is defined and referenced from the newer version of FHIR. See [Extensions for converting between versions] and [R5 Snapshot of Observation.value] for more information.
-* [performerFunction]
 
 ## Search
 
@@ -80,6 +82,7 @@ _Implementation Notes_
  `_lastUpdated`   | N                 | [`date`]      | Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
  `category`       | N                 | [`token`]     | The category of observations. Example: `category=laboratory`
  [`_count`]       | N                 | [`number`]    | The maximum number of results to return per page.
+ `_revinclude`    | No                | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 
 
@@ -100,6 +103,12 @@ Notes:
 
 * The `_lastUpdated` query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.
 
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+
+* The `_revinclude` parameter may be provided with the `patient/subject` parameter. Example: `patient=12457977&category=vital-signs&_revinclude=Provenance:target`
+
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+
 ### Headers
 
  <%= headers %>
@@ -115,6 +124,22 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:R4_OBSERVATION_BUNDLE) %>
 
+<%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?patient=12457977&category=vital-signs&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_observation_revinclude_bundle) %>
 <%= disclaimer %>
 
 #### Patient Authorization Request
@@ -151,11 +176,11 @@ List an individual Observation by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 _Implementation Notes_
 
-* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented.
+* Patient authorization read requests are working similarly to patient authorization search requests.
 
 ### Example
 
@@ -317,5 +342,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
 [R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
-[performerFunction]: http://hl7.org/fhir/R4/extension-event-performerfunction.html
+[convertedMeasurement]: https://hl7.org/fhir/StructureDefinition/iso21090-PQ-translation
+[performerFunction]: https://hl7.org/fhir/R4/extension-event-performerfunction.html
 [Configure Blood Pressure Event Set Pairing Hierarchy]: https://wiki.cerner.com/display/public/reference/Configure+Blood+Pressure+Event+Set+Hierarchy+Pairing
