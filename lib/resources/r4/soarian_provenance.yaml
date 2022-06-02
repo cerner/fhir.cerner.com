@@ -1,0 +1,17 @@
+---
+name: Provenance
+field_name_base_url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance
+fields:
+- name: agent.type
+  required: 'Yes'
+  type: List of CodeableConcept
+  description: The participation the agent had with respect to the activity.
+  action:
+    - terminology
+    - create
+  binding:
+    description: The participation the agent had with respect to the activity.
+    terminology:
+    - display: Provenance Participant Type
+      system: https://terminology.hl7.org/CodeSystem/provenance-participant-type
+      info_link: https://hl7.org/fhir/R4/valueset-provenance-agent-type.html
