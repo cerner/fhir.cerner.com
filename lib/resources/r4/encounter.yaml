@@ -527,6 +527,116 @@ fields:
         "reference": "Organization/619848"
       }
     }
+  note: >
+    <ul>
+      <li><code>serviceProvider</code> cannot be provided when <code>location</code> is present.</li>
+    </ul>
+
+- name: location
+  required: 'Yes'
+  type: Reference (Location)
+  description: The location where the encounter takes place.
+  action: create
+  example: |
+    {
+      "location": [
+        {
+          "location": {
+            "reference": "Location/21250409"
+          }
+        }
+      ]
+    }
+  note: >
+    <ul>
+      <li>Only one <code>location</code> reference is permitted.</li>
+      <li><code>location</code> cannot be provided when <code>serviceProvider</code> is present.</li>
+    </ul>
+
+- name: custom-attribute
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
+  required: 'No'
+  type: Extension
+  description: A client defined custom attribute for the encounter.
+  action: create
+  example: |
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:2822522",
+          "valueString": "ICD-9 Code",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueString": "test string",
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    },
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:4047481",
+          "valueString": "Conversation",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueCodeableConcept": {
+              "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100040",
+                    "code": "4630114",
+                    "display": "Register Patient",
+                    "userSelected": true
+                  }
+              ],
+              "text": "Register Patient"
+          },
+      ],
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    },
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:970558313",
+          "valueString": "Gestational AGE",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueInteger": 256,
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    },
+    {
+      "extension": [
+        {
+          "id": "ENCNTR:3339152",
+          "valueString": "Self-Pay Follow Up Date",
+          "url": "custom-attribute-name"
+        },
+        {
+          "valueDateTime": "2020-07-03T12:00:00.000Z",
+          "url": "custom-attribute-value"
+        }
+      ],
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+    }
+
+  note: >
+    <ul>
+      <li>The custom-attribute id field cannot be set.</li>
+      <li>custom-attribute-name and custom-attribute-value are both required.</li>
+      <li>id and valueString for custom-attribute-name are required.</li>
+      <li>custom-attribute-value can be of type string, integer, dateTime, or CodeableConcept.</li>
+      <li>CodeableConcept can have the following systems:</li>
+      <ul>
+        <li>https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature</li>
+        <li>https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/&lt;code set&gt;</li>
+      </ul>
+    </ul>
 
 - name: meta.security
   url: https://hl7.org/fhir/r4/resource-definitions.html#Meta.security

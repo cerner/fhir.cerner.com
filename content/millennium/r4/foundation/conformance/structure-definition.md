@@ -83,7 +83,9 @@ Authorization is not required.
  [`condition-course`]                                        | Indication of a condition's progress since diagnosis.
  [`condition-lifecycle-status`]                              | Indication of whether a condition is active, inactive, resolved, etc.
  [`condition-result`]                                        | Indication of the presence (positive) or absence (negative) of a given condition.
+ [`converted-measurement`]                                   | Returns a converted measurement of a different measurement system than the original quantity.
  [`coverage-encounter`]                                      | Reference to the Encounter associated to the encounter level Coverage.
+ [`communication-preference`]                                | Defines communication methods preferred by a patient.
  [`custom-attribute`]                                        | A client defined custom attribute for the resource.
  [`description`]                                             | A description providing additional details of the resource.
  [`email-status`]                                            | The status of the electronic communication.
@@ -100,7 +102,9 @@ Authorization is not required.
  [`financial-transaction-tendered-amount`]                   | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  [`financial-transaction-type`]                              | The classification of the transaction.
  [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
+ [`infuse-over-time`]                                        | The length of time in minutes it took to infuse a medication.
  [`is-modifiable`]                                           | Indication of whether data is modifiable or not.
+ [`is-physician`]                                            | Indication of whether the provider is a physician or not.
  [`military-service-connected-indicator`]                    | Identifies whether an encounter is connected to military service.
  [`modifier-code`]                                           | A code providing additional detail about a product or service.
  [`national-drug-product`]                                   | The national drug product used in care.
@@ -134,6 +138,7 @@ Authorization is not required.
 [`account-related-parts`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json
 [`account-state`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json
 [`bill-code-schedule`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule?_format=json
+[`communication-preference`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json
 [`choice-answer`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer?_format=json
 [`client-instruction`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-instruction?_format=json
 [`client-organization`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json
@@ -141,6 +146,7 @@ Authorization is not required.
 [`condition-course`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course?_format=json
 [`condition-lifecycle-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status?_format=json
 [`condition-result`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result?_format=json
+[`converted-measurement`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/converted-measurement?_format=json
 [`coverage-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter?_format=json
 [`custom-attribute`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 [`description`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/description?_format=json
@@ -159,7 +165,9 @@ Authorization is not required.
 [`financial-transaction-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json
 [`formatted-text`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json
 [`military-service-connected-indicator`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/military-service-connected-indicator?_format=json
+[`infuse-over-time`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/infuse-over-time?_format=json
 [`is-modifiable`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/is-modifiable?_format=json
+[`is-physician`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician?_format=json
 [`modifier-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code?_format=json
 [`national-drug-product`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json
 [`net-price`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/net-price?_format=json

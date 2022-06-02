@@ -23,10 +23,23 @@ The following fields are returned if valued:
 * [Address (Provider and System Authorization Only)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address){:target="_blank"}
 * [Gender](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.gender){:target="_blank"}
 * [Qualification](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.qualification){:target="_blank"}
+* [Is Physician Extension](#extensions)
 
 ## Terminology Bindings
 
 <%= terminology_table(:practitioner, :r4) %>
+
+## Extensions
+
+* [Is Physician]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                    | Value\[x] Type                                              | Description
+-----------------------|----------------|------------------------------------------------------------------------------------------------
+ `is-physician`        | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the provider is a physician or not.
 
 ## Search
 
@@ -192,3 +205,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: http://hl7.org/fhir/r4/search.html#number
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[Is Physician]: #custom-extensions

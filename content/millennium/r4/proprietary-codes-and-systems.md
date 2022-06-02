@@ -13,11 +13,11 @@ title: Proprietary Codes and Systems | R4 API
 
 Cerner's implementation of the HL7<sup>®</sup> R4 FHIR<sup>®</sup> standard allows Millennium proprietary code values to be used in addition to standard value set codes. This allows developers to read and write data with clients' proprietary codes, eliminating the need to map proprietary codes to standard codes. This is particularly beneficial for concepts that are highly customized by clients such as appointment and document types.
 
-Millennium groups repetitive textual information into code sets. The code set stores a numeric code value that represents a textual or character display. Code sets are consistent across all clients. But the values in a code set vary between clients and are only guaranteed unique within a specific EHR system, which is the reason for the EHR source id (or tenant) qualifier in the system URL.
+Millennium groups repetitive textual information into code sets. A code set stores numeric code values that represent textual or character displays. Code sets are consistent across all clients, however the values within a code set vary between clients and are only guaranteed unique within a specific EHR system. For this reason the region and the EHR source id (or tenant) are included in the system URL. See [Multi-Region Support](#multi-region-support) for further details.
 
 The following are true for all Millennium proprietary codes:
 
-* The `system` value uses the following format: `https://fhir.cerner.com/<EHR source id>/codeSet/<code set>`
+* The `system` value uses the following format: `https://fhir.<region>.cerner.com/<EHR source id>/codeSet/<code set>`
 * The `code` value is the numeric code value as a string
 * The `display` value is the code value display
 * The `userSelected` value is set to true
@@ -130,6 +130,12 @@ The ChargeItem Resource supports proprietary codes for:
 
 * The Bill Code Schedule extensions on ChargeItem are maintained in [Code Set 14002 Bill Code Schedule](#code-set-14002-bill-code-schedule)
 
+<h4>InsurancePlan</h4>
+
+The InsurancePlan Resource supports proprietary codes for:
+
+* InsurancePlan.type codes are maintained in [Code Set 27137 Health Plan Service Type](#code-set-27137-health-plan-service-type)
+
 ### General Clinical
 
 <!-- use html header to avoid showing up in toc -->
@@ -170,6 +176,7 @@ The RelatedPerson Resource supports proprietary codes for:
 
 The Location Resource supports proprietary codes for:
 
+* location.identifier.type codes are maintained in [Code Set 73 Location Contributor Source](#code-set-73-location-contributor-source)
 * location.physicalType code is maintained in [Code Set 222 Location Type](#code-set-222-location-type)
 
 ### Medications
@@ -369,6 +376,17 @@ This code set is extremely large and highly customized by clients. It maintains 
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/72",
       "code": "2799031",
       "display": "Lyme disease vaccine",
+      "userSelected": true
+    }
+
+##### Code Set 73 Location Contributor Source
+
+This code set maintains the identifying values for a Location, such as SDV_STD_SRC.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/73",
+      "code": "2343452",
+      "display": "SDV_STD_SRC",
       "userSelected": true
     }
 
@@ -708,6 +726,17 @@ This code set includes the statuses within the billing workflow such as In Proce
       "userSelected": true
     }
 
+##### Code Set 27137 Health Plan Service Type
+
+This code set defines a set of codes that can be used to indicate a type of insurance plan.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id/codeSet/27137",
+      "code": "4372138",
+      "display": "Medical Service Plan",
+      "userSelected": true
+    }
+
 ##### Code Set 28200 PFT Bill Alias Type
 
 This code set includes bill alias types such as billalias, invalias, and stmtalias.
@@ -834,7 +863,7 @@ This system is the account number of a financial account.
 
     {
       "use": "usual",
-      "system": "https://fhir.cerner.com/<EHR source id>/account-number",
+      "system": "https://fhir.<region>.cerner.com/<EHR source id>/account-number",
       "value": "5646"
     }
 
@@ -843,7 +872,7 @@ This system is the account number of a financial account.
 This system is the bill code type for a charge item. `Bill code type` can be either `CDM_SCHED`, `CPT`, `HCPCS`, `ICD`, `MODIFIER`, or `REVENUE`.
 
     {
-      "system": "https://fhir.cerner.com/<Ehr source id>/CodeSystem/BillCodes-<Bill code type>",
+      "system": "https://fhir.<region>.cerner.com/<EHR source id>/CodeSystem/BillCodes-<Bill code type>",
       "code": "0310"
     }
 
@@ -862,7 +891,7 @@ This system is the category and is only for a pharmacy charge-only order. The co
 This system is the synonym id for an order and the ingredients.
 
     {
-      'system': 'https://fhir.cerner.com/<Ehr source id>/synonym',
+      'system': 'https://fhir.<region>.cerner.com/<EHR source id>/synonym',
       'code': '2762111',
       'display': 'lidocaine topical',
       'userSelected': true
@@ -873,8 +902,25 @@ This system is the synonym id for an order and the ingredients.
 This system contains all nomenclature values configured in the domain.
 
     {
-      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature',
+      'system': 'https://fhir.<region>.cerner.com/<EHR source id>/nomenclature',
       'code': '13249579',
       'display': 'Tension-type headache',
       'userSelected': false
     }
+
+## Multi-Region Support
+
+### Overview
+
+Proprietary codes and systems that are dependent on a specific EHR system may include a Cerner cloud region in their `system` value. Unless stated otherwise below, the `system` value format is `https://fhir.cerner.com/<EHR source id>/`.
+
+### Region-specific Systems
+
+The following regions override the format above with a region-specific `system`:
+
+* Canada:  `https://fhir.ca.cerner.com/<EHR source id>/`
+* Asia-Pacific: `https://fhir.au.cerner.com/<EHR source id>/`
+
+### Exclusions
+
+The proprietary systems that are not dependent on a EHR system will not include region in their `system` value, for example `https://fhir.cerner.com/medicationrequest-category` is applied for all regions.

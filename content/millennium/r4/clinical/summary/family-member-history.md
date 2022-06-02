@@ -4,8 +4,6 @@ title: FamilyMemberHistory | R4 API
 
 # FamilyMemberHistory
 
-<%= beta_tag %>
-
 * TOC
 {:toc}
 
@@ -85,8 +83,6 @@ ID              | Value\[x] Type                                                
 
 ## Search
 
-<%= beta_tag(action: true) %>
-
 Search for FamilyMemberHistories that meet supplied query parameters:
 
     GET /FamilyMemberHistory?:parameters
@@ -134,8 +130,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
-<%= beta_tag(action: true) %>
-
 List an individual FamilyMemberHistory by its id:
 
     GET /FamilyMemberHistory/:id
@@ -170,8 +164,6 @@ _Implementation Notes_
 The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
-
-<%= beta_tag(action: true) %>
 
 Create a new FamilyMemberHistory.
 
@@ -212,14 +204,11 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
 Date: Wed, 14 Aug 2019 17:23:14 GMT
-Etag: W/"1"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/123-456
 Last-Modified: Wed, 14 Aug 2019 17:23:14 GMT
 Vary: Origin
 X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
 
 <%= disclaimer %>
 
@@ -229,15 +218,13 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Update
 
-<%= beta_tag(action: true) %>
-
 Update a FamilyMemberHistory.
 
     PUT /FamilyMemberHistory/:id
 
 _Implementation Notes_
 
-* Conditions can be removed from a FamilyMemberHistory by setting the 'condition-lifecycle-status' modifierExtension to 'entered-in-error'. Only existing conditions can be removed; condition id must be provided.
+* Conditions can be removed from a FamilyMemberHistory by setting the 'condition-lifecycle-status' modifierExtension to 'entered-in-error' with system 'http://terminology.hl7.org/CodeSystem/condition-ver-status'. Only existing conditions can be removed; condition id must be provided.
 * An update should only be performed directly after a FamilyMemberHistory is retrieved. If a condition.id is returned on the get operation, it MUST be provided on the subsequent update and must match the condition.id returned from the get.
 
 ### Authorization Types
@@ -246,8 +233,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json',
-'If-Match': 'W/"&lt;Current version of the FamilyMemberHistory resource>"'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
 
 ### Body fields
 

@@ -21,6 +21,7 @@ module Cerner
       },
       'extension': [
         {
+          'id': 'CA-0',
           'extension': [
             {
               'id': 'ENCNTR:17368048',
@@ -35,6 +36,7 @@ module Cerner
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
         },
         {
+          'id': 'CA-1',
           'extension': [
             {
               'id': 'ENCNTR:2572582103',
@@ -422,6 +424,7 @@ module Cerner
             },
             "extension": [
               {
+                "id": 'CA-0',
                 "extension": [
                   {
                     "id": 'ENCNTR:3339151',
@@ -446,6 +449,7 @@ module Cerner
                 "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
               },
               {
+                "id": 'CA-1',
                 "extension": [
                   {
                     "id": 'ENCNTR:17368048',
@@ -460,6 +464,7 @@ module Cerner
                 "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
               },
               {
+                "id": 'CA-2',
                 "extension": [
                   {
                     "id": 'ENCNTR:4047481',
@@ -2005,6 +2010,74 @@ module Cerner
           'individual': {
             'reference': 'Practitioner/4122622'
           }
+        }
+      ],
+      'extension': [
+        {
+          'extension': [
+            {
+              'id': 'ENCNTR:2822522',
+              'valueString': 'ICD-9 Code',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueString': 'test string',
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          "extension": [
+            {
+              "id": 'ENCNTR:4047481',
+              "valueString": 'Conversation',
+              "url": 'custom-attribute-name'
+            },
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100040',
+                    "code": '4630114',
+                    "display": 'Register Patient',
+                    "userSelected": true
+                  }
+                ],
+                "text": 'Register Patient'
+              },
+              "url": 'custom-attribute-value'
+            }
+          ],
+          "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          'extension': [
+            {
+              'id': 'ENCNTR:970558313',
+              'valueString': 'Gestational AGE',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueInteger': 255,
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+        },
+        {
+          'extension': [
+            {
+              'id': 'ENCNTR:3339152',
+              'valueString': 'Self-Pay Follow Up Date',
+              'url': 'custom-attribute-name'
+            },
+            {
+              'valueDateTime': '2020-07-03T12:00:00.000Z',
+              'url': 'custom-attribute-value'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
         }
       ]
     }.freeze
