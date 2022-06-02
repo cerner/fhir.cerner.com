@@ -8,3 +8,4 @@ layout: api
 <%= render '/soarian/r4/clinical/diagnostics.*' %>
 
 * [DiagnosticReport](../diagnostics/diagnostic-report)
+* [Observation](../diagnostics/observation)
