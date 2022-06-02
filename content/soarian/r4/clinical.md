@@ -22,5 +22,6 @@ layout: api
 <%= render '/soarian/r4/clinical/care-provision.*' %>
 
 * [CarePlan](/soarian/r4/clinical/care-provision/care-plan)
+* [CareTeam](/soarian/r4/clinical/care-provision/careteam)
 * [Goal](/soarian/r4/clinical/care-provision/goal)
 
