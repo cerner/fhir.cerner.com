@@ -21,3 +21,4 @@ layout: api
 ## Other
 <%= render '/soarian/r4/foundation/other.*' %>
 * [Binary](/soarian/r4/foundation/other/binary)
+* [OperationOutcome](/soarian/r4/foundation/other/operationoutcome)
