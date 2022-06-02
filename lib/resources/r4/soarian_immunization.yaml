@@ -1,0 +1,61 @@
+---
+name: Immunization
+field_name_base_url:  https://hl7.org/fhir/R4/immunization-definitions.html#Immunization
+fields:
+- name: statusReason
+  required: 'No'
+  type: CodeableConcept
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.statusReason
+  description: Reason the immunization was not performed.
+  example: |
+    {
+      "statusReason": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/30440",
+            "code": "679607",
+            "display": "Patient Refuses",
+            "userSelected": true
+          }
+        ],
+        "text": "Patient Refuses"
+      }
+    }
+  note: This is generally only used for the status of "not-done".
+  binding:
+    description: Reason the immunization was not performed.
+    terminology:
+    - display: Immunization Status Reason
+      system: https://terminology.hl7.org/CodeSystem/v3-ActReason
+      info_link: https://hl7.org/fhir/r4/valueset-immunization-status-reason.html
+
+- name: vaccineCode
+  required: 'Yes'
+  type: CodeableConcept
+  url: https://www.hl7.org/fhir/r4/immunization-definitions.html#Immunization.vaccineCode
+  description: The vaccine that was administered or was to be administered.
+  example: |
+    {
+      "vaccineCode": {
+        "coding": [
+          {
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+            "code": "2797921",
+            "display": "hepatitis A-hepatitis B vaccine",
+            "userSelected": false
+          }
+        ],
+        "text": "hepatitis A-hepatitis B vaccine"
+      }
+    }
+  binding:
+    description: Vaccine product administered.
+    terminology:
+    - display: CVX
+      system: https://hl7.org/fhir/sid/cvx
+      info_link: https://hl7.org/fhir/r4/cvx.html
+    - display: NDC
+      system: https://hl7.org/fhir/sid/ndc
+      info_link: https://hl7.org/fhir/r4/ndc.html   
+    note: The CVX binding is always returned. An NDC binding is returned when available.
+

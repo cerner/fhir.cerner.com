@@ -16,6 +16,7 @@ layout: api
 <%= render '/soarian/r4/clinical/medications.*' %>
 
 * [MedicationRequest](/soarian/r4/clinical/medications/medicationrequest)
+* [Immunization](/soarian/r4/clinical/medications/immunization)
 
 ## Care Provision
 <%= render '/soarian/r4/clinical/care-provision.*' %>
