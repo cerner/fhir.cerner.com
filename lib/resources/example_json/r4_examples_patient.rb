@@ -53,6 +53,299 @@ module Cerner
       ]
     }.freeze
 
+    R4_PATIENT_REVINCLUDE_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '65ee4c79-3514-4eab-b606-10ad56fb0d5d',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?_id=629928&_revinclude=Provenance%3Atarget'
+        }
+      ],
+      'entry': [
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/629928',
+          "resource": {
+            "resourceType": 'Patient',
+            "id": '629928',
+            "meta": {
+              "versionId": '36',
+              "lastUpdated": '2020-09-17T16:35:12.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Patient</b></p><p><b>Name</b>: England,
+              Brad N</p><p><b>Status</b>: Active</p><p><b>DOB</b>: Jan 20, 1999</p>
+              <p><b>Administrative Gender</b>: Unknown</p></div>'
+            },
+            "identifier": [
+              {
+                "extension": [
+                  {
+                    "valueCode": 'unknown',
+                    "url": 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            "active": true,
+            "name": [
+              {
+                "id": 'CI-629928-0',
+                "use": 'official',
+                "text": 'England, Brad N',
+                "family": 'England',
+                "given": [
+                  'Brad',
+                  'N'
+                ],
+                "period": {
+                  "start": '2004-01-27T00:00:00.000Z'
+                }
+              }
+            ],
+            "telecom": [
+              {
+                "id": 'CI-PH-46477780-0',
+                "extension": [
+                  {
+                    "valueUrl": '2232323',
+                    "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  }
+                ],
+                "system": 'phone',
+                "value": '2232323',
+                "rank": 1,
+                "period": {
+                  "start": '2021-01-11T06:00:00.000Z'
+                }
+              },
+              {
+                "id": 'CI-PH-9543543-1',
+                "extension": [
+                  {
+                    "valueUrl": '1234567890',
+                    "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  },
+                  {
+                    "valueString": '345',
+                    "url": 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'
+                  }
+                ],
+                "system": 'phone',
+                "value": '1234567890',
+                "use": 'home',
+                "rank": 1,
+                "period": {
+                  "start": '2014-01-20T15:48:39.000Z',
+                  "end": '2014-03-20T15:48:39.000Z'
+                }
+              },
+              {
+                "id": 'CI-PH-9543573-2',
+                "extension": [
+                  {
+                    "valueUrl": '1234567890',
+                    "url": 'http://hl7.org/fhir/StructureDefinition/iso21090-TEL-address'
+                  },
+                  {
+                    "valueString": '345',
+                    "url": 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'
+                  }
+                ],
+                "system": 'phone',
+                "value": '1234567890',
+                "use": 'home',
+                "rank": 1,
+                "period": {
+                  "start": '2014-01-20T15:48:39.000Z',
+                  "end": '2014-03-20T15:48:39.000Z'
+                }
+              }
+            ],
+            "gender": 'unknown',
+            "birthDate": '1999-01-20',
+            "contact": [
+              {
+                "relationship": [
+                  {
+                    "coding": [
+                      {
+                        "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/351',
+                        "code": '83266815',
+                        "display": 'Authorized Representative',
+                        "userSelected": true
+                      }
+                    ],
+                    "text": 'Authorized Representative'
+                  }
+                ],
+                "name": {
+                  "id": 'CI-170778458-0',
+                  "use": 'official',
+                  "text": 'MARSTON, Dutch',
+                  "family": 'MARSTON',
+                  "given": [
+                    'Dutch'
+                  ],
+                  "period": {
+                    "start": '2020-08-26T14:44:08.000Z'
+                  }
+                },
+                "telecom": [
+                  {
+                    "system": 'email',
+                    "value": 'kaishwaryaramesh@gmail.com',
+                    "use": 'home',
+                    "rank": 1,
+                    "period": {
+                      "start": '2020-10-09T07:29:32.000Z'
+                    }
+                  },
+                  {
+                    "system": 'email',
+                    "value": 'abigail.testpatient@gmail.com',
+                    "use": 'home',
+                    "rank": 2,
+                    "period": {
+                      "start": '2020-08-26T14:45:59.000Z'
+                    }
+                  },
+                  {
+                    "system": 'email',
+                    "value": 'abigail.testpatient@gmail.com',
+                    "use": 'home',
+                    "rank": 3,
+                    "period": {
+                      "start": '2020-08-26T16:47:31.000Z'
+                    }
+                  },
+                  {
+                    "system": 'email',
+                    "value": 'abigail.testpatient@gmail.com',
+                    "use": 'home',
+                    "rank": 4,
+                    "period": {
+                      "start": '2020-08-27T20:27:31.000Z'
+                    }
+                  },
+                  {
+                    "system": 'email',
+                    "value": 'abigail.testpatient@gmail.com',
+                    "use": 'home',
+                    "rank": 5,
+                    "period": {
+                      "start": '2020-08-28T15:24:19.000Z'
+                    }
+                  },
+                  {
+                    "system": 'email',
+                    "value": 'abigail.testpatient@gmail.com',
+                    "use": 'home',
+                    "rank": 6,
+                    "period": {
+                      "start": '2020-08-31T15:16:18.000Z'
+                    }
+                  },
+                  {
+                    "system": 'email',
+                    "value": 'abigail.testpatient@gmail.com',
+                    "use": 'home',
+                    "rank": 7,
+                    "period": {
+                      "start": '2020-09-10T20:41:05.000Z'
+                    }
+                  },
+                  {
+                    "system": 'email',
+                    "value": 'abigail.testpatient@gmail.com',
+                    "use": 'home',
+                    "rank": 8,
+                    "period": {
+                      "start": '2020-09-11T15:52:04.000Z'
+                    }
+                  }
+                ],
+                "gender": 'male',
+                "period": {
+                  "start": '2020-08-27T20:27:31.000Z'
+                }
+              }
+            ]
+          },
+          "search": {
+            "mode": 'match'
+          }
+        },
+        {
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/ptntdemo-17390433',
+          "resource": {
+            "resourceType": 'Provenance',
+            "id": 'ptntdemo-17390433',
+            "meta": {
+              "versionId": '17390433',
+              "lastUpdated": '2021-06-03T11:18:59Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p>
+              <p><b>Target</b>:</p><ul><li>Patient/629928</li></ul>
+              <p><b>Recorded</b>: Jun  3, 2021  6:18 A.M. CDT</p>
+              <p><b>Agents</b>:</p><dl><dt>organizationName PrH</dt>
+              <dd><b>Agent Type</b>: Author</dd>
+              <dd><b>Agent Role</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/S-68607</p></div>'
+            },
+            "target": [
+              {
+                "reference": 'Patient/629928'
+              }
+            ],
+            "recorded": '2021-06-03T11:18:59Z',
+            "agent": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      "code": 'author'
+                    }
+                  ],
+                  "text": 'Author'
+                },
+                "role": [
+                  {
+                    "coding": [
+                      {
+                        "system": 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        "code": 'SOURCE'
+                      }
+                    ],
+                    "text": 'Source'
+                  }
+                ],
+                "who": {
+                  "reference": 'Organization/59917604',
+                  "display": 'organizationName PrH'
+                }
+              }
+            ],
+            "entity": [
+              {
+                "role": 'source',
+                "what": {
+                  "reference": 'DocumentReference/S-68607'
+                }
+              }
+            ]
+          },
+          "search": {
+            "mode": 'include'
+          }
+        }
+      ]
+    }.freeze
+
     R4_PATIENT_ENTRY ||= {
       'resourceType': 'Patient',
       'id': '12724067',
@@ -67,6 +360,76 @@ module Cerner
                '<p><b>Marital Status</b>: Married</p></div>'
       },
       'extension': [
+        {
+          'id': '59434424',
+          'extension': [
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016',
+                    'code': '485602703',
+                    'display': 'Appointment Reminders',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/communication-topic',
+                    'code': 'appointment-reminder',
+                    'display': 'Appointment Reminder',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Appointment Reminders'
+              },
+              'url': 'communication-type'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042',
+                    'code': '495085513',
+                    'display': 'Fax',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://hl7.org/fhir/contact-point-system',
+                    'code': 'fax',
+                    'display': 'Fax',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Fax'
+              },
+              'url': 'contact-method'
+            },
+            {
+              'valueCodeableConcept': {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43',
+                    'code': '163',
+                    'display': 'Business',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://hl7.org/fhir/contact-point-use',
+                    'code': 'work',
+                    'display': 'Work',
+                    'userSelected': false
+                  }
+                ],
+                'text': 'Business'
+              },
+              'url': 'contact-type'
+            },
+            {
+              'valueDateTime': '2019-04-13T20:00:00.000Z',
+              'url': 'verified-datetime'
+            }
+          ],
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference'
+        },
         {
           'extension': [
             {
@@ -462,6 +825,57 @@ module Cerner
                 'code': '2186-5',
                 'display': 'Non Hispanic or Latino'
               }
+            }
+          ]
+        },
+        {
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference',
+          'extension': [
+            {
+              'extension': [
+                {
+                  'valueCodeableConcept': {
+                    'coding': [
+                      {
+                        'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016',
+                        'code': '485602703',
+                        'display': 'Appointment Reminder',
+                        'userSelected': false
+                      }
+                    ],
+                    'text': 'Appointment Reminder'
+                  },
+                  'url': 'communication-type'
+                },
+                {
+                  'valueCodeableConcept': {
+                    'coding': [
+                      {
+                        'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042',
+                        'code': '4054467',
+                        'display': 'Phone',
+                        'userSelected': false
+                      }
+                    ]
+                  },
+                  'url': 'contact-method'
+                },
+                {
+                  'valueCodeableConcept': {
+                    'coding': [
+                      {
+                        'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43',
+                        'code': '163',
+                        'display': 'Business',
+                        'userSelected': false
+                      }
+                    ],
+                    'text': 'Home'
+                  },
+                  'url': 'contact-type'
+                }
+              ],
+              'verified': '2019-12-26T15:41:52.000Z'
             }
           ]
         }

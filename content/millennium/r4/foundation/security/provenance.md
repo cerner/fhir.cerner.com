@@ -35,7 +35,7 @@ Search for Provenances that meet supplied query parameters:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -61,6 +61,17 @@ Search for Provenances that meet supplied query parameters:
 
 <%= disclaimer %>
 
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=all-1595070
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_provenance_patient_access_entry) %>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -73,7 +84,7 @@ List an individual Provenance by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
@@ -89,6 +100,17 @@ List an individual Provenance by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_provenance_entry) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/all-1595070
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_provenance_patient_access_bundle) %>
 
 <%= disclaimer %>
 

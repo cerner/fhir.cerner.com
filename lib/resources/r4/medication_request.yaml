@@ -27,7 +27,7 @@ fields:
     description: The current state of the medication request.
     terminology:
     - display: MedicationRequest Status
-      system: https://hl7.org/fhir/CodeSystem/medicationrequest-status
+      system: http://hl7.org/fhir/CodeSystem/medicationrequest-status
       info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-status.html
 - name: statusReason
   required: 'No'
@@ -38,7 +38,7 @@ fields:
     description: Reason for the current status
     terminology:
     - display: MedicationRequest Status Reason Codes
-      system: https://terminology.hl7.org/CodeSystem/medicationrequest-status-reason
+      system: http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason
       info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-status-reason.html
     - display: Millennium Cancel Reasons
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/1309
@@ -69,10 +69,10 @@ fields:
     description: Type of Medication Request
     terminology:
     - display: Medication Request Category Codes
-      system: https://terminology.hl7.org/CodeSystem/medicationrequest-category
+      system: http://terminology.hl7.org/CodeSystem/medicationrequest-category
       info_link: https://hl7.org/fhir/r4/valueset-medicationrequest-category.html
     - display: Medication Usage Category Codes
-      system: https://terminology.hl7.org/CodeSystem/medication-statement-category
+      system: http://terminology.hl7.org/CodeSystem/medication-statement-category
       info_link: https://hl7.org/fhir/r4/valueset-medication-statement-category.html
     - display: Cerner Medication Request Category for Pharmacy Charge-only orders
       system: https://fhir.cerner.com/medicationrequest-category
@@ -86,7 +86,7 @@ fields:
     description: Medication Request Priority
     terminology:
     - display: Request Priority
-      system: https://hl7.org/fhir/request-priority
+      system: http://hl7.org/fhir/request-priority
       info_link: https://hl7.org/fhir/r4/valueset-request-priority.html
 - name: doNotPerform
   required: 'No'
@@ -129,7 +129,7 @@ fields:
     description: A code that defines the medication
     terminology:
     - display: RxNorm
-      system: https://www.nlm.nih.gov/research/umls/rxnorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
       info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
     - display: Millennium Medication Order Synonym
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/synonym
@@ -168,11 +168,11 @@ fields:
     - display: SNOMED CT
       system: http://snomed.info/sct
       info_link: http://snomed.info/sct
-    - display: ICD-9
-      system: https://hl7.org/fhir/sid/icd-9
+    - display: ICD-9-cm
+      system: http://hl7.org/fhir/sid/icd-9-cm
       info_link: https://hl7.org/fhir/r4/icd.html
     - display: ICD-10
-      system: https://hl7.org/fhir/sid/icd-10
+      system: http://hl7.org/fhir/sid/icd-10
       info_link: https://hl7.org/fhir/r4/icd.html
 - name: note
   required: 'No'
@@ -330,7 +330,7 @@ fields:
         description: Code for a known/defined timing pattern
         terminology:
         - display: TimingAbbreviation
-          system: https://hl7.org/fhir/r4/v3/GTSAbbreviation/cs.html
+          system: http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation
           info_link: https://hl7.org/fhir/r4/valueset-timing-abbreviation.html
         - display: SNOMED CT
           system: http://snomed.info/sct

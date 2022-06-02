@@ -47,6 +47,7 @@ Search for Goals that meet supplied query parameters:
  `_id`             | This, or patient.          | [`token`]     | The logical resource id associated with the Goal. Example: `_id=7891`
  `patient`         | This, or _id.              | [`reference`] | The patient who has the goal. Example: `patient=12345`
  `target-date`     | N                          | [`date`]      | A date or date range from which to find Goals. Example: `target-date=ge2016-10-01&target-date=le2016-12-01`
+ `_revinclude`     | No                         | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 Notes:
 
@@ -54,9 +55,32 @@ Notes:
 
   - The `target-date` parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.
 
+  - The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+
+  - The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=178866310&_revinclude=Provenance:target`
+
+  - When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+
+
 ### Headers
 
  <%= headers %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=498290085&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_goal_revinclude_bundle) %>
+<%= disclaimer %>
 
 ### Example Search by Patient
 
