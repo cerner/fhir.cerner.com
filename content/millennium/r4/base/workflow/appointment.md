@@ -351,6 +351,34 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 <%= disclaimer %>
 
+### Example - Update Participant Status
+
+#### Request
+
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
+
+#### Body
+
+<%= json(:r4_appointment_participant_status_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -364,6 +392,7 @@ In addition, the following errors may be returned:
 * Patching a Video Visit appointment with add operations that has previously been patched for Video Visit links will result in a `409 Conflict` response.
 * Mixing add and replace patch operations is not supported while patching a Video Visit Appointment and will result in a `422 Unprocessable Entity` response.
 * Patching a Video Visit appointment with any missing required patch operations will result in a `422 Unprocessable Entity` response.
+* Patching an Appointment with a participant status other than "accepted" will result in a `422 Unprocessable Entity` response.
 
 ## Create
 
