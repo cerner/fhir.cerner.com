@@ -1,0 +1,58 @@
+---
+name: Condition
+field_name_base_url: https://hl7.org/fhir/r4/condition-definitions.html#Condition
+fields:
+- name: clinicalStatus
+  required: 'Yes'
+  description: The clinical status of the condition.
+  url: https://hl7.org/fhir/r4/valueset-condition-clinical.html 
+  
+  binding:
+    description: The clinical status of the condition.
+    terminology:
+      - display: Condition Clinical Status Codes
+        system: http://terminology.hl7.org/CodeSystem/condition-clinical
+        info_link: https://hl7.org/fhir/r4/valueset-condition-clinical.html
+
+- name: verificationStatus
+  required: 'Yes'
+  description: The verification status to support or decline the clinical status of the condition or diagnosis.
+  url: https://hl7.org/fhir/r4/valueset-condition-ver-status.html
+  system: http://terminology.hl7.org/CodeSystem/condition-ver-status 
+  
+  binding:
+    description: The verification status to support or decline the clinical status of the condition or diagnosis.
+    terminology:
+      - display: Condition Verification Status Codes
+        system: http://terminology.hl7.org/CodeSystem/condition-ver-status
+        info_link: https://hl7.org/fhir/r4/valueset-condition-ver-status.html
+
+- name: category
+  description: A category assigned to the condition.
+  url: https://hl7.org/fhir/r4/valueset-condition-category.html
+  system: http://terminology.hl7.org/CodeSystem/condition-category
+  
+  binding:
+    description: A category assigned to the condition.
+    terminology:
+      - display: Condition Category Codes
+        system: http://terminology.hl7.org/CodeSystem/condition-category
+        info_link: https://hl7.org/fhir/r4/valueset-condition-category.html
+  
+
+- name: code
+  required: 'Yes'
+  description: Identification of the condition, problem, or diagnosis.
+  
+  binding:
+    description: Identification of the condition, problem, or diagnosis.
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/r4/snomedct.html
+      - display: ICD-9-CM
+        system: http://hl7.org/fhir/sid/icd-9-cm
+        info_link: https://hl7.org/fhir/icd.html
+      - display: ICD-10-CM
+        system: http://hl7.org/fhir/sid/icd-10-cm
+        info_link: https://hl7.org/fhir/icd.html

@@ -46,9 +46,11 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [convertedMeasurement]
+  This extension returns a converted measurement of a different measurement system than the original quantity.
+* [performerFunction]
 * valueAttachment: URL for this extension is defined as: `http://hl7.org/fhir/5.0/StructureDefinition/extension-Observation.valueAttachment`
   This extension is defined and referenced from the newer version of FHIR. See [Extensions for converting between versions] and [R5 Snapshot of Observation.value] for more information.
-* [performerFunction]
 
 ## Search
 
@@ -174,11 +176,11 @@ List an individual Observation by its id:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, patient: false, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 _Implementation Notes_
 
-* Social History Observations are not currently supported for Retrieve by Id and will return a 404 until implemented.
+* Patient authorization read requests are working similarly to patient authorization search requests.
 
 ### Example
 
@@ -340,5 +342,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
 [R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_
-[performerFunction]: http://hl7.org/fhir/R4/extension-event-performerfunction.html
+[convertedMeasurement]: https://hl7.org/fhir/StructureDefinition/iso21090-PQ-translation
+[performerFunction]: https://hl7.org/fhir/R4/extension-event-performerfunction.html
 [Configure Blood Pressure Event Set Pairing Hierarchy]: https://wiki.cerner.com/display/public/reference/Configure+Blood+Pressure+Event+Set+Hierarchy+Pairing
