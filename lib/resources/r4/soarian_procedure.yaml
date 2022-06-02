@@ -1,0 +1,48 @@
+---
+name: Procedure
+field_name_base_url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure
+fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  action: create
+  url: https://hl7.org/fhir/r4/json.html#resources
+
+- name: code
+  required: 'Yes'
+  type: CodeableConcept
+  description: A code to identify a specific procedure.
+  url: https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.code
+  action:
+    - terminology
+    - create
+  binding:
+    description: A code to identify a specific procedure.
+    terminology:
+      - display: Procedure Codes (SNOMED CT)
+        system: http://snomed.info/sct
+        info_link: https://hl7.org/fhir/R4/valueset-procedure-code.html   
+
+- name: focalDevice
+  required: 'No'
+  type: List of BackboneElement
+  description: A code to identify the kind of change that happened to the device during the procedure.
+
+  children:
+
+  - name: action
+    required: 'Yes'
+    type: List of CodeableConcept
+    description: A code to identify the kind of change that happened to the device during the procedure.
+    url: http://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice.action
+    action:
+    - terminology
+    - create
+    binding:
+      description: A code to identify the kind of change that happened to the device during the procedure.
+      terminology:
+      - display: Procedure Device Action Codes
+        system: http://snomed.info/sct
+        info_link: http://hl7.org/fhir/R4/valueset-device-action.html
+        

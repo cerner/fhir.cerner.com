@@ -176,5 +176,44 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_INSURANCEPLAN_ENTRY ||= {
+      'resourceType': 'InsurancePlan',
+      'id': '589723',
+      'text': {
+        'status': 'generated',
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
+               'Miscellaneous Commercial Health Plan</p><p><b>Type</b>: Medical Service Plan</p><p><b>Owned By</b>:' \
+               'SELF PAY</p><p><b>Period Start Date</b>: Aug 26, 2003 12:00 A.M. UTC</p></div>'
+      },
+      'status': 'active',
+      'type': [
+        {
+          'coding': [
+            {
+              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/27137',
+              'code': '6681216',
+              'display': 'Medical Service Plan',
+              'userSelected': true
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/insurance-plan-type',
+              'code': 'medical',
+              'display': 'Medical',
+              'userSelected': false
+            }
+          ],
+          'text': 'Medical Service Plan'
+        }
+      ],
+      'name': 'Miscellaneous Commercial Health Plan',
+      'period': {
+        'start': '2003-08-26T00:00:00.000Z'
+      },
+      'ownedBy': {
+        'reference': 'Organization/589803',
+        'display': 'SELF PAY'
+      }
+    }.freeze
   end
 end

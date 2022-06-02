@@ -1,0 +1,55 @@
+---
+name: CareTeam
+field_name_base_url: https://hl7.org/fhir/R4/careteam-definitions.html#CareTeam
+fields:
+
+- name: category
+  binding:
+    description: >
+      Identifies the type of team.
+    terminology:
+    - display: LOINC
+      System: https://loinc.org
+      info_link: https://hl7.org/fhir/R4/loinc.html
+
+- name: participant
+  required: 'Yes'
+  type: List of BackboneElement
+  description: Identifies all people and organizations who are expected to be involved in the care team.
+  example: |
+    {
+        'participant': [
+          {
+            'role': [
+                      {
+                        'coding': [
+                            {
+                                'system': "https://snomed.info/sct",
+                                'code': "5171000124108",
+                                'display': "Father-in-law (person)"
+                            }
+                        ],
+                        'text': "Father-in-law (person)"
+                      }
+                  ],
+            'member': {
+                'reference': "RelatedPerson/151863151-119078440",
+                'display': "FHIR, NonProviderTEST"
+            }
+          }
+        ]
+      }
+
+  children:
+
+  - name: role
+    required: 'Yes'
+    type: List of CodeableConcept
+    description: Role of the participant in care team.
+    note: Required if participant is given.
+    binding:
+      description: Role of participant in care team.
+      terminology:
+      - display: Participant Role
+        system: https://nucc.org/provider-taxonomy
+        info_link: https://www.hl7.org/fhir/us/core/ValueSet-us-core-careteam-provider-roles.html
