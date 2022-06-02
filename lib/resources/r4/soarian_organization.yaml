@@ -1,0 +1,15 @@
+---
+name: Organization
+field_name_base_url: https://hl7.org/fhir/R4/organization-definitions.html#Organization
+fields:
+  - name: type
+    type: CodeableConcept
+    description: Indicates the type of Organization.
+    url: https://hl7.org/fhir/R4/valueset-organization-type.html
+    action: terminology
+    binding:
+      description: Indicates the type of Organization.
+      terminology:
+      - display: OrganizationType
+        system: https://terminology.hl7.org/3.1.0/CodeSystem-organization-type.html
+        info_link: https://hl7.org/fhir/R4/valueset-organization-type.html

@@ -11,6 +11,12 @@ layout: api
 * [Patient](/soarian/r4/base/individuals/patient)
 * [Practitioner](/soarian/r4/base/individuals/practitioner)
 
+## Entities
+<%= render '/soarian/r4/base/entities.*' %>
+
+* [Organization](/soarian/r4/base/entities/organization)
+
+
 ## Management
 <%= render '/soarian/r4/base/management.*' %>
 
