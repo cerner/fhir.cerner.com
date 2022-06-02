@@ -265,7 +265,7 @@ _Implementation Notes_
 
 * This implementation follows the [JSON Patch](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
-* For Private Coverages, only Encounter-level Coverages may be patched.
+* For Private Coverages, both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the `/period` and `/dependent` operations on Patient-level Coverages.
 * For Public Coverages, both Encounter-level and Patient-level Coverages may be patched, with the caveat of only supporting the `/period` and `/class/0/value` operations.
 
 ### Authorization Types
