@@ -3,7 +3,7 @@ title: Diagnostics | R4 API
 layout: api
 ---
 
-#Diagnostics
+# Diagnostics
 
 <%= render '/soarian/r4/clinical/diagnostics.*' %>
 
