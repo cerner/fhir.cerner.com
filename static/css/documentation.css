@@ -1387,6 +1387,12 @@ pre.body-response {
   resize: vertical;
 }
 
+pre.soarian-response-body-response {
+  height: 320px;
+  min-height: 200px;
+  resize: vertical;
+}
+
 pre.body-response-auto-height {
   min-height: 200px;
   resize: vertical;
