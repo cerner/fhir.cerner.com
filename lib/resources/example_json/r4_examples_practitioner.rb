@@ -16,6 +16,12 @@ module Cerner
         'Falco Shine</p><p><b>Identifiers</b>: DOCUPIN: F88788, DOCDEA: 887887887, SPI: 16611661, NPI: 6656656, '\
         'PRSNLPRIMID: 12332122</p><p><b>Gender</b>: Male</p><p><b>Status</b>: Active</p></div>'
       },
+      'extension': [
+        {
+          'valueBoolean': true,
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician'
+        }
+      ],
       'identifier': [
         {
           'use': 'usual',
@@ -205,6 +211,12 @@ module Cerner
         'Falco Shine</p><p><b>Identifiers</b>: SPI: 16611661, NPI: 6656656</p><p><b>Gender</b>: Male'\
         '</p><p><b>Status</b>: Active</p></div>'
       },
+      'extension': [
+        {
+          'valueBoolean': true,
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician'
+        }
+      ],
       'identifier': [
         {
           'use': 'usual',

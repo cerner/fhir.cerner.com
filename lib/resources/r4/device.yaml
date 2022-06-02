@@ -8,4 +8,7 @@ fields:
   description: The kind or type of device.
   binding:
     description: The type of device.
-    note: Currently not bound to any terminology and only 'Device.type.text' will be returned.
+    terminology:
+      - display: SNOMED CT
+        system: http://snomed.info/sct
+        info_link: https://www.hl7.org/fhir/valueset-device-type.html

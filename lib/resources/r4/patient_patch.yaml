@@ -716,6 +716,61 @@ operations:
               }
             }
           ]
+        },
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+          "extension": [
+            {
+              "extension": [
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                        "code": "485602703",
+                        "display": "Appointment Reminder",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Appointment Reminder"
+                  },
+                  "url": "communication-type"
+                },
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                        "code": "4054467",
+                        "display": "Phone",
+                        "userSelected": false
+                      }
+                    ]
+                  },
+                  "url": "contact-method"
+                },
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                        {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                        "code": "163",
+                        "display": "Business",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Home" 
+                  },
+                  "url": "contact-type"
+                },
+                {
+                  "valueDateTime": "2019-12-26T15:41:52.000Z",
+                  "url": "verified-datetime"
+                }
+              ],
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+            }
+          ]
         }
       ]
     }
@@ -725,4 +780,102 @@ operations:
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a></li>
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
+      <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json">Communication Preference</a></li>
+    </ul>
+- name: test-communication-preference-id
+  path: /extension/{index}/id
+  operation: test
+  type: string
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Test the value of the `CommunicationPreference.id` of the Communication Preference at the given <code>{index}</code> in the list of the patient's extensions.
+  example: |
+    {
+      "path": "/extension/1/id",
+      "op": "test",
+      "value": "151534123"
+    }
+- name: remove-communication-preference-id
+  path: /extension/{index}
+  operation: remove
+  type: N/A
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Remove the CommunicationPreference at the given <code>{index}</code> in the list of the patient's extensions.
+  example: |
+    {
+      "path": "/extension/1",
+      "op": "remove"
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-communication-preference-id">test operation</a> to be provided for the `CommunicationPreference.id` of the Communication Preference intended to be removed.</li>
+    </ul>
+- name: add-communication-preference
+  path: /extension/-
+  operation: add
+  type: Communication Preference
+  url: "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json"
+  description: Add a new Communication Preference extension for the patient.
+  example: |
+    {
+      "path": "/extension/-",
+      "op": "add",
+      "value": {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+        "extension": [
+          {
+            "extension": [
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                      "code": "485602703",
+                      "display": "Appointment Reminder",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Appointment Reminder"
+                },
+                "url": "communication-type"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                      "code": "4054467",
+                      "display": "Phone",
+                      "userSelected": false
+                    }
+                  ]
+                },
+                "url": "contact-method"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                      {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                      "code": "163",
+                      "display": "Business",
+                      "userSelected": false
+                    }
+                  ],
+                  "text": "Home" 
+                },
+                "url": "contact-type"
+              },
+              {
+                "valueDateTime": "2019-12-26T15:41:52.000Z",
+                "url": "verified-datetime"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+          }
+        ]
+      }
+    }
+  note: >
+    <ul>
+      <li>Must be a valid `CommunicationPreference` extension.</li>
     </ul>

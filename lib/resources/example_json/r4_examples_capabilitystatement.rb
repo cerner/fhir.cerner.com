@@ -17,7 +17,7 @@ module Cerner
         'description': 'Cerner implementation of FHIR on top of Millennium',
         'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d'
       },
-      'fhirVersion': '4.0.0',
+      'fhirVersion': '4.0.1',
       'format': [
         'json',
         'application/fhir+json'
@@ -549,7 +549,7 @@ module Cerner
         'description': 'Cerner implementation of FHIR on top of Millennium',
         'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d'
       },
-      'fhirVersion': '4.0.0',
+      'fhirVersion': '4.0.1',
       'format': [
         'json',
         'application/fhir+json'
@@ -1131,7 +1131,12 @@ module Cerner
       'token_endpoint': 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
                         'protocols/oauth2/profiles/smart-v1/token',
       'token_endpoint_auth_methods_supported': [
-        'client_secret_basic'
+        'client_secret_basic',
+        'private_key_jwt'
+      ],
+      'token_endpoint_auth_signing_alg_values_supported': [
+        'RS384',
+        'ES384'
       ],
       'scopes_supported': [
         'launch',

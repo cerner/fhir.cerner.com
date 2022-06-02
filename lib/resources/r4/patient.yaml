@@ -209,7 +209,7 @@ fields:
       <li>Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
       <li>Only one `prefix` and one `suffix` may be provided.</li>
       <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
-      <li>The `family` field has a character limit of 100.</li> 
+      <li>The `family` field has a character limit of 100.</li>
       <li>Each value for the `given`, `prefix`, and `suffix` fields has a character limit of 100.</li>
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.name
@@ -231,7 +231,7 @@ fields:
               "valueString": "12345",
               "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
             }
-          ],  
+          ],
           "period": {
             "start": "2012-05-17T15:33:18.000Z"
           }
@@ -438,3 +438,65 @@ fields:
       ]
     }
   url: https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html
+
+- name: Communication Preference Extension
+  required: 'No'
+  type: Extension
+  description: The communication preference for the patient.
+  action: create
+  example: |
+    {
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+          "extension": [
+            {
+              "extension": [
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                        "code": "485602703",
+                        "display": "Appointment Reminder",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Appointment Reminder"
+                  },
+                  "url": "communication-type"
+                },
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                        "code": "4054467",
+                        "display": "Phone",
+                        "userSelected": false
+                      }
+                    ]
+                    },
+                  "url": "contact-method"
+                },
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                        "code": "163",
+                        "display": "Business",
+                        "userSelected": false
+                      }
+                    ],
+                    "text": "Home"
+                  },
+                  "url": "contact-type"
+                }
+              ],
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+          "verified": "2019-12-26T15:41:52.000Z"
+        }
+      ]
+    }
+  url: 'https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json'

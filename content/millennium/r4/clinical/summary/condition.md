@@ -55,10 +55,20 @@ _Implementation Notes_
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the condition is for. Example: `Patient/12345`
  `clinical-status` | No                             | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
  `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item, encounter-diagnosis and health-concern are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`, `health-concern`
+ `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ `encounter`       | No                             | [`reference`] | The encounter ID/s for the patient. Only encounter-diagnosis are returned. Example: `encounter=97733489`
 
 Notes:
 
 * If `_id` is provided, no other parameters may be provided.
+
+* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+
+* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=82c1c95c-83bb-47d2-86d7-7961aa996082&_revinclude=Provenance:target`
+
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+
+* When `encounter` is provided, only encounter-diagnosis will be returned for the matched encounter/s. No Problems/HealthConcerns are returned
 
 ### Headers
 
@@ -75,6 +85,22 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_condition_bundle) %>
 
+<%= disclaimer %>
+
+### Example with RevInclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?_id=00a5d6eb-c567-42f7-be07-53804cece075&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_condition_revinclude_bundle) %>
 <%= disclaimer %>
 
 #### Patient Authorization Request
@@ -171,6 +197,7 @@ _Implementation Notes_
   * The other coding must have userSelected: false
 * The Condition Create API currently supports only Conditions with a category of `problem-list-item` or `encounter-diagnosis`.
 * An `encounter-diagnosis` Condition will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.
+* On FHIR write of an encounter-diagnosis, the diagnosis will automatically receive the next available diagnosis priority within the problem list component.
 
 ### Authorization Types
 
