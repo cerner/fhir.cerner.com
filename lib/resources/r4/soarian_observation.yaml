@@ -1,0 +1,111 @@
+---
+name: Observation
+field_name_base_url: https://hl7.org/fhir/R4/observation-definitions.html#Observation
+fields:
+- name: category
+  required: 'Yes'
+  type: List of CodeableConcept
+  description: A code that classifies the general type of observation being made.
+  action:
+    - terminology
+    - create
+  binding:
+    description: Codes for high level observation categories.
+    terminology:
+    - display: Observation Category Codes
+      system: https://terminology.hl7.org/CodeSystem/observation-category
+      info_link: https://hl7.org/fhir/R4/valueset-observation-category.html
+      
+- name: code
+  required: 'Yes'
+  type: List of CodeableConcept
+  description: A code that classifies the general type of observation being made.
+  action:
+    - terminology
+    - create
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
+  description: A code that classifies the general type of observation being made.
+  binding:
+    description: Codes identifying names of simple observations.
+    terminology:
+    - display: LOINC
+      system: https://loinc.org
+      info_link: https://hl7.org/fhir/R4/loinc.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/R4/snomedct.html
+    - display: CPT
+      system: https://www.ama-assn.org/go/cpt
+      info_link: https://hl7.org/fhir/R4/cpt.html
+
+- name: code
+  required: 'Yes'
+  type: List of CodeableConcept
+  description: A code that classifies the general type of observation being made.
+  action:
+    - terminology
+    - create
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.code
+  binding:
+- name: Component.code
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.code  
+  required: 'Yes'
+  type: List of CodeableConcept
+  action:
+    - terminology
+    - create
+  description: A code that classifies the general type of observation being made.
+  binding:
+    description: Codes identifying names of simple observations.
+    terminology:
+    - display: LOINC
+      system: https://loinc.org
+      info_link: https://hl7.org/fhir/R4/loinc.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/R4/snomedct.html
+
+- name: dataAbsentReason
+- name: component.dataAbsentReason
+  required: 'No'
+  type: CodeableConcept
+  description: Provides a reason why the expected value in the element Observation.value[x] is missing.
+  action: terminology
+  binding:
+    description: Codes for reasons data is absent.
+    terminology:
+    - display: v4 data absentreason
+      system: https://terminology.hl7.org/CodeSystem/data-absent-reason
+      info_link: https://hl7.org/fhir/R4/valueset-data-absent-reason.html
+
+- name: valueCodeableConcept
+- name: component.valueCodeableConcept
+  type: CodeableConcept
+  description: Codes for value of the observation.
+  action: terminolgy
+  binding:
+    description: Codes for value of the observation.
+    terminology:
+    - display: LOINC
+      system: https://loinc.org
+      info_link: https://hl7.org/fhir/R4/loinc.html
+    - display: SNOMED CT
+      system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/R4/snomedct.html
+    - display: CPT
+      system: https://www.ama-assn.org/go/cpt
+      info_link: https://hl7.org/fhir/R4/cpt.html
+
+- name: interpretation
+  required: 'No'
+  type: List of CodeableConcept
+  description: A categorical assessment of an observation value. For example, high, low, normal.
+  action:
+    - terminology
+    - create
+  binding:
+    description: Codes identifying interpretations of observations.
+    terminology:
+    - display: v3 Interpretation Codes
+      system: https://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation
+      info_link: https://hl7.org/fhir/R4/valueset-observation-interpretation.html
