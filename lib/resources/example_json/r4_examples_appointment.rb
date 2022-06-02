@@ -484,6 +484,14 @@ module Cerner
       }
     ].freeze
 
+    R4_APPOINTMENT_PARTICIPANT_STATUS_PATCH ||= [
+      {
+        'op': 'replace',
+        'path': '/patient-status',
+        'value': 'accepted'
+      }
+    ].freeze
+
     R4_APPOINTMENT_CREATE ||= {
       'resourceType': 'Appointment',
       'status': 'booked',
