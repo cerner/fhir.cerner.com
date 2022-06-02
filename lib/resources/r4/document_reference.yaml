@@ -546,34 +546,3 @@ fields:
         "end": "2020-01-01T01:00:00.000Z"
       }
     }
-- name: type
-  required: 'Yes'
-  type: CodeableConcept
-  action:
-    - docrefccd
-  description: Precise type of clinical document.
-  note: The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
-    <br/><br/>
-    When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
-    <br/><br/>
-  url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type
-  binding:
-    description: Specifies the particular kind of document referenced.
-    terminology:
-      - display: US Core DocumentReference Type
-        system: http://loinc.org, http://terminology.hl7.org/CodeSystem/v3-NullFlavor
-        info_link: https://hl7.org/fhir/us/core/ValueSet-us-core-documentreference-type.html
-
-- name: type
-  required: 'Yes'
-  type: CodeableConcept
-  action:
-    - docrefccd
-  binding:
-    description: Precise type of clinical document.
-    terminology:
-      - display: LOINC
-        system: http://loinc.org
-        info_link: http://hl7.org/fhir/dstu2/loinc.html
-        values:
-          - 34133-9 - Summary of episode note

@@ -18,3 +18,4 @@ layout: api
 * [Account](/millennium/r4/financial/general/account)
 * [ChargeItem](/millennium/r4/financial/general/charge-item)
 * [FinancialTransaction](/millennium/r4/financial/general/financial-transaction)
+* [InsurancePlan](/millennium/r4/financial/general/insurance-plan)

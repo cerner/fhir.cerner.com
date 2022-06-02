@@ -10,7 +10,7 @@ fields:
     description: A code that defines the medication
     terminology:
     - display: RxNorm
-      system: https://www.nlm.nih.gov/research/umls/rxnorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
       info_link: https://www.nlm.nih.gov/research/umls/rxnorm/index.html
 - name: form
   required: 'No'
