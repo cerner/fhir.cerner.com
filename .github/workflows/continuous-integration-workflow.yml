@@ -26,6 +26,9 @@ jobs:
 
     - name: Install Gems
       run: bundle install
+      
+    - name: Run Nanoc Compiler
+      run: bundle exec nanoc compile
 
     - name: Run Tests
       run: rspec

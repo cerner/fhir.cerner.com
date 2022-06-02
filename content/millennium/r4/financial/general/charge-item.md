@@ -4,7 +4,6 @@ title: ChargeItem | R4 API
 
 # ChargeItem
 
-<%= beta_tag %>
 
 * TOC
 {:toc}
@@ -76,7 +75,6 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ## Search
 
-<%= beta_tag(action: true) %>
 
 Search for ChargeItems that meet supplied query parameters:
 
@@ -127,7 +125,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
-<%= beta_tag(action: true) %>
 
 List an individual ChargeItem by its id:
 
@@ -160,7 +157,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Operation: charge-item-credit
 
-<%= beta_tag(action: true) %>
 
 Creates an offsetting ChargeItem for an existing debit ChargeItem.
 
@@ -215,7 +211,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Operation: charge-item-modify
 
-<%= beta_tag(action: true) %>
 
 Modifies an existing ChargeItem resulting in a newly created ChargeItem.
 
@@ -270,7 +265,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Operation: charge-item-create
 
-<%= beta_tag(action: true) %>
 
 Creates a charge event which can result in the creation of one or more ChargeItems.
 
