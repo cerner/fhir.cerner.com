@@ -176,6 +176,7 @@ The RelatedPerson Resource supports proprietary codes for:
 
 The Location Resource supports proprietary codes for:
 
+* location.identifier.type codes are maintained in [Code Set 73 Location Contributor Source](#code-set-73-location-contributor-source)
 * location.physicalType code is maintained in [Code Set 222 Location Type](#code-set-222-location-type)
 
 ### Medications
@@ -375,6 +376,17 @@ This code set is extremely large and highly customized by clients. It maintains 
       "system": "https://fhir.cerner.com/<EHR source id>/codeSet/72",
       "code": "2799031",
       "display": "Lyme disease vaccine",
+      "userSelected": true
+    }
+
+##### Code Set 73 Location Contributor Source
+
+This code set maintains the identifying values for a Location, such as SDV_STD_SRC.
+
+    {
+      "system": "https://fhir.cerner.com/<EHR source id>/codeSet/73",
+      "code": "2343452",
+      "display": "SDV_STD_SRC",
       "userSelected": true
     }
 
