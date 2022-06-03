@@ -4,7 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="Content-Language" content="en-us">
   <meta http-equiv="imagetoolbar" content="false">
-  <title>Base | R4 API</title>
+  <title>Bulk Data | R4 API</title>
   
   <link href="../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
@@ -74,38 +74,12 @@
 
   <div id="wrapper">
     <div class="content">
-      <h1 id="base">Base</h1>
+      <p>The FHIR Bulk Data Access specification provides organizations, providers and external clients the ability to access large volumes of core clinical data for a group of individuals. Common use cases include exporting data to populate a research database, a health registry or exporting clinical data to calculate quality measures for a patient population.</p>
 
-<p>The Base category of HL7<sup>®</sup> FHIR<sup>®</sup> resources includes Individuals, Entities, Workflow, and Management.</p>
-
-<h2 id="individuals">Individuals</h2>
-<p>Individuals resources are used to describe the people that participate in healthcare. This includes patient, practitioners, and others that are related in some way to a patient. This does not include the Person resource, which is used to index a real world person providing a means to identify the same person across different healthcare organizations.</p>
-
-<h3 id="implemented-resources">Implemented Resources</h3>
+<p>FHIR Bulk data requests are executed against an organizations database asynchronously. The amount of time an extraction takes to process will depend on the size of the population for which data was requested and the number of resources requested.</p>
 
 <ul>
-  <li><a href="individuals/patient">Patient</a></li>
-  <li><a href="individuals/practitioner">Practitioner</a></li>
-  <li><a href="individuals/person">Person</a></li>
-</ul>
-
-<h2 id="entities">Entities</h2>
-<p>Entities are used to track, relate, and locate things and people across the healthcare spectrum. They include things like Location, but also the Person resource. The Person resource is used to index a real world person, providing a means to identify the same person across different healthcare organizations and roles.</p>
-
-<h3 id="implemented-resources">Implemented Resources</h3>
-
-<ul>
-  <li><a href="entities/organization">Organization</a></li>
-  <li><a href="entities/device">Device</a></li>
-</ul>
-
-<h2 id="management">Management</h2>
-<p>Management resources are used to manage the lifecycle of patients within the healthcare setting.</p>
-
-<h3 id="implemented-resources">Implemented Resources</h3>
-
-<ul>
-  <li><a href="management/encounter">Encounter</a></li>
+  <li><a href="export/">Export</a></li>
 </ul>
 
     </div>
@@ -144,18 +118,18 @@
       </li> 
 	  <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Base</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../base/">Base</a>
 </h3>
         <ul class="js-guides">
-          <li class="subtopic"><a href="individuals/">Individuals</a></li>
-          <li><a href="individuals/patient/">Patient</a></li>
-		      <li><a href="individuals/practitioner/">Practitioner</a></li>
-          <li><a href="individuals/person/">Person</a></li>
-          <li class="subtopic"><a href="entities/">Entities</a></li>
-		      <li><a href="entities/organization/">Organization</a></li>
-          <li><a href="entities/device/">Device</a></li>
-          <li class="subtopic"><a href="management/">Management</a></li>
-          <li><a href="management/encounter/">Encounter</a></li>
+          <li class="subtopic"><a href="../base/individuals/">Individuals</a></li>
+          <li><a href="../base/individuals/patient/">Patient</a></li>
+		      <li><a href="../base/individuals/practitioner/">Practitioner</a></li>
+          <li><a href="../base/individuals/person/">Person</a></li>
+          <li class="subtopic"><a href="../base/entities/">Entities</a></li>
+		      <li><a href="../base/entities/organization/">Organization</a></li>
+          <li><a href="../base/entities/device/">Device</a></li>
+          <li class="subtopic"><a href="../base/management/">Management</a></li>
+          <li><a href="../base/management/encounter/">Encounter</a></li>
 		    </ul>
 	  </li>
 	  <li class="js-topic">
@@ -181,10 +155,10 @@
       </li>
 	  <li class="js-topic">
         <h3>
-<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../bulk-data/">Bulk Data</a>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Bulk Data</a>
 </h3>
         <ul class="js-guides">
-          <li><a href="../bulk-data/export/">Export</a></li>
+          <li><a href="export/">Export</a></li>
 		    </ul>
 	  </li>
     </ul>
