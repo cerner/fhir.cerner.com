@@ -115,9 +115,9 @@ operations:
   - name: add-extension
     path: /extension/-
     operation: add
-    type: List of Extension
+    type: Single Extension
     url: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.extension
-    description: The array of extensions for an encounter.
+    description: An extension for an encounter.
     example: |
       [
         {
@@ -142,5 +142,5 @@ operations:
     note: >
       <ul>
         <li> The custom-attribute id field cannot be set.</li>
-        <li> Add operation is currently supported for <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json">Custom Attribute Extension</a></li>
+        <li> Add operation is currently only supported for <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json">Custom Attribute Extension</a></li>
       </ul>
