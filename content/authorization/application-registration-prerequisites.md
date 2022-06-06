@@ -163,6 +163,7 @@ The following table explains labeling Cerner applies to applications in certain 
 
 | Label  | Conditions |
 | ------------- | ------------- |
+| "Validated"  | This label is displayed when an application has been formally Validated through the [code Program][code Program].  |
 | "Unknown App"  | This label indicates that an application doesn't employ enough of the security best practices listed in the Technical Requirements section above for Cerner to describe the application.  |
 	
 
