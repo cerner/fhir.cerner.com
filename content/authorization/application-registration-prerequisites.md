@@ -163,9 +163,7 @@ The following table explains labeling Cerner applies to applications in certain 
 
 | Label  | Conditions |
 | ------------- | ------------- |
-| "Validated"  | The "Validated" label is displayed when an application has been formally Validated through the [code Program][code Program].  |
-| "Not Validated"  | The "Not Validated" label is displayed when an application has not been formally Validated through the [code Program][code Program].   |
-| "Unknown App"  | This is a catch-all fall back mechanism that Cerner uses when an application doesn't employ enough of the security best practices listed in the Technical Requirements section above for Cerner to describe the application.  |
+| "Unknown App"  | This label indicates that an application doesn't employ enough of the security best practices listed in the Technical Requirements section above for Cerner to describe the application.  |
 	
 
 ## FAQ
