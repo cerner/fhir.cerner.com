@@ -94,15 +94,36 @@ operations:
             'op': 'replace',
             'path': '/extension',
             'value': [
-               {
-                 'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount',
-                 'valueMoney': {
-                   'value': 10.0,
-                   'currency': 'USD'
-                 }
-               }
-             ]
-           }
+              {
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount',
+                'valueMoney': {
+                  'value': 10.0,
+                  'currency': 'USD'
+                }
+              }
+            ]
+          },
+          {
+            'op': 'replace',
+            'path': '/extension',
+            'value': [
+            {
+              'id': 'CA-0',
+              'extension': [
+                {
+                  'id': 'ENCNTR:3339152',
+                  'valueString': 'Self-Pay Follow Up Date',
+                  'url': 'custom-attribute-name'
+                },
+                {
+                  'valueDateTime': '2018-05-01T12:00:00.000Z',
+                  'url': 'custom-attribute-value'
+                }
+              ],
+              'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+              }
+            ]
+          }
         ]
       }
     note: >
@@ -110,6 +131,11 @@ operations:
       <ul>
         <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json">Payment Collection Status</a></li>
         <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount?_format=json">Estimated Financial Responsibility Amount</a></li>
+        <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json">Custom Attribute</a></li>
+          <ul>
+            <li><code>custom-attribute</code> extensions without the id field populated will be treated as an add operation.</li>
+            <li>Existing <code>custom-attribute</code> extensions that are not present will not be modified.</li>
+          </ul>
       </ul>
 
   - name: add-extension
