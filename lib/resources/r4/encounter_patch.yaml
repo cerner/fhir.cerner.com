@@ -111,3 +111,36 @@ operations:
         <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json">Payment Collection Status</a></li>
         <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount?_format=json">Estimated Financial Responsibility Amount</a></li>
       </ul>
+
+  - name: add-extension
+    path: /extension/-
+    operation: add
+    type: Single Extension
+    url: http://hl7.org/fhir/r4/encounter-definitions.html#Encounter.extension
+    description: An extension for an encounter.
+    example: |
+      [
+        {
+          "op": "add",
+          "path": "/extension/-",
+          "value":  {
+            "extension": [
+              {
+                "id": "ENCNTR:2822522",
+                "valueString": "ICD-9 Code",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueString": "test string",
+                "url": "custom-attribute-value"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          }
+        }
+      ]
+    note: >
+      <ul>
+        <li> The custom-attribute id field cannot be set.</li>
+        <li> Add operation is currently only supported for <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json">Custom Attribute Extension</a></li>
+      </ul>
