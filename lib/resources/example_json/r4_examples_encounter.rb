@@ -2159,6 +2159,27 @@ module Cerner
           ],
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
         }
+      },
+      {
+        'op': 'replace',
+        'path': '/extension',
+        'value': [
+          {
+            'id': 'CA-0',
+            'extension': [
+              {
+                'id': 'ENCNTR:3339152',
+                'valueString': 'Self-Pay Follow Up Date',
+                'url': 'custom-attribute-name'
+              },
+              {
+                'valueDateTime': '2018-05-01T12:00:00.000Z',
+                'url': 'custom-attribute-value'
+              }
+            ],
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute'
+          }
+        ]
       }
     ].freeze
   end
