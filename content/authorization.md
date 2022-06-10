@@ -281,8 +281,8 @@ that further govern the behavior of authorization:
 - online_access: Allows an application to obtain tokens via a "refresh" process
   while the authenticated user has an active session present at the device.
 - offline_access: Allows an application to continue to obtain tokens on behalf
-  of the authenticated via a "refresh" process user until explicitly revoked by
-  the user, an administrator, or your application.
+  of the authenticated via a "refresh" process until explicitly revoked by
+  the user, an administrator, or your application. Further, offline_acces will be revoked automatically if access is unused for more than three months.
 
 Further information on the usage of these special scopes are further detailed
 below.
@@ -798,7 +798,7 @@ in the authorization grant request:
   other risk mechanisms (timeouts, etc.) require a user
   to be re-authenticated.
 - offline_access:  Grants a refresh token that can be
-  utilized until either a user or administrator revokes it.
+  utilized until it is revoked by a user, administrator or revoked automatically if access is unused for more than three months.
 
 As access tokens are valid for periods that are less than ten
 minutes, it is recommended to retrieve and cache new tokens
