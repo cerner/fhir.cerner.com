@@ -1176,11 +1176,6 @@ Disable or rotate your system account via Cerner Central as
   soon as possible via
   [Cerner Central System Account Management][SYSTEM-ACCOUNTS].  
 
-**Is offline_access supported for healthcare providers?**
-
-Cerner does not currently have support for offline_access
-  for providers.  It is currently under consideration.
-
 **How can I deliver my solution to users utilizing its own
   Citrix instance with XenApp?**
 
