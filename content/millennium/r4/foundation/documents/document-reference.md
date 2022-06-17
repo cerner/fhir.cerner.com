@@ -1,5 +1,5 @@
 ---
-title: DocumentReference | R4 API
+title: DocumentReference FHIR API | R4 API
 ---
 
 # DocumentReference
