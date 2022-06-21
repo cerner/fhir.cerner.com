@@ -92,11 +92,12 @@ module Cerner
                 }
               ]
             },
+
             {
               'type': 'AllergyIntolerance',
               'supportedProfile': [
                 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
-                          ],
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -198,8 +199,8 @@ module Cerner
             {
               'type': 'Condition',
               'supportedProfile': [
-                               'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
-                              ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -264,8 +265,8 @@ module Cerner
             {
               'type': 'Device',
               'supportedProfile': [
-                               'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
-                              ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -294,8 +295,8 @@ module Cerner
             {
               'type': 'Encounter',
               'supportedProfile': [
-                             'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
-                            ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -337,8 +338,8 @@ module Cerner
             {
               'type': 'Immunization',
               'supportedProfile': [
-                              'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
-                            ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -381,8 +382,8 @@ module Cerner
             {
               'type': 'Patient',
               'supportedProfile': [
-                               'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
-                             ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -490,8 +491,8 @@ module Cerner
             {
               'type': 'Practitioner',
               'supportedProfile': [
-                              'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
-                             ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -677,8 +678,8 @@ module Cerner
             {
               'type': 'AllergyIntolerance',
               'supportedProfile': [
-                            'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
-                            ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -794,8 +795,8 @@ module Cerner
             {
               'type': 'Condition',
               'supportedProfile': [
-                            'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
-                             ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -870,8 +871,8 @@ module Cerner
             {
               'type': 'Device',
               'supportedProfile': [
-                             'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
-                              ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -900,8 +901,8 @@ module Cerner
             {
               'type': 'Encounter',
               'supportedProfile': [
-                             'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
-                              ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -949,8 +950,8 @@ module Cerner
             {
               'type': 'Immunization',
               'supportedProfile': [
-                               'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
-                              ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -993,8 +994,8 @@ module Cerner
             {
               'type': 'Patient',
               'supportedProfile': [
-                                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
-                             ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -1101,8 +1102,8 @@ module Cerner
             {
               'type': 'Practitioner',
               'supportedProfile': [
-                -                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
-                -              ],
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
+              ],
               'interaction': [
                 {
                   'code': 'read'
