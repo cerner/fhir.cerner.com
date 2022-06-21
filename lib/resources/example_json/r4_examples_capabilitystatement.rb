@@ -92,12 +92,8 @@ module Cerner
                 }
               ]
             },
-
             {
               'type': 'AllergyIntolerance',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -198,9 +194,6 @@ module Cerner
             },
             {
               'type': 'Condition',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -264,9 +257,6 @@ module Cerner
             },
             {
               'type': 'Device',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -294,9 +284,6 @@ module Cerner
             },
             {
               'type': 'Encounter',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -337,9 +324,6 @@ module Cerner
             },
             {
               'type': 'Immunization',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -381,9 +365,6 @@ module Cerner
             },
             {
               'type': 'Patient',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -490,9 +471,6 @@ module Cerner
             },
             {
               'type': 'Practitioner',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -677,9 +655,6 @@ module Cerner
             },
             {
               'type': 'AllergyIntolerance',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -794,9 +769,6 @@ module Cerner
             },
             {
               'type': 'Condition',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -870,9 +842,6 @@ module Cerner
             },
             {
               'type': 'Device',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -900,9 +869,6 @@ module Cerner
             },
             {
               'type': 'Encounter',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -949,9 +915,6 @@ module Cerner
             },
             {
               'type': 'Immunization',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -993,9 +956,6 @@ module Cerner
             },
             {
               'type': 'Patient',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -1101,9 +1061,6 @@ module Cerner
             },
             {
               'type': 'Practitioner',
-              'supportedProfile': [
-                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
-              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -1173,8 +1130,6 @@ module Cerner
                                 'protocols/oauth2/profiles/smart-v1/personas/provider/authorize',
       'token_endpoint': 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
                         'protocols/oauth2/profiles/smart-v1/token',
-      'revocation_endpoint': 'https://authorization.devcerner.com/tenants/'\
-                        '2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token/revoke',
       'token_endpoint_auth_methods_supported': [
         'client_secret_basic',
         'private_key_jwt'
@@ -1307,8 +1262,6 @@ module Cerner
       'response_types_supported': [
         'code'
       ],
-      'management_endpoint': 'https://authorization.devcerner.com/tenants/'\
-                             '2c400054-42d8-4e74-87b7-80b5bd5fde9f/personas/provider/my-authorizations',
       'introspection_endpoint': 'https://authorization.cerner.com/tokeninfo',
       'capabilities': [
         'launch-ehr',
