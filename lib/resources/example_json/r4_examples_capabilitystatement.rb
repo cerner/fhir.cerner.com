@@ -94,6 +94,9 @@ module Cerner
             },
             {
               'type': 'AllergyIntolerance',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -193,7 +196,112 @@ module Cerner
               ]
             },
             {
+              "type": 'CarePlan',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                }
+              ],
+              "searchRevInclude": [
+                'Provenance:target'
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  "type": 'token',
+                  "documentation": 'A single or comma separated list of CarePlan ids.'
+                },
+                {
+                  "name": 'date',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careplan-date',
+                  "type": 'date',
+                  "documentation": "A date range with which to find CarePlans. If used, the ‘date’ parameter
+                    must be provided twice. Once with a 'ge' prefix representing the earliest date, and once
+                    with a 'le’ prefix representing the latest date. The date prefix pair must create a closed range."
+                },
+                {
+                  "name": 'patient',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careplan-patient',
+                  "type": 'reference',
+                  "documentation": 'Who the careplan is for. It is a required field if the _id field is not given.'
+                },
+                {
+                  "name": 'category',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careplan-category',
+                  "type": 'token',
+                  "documentation": 'The category of the careplan. Category assess-plan is supported as of now.'
+                },
+                {
+                  "name": '_count',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-count',
+                  "type": 'number',
+                  "documentation": "The maximum number of results to return. Not honored when '_id' is set."
+                }
+              ]
+            },
+            {
+              "type": 'CareTeam',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                }
+              ],
+              "searchRevInclude": [
+                'Provenance:target'
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  "type": 'token',
+                  "documentation": 'CareTeam id supports only the single id. It is a required field if the
+                  patient or encounter fields are not given.'
+                },
+                {
+                  "name": 'category',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/CareTeam-category',
+                  "type": 'token',
+                  "documentation": 'The category of the careteam. Category Longitudinal (patient level) or Encounter
+                  is supported as of now.'
+                },
+                {
+                  "name": 'encounter',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/clinical-encounter',
+                  "type": 'reference',
+                  "documentation": 'The Encounter level CareTeam are displayed.'
+                },
+                {
+                  "name": 'patient',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careteam-patient',
+                  "type": 'reference',
+                  "documentation": 'Who the careteam is for. It is a required field if the _id field is not given.'
+                },
+                {
+                  "name": 'status',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careteam-status',
+                  "type": 'token',
+                  "documentation": 'The status of the CareTeam.'
+                }
+              ]
+            },
+            {
               'type': 'Condition',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -257,6 +365,9 @@ module Cerner
             },
             {
               'type': 'Device',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -283,7 +394,99 @@ module Cerner
               ]
             },
             {
+              "type": 'DocumentReference',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                },
+                {
+                  "code": 'create'
+                },
+                {
+                  "code": 'update'
+                }
+              ],
+              "updateCreate": false,
+              "searchRevInclude": [
+                'Provenance:target'
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-id',
+                  "type": 'token',
+                  "documentation": 'A single or comma separated list of DocumentReference ids.
+                  It is a required field if the patient field is not given.'
+                },
+                {
+                  "name": 'patient',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-patient',
+                  "type": 'reference',
+                  "documentation": 'The patient the document is about.
+                  It is a required field if the subject field is not given.'
+                },
+                {
+                  "name": 'encounter',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/clinical-encounter',
+                  "type": 'reference',
+                  "documentation": 'The Encounter in which the document was created.'
+                },
+                {
+                  "name": 'period',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-period',
+                  "type": 'date',
+                  "documentation": "A date range with which to find Documents. If used, the 'period' parameter
+                  must be provided twice. Once with a 'ge' prefix representing the earliest date, and once with
+                  a 'lt' prefix representing the latest date. The period prefix pair must create a closed range
+                  and cannot be equal to each other."
+                },
+                {
+                  "name": '_count',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-count',
+                  "type": 'number',
+                  "documentation": 'The maximum number of results to return in a page.'
+                },
+                {
+                  "name": 'type',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-type',
+                  "type": 'token',
+                  "documentation": 'The kind of document (LOINC if possible).'
+                },
+                {
+                  "name": 'category',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-category',
+                  "type": 'token',
+                  "documentation": 'The categorization of document.'
+                },
+                {
+                  "name": 'date',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-date',
+                  "type": 'date',
+                  "documentation": "A date parameter may be provided once with a prefix and time component to
+                  imply a date range. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt'
+                  prefixes and time component to search for procedures within a specific range. The date and
+                  prefix pairs must create a closed range. Must be set with patient."
+                }
+              ],
+              "operation": [
+                {
+                  "name": 'USCoreFetchDocumentReferences',
+                  "definition": 'http://hl7.org/fhir/us/core/OperationDefinition/docref',
+                  "documentation": 'US Core Fetch DocumentReferences'
+                }
+              ]
+            },
+            {
               'type': 'Encounter',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -323,7 +526,48 @@ module Cerner
               ]
             },
             {
+              "type": 'Goal',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                }
+              ],
+              "searchRevInclude": [
+                'Provenance:target'
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  "type": 'token',
+                  "documentation": 'Goal id supports only the single id. It is a required field if
+                  the patient field is not given.'
+                },
+                {
+                  "name": 'patient',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-goal-patient',
+                  "type": 'reference',
+                  "documentation": 'Who has the goal is for. It is a required field if the _id field is not given.'
+                },
+                {
+                  "name": 'target-date',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-goal-target-date',
+                  "type": 'date',
+                  "documentation": 'A date or date range from which to find Goals.'
+                }
+              ]
+            },
+            {
               'type': 'Immunization',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -356,6 +600,71 @@ module Cerner
               ]
             },
             {
+              "type": 'Location',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-location'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  "type": 'token',
+                  "documentation": 'A single or comma separated list of Location ids. It is a
+                  required field if the -physicalType field is not given'
+                },
+                {
+                  "name": '-physicalType',
+                  "type": 'token',
+                  "documentation": "The Location's physical type. It is a required field if the _id field is not given"
+                },
+                {
+                  "name": 'identifier',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-location-identifier',
+                  "type": 'token',
+                  "documentation": "A location's identifier."
+                },
+                {
+                  "name": 'address',
+                  "type": 'string',
+                  "documentation": 'A (part of the) address of the location'
+                },
+                {
+                  "name": 'address-city',
+                  "type": 'string',
+                  "documentation": 'A city specified in an address. It is a required field if the
+                  address-state or address-postalcode fields are not given'
+                },
+                {
+                  "name": 'address-state',
+                  "type": 'string',
+                  "documentation": 'A state specified in an address'
+                },
+                {
+                  "name": 'address-postalcode',
+                  "type": 'string',
+                  "documentation": 'A postal code specified in an address'
+                },
+                {
+                  "name": 'name',
+                  "type": 'string',
+                  "documentation": "A portion of the location's name or alias"
+                },
+                {
+                  "name": 'organization',
+                  "type": 'reference',
+                  "documentation": 'Searches for locations that are managed by the provided organization'
+                }
+              ]
+            },
+            {
               'type': 'OperationDefinition',
               'interaction': [
                 {
@@ -365,6 +674,9 @@ module Cerner
             },
             {
               'type': 'Patient',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -471,6 +783,9 @@ module Cerner
             },
             {
               'type': 'Practitioner',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -655,6 +970,9 @@ module Cerner
             },
             {
               'type': 'AllergyIntolerance',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -768,7 +1086,113 @@ module Cerner
               ]
             },
             {
+              "type": 'CarePlan',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                }
+              ],
+              "searchRevInclude": [
+                'Provenance:target'
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  "type": 'token',
+                  "documentation": 'A single or comma separated list of CarePlan ids.'
+                },
+                {
+                  "name": 'date',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careplan-date',
+                  "type": 'date',
+                  "documentation": "A date range with which to find CarePlans. If used, the ‘date’
+                  parameter must be provided twice. Once with a 'ge' prefix representing the earliest date,
+                  and once with a 'le’ prefix representing the latest date. The date prefix pair must create
+                  a closed range."
+                },
+                {
+                  "name": 'patient',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careplan-patient',
+                  "type": 'reference',
+                  "documentation": 'Who the careplan is for. It is a required field if the _id field is not given.'
+                },
+                {
+                  "name": 'category',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careplan-category',
+                  "type": 'token',
+                  "documentation": 'The category of the careplan. Category assess-plan is supported as of now.'
+                },
+                {
+                  "name": '_count',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-count',
+                  "type": 'number',
+                  "documentation": "The maximum number of results to return. Not honored when '_id' is set."
+                }
+              ]
+            },
+            {
+              "type": 'CareTeam',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                }
+              ],
+              "searchRevInclude": [
+                'Provenance:target'
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  "type": 'token',
+                  "documentation": 'CareTeam id supports only the single id. It is a required field if
+                  the patient or encounter fields are not given.'
+                },
+                {
+                  "name": 'category',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/CareTeam-category',
+                  "type": 'token',
+                  "documentation": 'The category of the careteam. Category Longitudinal (patient level)
+                  or Encounter is supported as of now.'
+                },
+                {
+                  "name": 'encounter',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/clinical-encounter',
+                  "type": 'reference',
+                  "documentation": 'The Encounter level CareTeam are displayed.'
+                },
+                {
+                  "name": 'patient',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careteam-patient',
+                  "type": 'reference',
+                  "documentation": 'Who the careteam is for. It is a required field if the _id field is not given.'
+                },
+                {
+                  "name": 'status',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careteam-status',
+                  "type": 'token',
+                  "documentation": 'The status of the CareTeam.'
+                }
+              ]
+            },
+            {
               'type': 'Condition',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -842,6 +1266,9 @@ module Cerner
             },
             {
               'type': 'Device',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -868,7 +1295,99 @@ module Cerner
               ]
             },
             {
+              "type": 'DocumentReference',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                },
+                {
+                  "code": 'create'
+                },
+                {
+                  "code": 'update'
+                }
+              ],
+              "updateCreate": false,
+              "searchRevInclude": [
+                'Provenance:target'
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-id',
+                  "type": 'token',
+                  "documentation": 'A single or comma separated list of DocumentReference ids. It is a
+                  required field if the patient field is not given.'
+                },
+                {
+                  "name": 'patient',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-patient',
+                  "type": 'reference',
+                  "documentation": 'The patient the document is about. It is a required field if the
+                  subject field is not given.'
+                },
+                {
+                  "name": 'encounter',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/clinical-encounter',
+                  "type": 'reference',
+                  "documentation": 'The Encounter in which the document was created.'
+                },
+                {
+                  "name": 'period',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-period',
+                  "type": 'date',
+                  "documentation": "A date range with which to find Documents. If used, the 'period' parameter
+                  must be provided twice. Once with a 'ge' prefix representing the earliest date, and once with
+                  a 'lt' prefix representing the latest date. The period prefix pair must create a closed range
+                  and cannot be equal to each other."
+                },
+                {
+                  "name": '_count',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-count',
+                  "type": 'number',
+                  "documentation": 'The maximum number of results to return in a page.'
+                },
+                {
+                  "name": 'type',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-type',
+                  "type": 'token',
+                  "documentation": 'The kind of document (LOINC if possible).'
+                },
+                {
+                  "name": 'category',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-category',
+                  "type": 'token',
+                  "documentation": 'The categorization of document.'
+                },
+                {
+                  "name": 'date',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-date',
+                  "type": 'date',
+                  "documentation": "A date parameter may be provided once with a prefix and time component to
+                  imply a date range. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes and
+                  time component to search for procedures within a specific range. The date and prefix pairs must create
+                  a closed range. Must be set with patient."
+                }
+              ],
+              "operation": [
+                {
+                  "name": 'USCoreFetchDocumentReferences',
+                  "definition": 'http://hl7.org/fhir/us/core/OperationDefinition/docref',
+                  "documentation": 'US Core Fetch DocumentReferences'
+                }
+              ]
+            },
+            {
               'type': 'Encounter',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -914,7 +1433,48 @@ module Cerner
               ]
             },
             {
+              "type": 'Goal',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                }
+              ],
+              "searchRevInclude": [
+                'Provenance:target'
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  "type": 'token',
+                  "documentation": 'Goal id supports only the single id. It is a required field if the patient
+                  field is not given.'
+                },
+                {
+                  "name": 'patient',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-goal-patient',
+                  "type": 'reference',
+                  "documentation": 'Who has the goal is for. It is a required field if the _id field is not given.'
+                },
+                {
+                  "name": 'target-date',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-goal-target-date',
+                  "type": 'date',
+                  "documentation": 'A date or date range from which to find Goals.'
+                }
+              ]
+            },
+            {
               'type': 'Immunization',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -947,6 +1507,71 @@ module Cerner
               ]
             },
             {
+              "type": 'Location',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-location'
+              ],
+              "interaction": [
+                {
+                  "code": 'read'
+                },
+                {
+                  "code": 'search-type'
+                }
+              ],
+              "searchParam": [
+                {
+                  "name": '_id',
+                  "definition": 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  "type": 'token',
+                  "documentation": 'A single or comma separated list of Location ids. It is a required
+                  field if the -physicalType field is not given'
+                },
+                {
+                  "name": '-physicalType',
+                  "type": 'token',
+                  "documentation": "The Location's physical type. It is a required field if the _id field is not given"
+                },
+                {
+                  "name": 'identifier',
+                  "definition": 'http://hl7.org/fhir/us/core/SearchParameter/us-core-location-identifier',
+                  "type": 'token',
+                  "documentation": "A location's identifier."
+                },
+                {
+                  "name": 'address',
+                  "type": 'string',
+                  "documentation": 'A (part of the) address of the location'
+                },
+                {
+                  "name": 'address-city',
+                  "type": 'string',
+                  "documentation": 'A city specified in an address. It is a required field if the address-state or
+                  address-postalcode fields are not given'
+                },
+                {
+                  "name": 'address-state',
+                  "type": 'string',
+                  "documentation": 'A state specified in an address'
+                },
+                {
+                  "name": 'address-postalcode',
+                  "type": 'string',
+                  "documentation": 'A postal code specified in an address'
+                },
+                {
+                  "name": 'name',
+                  "type": 'string',
+                  "documentation": "A portion of the location's name or alias"
+                },
+                {
+                  "name": 'organization',
+                  "type": 'reference',
+                  "documentation": 'Searches for locations that are managed by the provided organization'
+                }
+              ]
+            },
+            {
               'type': 'OperationDefinition',
               'interaction': [
                 {
@@ -956,6 +1581,9 @@ module Cerner
             },
             {
               'type': 'Patient',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -1061,6 +1689,9 @@ module Cerner
             },
             {
               'type': 'Practitioner',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
+              ],
               'interaction': [
                 {
                   'code': 'read'
@@ -1130,6 +1761,8 @@ module Cerner
                                 'protocols/oauth2/profiles/smart-v1/personas/provider/authorize',
       'token_endpoint': 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
                         'protocols/oauth2/profiles/smart-v1/token',
+      'revocation_endpoint': 'https://authorization.devcerner.com/tenants/'\
+                        '2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token/revoke',
       'token_endpoint_auth_methods_supported': [
         'client_secret_basic',
         'private_key_jwt'
@@ -1262,6 +1895,8 @@ module Cerner
       'response_types_supported': [
         'code'
       ],
+      'management_endpoint': 'https://authorization.devcerner.com/tenants/'\
+                             '2c400054-42d8-4e74-87b7-80b5bd5fde9f/personas/provider/my-authorizations',
       'introspection_endpoint': 'https://authorization.cerner.com/tokeninfo',
       'capabilities': [
         'launch-ehr',
