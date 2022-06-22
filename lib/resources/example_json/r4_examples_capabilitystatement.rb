@@ -92,7 +92,6 @@ module Cerner
                 }
               ]
             },
-
             {
               'type': 'AllergyIntolerance',
               'supportedProfile': [
