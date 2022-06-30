@@ -410,8 +410,8 @@ as “profile”, but that name has since been deprecated.</li>
   <li>online_access: Allows an application to obtain tokens via a “refresh” process
 while the authenticated user has an active session present at the device.</li>
   <li>offline_access: Allows an application to continue to obtain tokens on behalf
-of the authenticated via a “refresh” process user until explicitly revoked by
-the user, an administrator, or your application.</li>
+of the authenticated via a “refresh” process until explicitly revoked by
+the user, an administrator, or your application. Further, offline_acces will be revoked automatically if access is unused for more than three months.</li>
 </ul>
 
 <p>Further information on the usage of these special scopes are further detailed
@@ -945,7 +945,7 @@ out, the session is terminated by an administrator, or
 other risk mechanisms (timeouts, etc.) require a user
 to be re-authenticated.</li>
   <li>offline_access:  Grants a refresh token that can be
-utilized until either a user or administrator revokes it.</li>
+utilized until it is revoked by a user, administrator or revoked automatically if access is unused for more than three months.</li>
 </ul>
 
 <p>As access tokens are valid for periods that are less than ten
@@ -1327,11 +1327,6 @@ new token via a new authorization grant request.</p>
 <p>Disable or rotate your system account via Cerner Central as
   soon as possible via
   <a href="https://wiki.ucern.com/display/CernerCentral/System+Account+Management+Help" title="Cerner System Account Management Help">Cerner Central System Account Management</a>.</p>
-
-<p><strong>Is offline_access supported for healthcare providers?</strong></p>
-
-<p>Cerner does not currently have support for offline_access
-  for providers.  It is currently under consideration.</p>
 
 <p><strong>How can I deliver my solution to users utilizing its own
   Citrix instance with XenApp?</strong></p>
