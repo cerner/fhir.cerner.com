@@ -73,10 +73,10 @@ The recommended screen resolution varies based on the available screen's real es
 
 ### Browser Requirement ###
 
-For provider-facing apps running from within the Cerner Millennium EHR, the only embedded browsers we currently support are Internet Explorer (IE) and Edge browser(Chromium based). The embedded browser control we use is [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) by Microsoft. The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 for your app, please note that you may struggle if you plan on deploying across our entire client base.
+For provider-facing apps running from within the Cerner Millennium EHR, the only embedded browsers we currently support are Internet Explorer (IE) and Edge(Chromium). The embedded browser control we use is [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) by Microsoft. The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 or Edge for your app, please note that you may struggle if you plan on deploying across our entire client base.
 
 NOTE: Applications that will embed in *MPages* Workflow or Summary must function correctly with IE10.  The *MPages* 6.x platform currently depends on other components that require IE10 to run.  This means that even though there is a newer version of IE in Citrix, *MPages* 6.x will render the application using IE10.
-Even though we have support for Edge browser some clients may still be using IE due to delayed upgrades, or app compatibility issues. Therefor, it is recommended that the embedded SMART app uses functions that work correctly for both IE, and Edge at this time.
+Even though we have support for Edge some clients may still be using IE due to delayed upgrades, or app compatibility issues. Therefore, it is recommended that the embedded SMART app uses functions that work correctly for both IE and Edge at this time.
 
 Microsoft offers a free IE10 VM and newer on various versions of Windows for application testing at [https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/).
 
@@ -90,7 +90,7 @@ Cerner understands that it's counter-intuitive to prompt the user for their cred
 
 ### Embedded Browser Control ###
 
-There have been a lot of questions and interests around what embedded browser control Cerner's implementation uses. In this section, you'll learn more about the embedded browser control. The actual browser controls that we use are  [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) for IE and [WebView2 control](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) for Edge browser both developed by Microsoft. Please take a look at the documentation for more information. With this embedded browser control, there are some limitations compared to the stand-alone IE or Edge browser. See below for these limitations.
+There have been a lot of questions and interest around what embedded browser control Cerner's implementation uses. In this section, you'll learn more about the embedded browser control. The actual browser controls that we use are  [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) for IE and [WebView2 control](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) for Edge both developed by Microsoft. Please take a look at the documentation for more information. With this embedded browser control, there are some limitations compared to the stand-alone IE or Edge. See below for these limitations.
 
 
 #### No Shared Cookies ####
@@ -156,17 +156,17 @@ SMART apps can be embedded and launched from the *MPages* Workflow or Summary. I
 
 #### iframe Cookies ####
 
-For IE browser if your SMART app uses cookies, the [P3P](https://www.w3.org/P3P/) header or meta tag must be set in order for cookies to be saved correctly while running in an *MPages* iframe.  Please see [this page](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) for more information on P3P.
+For IE if your SMART app uses cookies, the [P3P](https://www.w3.org/P3P/) header or meta tag must be set in order for cookies to be saved correctly while running in an *MPages* iframe.  Please see [this page](https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/) for more information on P3P.
 
-For Edge browser if your SMART app uses cookies, the `Set-Cookie` response header has to contain the attributes: `SameSite=None; Secure` for your cookies to be saved correctly while running in an iframe.
+For Edge if your SMART app uses cookies, the `Set-Cookie` response header has to contain the attributes: `SameSite=None; Secure` for your cookies to be saved correctly while running in an iframe.
 
 ### Microsoft Edge Browser (Chromium based) Support ###
 We are excited to share that there is full support for embedded Microsoft Edge browser (Chromium based) inside *Cerner Millennium PowerChart*!
 
-With Microsoft Edge as an additional option, clients can configure any SMART app to load using Microsoft Edge browser (where available). Based on our test results, SMART apps render faster, use less CPU, and less memory to run in comparison to IE. If your app uses cookies while being loaded inside an iframe, or is embedded in *MPages* (which loads the app in an iframe) you would need to set the `Set-Cookie` response header with additional attributes: `SameSite=None; Secure` for your cookies to be persisted.
+With Microsoft Edge as an additional option, clients can configure any SMART app to load using Edge (where available). Based on our test results, SMART apps render faster, use less CPU, and less memory to run in comparison to IE. If your app uses cookies while being loaded inside an iframe, or is embedded in *MPages* (which loads the app in an iframe) you would need to set the `Set-Cookie` response header with additional attributes: `SameSite=None; Secure` for your cookies to be persisted.
 
 *Note:*
-Even though there is support for Microsoft Edge browser in newer versions of *Cerner Millennium*, older *Cerner Millennium PowerChart* environments will not have support for Microsoft Edge browser. For compatibility, it is recommended that the embedded SMART app uses functions that work correctly for both IE, and Edge browsers at this time.
+Even though there is support for Microsoft Edge in newer versions of *Cerner Millennium*, older *Cerner Millennium PowerChart* environments will not have support for Edge. For compatibility, it is recommended that the embedded SMART app uses functions that work correctly for both IE and Edge browsers at this time.
 
 ## Testing ##
 
