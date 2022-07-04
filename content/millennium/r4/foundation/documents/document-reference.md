@@ -38,10 +38,6 @@ The following fields are returned if valued for clinical documents:
 
 ## Search
 
-Search operation is supported for clinical-note, cardiology, radiology, microbiology and pathology charted documents and clinical-note staged documents.
-
-Read operation is supported for clinical-note, cardiology, radiology, microbiology and pathology charted documents and clinical-note staged documents.
-
 Search for DocumentReferences that meet supplied query parameters:
 
     GET /DocumentReference?:parameters
@@ -69,7 +65,6 @@ _Implementation Notes_
 * When searching with the `period` parameter:
   * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
   * `Period` parameter  must include a time.
-  * `Period` and `date` search parameter cannot be provided together.
 
 * When searching with the `encounter` parameter:
   * Patient level documents are filtered out from responses when the encounter id is zero/blank.
@@ -81,9 +76,9 @@ _Implementation Notes_
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
 * When searching with the `date` parameter:
-  * For a single 'date' occurrence , `time` component is optional but for two `date` occurrences, must include `time` component.
   * It must be provided  once with a prefix to imply a date  range or without a prefix to search for document
   (s) at a specific date. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for document(s) within specific range. The date and prefix pairs must create a closed range.
+  * For a single 'date' occurrence , `time` component is optional but for two `date` occurrences, must include `time` component.
 
 * `Date` and `period` search parameter cannot be provided together. 
 
@@ -192,6 +187,13 @@ List an individual DocumentReference by its id:
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+_Implementation Notes_
+
+* Search operation is supported for clinical-note, cardiology, radiology, microbiology and pathology charted documents and clinical-note staged documents.
+
+* Read operation is supported for clinical-note, cardiology, radiology, microbiology and pathology charted documents and clinical-note staged documents.
+
 
 ## Create
 
