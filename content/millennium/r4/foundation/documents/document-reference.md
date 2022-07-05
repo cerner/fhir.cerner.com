@@ -58,7 +58,7 @@ Search for DocumentReferences that meet supplied query parameters:
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
  `category`               | N                  | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
  `_revinclude`            | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
- `date`                   | N                  | [`date`]      | When this document reference was created
+ `date`                   | N                  | [`date`]      | When this document reference was created.
 
 _Implementation Notes_
 
