@@ -71,6 +71,12 @@ If you are building your SMART app using the [React](https://reactjs.org/) JavaS
 
 The recommended screen resolution varies based on the available screen's real estate. Instead of targeting a specific resolution, the app should be designed to be responsive, and the app should adjust according to the available screen sizes.
 
+### Loading indicator ###
+For a better user experience we encourage the use of a loading overlay or a status indicator of progress inside your SMART apps.
+
+The loading overlay we use inside **Powerchart** for SMART apps is the one found amongst the [Terra UI components](https://engineering.cerner.com/terra-ui/application/terra-application/how-to/show-loading-overlays). You might want to use this one if you're building
+your SMART app with React and have not yet decided on a loading indicator style.
+
 ### Browser Requirement ###
 
 For provider-facing apps running from within the Cerner Millennium EHR, the only embedded browser we currently support is Internet Explorer (IE). The embedded browser control we use is [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) by Microsoft. The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 for your app, please note that you may struggle if you plan on deploying across our entire client base.
