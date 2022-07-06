@@ -128,7 +128,7 @@ _Implementation Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
-* The `Provenance.write` and `Observation.read` scopes must be provided in order to create a Provenance with an Observation Measurement target.
+* The `Provenance.write` scopes must be provided in order to create a Provenance with an Observation Measurement target.
 
 ### Authorization Types
 
