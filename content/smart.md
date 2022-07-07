@@ -74,7 +74,7 @@ The recommended screen resolution varies based on the available screen's real es
 ### Loading indicator ###
 For a better user experience we encourage the use of a loading overlay or a status indicator of progress inside your SMART apps.
 
-The loading overlay we use inside **Powerchart** for SMART apps is the one found amongst the [Terra UI components](https://engineering.cerner.com/terra-ui/application/terra-application/how-to/show-loading-overlays). You might want to use this one if you're building
+The loading overlay we recommend for SMART apps is the one found among the [Terra UI components](https://engineering.cerner.com/terra-ui/components/cerner-terra-core-docs/overlay/about). You might want to use this one if you're building
 your SMART app with React and have not yet decided on a loading indicator style.
 
 ### Browser Requirement ###
