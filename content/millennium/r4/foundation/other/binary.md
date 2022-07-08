@@ -46,7 +46,7 @@ _Implementation Notes_
 
 ### Headers
 
-`DocumentReference.content.attachment.contentType` should be used to set the `Accept` header. An `Accept` header of `application/fhir+json` could be supplied instead, if the JSON Binary resource is desired instead of the raw data.
+Either `DocumentReference.content.attachment.contentType` or `DiagnosticReport.presentedForm.contentType` should be used to set the `Accept` header. An `Accept` header of `application/fhir+json` could be supplied instead, if the JSON Binary resource is desired instead of the raw data.
 
 This resource will not accept the `application/json` mime type unless the underlying binary data is json.
 
