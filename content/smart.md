@@ -90,7 +90,7 @@ Cerner understands that it's counter-intuitive to prompt the user for their cred
 
 ### Embedded Browser Control ###
 
-There have been a lot of questions and interest around what embedded browser control Cerner's implementation uses. In this section, you'll learn more about the embedded browser control. The actual browser controls that we use are  [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) for IE and [WebView2 control](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) for Edge both developed by Microsoft. Please take a look at the documentation for more information. With this embedded browser control, there are some limitations compared to the stand-alone IE or Edge. See below for these limitations.
+There have been a lot of questions and interest around what embedded browser control Cerner's implementation uses. In this section, you'll learn more about the embedded browser control. The actual browser controls that we use are  [IWebBrowser2 C++ interface](https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx) for IE and [WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) for Edge both developed by Microsoft. Please take a look at the documentation for more information. With this embedded browser control, there are some limitations compared to the stand-alone IE or Edge. See below for these limitations.
 
 
 #### No Shared Cookies ####
