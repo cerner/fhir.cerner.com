@@ -61,6 +61,8 @@ Search for DocumentReferences that meet supplied query parameters:
 
 _Implementation Notes_
 
+* Search operation is supported for clinical-note, cardiology, radiology, microbiology and pathology charted documents and clinical-note staged documents.
+
 * When searching with the `period` parameter:
   * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
   * If one `period` parameter includes a time, both must include a time.
@@ -146,6 +148,10 @@ List an individual DocumentReference by its id:
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
+
+_Implementation Notes_
+
+* Read operation is supported for clinical-note, cardiology, radiology, microbiology and pathology charted documents and clinical-note staged documents.
 
 ### Headers
 
