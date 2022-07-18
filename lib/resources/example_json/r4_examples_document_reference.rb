@@ -418,8 +418,10 @@ module Cerner
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
-              'GETEST, PatientOneHundredSixtySix</p><p><b>Document Type</b>: Waveform Strip</p><p><b>Document Category</b>: '\
+              "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>'\
+              '<b>Document Reference</b></p><p><b>Patient Name</b>: '\
+              'GETEST, PatientOneHundredSixtySix</p><p><b>Document Type</b>: Waveform Strip</p>'\
+              '<p><b>Document Category</b>: '\
               'Unknown</p><p><b>Document Title</b>: test1</p><p><b>Service Start Date</b>: '\
               'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Service End Date</b>: '\
               'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Document Status</b>: Final</p></div>'
@@ -482,7 +484,7 @@ module Cerner
             "context": {
               "encounter": [
                 {
-                    "reference": 'Encounter/97966172'
+                  "reference": 'Encounter/97966172'
                 }
               ],
               "period": {
