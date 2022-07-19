@@ -58,12 +58,13 @@ Search for DocumentReferences that meet supplied query parameters:
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
  `category`               | N                  | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
  `_revinclude`            | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
+ `date`                   | N                  | [`date`]      | When this document reference was created.
 
 _Implementation Notes_
 
 * When searching with the `period` parameter:
   * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
-  * If one `period` parameter includes a time, both must include a time.
+  * `Period` parameter  must include a time.
 
 * When searching with the `encounter` parameter:
   * Patient level documents are filtered out from responses when the encounter id is zero/blank.
@@ -73,6 +74,12 @@ _Implementation Notes_
 * The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=214938095&_revinclude=Provenance:target`
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+* When searching with the `date` parameter:
+  * It must be provided  once with a prefix to imply a date  range or without a prefix to search for document
+  (s) at a specific date. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for document(s) within specific range. The date and prefix pairs must create a closed range.
+  * For a single 'date' occurrence , `time` component is optional but for two `date` occurrences, must include `time` component.
+
+* `Date` and `period` search parameter cannot be provided together. 
 
 ### Headers
 
