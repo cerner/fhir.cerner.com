@@ -31,6 +31,7 @@ The following fields are returned if valued for clinical documents:
   * [Format](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
 * [Patient encounter]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
 * [Document period]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
+* [Custodian]( https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.custodian){:target="_blank"}
 
 ## Terminology Bindings
 
