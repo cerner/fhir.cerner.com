@@ -59,21 +59,20 @@ To follow the security best practices, you will need to add a DNS TXT record to 
 
 **Please consult your ISP's documentation for the steps to set up a DNS TXT record at your application's eTLD+1 domain.**
 
-The DNS TXT record of your application must match the following key-value format:
+The DNS TXT record of your application must match the following key-value format, here "value" is the Cerner-issued client identifier for your application.:
 
 **Format:**  
-"cerner-client-id={value}"
+cerner-client-id=value
 
 **Example:**  
 cerner-client-id=bxdcd0ff-5der-4c15-b2tf-r28b105aa845
 
-Where `value` is the Cerner-issued client identifier for your application.
 In the case that multiple apps are registered for the same eTLD+1 domain, multiple TXT records can be added each with the `cerner-client-id` for a specific application.  For example:
 
-    "cerner-client-id={value1}"
-    "cerner-client-id={value2}"
+    cerner-client-id=value1
+    cerner-client-id=value2
     ...
-    "cerner-client-id={valueN}"
+    cerner-client-id=valueN
 
 
 ### Steps to Verify Your Application's Compliance
@@ -91,14 +90,13 @@ TXT records are a type of Domain Name System (DNS) record that contains text inf
 
 To follow the security best practices the DNS TXT record of your application must match the following key-value format:
 
-    "cerner-client-id={value}" where value = Cerner-issued client identifier for your application
-    in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:
+cerner-client-id=value where value = Cerner-issued client identifier for your application
+in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:
 
-    "cerner-client-id={value 1}"
-    "cerner-client-id={value 2}"
-
+    cerner-client-id=value1
+    cerner-client-id=value2
     ...
-    "cerner-client-id={value N}"
+    cerner-client-id=valueN
 
 You can use the following commands and tools to check the DNS TXT records:
 
@@ -124,6 +122,11 @@ Please follow one of below approaches to check TLS Certificates for your applica
        * [https://www.ssllabs.com/ssltest/index.html](https://www.ssllabs.com/ssltest/index.html)
        * [https://ssltools.digicert.com/checker/](https://ssltools.digicert.com/checker/)
        * [https://www.thesslstore.com/ssltools/ssl-checker.php](https://www.thesslstore.com/ssltools/ssl-checker.php)
+   1. Using Firefox to check the certificate.
+       * Load the URL into the browser
+       * Click on the Lock symbol in the browser's address bar
+       
+
 
 What you should pay attention to:
 
