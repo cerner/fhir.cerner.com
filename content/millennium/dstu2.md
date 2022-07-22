@@ -538,24 +538,25 @@ You can read the [CORS W3C Recommendation](http://www.w3.org/TR/cors), or
 [this intro](http://code.google.com/p/html5security/wiki/CrossOriginRequestSecurity) from the
 HTML 5 Security Guide.
 
-Here's a sample request sent from the origin `http://example.com`:
+Here's a sample GET request sent from the Origin `http://example.com`:
 
 <pre class="terminal">
-$ curl -i -H "Origin: http://example.com" -H "Accept: application/json+fhir" https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata
+$ curl -X GET -i -H "Origin: http://example.com" https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata
 HTTP/1.1 200 OK
-Access-Control-Allow-Origin: http://example.com
-Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
+Access-Control-Allow-Methods: DELETE, GET, POST, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
 Access-Control-Max-Age: 0
-Access-Control-Allow-Credentials: true
 </pre>
 
 This is what a CORS preflight request looks like:
 
 <pre class="terminal">
-$ curl -X OPTIONS -i -H "Origin: http://example.com" https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata
-HTTP/1.1 204 No Content
-Access-Control-Allow-Origin: http://example.com
-Access-Control-Allow-Methods: DELETE, GET, POST, PUT, OPTIONS, HEAD
+$ curl -X OPTIONS -i -H "Origin: http://example.com" -H "Access-Control-Request-Method: GET" -H "Access-Control-Request-Headers: authorization,content-type" https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata
+HTTP/1.1 200 OK
+Access-Control-Allow-Methods: DELETE, GET, POST, PUT, PATCH, OPTIONS, HEAD
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: ETag, Content-Location, Location, X-Request-Id, WWW-Authenticate, Date
 Access-Control-Max-Age: 0
-Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: authorization, content-type
 </pre>
