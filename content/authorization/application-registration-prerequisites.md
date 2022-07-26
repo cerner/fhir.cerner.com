@@ -122,30 +122,39 @@ Please follow one of below approaches to check TLS Certificates for your applica
        * [https://www.ssllabs.com/ssltest/index.html](https://www.ssllabs.com/ssltest/index.html)
        * [https://ssltools.digicert.com/checker/](https://ssltools.digicert.com/checker/)
        * [https://www.thesslstore.com/ssltools/ssl-checker.php](https://www.thesslstore.com/ssltools/ssl-checker.php)
-   1. Using Firefox to check the certificate.
+   1. Using the Firefox web browser to check the certificate.
        * Load the URL into the browser
        * Click on the Lock symbol in the browser's address bar
+       * Click "Connection Secure" 
+       * Click "More Information" 
+       * Click "View Certificate"
        
 
 
 What you should pay attention to:
 
-   1. Supported TLS Certificates types:
+   1. Supported TLS Certificates types (this is usually in a section called "Certificate Policies" as is the case if you view the cert in Firefox)  :
        * Domain Validated (DV),
        * Organization Validated (OV),
        * Extended Validation (EV).
-   1. Supported TLS protocols:
+ ##### Example
+ 
+ Using Firefox to view your TLS certificate may result in a similar Organization Validated certificate as in the example below:
+ [Organization Validated Certificate Type](/images/cert_policies.png)
+
+
+   2. Supported TLS protocols:
        * TLS 1.2
        * TLS 1.3
-   1. The Certificate Revoked/not Revoked status
-   1. The Certificate “Valid from” date
-   1. The Certificate expiration date
-   1. The Certificate issued by one of the public [Certificate Authorities](https://wiki.mozilla.org/CA/Included_Certificates).
+   3. The Certificate Revoked/not Revoked status
+   4. The Certificate “Valid from” date
+   5. The Certificate expiration date
+   6. The Certificate issued by one of the public [Certificate Authorities](https://wiki.mozilla.org/CA/Included_Certificates).
 
 ##### Example
 
 Using online resource https://www.ssllabs.com TLS certificate result may be as on example below:
-![Example Image](/images/cert_example.png)
+![Example Image](/images/new_cert_example.png)
 
 ## Information Displayed to Users
 
