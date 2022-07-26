@@ -108,6 +108,22 @@ You can use the following commands and tools to check the DNS TXT records:
       * [https://mxtoolbox.com/txtlookup.aspx](https://mxtoolbox.com/txtlookup.aspx)
       * [https://gf.dev/dns-lookup](https://gf.dev/dns-lookup)
 
+As an example of the output from one of these commands (note: quotation marks are added by the tool, not part of the DNS record):
+
+<pre class="terminal">
+nslookup -type=TXT cerner.com
+
+cerner.com	text = "cerner-client-id=97b10a52-72bc-43e9-b6bd-049ddce7c725"
+cerner.com	text = "cerner-client-id=69e0aa50-02ff-4303-8b41-af4208c53d30"
+cerner.com	text = "cerner-client-id=ec4356ee-ee82-456b-897c-c9533bae9615"
+cerner.com	text = "cerner-client-id=4b3d7dc0-bab4-4a41-b867-43cf7d861dcb"
+cerner.com	text = "cerner-client-id=51532214-0371-42a9-bf58-8f331655e5c7"
+cerner.com	text = "cerner-client-id=44533ca2-3e82-4cf5-9d5e-d3dd99a59bc4"
+cerner.com	text = "cerner-client-id=df609275-2d00-4e6b-93db-719790944624"
+cerner.com	text = "cerner-client-id=a2f515f9-d58b-4e6f-96ec-d80726b4b4c9"
+cerner.com	text = "cerner-client-id=bcd6ef6e-c8fc-4e3f-9589-fe7f34e288d3"
+</pre>
+
 #### Inspect your TLS Certificate
 TLS certificates are used to protect both the end users' information while it's in transfer, and to authenticate the website's organization identity to ensure users are interacting with legitimate website owners.
 
