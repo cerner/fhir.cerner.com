@@ -22,10 +22,13 @@ The search results include the following fields if they contain values:
 * [Encounter (Encounter Category only)](https://hl7.org/fhir/careteam-definitions.html#CareTeam.encounter){:target="_blank"}
 * [Participant](https://hl7.org/fhir/careteam-definitions.html#CareTeam.participant){:target="_blank"}
   * [Role](https://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role){:target="_blank"}
-  * [Member](https://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member){:target="_blank"} (references to RelatedPerson are contained)
-    * [RelatedPerson patient](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient){:target="_blank"}
-    * [RelatedPerson relationship](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship){:target="_blank"} (text only)
-    * [RelatedPerson name](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name){:target="_blank"}
+  * [Member](https://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member){:target="_blank"}
+    * Practitioner
+    * Organization
+	* RelatedPerson (contained reference)
+	  * [RelatedPerson patient](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient){:target="_blank"}
+	  * [RelatedPerson relationship](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship){:target="_blank"} (text only)
+	  * [RelatedPerson name](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name){:target="_blank"}
 
 ## Terminology Bindings
 

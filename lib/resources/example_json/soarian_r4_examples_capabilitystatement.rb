@@ -4,6 +4,7 @@ module Cerner
   module Resources
 
     R4_METADATA ||= {
+      # rubocop:disable Layout/LineLength
       "resourceType": 'CapabilityStatement',
       "publisher": 'Cerner Corporation',
       "date": '2022-07-27T06:56:34-04:00',
@@ -974,6 +975,7 @@ module Cerner
           ]
         }
       ]
+      # rubocop:enable Layout/LineLength
     }.freeze
 
     R4_WELLKNOWN_PATIENT_PERSONA ||= {

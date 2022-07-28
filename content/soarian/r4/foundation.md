@@ -7,7 +7,7 @@ layout: api
 
 ## Conformance
 <%= render '/soarian/r4/foundation/conformance.*' %>
-* [Capability Statement](/soarian/r4/foundation/conformance/capability-statement)
+* [Capability Statement](/soarian/r4/foundation/conformance/capabilitystatement)
 * [Operation Definition](/soarian/r4/foundation/conformance/operation-definition)
 
 ## Security

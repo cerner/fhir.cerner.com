@@ -24,6 +24,8 @@ The following fields are returned if valued for clinical documents:
 * [Subject (Patient)](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
 * [Created Date](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.date){:target="_blank"}
 * [Author](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author){:target="_blank"}
+  * Practitioner
+  * Organization
 * [Custodian](https://hl7.org/fhir/R4/documentreference-definitions.html#DocumentReference.custodian){:target="_blank"}
 * [Security Label](https://hl7.org/fhir/R4/documentreference-definitions.html#DocumentReference.securityLabel){:target="_blank"}
 * [Content](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content){:target="_blank"}
