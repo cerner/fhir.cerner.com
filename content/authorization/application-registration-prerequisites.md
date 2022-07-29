@@ -122,12 +122,13 @@ Please follow one of below approaches to check TLS Certificates for your applica
        * [https://www.ssllabs.com/ssltest/index.html](https://www.ssllabs.com/ssltest/index.html)
        * [https://ssltools.digicert.com/checker/](https://ssltools.digicert.com/checker/)
        * [https://www.thesslstore.com/ssltools/ssl-checker.php](https://www.thesslstore.com/ssltools/ssl-checker.php)
-   1. Using the Firefox web browser to check the certificate.
+   1. Using a web browser to check the certificate, use Firefox for best results.
        * Load the URL into the browser
        * Click on the Lock symbol in the browser's address bar
        * Click "Connection Secure" 
        * Click "More Information" 
        * Click "View Certificate"
+    (For other browsers, use the Certificate Policy and look up the OID for the policy.) 
        
 
 
