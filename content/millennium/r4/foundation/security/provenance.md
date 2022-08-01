@@ -42,7 +42,7 @@ Search for Provenances that meet supplied query parameters:
  Name         | Required? | Type          | Description
 --------------|-----------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`        | This or `target` | [`token`]     | The logical resource id associated with the resource. Example: `doc-7845`
- `target`     | This or `_id` | [`reference`] | Target Reference(s) (usually version specific). The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest, Observation and Procedure resources are supported. Example: `DocumentReference/66547`
+ `target`     | This or `_id` | [`reference`] | Target Reference(s) (usually version specific). The AllergyIntolerance, CarePlan, CareTeam, Condition, DiagnosticReport, DocumentReference, Encounter, Goal, Immunization, MedicationRequest, Observation, Patient and Procedure resources are supported. Example: `DocumentReference/66547`
 
 ### Headers
 
