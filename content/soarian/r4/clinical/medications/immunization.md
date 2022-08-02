@@ -23,7 +23,7 @@ The search results include the following fields if they contain values:
 * [Occurrence[x]](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
    * Occurrence date time
    * Occurrence string
-* [Indicates if the record is from the source who administered the vaccine](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
+* [primarySource](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
 
 
 ## Terminology Bindings
