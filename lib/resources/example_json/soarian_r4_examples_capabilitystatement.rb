@@ -4,9 +4,10 @@ module Cerner
   module Resources
 
     R4_METADATA ||= {
+      # rubocop:disable Layout/LineLength
       "resourceType": 'CapabilityStatement',
       "publisher": 'Cerner Corporation',
-      "date": '2022-02-07T04:02:50-05:00',
+      "date": '2022-07-27T06:56:34-04:00',
       "url": 'https://fhir-myrecord-sc.cerner.com/r4/2f8f5ec1-b7b8-4be5-ae27-e308284dd9c1/metadata',
       "name": 'Soarian Clinicals Capability Statement',
       "title": 'Soarian Clinicals Capability Statement',
@@ -14,7 +15,7 @@ module Cerner
       "description": 'Cerner Soarian Clinicals FHIR API',
       "kind": 'instance',
       "instantiates": [
-        'https://www.hl7.org/fhir/us/core/CapabilityStatement-us-core-server.html'
+        'http://hl7.org/fhir/us/core/CapabilityStatement-us-core-server.html'
       ],
       "fhirVersion": '4.0.1',
       "format": [
@@ -22,7 +23,6 @@ module Cerner
         'application/json',
         'application/fhir+json',
         'application/json+fhir'
-
       ],
       "implementation": {
         "description": 'Cerner Soarian Clinicals FHIR API',
@@ -70,12 +70,27 @@ module Cerner
               }
             ],
             "cors": true,
-            "description": 'OAuth2 with SMART extensions'
+            "service": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/restful-security-service',
+                    "code": 'SMART-on-FHIR',
+                    "display": 'SMART-on-FHIR'
+                  }
+                ],
+                "text": 'OAuth2 using SMART-on-FHIR profile (see http://docs.smarthealthit.org/).'
+              }
+            ],
+            "description": 'OAuth2 plus SMART extensions'
           },
           "resource": [
             {
               "type": 'Condition',
-              "profile": 'http://hl7.org/fhir/condition',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Condition',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -89,29 +104,25 @@ module Cerner
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one
-				  other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains Condition resources for the patient requested plus any other
-				  search criteria.'
+                  "documentation": 'Bundle contains Condition resources for the patient requested plus any other search criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains a Condition resource with the id requested plus any other search
-				  criteria.'
+                  "documentation": 'Bundle contains a Condition resource with the id requested plus any other search criteria.'
                 },
                 {
                   "name": 'encounter',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Condition-encounter',
                   "type": 'reference',
-                  "documentation": 'Bundle contains Condition resources for visit requested plus any other search
-				  criteria.'
+                  "documentation": 'Bundle contains Condition resources for visit requested plus any other search criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -120,7 +131,10 @@ module Cerner
             },
             {
               "type": 'Immunization',
-              "profile": 'http://hl7.org/fhir/immunization',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Immunization',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -134,8 +148,7 @@ module Cerner
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one
-				  other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": 'patient',
@@ -156,7 +169,10 @@ module Cerner
             },
             {
               "type": 'MedicationRequest',
-              "profile": 'http://hl7.org/fhir/medicationrequest',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/MedicationRequest',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -170,43 +186,37 @@ module Cerner
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Fetches all the MedicationRequest resources matching the search criteria and the
-				  Provenance resources for the result set.'
+                  "documentation": 'Fetches all the MedicationRequest resources matching the search criteria and the Provenance resources for the result set.'
                 },
                 {
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains MedicationRequest resources for the specified patient and
-				  requested [intent] plus any other criteria.'
+                  "documentation": 'Bundle contains MedicationRequest resources for the specified patient and requested [intent] plus any other criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains a MedicationRequest resource with the id requested plus any
-				  other search criteria'
+                  "documentation": 'Bundle contains a MedicationRequest resource with the id requested plus any other search criteria'
                 },
                 {
                   "name": 'encounter',
                   "definition": 'http://hl7.org/fhir/SearchParameter/medications-encounter',
                   "type": 'reference',
-                  "documentation": 'Bundle contains MedicationRequest resources for the specified patient and
-				  requested [intent] and requested [encounter] plus any other criteria.'
+                  "documentation": 'Bundle contains MedicationRequest resources for the specified patient and requested [intent] and requested [encounter] plus any other criteria.'
                 },
                 {
                   "name": 'intent',
                   "definition": 'http://hl7.org/fhir/SearchParameter/MedicationRequest-intent',
                   "type": 'token',
-                  "documentation": 'Bundle contains MedicationRequest resources for the specified patient and
-				  requested [intent] plus any other criteria.'
+                  "documentation": 'Bundle contains MedicationRequest resources for the specified patient and requested [intent] plus any other criteria.'
                 },
                 {
                   "name": 'status',
                   "definition": 'http://hl7.org/fhir/SearchParameter/medications-status',
                   "type": 'token',
-                  "documentation": 'Bundle contains MedicationRequest resources for the specified patient and
-				  requested [intent] and requested [status] plus any other criteria.'
+                  "documentation": 'Bundle contains MedicationRequest resources for the specified patient and requested [intent] and requested [status] plus any other criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -215,7 +225,10 @@ module Cerner
             },
             {
               "type": 'Provenance',
-              "profile": 'http://hl7.org/fhir/provenance',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Provenance',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance'
+              ],
               "interaction": [
                 {
                   "code": 'read'
@@ -224,7 +237,10 @@ module Cerner
             },
             {
               "type": 'Organization',
-              "profile": 'http://hl7.org/fhir/organization',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Organization',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -238,28 +254,28 @@ module Cerner
                   "name": 'address',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Organization-address',
                   "type": 'string',
-                  "documentation": 'Bundle contains Organization resources matching the start of either line(*), city,
-				  state, postalCode, or country to the [address] parameter value plus any other search criteria.'
+                  "documentation": 'Bundle contains Organization resources matching the start of either line(*), city, state, postalCode, or country to the [address] parameter value plus any other search criteria.'
                 },
                 {
                   "name": 'name',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Organization-name',
                   "type": 'string',
-                  "documentation": 'Bundle contains Organization resources matching the start of the Organization
-				  name to the [name] value requested plus any other search criteria.'
+                  "documentation": 'Bundle contains Organization resources matching the start of the Organization name to the [name] value requested plus any other search criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains an Organization resource with the logical [id] requested plus
-				  any other critieria.'
+                  "documentation": 'Bundle contains an Organization resource with the logical [id] requested plus any other critieria.'
                 }
               ]
             },
             {
               "type": 'CareTeam',
-              "profile": 'http://hl7.org/fhir/careteam',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/CareTeam',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -273,36 +289,31 @@ module Cerner
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least
-				  one other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains CareTeam resources for the specified patient plus any other
-				  criteria.'
+                  "documentation": 'Bundle contains CareTeam resources for the specified patient plus any other criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains a CareTeam resource with the id requested plus any other search
-				  criteria.'
+                  "documentation": 'Bundle contains a CareTeam resource with the id requested plus any other search criteria.'
                 },
                 {
                   "name": 'encounter',
                   "definition": 'http://hl7.org/fhir/SearchParameter/CareTeam-encounter',
                   "type": 'reference',
-                  "documentation": 'Search must be in combination with patient. Bundle contains CareTeam resources
-				  for the [patient] and [encounter] plus any other criteria.'
+                  "documentation": 'Search must be in combination with patient. Bundle contains CareTeam resources for the [patient] and [encounter] plus any other criteria.'
                 },
                 {
                   "name": 'status',
                   "definition": 'http://hl7.org/fhir/SearchParameter/CareTeam-status',
                   "type": 'token',
-                  "documentation": 'Bundle contains CareTeam resources for the [patient] and [status] plus any other
-				  critieria.'
+                  "documentation": 'Bundle contains CareTeam resources for the [patient] and [status] plus any other critieria.'
                 }
               ],
               "searchRevInclude": [
@@ -311,7 +322,10 @@ module Cerner
             },
             {
               "type": 'Device',
-              "profile": 'http://hl7.org/fhir/device',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Device',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -325,22 +339,19 @@ module Cerner
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one
-				  other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains Device resources matching the specified patient plus any other
-				  criteria.'
+                  "documentation": 'Bundle contains Device resources matching the specified patient plus any other criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains a Device resource with the id requested plus any other search
-				  criteria.'
+                  "documentation": 'Bundle contains a Device resource with the id requested plus any other search criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -349,7 +360,11 @@ module Cerner
             },
             {
               "type": 'DiagnosticReport',
-              "profile": 'http://hl7.org/fhir/diagnosticreport',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/DiagnosticReport',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab',
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -369,16 +384,13 @@ module Cerner
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Bundle contains all the DiagnosticReport resources matching the search criteria
-				  and the Provenance resources for the result set.'
+                  "documentation": 'Bundle contains all the DiagnosticReport resources matching the search criteria and the Provenance resources for the result set.'
                 },
                 {
                   "name": 'code',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-code',
                   "type": 'token',
-                  "documentation": 'Bundle contains any DiagnosticReport resources for the requested [code] where
-				  [system] and [code] refer to DiagnosticReport.code.coding.system and
-				  DiagnosticReport.code.coding.code plus any other criteria.'
+                  "documentation": 'Bundle contains any DiagnosticReport resources for the requested [code] where [system] and [code] refer to DiagnosticReport.code.coding.system and DiagnosticReport.code.coding.code plus any other criteria.'
                 },
                 {
                   "name": '_count',
@@ -390,30 +402,25 @@ module Cerner
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains a DiagnosticReport resource with the [Patient] requested plus
-				  any other criteria'
+                  "documentation": 'Bundle contains a DiagnosticReport resource with the [Patient] requested plus any other criteria'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains a DiagnosticReport resource with the [id] requested plus any other
-				  criteria'
+                  "documentation": 'Bundle contains a DiagnosticReport resource with the [id] requested plus any other criteria'
                 },
                 {
                   "name": 'encounter',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-encounter',
                   "type": 'reference',
-                  "documentation": 'Bundle contains any DiagnosticReport resources for the [encounter] requested plus
-				  any other criteria.'
+                  "documentation": 'Bundle contains any DiagnosticReport resources for the [encounter] requested plus any other criteria.'
                 },
                 {
                   "name": 'category',
                   "definition": 'http://hl7.org/fhir/SearchParameter/DiagnosticReport-category',
                   "type": 'token',
-                  "documentation": 'Bundle contains DiagnosticReport resources for the specified [patient] with the
-				  requested [category] where [system] and [code] refer to DiagnosticReport.category.coding.system
-				  and DiagnosticReport.category.coding.code plus any other criteria.'
+                  "documentation": 'Bundle contains DiagnosticReport resources for the specified [patient] with the requested [category] where [system] and [code] refer to DiagnosticReport.category.coding.system and DiagnosticReport.category.coding.code plus any other criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -422,7 +429,10 @@ module Cerner
             },
             {
               "type": 'Patient',
-              "profile": 'http://hl7.org/fhir/patient',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Patient',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -436,68 +446,55 @@ module Cerner
                   "name": 'given',
                   "definition": 'http://hl7.org/fhir/SearchParameter/individual-given',
                   "type": 'string',
-                  "documentation": 'Bundle contains Patient resources matching of the start of the given name
-				  (first or middle) to the given value are eligible plus any other search criteria.'
+                  "documentation": 'Bundle contains Patient resources matching of the start of the given name (first or middle) to the given value are eligible plus any other search criteria.'
                 },
                 {
                   "name": 'identifier',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Patient-identifier',
                   "type": 'token',
-                  "documentation": 'Bundle contains Patient resources matching the identifier requested where the
-				  [system] value matches Patient.identifier.system and [code] value matches Patient.identifier.value
-				  plus any other search criteria.'
+                  "documentation": 'Bundle contains Patient resources matching the identifier requested where the [system] value matches Patient.identifier.system and [code] value matches Patient.identifier.value plus any other search criteria.'
                 },
                 {
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Bundle contains all the Patient resources matching the search criteria and the
-				  Provenance resources for the result set.'
+                  "documentation": 'Bundle contains all the Patient resources matching the search criteria and the Provenance resources for the result set.'
                 },
                 {
                   "name": 'birthdate',
                   "definition": 'http://hl7.org/fhir/SearchParameter/individual-birthdate',
                   "type": 'date',
-                  "documentation": 'Bundle contains Patient resources matching the birthdate plus any other search
-				  criteria.'
+                  "documentation": 'Bundle contains Patient resources matching the birthdate plus any other search criteria.'
                 },
                 {
                   "name": 'gender',
                   "definition": 'http://hl7.org/fhir/SearchParameter/individual-gender',
                   "type": 'token',
-                  "documentation": 'Bundle contains Patient resources matching the gender requested where the [system]
-				  value = http://hl7.org/fhir/ValueSet/administrative-gender and [code] value matches Patient.gender
-				  plus any other search criteria.'
+                  "documentation": 'Bundle contains Patient resources matching the gender requested where the [system] value = http://hl7.org/fhir/ValueSet/administrative-gender and [code] value matches Patient.gender plus any other search criteria.'
                 },
                 {
                   "name": 'name',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Patient-name',
                   "type": 'string',
-                  "documentation": 'Bundle contains Patient resources matching the start of either a family (last)
-				  or given (first or middle) names to the name value plus any other search criteria.'
+                  "documentation": 'Bundle contains Patient resources matching the start of either a family (last) or given (first or middle) names to the name value plus any other search criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains a Patient resource with the id requested plus any other search
-				  criteria.'
+                  "documentation": 'Bundle contains a Patient resource with the id requested plus any other search criteria.'
                 },
                 {
                   "name": 'family',
                   "definition": 'http://hl7.org/fhir/SearchParameter/individual-family',
                   "type": 'string',
-                  "documentation": 'Bundle contains Patient resources matching the start of the family name (last)
-				  to the family value are eligible plus any other search criteria.'
+                  "documentation": 'Bundle contains Patient resources matching the start of the family name (last) to the family value are eligible plus any other search criteria.'
                 },
                 {
                   "name": 'identifier:of-type',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Patient-identifier',
                   "type": 'token',
-                  "documentation": 'Bundle contains Patient resources matching the identifier requested where the
-				  [system] value matches Patient.identifier.type.coding.system, [code] values matches
-				  Patient.identifier.type.coding.code, and [value] values matches Patient.identifier.value plus
-				  any other search criteria.'
+                  "documentation": 'Bundle contains Patient resources matching the identifier requested where the [system] value matches Patient.identifier.type.coding.system, [code] values matches Patient.identifier.type.coding.code, and [value] values matches Patient.identifier.value plus any other search criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -506,7 +503,10 @@ module Cerner
             },
             {
               "type": 'Practitioner',
-              "profile": 'http://hl7.org/fhir/practitioner',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Practitioner',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -526,9 +526,7 @@ module Cerner
                   "name": 'identifier',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Practitioner-identifier',
                   "type": 'token',
-                  "documentation": 'Practitioner resources matching the identifier requested where the [system] value
-				  matches  Practitioner.identifier.system and [code] value matches Practitioner.identifier.value
-				  are eligible for the response.'
+                  "documentation": 'Practitioner resources matching the identifier requested where the [system] value matches  Practitioner.identifier.system and [code] value matches Practitioner.identifier.value are eligible for the response.'
                 },
                 {
                   "name": 'name',
@@ -552,7 +550,10 @@ module Cerner
             },
             {
               "type": 'AllergyIntolerance',
-              "profile": 'http://hl7.org/fhir/allergyintolerance',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/AllergyIntolerance',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -566,22 +567,19 @@ module Cerner
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Bundle contains all the AllergyIntolerance resources matching the search criteria
-				  and the Provenance resources for the result set.'
+                  "documentation": 'Bundle contains all the AllergyIntolerance resources matching the search criteria and the Provenance resources for the result set.'
                 },
                 {
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains an AllergyIntolerance resource with the [patient] plus any other
-				  search criteria.'
+                  "documentation": 'Bundle contains an AllergyIntolerance resource with the [patient] plus any other search criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains an AllergyIntolerance resource with the [id] plus any other
-				  search criteria.'
+                  "documentation": 'Bundle contains an AllergyIntolerance resource with the [id] plus any other search criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -590,7 +588,10 @@ module Cerner
             },
             {
               "type": 'CarePlan',
-              "profile": 'http://hl7.org/fhir/careplan',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/CarePlan',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -616,30 +617,25 @@ module Cerner
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains CarePlan resource for the specified patient plus any other
-				  criteria.'
+                  "documentation": 'Bundle contains CarePlan resource for the specified patient plus any other criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains a CarePlan resource with the id requested plus any other search
-				  criteria.'
+                  "documentation": 'Bundle contains a CarePlan resource with the id requested plus any other search criteria.'
                 },
                 {
                   "name": 'encounter',
                   "definition": 'http://hl7.org/fhir/SearchParameter/CarePlan-encounter',
                   "type": 'reference',
-                  "documentation": 'Bundle contains CarePlan resources for the specified [patient] and the specified
-				  [encounter].'
+                  "documentation": 'Bundle contains CarePlan resources for the specified [patient] and the specified [encounter].'
                 },
                 {
                   "name": 'category',
                   "definition": 'http://hl7.org/fhir/SearchParameter/CarePlan-category',
                   "type": 'token',
-                  "documentation": 'Bundle contains CarePlan resources for the specified [patient] with the requested
-				  [category] where [system] and [code] refer CarePlan.category.coding.system and
-				  CarePlan.category.coding.code plus any other criteria.'
+                  "documentation": 'Bundle contains CarePlan resources for the specified [patient] with the requested [category] where [system] and [code] refer CarePlan.category.coding.system and CarePlan.category.coding.code plus any other criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -648,7 +644,10 @@ module Cerner
             },
             {
               "type": 'Goal',
-              "profile": 'http://hl7.org/fhir/goal',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Goal',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -662,8 +661,7 @@ module Cerner
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one
-				  other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": 'patient',
@@ -684,7 +682,10 @@ module Cerner
             },
             {
               "type": 'CapabilityStatement',
-              "profile": 'http://hl7.org/fhir/capabilitystatement',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/CapabilityStatement',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/CapabilityStatement-us-core-server'
+              ],
               "interaction": [
                 {
                   "code": 'read'
@@ -693,7 +694,24 @@ module Cerner
             },
             {
               "type": 'Observation',
-              "profile": 'http://hl7.org/fhir/observation',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Observation',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-lab',
+                'http://hl7.org/fhir/us/core/StructureDefinition/pediatric-bmi-for-age',
+                'http://hl7.org/fhir/us/core/StructureDefinition/head-occipital-frontal-circumference-percentile',
+                'http://hl7.org/fhir/us/core/StructureDefinition/pediatric-weight-for-height',
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-pulse-oximetry',
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus',
+                'http://hl7.org/fhir/StructureDefinition/vitalsigns',
+                'http://hl7.org/fhir/StructureDefinition/vitalspanel',
+                'http://hl7.org/fhir/StructureDefinition/oxygensat',
+                'http://hl7.org/fhir/StructureDefinition/bp',
+                'http://hl7.org/fhir/StructureDefinition/bodyheight',
+                'http://hl7.org/fhir/StructureDefinition/bodyweight',
+                'http://hl7.org/fhir/StructureDefinition/heartrate',
+                'http://hl7.org/fhir/StructureDefinition/resprate',
+                'http://hl7.org/fhir/StructureDefinition/bodytemp'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -707,25 +725,19 @@ module Cerner
                   "name": 'date',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-date',
                   "type": 'date',
-                  "documentation": 'Bundle contains any Observation resources for the specified patient plus any other
-				  criteria and date comparison for selection is made as follows:•    For Social History resources
-				  (Observation.category.coding.code = social-history), compare against the date Observeration.issued
-				  (functioning as datatype instant)•    For all other Observation resources, compare against the date
-				  Observeration.effectiveDateTime (functioning as datatype dateTime).'
+                  "documentation": 'Bundle contains any Observation resources for the specified patient plus any other criteria and date comparison for selection is made as follows:•    For Social History resources (Observation.category.coding.code = social-history), compare against the date Observeration.issued (functioning as datatype instant)•    For all other Observation resources, compare against the date Observeration.effectiveDateTime (functioning as datatype dateTime).'
                 },
                 {
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one
-				  other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": 'code',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-code',
                   "type": 'token',
-                  "documentation": 'Bundle contains any Observation resources for the specified patient with the
-				  requested code plus any other criteria.'
+                  "documentation": 'Bundle contains any Observation resources for the specified patient with the requested code plus any other criteria.'
                 },
                 {
                   "name": '_count',
@@ -737,30 +749,25 @@ module Cerner
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains Observation resources for the specified patient plus any other
-				  criteria.'
+                  "documentation": 'Bundle contains Observation resources for the specified patient plus any other criteria.'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains an Observation resource with the logical id requested plus any
-				  other criteria.'
+                  "documentation": 'Bundle contains an Observation resource with the logical id requested plus any other criteria.'
                 },
                 {
                   "name": 'encounter',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-encounter',
                   "type": 'reference',
-                  "documentation": 'Bundle contains any Observation resources for the specified patient, the specified
-				  encounter and matching the category plus any other criteria.'
+                  "documentation": 'Bundle contains any Observation resources for the specified patient, the specified encounter and matching the category plus any other criteria.'
                 },
                 {
                   "name": 'category',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Observation-category',
                   "type": 'token',
-                  "documentation": 'Bundle contains Observation resources for the specified patient with the requested
-				  category where [system] and [code] refer to Observation.category.coding.system and
-				  Observation.category.coding.code plus any other criteria.'
+                  "documentation": 'Bundle contains Observation resources for the specified patient with the requested category where [system] and [code] refer to Observation.category.coding.system and Observation.category.coding.code plus any other criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -769,7 +776,10 @@ module Cerner
             },
             {
               "type": 'Encounter',
-              "profile": 'http://hl7.org/fhir/encounter',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Encounter',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -783,29 +793,25 @@ module Cerner
                   "name": 'date',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-date',
                   "type": 'date',
-                  "documentation": 'Bundle contains Encounter resources matching the search criteria with [date]
-				  selection made against the date Encounter.Period.start and/or Encounter.Period.end.'
+                  "documentation": 'Bundle contains Encounter resources matching the search criteria with [date] selection made against the date Encounter.Period.start and/or Encounter.Period.end.'
                 },
                 {
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least
-				  one other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains Encounter resources for the specified [patient] plus any other
-				  criteria'
+                  "documentation": 'Bundle contains Encounter resources for the specified [patient] plus any other criteria'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhirSearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains an Encounter resource with the specified [id] plus any other
-				  search criteria'
+                  "documentation": 'Bundle contains an Encounter resource with the specified [id] plus any other search criteria'
                 }
               ],
               "searchRevInclude": [
@@ -814,7 +820,10 @@ module Cerner
             },
             {
               "type": 'Procedure',
-              "profile": 'http://hl7.org/fhir/procedure',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Procedure',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -828,15 +837,13 @@ module Cerner
                   "name": 'date',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-date',
                   "type": 'date',
-                  "documentation": 'Supported combination is patient and date. Fetches a bundle containing a Procedure
-				  resource for the specified patient and the Procedure performed dateTime.'
+                  "documentation": 'Supported combination is patient and date. Fetches a bundle containing a Procedure resource for the specified patient and the Procedure performed dateTime.'
                 },
                 {
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one
-				  other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": 'patient',
@@ -854,8 +861,7 @@ module Cerner
                   "name": 'encounter',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-encounter',
                   "type": 'reference',
-                  "documentation": 'Supported combination is patient and date. Fetches a bundle containing a Procedure
-				  resource for the specified patient and the specified encounter.'
+                  "documentation": 'Supported combination is patient and date. Fetches a bundle containing a Procedure resource for the specified patient and the specified encounter.'
                 }
               ],
               "searchRevInclude": [
@@ -864,7 +870,7 @@ module Cerner
             },
             {
               "type": 'Binary',
-              "profile": 'http://hl7.org/fhir/binary',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Binary',
               "interaction": [
                 {
                   "code": 'read'
@@ -873,7 +879,7 @@ module Cerner
             },
             {
               "type": 'Person',
-              "profile": 'http://hl7.org/fhir/person',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/Person',
               "interaction": [
                 {
                   "code": 'search-type'
@@ -899,7 +905,10 @@ module Cerner
             },
             {
               "type": 'DocumentReference',
-              "profile": 'http://hl7.org/fhir/documentreference',
+              "profile": 'http://hl7.org/fhir/StructureDefinition/DocumentReference',
+              "supportedProfile": [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference'
+              ],
               "interaction": [
                 {
                   "code": 'search-type'
@@ -913,17 +922,13 @@ module Cerner
                   "name": 'date',
                   "definition": 'http://hl7.org/fhir/SearchParameter/DocumentReference-date',
                   "type": 'date',
-                  "documentation": 'Bundle contains any DocumentReference resources for the specified [patient] plus
-				  any other criteria and [date] comparison for selection is made against the date
-				  DocumentReference.date (functioning as datatype dateTime; Section: “Response”; sub-section:
-				  “Response data types”).'
+                  "documentation": 'Bundle contains any DocumentReference resources for the specified [patient] plus any other criteria and [date] comparison for selection is made against the date DocumentReference.date (functioning as datatype dateTime; Section: “Response”; sub-section: “Response data types”).'
                 },
                 {
                   "name": '_revinclude',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-revinclude',
                   "type": 'token',
-                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one
-				  other parameter is provided.'
+                  "documentation": 'Includes Provenance resource in response. It may only be provided if at least one other parameter is provided.'
                 },
                 {
                   "name": '_count',
@@ -935,31 +940,25 @@ module Cerner
                   "name": 'patient',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-patient',
                   "type": 'reference',
-                  "documentation": 'Bundle contains DocumentReference resources for the specified patient plus any
-				  other criteria'
+                  "documentation": 'Bundle contains DocumentReference resources for the specified patient plus any other criteria'
                 },
                 {
                   "name": '_id',
                   "definition": 'http://hl7.org/fhir/SearchParameter/Resource-id',
                   "type": 'token',
-                  "documentation": 'Bundle contains a DocumentReference resource with the logical id requested plus
-				  any other criteria'
+                  "documentation": 'Bundle contains a DocumentReference resource with the logical id requested plus any other criteria'
                 },
                 {
                   "name": 'category',
                   "definition": 'http://hl7.org/fhir/SearchParameter/DocumentReference-category',
                   "type": 'token',
-                  "documentation": 'Bundle contains DocumentRefrerence resources for the specified patient with the
-				  requested category where [system] and [code] refer to DocumentRefrerence.category.coding.system
-				  and DocumentReference.category.coding.code plus any other criteria'
+                  "documentation": 'Bundle contains DocumentRefrerence resources for the specified patient with the requested category where [system] and [code] refer to DocumentRefrerence.category.coding.system and DocumentReference.category.coding.code plus any other criteria'
                 },
                 {
                   "name": 'type',
                   "definition": 'http://hl7.org/fhir/SearchParameter/clinical-type',
                   "type": 'token',
-                  "documentation": 'Bundle contains DocumentReference resources for the specified [patient] with the
-				  requested [type] where [system] and [code] refer to DocumentReference.type.coding.system and
-				  DocumentReference.type.coding.code plus any other criteria.'
+                  "documentation": 'Bundle contains DocumentReference resources for the specified [patient] with the requested [type] where [system] and [code] refer to DocumentReference.type.coding.system and DocumentReference.type.coding.code plus any other criteria.'
                 }
               ],
               "searchRevInclude": [
@@ -969,20 +968,19 @@ module Cerner
                 {
                   "name": '$docref',
                   "definition": 'http://hl7.org/fhir/us/core/OperationDefinition-docref.html',
-                  "documentation": "$docref returns a bundle of type 'searchset' of DocumentReference resources
-				  containing all summary of episode note documents stored in document management for a patient.
-				  This operation takes the input parameter, patient id."
+                  "documentation": "$docref returns a bundle of type 'searchset' of DocumentReference resources containing all summary of episode note documents stored in document management for a patient. This operation takes the input parameter, patient id."
                 }
               ]
             }
           ]
         }
       ]
+      # rubocop:enable Layout/LineLength
     }.freeze
 
     R4_WELLKNOWN_PATIENT_PERSONA ||= {
       "authorization_endpoint": 'https://authorization.sandboxcerner.com/tenants/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/protocols/oauth2/profiles/smart-v1/personas/patient/authorize',
-      "token_endpoint": 'https://authorization.sandboxcerner.com/tenants/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/hosts/fhir-myrecord-sc.stagingcerner.com/protocols/oauth2/profiles/smart-v1/token',
+      "token_endpoint": 'https://authorization.sandboxcerner.com/tenants/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/hosts/fhir-myrecord-sc.cerner.com/protocols/oauth2/profiles/smart-v1/token',
       "token_endpoint_auth_methods_supported": [
         'client_secret_basic'
       ],
@@ -1048,7 +1046,7 @@ module Cerner
 
     R4_WELLKNOWN_PROVIDER_SYSTEM_PERSONA ||= {
       "authorization_endpoint": 'https://authorization.sandboxcerner.com/tenants/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/protocols/oauth2/profiles/smart-v1/personas/provider/authorize',
-      "token_endpoint": 'https://authorization.sandboxcerner.com/tenants/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/hosts/fhir-ehr-sc.stagingcerner.com/protocols/oauth2/profiles/smart-v1/token',
+      "token_endpoint": 'https://authorization.sandboxcerner.com/tenants/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/hosts/fhir-ehr-sc.cerner.com/protocols/oauth2/profiles/smart-v1/token',
       "token_endpoint_auth_methods_supported": [
         'client_secret_basic',
         'private_key_jwt'

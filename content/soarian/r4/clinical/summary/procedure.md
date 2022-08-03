@@ -20,7 +20,8 @@ The search results include the following fields if they contain values:
 * [Code](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code)
 * [Subject (Patient only)](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject)
 * [Encounter](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter)
-* [Date performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_)
+* [Performed[x]](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_)
+    * Performed date time
 * [Focal Device](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice)
 	* [Action](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice.action)
 	* [Manipulated](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice.manipulated)
