@@ -26,6 +26,8 @@ The search results include the following fields if they contain values:
 	* [Effective period](https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.effective_period){:target="_blank"}
 * [Issued](https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.issued){:target="_blank"}
 * [Performer](https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.performer){:target="_blank"}
+    * Practitioner
+    * Organization
 * [Result](https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.result){:target="_blank"}
 * [Presented form](https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.presentedForm){:target="_blank"}
 

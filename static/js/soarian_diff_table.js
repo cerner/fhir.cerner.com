@@ -191,13 +191,6 @@ function matchResources(conformanceData, capabilityStatementData) {
 		}
 	  ]
 	});
-		
-  r4Resources.push({"type": "CapabilityStatement","interaction": [
-		{
-		  "code": "read"
-		}
-	  ]
-	});
   
   // Match all DSTU2 Resources
   let dstu2Matches = matchDstu2Resources(dstu2Resources, r4Resources);

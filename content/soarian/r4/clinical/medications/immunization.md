@@ -20,8 +20,10 @@ The search results include the following fields if they contain values:
 * [Status reason](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason){:target="_blank"}
 * [Vaccine administered](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
 * [Patient](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient){:target="_blank"}
-* [Administration date](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
-* [Indicates if the record is from the source who administered the vaccine](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
+* [Occurrence[x]](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
+   * Occurrence date time
+   * Occurrence string
+* [primarySource](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
 
 
 ## Terminology Bindings

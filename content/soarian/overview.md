@@ -27,4 +27,6 @@ To determine which resources and actions our DSTU 2 and R4 implementations suppo
 
 The following table summarizes the resources and actions that our DSTU 2 and R4 implementations currently support for patient and provider access.
 
+Please see HL7<sup>®</sup> FHIR<sup>®</sup> US Core v3.1.1 Implementation Guide’s [U.S. Core Data for Interoperability (USCDI) Guidance and 2015 Edition Common Clinical Data Set](https://hl7.org/fhir/us/core/STU3.1.1/general-guidance.html#us-core-data-for-interoperability-and-2015-edition-common-clinical-data-set) page for details on which specific USCDI version 1 data elements are support by each of the available API resources defined in the table.
+
 <%= render '/soarian/diff_table.*' %>
