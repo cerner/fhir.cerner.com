@@ -152,7 +152,7 @@
 
 <h3 id="headers">Headers</h3>
 
-<p><code>DocumentReference.content.attachment.contentType</code> should be used to set the <code>Accept</code> header. An <code>Accept</code> header of <code>application/fhir+json</code> could be supplied instead, if the JSON Binary resource is desired instead of the raw data.</p>
+<p>Either <code>DocumentReference.content.attachment.contentType</code> or <code>DiagnosticReport.presentedForm.contentType</code> should be used to set the <code>Accept</code> header. An <code>Accept</code> header of <code>application/fhir+json</code> could be supplied instead, if the JSON Binary resource is desired instead of the raw data.</p>
 
 <p>This resource will not accept the <code>application/json</code> mime type unless the underlying binary data is json.</p>
 

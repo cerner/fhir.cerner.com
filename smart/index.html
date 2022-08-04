@@ -83,6 +83,7 @@
 <a href="#technical" id="markdown-toc-technical">Technical</a>    <ul>
       <li><a href="#terra-ui" id="markdown-toc-terra-ui">Terra UI</a></li>
       <li><a href="#screen-resolution" id="markdown-toc-screen-resolution">Screen Resolution</a></li>
+      <li><a href="#loading-indicator" id="markdown-toc-loading-indicator">Loading indicator</a></li>
       <li><a href="#browser-requirement" id="markdown-toc-browser-requirement">Browser Requirement</a></li>
       <li><a href="#single-sign-on-sso" id="markdown-toc-single-sign-on-sso">Single Sign On (SSO)</a></li>
       <li><a href="#embedded-browser-control" id="markdown-toc-embedded-browser-control">Embedded Browser Control</a></li>
@@ -94,6 +95,7 @@
       <li><a href="#code-console-and-sandbox" id="markdown-toc-code-console-and-sandbox">code Console and Sandbox</a></li>
       <li><a href="#launch-context" id="markdown-toc-launch-context">Launch Context</a></li>
       <li><a href="#smart-apps-in-mpages" id="markdown-toc-smart-apps-in-mpages">SMART Apps in <em>MPages</em></a></li>
+      <li><a href="#microsoft-edge-browser-chromium-based-support" id="markdown-toc-microsoft-edge-browser-chromium-based-support">Microsoft Edge Browser (Chromium based) Support</a></li>
     </ul>
   </li>
   <li>
@@ -176,11 +178,18 @@
 
 <p>The recommended screen resolution varies based on the available screen’s real estate. Instead of targeting a specific resolution, the app should be designed to be responsive, and the app should adjust according to the available screen sizes.</p>
 
+<h3 id="loading-indicator">Loading indicator</h3>
+<p>For a better user experience we encourage the use of a loading overlay or a status indicator of progress inside your SMART apps.</p>
+
+<p>The loading overlay we recommend for SMART apps is the one found among the <a href="https://engineering.cerner.com/terra-ui/components/cerner-terra-core-docs/overlay/about">Terra UI components</a>. You might want to use this one if you’re building
+your SMART app with React and have not yet decided on a loading indicator style.</p>
+
 <h3 id="browser-requirement">Browser Requirement</h3>
 
-<p>For provider-facing apps running from within the Cerner Millennium EHR, the only embedded browser we currently support is Internet Explorer (IE). The embedded browser control we use is <a href="https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx">IWebBrowser2 C++ interface</a> by Microsoft. The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 for your app, please note that you may struggle if you plan on deploying across our entire client base.</p>
+<p>For provider-facing apps running from within the Cerner Millennium EHR, the only embedded browsers we currently support are Internet Explorer (IE) and Edge. The embedded browser controls we use are <a href="https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx">IWebBrowser2 C++ interface</a> for IE and <a href="https://docs.microsoft.com/en-us/microsoft-edge/webview2/">WebView2</a> for Edge both developed by Microsoft. The minimum version of IE we support is IE10. The latest supported browser varies based on the version of the browser that is currently installed at each Cerner client site. Although it is no longer supported by Microsoft, many of our clients still use IE10, especially clients who host their own system. We highly suggest that you code your app for IE10 for validation. If you must use IE11 or Edge for your app, please note that you may struggle if you plan on deploying across our entire client base.</p>
 
-<p>NOTE: Applications that will embed in <em>MPages</em> Workflow or Summary must function correctly with IE10.  The <em>MPages</em> 6.x platform currently depends on other components that require IE10 to run.  This means that even though there is a newer version of IE in Citrix, <em>MPages</em> 6.x will render the application using IE10.</p>
+<p>NOTE: Applications that will embed in <em>MPages</em> Workflow or Summary must function correctly with IE10.  The <em>MPages</em> 6.x platform currently depends on other components that require IE10 to run.  This means that even though there is a newer version of IE in Citrix, <em>MPages</em> 6.x will render the application using IE10.
+Even though we have support for Edge some clients may still be using IE due to delayed upgrades, or app compatibility issues. Therefore, it is recommended that the embedded SMART app uses functions that work correctly for both IE and Edge at this time.</p>
 
 <p>Microsoft offers a free IE10 VM and newer on various versions of Windows for application testing at <a href="https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/">https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/</a>.</p>
 
@@ -199,7 +208,7 @@
 
 <h3 id="embedded-browser-control">Embedded Browser Control</h3>
 
-<p>There have been a lot of questions and interests around what embedded browser control Cerner’s implementation uses. In this section, you’ll learn more about the embedded browser control. The actual browser control that we use is <a href="https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx">IWebBrowser2 C++ interface</a> by Microsoft. Please take a look at the documentation for more information. With this embedded browser control, there are some limitations compared to the stand-alone IE browser. See below for these limitations.</p>
+<p>There have been a lot of questions and interest around what embedded browser control Cerner’s implementation uses. In this section, you’ll learn more about the embedded browser control. The actual browser controls that we use are  <a href="https://msdn.microsoft.com/en-us/library/aa752127(v=vs.85).aspx">IWebBrowser2 C++ interface</a> for IE and <a href="https://docs.microsoft.com/en-us/microsoft-edge/webview2/">WebView2</a> for Edge both developed by Microsoft. Please take a look at the documentation for more information. With this embedded browser control, there are some limitations compared to the stand-alone IE or Edge. See below for these limitations.</p>
 
 <h4 id="no-shared-cookies">No Shared Cookies</h4>
 
@@ -271,7 +280,17 @@
 
 <h4 id="iframe-cookies">iframe Cookies</h4>
 
-<p>If your SMART app uses cookies, the <a href="https://www.w3.org/P3P/">P3P</a> header or meta tag must be set in order for cookies to be saved correctly while running in an <em>MPages</em> iframe.  Please see <a href="https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/">this page</a> for more information on P3P.</p>
+<p>For IE if your SMART app uses cookies, the <a href="https://www.w3.org/P3P/">P3P</a> header or meta tag must be set in order for cookies to be saved correctly while running in an <em>MPages</em> iframe.  Please see <a href="https://blogs.msdn.microsoft.com/ieinternals/2013/09/17/a-quick-look-at-p3p/">this page</a> for more information on P3P.</p>
+
+<p>For Edge if your SMART app uses cookies, the <code>Set-Cookie</code> response header has to contain the attributes: <code>SameSite=None; Secure</code> for your cookies to be saved correctly while running in an iframe.</p>
+
+<h3 id="microsoft-edge-browser-chromium-based-support">Microsoft Edge Browser (Chromium based) Support</h3>
+<p>Along with Internet Explorer, Cerner now supports embedded Microsoft Edge browser (Chromium based) inside <em>Cerner Millennium PowerChart</em>.</p>
+
+<p>With Microsoft Edge as an additional option, clients can configure any SMART app to load using Edge (where available). Based on our test results, SMART apps render faster, use less CPU, and less memory to run, in comparison to IE. If your app uses cookies while being loaded inside an iframe, or is embedded in <em>MPages</em> (which loads the app in an iframe) you would need to set the <code>Set-Cookie</code> response header with additional attributes: <code>SameSite=None; Secure</code> for your cookies to be persisted.</p>
+
+<p><em>Note:</em>
+Even though there is support for Microsoft Edge in newer versions of <em>Cerner Millennium</em>, older <em>Cerner Millennium PowerChart</em> environments will not have support for Edge. For compatibility, it is recommended that the embedded SMART app uses functions that work correctly for both IE and Edge browsers at this time.</p>
 
 <h2 id="testing">Testing</h2>
 

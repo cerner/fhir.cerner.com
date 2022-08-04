@@ -44,7 +44,7 @@ const soarianConfig = {
       "AllergyIntolerance": "/soarian/r4/clinical/summary/allergy-intolerance",
       "Binary": "/soarian/r4/foundation/other/binary",
       "Bundle": "/soarian/r4/foundation/other/bundle",
-      "CapabilityStatement": "/soarian/r4/foundation/conformance/capability-statement",
+      "CapabilityStatement": "/soarian/r4/foundation/conformance/capabilitystatement",
       "CarePlan": "/soarian/r4/clinical/care-provision/care-plan",
       "CareTeam": "/soarian/r4/clinical/care-provision/care-team",
       "Condition": "/soarian/r4/clinical/summary/condition",

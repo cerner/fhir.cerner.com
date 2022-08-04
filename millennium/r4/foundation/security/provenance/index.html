@@ -224,7 +224,7 @@
       <td>This or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>Target Reference(s) (usually version specific). The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest, Observation and Procedure resources are supported. Example: <code>DocumentReference/66547</code>
+      <td>Target Reference(s) (usually version specific). The AllergyIntolerance, CarePlan, CareTeam, Condition, DiagnosticReport, DocumentReference, Encounter, Goal, Immunization, MedicationRequest, Observation, Patient and Procedure resources are supported. Example: <code>DocumentReference/66547</code>
 </td>
     </tr>
   </tbody>
@@ -575,7 +575,7 @@
 <ul>
   <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
   <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
-  <li>The <code>Provenance.write</code> and <code>Observation.read</code> scopes must be provided in order to create a Provenance with an Observation Measurement target.</li>
+  <li>The <code>Provenance.write</code> scopes must be provided in order to create a Provenance with an Observation Measurement target.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>

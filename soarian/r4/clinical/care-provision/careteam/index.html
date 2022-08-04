@@ -118,12 +118,18 @@
     <ul>
       <li><a href="https://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role" target="_blank">Role</a></li>
       <li>
-<a href="https://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member" target="_blank">Member</a> (references to RelatedPerson are contained)
+<a href="https://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member" target="_blank">Member</a>
         <ul>
-          <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient" target="_blank">RelatedPerson patient</a></li>
-          <li>
+          <li>Practitioner</li>
+          <li>Organization</li>
+          <li>RelatedPerson (contained reference)
+            <ul>
+              <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.patient" target="_blank">RelatedPerson patient</a></li>
+              <li>
 <a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.relationship" target="_blank">RelatedPerson relationship</a> (text only)</li>
-          <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name" target="_blank">RelatedPerson name</a></li>
+              <li><a href="https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.name" target="_blank">RelatedPerson name</a></li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
