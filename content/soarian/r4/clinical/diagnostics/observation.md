@@ -20,38 +20,34 @@ The search results include the following fields if they contain values:
 * [Code](https://hl7.org/fhir/R4/observation-definitions.html#Observation.code){:target="_blank"}
 * [Subject (Patient)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject){:target="_blank"}
 * [Encounter](https://hl7.org/fhir/R4/observation-definitions.html#Observation.encounter){:target="_blank"}
-* [Effective[x](*)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_){:target="_blank"}
+* [Effective[x]](https://hl7.org/fhir/R4/observation-definitions.html#Observation.effective_x_){:target="_blank"}
   * Effective date time
   * Effective period
 * [Issued](https://hl7.org/fhir/R4/observation-definitions.html#Observation.issued){:target="_blank"}
 * [Value[x]](https://hl7.org/fhir/R4/observation-definitions.html#Observation.value_x_){:target="_blank"} 
-    * Value codeable concept(***)
-    * Value date time(*)
-    * Value integer(*)
-    * Value range(*)
-    * Value ratio(*)
-    * Value string(*)
-    * Value time(*)
-    * Value quantity(*)
+    * Value codeable concept
+    * Value date time
+    * Value integer
+    * Value range
+    * Value ratio
+    * Value string
+    * Value time
+    * Value quantity
     * Extension 
 * [Component](https://hl7.org/fhir/R4/observation-definitions.html#Observation.component){:target="_blank"}
     * [Component code](https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.code){:target="_blank"}
     * [Component value[x]](https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.value_x_){:target="_blank"}
-        * valueCodeableConcept(**)
-        * valueDateTime(**)
-        * valueInteger(**)
-        * valueString(**)
-        * valueQuantity(**)
+        * valueCodeableConcept
+        * valueDateTime
+        * valueInteger
+        * valueString
+        * valueQuantity
     * [Component data absent reason](https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.dataAbsentReason){:target="_blank"}
 * [Data absent reason](https://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason){:target="_blank"}
 * [Interpretation](https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation){:target="_blank"}
 * [Note](https://hl7.org/fhir/R4/observation-definitions.html#Observation.note){:target="_blank"}
-* [Member Observations(*)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.hasMember){:target="_blank"}
-* [Derived From(*)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.derivedFrom){:target="_blank"}
-
-\*  FHIR Specification R4 Vital Signs Profile and US Core v3.1.1 Laboratory Result Observation Profile
-**  FHIR Specification R4 Vital Signs Profile  
-*** FHIR Specification R4 Vital Signs Profile,  US Core v3.1.1 Laboratory Result Observation Profile, US Core v3.1.1 Smoking Status Observation Profile.
+* [Member Observations](https://hl7.org/fhir/R4/observation-definitions.html#Observation.hasMember){:target="_blank"}
+* [Derived From](https://hl7.org/fhir/R4/observation-definitions.html#Observation.derivedFrom){:target="_blank"}
 
 ## Terminology Bindings
 
