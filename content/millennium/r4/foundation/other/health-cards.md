@@ -43,11 +43,11 @@ Represents the patient and the clinical data related to a vaccination
 
 Contains the following resources:
 
-* A single Patient resource that follows the [VaccinationCredentialPatientDM](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-dm.html#tab-ms) profile with the following fields, if valued:
+* A single Patient resource that follows the [VaccinationCredentialPatientDM](https://build.fhir.org/ig/HL7/fhir-shc-vaccination-ig/StructureDefinition-shc-patient-us-resource-examples.html) profile with the following fields, if valued:
   * [Patient official name](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.name){:target="_blank"}
   * [Date of Birth](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.birthDate){:target="_blank"}
 
-* One or more Immunization resources that follow the [VaccinationCredentialImmunizationDM](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-dm.html) profile with the following fields, if valued:
+* One or more Immunization resources that follow the [VaccinationCredentialImmunizationDM](https://build.fhir.org/ig/HL7/fhir-shc-vaccination-ig/StructureDefinition-shc-vaccination-dm.html) profile with the following fields, if valued:
   * [Status](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-definitions.html#Immunization.status){:target="_blank"}
   * [Vaccine administered](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
   * [Patient](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-immunization-definitions.html#Immunization.patient){:target="_blank"}
@@ -70,11 +70,11 @@ Represents the patient and the clinical data related to a laboratory test result
 
 Contains the following resources:
 
-* A single Patient resource that follows the [VaccinationCredentialPatientDM](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-dm.html#tab-ms) profile with the following fields, if valued:
+* A single Patient resource that follows the [VaccinationCredentialPatientDM](https://build.fhir.org/ig/HL7/fhir-shc-vaccination-ig/StructureDefinition-shc-patient-us-resource-examples.html) profile with the following fields, if valued:
   * [Patient official name](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.name){:target="_blank"}
   * [Date of Birth](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-vaccination-credential-patient-definitions.html#Patient.birthDate){:target="_blank"}
 
-* One or more Observation resources that follow the [InfectiousDiseaseLaboratoryResultObservationDM](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-dm.html) profile with the following fields, if valued:
+* One or more Observation resources that follow the [InfectiousDiseaseLaboratoryResultObservationDM](https://build.fhir.org/ig/HL7/fhir-shc-vaccination-ig/StructureDefinition-shc-infectious-disease-laboratory-result-observation-resource-examples.html) profile with the following fields, if valued:
   * [Status](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.status){:target="_blank"}
   * [Code](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.code){:target="_blank"}
   * [Subject](http://build.fhir.org/ig/dvci/vaccine-credential-ig/branches/main/StructureDefinition-infectious-disease-laboratory-result-observation-definitions.html#Observation.subject){:target="_blank"}
