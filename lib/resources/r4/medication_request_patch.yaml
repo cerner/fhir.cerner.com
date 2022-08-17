@@ -31,4 +31,12 @@ operations:
         </li>
         <li>Using `stopped` when the `cancelled` status is most appropriate will result in the status being updated to `cancelled`.</li>
         <li>Using `cancelled` when the `stopped` status is most appropriate will result in the status being updated to `stopped`.</li>
+        <li>Using Only historical documented medications in Millennium can have their status updated. In order to identify them, 
+          the client can filter the medication request using the following query parameters:
+          <ul>
+            <li>MedicationRequest.intent = order </li>
+            <li>MedicationRequest.category = patientspecified & community </li>
+            <li>MedicationRequest.reportedBoolean = true </li>
+          </ul>
+         </li>
       </ul>
