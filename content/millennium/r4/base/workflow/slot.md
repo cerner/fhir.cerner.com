@@ -11,6 +11,8 @@ title: Slot | R4 API
 
 The Slot resource returns time slots from a schedule which are available for booking an appointment. Slots contain no information about actual appointments, only availability and type.
 
+Appointment types for use in FHIR scheduling workflows must be resource list based. The ability to retrieve slots and book appointments that are order role based are not supported in FHIR workflows.
+
 When integrating your application with a client’s production environment you will work with the client to determine the Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available to third-party applications for enabling scheduling functionality.
 
 We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in the future.
