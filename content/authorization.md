@@ -653,6 +653,8 @@ in turn determine which open instance of the application
 (if multiples are allowed) initiated the equest via
 examination of the "state" parameter.
 
+Additional registry settings may be required as browser vendors implement mitigations for so-called "[scheme flooding](https://fingerprint.com/blog/external-protocol-flooding/)" vulnerabilities. For Microsoft Edge (for example), the relevant registry settings are `AutoLaunchProtocolsComponentEnabled`, `AutoLaunchProtocolsFromOrigins`, and `DoNotSilentlyBlockProtocolsFromOrigins`. Refer to [Microsoft's documentation](https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies) for further details.
+
 ### Processing the Authorization Grant Response ###
 
 The authorization grant response comes in the form of a
