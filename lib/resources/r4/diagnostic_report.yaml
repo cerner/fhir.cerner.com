@@ -1,0 +1,13 @@
+---
+name: DiagnosticReport
+field_name_base_url: http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport
+fields:
+  - name: category
+    url: http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.category
+    terminology_name: category
+    binding:
+      description: Codes for diagnostic service sectionsDetails.
+      terminology:
+        - display: Diagnostic Service Section Codes
+          system: http://hl7.org/fhir/v2/0074
+          info_link: https://www.hl7.org/fhir/valueset-diagnostic-service-sections.html
