@@ -151,21 +151,20 @@
 
 <p><strong>Please consult your ISP’s documentation for the steps to set up a DNS TXT record at your application’s eTLD+1 domain.</strong></p>
 
-<p>The DNS TXT record of your application must match the following key-value format:</p>
+<p>The DNS TXT record of your application must match the following key-value format, here “value” is the Cerner-issued client identifier for your application.:</p>
 
 <p><strong>Format:</strong><br>
-“cerner-client-id={value}”</p>
+cerner-client-id=value</p>
 
 <p><strong>Example:</strong><br>
 cerner-client-id=bxdcd0ff-5der-4c15-b2tf-r28b105aa845</p>
 
-<p>Where <code>value</code> is the Cerner-issued client identifier for your application.
-In the case that multiple apps are registered for the same eTLD+1 domain, multiple TXT records can be added each with the <code>cerner-client-id</code> for a specific application.  For example:</p>
+<p>In the case that multiple apps are registered for the same eTLD+1 domain, multiple TXT records can be added each with the <code>cerner-client-id</code> for a specific application.  For example:</p>
 
-<pre><code>"cerner-client-id={value1}"
-"cerner-client-id={value2}"
+<pre><code>cerner-client-id=value1
+cerner-client-id=value2
 ...
-"cerner-client-id={valueN}"
+cerner-client-id=valueN
 </code></pre>
 
 <h3 id="steps-to-verify-your-applications-compliance">Steps to Verify Your Application’s Compliance</h3>
@@ -183,14 +182,13 @@ In the case that multiple apps are registered for the same eTLD+1 domain, multip
 
 <p>To follow the security best practices the DNS TXT record of your application must match the following key-value format:</p>
 
-<pre><code>"cerner-client-id={value}" where value = Cerner-issued client identifier for your application
-in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:
+<p>cerner-client-id=value where value = Cerner-issued client identifier for your application
+in the case when multiple apps are registered for the same domain, cerner-client-ids will be stored in the same TXT record in the format:</p>
 
-"cerner-client-id={value 1}"
-"cerner-client-id={value 2}"
-
+<pre><code>cerner-client-id=value1
+cerner-client-id=value2
 ...
-"cerner-client-id={value N}"
+cerner-client-id=valueN
 </code></pre>
 
 <p>You can use the following commands and tools to check the DNS TXT records:</p>
@@ -226,12 +224,21 @@ in the case when multiple apps are registered for the same domain, cerner-client
     <p>Using OpenSSL Mac/Linux:
   <a href="https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html">https://www.feistyduck.com/library/openssl-cookbook/online/ch-testing-with-openssl.html</a></p>
   </li>
-  <li>
-    <p>Using the following online resources:</p>
+  <li>Using the following online resources:
     <ul>
       <li><a href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a></li>
       <li><a href="https://ssltools.digicert.com/checker/">https://ssltools.digicert.com/checker/</a></li>
       <li><a href="https://www.thesslstore.com/ssltools/ssl-checker.php">https://www.thesslstore.com/ssltools/ssl-checker.php</a></li>
+    </ul>
+  </li>
+  <li>Using a web browser to check the certificate, use Firefox for best results.
+    <ul>
+      <li>Load the URL into the browser</li>
+      <li>Click on the Lock symbol in the browser’s address bar</li>
+      <li>Click “Connection Secure”</li>
+      <li>Click “More Information”</li>
+      <li>Click “View Certificate”
+ (For other browsers, use the Certificate Policy and look up the OID for the policy.)</li>
     </ul>
   </li>
 </ol>
@@ -239,13 +246,20 @@ in the case when multiple apps are registered for the same domain, cerner-client
 <p>What you should pay attention to:</p>
 
 <ol>
-  <li>Supported TLS Certificates types:
+  <li>Supported TLS Certificates types (this is usually in a section called “Certificate Policies” as is the case if you view the cert in Firefox)  :
     <ul>
       <li>Domain Validated (DV),</li>
       <li>Organization Validated (OV),</li>
-      <li>Extended Validation (EV).</li>
+      <li>Extended Validation (EV).
+ ##### Example</li>
     </ul>
   </li>
+</ol>
+
+<p>Using Firefox to view your TLS certificate may result in a similar Organization Validated certificate as in the example below:
+ <a href="../../images/cert_policies.png">Organization Validated Certificate Type</a></p>
+
+<ol>
   <li>Supported TLS protocols:
     <ul>
       <li>TLS 1.2</li>
@@ -261,7 +275,7 @@ in the case when multiple apps are registered for the same domain, cerner-client
 <h5 id="example">Example</h5>
 
 <p>Using online resource https://www.ssllabs.com TLS certificate result may be as on example below:
-<img src="../../images/cert_example.png" alt="Example Image"></p>
+<img src="../../images/new_cert_example.png" alt="Example Image"></p>
 
 <h2 id="information-displayed-to-users">Information Displayed to Users</h2>
 

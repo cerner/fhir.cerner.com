@@ -795,6 +795,8 @@ in turn determine which open instance of the application
 (if multiples are allowed) initiated the equest via
 examination of the “state” parameter.</p>
 
+<p>Additional registry settings may be required as browser vendors implement mitigations for so-called “<a href="https://fingerprint.com/blog/external-protocol-flooding/">scheme flooding</a>” vulnerabilities. For recent versions of Microsoft Edge (for example), the relevant registry settings are <code>AutoLaunchProtocolsComponentEnabled</code>, <code>AutoLaunchProtocolsFromOrigins</code>, and <code>DoNotSilentlyBlockProtocolsFromOrigins</code>. Without these settings, the browser may log errors to the console such as <code>Not allowed to launch &lt;your application scheme&gt; because a user gesture is required</code>. Refer to <a href="https://docs.microsoft.com/en-us/deployedge/microsoft-edge-policies">Microsoft’s documentation</a> for further details.</p>
+
 <h3 id="processing-the-authorization-grant-response">Processing the Authorization Grant Response</h3>
 
 <p>The authorization grant response comes in the form of a

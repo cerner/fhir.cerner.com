@@ -3728,6 +3728,14 @@ If-Match: W/"&lt;Current version of the MedicationRequest resource&gt;"</code></
   </li>
   <li>Using <code>stopped</code> when the <code>cancelled</code> status is most appropriate will result in the status being updated to <code>cancelled</code>.</li>
   <li>Using <code>cancelled</code> when the <code>stopped</code> status is most appropriate will result in the status being updated to <code>stopped</code>.</li>
+  <li>Only historical documented medications in Millennium can have their status updated. In order to identify them, 
+    the client can filter the medication request using the following query parameters:
+    <ul>
+      <li>MedicationRequest.intent = order </li>
+      <li>MedicationRequest.category = patientspecified &amp; community </li>
+      <li>MedicationRequest.reportedBoolean = true </li>
+    </ul>
+  </li>
 </ul>
 </li></ul>
           
