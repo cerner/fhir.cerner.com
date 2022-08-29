@@ -70,6 +70,7 @@ displayed as intended.
     `input`, `object`, `option`, `select`, `textarea`) may be removed
     but the text within will remain.
   - Table styling is not fully supported
+  - HTML entity must be ended with a semicolon (;).
 
 - **Modifier Elements:** [implicitRules](https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules),
   and [modifierExtension](https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension)
