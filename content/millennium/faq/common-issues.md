@@ -71,6 +71,7 @@ displayed as intended.
     but the text within will remain.
   - Table styling is not fully supported
   - HTML entity must be ended with a semicolon (;).
+  - If a meta tag is provided in HTML, it must be self closed (example: <meta charset='UTF-8'/>).
 
 - **Modifier Elements:** [implicitRules](https://www.hl7.org/FHIR/DSTU2/resource-definitions.html#Resource.implicitRules),
   and [modifierExtension](https://www.hl7.org/FHIR/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension)
