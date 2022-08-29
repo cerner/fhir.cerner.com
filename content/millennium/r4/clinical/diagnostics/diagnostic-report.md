@@ -26,16 +26,21 @@ The following fields are returned if valued:
 * [Result Interpreter (Practitioner/Organization)](http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.resultsInterpreter){:target="_blank"}
 * [Result](http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.result){:target="_blank"}
 * [Presented Form](https://www.hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.presentedForm){:target="_blank"}
-    * Content type 
-    * URL (fully qualified link to the document)
-    * Title
-    * Creation
+    * [Content Type](https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType)
+    * [URL](https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.url)
+    * [Title](https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title)
+    * [Creation](https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation)
 * [Conclusion Code](https://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.conclusionCode){:target="_blank"}
 
 ## Terminology Bindings
 <%= terminology_table(:diagnostic_report, :r4) %>
 
 ## Search Parameters
+
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -74,3 +79,82 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
+
+### Headers
+
+<%= headers %>
+
+## Search by Id
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: true, system: true) %>
+
+
+### Headers
+
+<%= headers %>
+### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?_id=196151517,198381928
+
+### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DIAGNOSTIC_REPORT_SEARCH_BY_ID) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Search by revinclude
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: true, system: true) %>
+
+
+### Headers
+
+<%= headers %>
+### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?_id=196151517,198381928&_revinclude=Provenance:target
+
+### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DIAGNOSTIC_REPORT_SEARCH_BY_REVINCLUDE) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Read by id
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: true, system: true) %>
+
+
+### Headers
+
+<%= headers %>
+### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/196151517
+
+### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DIAGNOSTIC_REPORT_READ_BY_ID) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
