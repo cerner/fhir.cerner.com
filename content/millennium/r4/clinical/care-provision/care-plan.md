@@ -24,7 +24,7 @@ The following fields are returned if valued:
 * [Encounter](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.encounter){:target="_blank"}
 * [Effective Period](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.period){:target="_blank"}
 * [Author](http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.author){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"}([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 
 ## Terminology Bindings
 
