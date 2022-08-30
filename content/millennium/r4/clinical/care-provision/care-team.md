@@ -18,10 +18,12 @@ The following fields are returned if valued:
 * [Category (Longitudinal or Encounter)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.category){:target="_blank"}
 * [Name (Encounter-Level Only)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.name){:target="_blank"}
 * [Subject](http://hl7.org/fhir/careteam-definitions.html#CareTeam.subject){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/references.html#Reference){:target="_blank"} ([Patient](http://hl7.org/fhir/patient.html){:target="_blank"})
 * [Encounter (Encounter-Level Only)]( http://hl7.org/fhir/careteam-definitions.html#CareTeam.encounter){:target="_blank"}
 * [Participant](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant){:target="_blank"}
   * [Role](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role){:target="_blank"}
   * [Member](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member){:target="_blank"}
+    * [Reference](http://hl7.org/fhir/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [RelatedPerson](http://hl7.org/fhir/relatedperson.html){:target="_blank"})
 
 ## Terminology Bindings
 
