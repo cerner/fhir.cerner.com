@@ -11,8 +11,6 @@ title: Procedure | R4 API
 
 The Procedure resource returns medical and surgical procedures performed on or for a patient during their lifetime.   Historical procedures, as well as procedures recorded during a specific visit, are returned. Surgical procedures from finalized surgical cases will be returned as free text procedures, if the solution has been configured to write procedures from finalized cases to Procedure History.
 
-The [US Core 4.0.0 USCDI matrix](http://hl7.org/fhir/us/core/STU4/general-guidance.html) could be used to confirm the exact profiles for each resource, and to get the correct links.
-
 * The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
   * [US Core Procedure Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-procedure.html)
 
