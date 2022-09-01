@@ -11,19 +11,30 @@ title: Procedure | R4 API
 
 The Procedure resource returns medical and surgical procedures performed on or for a patient during their lifetime.   Historical procedures, as well as procedures recorded during a specific visit, are returned. Surgical procedures from finalized surgical cases will be returned as free text procedures, if the solution has been configured to write procedures from finalized cases to Procedure History.
 
+The [US Core 4.0.0 USCDI matrix](http://hl7.org/fhir/us/core/STU4/general-guidance.html) could be used to confirm the exact profiles for each resource, and to get the correct links.
+
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
+  * [US Core DocumentReference Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-documentreference.html) ([Procedure](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure))
+
 The following fields are returned if valued:
 
 * [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
 * [Status (completed, entered-in-error)](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status)
 * [Code](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code)
 * [Subject](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject)
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Patient](http://hl7.org/fhir/r4/patient.html))
 * [Encounter](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter)
 * [Date performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_)
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime) \| [Period](https://hl7.org/fhir/R4/datatypes.html#Period))
 * [Who recorded](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder)
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](http://hl7.org/fhir/r4/practitioner.html))
 * [Who performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer)
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](http://hl7.org/fhir/r4/practitioner.html))
 * [Location](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.location)
 * [Reason procedure performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.reasonReference)
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Condition](https://hl7.org/fhir/R4/condition.html))
 * [Comment/Note](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.note)
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](http://hl7.org/fhir/r4/practitioner.html))
 
 ## Terminology Bindings
 
