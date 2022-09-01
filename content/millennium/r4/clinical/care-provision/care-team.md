@@ -11,6 +11,9 @@ title: CareTeam | R4 API
 
 The R4 CareTeam resource represents a patient's care team members. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or to the patient across all encounters (longitudinal).
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
+  * [US Core CareTeam Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-careteam.html)
+
 The following fields are returned if valued:
 
 * [Care Team id](http://hl7.org/fhir/resource-definitions.html#Resource.id){:target="_blank"}
