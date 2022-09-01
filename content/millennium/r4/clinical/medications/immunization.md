@@ -15,9 +15,8 @@ Detailed administration records may be found in MedicationAdministration, while 
 
 An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well.
 
-The [US Core 4.0.0 USCDI matrix](http://hl7.org/fhir/us/core/STU4/general-guidance.html) could be used to confirm the exact profiles for each resource, and to get the correct links
-
   * The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
+
     * [US Core Immunization Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-immunization.html)
 
 The following fields are returned if valued:
