@@ -14,7 +14,7 @@ The Procedure resource returns medical and surgical procedures performed on or f
 The [US Core 4.0.0 USCDI matrix](http://hl7.org/fhir/us/core/STU4/general-guidance.html) could be used to confirm the exact profiles for each resource, and to get the correct links.
 
 * The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
-  * [US Core DocumentReference Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-documentreference.html) ([Procedure](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure))
+  * [US Core Procedure Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-procedure.html)
 
 The following fields are returned if valued:
 
