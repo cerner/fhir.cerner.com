@@ -18,23 +18,23 @@ The [US Core 4.0.0 USCDI matrix](http://hl7.org/fhir/us/core/STU4/general-guidan
 
 The following fields are returned if valued:
 
-* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
-* [Status (completed, entered-in-error)](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status)
-* [Code](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code)
-* [Subject](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject)
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Patient](http://hl7.org/fhir/r4/patient.html))
-* [Encounter](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter)
-* [Date performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_)
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime) \| [Period](https://hl7.org/fhir/R4/datatypes.html#Period))
-* [Who recorded](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder)
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](http://hl7.org/fhir/r4/practitioner.html))
-* [Who performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer)
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](http://hl7.org/fhir/r4/practitioner.html))
-* [Location](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.location)
-* [Reason procedure performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.reasonReference)
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Condition](https://hl7.org/fhir/R4/condition.html))
-* [Comment/Note](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.note)
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](http://hl7.org/fhir/r4/practitioner.html))
+* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Status (completed, entered-in-error)](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status){:target="_blank"}
+* [Code](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code){:target="_blank"}
+* [Subject](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](http://hl7.org/fhir/r4/patient.html){:target="_blank"})
+* [Encounter](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter){:target="_blank"}
+* [Date performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"} \| [Period](https://hl7.org/fhir/R4/datatypes.html#Period){:target="_blank"})
+* [Who recorded](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference)v ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+* [Who performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+* [Location](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.location){:target="_blank"}
+* [Reason procedure performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.reasonReference){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Condition](https://hl7.org/fhir/R4/condition.html){:target="_blank"})
+* [Comment/Note](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.note){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 
 ## Terminology Bindings
 
