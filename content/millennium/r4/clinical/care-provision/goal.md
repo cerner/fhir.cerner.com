@@ -11,8 +11,6 @@ title: Goal | R4 API
 
 The Goal resource describes intended objectives for a patient. A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time. A Goal may address preventative health or mitigation of a diagnosis or problem. Goals can be non-health care related (e.g. dance at a wedding).
 
-The [US Core 4.0.0 USCDI matrix](http://hl7.org/fhir/us/core/STU4/general-guidance.html) could be used to confirm the exact profiles for each resource, and to get the correct links
-
 * The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
 
   * [US Core Goal Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-goal.html)
