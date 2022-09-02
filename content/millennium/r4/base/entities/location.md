@@ -11,15 +11,24 @@ title: Location | R4 API
 
 The Location resource describes physical places where healthcare services are provided. In Millennium, facilities are the top level of the patient location hierarchy. A facility is also an Organization resource at which patient locations are associated. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area like a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+  * [US Core Location Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-location.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Location id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/location-definitions.html#Location.status){:target="_blank"}
+  * [Location Status](http://hl7.org/fhir/R4/valueset-location-status.html){:target="_blank"} ([Active](http://hl7.org/fhir/R4/codesystem-location-status.html#location-status-active){:target="_blank"} \| [Inactive](http://hl7.org/fhir/R4/codesystem-location-status.html#location-status-inactive){:target="_blank"})
 * [Name](http://hl7.org/fhir/R4/location-definitions.html#Location.name){:target="_blank"}
 * [Alias](http://hl7.org/fhir/R4/location-definitions.html#Location.alias){:target="_blank"}
 * [Identifier](http://hl7.org/fhir/R4/location-definitions.html#Location.identifier){:target="_blank"}
 * [Mode](http://hl7.org/fhir/R4/location-definitions.html#Location.mode){:target="_blank"}
+  * [Location Mode](http://hl7.org/fhir/R4/valueset-location-mode.html){:target="_blank"} ([Instance](http://hl7.org/fhir/R4/codesystem-location-mode.html#location-mode-instance){:target="_blank"})
 * [Telecom](http://hl7.org/fhir/R4/location-definitions.html#Location.telecom){:target="_blank"}
+  * [Location Telecom System](http://hl7.org/fhir/R4/valueset-contact-point-system.html){:target="_blank"}
+  * [Location Address Type](http://hl7.org/fhir/R4/valueset-address-type.html){:target="_blank"}
+  * [Location Address Use](http://hl7.org/fhir/R4/valueset-address-use.html){:target="_blank"}
 * [Address](http://hl7.org/fhir/R4/location-definitions.html#Location.address){:target="_blank"}
 * [Physical Type](http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType){:target="_blank"}
 * [Managing Organization](http://hl7.org/fhir/R4/location-definitions.html#Location.managingOrganization){:target="_blank"}
