@@ -884,7 +884,7 @@ module Cerner
 
     R4_OBSERVATION_LABS_UPDATE ||= {
       "resourceType": 'Observation',
-      "id": 'M-196186655',
+      "id": 'L-196186655',
       "status": 'corrected',
       "meta": {
         "source": '43ba6d6a-1006-4546-bf28-48d84a98dbb1'
@@ -972,7 +972,7 @@ module Cerner
 
     R4_OBSERVATION_VITALS_UPDATE ||= {
       "resourceType": 'Observation',
-      "id": 'M-197356031',
+      "id": 'VS-197356031',
       "identifier": [
         {
           "system": 'https://fhir.cerner.com/ceuuid',

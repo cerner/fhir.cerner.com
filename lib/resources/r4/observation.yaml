@@ -23,7 +23,7 @@ fields:
   action: update
   example: |
     {
-      "id": "M-197391609"
+      "id": "L-197391609"
     }
   note: The id value must match the Observation/&lt;id> value.
   url: https://hl7.org/fhir/resource-definitions.html#Resource.id

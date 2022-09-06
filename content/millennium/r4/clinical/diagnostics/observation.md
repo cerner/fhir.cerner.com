@@ -307,7 +307,7 @@ _Note_:
 
 #### Request
 
-    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-196186655
+    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-196186655
 
 #### Labs Body Example
 
