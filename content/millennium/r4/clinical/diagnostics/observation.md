@@ -260,7 +260,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Mon, 16 Nov 2020 22:05:40 GMT
 Etag: W/"1"
-Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197392513
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-197392513
 Last-Modified: Mon, 16 Nov 2020 22:05:40 GMT
 Vary: Origin
 X-Request-Id: 30a3177d-0987-460d-bb27-a5bb6303f03e
