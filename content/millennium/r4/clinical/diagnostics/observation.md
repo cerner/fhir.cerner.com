@@ -106,7 +106,7 @@ Notes:
 
 * The `_lastUpdated` query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.
 
-* When _count parameter is provided,
+* When `_count` parameter is provided,
   * it won’t affect the first page, because all social history data will appear in the first page regardless of requested count.
   * Second page onward, returned item count may be less than requested.
 
