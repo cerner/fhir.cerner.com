@@ -19,7 +19,6 @@ The following fields are returned if valued:
 
 * [Patient id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Patient Identifier](https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier){:target="_blank"}
-  * [Usual](https://hl7.org/fhir/R4/codesystem-identifier-use.html#identifier-use-usual){:target="_blank"}
 * [Active](https://hl7.org/fhir/R4/patient-definitions.html#Patient.active){:target="_blank"}
 * [Patient name](https://hl7.org/fhir/R4/patient-definitions.html#Patient.name){:target="_blank"}
 * [Telecom Information (may include phone and email)](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom){:target="_blank"}
@@ -61,6 +60,7 @@ Search for Patients that meet supplied query parameters:
 _Implementation Notes_
 
 * Direct secure email will not be returned.
+* Usual will be represented by [Identifier.use](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use){:target="_blank"}
 
 ### Authorization Types
 
@@ -146,6 +146,7 @@ List an individual Patient by its id:
 _Implementation Notes_
 
 * Direct secure email will not be returned.
+* Usual will be represented by [Identifier.use](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use){:target="_blank"}
 
 ### Authorization Types
 
