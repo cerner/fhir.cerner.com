@@ -36,9 +36,11 @@ The following fields are returned if valued:
 * [Asserter](https://hl7.org/fhir/r4/condition-definitions.html#Condition.asserter){:target="_blank"}
   * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](https://hl7.org/fhir/R4/patient.html){:target="_blank"} \| [Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Comment/Note](https://hl7.org/fhir/R4/condition-definitions.html#Condition.note){:target="_blank"}
-  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"}) \| [string](https://hl7.org/fhir/R4/datatypes.html#string){:target="_blank"}
-  * [time](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time){:target="_blank"} ([dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"})
-  * [text](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"} ([markdown](https://hl7.org/fhir/R4/datatypes.html#markdown){:target="_blank"})
+  * [Annotation](https://hl7.org/fhir/R4/datatypes.html#Annotation){:target="_blank"}
+    * [author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
+      * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"}) \| [string](https://hl7.org/fhir/R4/datatypes.html#string){:target="_blank"}
+    * [time](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time){:target="_blank"} ([dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"})
+    * [text](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"} ([markdown](https://hl7.org/fhir/R4/datatypes.html#markdown){:target="_blank"})
 
 ## Terminology Bindings
 
