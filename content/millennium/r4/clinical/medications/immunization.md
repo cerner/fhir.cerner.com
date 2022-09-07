@@ -22,6 +22,7 @@ An immunization reaction may indicate an allergy or intolerance. If so, a separa
 The following fields are returned if valued:
 
 * [Id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Immunization Record Identifier](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.identifier){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.status){:target="_blank"}
 * [Status reason](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason){:target="_blank"}
 * [Vaccine administered](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
