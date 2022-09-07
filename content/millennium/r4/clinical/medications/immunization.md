@@ -27,9 +27,9 @@ The following fields are returned if valued:
 * [Vaccine administered](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
 * [Patient](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient){:target="_blank"}
 * [Patient encounter](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.encounter){:target="_blank"}
-* [Occurrence dateTime](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
-* [Indicates if the record is from the source who administered the vaccine](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
-* [reportOrigin](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.reportOrigin){:target="_blank"}
+* [Occurrence DateTime](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
+* [Primary Source](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
+* [Report Origin](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.reportOrigin){:target="_blank"}
 * [Location](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.location){:target="_blank"}
 * [Vaccine manufacturer](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.manufacturer){:target="_blank"}
 * [Vaccine lot number](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.lotNumber){:target="_blank"}
@@ -39,16 +39,17 @@ The following fields are returned if valued:
 * [Dosage administered](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.doseQuantity){:target="_blank"}
 * [Performer](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer){:target="_blank"}
   * [Type of performer (ordering or administering)](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function){:target="_blank"}
-    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [Organization](http://hl7.org/fhir/R4/organization.html){:target="_blank"})
   * [Individual who performed](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor){:target="_blank"}
+    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [Organization](http://hl7.org/fhir/R4/organization.html){:target="_blank"})
 * [Note](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"}
-  * [Author](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"}
-    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [Time](http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time){:target="_blank"} \| [Text](http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"})
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Author](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"})
+    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"}
+  * [Time](http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time){:target="_blank"}
+  * [Text](http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"}
 * [Protocol applied](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied){:target="_blank"}
-  * [doseNumber](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"} ([string](http://hl7.org/fhir/R4/datatypes.html#string){:target="_blank"})
+  * [Dose Number String](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"}
   * [Target disease](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.targetDisease){:target="_blank"}
-    * [doseNumber](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"} ([string](http://hl7.org/fhir/R4/datatypes.html#string){:target="_blank"})
-  * [Dose number](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"} ([string](http://hl7.org/fhir/R4/datatypes.html#string){:target="_blank"})
+    * [Dose Number String](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"}
 
 ## Terminology Bindings
 
