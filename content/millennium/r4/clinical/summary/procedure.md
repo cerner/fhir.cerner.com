@@ -23,16 +23,18 @@ The following fields are returned if valued:
   * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](http://hl7.org/fhir/r4/patient.html){:target="_blank"})
 * [Encounter](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter){:target="_blank"}
 * [Date performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"} \| [Period](https://hl7.org/fhir/R4/datatypes.html#Period){:target="_blank"})
+  * [DateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"}
+  * [Period](https://hl7.org/fhir/R4/datatypes.html#Period){:target="_blank"}
 * [Who recorded](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference)v ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
-* [Who performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+* [Who performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer.actor){:target="_blank"}
   * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Location](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.location){:target="_blank"}
 * [Reason procedure performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.reasonReference){:target="_blank"}
   * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Condition](https://hl7.org/fhir/R4/condition.html){:target="_blank"})
 * [Comment/Note](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.note){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+  * [Annotation Author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
+    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 
 ## Terminology Bindings
 
