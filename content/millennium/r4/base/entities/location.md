@@ -19,16 +19,11 @@ The following fields are returned if valued:
 
 * [Location id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/location-definitions.html#Location.status){:target="_blank"}
-  * [Location Status](http://hl7.org/fhir/R4/valueset-location-status.html){:target="_blank"} ([Active](http://hl7.org/fhir/R4/codesystem-location-status.html#location-status-active){:target="_blank"} \| [Inactive](http://hl7.org/fhir/R4/codesystem-location-status.html#location-status-inactive){:target="_blank"})
 * [Name](http://hl7.org/fhir/R4/location-definitions.html#Location.name){:target="_blank"}
 * [Alias](http://hl7.org/fhir/R4/location-definitions.html#Location.alias){:target="_blank"}
 * [Identifier](http://hl7.org/fhir/R4/location-definitions.html#Location.identifier){:target="_blank"}
 * [Mode](http://hl7.org/fhir/R4/location-definitions.html#Location.mode){:target="_blank"}
-  * [Location Mode](http://hl7.org/fhir/R4/valueset-location-mode.html){:target="_blank"} ([Instance](http://hl7.org/fhir/R4/codesystem-location-mode.html#location-mode-instance){:target="_blank"})
 * [Telecom](http://hl7.org/fhir/R4/location-definitions.html#Location.telecom){:target="_blank"}
-  * [Location Telecom System](http://hl7.org/fhir/R4/valueset-contact-point-system.html){:target="_blank"}
-  * [Location Address Type](http://hl7.org/fhir/R4/valueset-address-type.html){:target="_blank"}
-  * [Location Address Use](http://hl7.org/fhir/R4/valueset-address-use.html){:target="_blank"}
 * [Address](http://hl7.org/fhir/R4/location-definitions.html#Location.address){:target="_blank"}
 * [Physical Type](http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType){:target="_blank"}
 * [Managing Organization](http://hl7.org/fhir/R4/location-definitions.html#Location.managingOrganization){:target="_blank"}
