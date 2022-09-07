@@ -42,14 +42,13 @@ The following fields are returned if valued:
   * [Individual who performed](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor){:target="_blank"}
     * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [Organization](http://hl7.org/fhir/R4/organization.html){:target="_blank"})
 * [Note](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Author](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"})
-    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"}
+  * [Author reference](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"}
+    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
   * [Time](http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time){:target="_blank"}
   * [Text](http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"}
 * [Protocol applied](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied){:target="_blank"}
   * [Dose Number String](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"}
   * [Target disease](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.targetDisease){:target="_blank"}
-    * [Dose Number String](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"}
 
 ## Terminology Bindings
 
