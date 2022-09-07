@@ -40,8 +40,12 @@ The following fields are returned if valued:
   * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Who reported](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter){:target="_blank"}
   * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](https://hl7.org/fhir/R4/patient.html){:target="_blank"})
+  * Supports [contained reference](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.contained){:target="_blank"} to [PractitionerRole](https://hl7.org/fhir/r4/practitionerrole.html){:target="_blank"} and [RelatedPerson](https://hl7.org/fhir/R4/relatedperson.html){:target="_blank"}
 * [Comment](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.note){:target="_blank"}
-  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+  * [Annotation](https://hl7.org/fhir/R4/datatypes.html#Annotation){:target="_blank"}
+    * [author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
+      * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+    * [text](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"} ([markdown](https://hl7.org/fhir/R4/datatypes.html#markdown){:target="_blank"})
 * [Adverse reaction (clinical symptoms/manifestation)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation){:target="_blank"}
 * [Adverse reaction (severity)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity){:target="_blank"}
 
