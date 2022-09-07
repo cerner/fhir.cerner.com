@@ -24,16 +24,16 @@ The following fields are returned if valued:
 * [Description](http://hl7.org/fhir/r4/goal-definitions.html#Goal.description){:target="_blank"}
 * [Subject (patient)](http://hl7.org/fhir/r4/goal-definitions.html#Goal.subject){:target="_blank"}
 * [Start Date](http://hl7.org/fhir/r4/goal-definitions.html#Goal.start_x_){:target="_blank"}
-* [Target Due Date](http://hl7.org/fhir/r4/goal-definitions.html#Goal.target.due_x_){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Date](http://hl7.org/fhir/r4/datatypes.html#date){:target="_blank"})
+* [Target Due (Date only)](http://hl7.org/fhir/r4/goal-definitions.html#Goal.target.due_x_){:target="_blank"}
 * [Status Date](http://hl7.org/fhir/r4/goal-definitions.html#Goal.statusDate){:target="_blank"}
 * [Expressed By](http://hl7.org/fhir/r4/goal-definitions.html#Goal.expressedBy){:target="_blank"}
   * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](http://hl7.org/fhir/r4/patient.html){:target="_blank"} \| [Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [Related Person](http://hl7.org/fhir/r4/relatedperson.html){:target="_blank"})
-  * [Addresses](https://hl7.org/fhir/r4/goal-definitions.html#Goal.addresses){:target="_blank"}
-    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Condition](https://hl7.org/fhir/r4/condition-definitions.html){:target="_blank"})
+* [Addresses](https://hl7.org/fhir/r4/goal-definitions.html#Goal.addresses){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Condition](https://hl7.org/fhir/r4/condition-definitions.html){:target="_blank"})
 * [Note](http://hl7.org/fhir/r4/goal-definitions.html#Goal.note){:target="_blank"}
-    * [Author](http://hl7.org/fhir/r4/goal-definitions.html#Goal.note){:target="_blank"}
-      * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Text](http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.text){:target="_blank"} \| [Time](http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.time){:target="_blank"})
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Author](http://hl7.org/fhir/r4/goal-definitions.html#Goal.note){:target="_blank"})
+  * [Text](http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.text){:target="_blank"}
+  * [Time](http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.time){:target="_blank"}
 
 ## Terminology Bindings
 
