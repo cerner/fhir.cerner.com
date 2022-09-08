@@ -31,7 +31,7 @@ The following fields are returned if valued:
 * [Addresses](https://hl7.org/fhir/r4/goal-definitions.html#Goal.addresses){:target="_blank"}
   * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Condition](https://hl7.org/fhir/r4/condition-definitions.html){:target="_blank"})
 * [Note](http://hl7.org/fhir/r4/goal-definitions.html#Goal.note){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Author](http://hl7.org/fhir/r4/goal-definitions.html#Goal.note){:target="_blank"})
+  * [Author Reference](http://hl7.org/fhir/r4/goal-definitions.html#Goal.note){:target="_blank"}
   * [Text](http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.text){:target="_blank"}
   * [Time](http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.time){:target="_blank"}
 
