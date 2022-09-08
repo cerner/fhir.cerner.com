@@ -116,20 +116,69 @@
 
 <p>The Procedure resource returns medical and surgical procedures performed on or for a patient during their lifetime.   Historical procedures, as well as procedures recorded during a specific visit, are returned. Surgical procedures from finalized surgical cases will be returned as free text procedures, if the solution has been configured to write procedures from finalized cases to Procedure History.</p>
 
+<ul>
+  <li>The following <a href="https://hl7.org/fhir/us/core/STU4/">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:
+    <ul>
+      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-procedure.html">US Core Procedure Profile</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id">Id</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status">Status (completed, entered-in-error)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code">Code</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject">Subject</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter">Encounter</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_">Date performed</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder">Who recorded</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer">Who performed</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.location">Location</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.reasonReference">Reason procedure performed</a></li>
-  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.note">Comment/Note</a></li>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status" target="_blank">Status (completed, entered-in-error)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code" target="_blank">Code</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject" target="_blank">Subject</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/patient.html" target="_blank">Patient</a>)</li>
+    </ul>
+  </li>
+  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter" target="_blank">Encounter</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_" target="_blank">Date performed</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/datatypes.html#dateTime" target="_blank">DateTime</a></li>
+      <li><a href="https://hl7.org/fhir/R4/datatypes.html#Period" target="_blank">Period</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder" target="_blank">Who recorded</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference">Reference</a> (<a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer.actor" target="_blank">Who performed</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+    </ul>
+  </li>
+  <li><a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.location" target="_blank">Location</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.reasonReference" target="_blank">Reason procedure performed</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/R4/condition.html" target="_blank">Condition</a>)</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.note" target="_blank">Comment/Note</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_" target="_blank">Annotation Author</a>
+        <ul>
+          <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>

@@ -133,25 +133,63 @@
 
 <p>Assuming a patient safety or decision support use case, a consumer should avoid querying by status since it is not a required field and can ignore any entered-in-error allergies or intolerances.</p>
 
+<p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+<ul>
+  <li><a href="https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-allergyintolerance.html" target="_blank">US Core AllergyIntolerance Profile</a></li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id">Allergy Id</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus">Clinical Status</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus">Verification Status</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.type">Allergy Type</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category">Category (medication, food, environment)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality">Criticality/potential harm</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code">Allergy Code</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient">Patient with allergy/intolerance</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter">Encounter</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset">Date of allergy onset</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate">Date/Time recorded</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder">Who recorded</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter">Who reported</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.note">Comment</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation">Adverse reaction (clinical symptoms/manifestation)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity">Adverse reaction (severity)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Allergy Id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus" target="_blank">Clinical Status</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus" target="_blank">Verification Status</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.type" target="_blank">Allergy Type</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category" target="_blank">Category (medication, food, environment)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality" target="_blank">Criticality/potential harm</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code" target="_blank">Allergy Code</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient" target="_blank">Patient with allergy/intolerance</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter" target="_blank">Encounter</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset" target="_blank">Date of allergy onset</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate" target="_blank">Date/Time recorded</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder" target="_blank">Who recorded</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter" target="_blank">Who reported</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/R4/patient.html" target="_blank">Patient</a>)</li>
+      <li>Supports <a href="https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.contained" target="_blank">contained reference</a> to <a href="https://hl7.org/fhir/r4/practitionerrole.html" target="_blank">PractitionerRole</a> and <a href="https://hl7.org/fhir/R4/relatedperson.html" target="_blank">RelatedPerson</a>
+</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.note" target="_blank">Comment</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/R4/datatypes.html#Annotation" target="_blank">Annotation</a>
+        <ul>
+          <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_" target="_blank">author</a>
+            <ul>
+              <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+            </ul>
+          </li>
+          <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text" target="_blank">text</a> (<a href="https://hl7.org/fhir/R4/datatypes.html#markdown" target="_blank">markdown</a>)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation" target="_blank">Adverse reaction (clinical symptoms/manifestation)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity" target="_blank">Adverse reaction (severity)</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>

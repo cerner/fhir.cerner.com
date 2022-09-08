@@ -134,6 +134,12 @@
 
 <p>The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, etc. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.</p>
 
+<p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+<ul>
+  <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-encounter.html" target="_blank">US Core Encounter Profile</a></li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
@@ -144,12 +150,24 @@
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.type" target="_blank">Type</a></li>
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceType" target="_blank">Service Type</a></li>
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.priority" target="_blank">Priority</a></li>
-  <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.subject" target="_blank">Subject</a></li>
+  <li>
+<a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.subject" target="_blank">Subject</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/R4/patient.html" target="_blank">Patient</a>)</li>
+    </ul>
+  </li>
   <li>
 <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant" target="_blank">Participant:</a>
     <ul>
       <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.type" target="_blank">Type</a></li>
-      <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.individual" target="_blank">Name</a></li>
+      <li>
+<a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.individual" target="_blank">Name</a>
+        <ul>
+          <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.appointment" target="_blank">Appointment</a></li>
@@ -165,7 +183,13 @@
       <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dietPreference" target="_blank">Diet preference</a></li>
       <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialCourtesy" target="_blank">Special courtesy</a></li>
       <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialArrangement" target="_blank">Special arrangement</a></li>
-      <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination" target="_blank">Discharge destination</a></li>
+      <li>
+<a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination" target="_blank">Discharge destination</a>
+        <ul>
+          <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/location.html" target="_blank">Location</a>)</li>
+        </ul>
+      </li>
       <li><a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition" target="_blank">Discharge disposition</a></li>
     </ul>
   </li>

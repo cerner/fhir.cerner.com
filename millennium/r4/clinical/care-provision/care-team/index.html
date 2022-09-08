@@ -107,6 +107,14 @@
 
 <p>The R4 CareTeam resource represents a patient’s care team members. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or to the patient across all encounters (longitudinal).</p>
 
+<ul>
+  <li>The following <a href="https://hl7.org/fhir/us/core/STU4/">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:
+    <ul>
+      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-careteam.html">US Core CareTeam Profile</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
@@ -114,13 +122,25 @@
   <li><a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.status" target="_blank">Status (Active)</a></li>
   <li><a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.category" target="_blank">Category (Longitudinal or Encounter)</a></li>
   <li><a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.name" target="_blank">Name (Encounter-Level Only)</a></li>
-  <li><a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.subject" target="_blank">Subject</a></li>
+  <li>
+<a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.subject" target="_blank">Subject</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/patient.html" target="_blank">Patient</a>)</li>
+    </ul>
+  </li>
   <li><a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.encounter" target="_blank">Encounter (Encounter-Level Only)</a></li>
   <li>
 <a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant" target="_blank">Participant</a>
     <ul>
       <li><a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role" target="_blank">Role</a></li>
-      <li><a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member" target="_blank">Member</a></li>
+      <li>
+<a href="http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member" target="_blank">Member</a>
+        <ul>
+          <li>
+<a href="http://hl7.org/fhir/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a> | <a href="http://hl7.org/fhir/relatedperson.html" target="_blank">RelatedPerson</a>)</li>
+        </ul>
+      </li>
     </ul>
   </li>
 </ul>

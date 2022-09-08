@@ -109,6 +109,16 @@
 
 <p>The CarePlan resource describes the intentions of how one or more practitioners plan to deliver care to a specific patient. Care plans are used in a variety of areas and scopes ranging from encounter or visit specific to cross-visits.  Care plans are used to group activities, goals and/or practitioners to create context. Care plans are intended to be specific to the patient. It is possible for a planned activity to stand alone without a care plan such as a scheduled appointment.</p>
 
+<ul>
+  <li>
+    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+    <ul>
+      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-careplan.html">US Core CarePlan Profile</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
@@ -120,7 +130,13 @@
   <li><a href="http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.subject" target="_blank">Subject (Patient Only)</a></li>
   <li><a href="http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.encounter" target="_blank">Encounter</a></li>
   <li><a href="http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.period" target="_blank">Effective Period</a></li>
-  <li><a href="http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.author" target="_blank">Author</a></li>
+  <li>
+<a href="http://hl7.org/fhir/r4/careplan-definitions.html#CarePlan.author" target="_blank">Author</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -184,7 +200,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Codes indicating the degree of authority/intentionality associated with a care plan. Current;y "plan" is the only status binding which is supported.
+            <ul style="list-style-type: none"><li>Codes indicating the degree of authority/intentionality associated with a care plan. Currently "plan" is the only status binding which is supported.
 </li></ul>
           
           

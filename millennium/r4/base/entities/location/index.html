@@ -115,6 +115,16 @@
 
 <p>The Location resource describes physical places where healthcare services are provided. In Millennium, facilities are the top level of the patient location hierarchy. A facility is also an Organization resource at which patient locations are associated. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area like a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.</p>
 
+<ul>
+  <li>
+    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+    <ul>
+      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-location.html" target="_blank">US Core Location Profile</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
@@ -287,6 +297,215 @@
                       <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature">Custom Attribute Nomenclature Value</a><br>
                       
                         System: https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.status">Location.status</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Status of the location.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/codesystem-location-status.html#location-status-active">Active location</a><br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/codesystem-location-status.html#location-status-inactive">Inactive location</a><br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.mode">Location.mode</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Indicates whether a resource instance represents a specific location or a class of locations.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/codesystem-location-mode.html#location-mode-instance">Instance</a><br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.telecom">Location.telecom</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.telecom">Location Telecom System</a><br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.type">Location.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Address.type">Location Address Type</a><br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://hl7.org/fhir/R4/location-definitions.html#Location.use">Location.use</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The purpose of this address.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Address.use">Location Address Use</a><br>
                       
                       </p>
                     

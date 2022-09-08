@@ -125,23 +125,78 @@
 
 <p>The Condition resource is used to record problems, diagnoses, or other health matters that are concerning to a patient. Depending on the site, problems and diagnoses are used in different ways. Diagnoses are recorded on an encounter to document conditions addressed or treated during a specific patient visit. For U.S. clients, diagnoses support financial or reimbursement workflows. Problems are on-going or chronic conditions that are managed over every visit and not associated to a specific encounter. A condition may be both a diagnosis and a problem. Conditions, specifically diagnoses, are often associated to orders to document the medical necessity of a specific medication or procedure order and may be referenced by other resources as a “reason” for an action or order. Health concerns are also returned as part of the Condition resource and represent other concerns a patient may have such as financial or social risks.</p>
 
+<p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+<ul>
+  <li><a href="https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-condition.html" target="_blank">US Core Condition Profile</a></li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id">Id</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.clinicalStatus">Clinical status</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.verificationStatus">Verification status</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.category">Category</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.severity">Severity</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.code">Condition code</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject">Subject</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter">Patient encounter when first recorded (only applies to diagnoses)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_">Onset (dateTime)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_">Resolved date  (only applies to problems and health-concerns)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate">Date recorded</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder">Who recorded the condition</a></li>
-  <li><a href="http://hl7.org/fhir/r4/condition-definitions.html#Condition.asserter">Asserter</a></li>
-  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.note">Comment/Note</a></li>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.clinicalStatus" target="_blank">Clinical status</a></li>
+  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.verificationStatus" target="_blank">Verification status</a></li>
+  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.category" target="_blank">Category</a></li>
+  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.severity" target="_blank">Severity</a></li>
+  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.code" target="_blank">Condition code</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject" target="_blank">Subject</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/R4/patient.html" target="_blank">Patient</a>)</li>
+    </ul>
+  </li>
+  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter" target="_blank">Patient encounter when first recorded (only applies to diagnoses)</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_" target="_blank">Onset</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/datatypes.html#dateTime" target="_blank">dateTime</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_" target="_blank">Resolved date  (only applies to problems and health-concerns)</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/datatypes.html#dateTime" target="_blank">dateTime</a></li>
+    </ul>
+  </li>
+  <li><a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate" target="_blank">Date recorded</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder" target="_blank">Who recorded the condition</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/r4/condition-definitions.html#Condition.asserter" target="_blank">Asserter</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/R4/patient.html" target="_blank">Patient</a> | <a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/R4/condition-definitions.html#Condition.note" target="_blank">Comment/Note</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/R4/datatypes.html#Annotation" target="_blank">Annotation</a>
+        <ul>
+          <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_" target="_blank">author</a>
+            <ul>
+              <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>) | <a href="https://hl7.org/fhir/R4/datatypes.html#string" target="_blank">string</a>
+</li>
+            </ul>
+          </li>
+          <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time" target="_blank">time</a> (<a href="https://hl7.org/fhir/R4/datatypes.html#dateTime" target="_blank">dateTime</a>)</li>
+          <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text" target="_blank">text</a> (<a href="https://hl7.org/fhir/R4/datatypes.html#markdown" target="_blank">markdown</a>)</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
