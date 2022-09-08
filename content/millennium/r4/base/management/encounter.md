@@ -11,6 +11,10 @@ title: Encounter | R4 API
 
 The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, etc. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.
 
+The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+* [US Core Encounter Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-encounter.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Encounter id](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.id){:target="_blank"}
@@ -21,9 +25,11 @@ The following fields are returned if valued:
 * [Service Type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceType){:target="_blank"}
 * [Priority](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.priority){:target="_blank"}
 * [Subject](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.subject){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](https://hl7.org/fhir/R4/patient.html){:target="_blank"}) 
 * [Participant:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant){:target="_blank"}
   * [Type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.type){:target="_blank"}
   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.individual){:target="_blank"}
+    * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Appointment](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.appointment){:target="_blank"} 
 * [Start/end time of the encounter](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period){:target="_blank"}
 * [Reason for visit](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.reasonCode){:target="_blank"}
@@ -36,6 +42,7 @@ The following fields are returned if valued:
   * [Special courtesy](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialCourtesy){:target="_blank"}
   * [Special arrangement](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.specialArrangement){:target="_blank"}
   * [Discharge destination](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination){:target="_blank"}
+    * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Location](https://hl7.org/fhir/r4/location.html){:target="_blank"})
   * [Discharge disposition](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition){:target="_blank"}
 * [Location:](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location){:target="_blank"}
   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
