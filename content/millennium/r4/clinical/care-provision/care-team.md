@@ -11,6 +11,9 @@ title: CareTeam | R4 API
 
 The R4 CareTeam resource represents a patient's care team members. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or to the patient across all encounters (longitudinal).
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
+  * [US Core CareTeam Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-careteam.html)
+
 The following fields are returned if valued:
 
 * [Care Team id](http://hl7.org/fhir/resource-definitions.html#Resource.id){:target="_blank"}
@@ -18,10 +21,12 @@ The following fields are returned if valued:
 * [Category (Longitudinal or Encounter)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.category){:target="_blank"}
 * [Name (Encounter-Level Only)](http://hl7.org/fhir/careteam-definitions.html#CareTeam.name){:target="_blank"}
 * [Subject](http://hl7.org/fhir/careteam-definitions.html#CareTeam.subject){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/references.html#Reference){:target="_blank"} ([Patient](http://hl7.org/fhir/patient.html){:target="_blank"})
 * [Encounter (Encounter-Level Only)]( http://hl7.org/fhir/careteam-definitions.html#CareTeam.encounter){:target="_blank"}
 * [Participant](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant){:target="_blank"}
   * [Role](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role){:target="_blank"}
   * [Member](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member){:target="_blank"}
+    * [Reference](http://hl7.org/fhir/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [RelatedPerson](http://hl7.org/fhir/relatedperson.html){:target="_blank"})
 
 ## Terminology Bindings
 
