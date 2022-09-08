@@ -15,7 +15,7 @@ fields:
   required: 'Yes'
   binding:
     description: >
-      Codes indicating the degree of authority/intentionality associated with a care plan. Current;y "plan" is the only status binding which is supported.
+      Codes indicating the degree of authority/intentionality associated with a care plan. Currently "plan" is the only status binding which is supported.
     terminology:
     - display: Request Intent
       system: http://hl7.org/fhir/R4/codesystem-request-intent.html
