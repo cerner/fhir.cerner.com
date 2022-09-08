@@ -11,22 +11,36 @@ title: Condition | R4 API
 
 The Condition resource is used to record problems, diagnoses, or other health matters that are concerning to a patient. Depending on the site, problems and diagnoses are used in different ways. Diagnoses are recorded on an encounter to document conditions addressed or treated during a specific patient visit. For U.S. clients, diagnoses support financial or reimbursement workflows. Problems are on-going or chronic conditions that are managed over every visit and not associated to a specific encounter. A condition may be both a diagnosis and a problem. Conditions, specifically diagnoses, are often associated to orders to document the medical necessity of a specific medication or procedure order and may be referenced by other resources as a “reason” for an action or order. Health concerns are also returned as part of the Condition resource and represent other concerns a patient may have such as financial or social risks.
 
+The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+* [US Core Condition Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-condition.html){:target="_blank"}
+
 The following fields are returned if valued:
 
-* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
-* [Clinical status](https://hl7.org/fhir/R4/condition-definitions.html#Condition.clinicalStatus)
-* [Verification status](https://hl7.org/fhir/R4/condition-definitions.html#Condition.verificationStatus)
-* [Category](https://hl7.org/fhir/R4/condition-definitions.html#Condition.category)
-* [Severity](https://hl7.org/fhir/R4/condition-definitions.html#Condition.severity)
-* [Condition code](https://hl7.org/fhir/R4/condition-definitions.html#Condition.code)
-* [Subject](https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject)
-* [Patient encounter when first recorded (only applies to diagnoses)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter)
-* [Onset (dateTime)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_)
-* [Resolved date  (only applies to problems and health-concerns)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_)
-* [Date recorded](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate)
-* [Who recorded the condition](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder)
-* [Asserter](http://hl7.org/fhir/r4/condition-definitions.html#Condition.asserter)
-* [Comment/Note](https://hl7.org/fhir/R4/condition-definitions.html#Condition.note)
+* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Clinical status](https://hl7.org/fhir/R4/condition-definitions.html#Condition.clinicalStatus){:target="_blank"}
+* [Verification status](https://hl7.org/fhir/R4/condition-definitions.html#Condition.verificationStatus){:target="_blank"}
+* [Category](https://hl7.org/fhir/R4/condition-definitions.html#Condition.category){:target="_blank"}
+* [Severity](https://hl7.org/fhir/R4/condition-definitions.html#Condition.severity){:target="_blank"}
+* [Condition code](https://hl7.org/fhir/R4/condition-definitions.html#Condition.code){:target="_blank"}
+* [Subject](https://hl7.org/fhir/R4/condition-definitions.html#Condition.subject){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](https://hl7.org/fhir/R4/patient.html){:target="_blank"})
+* [Patient encounter when first recorded (only applies to diagnoses)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.encounter){:target="_blank"}
+* [Onset](https://hl7.org/fhir/R4/condition-definitions.html#Condition.onset_x_){:target="_blank"}
+  * [dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"}
+* [Resolved date  (only applies to problems and health-concerns)](https://hl7.org/fhir/R4/condition-definitions.html#Condition.abatement_x_){:target="_blank"}
+  * [dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"}
+* [Date recorded](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recordedDate){:target="_blank"}
+* [Who recorded the condition](https://hl7.org/fhir/R4/condition-definitions.html#Condition.recorder){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+* [Asserter](https://hl7.org/fhir/r4/condition-definitions.html#Condition.asserter){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](https://hl7.org/fhir/R4/patient.html){:target="_blank"} \| [Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+* [Comment/Note](https://hl7.org/fhir/R4/condition-definitions.html#Condition.note){:target="_blank"}
+  * [Annotation](https://hl7.org/fhir/R4/datatypes.html#Annotation){:target="_blank"}
+    * [author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
+      * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"}) \| [string](https://hl7.org/fhir/R4/datatypes.html#string){:target="_blank"}
+    * [time](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time){:target="_blank"} ([dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"})
+    * [text](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"} ([markdown](https://hl7.org/fhir/R4/datatypes.html#markdown){:target="_blank"})
 
 ## Terminology Bindings
 
