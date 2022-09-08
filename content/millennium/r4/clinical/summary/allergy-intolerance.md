@@ -19,24 +19,35 @@ If the consumer is sending in what is deemed to be a duplicate (codified or free
 
 Assuming a patient safety or decision support use case, a consumer should avoid querying by status since it is not a required field and can ignore any entered-in-error allergies or intolerances.
 
+The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+* [US Core AllergyIntolerance Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-allergyintolerance.html){:target="_blank"}
+
 The following fields are returned if valued:
 
-* [Allergy Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id)
-* [Clinical Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus)
-* [Verification Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus)
-* [Allergy Type](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.type)
-* [Category (medication, food, environment)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category)
-* [Criticality/potential harm](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality)
-* [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code)
-* [Patient with allergy/intolerance](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient)
-* [Encounter](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter)
-* [Date of allergy onset](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset)
-* [Date/Time recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate)
-* [Who recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder)
-* [Who reported](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter)
-* [Comment](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.note)
-* [Adverse reaction (clinical symptoms/manifestation)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation)
-* [Adverse reaction (severity)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity)
+* [Allergy Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Clinical Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus){:target="_blank"}
+* [Verification Status](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus){:target="_blank"}
+* [Allergy Type](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.type){:target="_blank"}
+* [Category (medication, food, environment)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.category){:target="_blank"}
+* [Criticality/potential harm](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.criticality){:target="_blank"}
+* [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code){:target="_blank"}
+* [Patient with allergy/intolerance](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient){:target="_blank"}
+* [Encounter](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter){:target="_blank"}
+* [Date of allergy onset](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset){:target="_blank"}
+* [Date/Time recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate){:target="_blank"}
+* [Who recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+* [Who reported](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.asserter){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](https://hl7.org/fhir/R4/patient.html){:target="_blank"})
+  * Supports [contained reference](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.contained){:target="_blank"} to [PractitionerRole](https://hl7.org/fhir/r4/practitionerrole.html){:target="_blank"} and [RelatedPerson](https://hl7.org/fhir/R4/relatedperson.html){:target="_blank"}
+* [Comment](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.note){:target="_blank"}
+  * [Annotation](https://hl7.org/fhir/R4/datatypes.html#Annotation){:target="_blank"}
+    * [author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
+      * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+    * [text](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"} ([markdown](https://hl7.org/fhir/R4/datatypes.html#markdown){:target="_blank"})
+* [Adverse reaction (clinical symptoms/manifestation)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation){:target="_blank"}
+* [Adverse reaction (severity)](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity){:target="_blank"}
 
 ## Terminology Bindings
 
