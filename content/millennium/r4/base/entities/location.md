@@ -11,6 +11,10 @@ title: Location | R4 API
 
 The Location resource describes physical places where healthcare services are provided. In Millennium, facilities are the top level of the patient location hierarchy. A facility is also an Organization resource at which patient locations are associated. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area like a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+  * [US Core Location Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-location.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Location id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}

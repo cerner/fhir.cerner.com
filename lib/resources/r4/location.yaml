@@ -55,3 +55,55 @@ fields:
           <li>The terminology binding only applies when the <code>custom-attribute-value</code> extension is of type <code>CodeableConcept</code>.</li>
           <li>The value of the custom attribute is not limited to a single Code Set or nomenclature.</li>
         </ul>
+
+  - name: status
+    type: code
+    description: The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.
+    action: terminology
+    binding:
+      description: Status of the location.
+      terminology:
+        - display: Active location
+          info_link: http://hl7.org/fhir/R4/codesystem-location-status.html#location-status-active
+        - display: Inactive location
+          info_link: http://hl7.org/fhir/R4/codesystem-location-status.html#location-status-inactive
+
+  - name: mode
+    type: code
+    description: Indicates whether a resource instance represents a specific location or a class of locations.
+    action: terminology
+    binding:
+      description: Indicates whether a resource instance represents a specific location or a class of locations.
+      terminology:
+        - display: Instance
+          info_link: http://hl7.org/fhir/R4/codesystem-location-mode.html#location-mode-instance
+
+  - name: telecom
+    type: code
+    description: The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.
+    action: terminology
+    binding:
+      description: The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.
+      terminology:
+        - display: Location Telecom System
+          info_link: http://hl7.org/fhir/R4/location-definitions.html#Location.telecom
+
+  - name: type
+    type: code
+    description: Indicates the type of function performed at the location.
+    action: terminology
+    binding:
+      description: Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.
+      terminology:
+        - display: Location Address Type
+          info_link: http://hl7.org/fhir/R4/datatypes-definitions.html#Address.type
+
+  - name: use
+    type: code
+    description: Physical location.
+    action: terminology
+    binding:
+      description: The purpose of this address.
+      terminology:
+        - display: Location Address Use
+          info_link: http://hl7.org/fhir/R4/datatypes-definitions.html#Address.use
