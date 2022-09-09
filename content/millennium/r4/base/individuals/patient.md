@@ -60,7 +60,7 @@ Search for Patients that meet supplied query parameters:
 _Implementation Notes_
 
 * Direct secure email will not be returned.
-* Usual will be represented by [Identifier.use](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use){:target="_blank"}
+* [Patient.identifier.use](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use){:target="_blank"} will have a value of 'usual'
 
 ### Authorization Types
 
@@ -146,7 +146,7 @@ List an individual Patient by its id:
 _Implementation Notes_
 
 * Direct secure email will not be returned.
-* Usual will be represented by [Identifier.use](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use){:target="_blank"}
+* [Patient.identifier.use](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use){:target="_blank"} will have a value of 'usual'
 
 ### Authorization Types
 
