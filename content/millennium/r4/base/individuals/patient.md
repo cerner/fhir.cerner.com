@@ -11,6 +11,10 @@ title: Patient | R4 API
 
 The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+  * [US Core Patient Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-patient.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Patient id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
@@ -22,12 +26,17 @@ The following fields are returned if valued:
 * [Extensions including birth time, preferred contact, birth sex, ethnicity, communication preference and race](#extensions){:target="_blank"}
 * [Date of Birth]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate){:target="_blank"}
 * [Deceased]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
+  * [Boolean](https://hl7.org/fhir/R4/datatypes.html#boolean){:target="_blank"}
+  * [dateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"}
 * [Address]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.address){:target="_blank"}
 * [Marital status]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus){:target="_blank"}
 * [Multiple Birth Information]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.multipleBirth_x_){:target="_blank"}
+  * [Boolean](https://hl7.org/fhir/R4/datatypes.html#boolean){:target="_blank"}
+  * [Integer](https://hl7.org/fhir/R4/datatypes.html#integer){:target="_blank"}
 * [Contact person (guardian, parent or emergency)]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.contact){:target="_blank"}
 * [Communication (preferred language)]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication){:target="_blank"}
 * [Primary Care Providers]( https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner){:target="_blank"}
+  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 
 ## Terminology Bindings
 
@@ -51,6 +60,7 @@ Search for Patients that meet supplied query parameters:
 _Implementation Notes_
 
 * Direct secure email will not be returned.
+* [Patient.identifier.use](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use){:target="_blank"} will have a value of 'usual'
 
 ### Authorization Types
 
@@ -136,6 +146,7 @@ List an individual Patient by its id:
 _Implementation Notes_
 
 * Direct secure email will not be returned.
+* [Patient.identifier.use](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use){:target="_blank"} will have a value of 'usual'
 
 ### Authorization Types
 
