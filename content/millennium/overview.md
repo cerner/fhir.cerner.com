@@ -38,4 +38,6 @@ CapabilityStatement (R4) endpoints for the list of supported resources and actio
 The table below gives a live view of what resources and actions are currently supported by our DSTU 2 and R4 
 implementations for system and provider access.
 
+Please see the [HL7® FHIR® US Core Implementation Guide’s U.S. Core Data for Interoperability (USCDI) Guidance page](https://hl7.org/fhir/us/core/STU4/general-guidance.html#us-core-data-for-interoperability){:target="_blank"} for details on which specific [USCDI version 1](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi#uscdi-v1){:target="_blank"} data elements are supported by each of the available API resources defined in the table below.
+
 <%= render '/millennium/diff_table.*' %>
