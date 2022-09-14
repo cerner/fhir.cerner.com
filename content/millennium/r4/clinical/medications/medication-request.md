@@ -25,25 +25,42 @@ The following fields are returned if valued:
 * [Priority](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority){:target="_blank"}
 * [Reported Boolean](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_){:target="_blank"}
 * [Medication](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.medication_x_){:target="_blank"}
+  * [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Medication](https://hl7.org/fhir/r4/medication.html){:target="_blank"})
 * [Patient](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.subject){:target="_blank"}
 * [Encounter](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.encounter){:target="_blank"}
 * [Authored on Date](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.authoredOn){:target="_blank"}
 * [Requester](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.requester){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Reason Code](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reasonCode){:target="_blank"}
 * [Course of Therapy Type](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.courseOfTherapyType){:target="_blank"}
 * [Note](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.note){:target="_blank"}
+  * [Annotation](https://hl7.org/fhir/R4/datatypes.html#Annotation){:target="_blank"}
+    * [author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
+      * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"}) \| [string](https://hl7.org/fhir/R4/datatypes.html#string){:target="_blank"}
 * [Dosage Instructions](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction){:target="_blank"}
   * [Text](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.text){:target="_blank"}
   * [Additional Instructions](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.additionalInstruction){:target="_blank"}
   * [Patient Instructions](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.patientInstruction){:target="_blank"}
   * [Timing Schedule](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.timing){:target="_blank"}
+    * [Timing](https://hl7.org/fhir/r4/datatypes.html#Timing){:target="_blank"}
+      * [code](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.code){:target="_blank"} \| [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept){:target="_blank"}
+      * [repeat](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat){:target="_blank"} \| [Element](https://hl7.org/fhir/r4/element.html){:target="_blank"}
+      * [duration](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.duration){:target="_blank"} \| [decimal](https://hl7.org/fhir/r4/datatypes.html#decimal){:target="_blank"}
+      * [durationUnit](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.durationUnit){:target="_blank"} \| [code](https://hl7.org/fhir/r4/datatypes.html#code){:target="_blank"}
+      * [bounds](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.bounds_x_){:target="_blank"}
+        * boundsPeriod \| [Period](https://hl7.org/fhir/r4/datatypes.html#Period){:target="_blank"}
   * [As Needed](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.asNeeded_x_){:target="_blank"}
   * [Body Site](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.site ){:target="_blank"}
   * [Route](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.route){:target="_blank"}
   * [Dose and Rate](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate){:target="_blank"}
+    * [doseAndRate.dose\[x\]](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.dose_x_){:target="_blank"}
+    * [doseAndRate.rate\[x\]](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.rate_x_){:target="_blank"}
 * [Dispensing Details](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest){:target="_blank"}
   * [Validity Period](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod ){:target="_blank"}
+  * [initialFill Quantity](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill.quantity){:target="_blank"}
   * [Number of Refills](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed){:target="_blank"}
+  * [Dispense Interval](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.dispenseInterval){:target="_blank"}
   * [Dispense Quantity](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity){:target="_blank"}
   * [Expected Days Supply per Dispense](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration){:target="_blank"}
   * [Intended Dispenser](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.performer){:target="_blank"}
