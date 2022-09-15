@@ -11,6 +11,10 @@ title: Device | R4 API
 
 The Device resource implementation is currently limited to devices implanted in a patient such as a pacemaker or insulin pump. As such, this resource currently exposes the known implant history for a patient at this site.
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+  * [US Core Implantable Device Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-implantable-device.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Device id](https://hl7.org/fhir/r4/device-definitions.html#Device.id){:target="_blank"}
@@ -27,6 +31,8 @@ The following fields are returned if valued:
 * [Device name](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName){:target="_blank"}
   * [Name](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.name){:target="_blank"}
   * [Type](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.type){:target="_blank"}
+    * [User Friendly name](https://hl7.org/fhir/r4/codesystem-device-nametype.html#device-nametype-user-friendly-name){:target="_blank"}
+    * [Manufacturer name](https://hl7.org/fhir/r4/codesystem-device-nametype.html#device-nametype-manufacturer-name){:target="_blank"}
 * [Model number](https://hl7.org/fhir/r4/device-definitions.html#Device.modelNumber){:target="_blank"}
 * [Type](https://hl7.org/fhir/r4/device-definitions.html#Device.type){:target="_blank"}
 * [Patient](https://hl7.org/fhir/r4/device-definitions.html#Device.patient){:target="_blank"}
