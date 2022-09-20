@@ -31,8 +31,6 @@ The following fields are returned if valued:
 * [Device name](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName){:target="_blank"}
   * [Name](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.name){:target="_blank"}
   * [Type](https://hl7.org/fhir/r4/device-definitions.html#Device.deviceName.type){:target="_blank"}
-    * [User Friendly name](https://hl7.org/fhir/r4/codesystem-device-nametype.html#device-nametype-user-friendly-name){:target="_blank"}
-    * [Manufacturer name](https://hl7.org/fhir/r4/codesystem-device-nametype.html#device-nametype-manufacturer-name){:target="_blank"}
 * [Model number](https://hl7.org/fhir/r4/device-definitions.html#Device.modelNumber){:target="_blank"}
 * [Type](https://hl7.org/fhir/r4/device-definitions.html#Device.type){:target="_blank"}
 * [Patient](https://hl7.org/fhir/r4/device-definitions.html#Device.patient){:target="_blank"}
