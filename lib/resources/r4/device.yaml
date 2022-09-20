@@ -18,9 +18,8 @@ fields:
   type: code
   description: The type of deviceName.
   binding:
-    description: The type of name the device is referred by.
+    description: The type of deviceName. <code>Device Name Type</code> can be either <code>user-friendly-name</code> or <code>manufacturer-name</code>.
     terminology:
-      - display: User Friendly name
-        info_link: https://hl7.org/fhir/r4/codesystem-device-nametype.html#device-nametype-user-friendly-name
-      - display: Manufacturer name
-        info_link: https://hl7.org/fhir/r4/codesystem-device-nametype.html#device-nametype-manufacturer-name
+      - display: Device Name Type
+        system: http://hl7.org/fhir/device-nametype
+        info_link: https://hl7.org/fhir/R4/valueset-device-nametype.html
