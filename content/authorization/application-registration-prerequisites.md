@@ -220,7 +220,9 @@ The DNS TXT record helps prove that the website intends to host your application
 
 **Where should the DNS TXT record be placed?**
 
-The DNS TXT record should be located on the DNS record for the eTLD+1 domain name of your application's primary redirect URI.
+Application's web site SHOULD [host a DNS TXT record](#setting-up-your-domains-dns-txt-record) containing the Cerner-issued client identifier for the application (also referred to as a "system account ID" in CernerCentral or a "client identifier" in the [OAuth 2 specification][OAuth 2 specification] ). This TXT record should be added to the eTLD+1 for the domain hosting the application.
+
+
 
 **What happens if I don't provide the DNS TXT record?**
 
