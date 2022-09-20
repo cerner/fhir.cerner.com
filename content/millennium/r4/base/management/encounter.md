@@ -114,9 +114,9 @@ Notes:
 
 * `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
 * `_revinclude` parameter may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
-* `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+* `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently, `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilized for patient persona.
 * `_count` and `status` must be provided with patient
-* `status` valid parameters are `planned`, `in-proggres`, `finished`, `cancelled`
+* `status` valid parameters are `planned`, `in-progress`, `finished`, `arrived`, `onleave`, `triaged`, `unknown`
 * The `date` parameter may be provided:
   * once with a prefix ge, gt, le or lt representing the earliest datetime or latest datetime.  (e.g.: 
     `date=ge2015-01-01T00:00:00.000Z`,
@@ -130,9 +130,9 @@ Notes:
     `date=gt2015-01-01T00:00:00.000Z&date=lt2016-01-01T00:00:00.000Z`,
     )
 * The `identifier` parameter
-  * Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the
+  * Code details are required. System is optional. If a system is not provided, search is performed across all systems supported by the
     Encounter resource.
-  * When valid system is provided, search is performed against the specific system.
+  * When a valid system is provided, search is performed against the specific system.
 
 ### Headers
 
