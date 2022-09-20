@@ -11,6 +11,10 @@ title: Device | R4 API
 
 The Device resource implementation is currently limited to devices implanted in a patient such as a pacemaker or insulin pump. As such, this resource currently exposes the known implant history for a patient at this site.
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+  * [US Core Implantable Device Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-implantable-device.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Device id](https://hl7.org/fhir/r4/device-definitions.html#Device.id){:target="_blank"}
