@@ -15,7 +15,7 @@ If the MedicationRequest represents a prescription (something the patient takes 
 
 The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
 
-* [US Core DocumentReference Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-documentreference.html){:target="_blank"}
+* [US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-medicationrequest.html){:target="_blank"}
 
 The following fields are returned if valued:
 
