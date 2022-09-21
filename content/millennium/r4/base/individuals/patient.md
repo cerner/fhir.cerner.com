@@ -323,4 +323,4 @@ See [Health Cards] documentation for more details about this operation.
 [US Core Ethnicity]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html
 [US Core Birth Sex]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html
 [Communication Preference]: https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json
-[Health Cards]: /millennium/r4/other/health-cards/
+[Health Cards]: /millennium/r4/foundation/other/health-cards/

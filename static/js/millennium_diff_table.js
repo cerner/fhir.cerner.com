@@ -125,7 +125,7 @@ function matchDstu2Resources(dstu2Resources, r4Resources) {
   for (let i = 0; i < dstu2Resources.length; i++) {
     let currentResource = dstu2Resources[i];
 
-    if (currentResource != null) {
+    if (currentResource != null && !config.resourceConfig.ignoredResources.includes(currentResource.type)) {
       let config = getConfiguration(currentResource.type);
       let match = null;
 
@@ -155,7 +155,7 @@ function getUnmatchedResources(r4Resources) {
   for (let i = 0; i < r4Resources.length; i++) {
     let currentResource = r4Resources[i];
 
-    if (currentResource != null) {
+    if (currentResource != null && !config.resourceConfig.ignoredResources.includes(currentResource.type)) {
       let config = getConfiguration(currentResource.type)
 
       if (config != null) {
