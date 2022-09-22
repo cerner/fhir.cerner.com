@@ -28,15 +28,20 @@ function getConfiguration(resourceName) {
 function buildResource(resourceObject) {
   let supportedActions = resourceObject.interaction;
 
-  return {
-    resourceName: resourceObject.type,
-    readSupported: supportedActions.filter(action => action.code == "read").length > 0,
-    searchSupported: supportedActions.filter(action => action.code == "search-type").length > 0,
-    createSupported: supportedActions.filter(action => action.code == "create").length > 0,
-    updateSupported: supportedActions.filter(action => action.code == "update").length > 0,
-    patchSupported: supportedActions.filter(action => action.code == "patch").length > 0,
-    deleteSupported: supportedActions.filter(action => action.code == "delete").length > 0
-  };
+  if (supportedActions != null) {
+    return {
+      resourceName: resourceObject.type,
+      readSupported: supportedActions.filter(action => action.code == "read").length > 0,
+      searchSupported: supportedActions.filter(action => action.code == "search-type").length > 0,
+      createSupported: supportedActions.filter(action => action.code == "create").length > 0,
+      updateSupported: supportedActions.filter(action => action.code == "update").length > 0,
+      patchSupported: supportedActions.filter(action => action.code == "patch").length > 0,
+      deleteSupported: supportedActions.filter(action => action.code == "delete").length > 0
+    }
+  }
+  else {
+    return { resourceName: resourceObject.type }
+  }
 }
 
 /**
@@ -125,7 +130,7 @@ function matchDstu2Resources(dstu2Resources, r4Resources) {
   for (let i = 0; i < dstu2Resources.length; i++) {
     let currentResource = dstu2Resources[i];
 
-    if (currentResource != null) {
+    if (currentResource != null && !config.resourceConfig.ignoredResources.includes(currentResource.type)) {
       let config = getConfiguration(currentResource.type);
       let match = null;
 
@@ -155,7 +160,7 @@ function getUnmatchedResources(r4Resources) {
   for (let i = 0; i < r4Resources.length; i++) {
     let currentResource = r4Resources[i];
 
-    if (currentResource != null) {
+    if (currentResource != null && !config.resourceConfig.ignoredResources.includes(currentResource.type)) {
       let config = getConfiguration(currentResource.type)
 
       if (config != null) {
