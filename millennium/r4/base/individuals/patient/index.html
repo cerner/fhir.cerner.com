@@ -129,6 +129,16 @@
 
 <p>The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.</p>
 
+<ul>
+  <li>
+    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+    <ul>
+      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-patient.html" target="_blank">US Core Patient Profile</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
@@ -140,13 +150,31 @@
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender" target="_blank">Gender (administrative)</a></li>
   <li><a href="#extensions" target="_blank">Extensions including birth time, preferred contact, birth sex, ethnicity, communication preference and race</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate" target="_blank">Date of Birth</a></li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_" target="_blank">Deceased</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_" target="_blank">Deceased</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/datatypes.html#boolean" target="_blank">Boolean</a></li>
+      <li><a href="https://hl7.org/fhir/R4/datatypes.html#dateTime" target="_blank">dateTime</a></li>
+    </ul>
+  </li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.address" target="_blank">Address</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus" target="_blank">Marital status</a></li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.multipleBirth_x_" target="_blank">Multiple Birth Information</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.multipleBirth_x_" target="_blank">Multiple Birth Information</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/datatypes.html#boolean" target="_blank">Boolean</a></li>
+      <li><a href="https://hl7.org/fhir/R4/datatypes.html#integer" target="_blank">Integer</a></li>
+    </ul>
+  </li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.contact" target="_blank">Contact person (guardian, parent or emergency)</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication" target="_blank">Communication (preferred language)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner" target="_blank">Primary Care Providers</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner" target="_blank">Primary Care Providers</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -505,6 +533,8 @@
 
 <ul>
   <li>Direct secure email will not be returned.</li>
+  <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use" target="_blank">Patient.identifier.use</a> will have a value of ‘usual’</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -1418,6 +1448,8 @@ Patient resource.</li>
 
 <ul>
   <li>Direct secure email will not be returned.</li>
+  <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use" target="_blank">Patient.identifier.use</a> will have a value of ‘usual’</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -5092,7 +5124,7 @@ X-Request-Id: 81c05ba01b2c19e5bf421449ff8e97eb
 <pre><code>POST /Patient/:id/$health-cards-issue
 </code></pre>
 
-<p>See <a href="../../../other/health-cards/">Health Cards</a> documentation for more details about this operation.</p>
+<p>See <a href="../../../foundation/other/health-cards/">Health Cards</a> documentation for more details about this operation.</p>
 
 
     </div>

@@ -32,13 +32,14 @@ const config = {
       {
         type: "FinancialTransaction",
         interaction: [
-          {
-            code: "create"
-          }
-      ],
-      notes: "FinancialTransaction is a custom resource implemented via extensions on the Basic resource."
+            {
+              code: "create"
+            }
+        ],
+        notes: "FinancialTransaction is a custom resource implemented via extensions on the Basic resource."
       }
-    ]
+    ],
+    ignoredResources: [ "Group" ]
   },
   dstu2: {
     metadataUrl: "https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata",

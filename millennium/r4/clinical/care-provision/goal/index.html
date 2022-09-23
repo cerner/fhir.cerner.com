@@ -109,6 +109,16 @@
 
 <p>The Goal resource describes intended objectives for a patient. A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time. A Goal may address preventative health or mitigation of a diagnosis or problem. Goals can be non-health care related (e.g. dance at a wedding).</p>
 
+<ul>
+  <li>
+    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+    <ul>
+      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-goal.html">US Core Goal Profile</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
@@ -119,13 +129,28 @@
   <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.description" target="_blank">Description</a></li>
   <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.subject" target="_blank">Subject (patient)</a></li>
   <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.start_x_" target="_blank">Start Date</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.target.due_x_" target="_blank">Target Due Date</a></li>
+  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.target.due_x_" target="_blank">Target Due (Date only)</a></li>
   <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.statusDate" target="_blank">Status Date</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.expressedBy" target="_blank">Expressed By</a></li>
+  <li>
+<a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.expressedBy" target="_blank">Expressed By</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/patient.html" target="_blank">Patient</a> | <a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a> | <a href="http://hl7.org/fhir/r4/relatedperson.html" target="_blank">Related Person</a>)</li>
+    </ul>
+  </li>
+  <li>
+<a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.addresses" target="_blank">Addresses</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/condition-definitions.html" target="_blank">Condition</a>)</li>
+    </ul>
+  </li>
   <li>
 <a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.note" target="_blank">Note</a>
     <ul>
-      <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.note" target="_blank">Author</a></li>
+      <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.note" target="_blank">Author Reference</a></li>
+      <li><a href="http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.text" target="_blank">Text</a></li>
+      <li><a href="http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.time" target="_blank">Time</a></li>
     </ul>
   </li>
 </ul>

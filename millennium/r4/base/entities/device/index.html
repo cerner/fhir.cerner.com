@@ -105,6 +105,16 @@
 
 <p>The Device resource implementation is currently limited to devices implanted in a patient such as a pacemaker or insulin pump. As such, this resource currently exposes the known implant history for a patient at this site.</p>
 
+<ul>
+  <li>
+    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+    <ul>
+      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-implantable-device.html" target="_blank">US Core Implantable Device Profile</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
@@ -167,6 +177,47 @@
                       <p>Details: <a target="_blank" href="https://www.hl7.org/fhir/valueset-device-type.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
+    <tr>
+      <td>
+      
+          <a target="_blank" href="https://www.hl7.org/fhir/device-definitions.html#Device.deviceName.type">Device.deviceName.type</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The type of deviceName. <code>Device Name Type</code> can be either <code>user-friendly-name</code> or <code>manufacturer-name</code>.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/valueset-device-nametype.html">Device Name Type</a><br>
+                      
+                        System: http://hl7.org/fhir/device-nametype <br>
                       
                       </p>
                     
@@ -258,20 +309,20 @@
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="14c27617-7b3c-4403-8305-57545860c1e6">
+  <ul id="51b2fe83-c4f2-4c62-9d1b-8124fcc3b0b5">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '14c27617-7b3c-4403-8305-57545860c1e6'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '51b2fe83-c4f2-4c62-9d1b-8124fcc3b0b5'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '14c27617-7b3c-4403-8305-57545860c1e6'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '51b2fe83-c4f2-4c62-9d1b-8124fcc3b0b5'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="14c27617-7b3c-4403-8305-57545860c1e6" class="example-tab-content">
+<div data-id="51b2fe83-c4f2-4c62-9d1b-8124fcc3b0b5" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
@@ -704,20 +755,20 @@
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="ed97c228-0bed-479f-9fc2-16504a47ea85">
+  <ul id="09b3bdbb-c467-47ab-9573-e3b671d216bc">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'ed97c228-0bed-479f-9fc2-16504a47ea85'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '09b3bdbb-c467-47ab-9573-e3b671d216bc'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'ed97c228-0bed-479f-9fc2-16504a47ea85'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '09b3bdbb-c467-47ab-9573-e3b671d216bc'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="ed97c228-0bed-479f-9fc2-16504a47ea85" class="example-tab-content">
+<div data-id="09b3bdbb-c467-47ab-9573-e3b671d216bc" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{

@@ -129,18 +129,29 @@
 
 <p>An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well.</p>
 
+<ul>
+  <li>
+    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+    <ul>
+      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-immunization.html">US Core Immunization Profile</a></li>
+    </ul>
+  </li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
   <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.identifier" target="_blank">Immunization Record Identifier</a></li>
   <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.status" target="_blank">Status</a></li>
   <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason" target="_blank">Status reason</a></li>
   <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode" target="_blank">Vaccine administered</a></li>
   <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient" target="_blank">Patient</a></li>
   <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.encounter" target="_blank">Patient encounter</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_" target="_blank">Administration date/time</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource" target="_blank">Indicates if the record is from the source who administered the vaccine</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.reportOrigin" target="_blank">Source of secondarily reported record</a></li>
+  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_" target="_blank">Occurrence DateTime</a></li>
+  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource" target="_blank">Primary Source</a></li>
+  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.reportOrigin" target="_blank">Report Origin</a></li>
   <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.location" target="_blank">Location</a></li>
   <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.manufacturer" target="_blank">Vaccine manufacturer</a></li>
   <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.lotNumber" target="_blank">Vaccine lot number</a></li>
@@ -152,15 +163,34 @@
 <a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer" target="_blank">Performer</a>
     <ul>
       <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function" target="_blank">Type of performer (ordering or administering)</a></li>
-      <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor" target="_blank">Individual who performed</a></li>
+      <li>
+<a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor" target="_blank">Individual who performed</a>
+        <ul>
+          <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a> | <a href="http://hl7.org/fhir/R4/organization.html" target="_blank">Organization</a>)</li>
+        </ul>
+      </li>
     </ul>
   </li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note" target="_blank">Note</a></li>
+  <li>
+<a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note" target="_blank">Note</a>
+    <ul>
+      <li>
+<a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note" target="_blank">Author reference</a>
+        <ul>
+          <li>
+<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+        </ul>
+      </li>
+      <li><a href="http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time" target="_blank">Time</a></li>
+      <li><a href="http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text" target="_blank">Text</a></li>
+    </ul>
+  </li>
   <li>
 <a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied" target="_blank">Protocol applied</a>
     <ul>
+      <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_" target="_blank">Dose Number String</a></li>
       <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.targetDisease" target="_blank">Target disease</a></li>
-      <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_" target="_blank">Dose number</a></li>
     </ul>
   </li>
 </ul>
