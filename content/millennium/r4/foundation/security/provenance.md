@@ -11,6 +11,10 @@ title: Provenance | R4 API
 
 The Provenance resource tracks the source of external data and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter.  Entities are Continuity of Care DocumentReferences (CCDs).
 
+The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+* [US Core Provenance Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-provenance.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Provenance id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
@@ -19,7 +23,7 @@ The following fields are returned if valued:
 * [Agent type (author or transmitter)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type){:target="_blank"}
 * [Agent role (source or informant)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role){:target="_blank"}
 * [Agent who (Practitioner, Device, or Organization)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who){:target="_blank"}
-* [Agent on behalf of](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf){:target="_blank"}
+* [Agent on behalf of (when Agent.who is of type Practitioner)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf){:target="_blank"}
 * [Entity role](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role){:target="_blank"}
 * [Entity what (Continuity of Care DocumentReference id)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what){:target="_blank"}
 
