@@ -5,7 +5,7 @@ title: MedicationRequest | R4 API
 # MedicationRequest
 
 * TOC
-{:toc}
+  {:toc}
 
 ## Overview
 
@@ -29,8 +29,8 @@ The following fields are returned if valued:
 * [Priority](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority){:target="_blank"}
 * [Reported Boolean](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_){:target="_blank"}
 * [Medication](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.medication_x_){:target="_blank"}
-  * [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept){:target="_blank"}
-  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Medication](https://hl7.org/fhir/r4/medication.html){:target="_blank"})
+  * medicationCodeableConcept \| [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept){:target="_blank"}
+  * medicationReference \| [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Medication](https://hl7.org/fhir/r4/medication.html){:target="_blank"})
 * [Patient](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.subject){:target="_blank"}
 * [Encounter](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.encounter){:target="_blank"}
 * [Authored on Date](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.authoredOn){:target="_blank"}
@@ -58,8 +58,8 @@ The following fields are returned if valued:
   * [Body Site](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.site ){:target="_blank"}
   * [Route](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.route){:target="_blank"}
   * [Dose and Rate](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate){:target="_blank"}
-    * [doseAndRate.dose\[x\]](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.dose_x_){:target="_blank"}
-    * [doseAndRate.rate\[x\]](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.rate_x_){:target="_blank"}
+    * [doseAndRate.doseQuantity](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.dose_x_){:target="_blank"}
+    * [doseAndRate.rateQuantity](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.rate_x_){:target="_blank"}
 * [Dispensing Details](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest){:target="_blank"}
   * [Validity Period](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod ){:target="_blank"}
   * [initialFill Quantity](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill.quantity){:target="_blank"}
@@ -98,7 +98,7 @@ All URLs for Swedish extensions are defined as `http://electronichealth.se/fhir/
 
 * Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
 
-* Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy. 
+* Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy.
   URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status`.
 
 ## Search
@@ -224,7 +224,7 @@ We use the intent field to determine if a medication is an authorization or a me
 
 #### Patient Authorization Request For Entered in Error Status
 
-  GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/261542609
+GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/261542609
 
 #### Response
 
