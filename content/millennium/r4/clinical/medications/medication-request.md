@@ -5,13 +5,17 @@ title: MedicationRequest | R4 API
 # MedicationRequest
 
 * TOC
-{:toc}
+  {:toc}
 
 ## Overview
 
 The MedicationRequest resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient's historical or documented home medications reported by the patient, significant other or another provider.
 
 If the MedicationRequest represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical/past/home medications are commonly captured when taking the patient’s medical history.
+
+The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+* [US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-medicationrequest.html){:target="_blank"}
 
 The following fields are returned if valued:
 
@@ -25,25 +29,42 @@ The following fields are returned if valued:
 * [Priority](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority){:target="_blank"}
 * [Reported Boolean](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_){:target="_blank"}
 * [Medication](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.medication_x_){:target="_blank"}
+  * medicationCodeableConcept \| [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept){:target="_blank"}
+  * medicationReference \| [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Medication](https://hl7.org/fhir/r4/medication.html){:target="_blank"})
 * [Patient](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.subject){:target="_blank"}
 * [Encounter](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.encounter){:target="_blank"}
 * [Authored on Date](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.authoredOn){:target="_blank"}
 * [Requester](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.requester){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Reason Code](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reasonCode){:target="_blank"}
 * [Course of Therapy Type](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.courseOfTherapyType){:target="_blank"}
 * [Note](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.note){:target="_blank"}
+  * [Annotation](https://hl7.org/fhir/R4/datatypes.html#Annotation){:target="_blank"}
+    * [author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
+      * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"}) \| [string](https://hl7.org/fhir/R4/datatypes.html#string){:target="_blank"}
 * [Dosage Instructions](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction){:target="_blank"}
   * [Text](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.text){:target="_blank"}
   * [Additional Instructions](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.additionalInstruction){:target="_blank"}
   * [Patient Instructions](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.patientInstruction){:target="_blank"}
   * [Timing Schedule](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.timing){:target="_blank"}
+    * [Timing](https://hl7.org/fhir/r4/datatypes.html#Timing){:target="_blank"}
+      * [code](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.code){:target="_blank"} \| [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept){:target="_blank"}
+      * [repeat](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat){:target="_blank"} \| [Element](https://hl7.org/fhir/r4/element.html){:target="_blank"}
+      * [duration](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.duration){:target="_blank"} \| [decimal](https://hl7.org/fhir/r4/datatypes.html#decimal){:target="_blank"}
+      * [durationUnit](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.durationUnit){:target="_blank"} \| [code](https://hl7.org/fhir/r4/datatypes.html#code){:target="_blank"}
+      * [bounds](https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.bounds_x_){:target="_blank"}
+        * boundsPeriod \| [Period](https://hl7.org/fhir/r4/datatypes.html#Period){:target="_blank"}
   * [As Needed](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.asNeeded_x_){:target="_blank"}
   * [Body Site](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.site ){:target="_blank"}
   * [Route](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.route){:target="_blank"}
   * [Dose and Rate](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate){:target="_blank"}
+    * [doseAndRate.doseQuantity](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.dose_x_){:target="_blank"}
+    * [doseAndRate.rateQuantity](https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.rate_x_){:target="_blank"}
 * [Dispensing Details](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest){:target="_blank"}
   * [Validity Period](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod ){:target="_blank"}
+  * [initialFill Quantity](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill.quantity){:target="_blank"}
   * [Number of Refills](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed){:target="_blank"}
+  * [Dispense Interval](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.dispenseInterval){:target="_blank"}
   * [Dispense Quantity](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity){:target="_blank"}
   * [Expected Days Supply per Dispense](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration){:target="_blank"}
   * [Intended Dispenser](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.performer){:target="_blank"}
@@ -77,7 +98,7 @@ All URLs for Swedish extensions are defined as `http://electronichealth.se/fhir/
 
 * Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
 
-* Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy. 
+* Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy.
   URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status`.
 
 ## Search
@@ -203,7 +224,7 @@ We use the intent field to determine if a medication is an authorization or a me
 
 #### Patient Authorization Request For Entered in Error Status
 
-  GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/261542609
+GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/261542609
 
 #### Response
 
