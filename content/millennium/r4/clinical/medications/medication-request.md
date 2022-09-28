@@ -5,7 +5,7 @@ title: MedicationRequest | R4 API
 # MedicationRequest
 
 * TOC
-  {:toc}
+{:toc}
 
 ## Overview
 
@@ -224,7 +224,7 @@ We use the intent field to determine if a medication is an authorization or a me
 
 #### Patient Authorization Request For Entered in Error Status
 
-GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/261542609
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/261542609
 
 #### Response
 
