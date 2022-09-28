@@ -113,7 +113,7 @@ describe Cerner::Resources::Helpers do
         context 'when the hash contains an Accept key value' do
           let(:head) { {Accept: 'value'} }
 
-          let(:appended_html) { '<a href="../../#media-types">Accept</a>: value' }
+          let(:appended_html) { '<a href="../../../#media-types">Accept</a>: value' }
 
           it 'returns the generated HTML with the Accept header' do
             expect(headers).to eq(expected_html)
@@ -123,7 +123,7 @@ describe Cerner::Resources::Helpers do
         context "when the hash contains a 'Content-Type' key value" do
           let(:head) { {'Content-Type': 'value'} }
 
-          let(:appended_html) { '<a href="../../#media-types">Content-Type</a>: value' }
+          let(:appended_html) { '<a href="../../../#media-types">Content-Type</a>: value' }
 
           it 'returns the generated HTML with the Content-Type header' do
             expect(headers).to eq(expected_html)
@@ -133,7 +133,7 @@ describe Cerner::Resources::Helpers do
         context 'when the hash contains an Authorization key value' do
           let(:head) { {Authorization: 'value'} }
 
-          let(:appended_html) { '<a href="../../#authorization">Authorization</a>: value' }
+          let(:appended_html) { '<a href="../../../#authorization">Authorization</a>: value' }
 
           it 'returns the generated HTML with the Authorization header' do
             expect(headers).to eq(expected_html)
@@ -162,9 +162,9 @@ describe Cerner::Resources::Helpers do
 
           let(:appended_html) do
             [
-              '<a href="../../#media-types">Accept</a>: accept_value',
-              '<a href="../../#media-types">Content-Type</a>: content_type_value',
-              '<a href="../../#authorization">Authorization</a>: authorization_value',
+              '<a href="../../../#media-types">Accept</a>: accept_value',
+              '<a href="../../../#media-types">Content-Type</a>: content_type_value',
+              '<a href="../../../#authorization">Authorization</a>: authorization_value',
               'other: value'
             ].join("\n")
           end
@@ -235,9 +235,9 @@ describe Cerner::Resources::Helpers do
       let(:appended_html) do
         [
           'Status: 200 OK',
-          '<a href="../../#media-types">Accept</a>: accept_value',
-          '<a href="../../#media-types">Content-Type</a>: content_type_value',
-          '<a href="../../#authorization">Authorization</a>: authorization_value',
+          '<a href="../../../#media-types">Accept</a>: accept_value',
+          '<a href="../../../#media-types">Content-Type</a>: content_type_value',
+          '<a href="../../../#authorization">Authorization</a>: authorization_value',
           'other: value'
         ].join("\n")
       end
@@ -325,6 +325,35 @@ describe Cerner::Resources::Helpers do
     end
   end
 
+  describe '#headers_path' do
+    subject(:headers_path) { Cerner::Resources::Helpers.headers_path(bulk, r4) }
+
+    let(:bulk) { false }
+    let(:r4) { true }
+
+    context 'when bulk is false' do
+      context 'when r4 is true' do
+        it 'returns the path to r4 overview' do
+          expect(headers_path).to eq('../../../')
+        end
+      end
+
+      context 'when r4 is false' do
+        let(:r4) { false }
+        it 'returns the path to dstu2 overview' do
+          expect(headers_path).to eq('../../')
+        end
+      end
+    end
+
+    context 'when bulk is true' do
+      let(:bulk) { true }
+      it 'return the path to the bulk-data overview' do
+        expect(headers_path).to eq('../../bulk-data')
+      end
+    end
+  end
+
   describe '#default_headers' do
     subject(:default_headers_dstu2) { Cerner::Resources::Helpers.default_headers }
 
@@ -339,8 +368,8 @@ describe Cerner::Resources::Helpers do
   describe '#default_headers_r4' do
     subject(:default_headers_r4) { Cerner::Resources::Helpers.default_headers_r4 }
 
-    let(:accept_header) { '<a href="../../#media-types">Accept</a>: application/fhir+json' }
-    let(:authorization_header) { '<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>' }
+    let(:accept_header) { '<a href="../../../#media-types">Accept</a>: application/fhir+json' }
+    let(:authorization_header) { '<a href="../../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>' }
 
     it 'returns the default R4 request headers HTML' do
       expect(default_headers_r4).to eq([accept_header, authorization_header])
