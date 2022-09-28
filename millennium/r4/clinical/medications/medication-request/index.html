@@ -68,7 +68,8 @@
       <ul>
         <li><a href="../../../../overview/">Overview</a></li>
         <li><a href="../../../../dstu2/">DSTU 2 Final (1.0.2)</a></li>
-        <li><a href="../../../">R4 First Normative Content (4.0.1)</a></li>
+        <li><a href="../../../">R4 (4.0.1)</a></li>
+        <li><a href="../../../../bulk-data/">Bulk Data Access (v1.0.1)</a></li>
         <li><a href="../../../../faq/" class="nav-faq">FAQ</a></li>
         <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
       </ul>
@@ -79,52 +80,8 @@
     <div class="content">
       <h1 id="medicationrequest">MedicationRequest</h1>
 
-<ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-  <li>
-<a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
-      <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
-    </ul>
-  </li>
-  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
-  <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
-  <li>
-<a href="#search" id="markdown-toc-search">Search</a>    <ul>
-      <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
-      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
-      <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
-      <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#example-with-revinclude" id="markdown-toc-example-with-revinclude">Example with RevInclude</a></li>
-      <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
-      <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
-      <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
-      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#create" id="markdown-toc-create">Create</a>    <ul>
-      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
-      <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
-      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
-      <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
-    </ul>
-  </li>
-  <li>
-<a href="#patch" id="markdown-toc-patch">Patch</a>    <ul>
-      <li><a href="#authorization-types-4" id="markdown-toc-authorization-types-4">Authorization Types</a></li>
-      <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
-      <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
-      <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
-      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
-    </ul>
-  </li>
+<ul>
+  <li>TOC</li>
 </ul>
 
 <h2 id="overview">Overview</h2>
@@ -132,6 +89,12 @@
 <p>The MedicationRequest resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient’s historical or documented home medications reported by the patient, significant other or another provider.</p>
 
 <p>If the MedicationRequest represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical/past/home medications are commonly captured when taking the patient’s medical history.</p>
+
+<p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+<ul>
+  <li><a href="https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-medicationrequest.html" target="_blank">US Core MedicationRequest Profile</a></li>
+</ul>
 
 <p>The following fields are returned if valued:</p>
 
@@ -149,32 +112,98 @@
   <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.category" target="_blank">Category</a></li>
   <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priority" target="_blank">Priority</a></li>
   <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reported_x_" target="_blank">Reported Boolean</a></li>
-  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.medication_x_" target="_blank">Medication</a></li>
+  <li>
+<a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.medication_x_" target="_blank">Medication</a>
+    <ul>
+      <li>medicationCodeableConcept | <a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept" target="_blank">CodeableConcept</a>
+</li>
+      <li>medicationReference | <a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/medication.html" target="_blank">Medication</a>)</li>
+    </ul>
+  </li>
   <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.subject" target="_blank">Patient</a></li>
   <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.encounter" target="_blank">Encounter</a></li>
   <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.authoredOn" target="_blank">Authored on Date</a></li>
-  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.requester" target="_blank">Requester</a></li>
+  <li>
+<a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.requester" target="_blank">Requester</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+    </ul>
+  </li>
   <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.reasonCode" target="_blank">Reason Code</a></li>
   <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.courseOfTherapyType" target="_blank">Course of Therapy Type</a></li>
-  <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.note" target="_blank">Note</a></li>
+  <li>
+<a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.note" target="_blank">Note</a>
+    <ul>
+      <li>
+<a href="https://hl7.org/fhir/R4/datatypes.html#Annotation" target="_blank">Annotation</a>
+        <ul>
+          <li>
+<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_" target="_blank">author</a>
+            <ul>
+              <li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>) | <a href="https://hl7.org/fhir/R4/datatypes.html#string" target="_blank">string</a>
+</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
   <li>
 <a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dosageInstruction" target="_blank">Dosage Instructions</a>
     <ul>
       <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.text" target="_blank">Text</a></li>
       <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.additionalInstruction" target="_blank">Additional Instructions</a></li>
       <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.patientInstruction" target="_blank">Patient Instructions</a></li>
-      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.timing" target="_blank">Timing Schedule</a></li>
+      <li>
+<a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.timing" target="_blank">Timing Schedule</a>
+        <ul>
+          <li>
+<a href="https://hl7.org/fhir/r4/datatypes.html#Timing" target="_blank">Timing</a>
+            <ul>
+              <li>
+<a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.code" target="_blank">code</a> | <a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept" target="_blank">CodeableConcept</a>
+</li>
+              <li>
+<a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat" target="_blank">repeat</a> | <a href="https://hl7.org/fhir/r4/element.html" target="_blank">Element</a>
+</li>
+              <li>
+<a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.duration" target="_blank">duration</a> | <a href="https://hl7.org/fhir/r4/datatypes.html#decimal" target="_blank">decimal</a>
+</li>
+              <li>
+<a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.durationUnit" target="_blank">durationUnit</a> | <a href="https://hl7.org/fhir/r4/datatypes.html#code" target="_blank">code</a>
+</li>
+              <li>
+<a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Timing.repeat.bounds_x_" target="_blank">bounds</a>
+                <ul>
+                  <li>boundsPeriod | <a href="https://hl7.org/fhir/r4/datatypes.html#Period" target="_blank">Period</a>
+</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
       <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.asNeeded_x_" target="_blank">As Needed</a></li>
       <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.site" target="_blank">Body Site</a></li>
       <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.route" target="_blank">Route</a></li>
-      <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate" target="_blank">Dose and Rate</a></li>
+      <li>
+<a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate" target="_blank">Dose and Rate</a>
+        <ul>
+          <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.dose_x_" target="_blank">doseAndRate.doseQuantity</a></li>
+          <li><a href="https://hl7.org/fhir/r4/dosage-definitions.html#Dosage.doseAndRate.rate_x_" target="_blank">doseAndRate.rateQuantity</a></li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>
 <a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest" target="_blank">Dispensing Details</a>
     <ul>
       <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod" target="_blank">Validity Period</a></li>
+      <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.initialFill.quantity" target="_blank">initialFill Quantity</a></li>
       <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed" target="_blank">Number of Refills</a></li>
+      <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.dispenseInterval" target="_blank">Dispense Interval</a></li>
       <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity" target="_blank">Dispense Quantity</a></li>
       <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration" target="_blank">Expected Days Supply per Dispense</a></li>
       <li><a href="https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.dispenseRequest.performer" target="_blank">Intended Dispenser</a></li>
@@ -988,7 +1017,7 @@
     <p>Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction</code>.</p>
   </li>
   <li>
-    <p>Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy. 
+    <p>Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy.
 URL for this extension is defined as: <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status</code>.</p>
   </li>
 </ul>
@@ -3906,6 +3935,15 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
         <ul class="js-guides">
           <li class="subtopic"><a href="../../../specialized/definitional-artifacts/">Definitional Artifacts</a></li>
           <li><a href="../../../specialized/definitional-artifacts/questionnaire/">Questionnaire</a></li>
+        </ul>
+      </li>
+
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="../../../../bulk-data/">Bulk Data</a>
+</h3>
+        <ul class="js-guides">
+          <li><a href="../../../../bulk-data/group-export/">Group Export</a></li>
         </ul>
       </li>
     </ul>

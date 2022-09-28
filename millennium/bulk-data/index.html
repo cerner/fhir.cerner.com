@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Bulk Data Access</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/millennium_diff_table_config.js" type="text/javascript"></script>  
+  <script src="../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body class="bulk-data_api">
+  <div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      
+        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
+      
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../overview/">Millennium</a></li>
+         <li><a href="../../soarian/overview/">Soarian</a></li>
+        <li><a href="../../authorization">Authorization</a></li>
+        <li><a href="../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+  <div class="sub-nav">
+    
+      <h2>Millennium</h2>
+      <ul>
+        <li><a href="../overview/">Overview</a></li>
+        <li><a href="../dstu2/">DSTU 2 Final (1.0.2)</a></li>
+        <li><a href="../r4/">R4 (4.0.1)</a></li>
+        <li><a href="./">Bulk Data Access (v1.0.1)</a></li>
+        <li><a href="../faq/" class="nav-faq">FAQ</a></li>
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+      </ul>
+    
+  </div>
+
+  <div id="wrapper">
+    <div class="content">
+      <h1 id="bulk-data-access-overview">Bulk Data Access Overview</h1>
+
+<p>The Cerner Ignite APIs for Millennium with Bulk Data Access provides system applications the ability to access large volumes of core clinical data for a group of individuals in alignment with standards cited in 21st Century Cures Act regulations.</p>
+
+<p>FHIR Bulk data requests are executed against an organization’s database asynchronously. When implementing an interface between a Cerner Millennium domain and a bulk data application, it is important that the queries inherent in the bulk data request capture only the data necessary for the application.</p>
+
+<p>There are several factors that affect the amount of time it takes to complete a Bulk API export:</p>
+
+<ul>
+  <li>The size of the population for which data was requested</li>
+  <li>The number of resource types requested</li>
+  <li>The time range of activity being requested</li>
+  <li>Inherent latency due to network issues and effects from concurrent requests to the system</li>
+</ul>
+
+<h4 id="example-use-cases">Example use cases</h4>
+
+<ul>
+  <li>Creating an internal clinical data warehouse for study purposes</li>
+  <li>Machine learning applications obtaining training data from EHR</li>
+  <li>Integration of population health system with an EHR system</li>
+  <li>Data transfer to payer database for care quality assessment</li>
+  <li>Submission to reportable disease (or other) registries</li>
+</ul>
+
+<!-- TOC -->
+<ul id="markdown-toc">
+  <li><a href="#implemented-exports" id="markdown-toc-implemented-exports">Implemented Exports</a></li>
+  <li><a href="#registering-client-applications" id="markdown-toc-registering-client-applications">Registering Client Applications</a></li>
+  <li>
+<a href="#service-root-url" id="markdown-toc-service-root-url">Service Root URL</a>    <ul>
+      <li><a href="#sandbox" id="markdown-toc-sandbox">Sandbox</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#client-errors" id="markdown-toc-client-errors">Client Errors</a>    <ul>
+      <li><a href="#lenient-workflow" id="markdown-toc-lenient-workflow">Lenient Workflow</a></li>
+    </ul>
+  </li>
+  <li><a href="#operationoutcomes" id="markdown-toc-operationoutcomes">OperationOutcomes</a></li>
+</ul>
+
+<h2 id="implemented-exports">Implemented Exports</h2>
+
+<p>Cerner supports only the Group Export operation.</p>
+
+<ul>
+  <li><a href="group-export/">Group Export</a></li>
+</ul>
+
+<p><em>Notes</em></p>
+
+<ul>
+  <li>Cerner supports v1.0.1 of the <a href="https://hl7.org/fhir/uv/bulkdata/STU1.0.1/">FHIR Bulk Data Access (Flat FHIR) Implementation Guide</a> and supports several experimental parameters from <a href="http://hl7.org/fhir/uv/bulkdata/STU2/export.html#query-parameters">v2.0.0</a>.</li>
+</ul>
+
+<h2 id="registering-client-applications">Registering Client Applications</h2>
+
+<p>In order to be granted access to the Bulk Data Access API, a Millennium Bulk SMART application must be registered through Cerner’s <a href="http://fhir.cerner.com/smart/#code-console">code Console</a>. See <a href="http://fhir.cerner.com/authorization/">Authorization</a> for additional details on registering client applications and authorizing with the server.</p>
+
+<p>In the case of Group Export, client application developers will need to work with healthcare organizations to identify the available Groups to be exported. Organizations can manage Groups within Ignite Management Tooling.</p>
+
+<p><em>Notes</em></p>
+
+<ul>
+  <li>Authentication is required, open endpoints do not support bulk export workflows.</li>
+  <li>Bulk data runs against an organization’s database and utilizes the same services running other applications, so it is important to consider performance. Bulk data exports large amounts of data for large groups of patients, which takes more time to complete the larger the data set or patient population.</li>
+</ul>
+
+<h2 id="service-root-url">Service Root URL</h2>
+
+<p>The FHIR Bulk Data server uses the <a href="http://fhir.cerner.com/millennium/r4/#service-root-url">FHIR Base url</a> as the service root url.</p>
+
+<h3 id="sandbox">Sandbox</h3>
+
+<p>Testing can be done in sandbox for applications that have <a href="http://fhir.cerner.com/authorization/">authorization</a>.</p>
+
+<p><code>https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d</code></p>
+
+<h2 id="client-errors">Client Errors</h2>
+
+<p>The following are the possible client errors that can be received on API calls:</p>
+
+<ol>
+  <li>
+    <p>Failing to send a required search parameter or sending a parameter with an invalid value will result in a <code>400 Bad Request</code> response.</p>
+
+    <pre><code> HTTP/1.1 400 Bad Request
+</code></pre>
+  </li>
+  <li>
+    <p>Making a request without valid credentials will result in a <code>401 Unauthorized</code> response.</p>
+
+    <pre><code> HTTP/1.1 401 Unauthorized
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting data from an unknown instance or an instance where the application is not authorized will result in a <code>403 Forbidden</code> response.</p>
+
+    <pre><code> HTTP/1.1 403 Forbidden
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting a resource which does not exist will result in a <code>404 Not Found</code> response.</p>
+
+    <pre><code> HTTP/1.1 404 Not Found
+</code></pre>
+  </li>
+  <li>
+    <p>Requesting a media type other than JSON will result in a <code>406 Not Acceptable</code> response.</p>
+
+    <pre><code> HTTP/1.1 406 Not Acceptable
+
+ Content-Length: 0
+</code></pre>
+  </li>
+  <li>
+    <p>Performing an export kick off using unsupported search parameter values</p>
+
+    <pre><code> HTTP/1.1 422 Unprocessable Entity
+</code></pre>
+  </li>
+</ol>
+
+<h3 id="lenient-workflow">Lenient Workflow</h3>
+
+<p>When the optional header of <code>Prefer: handling=lenient</code> is passed to the export kick off request, any unknown or unsupported parameters will be ignored as specified in the <a href="http://hl7.org/fhir/uv/bulkdata/STU2/export.html">v.2.0.0 FHIR Bulk Data Access (Flat FHIR) Implementation Guide</a>, and the request will be processed instead of returning an error.</p>
+
+<h2 id="operationoutcomes">OperationOutcomes</h2>
+
+<p>An <a href="https://www.hl7.org/fhir/r4/operationoutcome.html">OperationOutcome</a> may be returned to provide additional context to an error. The table below describes common OperationOutcomes and their causes.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>HTTP Status</th>
+      <th>Cause</th>
+      <th>Severity</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>400</td>
+      <td>The request has an invalid search parameter or a parameter with an invalid value</td>
+      <td>error</td>
+      <td>invalid</td>
+    </tr>
+    <tr>
+      <td>401</td>
+      <td>Invalid credentials were sent to in the request</td>
+      <td>error</td>
+      <td>login, expired</td>
+    </tr>
+    <tr>
+      <td>403</td>
+      <td>The client is not authorized to access the information</td>
+      <td>error</td>
+      <td>forbidden</td>
+    </tr>
+    <tr>
+      <td>404</td>
+      <td>The resource being requested cannot be found</td>
+      <td>error</td>
+      <td>not-found</td>
+    </tr>
+    <tr>
+      <td>406</td>
+      <td>The value supplied to the <code>Accept</code> header is not supported</td>
+      <td>error</td>
+      <td>invalid</td>
+    </tr>
+    <tr>
+      <td>429</td>
+      <td>Too many requests have been sent</td>
+      <td>error</td>
+      <td>throttled</td>
+    </tr>
+    <tr>
+      <td>500</td>
+      <td>An internal error occurred</td>
+      <td>fatal</td>
+      <td>exception</td>
+    </tr>
+  </tbody>
+</table>
+
+    </div>
+
+    <div id="js-sidebar" class="sidebar-shell">
+  <div class="expand-collapse">
+    <a href="#" class="js-expand-all">+ Expand All</a>
+    <a href="#" class="js-collapse-all hide">- Collapse All</a>
+  </div>
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3>
+<a href="#" class="js-expand-btn collapsed arrow-btn" data-proofer-ignore></a><a href="./">Bulk Data Access</a>
+        </h3>
+        <ul class="js-guides">
+          <li><a href="group-export/">Group Export</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub
+      repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+  </div>
+<!-- #wrapper -->
+
+  <div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>
