@@ -58,7 +58,7 @@ Notes:
 
 ### Headers
 
- <%= headers %>
+ <%= headers r4:false %>
 
 ### Example
 
@@ -100,7 +100,7 @@ List an individual Condition by its id:
 
 ### Headers
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### Example
 
@@ -144,7 +144,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'}, r4:false %>
 
 ### Body fields
 
@@ -241,7 +241,7 @@ _Implementation Notes_
 ### Headers
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir',
-                   'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the Condition resource>"'} %>
+                   'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the Condition resource>"'}, r4:false %>
 
 ### Body fields
 

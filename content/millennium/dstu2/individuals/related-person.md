@@ -54,7 +54,7 @@ Notes:
 
 ### Headers
 
- <%= headers %>
+ <%= headers r4:false %>
 
 ### Example
 
@@ -85,7 +85,7 @@ List an individual RelatedPerson by its id:
 
 ### Headers
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### Example
 

@@ -84,7 +84,7 @@ Notes:
 
 ### Headers
 
- <%= headers %>
+ <%= headers r4:false %>
 
 ### Example
 

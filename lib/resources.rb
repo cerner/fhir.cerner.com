@@ -27,19 +27,20 @@ module Cerner
         502 => '502 Bad Gateway'
       }.freeze
 
-      def headers(status: nil, head: {}, fhir_json: false)
+      def headers(status: nil, head: {}, fhir_json: false, bulk: false, r4: true)
         lines = status ? ["Status: #{STATUSES[status]}"] : []
+        path = headers_path(bulk, r4)
 
         head.each do |key, value|
           lines << case key
                    when :pagination
                      link_header(value)
                    when :Accept
-                     "<a href=\"../../#media-types\">#{key}</a>: #{value}"
+                     "<a href=\"#{path}#media-types\">#{key}</a>: #{value}"
                    when :'Content-Type'
-                     "<a href=\"../../#media-types\">#{key}</a>: #{value}"
+                     "<a href=\"#{path}#media-types\">#{key}</a>: #{value}"
                    when :Authorization
-                     "<a href=\"../../#authorization\">#{key}</a>: #{value}"
+                     "<a href=\"#{path}#authorization\">#{key}</a>: #{value}"
                    else
                      "#{key}: #{value}"
                    end
@@ -64,6 +65,13 @@ module Cerner
         lines
       end
 
+      def headers_path(bulk, r_4)
+        path = r_4 ? '../../../' : '../../'
+        path = bulk ? '../../bulk-data' : path
+
+        path
+      end
+
       def link_header_rel(name, url)
         %Q(<#{url}>; rel="#{name}")
       end
@@ -77,8 +85,8 @@ module Cerner
 
       def default_headers_r4
         [
-          '<a href="../../#media-types">Accept</a>: application/fhir+json',
-          '<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>'
+          '<a href="../../../#media-types">Accept</a>: application/fhir+json',
+          '<a href="../../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>'
         ]
       end
 

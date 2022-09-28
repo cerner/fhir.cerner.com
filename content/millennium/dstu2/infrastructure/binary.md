@@ -48,7 +48,7 @@ Either `DocumentReference.content.attachment.contentType` or `DiagnosticReport.p
 
 This resource will not accept the `application/json` mime type unless the underlying binary data is json.
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### FHIR Accept Example
 
@@ -118,7 +118,7 @@ The `DocumentReference.content.attachment.contentType` should be used to set the
 
 This resource will not accept the `application/json` mime type unless the underlying binary data is json.
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### FHIR Accept Example
 

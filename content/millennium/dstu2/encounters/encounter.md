@@ -82,7 +82,7 @@ _Implementation Notes_
 
 ### Headers
 
- <%= headers %>
+ <%= headers r4:false %>
 
 ### Example
 
@@ -118,7 +118,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### Example
 

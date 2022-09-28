@@ -43,7 +43,7 @@ Search for Practitioners that meet supplied query parameters:
 
 ### Headers
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### Example
 
@@ -73,7 +73,7 @@ List an individual Practitioner by its id:
 
 ### Headers
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### Example
 

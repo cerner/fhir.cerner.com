@@ -63,7 +63,7 @@ information, see the [Binary accept] documentation.
 
 ### Headers
 
- <%= headers %>
+ <%= headers r4:false %>
 
 ### Example
 

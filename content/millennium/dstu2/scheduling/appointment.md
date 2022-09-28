@@ -83,7 +83,7 @@ Notes:
 
 ### Headers
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### Example
 
@@ -114,7 +114,7 @@ List an individual Appointment by its id:
 
 ### Headers
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### Example
 
@@ -156,7 +156,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'}, r4:false %>
 
 ### Body Fields
 
@@ -222,7 +222,7 @@ _Implementation Notes_
 ### Headers
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir',
-                   'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the Appointment resource>"'} %>
+                   'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the Appointment resource>"'}, r4:false %>
 
 ### Body fields
 

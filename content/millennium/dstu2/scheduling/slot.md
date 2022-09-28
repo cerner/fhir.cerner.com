@@ -103,7 +103,7 @@ Notes:
 
 ### Headers
 
- <%= headers %>
+ <%= headers r4:false %>
 
 ### Example
 
@@ -147,7 +147,7 @@ List an individual Schedule by its id:
 
 ### Headers
 
-<%= headers %>
+<%= headers r4:false %>
 
 ### Example
 
