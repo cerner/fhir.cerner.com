@@ -48,7 +48,7 @@ For file retrievals, `application/fhir+ndjson` is supported. All other requests 
 
 ### Authorization
 
-The bulk data endpoints are secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/). Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](conformance/).
+The bulk data endpoints are secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/). Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](../r4/foundation/conformance).
 
 Please reference the [authorization](https://fhir.cerner.com/authorization/) documentation for details on how to authorize with our server.
 
@@ -116,3 +116,4 @@ An [OperationOutcome](https://www.hl7.org/fhir/r4/operationoutcome.html) may be 
  406         | The value supplied to the `Accept` header is not supported                                    | error     | invalid
  429         | Too many requests have been sent                                                              | error     | throttled
  500         | An internal error occurred                                                                    | fatal     | exception
+
