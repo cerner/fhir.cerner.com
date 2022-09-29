@@ -52,6 +52,25 @@ module Cerner
         %(<pre class="headers"><code>#{lines * "\n"}</code></pre>\n)
       end
 
+      def millennium_bulk_headers(head: {})
+        lines = []
+
+        head.each do |key, value|
+          lines << case key
+                   when :Accept
+                     "<a href=\"../#media-types\">#{key}</a>: #{value}"
+                   when :Authorization
+                     "<a href=\"../#authorization\">#{key}</a>: #{value}"
+                   else
+                     "#{key}: #{value}"
+                   end
+        end
+
+        lines = default_headers_millennium_bulk if lines.empty?
+
+        %(<pre class="headers"><code>#{lines * "\n"}</code></pre>\n)
+      end
+
       def link_header(rels)
         formatted_rels = rels.map { |name, url| link_header_rel(name, url) }
 
@@ -79,6 +98,13 @@ module Cerner
         [
           '<a href="../../#media-types">Accept</a>: application/fhir+json',
           '<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>'
+        ]
+      end
+
+      def default_headers_millennium_bulk
+        [
+          '<a href="../#media-types">Accept</a>: application/fhir+json',
+          '<a href="../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>'
         ]
       end
 

@@ -255,6 +255,109 @@ describe Cerner::Resources::Helpers do
     end
   end
 
+  describe '#millennium_bulk_headers' do
+    let(:expected_html) { "<pre class=\"headers\"><code>#{appended_html}</code></pre>\n" }
+    let(:default_headers_millennium_bulk) { ['Bulk', 'Header'] }
+
+    before do
+      allow(Cerner::Resources::Helpers).to receive(:default_headers_millennium_bulk)
+                                             .and_return(default_headers_millennium_bulk)
+    end
+
+    context 'when the head parameter is not provided' do
+      subject(:millennium_bulk_headers) { Cerner::Resources::Helpers.millennium_bulk_headers }
+
+      let(:appended_html) { default_headers_millennium_bulk.join("\n") }
+
+      it 'calls #default_headers_millennium_bulk to retrieve the default request headers' do
+        expect(Cerner::Resources::Helpers).to receive(:default_headers_millennium_bulk)
+
+        millennium_bulk_headers
+      end
+
+      it 'returns the generated HTML with default headers' do
+        expect(millennium_bulk_headers).to eq(expected_html)
+      end
+    end
+
+    context 'when the head parameter is provided' do
+      subject(:millennium_bulk_headers) { Cerner::Resources::Helpers.millennium_bulk_headers(head: head) }
+
+      context 'when head is an empty hash' do
+        let(:head) { {} }
+        let(:appended_html) { default_headers_millennium_bulk.join("\n") }
+
+        it 'calls #default_headers_millennium_bulk to retrieve the default request headers' do
+          expect(Cerner::Resources::Helpers).to receive(:default_headers_millennium_bulk)
+
+          millennium_bulk_headers
+        end
+
+        it 'returns the generated HTML with default headers' do
+          expect(millennium_bulk_headers).to eq(expected_html)
+        end
+      end
+
+      context 'when head is not an empty hash' do
+        let(:head) { {key: 'value'} }
+
+        context 'when the hash contains an Accept key value' do
+          let(:head) { {Accept: 'value'} }
+          let(:appended_html) { '<a href="../#media-types">Accept</a>: value' }
+
+          it 'returns the generated HTML with the Accept header' do
+            expect(millennium_bulk_headers).to eq(expected_html)
+          end
+        end
+
+        context 'when the hash contains an Authorization key value' do
+          let(:head) { {Authorization: 'value'} }
+          let(:appended_html) { '<a href="../#authorization">Authorization</a>: value' }
+
+          it 'returns the generated HTML with the Authorization header' do
+            expect(millennium_bulk_headers).to eq(expected_html)
+          end
+        end
+
+        context 'when the hash contains a custom key value' do
+          let(:head) { {other: 'value'} }
+          let(:appended_html) { 'other: value' }
+
+          it 'returns the generated HTML with the custom header' do
+            expect(millennium_bulk_headers).to eq(expected_html)
+          end
+        end
+
+        context 'when multiple headers are provided' do
+          let(:head) do
+            {
+              Accept: 'accept_value',
+              Authorization: 'authorization_value',
+              other: 'value'
+            }
+          end
+          let(:appended_html) do
+            [
+              '<a href="../#media-types">Accept</a>: accept_value',
+              '<a href="../#authorization">Authorization</a>: authorization_value',
+              'other: value'
+            ].join("\n")
+          end
+
+          it 'generates the appropriate HTML' do
+            expect(millennium_bulk_headers).to eq(expected_html)
+          end
+        end
+
+        it 'does not add the default headers' do
+          expect(Cerner::Resources::Helpers).to_not receive(:default_headers_millennium_bulk)
+
+          millennium_bulk_headers
+        end
+      end
+    end
+  end
+
   describe '#link_header' do
     subject(:link_header) { Cerner::Resources::Helpers.link_header(rels) }
 

@@ -110,7 +110,7 @@ An [OperationOutcome](https://www.hl7.org/fhir/r4/operationoutcome.html) may be 
  HTTP Status | Cause                                                                                         | Severity  | Code
 -------------|-----------------------------------------------------------------------------------------------|-----------|---------------
  400         | The request has an invalid search parameter or a parameter with an invalid value              | error     | invalid
- 401         | Invalid credentials were sent to in the request                                               | error     | login, expired
+ 401         | Invalid credentials were sent in the request                                                  | error     | login, expired
  403         | The client is not authorized to access the information                                        | error     | forbidden
  404         | The resource being requested cannot be found                                                  | error     | not-found
  406         | The value supplied to the `Accept` header is not supported                                    | error     | invalid
