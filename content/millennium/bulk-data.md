@@ -48,7 +48,7 @@ For file retrievals, `application/fhir+ndjson` is supported. All other requests 
 
 ### Authorization
 
-The bulk data endpoints are secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/). Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](conformance/).
+The bulk data endpoints are secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/). Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](../r4/foundation/conformance).
 
 Please reference the [authorization](https://fhir.cerner.com/authorization/) documentation for details on how to authorize with our server.
 
