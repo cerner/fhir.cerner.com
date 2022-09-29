@@ -35,7 +35,7 @@ Kicks off a bulk export request for a group of patients:
 
 Operation is defined at:
 
-    GET /OperationDefinition/group-export?_format=json
+    GET https://fhir-ehr-code.cerner.com/r4/OperationDefinition/group-export?_format=json
 
 _Implementation Notes_
 

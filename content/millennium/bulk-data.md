@@ -38,6 +38,20 @@ _Notes_
 
 * Cerner supports v1.0.1 of the [FHIR Bulk Data Access (Flat FHIR) Implementation Guide](https://hl7.org/fhir/uv/bulkdata/STU1.0.1/) and supports several experimental parameters from [v2.0.0](http://hl7.org/fhir/uv/bulkdata/STU2/export.html#query-parameters). 
 
+### Service Root URL
+
+The FHIR Bulk Data server uses the [FHIR Base url](http://fhir.cerner.com/millennium/r4/#service-root-url) as the service root url.
+
+### Media Types
+
+For file retrievals, `application/fhir+ndjson` is supported. All other requests support `application/fhir+json`.
+
+### Authorization
+
+The bulk data endpoints are secured with [OAuth 2.0](http://oauth.net/2/) with support for [SMART Applications](http://docs.smarthealthit.org/). Refer to the extensions on the `Conformance.rest.security` element in our server [metadata](conformance/).
+
+Please reference the [authorization](https://fhir.cerner.com/authorization/) documentation for details on how to authorize with our server.
+
 ## Registering Client Applications
 
 In order to be granted access to the Bulk Data Access API, a Millennium Bulk SMART application must be registered through Cerner's [code Console](http://fhir.cerner.com/smart/#code-console). See [Authorization](http://fhir.cerner.com/authorization/) for additional details on registering client applications and authorizing with the server.
@@ -48,10 +62,6 @@ _Notes_
 
 * Authentication is required, open endpoints do not support bulk export workflows.
 * Bulk data runs against an organization's database and utilizes the same services running other applications, so it is important to consider performance. Bulk data exports large amounts of data for large groups of patients, which takes more time to complete the larger the data set or patient population.
-
-## Service Root URL
-
-The FHIR Bulk Data server uses the [FHIR Base url](http://fhir.cerner.com/millennium/r4/#service-root-url) as the service root url.
 
 ### Sandbox
 
