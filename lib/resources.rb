@@ -27,9 +27,9 @@ module Cerner
         502 => '502 Bad Gateway'
       }.freeze
 
-      def headers(status: nil, head: {}, fhir_json: false, bulk: false, r4: true)
+      def headers(status: nil, head: {}, fhir_json: false, relative_position: 3)
         lines = status ? ["Status: #{STATUSES[status]}"] : []
-        path = headers_path(bulk, r4)
+        path = '../' * relative_position
 
         head.each do |key, value|
           lines << case key
@@ -47,7 +47,7 @@ module Cerner
         end
 
         if lines.empty?
-          lines = fhir_json ? default_headers_r4 : default_headers
+          lines = fhir_json ? default_headers_r4(path) : default_headers(path)
         end
 
         %(<pre class="headers"><code>#{lines * "\n"}</code></pre>\n)
@@ -65,28 +65,21 @@ module Cerner
         lines
       end
 
-      def headers_path(bulk, r_4)
-        path = r_4 ? '../../../' : '../../'
-        path = bulk ? '../../bulk-data' : path
-
-        path
-      end
-
       def link_header_rel(name, url)
         %Q(<#{url}>; rel="#{name}")
       end
 
-      def default_headers
+      def default_headers(path)
         [
-          '<a href="../../#media-types">Accept</a>: application/json+fhir',
-          '<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>'
+          "<a href=\"#{path}#media-types\">Accept</a>: application/json+fhir",
+          "<a href=\"#{path}#authorization\">Authorization</a>: &lt;OAuth2 Bearer Token>"
         ]
       end
 
-      def default_headers_r4
+      def default_headers_r4(path)
         [
-          '<a href="../../../#media-types">Accept</a>: application/fhir+json',
-          '<a href="../../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>'
+          "<a href=\"#{path}#media-types\">Accept</a>: application/fhir+json",
+          "<a href=\"#{path}#authorization\">Authorization</a>: &lt;OAuth2 Bearer Token>"
         ]
       end
 

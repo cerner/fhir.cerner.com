@@ -84,7 +84,7 @@ _Provenance Behavior_
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'}, bulk: true %>
+<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 1 %>
 
 Optional Header
 
@@ -139,7 +139,7 @@ _Notes_
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', Authorization: '&lt;OAuth2 Bearer Token>'}, bulk: true %>
+<%= headers head: {'Accept': 'application/fhir+json', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 1 %>
 
 ### Example
 
@@ -203,7 +203,7 @@ _Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+ndjson'}, bulk: true %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+ndjson'}, relative_position: 1 %>
 
 ### Example
 
@@ -259,7 +259,7 @@ _Notes_
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', Authorization: '&lt;OAuth2 Bearer Token>'}, bulk: true %>
+<%= headers head: {'Accept': 'application/fhir+json', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 1 %>
 
 ### Example
 

@@ -57,7 +57,7 @@ Notes:
 
 ### Headers
 
- <%= headers r4:false %>
+ <%= headers relative_position: 2 %>
 
 ### Example
 
@@ -101,7 +101,7 @@ List an individual Contract by its id:
 
 ### Headers
 
-<%= headers r4:false %>
+<%= headers relative_position: 2 %>
 
 ### Example
 

@@ -82,7 +82,7 @@ _Implementation Notes_
 
 ### Headers
 
- <%= headers r4:false %>
+ <%= headers relative_position: 2 %>
 
 ### Example
 
@@ -118,7 +118,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers r4:false %>
+<%= headers relative_position: 2 %>
 
 ### Example
 

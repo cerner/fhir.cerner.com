@@ -59,7 +59,7 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Headers
 
- <%= headers r4:false %>
+ <%= headers relative_position: 2 %>
 
 ### Example
 
@@ -113,7 +113,7 @@ List an individual AllergyIntolerance by its id:
 
 ### Headers
 
-<%= headers r4:false %>
+<%= headers relative_position: 2 %>
 
 ### Example
 
@@ -143,7 +143,7 @@ Create new allergies.
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'}, r4:false %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'}, relative_position: 2 %>
 
 ### Body fields
 
@@ -204,7 +204,7 @@ _Implementation Notes_
 ### Headers
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir',
-                   'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the AllergyIntolerance resource>"'}, r4:false %>
+                   'Content-Type': 'application/json+fhir', 'If-Match': 'W/"&lt;Current version of the AllergyIntolerance resource>"'}, relative_position: 2 %>
 
 ### Body fields
 

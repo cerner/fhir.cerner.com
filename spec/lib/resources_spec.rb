@@ -253,6 +253,27 @@ describe Cerner::Resources::Helpers do
         headers
       end
     end
+
+    context 'when relative_position parameter is provided' do
+      subject(:headers) { Cerner::Resources::Helpers.headers(head: head, relative_position: 1) }
+
+      let(:head) do
+        {
+          Accept: 'accept_value',
+          Authorization: 'authorization_value'
+        }
+      end
+      let(:appended_html) do
+        [
+          '<a href="../#media-types">Accept</a>: accept_value',
+          '<a href="../#authorization">Authorization</a>: authorization_value'
+        ].join("\n")
+      end
+
+      it 'generates the appropriate HTML using the path based on the relative position' do
+        expect(headers).to eq(expected_html)
+      end
+    end
   end
 
   describe '#link_header' do
@@ -325,38 +346,10 @@ describe Cerner::Resources::Helpers do
     end
   end
 
-  describe '#headers_path' do
-    subject(:headers_path) { Cerner::Resources::Helpers.headers_path(bulk, r4) }
-
-    let(:bulk) { false }
-    let(:r4) { true }
-
-    context 'when bulk is false' do
-      context 'when r4 is true' do
-        it 'returns the path to r4 overview' do
-          expect(headers_path).to eq('../../../')
-        end
-      end
-
-      context 'when r4 is false' do
-        let(:r4) { false }
-        it 'returns the path to dstu2 overview' do
-          expect(headers_path).to eq('../../')
-        end
-      end
-    end
-
-    context 'when bulk is true' do
-      let(:bulk) { true }
-      it 'return the path to the bulk-data overview' do
-        expect(headers_path).to eq('../../bulk-data')
-      end
-    end
-  end
-
   describe '#default_headers' do
-    subject(:default_headers_dstu2) { Cerner::Resources::Helpers.default_headers }
+    subject(:default_headers_dstu2) { Cerner::Resources::Helpers.default_headers(path) }
 
+    let(:path) { '../../' }
     let(:accept_header) { '<a href="../../#media-types">Accept</a>: application/json+fhir' }
     let(:authorization_header) { '<a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>' }
 
@@ -366,8 +359,9 @@ describe Cerner::Resources::Helpers do
   end
 
   describe '#default_headers_r4' do
-    subject(:default_headers_r4) { Cerner::Resources::Helpers.default_headers_r4 }
+    subject(:default_headers_r4) { Cerner::Resources::Helpers.default_headers_r4(path) }
 
+    let(:path) { '../../../' }
     let(:accept_header) { '<a href="../../../#media-types">Accept</a>: application/fhir+json' }
     let(:authorization_header) { '<a href="../../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token>' }
 

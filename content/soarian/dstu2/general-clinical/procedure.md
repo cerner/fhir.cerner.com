@@ -47,7 +47,7 @@ Notes:
 
 ### Headers
 
-<%= headers %>
+<%= headers relative_position: 2 %>
 
 ### Example
 
