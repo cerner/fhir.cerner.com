@@ -43,7 +43,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers relative_position: 2 %>
+<%= headers %>
 
 ### Example
 

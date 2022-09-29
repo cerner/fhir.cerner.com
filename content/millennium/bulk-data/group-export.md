@@ -84,11 +84,11 @@ _Provenance Behavior_
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 1 %>
+<%= millennium_bulk_headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'} %>
 
 Optional Header
 
-<%= headers head: {'Prefer': 'handling=lenient'} %>
+<%= millennium_bulk_headers head: {'Prefer': 'handling=lenient'} %>
 
 When the Prefer: handling=lenient header is provided any unknown or unsupported parameters will be ignored as specified [here](http://hl7.org/fhir/uv/bulkdata/STU2/export.html#query-parameters).
 
@@ -139,7 +139,7 @@ _Notes_
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 1 %>
+<%= millennium_bulk_headers %>
 
 ### Example
 
@@ -203,7 +203,7 @@ _Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+ndjson'}, relative_position: 1 %>
+<%= millennium_bulk_headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/fhir+ndjson'} %>
 
 ### Example
 
@@ -259,7 +259,7 @@ _Notes_
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 1 %>
+<%= millennium_bulk_headers %>
 
 ### Example
 

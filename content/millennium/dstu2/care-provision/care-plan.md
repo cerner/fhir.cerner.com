@@ -115,7 +115,7 @@ Notes:
 
 ### Headers
 
- <%= headers relative_position: 2 %>
+ <%= headers %>
 
 ### Example retrieve care plan
 
@@ -159,7 +159,7 @@ List an individual CarePlan by its id:
 
 ### Headers
 
-<%= headers relative_position: 2 %>
+<%= headers %>
 
 ### Example
 

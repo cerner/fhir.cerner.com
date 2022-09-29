@@ -55,7 +55,7 @@ Search for Schedules that meet supplied query parameters:
 
 ### Headers
 
- <%= headers relative_position: 2 %>
+ <%= headers %>
 
 ### Example
 
@@ -85,7 +85,7 @@ List an individual Schedule by its id:
 
 ### Headers
 
-<%= headers relative_position: 2 %>
+<%= headers %>
 
 ### Example
 

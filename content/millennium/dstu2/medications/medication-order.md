@@ -92,7 +92,7 @@ Notes:
 
 ### Headers
 
-<%= headers relative_position: 2 %>
+<%= headers %>
 
 ### Example
 
@@ -123,7 +123,7 @@ List an individual MedicationOrder by its id:
 
 ### Headers
 
-<%= headers relative_position: 2 %>
+<%= headers %>
 
 ### Example
 

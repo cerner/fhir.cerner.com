@@ -84,7 +84,7 @@ _Notes_
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 2 %>
+<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'} %>
 
 ### Example
 
@@ -134,7 +134,7 @@ If the bulk data export request completed previously, any files associated with 
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 2 %>
+<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'} %>
 
 ### Example
 
@@ -173,7 +173,7 @@ Once a bulk data request has started, bulk client applications can query its sta
 
 ### Headers
 
-<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 2 %>
+<%= headers head: {'Accept': 'application/fhir+json', 'Prefer': 'respond-async', Authorization: '&lt;OAuth2 Bearer Token>'} %>
 
 ### Example
 
@@ -249,7 +249,7 @@ As mentioned in previous sections, the status response for a completed request i
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>'}, relative_position: 2 %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>'} %>
 
 ### Example
 

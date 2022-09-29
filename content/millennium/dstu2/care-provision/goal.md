@@ -55,7 +55,7 @@ Notes:
 
 ### Headers
 
- <%= headers relative_position: 2 %>
+ <%= headers %>
 
 ### Example
 
@@ -100,7 +100,7 @@ List an individual Goal by its id:
 
 ### Headers
 
-<%= headers relative_position: 2 %>
+<%= headers %>
 
 ### Example
 

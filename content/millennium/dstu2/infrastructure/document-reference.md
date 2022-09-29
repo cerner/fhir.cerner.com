@@ -81,7 +81,7 @@ Notes:
 
 ### Headers
 
-<%= headers relative_position: 2 %>
+<%= headers %>
 
 ### Example
 
@@ -117,7 +117,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers relative_position: 2 %>
+<%= headers %>
 
 ### Example
 
@@ -153,7 +153,7 @@ _Implementation Notes_
 
 ### Headers
 
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'}, relative_position: 2 %>
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', Accept: 'application/json+fhir', 'Content-Type': 'application/json+fhir'} %>
 
 ### Body fields
 
@@ -237,7 +237,7 @@ Notes:
 
 ### Headers
 
- <%= headers relative_position: 2 %>
+ <%= headers %>
 
 ### Example
 

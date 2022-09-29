@@ -53,7 +53,7 @@ Authorization is not required.
 
 ### Headers
 
-<%= headers head: {Accept: 'application/json+fhir'}, relative_position: 2 %>
+<%= headers head: {Accept: 'application/json+fhir'} %>
 
 ### Example
 

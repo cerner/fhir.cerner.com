@@ -63,7 +63,7 @@ information, see the [Binary accept] documentation.
 
 ### Headers
 
- <%= headers relative_position: 2 %>
+ <%= headers %>
 
 ### Example
 
