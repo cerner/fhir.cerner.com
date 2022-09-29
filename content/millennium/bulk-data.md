@@ -116,4 +116,3 @@ An [OperationOutcome](https://www.hl7.org/fhir/r4/operationoutcome.html) may be 
  406         | The value supplied to the `Accept` header is not supported                                    | error     | invalid
  429         | Too many requests have been sent                                                              | error     | throttled
  500         | An internal error occurred                                                                    | fatal     | exception
-
