@@ -383,7 +383,10 @@ module Cerner
             },
             'text': {
               'status': 'generated',
-              'div': "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Observation</b></p><p><b>Patient Id</b>: 15116458</p><p><b>Status</b>: Final</p><p><b>Categories</b>: Vital Signs</p><p><b>Code</b>: SpO2</p><p><b>Result</b>: 95 %</p><p><b>Effective Date</b>: Jun  5, 2022  3:00 A.M. CDT</p></div>"
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 15116458</p><p><b>Status</b>: Final</p><p><b>Categories'\
+                     '</b>: Vital Signs</p><p><b>Code</b>: SpO2</p><p><b>Result</b>: 95 %</p><p><b>Effective Date</b>'\
+                     ': Jun  5, 2022  3:00 A.M. CDT</p></div>'
             },
             'status': 'final',
             'category': [
@@ -401,18 +404,18 @@ module Cerner
             'code': {
               'coding': [
                 {
-                    'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
-                    'code': '3623994',
-                    'display': 'SpO2',
-                    'userSelected': true
+                  'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
+                  'code': '3623994',
+                  'display': 'SpO2',
+                  'userSelected': true
                 },
                 {
-                    'system': 'http://loinc.org',
-                    'code': '2708-6'
+                  'system': 'http://loinc.org',
+                  'code': '2708-6'
                 },
-                  {
-                    'system': 'http://loinc.org',
-                    'code': '59408-5'
+                {
+                  'system': 'http://loinc.org',
+                  'code': '59408-5'
                 }
               ],
               'text': 'SpO2'
@@ -427,7 +430,7 @@ module Cerner
             'issued': '2022-06-05T08:00:38Z',
             'performer': [
               {
-                'reference': 'Practitioner/15441459',
+                'reference': 'Practitioner/15441459'
               }
             ],
             'valueQuantity': {
@@ -439,49 +442,49 @@ module Cerner
             'component': [
               {
                 'code': {
-                    'coding': [
-                        {
-                            'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
-                            'code': '703569',
-                            'display': 'Oxygen Flow Rate',
-                            'userSelected': true
-                        },
-                        {
-                            'system': 'http://loinc.org',
-                            'code': '3151-8'
-                        }
-                    ],
-                    'text': 'Oxygen Flow Rate'
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
+                      'code': '703569',
+                      'display': 'Oxygen Flow Rate',
+                      'userSelected': true
+                    },
+                    {
+                      'system': 'http://loinc.org',
+                      'code': '3151-8'
+                    }
+                  ],
+                  'text': 'Oxygen Flow Rate'
                 },
                 'valueQuantity': {
-                    'value': 7,
-                    'unit': 'L/min',
-                    'system': 'http://unitsofmeasure.org',
-                    'code': 'L/min'
+                  'value': 7,
+                  'unit': 'L/min',
+                  'system': 'http://unitsofmeasure.org',
+                  'code': 'L/min'
                 }
               },
               {
                 'code': {
-                    'coding': [
-                        {
-                            'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
-                            'code': '2700657',
-                            'display': 'FIO2',
-                            'userSelected': true
-                        },
-                        {
-                            'system': 'http://loinc.org',
-                            'code': '3150-0',
-                            'display': 'Inhaled Oxygen concentration'
-                        }
-                    ],
-                    'text': 'Inhaled Oxygen concentration'
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
+                      'code': '2700657',
+                      'display': 'FIO2',
+                      'userSelected': true
+                    },
+                    {
+                      'system': 'http://loinc.org',
+                      'code': '3150-0',
+                      'display': 'Inhaled Oxygen concentration'
+                    }
+                  ],
+                  'text': 'Inhaled Oxygen concentration'
                 },
                 'valueQuantity': {
-                    'value': 21,
-                    'unit': '%',
-                    'system': 'http://unitsofmeasure.org',
-                    'code': '%'
+                  'value': 21,
+                  'unit': '%',
+                  'system': 'http://unitsofmeasure.org',
+                  'code': '%'
                 }
               }
             ]
