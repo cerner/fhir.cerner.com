@@ -105,10 +105,15 @@
 
 <!-- TOC -->
 <ul id="markdown-toc">
-  <li><a href="#implemented-exports" id="markdown-toc-implemented-exports">Implemented Exports</a></li>
-  <li><a href="#registering-client-applications" id="markdown-toc-registering-client-applications">Registering Client Applications</a></li>
   <li>
-<a href="#service-root-url" id="markdown-toc-service-root-url">Service Root URL</a>    <ul>
+<a href="#implemented-exports" id="markdown-toc-implemented-exports">Implemented Exports</a>    <ul>
+      <li><a href="#service-root-url" id="markdown-toc-service-root-url">Service Root URL</a></li>
+      <li><a href="#media-types" id="markdown-toc-media-types">Media Types</a></li>
+      <li><a href="#authorization" id="markdown-toc-authorization">Authorization</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#registering-client-applications" id="markdown-toc-registering-client-applications">Registering Client Applications</a>    <ul>
       <li><a href="#sandbox" id="markdown-toc-sandbox">Sandbox</a></li>
     </ul>
   </li>
@@ -134,6 +139,20 @@
   <li>Cerner supports v1.0.1 of the <a href="https://hl7.org/fhir/uv/bulkdata/STU1.0.1/">FHIR Bulk Data Access (Flat FHIR) Implementation Guide</a> and supports several experimental parameters from <a href="http://hl7.org/fhir/uv/bulkdata/STU2/export.html#query-parameters">v2.0.0</a>.</li>
 </ul>
 
+<h3 id="service-root-url">Service Root URL</h3>
+
+<p>The FHIR Bulk Data server uses the <a href="http://fhir.cerner.com/millennium/r4/#service-root-url">FHIR Base url</a> as the service root url.</p>
+
+<h3 id="media-types">Media Types</h3>
+
+<p>For file retrievals, <code>application/fhir+ndjson</code> is supported. All other requests support <code>application/fhir+json</code>.</p>
+
+<h3 id="authorization">Authorization</h3>
+
+<p>The bulk data endpoints are secured with <a href="http://oauth.net/2/">OAuth 2.0</a> with support for <a href="http://docs.smarthealthit.org/">SMART Applications</a>. Refer to the extensions on the <code>Conformance.rest.security</code> element in our server <a href="conformance/">metadata</a>.</p>
+
+<p>Please reference the <a href="https://fhir.cerner.com/authorization/">authorization</a> documentation for details on how to authorize with our server.</p>
+
 <h2 id="registering-client-applications">Registering Client Applications</h2>
 
 <p>In order to be granted access to the Bulk Data Access API, a Millennium Bulk SMART application must be registered through Cerner’s <a href="http://fhir.cerner.com/smart/#code-console">code Console</a>. See <a href="http://fhir.cerner.com/authorization/">Authorization</a> for additional details on registering client applications and authorizing with the server.</p>
@@ -146,10 +165,6 @@
   <li>Authentication is required, open endpoints do not support bulk export workflows.</li>
   <li>Bulk data runs against an organization’s database and utilizes the same services running other applications, so it is important to consider performance. Bulk data exports large amounts of data for large groups of patients, which takes more time to complete the larger the data set or patient population.</li>
 </ul>
-
-<h2 id="service-root-url">Service Root URL</h2>
-
-<p>The FHIR Bulk Data server uses the <a href="http://fhir.cerner.com/millennium/r4/#service-root-url">FHIR Base url</a> as the service root url.</p>
 
 <h3 id="sandbox">Sandbox</h3>
 
@@ -228,7 +243,7 @@
     </tr>
     <tr>
       <td>401</td>
-      <td>Invalid credentials were sent to in the request</td>
+      <td>Invalid credentials were sent in the request</td>
       <td>error</td>
       <td>login, expired</td>
     </tr>
