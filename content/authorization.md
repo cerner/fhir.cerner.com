@@ -1043,9 +1043,11 @@ curl -X POST 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0
   -d 'grant_type=client_credentials&scope=system%2FObservation.read%20system%2FPatient.read'
 </pre>
 
-#### JWK Authentication ####
+#### JWT Authentication ####
 
-Alternatively, clients may authenticate themselves using signed Java Web Keys (JWKs). This process is similar to the above, but uses ``Authorization: Bearer`` instead. This is the preferred mode of authentication for Bulk Data clients. For complete details, see [Java Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519) and [JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://www.rfc-editor.org/rfc/rfc7523).
+Alternatively, clients may authenticate themselves using signed JSON Web Tokens (JWTs). This process is similar to the above, but uses ``Authorization: Bearer`` instead. This is the preferred mode of authentication for Bulk Data clients. For complete details, see [Java Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519) and [JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://www.rfc-editor.org/rfc/rfc7523).
+
+Note that clients leveraging this type of authentication must also pre-register their JSON Web Key Sets (JWKS) using [Cerner Central System Account Management](https://wiki.cerner.com/display/CernerCentral/System+Account+Management+Help). For complete details, see [Managing JSON Web Key Sets in System Account Management](https://wiki.cerner.com/display/public/CernerCentral/Managing+JSON+Web+Key+Sets+in+System+Account+Management).
 
 <a id="faq"></a>
 
