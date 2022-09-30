@@ -992,7 +992,7 @@ _Note_:  This access model is only supported on resources
 where explicitly indicated in their respective
 FHIR<sup>®</sup> API resource documentation.
 
-##### Basic Authentication #####
+#### Basic Authentication ####
 
 A client performs this request utilizing the "client
 credentials" flow of OAuth2 to request an access token,
@@ -1042,6 +1042,10 @@ curl -X POST 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0
   -H 'cache-control: no-cache' \
   -d 'grant_type=client_credentials&scope=system%2FObservation.read%20system%2FPatient.read'
 </pre>
+
+#### JWK Authentication ####
+
+Alternatively, clients may authenticate themselves using signed Java Web Keys (JWKs). This process is similar to the above, but uses ``Authorization: Bearer`` instead. This is the preferred mode of authentication for Bulk Data clients. For complete details, see [Java Web Token (JWT)](https://www.rfc-editor.org/rfc/rfc7519) and [JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants](https://www.rfc-editor.org/rfc/rfc7523).
 
 <a id="faq"></a>
 
