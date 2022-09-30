@@ -1140,6 +1140,12 @@ using a system account issued via
 See the <a href="#registering-a-system-account" title="Registering a System Account">Registering a System Account</a> section
 for more information on how to register these applications.</p>
 
+<p><em>Note</em>:  This access model is only supported on resources
+where explicitly indicated in their respective
+FHIR<sup>®</sup> API resource documentation.</p>
+
+<h4 id="basic-authentication">Basic Authentication</h4>
+
 <p>A client performs this request utilizing the “client
 credentials” flow of OAuth2 to request an access token,
 using the <a href="https://tools.ietf.org/html/rfc2617" title="HTTP Authentication: Basic and Digest Access Authentication">Basic authentication scheme</a> for
@@ -1189,9 +1195,11 @@ curl -X POST 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0
   -d 'grant_type=client_credentials&amp;scope=system%2FObservation.read%20system%2FPatient.read'
 </pre>
 
-<p><em>Note</em>:  This access model is only supported on resources
-where explicitly indicated in their respective
-FHIR<sup>®</sup> API resource documentation.</p>
+<h4 id="jwt-authentication">JWT Authentication</h4>
+
+<p>Alternatively, clients may authenticate themselves using signed JSON Web Tokens (JWTs). This process is similar to the above, but uses <code>Authorization: Bearer</code> instead. This is the preferred mode of authentication for <a href="http://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> clients. For complete details, see <a href="https://www.rfc-editor.org/rfc/rfc7519">Java Web Token (JWT)</a> and <a href="https://www.rfc-editor.org/rfc/rfc7523">JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants</a>.</p>
+
+<p>Note that clients leveraging this type of authentication must also pre-register their JSON Web Key Sets (JWKS) using <a href="https://wiki.cerner.com/display/CernerCentral/System+Account+Management+Help">Cerner Central System Account Management</a>. For complete details, see <a href="https://wiki.cerner.com/display/public/CernerCentral/Managing+JSON+Web+Key+Sets+in+System+Account+Management">Managing JSON Web Key Sets in System Account Management</a>.</p>
 
 <p><a id="faq"></a></p>
 
