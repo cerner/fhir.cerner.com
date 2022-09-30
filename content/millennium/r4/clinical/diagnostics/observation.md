@@ -10,6 +10,24 @@ title: Observation | R4 API
 ## Overview
 The Observation resource provides measurements or simple assertions about a patient that are useful for establishing baselines or trends, monitoring a patient's progress, and establishing diagnoses. Most observations are simple name/value pair assertions but some observations, such as blood pressure, group other observations together logically. Examples of common observations are: Laboratory results (blood sugar, hemoglobin), Vital signs (temperature, blood pressure), Personal characteristics (height, weight), and Social history (tobacco/alcohol use, employment status). Pathology reports, radiology reports, and other textual reports should be represented by the DiagnosticReport resource.
 
+The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+* [US Core Smoking Status Observation Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-smokingstatus.html){:target="_blank"}
+* [US Core Laboratory Result Observation Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-observation-lab.html){:target="_blank"}
+* [US Core Vital Signs Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-vital-signs.html){:target="_blank"}
+* [US Core Blood Pressure Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-blood-pressure.html){:target="_blank"}
+* [US Core BMI Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-bmi.html){:target="_blank"}
+* [US Core Head Circumference Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-head-circumference.html){:target="_blank"}
+* [US Core Body Height Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-height.html){:target="_blank"}
+* [US Core Body Weight Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-weight.html){:target="_blank"}
+* [US Core Body Temperature Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-temperature.html){:target="_blank"}
+* [US Core Heart Rate Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-heart-rate.html){:target="_blank"}
+* [US Core Pediatric BMI for Age Observation Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-pediatric-bmi-for-age.html){:target="_blank"}
+* [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-head-occipital-frontal-circumference-percentile.html){:target="_blank"}
+* [US Core Pediatric Weight for Height Observation Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-pediatric-weight-for-height.html){:target="_blank"}
+* [US Core Pulse Oximetry Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-pulse-oximetry.html){:target="_blank"}
+* [US Core Respiratory Rate Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-respiratory-rate.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
