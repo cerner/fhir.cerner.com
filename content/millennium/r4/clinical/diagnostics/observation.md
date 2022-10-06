@@ -14,9 +14,8 @@ The following fields are returned if valued:
 
 * [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Identifier](https://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier){:target="_blank"}
-* [BasedOn](https://hl7.org/fhir/R4/observation-definitions.html#Observation.basedOn){:target="_blank"}
 * [Status](https://hl7.org/fhir/R4/observation-definitions.html#Observation.status){:target="_blank"}
-* [Category (laboratory, social history)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.category){:target="_blank"}
+* [Category (laboratory, social history, vital-signs)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.category){:target="_blank"}
 * [Code (Observation name or text)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.code){:target="_blank"}
 * [Subject (Patient)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject){:target="_blank"}
 * [Encounter](https://hl7.org/fhir/R4/observation-definitions.html#Observation.encounter){:target="_blank"}
@@ -29,7 +28,7 @@ The following fields are returned if valued:
     * [Quantity comparator (<, <=, >, >=)](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.comparator){:target="_blank"}
     * [Quantity units](https://hl7.org/fhir/R4/datatypes-definitions.html#Quantity.unit){:target="_blank"}
 * For Observations with `valueCodeableConcept`
-    * [Codeable concept](https://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept){:target="_blank"}   
+    * [Codeable concept](https://hl7.org/fhir/R4/datatypes-definitions.html#CodeableConcept){:target="_blank"}
 * [Data absent reason](https://hl7.org/fhir/R4/observation-definitions.html#Observation.dataAbsentReason){:target="_blank"}
 * [Interpretation (abnormal flagging)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.interpretation){:target="_blank"}
 * [Note (comments)](https://hl7.org/fhir/R4/observation-definitions.html#Observation.note){:target="_blank"}
@@ -66,9 +65,13 @@ _Implementation Notes_
 
 * The `comments` field may have RTF or other formatted data rather than simple text. This is an issue that will be resolved in a future correction. We are investigating alternative solutions to fix this.
 
+* Social History results won't be affected by date and _lastUpdated parameters, results may contain social history records out of the given timeframe.
+
+* Searching records with vital-signs category by code with proprietary system will result in empty response.
+
 * When multiple pages of Observation results are returned for a single query:
   * All Social history Observations (if any qualify for the query) will be returned on the first page of results. This means that the next bullet does not apply to Social history Observations.
-  * Results are sorted by effective date/time in descending order by page. That is, all Observations on any given page of results are newer than all Observations on the next page of results. Sort order within pages is not guaranteed.
+  * Results are sorted by effective date/time in descending order. That is, all Observations on any given page of results are newer than all Observations on the next page of results.
   * If the query uses the `_lastUpdated` query parameter, results are sorted by last updated date/time in descending order by page, not by effective date/time.
 
 ### Parameters
@@ -93,9 +96,9 @@ Notes:
 * It is recommended to search by either `code` or `date` (or both).
 
 * The `code` parameter:
-  * May be a list of comma separated values. A system must be provided for each code.
+  * May be a list of comma separated values.
+
   * Searches only `Observation.code`. For example when fetching blood pressures the resource will be only be returned when the search is based on `85354-9(Systolic and Diastolic BP)`. Using the component codes `8480-6(Systolic BP)` or `8462-4 (Diastolic BP)` will not return the resource.
-  * Searching with proprietary codes or systems is not supported.
 
 * The `date` and `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
 
@@ -103,11 +106,15 @@ Notes:
 
 * The `_lastUpdated` query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.
 
+* When `_count` parameter is provided,
+  * it won’t affect the first page, because all social history data will appear in the first page regardless of requested count.
+  * Second page onward, returned item count may be less than requested.
+
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
 
 * The `_revinclude` parameter may be provided with the `patient/subject` parameter. Example: `patient=12457977&category=vital-signs&_revinclude=Provenance:target`
 
-* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
 
 ### Headers
 
@@ -130,7 +137,7 @@ Notes:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 #### Request
 
@@ -186,7 +193,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292857
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-197292857
 
 #### Response
 
@@ -218,7 +225,7 @@ _Implementation Notes_
 
 <div class="auth-types"><a href="/authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a><i> (Vital Signs and Laboratory)</i> | <a href="/authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a><i> (Vital Signs and Laboratory)</i></div>
 
-_Note_: 
+_Note_:
 
 * Vital Sign creates via a Provider persona requires an active relationship between the Provider and the Patient.
 
@@ -253,7 +260,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Mon, 16 Nov 2020 22:05:40 GMT
 Etag: W/"1"
-Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197392513
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-197392513
 Last-Modified: Mon, 16 Nov 2020 22:05:40 GMT
 Vary: Origin
 X-Request-Id: 30a3177d-0987-460d-bb27-a5bb6303f03e
@@ -300,7 +307,7 @@ _Note_:
 
 #### Request
 
-    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-196186655
+    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-196186655
 
 #### Labs Body Example
 
