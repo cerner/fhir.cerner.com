@@ -775,12 +775,16 @@ operations:
       ]
     }
   note: >
-    Supported extensions that can be replaced:
     <ul>
-      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
-      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a></li>
-      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
-      <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json">Communication Preference</a></li>
+      <li>Supported extensions that can be replaced:</li>
+      <ul>
+        <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
+        <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a></li>
+        <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
+        <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json">Communication Preference</a></li>
+      </ul>
+  
+      <li> The field display in "contact-method" is required for the Communication Patch call to insert "contact-type".<br/>Supported contact-method display types are Phone, Fax, Email, PostalDelivery, TextMessage.</li>
     </ul>
 - name: test-communication-preference-id
   path: /extension/{index}/id
