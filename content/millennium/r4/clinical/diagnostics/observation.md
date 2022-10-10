@@ -12,15 +12,15 @@ The Observation resource provides measurements or simple assertions about a pati
 
 The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
 
-* [US Core Smoking Status Observation Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-smokingstatus.html){:target="_blank"}
 * [US Core Laboratory Result Observation Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-observation-lab.html){:target="_blank"}
+* [US Core Smoking Status Observation Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-smokingstatus.html){:target="_blank"}
 * [US Core Vital Signs Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-vital-signs.html){:target="_blank"}
 * [US Core Blood Pressure Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-blood-pressure.html){:target="_blank"}
 * [US Core BMI Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-bmi.html){:target="_blank"}
-* [US Core Head Circumference Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-head-circumference.html){:target="_blank"}
 * [US Core Body Height Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-height.html){:target="_blank"}
-* [US Core Body Weight Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-weight.html){:target="_blank"}
 * [US Core Body Temperature Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-temperature.html){:target="_blank"}
+* [US Core Body Weight Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-weight.html){:target="_blank"}
+* [US Core Head Circumference Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-head-circumference.html){:target="_blank"}
 * [US Core Heart Rate Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-heart-rate.html){:target="_blank"}
 * [US Core Pediatric BMI for Age Observation Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-pediatric-bmi-for-age.html){:target="_blank"}
 * [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile](https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-head-occipital-frontal-circumference-percentile.html){:target="_blank"}
@@ -94,16 +94,16 @@ _Implementation Notes_
 
 ### Parameters
 
- Name             | Required?         | Type          | Description
-------------------|-------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------
- `patient`        | This or `subject` | [`reference`] | The subject (Patient) that the observation is about. Example: `patient=12345`
- `subject`        | This or `patient` | [`reference`] | The subject (Patient) that the observation is about. Example: `subject=Patient/12345` or `subject:Patient=12345`
- `code`           | N                 | [`token`]     | The code or component-code of the observation type. Example: `code=http://loinc.org|3094-0,http://loinc.org|3139-3`
- `date`           | N                 | [`date`]      | Date range into which the observation falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`
- `_lastUpdated`   | N                 | [`date`]      | Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
- `category`       | N                 | [`token`]     | The category of observations. Example: `category=laboratory`
- [`_count`]       | N                 | [`number`]    | The maximum number of results to return per page.
- `_revinclude`    | No                | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ | Name           | Required?         | Type          | Description                                                                                                                             |
+ | -------------- | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+ | `patient`      | This or `subject` | [`reference`] | The subject (Patient) that the observation is about. Example: `patient=12345`                                                           |
+ | `subject`      | This or `patient` | [`reference`] | The subject (Patient) that the observation is about. Example: `subject=Patient/12345` or `subject:Patient=12345`                        |
+ | `code`         | N                 | [`token`]     | The code or component-code of the observation type. Example: `code=http://loinc.org                                                     | 3094-0,http://loinc.org | 3139-3` |
+ | `date`         | N                 | [`date`]      | Date range into which the observation falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`                          |
+ | `_lastUpdated` | N                 | [`date`]      | Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z` |
+ | `category`     | N                 | [`token`]     | The category of observations. Example: `category=laboratory`                                                                            |
+ | [`_count`]     | N                 | [`number`]    | The maximum number of results to return per page.                                                                                       |
+ | `_revinclude`  | No                | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target                                 |
 
 
 
