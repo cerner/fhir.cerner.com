@@ -3,10 +3,10 @@
 module Cerner
   module Resources
     R4_OBSERVATION_ENTRY ||= {
-      'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292857',
+      'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-197292857',
       'resource': {
         'resourceType': 'Observation',
-        'id': 'M-197292857',
+        'id': 'VS-197292857',
         'meta': {
           'versionId': '1',
           'lastUpdated': '2020-07-06T21:13:24.000Z'
@@ -24,11 +24,6 @@ module Cerner
           {
             'system': 'https://fhir.cerner.com/ceuuid',
             'value': 'CE87caf4b7-9397-4667-9897-702218017c9e-197292857-2020070621132500'
-          }
-        ],
-        'basedOn': [
-          {
-            'reference': 'ServiceRequest/313764715'
           }
         ],
         'status': 'final',
@@ -228,7 +223,16 @@ module Cerner
             'subject': {
               'reference': 'Patient/12724066'
             },
+            'encounter': {
+              'reference': 'Encounter/18565902'
+            },
+            'effectiveDateTime': '2022-06-01T10:39:02Z',
             'issued': '2020-06-11T04:05:33.000Z',
+            'performer': [
+              {
+                'reference': 'Practitioner/15441459'
+              }
+            ],
             'hasMember': [
               {
                 'reference': 'Observation/SH-73080191-q4625817'
@@ -281,7 +285,16 @@ module Cerner
             'subject': {
               'reference': 'Patient/12724066'
             },
+            'encounter': {
+              'reference': 'Encounter/18565902'
+            },
+            'effectiveDateTime': '2022-06-01T10:39:02Z',
             'issued': '2020-06-11T04:05:33.000Z',
+            'performer': [
+              {
+                'reference': 'Practitioner/15441459'
+              }
+            ],
             'valueCodeableConcept': {
               'coding': [
                 {
@@ -337,7 +350,16 @@ module Cerner
             'subject': {
               'reference': 'Patient/12724066'
             },
+            'encounter': {
+              'reference': 'Encounter/18565902'
+            },
+            'effectiveDateTime': '2022-06-01T10:39:02Z',
             'issued': '2020-06-11T04:05:33.000Z',
+            'performer': [
+              {
+                'reference': 'Practitioner/15441459'
+              }
+            ],
             'valueCodeableConcept': {
               'coding': [
                 {
@@ -348,6 +370,124 @@ module Cerner
               ],
               'text': 'Liquor'
             }
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-CV-55046871-SECT-8098',
+          'resource': {
+            'resourceType': 'Observation',
+            'id': 'VS-CV-55046871-SECT-8098',
+            'meta': {
+              'versionId': '0',
+              'lastUpdated': '2022-06-17T10:41:35Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Observation</b></p>'\
+                     '<p><b>Patient Id</b>: 15116458</p><p><b>Status</b>: Final</p><p><b>Categories'\
+                     '</b>: Vital Signs</p><p><b>Code</b>: SpO2</p><p><b>Result</b>: 95 %</p><p><b>Effective Date</b>'\
+                     ': Jun  5, 2022  3:00 A.M. CDT</p></div>'
+            },
+            'status': 'final',
+            'category': [
+              {
+                'coding': [
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    'code': 'vital-signs',
+                    'display': 'Vital Signs'
+                  }
+                ],
+                'text': 'Vital Signs'
+              }
+            ],
+            'code': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
+                  'code': '3623994',
+                  'display': 'SpO2',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '2708-6'
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '59408-5'
+                }
+              ],
+              'text': 'SpO2'
+            },
+            'subject': {
+              'reference': 'Patient/12724066'
+            },
+            'encounter': {
+              'reference': 'Encounter/18565902'
+            },
+            'effectiveDateTime': '2022-06-05T08:00:38.000Z',
+            'issued': '2022-06-05T08:00:38Z',
+            'performer': [
+              {
+                'reference': 'Practitioner/15441459'
+              }
+            ],
+            'valueQuantity': {
+              'value': 95,
+              'unit': '%',
+              'system': 'http://unitsofmeasure.org',
+              'code': '%'
+            },
+            'component': [
+              {
+                'code': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
+                      'code': '703569',
+                      'display': 'Oxygen Flow Rate',
+                      'userSelected': true
+                    },
+                    {
+                      'system': 'http://loinc.org',
+                      'code': '3151-8'
+                    }
+                  ],
+                  'text': 'Oxygen Flow Rate'
+                },
+                'valueQuantity': {
+                  'value': 7,
+                  'unit': 'L/min',
+                  'system': 'http://unitsofmeasure.org',
+                  'code': 'L/min'
+                }
+              },
+              {
+                'code': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72',
+                      'code': '2700657',
+                      'display': 'FIO2',
+                      'userSelected': true
+                    },
+                    {
+                      'system': 'http://loinc.org',
+                      'code': '3150-0',
+                      'display': 'Inhaled Oxygen concentration'
+                    }
+                  ],
+                  'text': 'Inhaled Oxygen concentration'
+                },
+                'valueQuantity': {
+                  'value': 21,
+                  'unit': '%',
+                  'system': 'http://unitsofmeasure.org',
+                  'code': '%'
+                }
+              }
+            ]
           }
         },
         R4_OBSERVATION_ENTRY
@@ -411,6 +551,10 @@ module Cerner
             'subject': {
               'reference': 'Patient/12742400'
             },
+            'encounter': {
+              'reference': 'Encounter/18565902'
+            },
+            'effectiveDateTime': '2022-06-01T10:39:02Z',
             'issued': '2020-12-11T16:38:37.000Z',
             'hasMember': [
               {
@@ -420,48 +564,49 @@ module Cerner
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197412603',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-197412603',
           'resource': {
             'resourceType': 'Observation',
-            'id': 'M-197412603',
+            'id': 'L-197412603',
             'text': {
               'status': 'generated',
               'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Observation</b></p>'\
                      '<p><b>Patient Id</b>: 12742400</p><p><b>Status</b>: Preliminary</p>'\
-                     '<p><b>Code</b>: Masked</p></div>'
+                     '<p><b>Code</b>: Hgb Bld-mCnc</p></div>'
             },
             'status': 'preliminary',
             'category': [
               {
-                'extension': [
+                'coding': [
                   {
-                    'valueCode': 'unknown',
-                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    'code': 'laboratory',
+                    'display': 'Laboratory'
                   }
-                ]
+                ],
+                'text': 'Laboratory'
               }
             ],
             'code': {
               'coding': [
                 {
-                  'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
-                  'code': 'masked',
-                  'display': 'Masked'
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '703535',
+                  'display': 'Hgb Bld-mCnc',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '718-7',
+                  'display': 'Hgb Bld-mCnc'
                 }
               ],
-              'text': 'Masked'
+              'text': 'Hgb Bld-mCnc'
             },
             'subject': {
               'reference': 'Patient/12742400'
             },
-            '_effectiveDateTime': {
-              'extension': [
-                {
-                  'valueCode': 'unknown',
-                  'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                }
-              ]
-            },
+            'effectiveDateTime': '2022-06-01T10:39:02Z',
             'dataAbsentReason': {
               'coding': [
                 {
@@ -493,10 +638,10 @@ module Cerner
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197412603',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-197412603',
           'resource': {
             'resourceType': 'Observation',
-            'id': 'M-197412603',
+            'id': 'L-197412603',
             'text': {
               'status': 'generated',
               'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Observation</b></p>'\
@@ -506,35 +651,36 @@ module Cerner
             'status': 'entered-in-error ',
             'category': [
               {
-                'extension': [
+                'coding': [
                   {
-                    'valueCode': 'error',
-                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    'code': 'laboratory',
+                    'display': 'Laboratory'
                   }
-                ]
+                ],
+                'text': 'Laboratory'
               }
             ],
             'code': {
               'coding': [
                 {
-                  'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
-                  'code': 'error',
-                  'display': 'Error'
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '703535',
+                  'display': 'Hgb Bld-mCnc',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '718-7',
+                  'display': 'Hgb Bld-mCnc'
                 }
               ],
-              'text': 'Error'
+              'text': 'Hgb Bld-mCnc'
             },
             'subject': {
               'reference': 'Patient/12742401'
             },
-            '_effectiveDateTime': {
-              'extension': [
-                {
-                  'valueCode': 'error',
-                  'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                }
-              ]
-            },
+            'effectiveDateTime': '2022-06-01T10:38:02Z',
             'dataAbsentReason': {
               'coding': [
                 {
@@ -741,7 +887,7 @@ module Cerner
 
     R4_OBSERVATION_LABS_UPDATE ||= {
       "resourceType": 'Observation',
-      "id": 'M-196186655',
+      "id": 'L-196186655',
       "status": 'corrected',
       "meta": {
         "source": '43ba6d6a-1006-4546-bf28-48d84a98dbb1'
@@ -829,7 +975,7 @@ module Cerner
 
     R4_OBSERVATION_VITALS_UPDATE ||= {
       "resourceType": 'Observation',
-      "id": 'M-197356031',
+      "id": 'VS-197356031',
       "identifier": [
         {
           "system": 'https://fhir.cerner.com/ceuuid',
@@ -908,10 +1054,10 @@ module Cerner
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-196190669',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-196190669',
           'resource': {
             'resourceType': 'Observation',
-            'id': 'M-196190669',
+            'id': 'VS-196190669',
             'meta': {
               'versionId': '2',
               'lastUpdated': '2017-02-25T02:41:03.000Z'
@@ -1077,13 +1223,13 @@ module Cerner
             'text': {
               'status': 'generated',
               'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Provenance</b></p><p><b>Target</b>:</p>'\
-                    '<ul><li>Observation/M-196190669</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M.'\
+                    '<ul><li>Observation/VS-196190669</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M.'\
                     ' CDT</p><p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Author</dd><dd>'\
                     '<b>Agent Role</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/S-100</p></div>'
             },
             'target': [
               {
-                'reference': 'Observation/M-196190669'
+                'reference': 'Observation/VS-196190669'
               }
             ],
             'recorded': '2019-10-25T14:57:43Z',
