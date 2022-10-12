@@ -212,5 +212,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`_count`]: https://hl7.org/fhir/r4/search.html#count
 [`token`]: http://hl7.org/fhir/r4/search.html#token
 [`number`]: https://hl7.org/fhir/r4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

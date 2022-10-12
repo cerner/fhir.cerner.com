@@ -345,9 +345,9 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Encounter.location.location]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
 [Encounter.period]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period
 [Encounter.serviceProvider]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider
-[errors]: ../../#client-errors
+[errors]: ../../../#client-errors
 [Estimated Financial Responsibility Amount]: #custom-extensions
 [Estimated Financial Responsibility Not Collected Reason]: #custom-extensions
 [Military Service Connected Indicator]: #custom-extensions
-[OperationOutcomes]: ../../#operation-outcomes
+[OperationOutcomes]: ../../../#operation-outcomes
 [Payment Collection Status]: #custom-extensions

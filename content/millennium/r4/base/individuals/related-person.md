@@ -300,8 +300,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`Period`]: https://hl7.org/fhir/r4/datatypes.html#Period
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Relationship Level]: #custom-extensions
 [Related Person Encounter]: #custom-extensions
 [Period]: #custom-extensions

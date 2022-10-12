@@ -177,8 +177,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
-[errors]: ../../#client-errors
+[errors]: ../../../#client-errors
 [Note]: #custom-extensions
 [Choice Answer]: #custom-extensions
 [Is Modifiable]: #custom-extensions
-[OperationOutcomes]: ../../#operation-outcomes
+[OperationOutcomes]: ../../../#operation-outcomes

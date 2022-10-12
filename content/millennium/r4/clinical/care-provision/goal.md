@@ -202,5 +202,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`date`]: http://hl7.org/fhir/r4/search.html#date
 [`reference`]: http://hl7.org/fhir/r4/search.html#reference
 [`token`]: http://hl7.org/fhir/r4/search.html#token
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

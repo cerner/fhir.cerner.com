@@ -168,8 +168,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`number`]: http://hl7.org/fhir/r4/search.html#number
 [`Money`]: http://hl7.org/fhir/r4/datatypes.html#Money
 [`token`]: http://hl7.org/fhir/R4/search.html#token
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Account Related Parts]: #custom-extensions
 [Account Balance]: #custom-extensions
 [Account State]: #custom-extensions

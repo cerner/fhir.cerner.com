@@ -141,5 +141,5 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

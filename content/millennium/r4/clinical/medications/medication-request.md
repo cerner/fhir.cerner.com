@@ -343,5 +343,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`date`]: http://hl7.org/fhir/R4/search.html#date
 [`number`]: http://hl7.org/fhir/R4/search.html#number
 [status]: https://www.hl7.org/fhir/r4/valueset-medicationrequest-status.html
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

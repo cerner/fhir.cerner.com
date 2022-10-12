@@ -149,6 +149,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`CodeableConcept`]: http://hl7.org/fhir/R4/datatypes.html#codeableconcept
 [contained]: http://hl7.org/fhir/R4/references.html#contained
 [MedicationAdministration.medication]: http://hl7.org/fhir/R4/medicationadministration-definitions.html#MedicationAdministration.medication_x_
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Infuse Over Time]: #custom-extensions

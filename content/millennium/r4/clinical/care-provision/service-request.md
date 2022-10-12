@@ -153,5 +153,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`_count`]: https://hl7.org/fhir/r4/search.html#count
 [`number`]: http://hl7.org/fhir/R4/search.html#number
 [status]: https://www.hl7.org/fhir/r4/valueset-servicerequest-status.html
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

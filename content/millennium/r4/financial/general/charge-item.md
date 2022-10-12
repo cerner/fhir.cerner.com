@@ -326,8 +326,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`coding`]: https://hl7.org/fhir/r4/datatypes.html#coding
 [`unsignedInt`]: https://hl7.org/fhir/R4/datatypes.html#unsignedInt
 [`CodeableConcept`]: https://hl7.org/fhir/r4/datatypes.html#CodeableConcept
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Priority]: #custom-extensions
 [Procedure Code]: #custom-extensions
 [Modifier Code]: #custom-extensions

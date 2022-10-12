@@ -211,5 +211,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: http://hl7.org/fhir/r4/search.html#reference
 [`_count`]: http://hl7.org/fhir/r4/search.html#count
 [`number`]: http://hl7.org/fhir/r4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

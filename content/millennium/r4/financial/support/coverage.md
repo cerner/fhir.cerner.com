@@ -350,6 +350,6 @@ X-Request-Id: 160d603d256dce10d510f7da2ca1780e
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Encounter]: #custom-extensions

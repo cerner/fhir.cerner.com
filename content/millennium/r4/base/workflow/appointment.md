@@ -500,7 +500,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: https://hl7.org/fhir/r4/search.html#token
 [`number`]: https://hl7.org/fhir/r4/search.html#number
 [`_count`]: https://hl7.org/fhir/r4/search.html#count
-[errors]: ../../#client-errors
+[errors]: ../../../#client-errors
 [implicitRules]: http://hl7.org/fhir/r4/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension
-[OperationOutcomes]: ../../#operation-outcomes
+[OperationOutcomes]: ../../../#operation-outcomes
