@@ -2,6 +2,8 @@
 title: DiagnosticReport | R4 API
 ---
 
+<%= beta_tag %>
+
 # DiagnosticReport
 
 * TOC
@@ -50,6 +52,8 @@ The following fields are returned if valued:
 <%= terminology_table(:diagnostic_report, :r4) %>
 
 ## Search
+
+<%= beta_tag(action: true) %>
 
 
 
@@ -140,6 +144,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 The common [errors] and [OperationOutcomes] may be returned.
 
 ## Read by id
+
+<%= beta_tag(action: true) %>
 
 ### Authorization Types
 
