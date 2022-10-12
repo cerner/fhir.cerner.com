@@ -4,8 +4,6 @@ title: DiagnosticReport | R4 API
 
 # DiagnosticReport
 
-<%= beta_tag %>
-
 * TOC
 {:toc}
 
@@ -51,9 +49,8 @@ The following fields are returned if valued:
 ## Terminology Bindings
 <%= terminology_table(:diagnostic_report, :r4) %>
 
-## Search Parameters
+## Search
 
-<%= beta_tag(action: true) %>
 
 
 ### Authorization Types
@@ -102,34 +99,22 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 <%= headers %>
 
-## Search by Id
+### Example
 
-### Authorization Types
+#### Request
 
-<%= authorization_types(provider: true, patient: true, system: true) %>
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066
 
-
-### Headers
-
-<%= headers %>
-### Request
-
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?_id=196151517,198381928
-
-### Response
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_DIAGNOSTIC_REPORT_SEARCH_BY_ID) %>
 
 <%= disclaimer %>
 
-### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+### Example with RevInclude
 
-## Search by revinclude
-
-<%= beta_tag(action: true) %>
 
 ### Authorization Types
 
@@ -139,11 +124,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 ### Headers
 
 <%= headers %>
-### Request
+#### Request
 
     GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?_id=196151517,198381928&_revinclude=Provenance:target
 
-### Response
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_DIAGNOSTIC_REPORT_SEARCH_BY_REVINCLUDE) %>
@@ -164,11 +149,14 @@ The common [errors] and [OperationOutcomes] may be returned.
 ### Headers
 
 <%= headers %>
-### Request
+
+### Example
+
+#### Request
 
     GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/196151517
 
-### Response
+#### Response
 
 <%= headers status: 200 %>
 <%= json(:R4_DIAGNOSTIC_REPORT_READ_BY_ID) %>

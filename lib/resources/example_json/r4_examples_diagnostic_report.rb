@@ -4,106 +4,88 @@ module Cerner
   module Resources
     R4_DIAGNOSTIC_REPORT_SEARCH_BY_ID ||= {
       "resourceType": 'Bundle',
-      "id": 'e54ead7c-0713-4d29-8cbe-f8d74798fddd',
+      "id": '2bae404f-007d-4abf-8552-6e540f0226b6',
       "type": 'searchset',
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?_id=196151517'
+          "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/196151517',
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197480987',
           "resource": {
             "resourceType": 'DiagnosticReport',
-            "id": '196151517',
+            "id": '197480987',
             "meta": {
-              "versionId": '3',
-              "lastUpdated": '2017-01-06T20:09:17.000+00:00'
+              "versionId": '1',
+              "lastUpdated": '2021-05-11T18:17:17.000Z'
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Diagnostic Report</b></p><p>'\
-                      '<b>Patient</b>: RADIOLOGY, TESTTWO</p><p><b>Document Category</b>: Unknown</p><p>'\
-                      '<b>Document Title</b>: MG Mammo Digital Diagnostic Bilat</p><p><b>Status</b>: '\
-                      'Final</p><p><b>Code</b>: MG Mammo Digital Diagnostic Bilat</p><p><b>Effective Date</b>:'\
-                      'Jan  6, 2017  7:59 P.M. UTC</p></div>'\
+              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Diagnostic Report</b></p>'\
+                      '<p><b>Patient</b>: Smart, Nancyu Nha Eeeeee</p><p><b>Status</b>: Partial</p>'\
+                      '<p><b>Code</b>: Abdominal Ultrasound</p><p>'\
+                      '<b>Effective End Date</b>: May 11, 2021  6:16 P.M. UTC</p></div>'
             },
             "identifier": [
               {
                 "system": 'https://fhir.cerner.com/ceuuid',
-                "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-196151517-2017010620084300'
-              },
-              {
-                "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/acsn',
-                "value": '00000MG20170000004'
+                "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-197480987-2021051118171700'
               }
             ],
-            "basedOn": [
-              {
-                "reference": 'ServiceRequest/294749597'
-              }
-            ],
-            "status": 'final',
+            "status": 'partial',
             "category": [
               {
                 "coding": [
                   {
-                    "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
-                    "code": 'unknown',
-                    "display": 'Unknown'
+                    "system": 'http://loinc.org',
+                    "code": 'LP29684-5',
+                    "userSelected": false
                   }
                 ],
-                "text": 'Unknown'
+                "text": 'Radiology'
               }
             ],
             "code": {
               "coding": [
                 {
                   "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  "code": '21660139',
-                  "display": 'MG Mammo Digital Diagnostic Bilat',
+                  "code": '2820643',
+                  "display": 'Abdominal Ultrasound',
                   "userSelected": true
                 },
                 {
                   "system": 'http://loinc.org',
-                  "code": '26346-7'
+                  "code": '24558-9',
+                  "userSelected": false
                 }
               ],
-              "text": 'MG Mammo Digital Diagnostic Bilat'
+              "text": 'Abdominal Ultrasound'
             },
             "subject": {
-              "reference": 'Patient/12458002',
-              "display": 'RADIOLOGY, TESTTWO'
+              "reference": 'Patient/12724066',
+              "display": 'Smart, Nancyu Nha Eeeeee'
             },
-            "encounter": {
-              "reference": 'Encounter/97697440'
+            "effectivePeriod": {
+              "end": '2021-05-11T18:16:00.000Z'
             },
-            "effectiveDateTime": '2017-01-06T19:59:20Z',
-            "issued": '2017-01-06T20:09:17Z',
+            "issued": '2021-05-11T18:17:17Z',
             "performer": [
               {
-                "reference": 'Practitioner/11648064'
-              }
-            ],
-            "resultsInterpreter": [
-              {
-                "reference": 'Practitioner/11648064'
+                "reference": 'Practitioner/1',
+                "display": 'SYSTEM, SYSTEM Cerner'
               }
             ],
             "presentedForm": [
               {
-                "contentType": 'application/pdf',
-                "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-196151517',
-                "title": 'MG Mammo Digital Diagnostic Bilat',
-                "creation": '2017-01-06T20:09:17Z'
-              },
-              {
-                "contentType": 'application/xml',
-                "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/R-196151517',
-                "title": 'MG Mammo Digital Diagnostic Bilat',
-                "creation": '2017-01-06T20:09:17Z'
+                "extension": [
+                  {
+                    "valueCode": 'unsupported',
+                    "url": 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
               }
             ]
           },
