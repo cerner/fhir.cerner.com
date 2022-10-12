@@ -259,6 +259,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`string`]: http://hl7.org/fhir/r4/datatypes.html#string
 [`CodeableConcept`]: http://hl7.org/fhir/r4/datatypes.html#codeableconcept
 [`_include`]: http://hl7.org/fhir/r4/search.html#include
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Scheduling Location]: #custom-extensions

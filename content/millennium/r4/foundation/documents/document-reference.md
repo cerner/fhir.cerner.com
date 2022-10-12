@@ -347,6 +347,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`date`]: https://hl7.org/fhir/R4/search.html#date
 [`number`]: https://hl7.org/fhir/R4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Update documentation]: https://www.hl7.org/fhir/r4/http.html#update

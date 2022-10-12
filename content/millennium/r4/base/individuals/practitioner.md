@@ -203,6 +203,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`string`]: https://hl7.org/fhir/R4/search.html#string
 [`_count`]: http://hl7.org/fhir/r4/search.html#count
 [`number`]: http://hl7.org/fhir/r4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Is Physician]: #custom-extensions

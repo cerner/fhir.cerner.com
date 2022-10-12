@@ -119,5 +119,5 @@ Cerner Millennium supports the ability to logically merge a person record into a
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/R4/search.html#token
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

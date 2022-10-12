@@ -170,5 +170,5 @@ An `Accept` header of `application/xml` could be supplied instead, if the XML Bi
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/r4/search.html#token
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

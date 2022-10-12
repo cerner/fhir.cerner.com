@@ -187,7 +187,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/r4/search.html#token
 [`reference`]: http://hl7.org/fhir/r4/search.html#reference
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [`string`]: http://hl7.org/fhir/r4/search.html#string
 [`_include`]: http://hl7.org/fhir/r4/search.html#include

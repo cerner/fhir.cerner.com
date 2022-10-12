@@ -362,8 +362,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`date`]: https://hl7.org/fhir/r4/search.html#date
 [`_count`]: https://hl7.org/fhir/r4/search.html#count
 [`number`]: https://hl7.org/fhir/r4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
 [Extensions for converting between versions]: https://www.hl7.org/fhir/r4/versions.html#extensions
 [R5 Snapshot of Observation.value]: https://hl7.org/fhir/2020Feb/observation-definitions.html#Observation.value_x_

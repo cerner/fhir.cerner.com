@@ -182,8 +182,8 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea70
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [`CodeableConcept`]: https://www.hl7.org/fhir/r4/datatypes.html#CodeableConcept
 [`date`]: https://www.hl7.org/fhir/r4/datatypes.html#date
 [`Extension`]: https://www.hl7.org/fhir/r4/extensibility.html#Extension

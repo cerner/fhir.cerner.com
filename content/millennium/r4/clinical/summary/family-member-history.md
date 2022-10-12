@@ -267,11 +267,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
-[errors]: ../../#client-errors
+[errors]: ../../../#client-errors
 [Patient Adopted]: #custom-extensions
 [Precision Extension]: #custom-extensions
 [Condition Result]: #custom-extensions
 [Condition Lifecycle Status]: #custom-extensions
 [Condition Course]: #custom-extensions
 [Family Member History Severity]: http://hl7.org/fhir/extension-familymemberhistory-severity.html
-[OperationOutcomes]: ../../#operation-outcomes
+[OperationOutcomes]: ../../../#operation-outcomes

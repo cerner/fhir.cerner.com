@@ -167,6 +167,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`date`]: https://hl7.org/fhir/R4/search.html#date
 [`_count`]: https://hl7.org/fhir/r4/search.html#count
 [`number`]: https://hl7.org/fhir/R4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update

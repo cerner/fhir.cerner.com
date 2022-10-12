@@ -121,5 +121,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [Note Allowed]: #custom-extensions
 [Max Decimal Places]: https://hl7.org/fhir/R4/extension-maxdecimalplaces.html
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes

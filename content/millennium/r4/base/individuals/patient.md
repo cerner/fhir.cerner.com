@@ -315,8 +315,8 @@ See [Health Cards] documentation for more details about this operation.
 [`number`]: http://hl7.org/fhir/R4/search.html#number
 [`string`]: https://hl7.org/fhir/R4/search.html#string
 [`token`]: http://hl7.org/fhir/R4/search.html#token
-[errors]: ../../#client-errors
-[OperationOutcomes]: https://hl7.org/fhir/R4/operationoutcome.html
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
 [Patient Preferred Contact]: https://www.hl7.org/fhir/extension-organization-preferredcontact.html
 [US Core Race]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html

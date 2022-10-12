@@ -113,5 +113,5 @@ List an individual Schedule by its id:
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/r4/search.html#token
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
