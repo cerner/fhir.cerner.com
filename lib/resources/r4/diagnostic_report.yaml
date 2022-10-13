@@ -1,0 +1,65 @@
+name: DiagnosticReport
+field_name_base_url: http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport
+fields:
+- name: category
+  required: 'No'
+  type: List of CodeableConcept
+  description: Status for diagnostic service sectionsDetails
+  action: terminology
+  url: http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.category
+  binding:
+    description: A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes
+    terminology:
+    - display: US Core DiagnosticReport Profile for Laboratory Results Reporting
+      system: http://hl7.org/fhir/v2/0074
+      info_link: https://www.hl7.org/fhir/valueset-diagnostic-service-sections.html
+    - display: US Core DiagnosticReport Profile for Report and Note Exchange
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/R4/valueset-diagnostic-service-sections.html
+    example: |
+      {
+        "category": "http://terminology.hl7.org/CodeSystem/v2-0074|LAB"
+      }
+      {
+        "category": "http://loinc.org|LP29684-5"
+      }
+- name: code
+  required: 'Yes'
+  type: CodeableConcept
+  description: Codes that describe Diagnostic Reports
+  action: terminology
+  url: http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.code
+  binding:
+    description: A code or name that describes this diagnostic report.
+    terminology:
+      - display: DiagnosticReport code
+        system:  http://loinc.org
+        info_link: https://www.hl7.org/fhir/valueset-report-codes.html
+  example: |
+    {
+      "code": "http://loinc.org|24323-8"
+    }
+- name: status
+  required: 'Yes'
+  type: Code
+  description: Status for the Diagnostic Report
+  action: terminology
+  url: http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.status
+  binding:
+    description: Status for the Diagnostic Report
+    terminology:
+    - display: DiagnosticReportStatus
+      system: http://hl7.org/fhir/diagnostic-report-status
+      info_link: http://hl7.org/fhir/valueset-diagnostic-report-status.html
+- name: conclusionCode
+  required: 'No'
+  type: List of CodeableConcept
+  description: Codes for the clinical conclusion of test results
+  action: terminology
+  url: http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.conclusionCode
+  binding:
+    description: One or more codes that represent the summary conclusion (interpretation/impression) of the diagnostic report.
+    terminology:
+    - display: Codes for the clinical conclusion of test results
+      system: http://snomed.info/sct
+      info_link: http://hl7.org/fhir/valueset-clinical-findings.html

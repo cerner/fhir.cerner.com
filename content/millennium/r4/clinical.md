@@ -19,6 +19,7 @@ layout: api
 
 * [Observation](/millennium/r4/clinical/diagnostics/observation)
 * [QuestionnaireResponse](/millennium/r4/clinical/diagnostics/questionnaire-response)
+* [DiagnosticReport](/millennium/r4/clinical/diagnostics/diagnostic-report)
 
 ## Medications
 
