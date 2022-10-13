@@ -593,7 +593,7 @@
       <td><code>encounter</code></td>
       <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>The encounter ID/s for the patient. Only encounter-diagnosis are returned. Example: <code>encounter=97733489</code>
+      <td>The encounter ID/s for the patient. Encounter-diagnosis conditions that match the encounter ID/s and all problem-list-item conditions of the patient are returned. Example: <code>encounter=97733489</code>
 </td>
     </tr>
   </tbody>
@@ -615,7 +615,7 @@
     <p>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</p>
   </li>
   <li>
-    <p>When <code>encounter</code> is provided, only encounter-diagnosis will be returned for the matched encounter/s. No Problems/HealthConcerns are returned</p>
+    <p>When <code>encounter</code> is provided, encounter-diagnosis for the matched encounter/s and all problem-list-item conditions of the patient will be returned. No HealthConcerns are returned.</p>
   </li>
 </ul>
 
@@ -1260,7 +1260,7 @@
 
 <h3 id="errors">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
@@ -1598,7 +1598,7 @@
 
 <h3 id="errors-1">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
@@ -2258,7 +2258,7 @@ X-Request-Id: 11111111111111111111111111111111
 
 <h3 id="errors-2">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="update">Update</h2>
 
@@ -2934,7 +2934,7 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
 
 <h3 id="errors-3">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="https://hl7.org/fhir/R4/operationoutcome.html">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>
@@ -3015,6 +3015,7 @@ X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
           <li><a href="../family-member-history/">FamilyMemberHistory</a></li>
 
           <li class="subtopic"><a href="../../diagnostics/">Diagnostics</a></li>
+          <li><a href="../../diagnostics/diagnostic-report/">DiagnosticReport</a></li>
           <li><a href="../../diagnostics/observation/">Observation</a></li>
           <li><a href="../../diagnostics/questionnaire-response/">QuestionnaireResponse</a></li>
 

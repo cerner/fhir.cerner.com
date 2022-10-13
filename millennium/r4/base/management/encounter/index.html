@@ -1327,11 +1327,11 @@
 <code>_revinclude</code> parameter may be provided with the <code>_id/patient/subject/account</code> parameter. Example: <code>_id=74771957,4732066&amp;_revinclude=Provenance:target</code>
 </li>
   <li>
-<code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
+<code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently, <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilized for patient persona.</li>
   <li>
 <code>_count</code> and <code>status</code> must be provided with patient</li>
   <li>
-<code>status</code> valid parameters are <code>planned</code>, <code>in-proggres</code>, <code>finished</code>, <code>cancelled</code>
+<code>status</code> valid parameters are <code>planned</code>, <code>in-progress</code>, <code>finished</code>, <code>cancelled</code>
 </li>
   <li>The <code>date</code> parameter may be provided:
     <ul>
@@ -1350,9 +1350,9 @@
   </li>
   <li>The <code>identifier</code> parameter
     <ul>
-      <li>Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the
+      <li>Code details are required. System is optional. If a system is not provided, search is performed across all systems supported by the
 Encounter resource.</li>
-      <li>When valid system is provided, search is performed against the specific system.</li>
+      <li>When a valid system is provided, search is performed against the specific system.</li>
     </ul>
   </li>
 </ul>
@@ -3314,7 +3314,7 @@ Encounter resource.</li>
 
 <h3 id="errors">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
@@ -3863,7 +3863,7 @@ Encounter resource.</li>
 
 <h3 id="errors-1">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
@@ -5230,7 +5230,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
 
 <h3 id="errors-2">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="patch">Patch</h2>
 
@@ -5701,7 +5701,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h3 id="errors-3">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>
@@ -5782,6 +5782,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
           <li><a href="../../../clinical/summary/family-member-history/">FamilyMemberHistory</a></li>
 
           <li class="subtopic"><a href="../../../clinical/diagnostics/">Diagnostics</a></li>
+          <li><a href="../../../clinical/diagnostics/diagnostic-report/">DiagnosticReport</a></li>
           <li><a href="../../../clinical/diagnostics/observation/">Observation</a></li>
           <li><a href="../../../clinical/diagnostics/questionnaire-response/">QuestionnaireResponse</a></li>
 

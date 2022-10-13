@@ -125,14 +125,33 @@
 <h2 id="overview">Overview</h2>
 <p>The Observation resource provides measurements or simple assertions about a patient that are useful for establishing baselines or trends, monitoring a patient’s progress, and establishing diagnoses. Most observations are simple name/value pair assertions but some observations, such as blood pressure, group other observations together logically. Examples of common observations are: Laboratory results (blood sugar, hemoglobin), Vital signs (temperature, blood pressure), Personal characteristics (height, weight), and Social history (tobacco/alcohol use, employment status). Pathology reports, radiology reports, and other textual reports should be represented by the DiagnosticReport resource.</p>
 
+<p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+
+<ul>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-observation-lab.html" target="_blank">US Core Laboratory Result Observation Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-smokingstatus.html" target="_blank">US Core Smoking Status Observation Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-vital-signs.html" target="_blank">US Core Vital Signs Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-blood-pressure.html" target="_blank">US Core Blood Pressure Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-bmi.html" target="_blank">US Core BMI Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-height.html" target="_blank">US Core Body Height Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-temperature.html" target="_blank">US Core Body Temperature Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-body-weight.html" target="_blank">US Core Body Weight Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-head-circumference.html" target="_blank">US Core Head Circumference Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-heart-rate.html" target="_blank">US Core Heart Rate Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-pediatric-bmi-for-age.html" target="_blank">US Core Pediatric BMI for Age Observation Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-head-occipital-frontal-circumference-percentile.html" target="_blank">US Core Pediatric Head Occipital-frontal Circumference Percentile Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-pediatric-weight-for-height.html" target="_blank">US Core Pediatric Weight for Height Observation Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-pulse-oximetry.html" target="_blank">US Core Pulse Oximetry Profile</a></li>
+  <li><a href="https://www.hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-respiratory-rate.html" target="_blank">US Core Respiratory Rate Profile</a></li>
+</ul>
+
 <p>The following fields are returned if valued:</p>
 
 <ul>
   <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.identifier" target="_blank">Identifier</a></li>
-  <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.basedOn" target="_blank">BasedOn</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.status" target="_blank">Status</a></li>
-  <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.category" target="_blank">Category (laboratory, social history)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.category" target="_blank">Category (laboratory, social history, vital-signs)</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.code" target="_blank">Code (Observation name or text)</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.subject" target="_blank">Subject (Patient)</a></li>
   <li><a href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.encounter" target="_blank">Encounter</a></li>
@@ -721,10 +740,16 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
     <p>The <code>comments</code> field may have RTF or other formatted data rather than simple text. This is an issue that will be resolved in a future correction. We are investigating alternative solutions to fix this.</p>
   </li>
   <li>
+    <p>Social History results won’t be affected by date and _lastUpdated parameters, results may contain social history records out of the given timeframe.</p>
+  </li>
+  <li>
+    <p>Searching records with vital-signs category by code with proprietary system will result in empty response.</p>
+  </li>
+  <li>
     <p>When multiple pages of Observation results are returned for a single query:</p>
     <ul>
       <li>All Social history Observations (if any qualify for the query) will be returned on the first page of results. This means that the next bullet does not apply to Social history Observations.</li>
-      <li>Results are sorted by effective date/time in descending order by page. That is, all Observations on any given page of results are newer than all Observations on the next page of results. Sort order within pages is not guaranteed.</li>
+      <li>Results are sorted by effective date/time in descending order. That is, all Observations on any given page of results are newer than all Observations on the next page of results.</li>
       <li>If the query uses the <code>_lastUpdated</code> query parameter, results are sorted by last updated date/time in descending order by page, not by effective date/time.</li>
     </ul>
   </li>
@@ -762,7 +787,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
       <td><code>code</code></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The code or component-code of the observation type. Example: <code>code=http://loinc.org|3094-0,http://loinc.org|3139-3</code>
+      <td>The code or component-code of the observation type. Example: <code>code=http://loinc.org                                                     | 3094-0,http://loinc.org | 3139-3</code>
 </td>
     </tr>
     <tr>
@@ -812,9 +837,12 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
   </li>
   <li>The <code>code</code> parameter:
     <ul>
-      <li>May be a list of comma separated values. A system must be provided for each code.</li>
-      <li>Searches only <code>Observation.code</code>. For example when fetching blood pressures the resource will be only be returned when the search is based on <code>85354-9(Systolic and Diastolic BP)</code>. Using the component codes <code>8480-6(Systolic BP)</code> or <code>8462-4 (Diastolic BP)</code> will not return the resource.</li>
-      <li>Searching with proprietary codes or systems is not supported.</li>
+      <li>
+        <p>May be a list of comma separated values.</p>
+      </li>
+      <li>
+        <p>Searches only <code>Observation.code</code>. For example when fetching blood pressures the resource will be only be returned when the search is based on <code>85354-9(Systolic and Diastolic BP)</code>. Using the component codes <code>8480-6(Systolic BP)</code> or <code>8462-4 (Diastolic BP)</code> will not return the resource.</p>
+      </li>
     </ul>
   </li>
   <li>
@@ -826,13 +854,19 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
   <li>
     <p>The <code>_lastUpdated</code> query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.</p>
   </li>
+  <li>When <code>_count</code> parameter is provided,
+    <ul>
+      <li>it won’t affect the first page, because all social history data will appear in the first page regardless of requested count.</li>
+      <li>Second page onward, returned item count may be less than requested.</li>
+    </ul>
+  </li>
   <li>
     <p>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code></p>
   </li>
   <li>
     <p>The <code>_revinclude</code> parameter may be provided with the <code>patient/subject</code> parameter. Example: <code>patient=12457977&amp;category=vital-signs&amp;_revinclude=Provenance:target</code></p>
   </li>
-  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -901,7 +935,16 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
         "subject": {
           "reference": "Patient/12724066"
         },
+        "encounter": {
+          "reference": "Encounter/18565902"
+        },
+        "effectiveDateTime": "2022-06-01T10:39:02Z",
         "issued": "2020-06-11T04:05:33.000Z",
+        "performer": [
+          {
+            "reference": "Practitioner/15441459"
+          }
+        ],
         "hasMember": [
           {
             "reference": "Observation/SH-73080191-q4625817"
@@ -951,7 +994,16 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
         "subject": {
           "reference": "Patient/12724066"
         },
+        "encounter": {
+          "reference": "Encounter/18565902"
+        },
+        "effectiveDateTime": "2022-06-01T10:39:02Z",
         "issued": "2020-06-11T04:05:33.000Z",
+        "performer": [
+          {
+            "reference": "Practitioner/15441459"
+          }
+        ],
         "valueCodeableConcept": {
           "coding": [
             {
@@ -1003,7 +1055,16 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
         "subject": {
           "reference": "Patient/12724066"
         },
+        "encounter": {
+          "reference": "Encounter/18565902"
+        },
+        "effectiveDateTime": "2022-06-01T10:39:02Z",
         "issued": "2020-06-11T04:05:33.000Z",
+        "performer": [
+          {
+            "reference": "Practitioner/15441459"
+          }
+        ],
         "valueCodeableConcept": {
           "coding": [
             {
@@ -1017,10 +1078,125 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
       }
     },
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292857",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-CV-55046871-SECT-8098",
       "resource": {
         "resourceType": "Observation",
-        "id": "M-197292857",
+        "id": "VS-CV-55046871-SECT-8098",
+        "meta": {
+          "versionId": "0",
+          "lastUpdated": "2022-06-17T10:41:35Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Id&lt;/b&gt;: 15116458&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Categories&lt;/b&gt;: Vital Signs&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: SpO2&lt;/p&gt;&lt;p&gt;&lt;b&gt;Result&lt;/b&gt;: 95 %&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective Date&lt;/b&gt;: Jun  5, 2022  3:00 A.M. CDT&lt;/p&gt;&lt;/div&gt;"
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "vital-signs",
+                "display": "Vital Signs"
+              }
+            ],
+            "text": "Vital Signs"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72",
+              "code": "3623994",
+              "display": "SpO2",
+              "userSelected": true
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "2708-6"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "59408-5"
+            }
+          ],
+          "text": "SpO2"
+        },
+        "subject": {
+          "reference": "Patient/12724066"
+        },
+        "encounter": {
+          "reference": "Encounter/18565902"
+        },
+        "effectiveDateTime": "2022-06-05T08:00:38.000Z",
+        "issued": "2022-06-05T08:00:38Z",
+        "performer": [
+          {
+            "reference": "Practitioner/15441459"
+          }
+        ],
+        "valueQuantity": {
+          "value": 95,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72",
+                  "code": "703569",
+                  "display": "Oxygen Flow Rate",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://loinc.org",
+                  "code": "3151-8"
+                }
+              ],
+              "text": "Oxygen Flow Rate"
+            },
+            "valueQuantity": {
+              "value": 7,
+              "unit": "L/min",
+              "system": "http://unitsofmeasure.org",
+              "code": "L/min"
+            }
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/codeSet/72",
+                  "code": "2700657",
+                  "display": "FIO2",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://loinc.org",
+                  "code": "3150-0",
+                  "display": "Inhaled Oxygen concentration"
+                }
+              ],
+              "text": "Inhaled Oxygen concentration"
+            },
+            "valueQuantity": {
+              "value": 21,
+              "unit": "%",
+              "system": "http://unitsofmeasure.org",
+              "code": "%"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-197292857",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "VS-197292857",
         "meta": {
           "versionId": "1",
           "lastUpdated": "2020-07-06T21:13:24.000Z"
@@ -1033,11 +1209,6 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
           {
             "system": "https://fhir.cerner.com/ceuuid",
             "value": "CE87caf4b7-9397-4667-9897-702218017c9e-197292857-2020070621132500"
-          }
-        ],
-        "basedOn": [
-          {
-            "reference": "ServiceRequest/313764715"
           }
         ],
         "status": "final",
@@ -1193,7 +1364,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
 <div class="auth-types">
-<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
 <h4 id="request-1">Request</h4>
@@ -1217,10 +1388,10 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-196190669",
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-196190669",
       "resource": {
         "resourceType": "Observation",
-        "id": "M-196190669",
+        "id": "VS-196190669",
         "meta": {
           "versionId": "2",
           "lastUpdated": "2017-02-25T02:41:03.000Z"
@@ -1381,11 +1552,11 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Provenance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target&lt;/b&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Observation/M-196190669&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;b&gt;Recorded&lt;/b&gt;: Oct 25, 2019  9:57 A.M. CDT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Agents&lt;/b&gt;:&lt;/p&gt;&lt;dl&gt;&lt;dt&gt;Unknown&lt;/dt&gt;&lt;dd&gt;&lt;b&gt;Agent Type&lt;/b&gt;: Author&lt;/dd&gt;&lt;dd&gt;&lt;b&gt;Agent Role&lt;/b&gt;: Source&lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;b&gt;Entity Source&lt;/b&gt;: DocumentReference/S-100&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Provenance&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target&lt;/b&gt;:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Observation/VS-196190669&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;b&gt;Recorded&lt;/b&gt;: Oct 25, 2019  9:57 A.M. CDT&lt;/p&gt;&lt;p&gt;&lt;b&gt;Agents&lt;/b&gt;:&lt;/p&gt;&lt;dl&gt;&lt;dt&gt;Unknown&lt;/dt&gt;&lt;dd&gt;&lt;b&gt;Agent Type&lt;/b&gt;: Author&lt;/dd&gt;&lt;dd&gt;&lt;b&gt;Agent Role&lt;/b&gt;: Source&lt;/dd&gt;&lt;/dl&gt;&lt;p&gt;&lt;b&gt;Entity Source&lt;/b&gt;: DocumentReference/S-100&lt;/p&gt;&lt;/div&gt;"
         },
         "target": [
           {
-            "reference": "Observation/M-196190669"
+            "reference": "Observation/VS-196190669"
           }
         ],
         "recorded": "2019-10-25T14:57:43Z",
@@ -1497,6 +1668,10 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
         "subject": {
           "reference": "Patient/12742400"
         },
+        "encounter": {
+          "reference": "Encounter/18565902"
+        },
+        "effectiveDateTime": "2022-06-01T10:39:02Z",
         "issued": "2020-12-11T16:38:37.000Z",
         "hasMember": [
           {
@@ -1506,46 +1681,47 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
       }
     },
     {
-      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197412603",
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-197412603",
       "resource": {
         "resourceType": "Observation",
-        "id": "M-197412603",
+        "id": "L-197412603",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Id&lt;/b&gt;: 12742400&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Preliminary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Masked&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Id&lt;/b&gt;: 12742400&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Preliminary&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Hgb Bld-mCnc&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "preliminary",
         "category": [
           {
-            "extension": [
+            "coding": [
               {
-                "valueCode": "unknown",
-                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
               }
-            ]
+            ],
+            "text": "Laboratory"
           }
         ],
         "code": {
           "coding": [
             {
-              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
-              "code": "masked",
-              "display": "Masked"
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+              "code": "703535",
+              "display": "Hgb Bld-mCnc",
+              "userSelected": true
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hgb Bld-mCnc"
             }
           ],
-          "text": "Masked"
+          "text": "Hgb Bld-mCnc"
         },
         "subject": {
           "reference": "Patient/12742400"
         },
-        "_effectiveDateTime": {
-          "extension": [
-            {
-              "valueCode": "unknown",
-              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
-            }
-          ]
-        },
+        "effectiveDateTime": "2022-06-01T10:39:02Z",
         "dataAbsentReason": {
           "coding": [
             {
@@ -1588,10 +1764,10 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197412603",
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-197412603",
       "resource": {
         "resourceType": "Observation",
-        "id": "M-197412603",
+        "id": "L-197412603",
         "text": {
           "status": "generated",
           "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Observation&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Id&lt;/b&gt;: 12742401&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Entered in Error&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Error&lt;/p&gt;&lt;/div&gt;"
@@ -1599,35 +1775,36 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
         "status": "entered-in-error ",
         "category": [
           {
-            "extension": [
+            "coding": [
               {
-                "valueCode": "error",
-                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "laboratory",
+                "display": "Laboratory"
               }
-            ]
+            ],
+            "text": "Laboratory"
           }
         ],
         "code": {
           "coding": [
             {
-              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
-              "code": "error",
-              "display": "Error"
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+              "code": "703535",
+              "display": "Hgb Bld-mCnc",
+              "userSelected": true
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "718-7",
+              "display": "Hgb Bld-mCnc"
             }
           ],
-          "text": "Error"
+          "text": "Hgb Bld-mCnc"
         },
         "subject": {
           "reference": "Patient/12742401"
         },
-        "_effectiveDateTime": {
-          "extension": [
-            {
-              "valueCode": "error",
-              "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
-            }
-          ]
-        },
+        "effectiveDateTime": "2022-06-01T10:38:02Z",
         "dataAbsentReason": {
           "coding": [
             {
@@ -1647,7 +1824,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 
 <h3 id="errors">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="retrieve-by-id">Retrieve by id</h2>
 
@@ -1672,7 +1849,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292857
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-197292857
 </code></pre>
 
 <h4 id="response-4">Response</h4>
@@ -1680,10 +1857,10 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
-  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197292857",
+  "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-197292857",
   "resource": {
     "resourceType": "Observation",
-    "id": "M-197292857",
+    "id": "VS-197292857",
     "meta": {
       "versionId": "1",
       "lastUpdated": "2020-07-06T21:13:24.000Z"
@@ -1696,11 +1873,6 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
       {
         "system": "https://fhir.cerner.com/ceuuid",
         "value": "CE87caf4b7-9397-4667-9897-702218017c9e-197292857-2020070621132500"
-      }
-    ],
-    "basedOn": [
-      {
-        "reference": "ServiceRequest/313764715"
       }
     ],
     "status": "final",
@@ -1851,7 +2023,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 
 <h3 id="errors-1">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="create">Create</h2>
 
@@ -3069,7 +3241,7 @@ Content-Length: 0
 Content-Type: text/html
 Date: Mon, 16 Nov 2020 22:05:40 GMT
 Etag: W/"1"
-Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-197392513
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-197392513
 Last-Modified: Mon, 16 Nov 2020 22:05:40 GMT
 Vary: Origin
 X-Request-Id: 30a3177d-0987-460d-bb27-a5bb6303f03e
@@ -3081,7 +3253,7 @@ X-Request-Id: 30a3177d-0987-460d-bb27-a5bb6303f03e
 
 <h3 id="errors-2">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="update">Update</h2>
 
@@ -3193,7 +3365,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       
         <li><i>Example</i></li>
         <ul style="list-style-type: none"><li><pre>{
-  "id": "M-197391609"
+  "id": "L-197391609"
 }
 </pre></li></ul>
       
@@ -4180,14 +4352,14 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
 
 <h4 id="request-4">Request</h4>
 
-<pre><code>PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/M-196186655
+<pre><code>PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-196186655
 </code></pre>
 
 <h4 id="labs-body-example-1">Labs Body Example</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Observation",
-  "id": "M-196186655",
+  "id": "L-196186655",
   "status": "corrected",
   "meta": {
     "source": "43ba6d6a-1006-4546-bf28-48d84a98dbb1"
@@ -4277,7 +4449,7 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Observation",
-  "id": "M-197356031",
+  "id": "VS-197356031",
   "identifier": [
     {
       "system": "https://fhir.cerner.com/ceuuid",
@@ -4365,7 +4537,7 @@ X-Request-Id: f3c2b8d6-01d8-4dfc-b278-b67e76c7f834
 
 <h3 id="errors-3">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>
@@ -4446,6 +4618,7 @@ X-Request-Id: f3c2b8d6-01d8-4dfc-b278-b67e76c7f834
           <li><a href="../../summary/family-member-history/">FamilyMemberHistory</a></li>
 
           <li class="subtopic"><a href="../">Diagnostics</a></li>
+          <li><a href="../diagnostic-report/">DiagnosticReport</a></li>
           <li><a href="./">Observation</a></li>
           <li><a href="../questionnaire-response/">QuestionnaireResponse</a></li>
 
