@@ -11,6 +11,10 @@ title: DocumentReference | R4 API
 
 The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a PDF.
 
+The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+* [US Core DocumentReference Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-documentreference.html){:target="_blank"}
+
 The following fields are returned if valued for clinical documents:
 
 * [DocumentReference id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
@@ -21,6 +25,7 @@ The following fields are returned if valued for clinical documents:
 * [Subject (Patient)](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
 * [Created Date](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.date){:target="_blank"}
 * [Author](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Authenticator/verifying provider](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
 * [Document description/title]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
 * [Document Attachment](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
@@ -28,9 +33,12 @@ The following fields are returned if valued for clinical documents:
   * [Created date/time](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation){:target="_blank"}
   * [Title](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title){:target="_blank"}
   * [URL (fully qualified link to the document)](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url){:target="_blank"}
-  * [Format](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
+* [Document Format](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
 * [Patient encounter]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Encounter](https://hl7.org/fhir/r4/encounter.html){:target="_blank"})
 * [Document period]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
+* [Custodian]( https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.custodian){:target="_blank"}
+* [Related](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.related){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -58,12 +66,15 @@ Search for DocumentReferences that meet supplied query parameters:
  `_count`                 | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
  `category`               | N                  | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
  `_revinclude`            | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
+`date`                   | N                  | [`date`]      | When this document reference was created.
 
 _Implementation Notes_
 
+* Search operation is supported for clinical-note, cardiology, radiology, microbiology and pathology charted documents and clinical-note staged documents.
+
 * When searching with the `period` parameter:
   * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
-  * If one `period` parameter includes a time, both must include a time.
+  * `Period` parameter  must include a time.
 
 * When searching with the `encounter` parameter:
   * Patient level documents are filtered out from responses when the encounter id is zero/blank.
@@ -74,6 +85,13 @@ _Implementation Notes_
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
+* When searching with the `date` parameter:
+  * It must be provided  once with a prefix to imply a date  range or without a prefix to search for document
+  (s) at a specific date. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for document(s) within specific range. The date and prefix pairs must create a closed range.
+  * For a single 'date' occurrence , `time` component is optional but for two `date` occurrences, must include `time` component.
+
+* `Date` and `period` search parameter cannot be provided together. 
+
 ### Headers
 
 <%= headers %>
@@ -82,7 +100,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=2798003
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853
 
 #### Response
 
@@ -99,7 +117,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?_id=214938095&_revinclude=Provenance:target
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?_id=198449751&_revinclude=Provenance:target
 
 #### Response
 
@@ -112,7 +130,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=823932&encounter=863887
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853&encounter=97966172
 
 #### Response
 
@@ -124,7 +142,7 @@ _Implementation Notes_
 
 #### Patient Authorization Request
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=2798003
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853
 
 #### Response
 
@@ -147,6 +165,10 @@ List an individual DocumentReference by its id:
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
 
+_Implementation Notes_
+
+* Read operation is supported for clinical-note, cardiology, radiology, microbiology and pathology charted documents and clinical-note staged documents.
+
 ### Headers
 
 <%= headers %>
@@ -155,7 +177,7 @@ List an individual DocumentReference by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21961261
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381924
 
 #### Response
 
@@ -166,7 +188,7 @@ List an individual DocumentReference by its id:
 
 #### Patient Authorization Request
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21961261
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381924
 
 #### Response
 

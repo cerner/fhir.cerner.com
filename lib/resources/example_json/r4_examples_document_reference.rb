@@ -3,133 +3,36 @@
 module Cerner
   module Resources
     R4_DOCUMENT_REFERENCE ||= {
-      'resourceType': 'DocumentReference',
-      'id': '21961261',
-      'meta': {
-        'versionId': '1',
-        'lastUpdated': '2021-03-12T22:35:03.000Z'
-      },
-      'text': {
-        'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
-               'Parnell, Stephen M</p><p><b>Document Type</b>: Admission Note-Physician</p><p><b>Document Category'\
-               '</b>: Clinical Note</p><p><b>Document Title</b>: Admission H &amp; P</p><p><b>Service End Date</b>: '\
-               'Mar 12, 2021  4:31 P.M. CST</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: '\
-               'Braus, Sasha</p></div>'
-      },
-      'identifier': [
-        {
-          'system': 'https://fhir.cerner.com/ceuuid',
-          'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-21961261-2021031216350400'
-        }
-      ],
-      'status': 'current',
-      'docStatus': 'final',
-      'type': {
-        'coding': [
-          {
-            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '2820507',
-            'display': 'Admission Note-Physician',
-            'userSelected': true
-          },
-          {
-            'system': 'http://loinc.org',
-            'code': '83805-2',
-            'userSelected': false
-          }
-        ],
-        'text': 'Admission Note-Physician'
-      },
-      'category': [
-        {
-          'coding': [
-            {
-              'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-              'code': 'clinical-note',
-              'display': 'Clinical Note',
-              'userSelected': false
-            }
-          ],
-          'text': 'Clinical Note'
-        },
-        {
-          'coding': [
-            {
-              'system': 'http://loinc.org',
-              'code': '83805-2',
-              'userSelected': false
-            }
-          ]
-        }
-      ],
-      'subject': {
-        'reference': 'Patient/2798003',
-        'display': 'Parnell, Stephen M'
-      },
-      'author': [
-        {
-          'reference': 'Practitioner/2797943',
-          'display': 'Braus, Sasha'
-        }
-      ],
-      'authenticator': {
-        'reference': 'Practitioner/2797943',
-        'display': 'Braus, Sasha'
-      },
-      'content': [
-        {
-          'attachment': {
-            'contentType': 'application/pdf',
-            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-21961261',
-            'title': 'Admission H & P',
-            'creation': '2021-03-12T22:35:03.000Z'
-          }
-        },
-        {
-          'attachment': {
-            'contentType': 'text/html',
-            'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-21961261',
-            'title': 'Admission H & P',
-            'creation': '2021-03-12T22:35:03.000Z'
-          }
-        }
-      ],
-      'context': {
-        'encounter': [
-          {
-            'reference': 'Encounter/2673908'
-          }
-        ],
-        'period': {
-          'end': '2021-03-12T22:31:38.000Z'
-        }
-      }
-    }.freeze
-
-    R4_DOCUMENT_REFERENCE_SEARCH_BY_ENCOUNTER_FILTER_PATIENT_DOCUMENTS ||= {
       "resourceType": 'DocumentReference',
-      "id": '8676968',
+      "id": '198381924',
       "meta": {
-        "versionId": '4',
-        "lastUpdated": '2014-12-08T21:18:56.000Z'
+        "versionId": '1',
+        "lastUpdated": '2022-07-07T09:43:56.000Z'
       },
       "text": {
         "status": 'generated',
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
-        'Test, Blood Bank</p><p><b>Document Type</b>: Bone Marrow Report</p><p><b>Document Category</b>: '\
-        'Unknown</p><p><b>Document Title</b>: Bone Marrow Final Report</p><p><b>Service Start Date</b>: '\
-        'Dec  8, 2014  3:04 P.M. CST</p><p><b>Service End Date</b>: Dec  8, 2014  3:04 P.M. '\
-        'CST</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: Desani, Santosh</p></div>'
+        "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
+        'GETEST, PatientOneHundredSixtySix</p><p><b>Document Type</b>: '\
+        'Waveform Strip</p><p><b>Document Category</b>: '\
+        'Unknown</p><p><b>Document Title</b>: test1</p><p><b>Service Start Date</b>: '\
+        'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Service End Date</b>: '\
+        'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Document Status</b>: '\
+        'Final</p><p><b>Verifying Provider</b>: Model, User 154 Cerner</p></div>"'
       },
+      "identifier": [
+        {
+          "system": 'https://fhir.cerner.com/ceuuid',
+          "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-198381924-2022070709435600'
+        }
+      ],
       "status": 'current',
       "docStatus": 'final',
       "type": {
         "coding": [
           {
             "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            "code": '4184837',
-            "display": 'Bone Marrow Report',
+            "code": '2574499721',
+            "display": 'Waveform Strip',
             "userSelected": true
           },
           {
@@ -138,7 +41,7 @@ module Cerner
             "display": 'unknown'
           }
         ],
-        "text": 'Bone Marrow Report'
+        "text": 'Waveform Strip'
       },
       "category": [
         {
@@ -153,125 +56,232 @@ module Cerner
         }
       ],
       "subject": {
-        "reference": 'Patient/823932',
-        "display": 'Test, Blood Bank'
+        "reference": 'Patient/12769853',
+        "display": 'GETEST, PatientOneHundredSixtySix'
       },
+      "date": '2022-07-07T09:43:56Z',
+      "author": [
+        {
+          "reference": 'Practitioner/11638428',
+          "display": 'Model, User 154 Cerner'
+        }
+      ],
       "authenticator": {
-        "reference": 'Practitioner/1994008',
-        "display": 'Desani, Santosh'
+        "reference": 'Practitioner/11638428',
+        "display": 'Model, User 154 Cerner'
       },
       "content": [
         {
           "attachment": {
             "contentType": 'application/pdf',
-            "url": 'https://fhir-ehr.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-8676968',
-            "title": 'Bone Marrow Final Report',
-            "creation": '2014-12-08T21:04:50.000Z'
+            "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-198381924',
+            "title": 'test1',
+            "creation": '2022-07-07T09:43:56.000Z'
+          },
+          "format": {
+            "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+            "code": 'unknown',
+            "display": 'Unknown'
           }
         }
       ],
       "context": {
         "encounter": [
           {
-            "reference": 'Encounter/863887'
+            "reference": 'Encounter/97966172'
           }
         ],
         "period": {
-          "start": '2014-12-08T21:04:50.000Z',
-          "end": '2014-12-08T21:04:50.000Z'
+          "start": '2022-07-07T09:43:56.000Z',
+          "end": '2022-07-07T09:43:56.000Z'
+        }
+      }
+    }.freeze
+
+    R4_DOCUMENT_REFERENCE_SEARCH_BY_ENCOUNTER_FILTER_PATIENT_DOCUMENTS ||= {
+      "resourceType": 'DocumentReference',
+      "id": '198381924',
+      "meta": {
+        "versionId": '1',
+        "lastUpdated": '2022-07-07T09:43:56.000Z'
+      },
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
+        'GETEST, PatientOneHundredSixtySix</p><p><b>Document Type</b>: Waveform Strip</p><p><b>Document Category</b>: '\
+        'Unknown</p><p><b>Document Title</b>: test1</p><p><b>Service Start Date</b>: '\
+        'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Service End Date</b>: '\
+        'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Document Status</b>: '\
+        'Final</p><p><b>Verifying Provider</b>: M., User 154 Cerner</p></div>'
+      },
+      "identifier": [
+        {
+          "system": 'https://fhir.cerner.com/ceuuid',
+          "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-198381924-2022070709435600'
+        }
+      ],
+      "status": 'current',
+      "docStatus": 'final',
+      "type": {
+        "coding": [
+          {
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "code": '2574499721',
+            "display": 'Waveform Strip'
+          },
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/v3-NullFlavor',
+            "code": 'UNK',
+            "display": 'unknown'
+          }
+        ],
+        "text": 'Waveform Strip'
+      },
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+              "code": 'unknown',
+              "display": 'Unknown'
+            }
+          ],
+          "text": 'Unknown'
+        }
+      ],
+      "subject": {
+        "reference": 'Patient/12769853',
+        "display": 'GETEST, PatientOneHundredSixtySix'
+      },
+      "date": '2022-07-07T09:43:56Z',
+      "author": [
+        {
+          "reference": 'Practitioner/11638428',
+          "display": 'M., User 154 Cerner'
+        }
+      ],
+      "authenticator": {
+        "reference": 'Practitioner/11638428',
+        "display": 'M., User 154 Cerner'
+      },
+      "content": [
+        {
+          "attachment": {
+            "contentType": 'application/pdf',
+            "url": 'https://fhir-ehr.devcerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-198381924',
+            "title": 'test1',
+            "creation": '2022-07-07T09:43:56.000Z'
+          },
+          "format": {
+            "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+            "code": 'unknown',
+            "display": 'Unknown'
+          }
+        }
+      ],
+      "context": {
+        "encounter": [
+          {
+            "reference": 'Encounter/97966172'
+          }
+        ],
+        "period": {
+          "start": '2022-07-07T09:43:56.000Z',
+          "end": '2022-07-07T09:43:56.000Z'
         }
       }
     }.freeze
 
     R4_DOCUMENT_REFERENCE_PATIENT_ACCESS ||= {
-      'resourceType': 'DocumentReference',
-      'id': '21961261',
-      'meta': {
-        'versionId': '1',
-        'lastUpdated': '2021-03-12T22:35:03.000Z'
+      "resourceType": 'DocumentReference',
+      "id": '198381924',
+      "meta": {
+        "versionId": '1',
+        "lastUpdated": '2022-07-07T09:43:56.000Z'
       },
-      'text': {
-        'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
-               'Parnell, Stephen M</p><p><b>Document Type</b>: Admission Note-Physician</p><p><b>Document Category'\
-               '</b>: Clinical Note</p><p><b>Document Title</b>: Admission H &amp; P</p><p><b>Service End Date</b>: '\
-               'Mar 12, 2021  4:31 P.M. CST</p><p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: '\
-               'Braus, Sasha</p></div>'
+      "text": {
+        "status": 'generated',
+        "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name</b>: '\
+        'GETEST, PatientOneHundredSixtySix</p><p><b>Document Type</b>: Waveform Strip</p><p><b>Document Category</b>: '\
+        'Unknown</p><p><b>Document Title</b>: test1</p><p><b>Service Start Date</b>: '\
+        'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Service End Date</b>: '\
+        'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Document Status</b>: '\
+        'Final</p><p><b>Verifying Provider</b>: M., User 154 Cerner</p></div>'
       },
-      'identifier': [
+      "identifier": [
         {
-          'system': 'https://fhir.cerner.com/ceuuid',
-          'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-21961261-2021031216350400'
+          "system": 'https://fhir.cerner.com/ceuuid',
+          "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-198381924-2022070709435600'
         }
       ],
-      'status': 'current',
-      'docStatus': 'final',
-      'type': {
-        'coding': [
+      "status": 'current',
+      "docStatus": 'final',
+      "type": {
+        "coding": [
           {
-            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '2820507',
-            'display': 'Admission Note-Physician'
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "code": '2574499721',
+            "display": 'Waveform Strip'
           },
           {
-            'system': 'http://loinc.org',
-            'code': '83805-2'
+            "system": 'http://terminology.hl7.org/CodeSystem/v3-NullFlavor',
+            "code": 'UNK',
+            "display": 'unknown'
           }
         ],
-        'text': 'Admission Note-Physician'
+        "text": 'Waveform Strip'
       },
-      'category': [
+      "category": [
         {
-          'coding': [
+          "coding": [
             {
-              'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-              'code': 'clinical-note',
-              'display': 'Clinical Note'
+              "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+              "code": 'unknown',
+              "display": 'Unknown'
             }
           ],
-          'text': 'Clinical Note'
-        },
-        {
-          'coding': [
-            {
-              'system': 'http://loinc.org',
-              'code': '83805-2'
-            }
-          ]
+          "text": 'Unknown'
         }
       ],
-      'subject': {
-        'reference': 'Patient/2798003',
-        'display': 'Parnell, Stephen M'
+      "subject": {
+        "reference": 'Patient/12769853',
+        "display": 'GETEST, PatientOneHundredSixtySix'
       },
-      'author': [
+      "date": '2022-07-07T09:43:56Z',
+      "author": [
         {
-          'reference': 'Practitioner/2797943',
-          'display': 'Braus, Sasha'
+          "reference": 'Practitioner/11638428',
+          "display": 'M., User 154 Cerner'
         }
       ],
-      'authenticator': {
-        'reference': 'Practitioner/2797943',
-        'display': 'Braus, Sasha'
+      "authenticator": {
+        "reference": 'Practitioner/11638428',
+        "display": 'M., User 154 Cerner'
       },
-      'content': [
+      "content": [
         {
-          'attachment': {
-            'contentType': 'application/pdf',
-            'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-21961261',
-            'title': 'Admission H & P',
-            'creation': '2021-03-12T22:35:03.000Z'
+          "attachment": {
+            "contentType": 'application/pdf',
+            "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-198381924',
+            "title": 'test1',
+            "creation": '2022-07-07T09:43:56.000Z'
+          },
+          "format": {
+            "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+            "code": 'unknown',
+            "display": 'Unknown'
           }
         }
       ],
-      'context': {
-        'encounter': [
+      "context": {
+        "encounter": [
           {
-            'reference': 'Encounter/2673908'
+            "reference": 'Encounter/97966172'
           }
         ],
-        'period': {
-          'end': '2021-03-12T22:31:38.000Z'
+        "period": {
+          "start": '2022-07-07T09:43:56.000Z',
+          "end": '2022-07-07T09:43:56.000Z'
         }
       }
     }.freeze
@@ -283,109 +293,98 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=2798003'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21961261',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381924',
           'resource': R4_DOCUMENT_REFERENCE
         },
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21674656',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381926',
           'resource': {
-            'resourceType': 'DocumentReference',
-            'id': '21674656',
-            'meta': {
-              'versionId': '1',
-              'lastUpdated': '2021-03-05T16:48:42.000Z'
+            "resourceType": 'DocumentReference',
+            "id": '198381926',
+            "meta": {
+              "versionId": '1',
+              "lastUpdated": '2022-07-07T09:43:56.000Z'
             },
-            'text': {
-              'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name'\
-                     '</b>: Parnell, Stephen M</p><p><b>Document Type</b>: Abdominal Ultrasound</p><p><b>'\
-                     'Document Category</b>: Unknown</p><p><b>Document Title</b>: test images</p><p><b>'\
-                     'Service End Date</b>: Mar  5, 2021 10:47 A.M. CST</p><p><b>Document Status</b>: Preliminary</p>'\
-                     '</div>'
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
+              '<p><b>Patient Name</b>: '\
+              'GETEST, PatientOneHundredSixtySix</p><p><b>Document Type</b>: '\
+              'Waveform Strip</p><p><b>Document Category</b>: '\
+              'Unknown</p><p><b>Document Title</b>: test1</p><p><b>Service Start Date</b>: '\
+              'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Service End Date</b>: '\
+              'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Document Status</b>: Final</p></div>'
             },
-            'identifier': [
+            "identifier": [
               {
-                'system': 'https://fhir.cerner.com/ceuuid',
-                'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-21674656-2021030510484300'
+                "system": 'https://fhir.cerner.com/ceuuid',
+                "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-198381926-2022070709435600'
               }
             ],
-            'status': 'current',
-            'docStatus': 'preliminary',
-            'type': {
-              'coding': [
+            "status": 'current',
+            "docStatus": 'final',
+            "type": {
+              "coding": [
                 {
-                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820643',
-                  'display': 'Abdominal Ultrasound',
-                  'userSelected': true
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  "code": '2574499721',
+                  "display": 'Waveform Strip',
+                  "userSelected": true
                 },
                 {
-                  'system': 'http://loinc.org',
-                  '_code': {
-                    'extension': [
-                      {
-                        'valueCode': 'unknown',
-                        'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                      }
-                    ]
-                  }
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-NullFlavor',
+                  "code": 'UNK',
+                  "display": 'unknown'
                 }
               ],
-              'text': 'Abdominal Ultrasound'
+              "text": 'Waveform Strip'
             },
-            'category': [
+            "category": [
               {
-                'coding': [
+                "coding": [
                   {
-                    'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
-                    'code': 'unknown',
-                    'display': 'Unknown'
+                    "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                    "code": 'unknown',
+                    "display": 'Unknown'
                   }
                 ],
-                'text': 'Unknown'
+                "text": 'Unknown'
               }
             ],
-            'subject': {
-              'reference': 'Patient/2798003',
-              'display': 'Parnell, Stephen M'
+            "subject": {
+              "reference": 'Patient/12769853',
+              "display": 'GETEST, PatientOneHundredSixtySix'
             },
-            'author': [
+            "date": '2022-07-07T09:43:56Z',
+            "content": [
               {
-                'reference': 'Practitioner/2797943',
-                'display': 'Braus, Sasha'
-              }
-            ],
-            'content': [
-              {
-                'attachment': {
-                  'contentType': 'application/pdf',
-                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-20801159',
-                  'title': 'Admission H & P',
-                  'creation': '2021-02-10T23:27:20.000Z'
-                }
-              },
-              {
-                'attachment': {
-                  'contentType': 'text/html',
-                  'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-20801159',
-                  'title': 'Admission H & P',
-                  'creation': '2021-02-10T23:27:20.000Z'
+                "attachment": {
+                  "contentType": 'application/pdf',
+                  "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-198381926',
+                  "title": 'test1',
+                  "creation": '2022-07-07T09:43:56.000Z'
+                },
+                "format": {
+                  "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                  "code": 'unknown',
+                  "display": 'Unknown'
                 }
               }
             ],
-            'context': {
-              'encounter': [
+            "context": {
+              "encounter": [
                 {
-                  'reference': 'Encounter/2673908'
+                  "reference": 'Encounter/97966172'
                 }
               ],
-              'period': {
-                'end': '2021-03-05T16:47:00.000Z'
+              "period": {
+                "start": '2022-07-07T09:43:56.000Z',
+                "end": '2022-07-07T09:43:56.000Z'
               }
             }
           }
@@ -400,100 +399,97 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=2798003'
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21961261',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381924',
           'resource': R4_DOCUMENT_REFERENCE_PATIENT_ACCESS
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/21674656',
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381926',
           'resource': {
-            'resourceType': 'DocumentReference',
-            'id': '21674656',
-            'meta': {
-              'versionId': '1',
-              'lastUpdated': '2021-03-05T16:48:42.000Z'
+            "resourceType": 'DocumentReference',
+            "id": '198381926',
+            "meta": {
+              "versionId": '1',
+              "lastUpdated": '2022-07-07T09:43:56.000Z'
             },
-            'text': {
-              'status': 'generated',
-              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p><p><b>Patient Name'\
-                     '</b>: Parnell, Stephen M</p><p><b>Document Type</b>: Abdominal Ultrasound</p><p><b>'\
-                     'Document Category</b>: Unknown</p><p><b>Document Title</b>: test images</p><p><b>'\
-                     'Service End Date</b>: Mar  5, 2021 10:47 A.M. CST</p><p><b>Document Status</b>: Preliminary</p>'\
-                     '</div>'
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>'\
+              '<b>Document Reference</b></p><p><b>Patient Name</b>: '\
+              'GETEST, PatientOneHundredSixtySix</p><p><b>Document Type</b>: Waveform Strip</p>'\
+              '<p><b>Document Category</b>: '\
+              'Unknown</p><p><b>Document Title</b>: test1</p><p><b>Service Start Date</b>: '\
+              'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Service End Date</b>: '\
+              'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Document Status</b>: Final</p></div>'
             },
-            'identifier': [
+            "identifier": [
               {
-                'system': 'https://fhir.cerner.com/ceuuid',
-                'value': 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-21674656-2021030510484300'
+                "system": 'https://fhir.cerner.com/ceuuid',
+                "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-198381926-2022070709435600'
               }
             ],
-            'status': 'current',
-            'docStatus': 'preliminary',
-            'type': {
-              'coding': [
+            "status": 'current',
+            "docStatus": 'final',
+            "type": {
+              "coding": [
                 {
-                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820643',
-                  'display': 'Abdominal Ultrasound'
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  "code": '2574499721',
+                  "display": 'Waveform Strip'
                 },
                 {
-                  'system': 'http://loinc.org',
-                  '_code': {
-                    'extension': [
-                      {
-                        'valueCode': 'unknown',
-                        'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                      }
-                    ]
-                  }
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-NullFlavor',
+                  "code": 'UNK',
+                  "display": 'unknown'
                 }
               ],
-              'text': 'Abdominal Ultrasound'
+              "text": 'Waveform Strip'
             },
-            'category': [
+            "category": [
               {
-                'coding': [
+                "coding": [
                   {
-                    'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
-                    'code': 'unknown',
-                    'display': 'Unknown'
+                    "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                    "code": 'unknown',
+                    "display": 'Unknown'
                   }
                 ],
-                'text': 'Unknown'
+                "text": 'Unknown'
               }
             ],
-            'subject': {
-              'reference': 'Patient/2798003',
-              'display': 'Parnell, Stephen M'
+            "subject": {
+              "reference": 'Patient/12769853',
+              "display": 'GETEST, PatientOneHundredSixtySix'
             },
-            'author': [
+            "date": '2022-07-07T09:43:56Z',
+            "content": [
               {
-                'reference': 'Practitioner/2797943',
-                'display': 'Braus, Sasha'
-              }
-            ],
-            'content': [
-              {
-                'attachment': {
-                  'contentType': 'application/pdf',
-                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-20801159',
-                  'title': 'Admission H & P',
-                  'creation': '2021-02-10T23:27:20.000Z'
+                "attachment": {
+                  "contentType": 'application/pdf',
+                  "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-198381926',
+                  "title": 'test1',
+                  "creation": '2022-07-07T09:43:56.000Z'
+                },
+                "format": {
+                  "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                  "code": 'unknown',
+                  "display": 'Unknown'
                 }
               }
             ],
-            'context': {
-              'encounter': [
+            "context": {
+              "encounter": [
                 {
-                  'reference': 'Encounter/2673908'
+                  "reference": 'Encounter/97966172'
                 }
               ],
-              'period': {
-                'end': '2021-03-05T16:47:00.000Z'
+              "period": {
+                "start": '2022-07-07T09:43:56.000Z',
+                "end": '2022-07-07T09:43:56.000Z'
               }
             }
           }
@@ -677,201 +673,198 @@ module Cerner
     }.freeze
 
     R4_DOCUMENT_REFERENCE_REVINCLUDE_BUNDLE ||= {
-      'resourceType': 'Bundle',
-      'id': '11d98db4-e637-4586-af8f-f7256ec5539b',
-      'type': 'searchset',
-      'link': [
+      "resourceType": 'Bundle',
+      "id": 'e6af8dd8-78e2-4e9e-b04c-760b76128426',
+      "type": 'searchset',
+      "link": [
         {
-          'relation': 'self',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?_id=214938095&_revinclude=Provenance%3Atarget'
+          "relation": 'self',
+          "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?_id=198449751&_revinclude=Provenance%3Atarget'
         }
       ],
-      'entry': [
+      "entry": [
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/214938095',
-          'resource': {
-            'resourceType': 'DocumentReference',
-            'id': '214938095',
-            'meta': {
-              'versionId': '1',
-              'lastUpdated': '2020-10-29T09:40:27.000Z'
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198449751',
+          "resource": {
+            "resourceType": 'DocumentReference',
+            "id": '198449751',
+            "meta": {
+              "versionId": '1',
+              "lastUpdated": '2022-07-15T07:45:48.000Z'
             },
-            'text': {
-              'status': 'generated',
-              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Document Reference</b></p>'\
-              '<p><b>Patient Name</b>: PETERS, TIMOTHY CCCC</p>'\
-              '<p><b>Document Type</b>: Rheumatology Consultation</p>'\
-              '<p><b>Document Title</b>: TEST TIMEZONE A17</p>'\
-              '<p><b>Service End Date</b>: Jul 30, 2020  6:20 A.M. CDT</p>'\
-              '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: M, SANGEETHA</p></div>'
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
+              '<p><b>Patient Name</b>: '\
+              'SMART, WILMA</p><p><b>Document Type</b>: Height Weight Allergy Rule - Text</p>'\
+              '<p><b>Document Category</b>: '\
+              'Unknown</p><p><b>Document Title</b>: Clinical Note</p><p><b>Service Start Date</b>: '\
+              'Jul 15, 2022  1:15 P.M. UTC</p><p><b>Service End Date</b>: '\
+              'Jul 15, 2022  1:15 P.M. UTC</p><p><b>Document Status</b>: '\
+              'Final</p><p><b>Verifying Provider</b>: Allen, Jodi</p></div>'
             },
-            'identifier': [
+            "identifier": [
               {
-                'system': 'https://fhir.cerner.com/ceuuid',
-                'value': 'CE52dd2c20-da69-41a3-a5dc-7c34f8103ac0-214938095-2020102909402700'
+                "system": 'https://fhir.cerner.com/ceuuid',
+                "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-198449751-2022071507454800'
               }
             ],
-            'status': 'current',
-            'docStatus': 'final',
-            'type': {
-              'coding': [
+            "status": 'current',
+            "docStatus": 'final',
+            "type": {
+              "coding": [
                 {
-                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  'code': '2820583',
-                  'display': 'Rheumatology Consultation',
-                  'userSelected': true
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  "code": '20732501',
+                  "display": 'Height Weight Allergy Rule - Text',
+                  "userSelected": true
                 },
                 {
-                  'system': 'http://loinc.org',
-                  'code': '34839-1',
-                  'userSelected': false
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-NullFlavor',
+                  "code": 'UNK',
+                  "display": 'unknown'
                 }
               ],
-              'text': 'Rheumatology Consultation'
+              "text": 'Height Weight Allergy Rule - Text'
             },
-            'category': [
+            "category": [
               {
-                'coding': [
+                "coding": [
                   {
-                    'system': 'http://loinc.org',
-                    'code': '34839-1',
-                    'userSelected': false
-                  }
-                ]
-              },
-              {
-                'coding': [
-                  {
-                    'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
-                    'code': 'clinical-note',
-                    'display': 'Clinical Note',
-                    'userSelected': false
+                    "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                    "code": 'unknown',
+                    "display": 'Unknown'
                   }
                 ],
-                'text': 'Clinical Note'
+                "text": 'Unknown'
               }
             ],
-            'subject': {
-              'reference': 'Patient/1316024',
-              'display': 'PETERS, TIMOTHY CCCC'
+            "subject": {
+              "reference": 'Patient/12724065',
+              "display": 'SMART, WILMA'
             },
-            'author': [
+            "date": '2022-07-15T07:45:48Z',
+            "author": [
               {
-                'reference': 'Practitioner/159105544',
-                'display': 'M, SANGEETHA'
+                "reference": 'Practitioner/12743472',
+                "display": 'Allen, Jodi'
               }
             ],
-            'authenticator': {
-              'reference': 'Practitioner/159105544',
-              'display': 'M, SANGEETHA'
+            "authenticator": {
+              "reference": 'Practitioner/12743472',
+              "display": 'Allen, Jodi'
             },
-            'content': [
+            "content": [
               {
-                'attachment': {
-                  'contentType': 'application/pdf',
-                  'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-214938095',
-                  'title': 'TEST TIMEZONE A17',
-                  'creation': '2020-07-30T11:20:00.000Z'
+                "attachment": {
+                  "contentType": 'text/plain',
+                  "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/R-198449751',
+                  "title": 'Clinical Note',
+                  "creation": '2022-07-15T13:15:46.000Z'
+                },
+                "format": {
+                  "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                  "code": 'unknown',
+                  "display": 'Unknown'
                 }
               }
             ],
-            'context': {
-              'encounter': [
+            "context": {
+              "encounter": [
                 {
-                  'reference': 'Encounter/32487567'
+                  "reference": 'Encounter/97953483'
                 }
               ],
-              'period': {
-                'end': '2020-07-30T11:20:00.000Z'
+              "period": {
+                "start": '2022-07-15T13:15:46.000Z',
+                "end": '2022-07-15T13:15:46.000Z'
               }
             }
           },
-          'search': {
-            'mode': 'match'
+          "search": {
+            "mode": 'match'
           }
         },
         {
-          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/INT.doc-214938095',
-          'resource': {
-            'resourceType': 'Provenance',
-            'id': 'INT.doc-214938095',
-            'meta': {
-              'versionId': '214938095',
-              'lastUpdated': '2020-07-30T11:20:00Z'
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/INT.doc-198449751',
+          "resource": {
+            "resourceType": 'Provenance',
+            "id": 'INT.doc-198449751',
+            "meta": {
+              "versionId": '198449751',
+              "lastUpdated": '2022-07-15T07:45:48Z'
             },
-            'text': {
-              'status': 'generated',
-              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Provenance</b></p>'\
-              '<p><b>Target</b>:</p><ul><li>DocumentReference/214938095</li></ul>'\
-              '<p><b>Recorded</b>: Jul 30, 2020  6:20 A.M. CDT</p>'\
-              '<p><b>Agents</b>:</p>'\
-              '<dl><dt>M, SANGEETHA</dt><dd><b>Agent Type</b>: Author</dd>'\
-              '<dd><b>Agent Role</b>: Source</dd><dt>DEVENG-DEFAULT-PROV</dt>'\
-              '<dd><b>Agent Type</b>: Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>'
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Provenance</b></p><p><b>Target</b>:'\
+              '</p><ul><li>DocumentReference/198449751</li></ul><p><b>Recorded</b>: '\
+              'Jul 15, 2022  7:45 A.M. UTC</p><p><b>Agents</b>:</p><dl><dt>Allen, Jodi</dt><dd><b>Agent Type</b>: '\
+              'Author</dd><dd><b>Agent Role</b>: Source</dd><dt>Model Cancer Center</dt><dd><b>Agent Type</b>: '\
+              'Author</dd><dd><b>Agent Role</b>: Source</dd></dl></div>'
             },
-            'target': [
+            "target": [
               {
-                'reference': 'DocumentReference/214938095'
+                "reference": 'DocumentReference/198449751'
               }
             ],
-            'recorded': '2020-07-30T11:20:00Z',
-            'agent': [
+            "recorded": '2022-07-15T07:45:48Z',
+            "agent": [
               {
-                'type': {
-                  'coding': [
+                "type": {
+                  "coding": [
                     {
-                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
-                      'code': 'author'
+                      "system": 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      "code": 'author'
                     }
                   ],
-                  'text': 'Author'
+                  "text": 'Author'
                 },
-                'role': [
+                "role": [
                   {
-                    'coding': [
+                    "coding": [
                       {
-                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
-                        'code': 'SOURCE'
+                        "system": 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        "code": 'SOURCE'
                       }
                     ],
-                    'text': 'Source'
+                    "text": 'Source'
                   }
                 ],
-                'who': {
-                  'reference': 'Practitioner/159105544',
-                  'display': 'M, SANGEETHA'
+                "who": {
+                  "reference": 'Practitioner/12743472',
+                  "display": 'Allen, Jodi'
                 }
               },
               {
-                'type': {
-                  'coding': [
+                "type": {
+                  "coding": [
                     {
-                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
-                      'code': 'author'
+                      "system": 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      "code": 'author'
                     }
                   ],
-                  'text': 'Author'
+                  "text": 'Author'
                 },
-                'role': [
+                "role": [
                   {
-                    'coding': [
+                    "coding": [
                       {
-                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
-                        'code': 'SOURCE'
+                        "system": 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        "code": 'SOURCE'
                       }
                     ],
-                    'text': 'Source'
+                    "text": 'Source'
                   }
                 ],
-                'who': {
-                  'reference': 'Organization/57535538',
-                  'display': 'DEVENG-DEFAULT-PROV'
+                "who": {
+                  "reference": 'Organization/1024451',
+                  "display": 'Model Cancer Center'
                 }
               }
             ]
           },
-          'search': {
-            'mode': 'include'
+          "search": {
+            "mode": 'include'
           }
         }
       ]
