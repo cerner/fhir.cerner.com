@@ -143,7 +143,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Read by id
+## Retrieve by id
 
 <%= beta_tag(action: true) %>
 
