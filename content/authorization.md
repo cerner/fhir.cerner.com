@@ -1099,7 +1099,7 @@ new token via a new authorization grant request.
   
 The location of an RFC 7009 token revocation endpoint is
 advertised at /.well-known/smart-configuration; see
-["CapabilityStatement"](/millennium/r4/foundation/conformance/capability-statement/#well-known-smart-configuration)
+[CapabilityStatement](/millennium/r4/foundation/conformance/capability-statement/#well-known-smart-configuration)
 for further details.
 
 **How can my application participate in log out
