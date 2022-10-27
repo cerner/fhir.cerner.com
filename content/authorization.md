@@ -1096,11 +1096,11 @@ new token via a new authorization grant request.
 
 **How can my application revoke a refresh token on
   behalf of a user?**
-
-Cerner currently does not have a mechanism that allows
-  client applications to revoke refresh tokens.  If/when
-  such functionality is implemented, it will follow RFC 7009
-  ["OAuth 2.0 Token Revocation"](https://tools.ietf.org/html/rfc7009).
+  
+The location of an RFC 7009 token revocation endpoint is
+advertised at /.well-known/smart-configuration; see
+[CapabilityStatement](/millennium/r4/foundation/conformance/capability-statement/#well-known-smart-configuration)
+for further details.
 
 **How can my application participate in log out
   mechanisms provided by the organization's single
