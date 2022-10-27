@@ -1094,6 +1094,14 @@ re-approval, then the token refresh will continue to fail.
 As an alternative, the application can request an entirely
 new token via a new authorization grant request.
 
+**How can my application revoke a refresh token on
+  behalf of a user?**
+  
+The location of an RFC 7009 token revocation endpoint is
+advertised at /.well-known/smart-configuration; see
+["CapabilityStatement"](/millennium/r4/foundation/conformance/capability-statement/#well-known-smart-configuration)
+for further details.
+
 **How can my application participate in log out
   mechanisms provided by the organization's single
   sign-on (SSO) ecosystem?**
