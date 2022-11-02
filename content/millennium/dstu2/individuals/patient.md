@@ -77,6 +77,7 @@ Notes:
 * Either the `_id`, or a combination of `identifier` , `birthdate`, `name`, `given`, `family`, `address-postalcode`, `phone`, or `email` parameters must be provided.
 * The `gender` parameter may only be provided if at least one of `identifier` , `birthdate`, `name`, `given`, `family`, `address-postalcode`, `phone`, or `email` parameters is provided.
 * The `name`, `family`, and `given` parameters support the ':exact' modifier and will search for current names only.
+* It is not recommended to combine `family` or `given` parameters with `name` parameter when searching for a patient. Whenever possible use the ':exact' modifier.
 * The `address-postalcode` parameter supports the `:exact` modifer.
 * The `identifier`, `name`, `family`, `given`, `phone`, `email`, `address-postalcode`, or `gender` parameters may be provided exactly once and may have only a single value.
 * The `birthdate` parameter may be provided twice to indicate a date range, but must contain the inclusive prefixes 'le' and 'ge'
