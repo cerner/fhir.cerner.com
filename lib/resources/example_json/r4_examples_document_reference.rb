@@ -498,57 +498,57 @@ module Cerner
     }.freeze
 
     R4_DOCUMENT_REFERENCE_POST ||= {
-      'resourceType': 'DocumentReference',
-      'status': 'current',
-      'docStatus': 'final',
-      'type': {
-        'coding': [
+      "resourceType": 'DocumentReference',
+      "status": 'current',
+      "docStatus": 'final',
+      "type": {
+        "coding": [
           {
-            'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '20732501',
-            'display': 'Height Weight Allergy Rule - Text',
-            'userSelected': true
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "code": '2820507',
+            "display": 'Admission Note Physician',
+            "userSelected": true
           }
         ],
-        'text': 'Height Weight Allergy Rule - Text'
+        "text": 'Admission Note Physician'
       },
-      'subject': {
-        'reference': 'Patient/53663272'
+      "subject": {
+        "reference": 'Patient/12457977'
       },
-      'author': [
+      "author": [
         {
-          'reference': 'Practitioner/21500981'
+          "reference": 'Practitioner/3332064'
         }
       ],
-      'authenticator': {
-        'reference': 'Practitioner/21500981'
+      "authenticator": {
+        "reference": 'Practitioner/3332064'
       },
-      'content': [
+      "content": [
         {
-          'attachment': {
-            'contentType': 'application/xml;charset=utf-8',
-            'data': 'PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=',
-            'title': 'Height Weight Allergy Rule',
-            'creation': '2020-07-29T21:02:04.000Z'
+          "attachment": {
+            "contentType": 'application/xml;charset=utf-8',
+            "data": 'PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=',
+            "title": 'Height Weight Allergy Rule',
+            "creation": '2020-07-29T21:02:04.000Z'
           }
         }
       ],
-      'context': {
-        'encounter': [
+      "context": {
+        "encounter": [
           {
-            'reference': 'Encounter/4208059'
+            "reference": 'Encounter/97987761'
           }
         ],
-        'period': {
-          'start': '2020-01-01T00:00:00.000Z',
-          'end': '2020-01-01T01:00:00.000Z'
+        "period": {
+          "start": '2020-01-01T00:00:00.000Z',
+          "end": '2020-01-01T01:00:00.000Z'
         }
       }
     }.freeze
 
     R4_DOCUMENT_REFERENCE_UPDATE ||= {
       'resourceType': 'DocumentReference',
-      'id': '16885181',
+      'id': '201051629',
       'status': 'entered-in-error',
       'docStatus': 'amended',
       'type': {
@@ -562,34 +562,34 @@ module Cerner
         ]
       },
       'subject': {
-        'reference': 'Patient/53663272'
+        'reference': 'Patient/12457977'
       },
       'author': [
         {
-          'reference': 'Practitioner/21500981'
+          'reference': 'Practitioner/3332064'
         }
       ],
       'authenticator': {
-        'reference': 'Practitioner/21500981'
+        'reference': 'Practitioner/3332064'
       },
       'identifier': [
         {
-          'system': 'https://fhir.cerner.com/location/source/0/0/1',
-          'value': 'identifier 1'
+          'system': 'https://fhir.cerner.com/ceuuid',
+          'value': 'CE87caf4b7-9397-4667-9897-702218017c9e-201051629-2022110410151000'
         }
       ],
       'content': [
         'attachment': {
           'contentType': 'application/xml;charset=utf-8',
           'data': 'PGh08L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=',
-          'title': 'Admission Note-Physician',
-          'creation': '2020-08-15T14:35:29.000Z'
+          'title': 'Height Weight Allergy Rule',
+          'creation': '2020-07-29T21:02:04.000Z'
         }
       ],
       'context': {
         'encounter': [
           {
-            'reference': 'Encounter/4208053'
+            'reference': 'Encounter/97987761'
           }
         ],
         'period': {
