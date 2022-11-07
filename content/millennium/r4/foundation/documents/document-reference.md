@@ -242,11 +242,11 @@ _Implementation Notes_
 Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
-Date: Fri, 14 Feb 2020 22:05:40 GMT
-Etag: W/"12793861"
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/16885181
+Date: Fri, 04 Nov 2022 10:15:11 GMT
+Etag: W/"1"
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/201051629
 Vary: Origin
-X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+X-Request-Id: 5f5324e1-2966-47ec-8076-0d3906828b56+5532_p0Ds
 </pre>
 
 ## Update
@@ -290,12 +290,12 @@ Accept: 'application/json+fhir', 'Content-Type': 'application/fhir+json', 'If-Ma
 <pre class="terminal">
 Cache-Control: no-cache
 Content-Length: 0
-Content-Type: text/html
-Date: Tue, 20 Aug 2019 21:17:04 GMT
-Etag: W/"12793861"
-Last-Modified: Sat, 15 Feb 2020 22:05:40 GMT
+Content-Type: application/json+fhir
+Date: Fri, 04 Nov 2022 11:54:04 GMT
+Etag: W/"2"
+Last-Modified: Fri, 04 Nov 2022 11:54:04 GMT
 Vary: Origin
-X-Request-Id: 3e4cb2f732daacdb6cca2eb944e80e55
+X-Request-Id: d2a211a4-ccd4-4ba8-b4f4-d3da9200543c+6313_U7Z3
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent update.

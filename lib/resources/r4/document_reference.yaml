@@ -68,12 +68,12 @@ fields:
         "coding": [
           {
             'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-            'code': '20732501',
-            'display': 'Height Weight Allergy Rule - Text',
+            'code': '2820507',
+            'display': 'Admission Note Physician',
             'userSelected': true
           }
         ],
-        'text': 'Height Weight Allergy Rule - Text'
+        'text': 'Admission Note Physician'
       }
     }
   binding:
@@ -115,7 +115,7 @@ fields:
   example: |
     {
       "subject": {
-        "reference": "Patient/1415936"
+        "reference": "Patient/12457977"
       }
     }
 
@@ -131,7 +131,7 @@ fields:
     {
       "author": [
         {
-          "reference": "Practitioner/2150097"
+          "reference": "Practitioner/3332064"
         }
       ]
     }
@@ -147,7 +147,7 @@ fields:
   example: |
     {
       "authenticator": {
-        "reference": "Practitioner/21500981"
+        "reference": "Practitioner/3332064"
       }
     }
 
@@ -166,7 +166,7 @@ fields:
           "attachment": {
             "contentType": "text/xml;charset=utf-8",
             "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
-            "title": "Summary Note",
+            "title": "Height Weight Allergy Rule",
             "creation": "2020-07-29T21:02:04.000Z"
           }
         }
@@ -186,8 +186,8 @@ fields:
      "attachment": {
             "contentType": "application/xml;charset=utf-8",
             "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
-            "title": "Summary Note",
-            "creation": "2020-01-15T14:35:29.000Z"
+            "title": "Height Weight Allergy Rule",
+            "creation": "2020-07-29T21:02:04.000Z"
           }
    }
 
@@ -228,7 +228,7 @@ fields:
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
   example: |
    {
-     "title": "Summary Note"
+     "title": "Height Weight Allergy Rule",
    }
 
 - name: content.attachment.creation
@@ -241,7 +241,7 @@ fields:
   note: A time component must be provided with the date.
   example: |
    {
-     "creation": "2020-01-15T14:35:29.000Z"
+     "creation": "2020-07-29T21:02:04.000Z"
    }
 
 - name: context
@@ -255,12 +255,12 @@ fields:
    {
      "encounter": [
         {
-          "reference": "Encounter/4208053"
+          "reference": "Encounter/97987761"
         }
       ],
      "period": {
-       "start": "2020-01-01T00:00:00.000Z",
-       "end": "2020-01-01T01:00:00.000Z"
+        "start": "2020-01-01T00:00:00.000Z",
+        "end": "2020-01-01T01:00:00.000Z"
      }
    }
 
@@ -276,7 +276,7 @@ fields:
     {
       "encounter": [
         {
-          "reference": "Encounter/4208053"
+          "reference": "Encounter/97987761"
         }
       ]
     }
@@ -359,7 +359,7 @@ fields:
   example: |
     {
       "subject": {
-        "reference": "Patient/53663272"
+        "reference": "Patient/12457977"
       }
     }
 
@@ -375,7 +375,7 @@ fields:
     {
       "author": [
         {
-          "reference": "Practitioner/2150097"
+          "reference": "Practitioner/3332064"
         }
       ]
     }
@@ -391,7 +391,7 @@ fields:
   example: |
     {
       "authenticator": {
-        "reference": "Practitioner/21500981"
+        "reference": "Practitioner/3332064"
       }
     }
 
@@ -408,9 +408,9 @@ fields:
       "content": [
         {
           "attachment": {
-            "contentType": "text/xml;charset=utf-8",
+            "contentType": "application/xml;charset=utf-8",
             "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
-            "title": "Summary Note",
+            "title": "Height Weight Allergy Rule",
             "creation": "2020-07-29T21:02:04.000Z"
           }
         }
@@ -430,8 +430,8 @@ fields:
      "attachment": {
             "contentType": "application/xml;charset=utf-8",
             "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
-            "title": "Summary Note",
-            "creation": "2020-01-15T14:35:29.000Z"
+            "title": "Height Weight Allergy Rule",
+            "creation": "2020-07-29T21:02:04.000Z"
           }
    }
 
@@ -472,7 +472,7 @@ fields:
   url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
   example: |
    {
-     "title": "Summary Note"
+     "title": "Height Weight Allergy Rule"
    }
 
 - name: content.attachment.creation
@@ -485,7 +485,7 @@ fields:
   note: A time component must be provided with the date. The new date must not be earlier than the previous content.attachment.creation date.
   example: |
    {
-     "creation": "2020-08-15T14:35:29.000Z"
+     "creation": "2020-07-29T21:02:04.000Z"
    }
 
 - name: context
@@ -499,7 +499,7 @@ fields:
    {
      "encounter": [
         {
-          "reference": "Encounter/4208053"
+          "reference": "Encounter/97987761"
         }
       ],
      "period": {
@@ -520,7 +520,7 @@ fields:
     {
       "encounter": [
         {
-          "reference": "Encounter/4208053"
+          "reference": "Encounter/97987761"
         }
       ]
     }
