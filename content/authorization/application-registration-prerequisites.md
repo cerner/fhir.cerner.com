@@ -186,6 +186,12 @@ The following table explains labeling Cerner applies to applications in certain 
 
 The security requirements outlined in this document are currently only required for all Ignite applications targeting the patient persona. Though, Cerner encourages the use of these best practices for all end user facing applications.
 
+**Does my development environment need to comply with these security requirements?**
+
+No. You can have development environment(s) that leverage private domains (such as "localhost"), unsecured connections (non-HTTPS), and/or nonstandard ports (non-443).
+
+However, be aware that Cerner will _not_ be able automatically assess such environments' compliance with security best practices. It is therefore recommended that you _also_ have one or more development environments that _do_ comply with this page's recommendations, so that you can receive an accurate preview of your patients' user experience in production.
+
 **Why are OV/EV certificates preferred by Cerner?**
 
 Organization-Validated (OV) and/or Extended-Validation (EV) certificates ensure that the certificate is being issued to an official business entity (with a name and address). This helps provide transparency to users (patients) about who they are sharing their data with.  Cerner does not perform validation of the incorporation of your business. By utilizing an OV or EV certificate, Cerner trusts that the certificate authority has performed such validation and will correspondingly display your organization's name in association with the application.
