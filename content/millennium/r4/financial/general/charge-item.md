@@ -89,7 +89,7 @@ Search for ChargeItems that meet supplied query parameters:
  Name                  | Required?                  | Type          | Description
 -----------------------|----------------------------|---------------|-------------------------------------------------------
  `_id`                 | This or context or account | [`token`]     | The logical resource id associated with the ChargeItem.
- `context`             | This or _id or account     | [`reference`] | Encounter associated with the ChargeItem.
+ `context`             | This or _id or account     | [`reference`] | Clinical Encounter associated with the ChargeItem.
  `account`             | This or _id or context     | [`reference`] | Account associated with the ChargeItem.
  `-status`             | See notes                  | [`token`]     | The status of the ChargeItem. Example: `billable`
  [`_count`]            | No                         | [`number`]    | The maximum number of results to return.
@@ -99,7 +99,7 @@ Notes:
 - When searching by `_id`, only a single ChargeItem id can be provided.
 - `-status` must be provided with `context` or `account`.
 - `-status` must be set to `billable`.
-- `context` must reference an Encounter.
+- `context` must reference an Clinical Encounter.
 - Only charge-group `account` types are supported.
 
 ### Headers
