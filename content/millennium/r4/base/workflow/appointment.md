@@ -34,7 +34,7 @@ The following fields are returned if valued:
 
 * [Appointment id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status){:target="_blank"}
-* [Cancellation Reason](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason){:target="_blank"}
+* [Cancelation Reason](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason){:target="_blank"}
 * [ServiceCategory](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory){:target="_blank"}
 * [ServiceType](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType){:target="_blank"}
 * [Slot](https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.slot){:target="_blank"}
@@ -51,7 +51,7 @@ The following fields are returned if valued:
 * [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * [Patient Instruction](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction){:target="_blank"}
 * [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
-* [Extensions](#extensions){:target="_blank"}
+* [Extensions including is cancelable, is reschedulable](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
