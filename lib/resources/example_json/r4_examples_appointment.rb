@@ -19,6 +19,16 @@ module Cerner
                  '<p><b>Participants</b>: Practitioner: Cerner Test, Physician - Primary Care Cerner, '\
                  'Patient: SMART,NANCY, Location: MX Clinic 1</p></div>'
         },
+        'extension': [
+          {
+            'valueBoolean': false,
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable'
+          },
+          {
+            'valueBoolean': false,
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-reschedulable'
+          }
+        ],
         'status': 'booked',
         'cancelationReason': {
           'coding': [

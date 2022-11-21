@@ -34,7 +34,7 @@ The following fields are returned if valued:
 
 * [Appointment id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status){:target="_blank"}
-* [Cancellation Reason](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason){:target="_blank"}
+* [Cancelation Reason](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason){:target="_blank"}
 * [ServiceCategory](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory){:target="_blank"}
 * [ServiceType](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType){:target="_blank"}
 * [Slot](https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.slot){:target="_blank"}
@@ -51,10 +51,25 @@ The following fields are returned if valued:
 * [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * [Patient Instruction](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction){:target="_blank"}
 * [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
+* [Extensions including is cancelable, is reschedulable](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
 <%= terminology_table(:appointment, :r4) %>
+
+## Extensions
+
+* [Is Cancelable]
+* [Is Reschedulable]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ID                           | Value\[x] Type                                              | Description
+-----------------------------|-------------------------------------------------------------|--------------------------------------------------------------------
+`is-cancelable`              | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be canceled or not.
+`is-reschedulable`           | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be rescheduled or not.
 
 ## Search
 
@@ -504,3 +519,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [implicitRules]: http://hl7.org/fhir/r4/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension
 [OperationOutcomes]: ../../../#operation-outcomes
+[Is Cancelable]: #custom-extensions
+[Is Reschedulable]: #custom-extensions
