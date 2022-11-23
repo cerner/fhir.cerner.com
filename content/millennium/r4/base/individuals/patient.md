@@ -319,7 +319,7 @@ See [Health Cards] documentation for more details about this operation.
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
 [Patient Birth Time]: https://hl7.org/fhir/R4/extension-patient-birthtime.html
-[Patient Preferred Contact]: https://www.hl7.org/fhir/extension-organization-preferredcontact.html
+[Patient Preferred Contact]: https://www.hl7.org/fhir/defining-extensions.html
 [US Core Race]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html
 [US Core Ethnicity]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html
 [US Core Birth Sex]: https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html
