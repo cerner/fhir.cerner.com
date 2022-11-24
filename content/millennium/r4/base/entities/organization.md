@@ -49,6 +49,7 @@ Search for Organizations that meet supplied query parameters:
 
 - Searching all Organizations
   - Performing an Organization Search request without any parameters will return **all** available Organizations, paginated.
+  - This is not recommended for sites that have a large number of organizations and will not be performant.
 
 - The `identifier` parameter
   - Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the 
