@@ -379,6 +379,7 @@
   <li>Either the <code>_id</code>, or a combination of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters must be provided.</li>
   <li>The <code>gender</code> parameter may only be provided if at least one of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters is provided.</li>
   <li>The <code>name</code>, <code>family</code>, and <code>given</code> parameters support the ‘:exact’ modifier and will search for current names only.</li>
+  <li>It is not recommended to combine <code>family</code> or <code>given</code> parameters with <code>name</code> parameter when searching for a patient. Whenever possible use the ‘:exact’ modifier.</li>
   <li>The <code>address-postalcode</code> parameter supports the <code>:exact</code> modifer.</li>
   <li>The <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>phone</code>, <code>email</code>, <code>address-postalcode</code>, or <code>gender</code> parameters may be provided exactly once and may have only a single value.</li>
   <li>The <code>birthdate</code> parameter may be provided twice to indicate a date range, but must contain the inclusive prefixes ‘le’ and ‘ge’</li>

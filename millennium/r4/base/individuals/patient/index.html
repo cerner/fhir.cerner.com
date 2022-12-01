@@ -516,7 +516,7 @@
 
 <ul>
   <li><a href="https://hl7.org/fhir/R4/extension-patient-birthtime.html">Patient Birth Time</a></li>
-  <li><a href="https://www.hl7.org/fhir/extension-organization-preferredcontact.html">Patient Preferred Contact</a></li>
+  <li><a href="https://www.hl7.org/fhir/defining-extensions.html">Patient Preferred Contact</a></li>
   <li><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html">US Core Race</a></li>
   <li><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
   <li><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
@@ -654,6 +654,7 @@
   <li>Either the <code>_id</code>, or a combination of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters must be provided.</li>
   <li>The <code>gender</code> parameter may only be provided if at least one of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters is provided.</li>
   <li>The <code>name</code>, <code>family</code>, and <code>given</code> parameters support the ‘:exact’ modifier and will search for current names only.</li>
+  <li>It is not recommended to combine <code>family</code> or <code>given</code> parameters with <code>name</code> parameter when searching for a patient. Whenever possible use the ‘:exact’ modifier.</li>
   <li>The <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>phone</code>, <code>email</code>, <code>address-postalcode</code>, or <code>gender</code> parameters may be provided exactly once and may have only a single value.</li>
   <li>The <code>birthdate</code> parameter
     <ul>

@@ -84,6 +84,11 @@
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -158,7 +163,7 @@
 <ul>
   <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Appointment id</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason" target="_blank">Cancellation Reason</a></li>
+  <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason" target="_blank">Cancelation Reason</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory" target="_blank">ServiceCategory</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType" target="_blank">ServiceType</a></li>
   <li><a href="https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.slot" target="_blank">Slot</a></li>
@@ -179,6 +184,7 @@
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment" target="_blank">Comment</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction" target="_blank">Patient Instruction</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod" target="_blank">Requested period</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including is cancelable, is reschedulable</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -452,6 +458,39 @@
   </tbody>
 </table>
 
+<h2 id="extensions">Extensions</h2>
+
+<ul>
+  <li><a href="#custom-extensions">Is Cancelable</a></li>
+  <li><a href="#custom-extensions">Is Reschedulable</a></li>
+</ul>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>is-cancelable</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>boolean</code></a></td>
+      <td>Indication of whether the Appointment can be canceled or not.</td>
+    </tr>
+    <tr>
+      <td><code>is-reschedulable</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>boolean</code></a></td>
+      <td>Indication of whether the Appointment can be rescheduled or not.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
 <p>Search for Appointments that meet supplied query parameters:</p>
@@ -601,6 +640,16 @@
             "status": "generated",
             "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul  8, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul  8, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Slot Id&lt;/b&gt;: 21265426-633867-6828001-60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART,NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;/div&gt;"
           },
+          "extension": [
+            {
+              "valueBoolean": false,
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable"
+            },
+            {
+              "valueBoolean": false,
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-reschedulable"
+            }
+          ],
           "status": "booked",
           "cancelationReason": {
             "coding": [
@@ -771,6 +820,16 @@
       "status": "generated",
       "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Appointment&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Booked&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Type&lt;/b&gt;: Established Patient&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start&lt;/b&gt;: Jul  8, 2020  1:00 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;End&lt;/b&gt;: Jul  8, 2020  1:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Slot Id&lt;/b&gt;: 21265426-633867-6828001-60&lt;/p&gt;&lt;p&gt;&lt;b&gt;Participants&lt;/b&gt;: Practitioner: Cerner Test, Physician - Primary Care Cerner, Patient: SMART,NANCY, Location: MX Clinic 1&lt;/p&gt;&lt;/div&gt;"
     },
+    "extension": [
+      {
+        "valueBoolean": false,
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable"
+      },
+      {
+        "valueBoolean": false,
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-reschedulable"
+      }
+    ],
     "status": "booked",
     "cancelationReason": {
       "coding": [
