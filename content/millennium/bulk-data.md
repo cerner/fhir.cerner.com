@@ -54,7 +54,7 @@ Please reference the [authorization](https://fhir.cerner.com/authorization/) doc
 
 ## Registering Client Applications
 
-In order to be granted access to the Bulk Data Access API, a Millennium Bulk SMART application must be registered through Cerner's [code Console](http://fhir.cerner.com/smart/#code-console). See [Authorization](http://fhir.cerner.com/authorization/) for additional details on registering client applications and authorizing with the server.
+In order to be granted access to the Bulk Data Access API, a **Millennium Bulk Data** SMART application must be registered through Cerner's [code Console](http://fhir.cerner.com/smart/#code-console). See [Authorization](http://fhir.cerner.com/authorization/) for additional details on registering client applications and authorizing with the server.
 
 In the case of Group Export, client application developers will need to work with healthcare organizations to identify the available Groups to be exported. Organizations can manage Groups within Ignite Management Tooling.
 
