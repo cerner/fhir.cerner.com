@@ -13,6 +13,10 @@ The Practitioner Resource provides information about a person formally involved 
 
 Not all practitioners have access to the EHR but can be referenced by other resources to indicate they are in some way involved in a patient's care.
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+  * [US Core Practitioner Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-practitioner.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Practitioner id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}

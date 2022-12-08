@@ -11,6 +11,10 @@ title: Organization | R4 API
 
 The Organization resource describes a grouping of people or business entities relevant to the healthcare process.  Organizations include hospitals, employers, insurance companies, physicians’ offices, rehabilitation facilities, laboratories, etc.
 
+* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+
+  * [US Core Organization Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-organization.html){:target="_blank"}
+
 The following fields are returned if valued:
 
 * [Organization Identifier](https://hl7.org/fhir/r4/organization-definitions.html#Organization.identifier){:target="_blank"}
