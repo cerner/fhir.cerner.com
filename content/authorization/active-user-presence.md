@@ -1,5 +1,9 @@
-RFC:  HL7 SMART App Launch Active User Presence Extension
-============================================
+---
+title: Active User Presence Extension
+layout: authorization
+---
+
+# HL7 SMART App Launch Active User Presence Extension
 
 ## Introduction
 
