@@ -97,7 +97,7 @@ If the refresh token is invalid, either due to lapse of user activity or other i
 
 <sup>5</sup> [Augmented Backus-Naur Form (ABNF) notation of RFC 5234][RFC5234]
 
-[smart-scopes]: http://hl7.org/fhir/smart-app-launch/scopes-and-launch-context/index.html#scopes-for-requesting-a-refresh-token
+[smart-scopes]: http://hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-a-refresh-token
 [nist-session-management]: https://pages.nist.gov/800-63-3/sp800-63b.html#63bSec4-Table1
 [oauth2-refresh]: https://tools.ietf.org/html/rfc6749#section-6
 [ietf-keywords]: https://tools.ietf.org/html/rfc2119
