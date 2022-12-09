@@ -75,7 +75,9 @@ active_at = 1*DIGIT
 
 If the refresh token is still valid and the "active_at" parameter is present, the authorization server calculates the instance of last activity in the SMART app by subtracting ```active_at``` from the current date/time:
 
-```current date/time - active_at = instance of user's last activity in the SMART app```
+```
+current date/time - active_at = instance of user's last activity in the SMART app
+```
 
 If the instance of user’s last activity in the SMART app is more recent than the instance of the user’s last activity known to the authorization server, then the authorization server SHALL update its record of the instance of the user’s last activity for the session and use that in its calculation of an updated ```active_ttl``` value to return in the response to the Refresh Request.
 
