@@ -126,7 +126,7 @@ Notes:
 
 * When `_count` parameter is provided,
   * it won’t affect the first page, because all social history data will appear in the first page regardless of requested count.
-  * Maximal supported count = 200.
+  * Maximum supported count = 200.
   * Second page onward, returned item count may be less than requested.
 
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
