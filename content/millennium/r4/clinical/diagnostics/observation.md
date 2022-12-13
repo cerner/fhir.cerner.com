@@ -102,7 +102,7 @@ _Implementation Notes_
  | `date`         | N                 | [`date`]      | Date range into which the observation falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`                          |
  | `_lastUpdated` | N                 | [`date`]      | Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z` |
  | `category`     | N                 | [`token`]     | The category of observations. Example: `category=laboratory`                                                                            |
- | [`_count`]     | N                 | [`number`]    | The maximum number of results to return per page.                                                                                       |
+ | [`_count`]     | N                 | [`number`]    | The maximum number of results to return per page. Defaults to 50 and maximum 200 observations can be returned                                        |
  | `_revinclude`  | No                | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target                                 |
 
 
@@ -126,6 +126,7 @@ Notes:
 
 * When `_count` parameter is provided,
   * it won’t affect the first page, because all social history data will appear in the first page regardless of requested count.
+  * Maximum supported count = 200.
   * Second page onward, returned item count may be less than requested.
 
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
