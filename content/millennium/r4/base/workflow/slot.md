@@ -51,7 +51,7 @@ Search for Slots that meet supplied query parameters:
 
 _Implementation Notes_
 
-* Valid ids for the `actor` and `-location` search parameters will be determined by the client and provided 
+* Valid ids for the `actor` and `-location` search parameters will be determined by the client and provided
  when integrating your application with the client’s production environment. See [overview](#overview) for details.
 
 ### Authorization Types
@@ -84,7 +84,7 @@ Notes:
 * The start parameter must be provided when `service-type`, `-location`, or `schedule.actor` is provided.
 
 * When the `start` parameter is provided:
-  * both the prefixes `ge` and `lt` must be used to indicate a specific range.The date and prefix pairs must define 
+  * both the prefixes `ge` and `lt` must be used to indicate a specific range.The date and prefix pairs must define
   an upper and lower bound. (e.g. &start=ge2020-04-08T18:13:55Z&start=lt2020-06-08T18:13:55Z)
 
 * The retrieved slots are sorted first by `start` date-time ascending (earliest first), followed by `service-type` and `Scheduling Location`.
@@ -95,7 +95,7 @@ Notes:
 
 * The `_include` parameter may be provided with the `_id` parameter. Example: `_id=21265426-633867-3121665-0&_include=Slot:schedule`
 
-* When `_include` is provided in a request to the closed endpoint, the OAuth2 token must include either the `user/Schedule.read` or the `patient/Schedule.read` scope in addition to a Slot scope.
+* When `_include` is provided in a request to the closed endpoint, the OAuth2 token must include one of `user/Schedule.read`, `patient/Schedule.read`, or `system/Schedule.read` scopes in addition to the Slot scope.
 
 ### Headers
 
