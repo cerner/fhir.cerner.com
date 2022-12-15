@@ -241,7 +241,7 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Valid ids for the <code>actor</code> and <code>-location</code> search parameters will be determined by the client and provided 
+  <li>Valid ids for the <code>actor</code> and <code>-location</code> search parameters will be determined by the client and provided
  when integrating your application with the client’s production environment. See <a href="#overview">overview</a> for details.</li>
 </ul>
 
@@ -337,7 +337,7 @@ For example, <code>-location=123,456</code> is supported but <code>-location=123
   </li>
   <li>When the <code>start</code> parameter is provided:
     <ul>
-      <li>both the prefixes <code>ge</code> and <code>lt</code> must be used to indicate a specific range.The date and prefix pairs must define 
+      <li>both the prefixes <code>ge</code> and <code>lt</code> must be used to indicate a specific range.The date and prefix pairs must define
 an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt2020-06-08T18:13:55Z)</li>
     </ul>
   </li>
@@ -353,7 +353,7 @@ an upper and lower bound. (e.g. &amp;start=ge2020-04-08T18:13:55Z&amp;start=lt20
   <li>
     <p>The <code>_include</code> parameter may be provided with the <code>_id</code> parameter. Example: <code>_id=21265426-633867-3121665-0&amp;_include=Slot:schedule</code></p>
   </li>
-  <li>When <code>_include</code> is provided in a request to the closed endpoint, the OAuth2 token must include either the <code>user/Schedule.read</code> or the <code>patient/Schedule.read</code> scope in addition to a Slot scope.</li>
+  <li>When <code>_include</code> is provided in a request to the closed endpoint, the OAuth2 token must include one of <code>user/Schedule.read</code>, <code>patient/Schedule.read</code>, or <code>system/Schedule.read</code> scopes in addition to the Slot scope.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>

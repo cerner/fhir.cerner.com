@@ -815,7 +815,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
       <td><a href="https://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return per page.</td>
+      <td>The maximum number of results to return per page. Defaults to 50 and maximum 200 observations can be returned</td>
     </tr>
     <tr>
       <td><code>_revinclude</code></td>
@@ -857,6 +857,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
   <li>When <code>_count</code> parameter is provided,
     <ul>
       <li>it won’t affect the first page, because all social history data will appear in the first page regardless of requested count.</li>
+      <li>Maximum supported count = 200.</li>
       <li>Second page onward, returned item count may be less than requested.</li>
     </ul>
   </li>

@@ -78,9 +78,7 @@
 
   <div id="wrapper">
     <div class="content">
-      <div class="beta-tag"><p>This Resource is still under development.</p></div>
-
-<h1 id="diagnosticreport">DiagnosticReport</h1>
+      <h1 id="diagnosticreport">DiagnosticReport</h1>
 
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
@@ -98,7 +96,7 @@
     </ul>
   </li>
   <li>
-<a href="#read-by-id" id="markdown-toc-read-by-id">Read by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
@@ -372,8 +370,6 @@
 
 <h2 id="search">Search</h2>
 
-<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
-
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
@@ -426,8 +422,7 @@
       <td><code>_count</code></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return per page. Example: <code>50</code>
-</td>
+      <td>The maximum number of results to return. Defaults to <code>10</code> and maximum <code>100</code>  documents can be returned.</td>
     </tr>
     <tr>
       <td><code>category</code></td>
@@ -932,9 +927,7 @@
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
-<h2 id="read-by-id">Read by id</h2>
-
-<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
+<h2 id="retrieve-by-id">Retrieve by id</h2>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
 
