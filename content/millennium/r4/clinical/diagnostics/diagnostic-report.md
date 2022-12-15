@@ -2,8 +2,6 @@
 title: DiagnosticReport | R4 API
 ---
 
-<%= beta_tag %>
-
 # DiagnosticReport
 
 * TOC
@@ -53,10 +51,6 @@ The following fields are returned if valued:
 
 ## Search
 
-<%= beta_tag(action: true) %>
-
-
-
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
@@ -69,7 +63,7 @@ The following fields are returned if valued:
  `patient`        | This or `_id`     | [`reference`] | The subject of the report if a patient. Example: `12345`
  `encounter`      | N                 | [`reference`] | The Encounter when the order was made. Must represent an Encounter resource. May include a single or comma separated list of references. Example: `encounter=1621910`
  `date`           | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/time can be given. Example: `date=lt2017-01-5`
- `_count`         | N                 | [`number`]    | The maximum number of results to return per page. Example: `50`
+ `_count`         | N                 | [`number`]    | The maximum number of results to return. Defaults to `10` and maximum `100`  documents can be returned.
  `category`       | N                 | [`token`]     | The diagnostic discipline/department created the report. Example: `{{*[http://loinc.org\\\|P7839-6* or +*LAB*(For micro/Gen lab reports)+}}\\|http://loinc.org/]`
  `code`           | N                 | [`token`]     | The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result. Example: `*[http://loinc.org\\\|630-4*\\|http://loinc.org/]`
  `_revinclude`    | No                | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
@@ -143,9 +137,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Read by id
-
-<%= beta_tag(action: true) %>
+## Retrieve by id
 
 ### Authorization Types
 
