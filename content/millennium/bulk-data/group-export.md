@@ -4,14 +4,10 @@ title: Group Export | R4 API
 
 # Group Export
 
-<%= beta_tag %>
-
 * TOC
 {:toc}
 
 ## Overview
-
-The Group Export operation is available for testing in the public sandbox, but is not generally available for use in client production environments.
 
 The Group Export operation is used to obtain FHIR resources for all members of a specified group of patients.
 

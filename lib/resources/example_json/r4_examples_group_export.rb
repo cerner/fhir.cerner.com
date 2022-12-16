@@ -4,26 +4,26 @@ module Cerner
   module Resources
     R4_BULK_EXPORT_COMPLETE ||= {
       'transactionTime': '2022-01-04T17:42:25.000Z',
-      'request': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Group/252a42c0-5844-11ec-bf63-0242ac130002/$export?_type=Patient,Observation',
+      'request': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Group/252a42c0-5844-11ec-bf63-0242ac130002/$export?_type=Patient,Observation',
       'requiresAccessToken': true,
       'output': [
         {
           'type': 'Patient',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/bulk-export/files/96295b8c-584e-11ec-bf63-0242ac130002'
+          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/bulk-export/files/96295b8c-584e-11ec-bf63-0242ac130002'
         },
         {
           'type': 'Patient',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/bulk-export/files/96295b8c-584e-11ec-bf63-0242ac130003'
+          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/bulk-export/files/96295b8c-584e-11ec-bf63-0242ac130003'
         },
         {
           'type': 'Observation',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/bulk-export/files/96295b8c-584e-11ec-bf63-0242ac130004'
+          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/bulk-export/files/96295b8c-584e-11ec-bf63-0242ac130004'
         }
       ],
       'error': [
         {
           'type': 'OperationOutcome',
-          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/bulk-export/files/96295b8c-584e-11ec-bf63-0242ac130005'
+          'url': 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/bulk-export/files/96295b8c-584e-11ec-bf63-0242ac130005'
         }
       ]
     }.freeze
