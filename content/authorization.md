@@ -1108,9 +1108,9 @@ for further details.
 
 While the Cerner authorization server provides OpenID
   Connect support, it does not currently implement any
-  of the draft log-out specifications currently
-  proposed by the community.  Cerner continues to track
-  on developments in this ecosystem.
+  of OpenID Connect's various logout specifications,
+  nor are they required by the SMART specifications
+  at this time.
 
 As an alternative, you may offer the user a link to
   "Manage Authorized Applications", which allows the user
