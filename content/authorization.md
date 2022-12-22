@@ -1108,9 +1108,9 @@ for further details.
 
 While the Cerner authorization server provides OpenID
   Connect support, it does not currently implement any
-  of the draft log-out specifications currently
-  proposed by the community.  Cerner continues to track
-  on developments in this ecosystem.
+  of OpenID Connect's various logout specifications,
+  nor are they required by the SMART specifications
+  at this time.
 
 As an alternative, you may offer the user a link to
   "Manage Authorized Applications", which allows the user
@@ -1213,7 +1213,7 @@ Cerner currently does not have guidance on how to deliver
 
 [OAUTH]: https://tools.ietf.org/html/rfc6749 "The OAuth 2.0 Authorization Framework"
 [OAUTH-THREAT]: https://tools.ietf.org/html/rfc6819 "OAuth 2.0 Threat Model and Security Considerations"
-[OAUTH-BCP]: https://tools.ietf.org/html/draft-ietf-oauth-security-topics-06 "OAuth 2.0 Security Best Current Practice"
+[OAUTH-BCP]: https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics "OAuth 2.0 Security Best Current Practice"
 [OAUTH-NATIVE]: https://tools.ietf.org/html/rfc8252 "OAuth 2.0 for Native Apps"
 [OPENID]: http://openid.net/specs/openid-connect-core-1_0.html "OpenID Connect Core 1.0 incorporating errata set 1"
 [WIN-SCHEME]: https://msdn.microsoft.com/en-us/library/aa767914(v=vs.85).aspx "Registering an Application to a URI Scheme"
