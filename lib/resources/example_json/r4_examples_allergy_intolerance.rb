@@ -60,6 +60,24 @@ module Cerner
         'reference': 'Encounter/97953523'
       },
       'onsetDateTime': '2019-12-15T00:00:00Z',
+      '_onsetDateTime': {
+        'extension': [
+          {
+            'url': 'https://fhir-ehr.cerner.com/StructureDefinition/precision',
+            'valueCodeableConcept': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/25320',
+                  'code': '639011',
+                  'display': 'After',
+                  'userSelected': true
+                }
+              ],
+              'text': 'After'
+            }
+          }
+        ]
+      },
       'recordedDate': '2020-03-04T20:16:02Z',
       'recorder': {
         'reference': 'Practitioner/12724045',
