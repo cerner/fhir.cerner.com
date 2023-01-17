@@ -22,6 +22,7 @@ The Group Export operation exports resources required for [United States Core Da
 * Clients should follow an Exponential Backoff approach when polling for status as outlined in the [FHIR Bulk Data Access IG](https://hl7.org/fhir/uv/bulkdata/STU1.0.1/export/index.html#bulk-data-status-request).
 * Files should be retrieved promptly as the exported content will expire after 30 days.
 * Once the files have been retrieved, use the delete request to clean up the data from your request.
+* The ability to create a group containing up to 20,000 patients is allowed. However, the recommended group size for optimal performance is 10,000 patients or less. 
 
 ## Kick Off Request
 
