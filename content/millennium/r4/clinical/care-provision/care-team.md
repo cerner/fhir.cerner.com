@@ -27,6 +27,7 @@ The following fields are returned if valued:
   * [Role](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.role){:target="_blank"}
   * [Member](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.member){:target="_blank"}
     * [Reference](http://hl7.org/fhir/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [RelatedPerson](http://hl7.org/fhir/relatedperson.html){:target="_blank"})
+  * [Period](http://hl7.org/fhir/careteam-definitions.html#CareTeam.participant.period){:target="_blank"}
 
 ## Terminology Bindings
 

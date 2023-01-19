@@ -52,6 +52,10 @@ module Cerner
           'member': {
             'reference': 'Practitioner/17490349',
             'display': 'Dickey, Bo'
+          },
+          'period': {
+            'start': '2020-06-22T10:05:08Z',
+            'end': '2100-12-31T00:00:00Z'
           }
         }
       ]
@@ -98,6 +102,10 @@ module Cerner
           'member': {
             'reference': 'Practitioner/3038500',
             'display': 'BASE, TEST123'
+          },
+          'period': {
+            'start': '2020-06-22T10:05:08Z',
+            'end': '2100-12-31T00:00:00Z'
           }
         }
       ]
@@ -188,6 +196,10 @@ module Cerner
                 'member': {
                   'reference': 'Practitioner/4105597',
                   'display': 'ONEPLAN, ONEPLAN'
+                },
+                'period': {
+                  'start': '2020-06-22T10:05:08Z',
+                  'end': '2100-12-31T00:00:00Z'
                 }
               }
             ]
@@ -321,6 +333,10 @@ module Cerner
                 'member': {
                   'reference': 'Practitioner/4105597',
                   'display': 'ONEPLAN, ONEPLAN'
+                },
+                'period': {
+                  'start': '2020-06-22T10:05:08Z',
+                  'end': '2100-12-31T00:00:00Z'
                 }
               }
             ]
@@ -377,6 +393,10 @@ module Cerner
                 'member': {
                   'reference': 'Practitioner/4090846',
                   'display': 'P, Ashoka'
+                },
+                'period': {
+                  'start': '2020-06-22T10:05:08Z',
+                  'end': '2100-12-31T00:00:00Z'
                 }
               }
             ]
