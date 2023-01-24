@@ -22,10 +22,4 @@ module AttributesHelper
       end
     end
   end
-
-  def add_button_attribute
-    @items.each do |item|
-      item[:header_button] = item.identifier.to_s.start_with?('/millennium', '/smart', '/authorization')
-    end
-  end
 end
