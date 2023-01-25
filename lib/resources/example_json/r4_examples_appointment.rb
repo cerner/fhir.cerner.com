@@ -25,8 +25,8 @@ module Cerner
             'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable'
           },
           {
-            "valueString": "1408108",
-            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/group-appointment-id"
+            'valueString': '1408108',
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/group-appointment-id'
           },
           {
             'valueBoolean': false,
