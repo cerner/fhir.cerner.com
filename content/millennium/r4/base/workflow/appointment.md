@@ -51,7 +51,7 @@ The following fields are returned if valued:
 * [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * [Patient Instruction](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction){:target="_blank"}
 * [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
-* [Extensions including is cancelable, is reschedulable](#extensions){:target="_blank"}
+* [Extensions including is cancelable, is reschedulable, group appointment id](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -61,15 +61,17 @@ The following fields are returned if valued:
 
 * [Is Cancelable]
 * [Is Reschedulable]
+* [Group Appointment Id]
 
 ### Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
-ID                           | Value\[x] Type                                              | Description
------------------------------|-------------------------------------------------------------|--------------------------------------------------------------------
-`is-cancelable`              | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be canceled or not.
-`is-reschedulable`           | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be rescheduled or not.
+ID                               | Value\[x] Type                                              | Description
+-----------------------------    |-------------------------------------------------------------|--------------------------------------------------------------------
+`is-cancelable`                  | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be canceled or not.
+`is-reschedulable`               | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be rescheduled or not.
+`group-appointment-id`           | [`string`](https://hl7.org/fhir/r4/datatypes.html#string)   | The ID of the appointment group that this appointment is a part of.
 
 ## Search
 
@@ -521,3 +523,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [OperationOutcomes]: ../../../#operation-outcomes
 [Is Cancelable]: #custom-extensions
 [Is Reschedulable]: #custom-extensions
+[Group Appointment Id]: #custom-extensions
