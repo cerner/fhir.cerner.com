@@ -92,8 +92,7 @@ which is necessary in order to gain access to their protected resources.
 
 If an application will be a confidential client, or accessing data on behalf of a system, it will need to maintain
 a secret. Currently, our implementation provides management and rotation functionality for this workflow in our 
-System Accounts application. In order to obtain a system account, you must first register a confidential application in 
-our code Console. The system account will be automatically generated and available in the system accounts application. 
+System Accounts application. The system account will be automatically generated and available in the System Accounts application when you register your SMART or FHIR application in the code Console. 
 
 Obtain and manage a system account by following these steps:
 
