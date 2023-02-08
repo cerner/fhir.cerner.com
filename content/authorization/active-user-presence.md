@@ -13,7 +13,7 @@ To address this concern, this extension provides a mechanism by which a SMART on
 
 
 ###  Protocol Flow
-```
+<pre class="terminal">
                                                  +-------------------+
                                                  |   Authz Server    |
        +--------+                                | +---------------+ |
@@ -30,9 +30,9 @@ To address this concern, this extension provides a mechanism by which a SMART on
        |        |<-(D)------ Access Token ---------|               | |
        +--------+          + "active_ttl"        | +---------------+ |
                                                  +-------------------+
+</pre>
+__Figure 1__: Abstract Protocol Flow
 
-                     Figure 1: Abstract Protocol Flow
-```
 This specification adds additional parameters to the SMART on FHIR Access Token Response, Refresh Request, and Refresh Response shown in abstract form in Figure 1.
 
 A. The client performs an Access Token Request using an established authorization code that was established with an ```online_access``` scope.
