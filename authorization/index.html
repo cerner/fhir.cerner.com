@@ -34,9 +34,7 @@
     <div class="header-wrapper">
 
       <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
-      
-        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
-      
+      <a class="button" id="header-button" href="https://code-console.cerner.com/">code Console</a>
 
     </div>
 <!-- /.header-wrapper -->
@@ -113,7 +111,7 @@ workflow.  Cerner recommends the following IETF publications for review:</p>
 <ul>
   <li><a href="https://tools.ietf.org/html/rfc6749" title="The OAuth 2.0 Authorization Framework">The OAuth 2.0 Authorization Framework</a></li>
   <li><a href="https://tools.ietf.org/html/rfc6819" title="OAuth 2.0 Threat Model and Security Considerations">OAuth 2.0 Threat Model and Security Considerations</a></li>
-  <li><a href="https://tools.ietf.org/html/draft-ietf-oauth-security-topics-06" title="OAuth 2.0 Security Best Current Practice">OAuth 2.0 Security Best Current Practice</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics" title="OAuth 2.0 Security Best Current Practice">OAuth 2.0 Security Best Current Practice</a></li>
   <li><a href="https://tools.ietf.org/html/rfc6750" title="The OAuth 2.0 Authorization Framework: Bearer Token Usage">The OAuth 2.0 Authorization Framework: Bearer Token Usage</a></li>
   <li>
 <a href="https://tools.ietf.org/html/rfc8252" title="OAuth 2.0 for Native Apps">OAuth 2.0 for Native Apps</a>
@@ -1260,9 +1258,9 @@ for further details.</p>
 
 <p>While the Cerner authorization server provides OpenID
   Connect support, it does not currently implement any
-  of the draft log-out specifications currently
-  proposed by the community.  Cerner continues to track
-  on developments in this ecosystem.</p>
+  of OpenID Connect’s various logout specifications,
+  nor are they required by the SMART specifications
+  at this time.</p>
 
 <p>As an alternative, you may offer the user a link to
   “Manage Authorized Applications”, which allows the user
@@ -1354,7 +1352,7 @@ for further details.</p>
 <ul>
   <li><a href="https://tools.ietf.org/html/rfc6749" title="The OAuth 2.0 Authorization Framework">“The OAuth 2.0 Authorization Framework”</a></li>
   <li><a href="https://tools.ietf.org/html/rfc6819" title="OAuth 2.0 Threat Model and Security Considerations">“OAuth 2.0 Threat Model and Security Considerations”</a></li>
-  <li><a href="https://tools.ietf.org/html/draft-ietf-oauth-security-topics-06" title="OAuth 2.0 Security Best Current Practice">“OAuth 2.0 Security Best Current Practice”</a></li>
+  <li><a href="https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics" title="OAuth 2.0 Security Best Current Practice">“OAuth 2.0 Security Best Current Practice”</a></li>
   <li><a href="https://tools.ietf.org/html/rfc8252" title="OAuth 2.0 for Native Apps">“OAuth 2.0 for Native Apps”</a></li>
   <li><a href="http://openid.net/specs/openid-connect-core-1_0.html" title="OpenID Connect Core 1.0 incorporating errata set 1">“OpenID Connect Core 1.0 incorporating errata set 1”</a></li>
   <li><a href="https://msdn.microsoft.com/en-us/library/aa767914(v=vs.85).aspx" title="Registering an Application to a URI Scheme">“Registering an Application to a URI Scheme” (Windows API)</a></li>
@@ -1385,6 +1383,9 @@ for further details.</p>
       </li>
       <li class="js-topic">
         <h3><a href="application-registration-prerequisites">Application Registration Prerequisites</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="active-user-presence">Active User Presence Extension</a></h3>
       </li>
     </ul>
   </div> <!-- /sidebar-module -->

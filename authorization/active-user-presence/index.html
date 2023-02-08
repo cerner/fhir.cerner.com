@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="Content-Language" content="en-us">
+  <meta http-equiv="imagetoolbar" content="false">
+  <title>Active User Presence Extension</title>
+  
+  <link href="../../css/reset.css" rel="stylesheet" type="text/css">
+  <link href="../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
+  <script src="../../js/jquery.js" type="text/javascript"></script>
+  <script src="../../js/millennium_diff_table_config.js" type="text/javascript"></script>  
+  <script src="../../js/millennium_diff_table.js" type="text/javascript"></script>
+  <script src="../../js/documentation.js" type="text/javascript"></script>
+  <script src="../../js/request_button.js" type="text/javascript"></script>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62403415-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+</head>
+
+
+<body class="_api">
+<div id="header">
+
+  <div id="top-header">
+    <div class="header-wrapper">
+
+      <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
+      <a class="button" id="header-button" href="https://code-console.cerner.com/">code Console</a>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#top-header -->
+
+  <div id="bottom-header">
+    <div class="header-wrapper">
+
+      <ul class="pages">
+        <li><a href="../../millennium/overview/">Millennium</a></li>
+         <li><a href="../../soarian/overview/">Soarian</a></li>
+        <li><a href="..">Authorization</a></li>
+        <li><a href="../../smart">SMART</a></li>
+      </ul>
+
+    </div>
+<!-- /.header-wrapper -->
+  </div>
+<!-- /#bottom-header -->
+
+</div>
+<!-- /#header -->
+
+
+<div id="wrapper">
+  <div class="content">
+    <h1 id="hl7-smart-app-launch-active-user-presence-extension">HL7 SMART App Launch Active User Presence Extension</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>The HL7 SMART App Launch specification <a href="http://hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-a-refresh-token">defines the scope<sup>1</sup></a> of <code>online_access</code>, enabling an application to obtain <a href="https://tools.ietf.org/html/rfc6749#section-6">refresh tokens<sup>2</sup></a> that <em>“will be usable for as long as the end-user remains online”</em>.  In certain use cases, conflicts between user experience and security can arise when the user’s primary interaction with the electronic health record is through a SMART on FHIR application.  In these scenarios, the electronic health record may have awareness that an application is continuing to utilize FHIR resources and refresh tokens, but there is no guarantee that such activity constitutes “active user presence”.  Best practices for session management, such as those <a href="https://pages.nist.gov/800-63-3/sp800-63b.html#63bSec4-Table1">prescribed by NIST 800-63B<sup>2</sup></a>, describe requirements for users to be re-authenticated after “inactivity”.  When users are not directly interacting with an application that is part of the electronic health record, a mechanism by which a SMART on FHIR application can communicate active user presence is desirable to prevent the user from experiencing unnecessary re-authentication events.</p>
+
+<p>To address this concern, this extension provides a mechanism by which a SMART on FHIR authorization server may declare that a refresh token is subject to inactivity constraints as part of its own token responses.  Through this extension a SMART on FHIR application may correspondingly include a parameter in token refresh requests that conveys how long ago the application last detected active user presence.</p>
+
+<h3 id="protocol-flow">Protocol Flow</h3>
+<p>```
+                                                 +——————-+
+                                                 |   Authz Server    |
+       +——–+                                | +—————+ |
+       |        |–(A)– Access Token Request —-&gt;|               | |
+       |        |                                | |               | |
+       |        |                                | |               | |
+       |        |&lt;-(B)– Access, Refresh Token —-|               | |
+       |        |           + “active_ttl”       | |     Token     | |
+       | Client |                                | |    Endpoint   | |
+       |        |                                | |               | |
+       |        |–(C)– Refresh Request ———&gt;|               | |
+       |        |          + “active_at”         | |               | |
+       |        |                                | |               | |
+       |        |&lt;-(D)—— Access Token ———|               | |
+       +——–+          + “active_ttl”        | +—————+ |
+                                                 +——————-+</p>
+
+<pre><code>                 Figure 1: Abstract Protocol Flow ``` This specification adds additional parameters to the SMART on FHIR Access Token Response, Refresh Request, and Refresh Response shown in abstract form in Figure 1.
+</code></pre>
+
+<p>A. The client performs an Access Token Request using an established authorization code that was established with an <code>online_access</code> scope.</p>
+
+<p>B. The Token Endpoint responds with an access token and refresh token as usual, but additionally includes the parameter <code>active_ttl</code>.  This value signifies the quantity of seconds (time-to-live) remaining before user is no longer considered active, which will automatically invalidate the refresh token without further activity..</p>
+
+<p>C. Prior to the invalidation time specified by <code>active_ttl</code>, the client application performs a Refresh Request as usual but includes a parameter <code>active_at</code> that specifies how many seconds in the past that the client application last detected active user presence.</p>
+
+<p>D. The Token Endpoint responds as usual but includes another <code>active_ttl</code> value, again signifying the new quantity of seconds remaining before the refresh token will be automatically invalidated without active user presence.</p>
+
+<p>This specification uses time vectors in seconds rather than absolute date/time objects as to avoid issues with clock skew between the authorization server and the application.</p>
+
+<h2 id="notational-conventions">Notational Conventions</h2>
+
+<p>The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “NOT RECOMMENDED”, “MAY”, and “OPTIONAL” in this document are to be interpreted as described in <a href="https://tools.ietf.org/html/rfc2119">“Key words for use in RFCs to Indicate Requirement Levels”<sup>4</sup></a>.  If these words are used without being spelled in uppercase, then they are to be interpreted with their natural language meanings.</p>
+
+<p>This specification uses the <a href="https://tools.ietf.org/html/rfc5234">Augmented Backus-Naur Form (ABNF) notation of RFC 5234<sup>5</sup></a>.</p>
+
+<h2 id="terminology">Terminology</h2>
+
+<p><strong>Active User Presence</strong>: Any event that can be construed as a human interaction with a computing device.  This includes, but is not limited to mouse, keyboard, scroll, click, tap, and gesture interactions.</p>
+
+<h2 id="protocol">Protocol</h2>
+
+<h3 id="authorization-server-declares-active-user-presence-requirement">Authorization Server Declares Active User Presence Requirement</h3>
+
+<p>When issuing token responses containing refresh tokens scoped for <code>online_access</code>, the SMART on FHIR authorization server returns the number of seconds after which the session will be considered inactive, <code>active_ttl</code>, in the following manner:</p>
+
+<p><code>
+active_ttl = 1*DIGIT
+</code></p>
+
+<p>The inclusion of this attribute in a token response from an authorization server signals to the SMART application that the authorization server supports / has implemented this specification, and that it will accept additional parameters to signal user presence as part of the token refresh process.</p>
+
+<p>If no active user presence is detected by an actor participating with the authorization server (the electronic health record or a SMART on FHIR application) after this number of seconds has passed, the authorization server <strong>SHOULD</strong> invalidate any refresh tokens associated with the user session.</p>
+
+<h3 id="application-performs-token-refresh">Application Performs Token Refresh</h3>
+
+<p>When an application sends a Refresh Request, it <strong>MAY</strong> include the parameter <code>active_at</code> to specify the number of seconds that have passed since active user presence was detected, in the following manner:</p>
+
+<p><code>
+active_at = 1*DIGIT
+</code></p>
+
+<p>If the refresh token is still valid and the “active_at” parameter is present, the authorization server calculates the instance of last activity in the SMART app by subtracting <code>active_at</code> from the current date/time:</p>
+
+<p><code>
+current date/time - active_at = instance of user's last activity in the SMART app
+</code></p>
+
+<p>If the instance of user’s last activity in the SMART app is more recent than the instance of the user’s last activity known to the authorization server, then the authorization server SHALL update its record of the instance of the user’s last activity for the session and use that in its calculation of an updated <code>active_ttl</code> value to return in the response to the Refresh Request.</p>
+
+<p>Negative <code>active_at</code> values <strong>MUST</strong> be rejected, treating the request as if the <code>active_at</code> parameter were not included.</p>
+
+<p>If the refresh token is invalid, either due to lapse of user activity or other invalidation, the server responds per section 5.2.  The application <strong>MAY</strong> initiate a new authorization grant request, if appropriate.  An authorization server <strong>MAY</strong> allow other means (outside of the scope of this specification) to re-enable the refresh token.  As such, applications <strong>SHOULD</strong> provide a retry option to end users.</p>
+
+<h2 id="references">References</h2>
+
+<p><sup>1</sup> <a href="http://hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-a-refresh-token">SMART App Launch: Scopes and Launch Context - Scopes for requesting a refresh token</a></p>
+
+<p><sup>2</sup> <a href="https://pages.nist.gov/800-63-3/sp800-63b.html#63bSec4-Table1">NIST Special Publication 800-63B Digital Identity Guidelines, Authentication and Lifecycle Management - Table 4-1 AAL Summary of Requirements</a></p>
+
+<p><sup>3</sup> <a href="https://tools.ietf.org/html/rfc6749#section-6">The OAuth 2.0 Authorization Framework - Refreshing an Access Token</a></p>
+
+<p><sup>4</sup> <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a></p>
+
+<p><sup>5</sup> <a href="https://tools.ietf.org/html/rfc5234">Augmented Backus-Naur Form (ABNF) notation of RFC 5234</a></p>
+
+
+  </div>
+
+  <div id="js-sidebar" class="sidebar-shell">
+  <div class="js-toggle-list sidebar-module expandable">
+    <ul>
+      <li class="js-topic">
+        <h3><a href="..">Authorization Overview</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../authorization-specification">Authorization Specification (1.0)</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../openid-connect">OpenId Connect</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../tls-guidance">TLS Usage Guidance</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href="../application-registration-prerequisites">Application Registration Prerequisites</a></h3>
+      </li>
+      <li class="js-topic">
+        <h3><a href=".">Active User Presence Extension</a></h3>
+      </li>
+    </ul>
+  </div> <!-- /sidebar-module -->
+  <div class="sidebar-module notice">
+    <p>This website is a <a href="https://github.com/cerner/fhir.cerner.com" target="_blank">public GitHub repository</a>. Please help us by forking the project and adding to it.</p>
+  </div>
+</div>
+<!-- /sidebar-shell -->
+
+</div>
+<!-- #wrapper -->
+
+<div id="footer">
+
+  <div id="top-footer">
+    <div class="footer-wrapper">
+
+      <ul id="footer-pages">
+        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
+        <li><a href="http://engineering.cerner.com/">Blog</a></li>
+        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+      </ul>
+
+      <ul id="social-links">
+        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#top-footer -->
+
+  <div id="bottom-footer">
+    <div class="footer-wrapper">
+
+      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+
+      <ul id="footer-legal">
+        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+      </ul>
+
+    </div>
+<!-- /.footer-wrapper -->
+  </div>
+<!-- /#bottom-footer -->
+
+</div>
+<!-- /#footer -->
+
+</body>
+</html>

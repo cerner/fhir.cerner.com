@@ -34,9 +34,7 @@
     <div class="header-wrapper">
 
       <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
-      
-        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
-      
+      <a class="button" id="header-button" href="https://code-console.cerner.com/">code Console</a>
 
     </div>
 <!-- /.header-wrapper -->
@@ -184,7 +182,7 @@
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment" target="_blank">Comment</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction" target="_blank">Patient Instruction</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod" target="_blank">Requested period</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including is cancelable, is reschedulable</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including is cancelable, is reschedulable, group appointment id</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -463,6 +461,7 @@
 <ul>
   <li><a href="#custom-extensions">Is Cancelable</a></li>
   <li><a href="#custom-extensions">Is Reschedulable</a></li>
+  <li><a href="#custom-extensions">Group Appointment Id</a></li>
 </ul>
 
 <h3 id="custom-extensions">Custom Extensions</h3>
@@ -487,6 +486,11 @@
       <td><code>is-reschedulable</code></td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>boolean</code></a></td>
       <td>Indication of whether the Appointment can be rescheduled or not.</td>
+    </tr>
+    <tr>
+      <td><code>group-appointment-id</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>The ID of the appointment group that this appointment is a part of.</td>
     </tr>
   </tbody>
 </table>
@@ -644,6 +648,10 @@
             {
               "valueBoolean": false,
               "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable"
+            },
+            {
+              "valueString": "1408108",
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/group-appointment-id"
             },
             {
               "valueBoolean": false,
@@ -824,6 +832,10 @@
       {
         "valueBoolean": false,
         "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable"
+      },
+      {
+        "valueString": "1408108",
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/group-appointment-id"
       },
       {
         "valueBoolean": false,

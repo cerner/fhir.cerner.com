@@ -34,9 +34,7 @@
     <div class="header-wrapper">
 
       <a class="logo" href="https://code.cerner.com">Cerner Corporation</a>
-      
-        <a class="button" id="header-button" href="https://code.cerner.com/developer/smart-on-fhir/">code Console</a>
-      
+      <a class="button" id="header-button" href="https://code-console.cerner.com/">code Console</a>
 
     </div>
 <!-- /.header-wrapper -->
@@ -143,6 +141,7 @@
   <li>Clients should follow an Exponential Backoff approach when polling for status as outlined in the <a href="https://hl7.org/fhir/uv/bulkdata/STU1.0.1/export/index.html#bulk-data-status-request">FHIR Bulk Data Access IG</a>.</li>
   <li>Files should be retrieved promptly as the exported content will expire after 30 days.</li>
   <li>Once the files have been retrieved, use the delete request to clean up the data from your request.</li>
+  <li>Healthcare organizations may create groups containing up to 20,000 patients. However, the recommended group size for optimal performance is 10,000 patients or less.</li>
 </ul>
 
 <h2 id="kick-off-request">Kick Off Request</h2>
