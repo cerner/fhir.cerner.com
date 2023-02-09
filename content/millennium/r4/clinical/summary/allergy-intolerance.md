@@ -34,7 +34,8 @@ The following fields are returned if valued:
 * [Allergy Code](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code){:target="_blank"}
 * [Patient with allergy/intolerance](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient){:target="_blank"}
 * [Encounter](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter){:target="_blank"}
-* [Date of allergy onset](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset){:target="_blank"}
+* [Date of allergy onset](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset_x_){:target="_blank"}
+  * [Precision Extension](#extensions){:target="_blank"}
 * [Date/Time recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate){:target="_blank"}
 * [Who recorded](https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder){:target="_blank"}
   * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
@@ -52,6 +53,18 @@ The following fields are returned if valued:
 ## Terminology Bindings
 
 <%= terminology_table(:allergy_intolerance, :r4) %>
+
+## Extensions
+
+### Custom Extensions
+
+* [Precision Extension]
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ID          | Value\[x] Type                                                              | Description
+------------|-----------------------------------------------------------------------------|-----------------------------------------------
+`precision` | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of the precision of a given value.
 
 ## Search
 
@@ -292,4 +305,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
+[Precision Extension]: https://fhir-ehr.cerner.com/r4/StructureDefinition/precision?_format=json
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
