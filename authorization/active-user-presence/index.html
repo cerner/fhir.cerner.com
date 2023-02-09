@@ -71,26 +71,27 @@
 <p>To address this concern, this extension provides a mechanism by which a SMART on FHIR authorization server may declare that a refresh token is subject to inactivity constraints as part of its own token responses.  Through this extension a SMART on FHIR application may correspondingly include a parameter in token refresh requests that conveys how long ago the application last detected active user presence.</p>
 
 <h3 id="protocol-flow">Protocol Flow</h3>
-<p>```
-                                                 +——————-+
+<pre class="terminal">
+                                                 +-------------------+
                                                  |   Authz Server    |
-       +——–+                                | +—————+ |
-       |        |–(A)– Access Token Request —-&gt;|               | |
+       +--------+                                | +---------------+ |
+       |        |--(A)-- Access Token Request ----&gt;|               | |
        |        |                                | |               | |
        |        |                                | |               | |
-       |        |&lt;-(B)– Access, Refresh Token —-|               | |
-       |        |           + “active_ttl”       | |     Token     | |
+       |        |&lt;-(B)-- Access, Refresh Token ----|               | |
+       |        |           + "active_ttl"       | |     Token     | |
        | Client |                                | |    Endpoint   | |
        |        |                                | |               | |
-       |        |–(C)– Refresh Request ———&gt;|               | |
-       |        |          + “active_at”         | |               | |
+       |        |--(C)-- Refresh Request ---------&gt;|               | |
+       |        |          + "active_at"         | |               | |
        |        |                                | |               | |
-       |        |&lt;-(D)—— Access Token ———|               | |
-       +——–+          + “active_ttl”        | +—————+ |
-                                                 +——————-+</p>
+       |        |&lt;-(D)------ Access Token ---------|               | |
+       +--------+          + "active_ttl"        | +---------------+ |
+                                                 +-------------------+
+</pre>
+<p><strong>Figure 1</strong>: Abstract Protocol Flow</p>
 
-<pre><code>                 Figure 1: Abstract Protocol Flow ``` This specification adds additional parameters to the SMART on FHIR Access Token Response, Refresh Request, and Refresh Response shown in abstract form in Figure 1.
-</code></pre>
+<p>This specification adds additional parameters to the SMART on FHIR Access Token Response, Refresh Request, and Refresh Response shown in abstract form in Figure 1.</p>
 
 <p>A. The client performs an Access Token Request using an established authorization code that was established with an <code>online_access</code> scope.</p>
 
