@@ -88,30 +88,23 @@ the Cerner Authorization Server. As a registered client, Cerner
 organizations may then ask for your client application to be enabled,
 which is necessary in order to gain access to their protected resources.
 
-### Registering a System Account ###
+### Registering a System Account ### 
 
-If an application will be a confidential client, or accessing data on behalf of a system, it will need to
-maintain a secret. Currently, our implementation provides management and rotation functionality for this workflow in our
-System Accounts application. In order to register one of these applications, you must first request a system account,
-and then register that as a SMART or FHIR application in our code Console.
+If an application will be a confidential client, or accessing data on behalf of a system, it will need to maintain
+a secret. Currently, our implementation provides management and rotation functionality for this workflow in our 
+System Accounts application. The system account will be automatically generated and available in the System Accounts application when you register your SMART or FHIR application in the code Console. 
 
-Request a system account by following these steps:
+Obtain and manage a system account by following these steps:
 
-- Login to the Cerner Central System Accounts application: <https://cernercentral.com/system-accounts>
-  - If you are a Cerner client developing their own application, you may have a customized URL for Cerner Central that
-  can be used instead. For example: https://yourcompanynamegoeshere.cernercentral.com/system-accounts
-- Fill out the fields as follows:
-  - **Description**:  \<App Name> - SMART/FHIR application - <short description/purpose of the App>
-  - **Production System**: No
-  - **Cerner Client**: No, unless you are a Cerner Client developing their own application. If you are a client:
-    - **Client Name**: Your organization. For example: My Health System
-    - **Client Number**: Only fill out if you know this, it is not required.
-    - **Client Mnemonic**: Only fill out if you know this, it is not required.  
-  - **Millennium System**: No
-- Once the account is created, take the id from that account and use it in the GUID field when you register the
-application as a SMART or FHIR application in the [code Console][CERNER-CODE-CONSOLE]. Without this step, your
-application will not be recognized as an authorized application for FHIR. Note that requests for system accounts
-currently undergo manual approval, and therefore it may take a few business days for the system account to be created.
+- Login to code Console: https://code-console.cerner.com
+- Register a new application with a type of "System" or application privacy of 
+"Confidential" and complete the registration process
+- By completing the registration, a new system account will be issued to the same 
+Cerner Care account used to login and register the application
+- A confirmation email will be sent to the address associated with the Cerner Care account
+- To manage system account details, such as viewing the secret or to setup JWKS for bulk 
+applications, follow the link in application details in code Console.
+
 
 Remember to protect the secret received via this process. Don't post this secret or email it in insecure fashion. Don't
 include this secret or credentials requests for the authorization server in any posts requesting help. If you do
