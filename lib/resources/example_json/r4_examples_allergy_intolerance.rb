@@ -728,6 +728,22 @@ module Cerner
         'reference': 'Encounter/97953523'
       },
       'onsetDateTime': '2019-09-11T05:00:00.000Z',
+      '_onsetDateTime': {
+        'extension': [
+          {
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/precision',
+            'valueCodeableConcept': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/34fc7274-1120-4899-937d-a9ea1becc848/codeSet/25320',
+                  'code': '639012',
+                  'display': 'Before'
+                }
+              ]
+            }
+          }
+        ]
+      },
       'asserter': {
         'reference': '#638995'
       },

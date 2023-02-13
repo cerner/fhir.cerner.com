@@ -299,12 +299,68 @@ fields:
     <ul>
       <li> Only a type of dateTime is supported.</li>
       <li> The dateTime is converted to a GMT date. </li>
+      <li> When _onsetDateTime is not provided, it is defaulted to 'dateTime' </li>
     </ul>
   example: |
     {
-      "onsetDateTime": "2015-10-14T13:13:20-06:00"
+      "onsetDateTime": "2015-10-14T13:13:20-06:00",
+      "_onsetDateTime": {
+        "extension": [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/25320",
+                  "code": "639011",
+                  "display": "After"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.onset_x_
+
+- name: onsetDateTime.extension(precision)
+  type: CodeableConcept
+  required: 'No'
+  description: Indication of the precision of a given value.
+  url: https://hl7.org/fhir/extensibility.html#Extension
+  action:
+    - create
+    - update
+    - terminology
+  note: |
+    <ul>
+      <li>When precision is not provided, it is defaulted to 'dateTime'</li>
+      <li>Sending a precision with code "639014" ("Unknown") together with an onsetDateTime value is acceptable but 
+          there are applications where this information will not be displayed in full format (only "Unknown" will be displayed).</li>
+    </ul>
+  example: |
+    {
+      "extension": [
+        {
+          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/25320",
+                "code": "639010",
+                "display": "About"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  binding:
+    description: Indication of the precision of a given value.
+    terminology:
+    - display: Millennium Onset date/time precision
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/25320
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-25320
 
 - name: asserter
   required: 'No'
