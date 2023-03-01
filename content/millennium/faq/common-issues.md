@@ -268,7 +268,7 @@ The following example illustrates opening a web page through a shell execute.
 When Citrix is configured for server-to-client redirection and the link is
 clicked, your local default web browser opens and is directed to the link provided.  
 
-`<a href='javascript:APPLINK(100," "http://www.cerner.com","">Launch "http://www.cerner.com" in local web browser</a>`
+`<a href='javascript:APPLINK(100,"http://www.cerner.com","")'>Launch "http://www.cerner.com" in local web browser</a>`
 
 
 ### Single Patient and Multi-Patient Views
