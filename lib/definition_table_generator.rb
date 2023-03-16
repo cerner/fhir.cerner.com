@@ -60,12 +60,12 @@ class DefinitionTableGenerator
     ERB.new(File.read("lib/#{erb_name}.erb")).result(binding)
   end
 
-  def flatten_fields(fields:, base_url:, types:, erb_name:, parent: nil)
+  def flatten_fields(fields:, base_url:, types:, erb_name:, parent: nil) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
     results = []
 
     return results if fields.nil? || fields.empty?
 
-    fields.each do |field|
+    fields.each do |field| # rubocop:disable Metrics/BlockLength
       puts "       - rendering: #{field['name']}"
 
       next unless supported_for_action?(field)

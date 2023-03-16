@@ -5,7 +5,7 @@ require 'yajl/json_gem'
 
 module Cerner
   module Resources
-    module Helpers
+    module Helpers # rubocop:disable Metrics/ModuleLength
 
       STATUSES ||= {
         200 => '200 OK',

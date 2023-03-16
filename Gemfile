@@ -11,9 +11,7 @@ group :development do
   gem 'adsf'
   gem 'fssm'
   gem 'guard-nanoc'
-  gem 'hi-roll_out-rfd29',     '~> 1.0'
-  gem 'roll_out',              '~> 1.16'
-  gem 'rubocop',               '~> 1.48'
+  gem 'rubocop', '~> 0.86'
 end
 
 group :test do
