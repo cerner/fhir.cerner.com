@@ -82,6 +82,11 @@
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
+<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
+      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+    </ul>
+  </li>
+  <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
@@ -150,7 +155,12 @@
   <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.code" target="_blank">Allergy Code</a></li>
   <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.patient" target="_blank">Patient with allergy/intolerance</a></li>
   <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.encounter" target="_blank">Encounter</a></li>
-  <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset" target="_blank">Date of allergy onset</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.onset_x_" target="_blank">Date of allergy onset</a>
+    <ul>
+      <li><a href="#extensions" target="_blank">Precision Extension</a></li>
+    </ul>
+  </li>
   <li><a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate" target="_blank">Date/Time recorded</a></li>
   <li>
 <a href="https://hl7.org/fhir/R4/allergyintolerance-definitions.html#AllergyIntolerance.recorder" target="_blank">Who recorded</a>
@@ -573,6 +583,33 @@
   </tbody>
 </table>
 
+<h2 id="extensions">Extensions</h2>
+
+<h3 id="custom-extensions">Custom Extensions</h3>
+
+<ul>
+  <li><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/precision?_format=json">Precision Extension</a></li>
+</ul>
+
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Value[x] Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>precision</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>Indication of the precision of a given value.</td>
+    </tr>
+  </tbody>
+</table>
+
 <h2 id="search">Search</h2>
 
 <p>Search for AllergyIntolerances that meet supplied query parameters:</p>
@@ -720,6 +757,24 @@
           "reference": "Encounter/97953523"
         },
         "onsetDateTime": "2019-12-15T00:00:00Z",
+        "_onsetDateTime": {
+          "extension": [
+            {
+              "url": "https://fhir-ehr.cerner.com/StructureDefinition/precision",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/25320",
+                    "code": "639011",
+                    "display": "After",
+                    "userSelected": true
+                  }
+                ],
+                "text": "After"
+              }
+            }
+          ]
+        },
         "recordedDate": "2020-03-04T20:16:02Z",
         "recorder": {
           "reference": "Practitioner/12724045",
@@ -1345,6 +1400,24 @@
     "reference": "Encounter/97953523"
   },
   "onsetDateTime": "2019-12-15T00:00:00Z",
+  "_onsetDateTime": {
+    "extension": [
+      {
+        "url": "https://fhir-ehr.cerner.com/StructureDefinition/precision",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/25320",
+              "code": "639011",
+              "display": "After",
+              "userSelected": true
+            }
+          ],
+          "text": "After"
+        }
+      }
+    ]
+  },
   "recordedDate": "2020-03-04T20:16:02Z",
   "recorder": {
     "reference": "Practitioner/12724045",
