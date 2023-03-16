@@ -2,7 +2,8 @@ output
 tmp
 .DS_Store
 .bundle
-bin
+bin/*
+!bin/rubocop
 crash.log
 /vendor/gems/
 /bin/
@@ -10,3 +11,6 @@ crash.log
 .idea
 *.iml
 output.diff
+
+# rubocop
+.rubocop-*

@@ -5,7 +5,7 @@ require 'yajl/json_gem'
 
 module Cerner
   module Resources
-    module Helpers # rubocop:disable Metrics/ModuleLength
+    module Helpers
 
       STATUSES ||= {
         200 => '200 OK',
@@ -84,7 +84,7 @@ module Cerner
       end
 
       def link_header_rel(name, url)
-        %Q(<#{url}>; rel="#{name}")
+        %(<#{url}>; rel="#{name}")
       end
 
       def default_headers

@@ -56,7 +56,7 @@ describe RequestButton do
 
     before do
       allow(SecureRandom).to receive(:uuid).and_return(random_id)
-      allow(RequestButton).to receive(:headers).with({status: example_status}).and_return(status)
+      allow(RequestButton).to receive(:headers).with({ status: example_status }).and_return(status)
       allow(RequestButton).to receive(:json).with(example_json).and_return(response)
       allow(RequestButton).to receive(:disclaimer).and_return(disclaimer)
     end
@@ -65,7 +65,7 @@ describe RequestButton do
       after { subject }
 
       it 'calls #headers' do
-        expect(RequestButton).to receive(:headers).with({status: example_status})
+        expect(RequestButton).to receive(:headers).with({ status: example_status })
       end
 
       it 'calls #json' do

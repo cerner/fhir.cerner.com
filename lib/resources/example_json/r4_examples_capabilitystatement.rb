@@ -1898,18 +1898,18 @@ module Cerner
       'management_endpoint': 'https://authorization.devcerner.com/tenants/'\
                              '2c400054-42d8-4e74-87b7-80b5bd5fde9f/personas/provider/my-authorizations',
       'introspection_endpoint': 'https://authorization.cerner.com/tokeninfo',
-      'capabilities': [
-        'launch-ehr',
-        'launch-standalone',
-        'client-public',
-        'client-confidential-symmetric',
-        'sso-openid-connect',
-        'context-banner',
-        'context-style',
-        'context-ehr-patient',
-        'context-ehr-encounter',
-        'permission-patient',
-        'permission-user'
+      'capabilities': %w[
+        launch-ehr
+        launch-standalone
+        client-public
+        client-confidential-symmetric
+        sso-openid-connect
+        context-banner
+        context-style
+        context-ehr-patient
+        context-ehr-encounter
+        permission-patient
+        permission-user
       ]
     }.freeze
 
