@@ -668,9 +668,19 @@ application included "state" as part of the initial request.
 
 First, validate that the "state" parameter matches that of
 a request that was initiated by the current device / user
-agent.  Next, exchange the code for a token per section
-4.1 of the RFC6749 (the OAuth2 Framework).  The following
-are example requests / responses:
+agent.
+
+Next, exchange the code for a token per
+[section 4.1.3 "Access Token Request"](https://www.rfc-editor.org/rfc/rfc6749#section-4.1.3)
+of the RFC6749 (the OAuth2 Framework).
+
+_NOTE_: If the "redirect_uri" parameter was not provided during the authorization request, the "redirect_uri" must be
+omitted in the token request call. Otherwise, if "redirect_uri" parameter was provided in the authorization request as
+described in
+[section 4.1 "Authorization Code Grant"](https://tools.ietf.org/html/rfc6749#section-4.1),
+this also must be present in the token request and their values MUST be identical.
+
+The following are example requests / responses:
 
 Request:
 <pre class="terminal">
@@ -680,7 +690,7 @@ Accept: application/json
 Content-Type: application/x-www-form-urlencoded
 Content-Length: 161
 Connection: close
-grant_type=authorization_code&code=0c8b259b-d716-4712-ad6a-1d22d92523fa&client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7&state=a4c16a46-2c46-482c-8d66-4cc4a2990bda
+grant_type=authorization_code&code=0c8b259b-d716-4712-ad6a-1d22d92523fa&redirect_uri=&client_id=bb318a62-fa61-49ae-b692-7d99214f0ec7
 </pre>
 
 Response:
