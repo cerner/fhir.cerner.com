@@ -1030,17 +1030,17 @@ module Cerner
       ],
       "management_endpoint": 'https://authorization.sandboxcerner.com/tenants/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/personas/patient/my-authorizations',
       "introspection_endpoint": 'https://authorization.sandboxcerner.com/tokeninfo',
-      "capabilities": [
-        'launch-standalone',
-        'client-public',
-        'client-confidential-symmetric',
-        'sso-openid-connect',
-        'context-banner',
-        'context-style',
-        'context-standalone-patient',
-        'permission-offline',
-        'permission-patient',
-        'permission-user'
+      "capabilities": %w[
+        launch-standalone
+        client-public
+        client-confidential-symmetric
+        sso-openid-connect
+        context-banner
+        context-style
+        context-standalone-patient
+        permission-offline
+        permission-patient
+        permission-user
       ]
     }.freeze
 
@@ -1119,19 +1119,19 @@ module Cerner
       ],
       "management_endpoint": 'https://authorization.sandboxcerner.com/tenants/3f2aca24-87f3-4eac-a6d7-1f75247e6b43/personas/provider/my-authorizations',
       "introspection_endpoint": 'https://authorization.sandboxcerner.com/tokeninfo',
-      "capabilities": [
-        'launch-ehr',
-        'launch-standalone',
-        'client-public',
-        'client-confidential-symmetric',
-        'sso-openid-connect',
-        'context-banner',
-        'context-style',
-        'context-ehr-encounter',
-        'context-ehr-patient',
-        'permission-offline',
-        'permission-patient',
-        'permission-user'
+      "capabilities": %w[
+        launch-ehr
+        launch-standalone
+        client-public
+        client-confidential-symmetric
+        sso-openid-connect
+        context-banner
+        context-style
+        context-ehr-encounter
+        context-ehr-patient
+        permission-offline
+        permission-patient
+        permission-user
       ]
     }.freeze
   end

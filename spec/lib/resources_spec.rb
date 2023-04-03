@@ -87,10 +87,10 @@ describe Cerner::Resources::Helpers do
       end
 
       context 'when head is not an empty hash' do
-        let(:head) { {key: 'value'} }
+        let(:head) { { key: 'value' } }
 
         context 'when the hash contains a pagination key value' do
-          let(:head) { {pagination: 'value'} }
+          let(:head) { { pagination: 'value' } }
           let(:pagination_link_header) { ['Pagination'] }
 
           let(:appended_html) { 'Pagination' }
@@ -111,7 +111,7 @@ describe Cerner::Resources::Helpers do
         end
 
         context 'when the hash contains an Accept key value' do
-          let(:head) { {Accept: 'value'} }
+          let(:head) { { Accept: 'value' } }
 
           let(:appended_html) { '<a href="../../#media-types">Accept</a>: value' }
 
@@ -121,7 +121,7 @@ describe Cerner::Resources::Helpers do
         end
 
         context "when the hash contains a 'Content-Type' key value" do
-          let(:head) { {'Content-Type': 'value'} }
+          let(:head) { { 'Content-Type': 'value' } }
 
           let(:appended_html) { '<a href="../../#media-types">Content-Type</a>: value' }
 
@@ -131,7 +131,7 @@ describe Cerner::Resources::Helpers do
         end
 
         context 'when the hash contains an Authorization key value' do
-          let(:head) { {Authorization: 'value'} }
+          let(:head) { { Authorization: 'value' } }
 
           let(:appended_html) { '<a href="../../#authorization">Authorization</a>: value' }
 
@@ -141,7 +141,7 @@ describe Cerner::Resources::Helpers do
         end
 
         context 'when the hash contains a custom key value' do
-          let(:head) { {other: 'value'} }
+          let(:head) { { other: 'value' } }
 
           let(:appended_html) { 'other: value' }
 
@@ -299,10 +299,10 @@ describe Cerner::Resources::Helpers do
       end
 
       context 'when head is not an empty hash' do
-        let(:head) { {key: 'value'} }
+        let(:head) { { key: 'value' } }
 
         context 'when the hash contains an Accept key value' do
-          let(:head) { {Accept: 'value'} }
+          let(:head) { { Accept: 'value' } }
           let(:appended_html) { '<a href="../#media-types">Accept</a>: value' }
 
           it 'returns the generated HTML with the Accept header' do
@@ -311,7 +311,7 @@ describe Cerner::Resources::Helpers do
         end
 
         context 'when the hash contains an Authorization key value' do
-          let(:head) { {Authorization: 'value'} }
+          let(:head) { { Authorization: 'value' } }
           let(:appended_html) { '<a href="../#authorization">Authorization</a>: value' }
 
           it 'returns the generated HTML with the Authorization header' do
@@ -320,7 +320,7 @@ describe Cerner::Resources::Helpers do
         end
 
         context 'when the hash contains a custom key value' do
-          let(:head) { {other: 'value'} }
+          let(:head) { { other: 'value' } }
           let(:appended_html) { 'other: value' }
 
           it 'returns the generated HTML with the custom header' do
@@ -370,7 +370,7 @@ describe Cerner::Resources::Helpers do
     end
 
     context 'when a link is supplied' do
-      let(:rels) { {name => url} }
+      let(:rels) { { name => url } }
       let(:name) { 'Observation' }
       let(:url) { 'http://www.example.com/Observation' }
       let(:formatted_link) { "<#{url}>; rel=\"#{name}\"" }
@@ -391,7 +391,7 @@ describe Cerner::Resources::Helpers do
     end
 
     context 'when multiple links are supplied' do
-      let(:rels) { {name_1 => url_1, name_2 => url_2} }
+      let(:rels) { { name_1 => url_1, name_2 => url_2 } }
       let(:name_1) { 'Observation' }
       let(:url_1) { 'http://www.example.com/Observation' }
       let(:name_2) { 'CarePlan' }
@@ -454,7 +454,7 @@ describe Cerner::Resources::Helpers do
     subject(:json) { Cerner::Resources::Helpers.json(key) }
 
     let(:key) { double }
-    let(:resource_json) { {resource: 'Observation'} }
+    let(:resource_json) { { resource: 'Observation' } }
     let(:expected_html) do
       '<pre class="body-response"><code class="language-javascript">'\
       "#{JSON.pretty_generate(expected_hash)}</code></pre>"
@@ -472,8 +472,8 @@ describe Cerner::Resources::Helpers do
     end
 
     context 'when a block is given' do
-      let(:appended_json) { {field: 'value'} }
-      let(:expected_hash) { {resource: 'Observation', field: 'value'} }
+      let(:appended_json) { { field: 'value' } }
+      let(:expected_hash) { { resource: 'Observation', field: 'value' } }
 
       it 'yields with the returned resource' do
         expect { |b| Cerner::Resources::Helpers.json(key, &b) }.to yield_with_args(resource_json)
@@ -555,7 +555,7 @@ describe Cerner::Resources::Helpers do
     subject(:get_resource) { Cerner::Resources::Helpers.get_resource(key) }
 
     context 'when key is a Hash' do
-      let(:key) { {key: 'value'} }
+      let(:key) { { key: 'value' } }
 
       it 'stringifies the keys' do
         expect(get_resource).to eq('key' => 'value')

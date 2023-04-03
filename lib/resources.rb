@@ -84,7 +84,7 @@ module Cerner
       end
 
       def link_header_rel(name, url)
-        %Q(<#{url}>; rel="#{name}")
+        %(<#{url}>; rel="#{name}")
       end
 
       def default_headers

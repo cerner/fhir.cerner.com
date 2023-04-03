@@ -124,14 +124,14 @@ class DefinitionTableGenerator
 
   # Retrieve the value for the current action in context, or the value if no action is defined.
   def get_value(value)
-    return if value.kind_of?(Array) && @action.nil?
+    return if value.is_a?(Array) && @action.nil?
     return value if value.nil? || @action.nil?
 
-    if value.kind_of?(Array)
+    if value.is_a?(Array)
       filter_action = value.find { |v| !v[@action.to_s].nil? }
       return filter_action[@action.to_s] unless filter_action.nil?
 
-      return value.find { |v| !v.kind_of?(Hash) }
+      return value.find { |v| !v.is_a?(Hash) }
     end
 
     value
@@ -140,7 +140,7 @@ class DefinitionTableGenerator
   # Determine whether the field is supported for the current action in context.
   def supported_for_action?(field)
     return true if field['action'].nil? || @action.nil?
-    return field['action'].include?(@action.to_s) if field['action'].kind_of?(Array)
+    return field['action'].include?(@action.to_s) if field['action'].is_a?(Array)
 
     field['action'] == @action.to_s
   end

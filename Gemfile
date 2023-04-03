@@ -2,12 +2,10 @@
 
 source 'https://rubygems.org'
 
-ruby '2.6.2'
-
-gem 'kramdown', '~> 2.3'
-gem 'nanoc', '~> 4.0'
-gem 'nokogiri', '~> 1.11.4'
-gem 'yajl-ruby', '~> 1.3'
+gem 'kramdown',         '~> 2.4'
+gem 'nanoc',            '~> 4.12'
+gem 'nokogiri',         '~> 1.14'
+gem 'yajl-ruby',        '~> 1.3'
 
 group :development do
   gem 'adsf'
