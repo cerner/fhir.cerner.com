@@ -237,10 +237,11 @@ Create a new Observation.
 _Implementation Notes_
 
 * See [Understand Supported Vital Signs in the FHIR Observation Resource](https://wiki.cerner.com/pages/releaseview.action?spaceKey=reference&title=Understand%20Supported%20Vital%20Signs%20in%20the%20FHIR%20Observation%20Resource) for a list of vital signs that are supported for the create operation.
-* Components are not currently supported when writing Blood Pressures.
+* Components are supported only when writing Observation Blood Pressure and Pulse Oximetry Profiles.
 * Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood
   pressures are paired in Millennium. See [Configure Blood Pressure Event Set Pairing Hierarchy].
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Also supports creating observation with proprietary codes.
 * Modifier fields should not be provided, and will cause the transaction to fail.
 * Also supports creating observation with proprietary codes with the latest version of observation.
 
@@ -269,6 +270,14 @@ _Note_:
 #### Vitals Body Example
 
 <%= json(:R4_OBSERVATION_CREATE) %>
+
+#### Vitals - Blood Pressure Body Example
+
+<%= json(:R4_OBSERVATION_BP_CREATE) %>
+
+#### Vitals - Pulse Oximetry Body Example
+
+<%= json(:R4_OBSERVATION_PO_CREATE) %>
 
 #### Labs Body Example
 
@@ -308,6 +317,7 @@ _Implementation Notes_
 * Currently only `laboratory` and `vital-signs` are supported.
 * Both read and write scopes are required.
 * Updates on patient and category are not supported.
+* Components are only supported for vital-sign blood pressure and pulse oximetry profiles
 * See [FHIR<sup>®</sup> Update] for additional details about update operations.
 
 ### Authorization Types
@@ -336,9 +346,29 @@ _Note_:
 
 <%= json(:R4_OBSERVATION_LABS_UPDATE) %>
 
+#### Request
+
+    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-197356031
+
 #### Vitals Body Example
 
 <%= json(:R4_OBSERVATION_VITALS_UPDATE) %>
+
+#### Request
+
+    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/BP-59857018-59857020
+
+#### Vitals - Blood Pressure Body Example
+
+<%= json(:R4_OBSERVATION_VITALS_BP_UPDATE) %>
+
+#### Request
+
+    PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-CV-78693473-SECT-8098
+
+#### Vitals - Pulse Oximetry Body Example
+
+<%= json(:R4_OBSERVATION_VITALS_PO_UPDATE) %>
 
 #### Response
 
