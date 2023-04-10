@@ -780,7 +780,6 @@ operations:
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a></li>
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
-      <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json">Communication Preference</a></li>
     </ul>
 - name: test-communication-preference-id
   path: /extension/{index}/id
@@ -878,4 +877,49 @@ operations:
   note: >
     <ul>
       <li>Must be a valid `CommunicationPreference` extension.</li>
+    </ul>
+- name: replace-communication-preference-id
+  path: /extension/{index}
+  operation: replace
+  type: Communication Preference
+  url: https://hl7.org/fhir/R4/element-definitions.html#Element.id
+  description: Replace the CommunicationPreference at the given <code>{index}</code> in the list of the patient's extensions. At a time only one communication Preference can be changed.
+  example: |
+    {
+      "path": "/extension/0",
+      "op": "replace",
+      "value": {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+        "extension": [
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/4640016",
+                  "code": "2572145011",
+                  "display": "Clinical Communications",
+                  "userSelected": true
+                }
+              ]
+            },
+            "url": "communication-type"
+          },
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/34fc7274-1120-4899-937d-a9ea1becc848/codeSet/23042",
+                  "code": "4054468"
+                }
+              ]
+            },
+            "url": "contact-method"
+          }
+        ]
+      }
+    }
+  note: >
+    <ul>
+      <li>Requires a <a href="#test-communication-preference-id">test operation</a> to be provided for the `CommunicationPreference.id` of the Communication Preference intended to be removed.</li>
+      <li>Test operation path and replace extension path index should be same.</li>
     </ul>
