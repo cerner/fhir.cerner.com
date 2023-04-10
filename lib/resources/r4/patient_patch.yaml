@@ -780,7 +780,6 @@ operations:
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a></li>
       <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
-      <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json">Communication Preference</a></li>
     </ul>
 - name: test-communication-preference-id
   path: /extension/{index}/id
