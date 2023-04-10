@@ -155,7 +155,7 @@ fields:
 - name: code
   required: 'Yes'
   type: CodeableConcept
-  description: Describes what was observed. Sometimes this is called the observation "code".
+  description: Describes what was observed. Sometimes this is called the observation "name".
   action:
     - terminology
     - create
@@ -192,7 +192,7 @@ fields:
 - name: code
   required: 'Yes'
   type: CodeableConcept
-  description: Describes what was observed. Sometimes this is called the observation "code".
+  description: Describes what was observed. Sometimes this is called the observation "name".
   action:
     - terminology
     - update
@@ -1067,7 +1067,7 @@ fields:
   - name: code
     required: 'Yes'
     type: CodeableConcept
-    description: Describes what was observed. Sometimes this is called the observation "code".
+    description: Describes what was observed. Sometimes this is called the observation "name".
     binding:
       description: Codes identifying names of simple observations.
       terminology:
@@ -1179,7 +1179,7 @@ fields:
   - name: code
     required: 'Yes'
     type: CodeableConcept
-    description: Describes what was observed. Sometimes this is called the observation "code".
+    description: Describes what was observed. Sometimes this is called the observation "name".
     example: |
       {
         "coding": [
