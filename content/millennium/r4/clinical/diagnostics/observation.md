@@ -239,6 +239,7 @@ _Implementation Notes_
   pressures are paired in Millennium. See [Configure Blood Pressure Event Set Pairing Hierarchy].
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
+* Also supports creating observation with proprietary codes with the latest version of observation.
 
 ### Authorization Types
 

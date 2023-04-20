@@ -102,6 +102,7 @@ Notes:
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
 * The `_revinclude` parameter may be provided with any required search param. Example: `_id=629928&_revinclude=Provenance:target`
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+* FHIR does not return the SSN. It can be passed in as a query parameter but it won't come back in the JSON response.
 
 ### Headers
 
