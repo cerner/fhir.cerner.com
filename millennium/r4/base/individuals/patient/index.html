@@ -674,6 +674,7 @@ Patient resource.</li>
   <li>The <code>_revinclude</code> parameter may be provided with any required search param. Example: <code>_id=629928&amp;_revinclude=Provenance:target</code>
 </li>
   <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
+  <li>FHIR does not return the SSN. It can be passed in as a query parameter but it won’t come back in the JSON response.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
