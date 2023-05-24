@@ -96,6 +96,7 @@ _Implementation Notes_
 
  | Name           | Required?         | Type          | Description                                                                                                                             |
  | -------------- | ----------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+ | `_id`          | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.          |
  | `patient`      | This or `subject` | [`reference`] | The subject (Patient) that the observation is about. Example: `patient=12345`                                                           |
  | `subject`      | This or `patient` | [`reference`] | The subject (Patient) that the observation is about. Example: `subject=Patient/12345` or `subject:Patient=12345`                        |
  | `code`         | N                 | [`token`]     | The code or component-code of the observation type. Example: `code=http://loinc.org                                                     | 3094-0,http://loinc.org | 3139-3` |
@@ -108,6 +109,10 @@ _Implementation Notes_
 
 
 Notes:
+
+* If `_id` is provided, no other parameters may be provided.
+
+* Search by _id for observation labs only supports single id. 
 
 * The `subject` parameter must represent a Patient resource and may use the `:Patient` modifier.
 
@@ -131,7 +136,7 @@ Notes:
 
 * The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
 
-* The `_revinclude` parameter may be provided with the `patient/subject` parameter. Example: `patient=12457977&category=vital-signs&_revinclude=Provenance:target`
+* The `_revinclude` parameter may be provided with the `_id/patient/subject` parameter. Example: `patient=12457977&category=vital-signs&_revinclude=Provenance:target`
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
 
