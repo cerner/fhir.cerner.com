@@ -453,15 +453,15 @@ module Cerner
     ].freeze
 
     R4_APPOINTMENT_SLOT_PATCH ||= [
-        {
-          'op': 'replace',
-          'path': '/slot',
-          'value': [
-            {
-              'reference': 'Slot/2582093771-22784981-63303788-60'
-            }
-          ]
-        }
+      {
+        'op': 'replace',
+        'path': '/slot',
+        'value': [
+          {
+            'reference': 'Slot/2582093771-22784981-63303788-60'
+          }
+        ]
+      }
     ].freeze
 
     R4_APPOINTMENT_VIDEO_VISIT_ADD_PATCH ||= [
