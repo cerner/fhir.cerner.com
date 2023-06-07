@@ -40,6 +40,27 @@ operations:
         <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
         <li>Only one Slot reference may be provided in the value array</li>
       </ul>
+  - name: replace-slot
+    path: /slot
+    operation: replace
+    type: Reference (Slot)
+    url: https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot
+    description: The slot that this appointment is filling
+    example: |
+      {
+        "op": "replace",
+        "path": "/slot",
+        "value": [
+          {
+            "reference":"Slot/1986119705-4048128-15648907-60"
+          }
+        ]
+      }
+    note: >
+      <ul>
+        <li>Not dependent on any other patch Operation</li>
+        <li>Only one Slot reference may be provided in the value array</li>
+      </ul>
   - name: add-reasonCode
     path: /reasonCode
     operation: add
