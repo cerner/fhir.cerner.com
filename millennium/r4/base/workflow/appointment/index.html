@@ -113,6 +113,7 @@
       <li><a href="#example---update-status-to-booked" id="markdown-toc-example---update-status-to-booked">Example - Update Status to Booked</a></li>
       <li><a href="#example---update-reasoncode" id="markdown-toc-example---update-reasoncode">Example - Update reasonCode</a></li>
       <li><a href="#example---add-cancelationreason" id="markdown-toc-example---add-cancelationreason">Example - Add cancelationReason</a></li>
+      <li><a href="#example---replace-slot" id="markdown-toc-example---replace-slot">Example - Replace Slot</a></li>
       <li><a href="#example---add-video-visit-links" id="markdown-toc-example---add-video-visit-links">Example - Add Video Visit Links</a></li>
       <li><a href="#example---replace-video-visit-links" id="markdown-toc-example---replace-video-visit-links">Example - Replace Video Visit Links</a></li>
       <li><a href="#example---update-participant-status" id="markdown-toc-example---update-participant-status">Example - Update Participant Status</a></li>
@@ -1320,6 +1321,53 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
   
     <tr>
       <td>
+        <a name="replace-slot">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot"><code>/slot</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<code>Slot</code>) </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The slot that this appointment is filling</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/slot",
+  "value": [
+    {
+      "reference":"Slot/1986119705-4048128-15648907-60"
+    }
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>Not dependent on any other patch Operation</li>
+  <li>Only one Slot reference may be provided in the value array</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
         <a name="add-reasonCode">
           
             </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode"><code>/reasonCode</code></a>
@@ -2000,35 +2048,24 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
+<h3 id="example---replace-slot">Example - Replace Slot</h3>
 
 <h4 id="request-7">Request</h4>
 
-<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4627745
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
 <h4 id="body-4">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
-    "op": "add",
-    "path": "/contained/0/telecom/0/value",
-    "value": "http://providerlink.vmr.net"
-  },
-  {
-    "op": "add",
-    "path": "/contained/1/telecom/0/value",
-    "value": "http://patientlink.vmr.net"
-  },
-  {
-    "op": "add",
-    "path": "/contained/0/telecom/0/period/start",
-    "value": "2019-07-13T08:00:00.000Z"
-  },
-  {
-    "op": "add",
-    "path": "/contained/0/telecom/0/period/end",
-    "value": "2019-07-13T08:10:00.000Z"
+    "op": "replace",
+    "path": "/slot",
+    "value": [
+      {
+        "reference": "Slot/2582093771-22784981-63303788-60"
+      }
+    ]
   }
 ]</code></pre>
 
@@ -2041,7 +2078,7 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
-Etag: W/"10-1"
+Etag: W/"1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
@@ -2051,7 +2088,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---replace-video-visit-links">Example - Replace Video Visit Links</h3>
+<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
 
 <h4 id="request-8">Request</h4>
 
@@ -2062,22 +2099,22 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <pre class="body-response"><code class="language-javascript">[
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/value",
     "value": "http://providerlink.vmr.net"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/1/telecom/0/value",
     "value": "http://patientlink.vmr.net"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/period/start",
     "value": "2019-07-13T08:00:00.000Z"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/period/end",
     "value": "2019-07-13T08:10:00.000Z"
   }
@@ -2102,14 +2139,65 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example---update-participant-status">Example - Update Participant Status</h3>
+<h3 id="example---replace-video-visit-links">Example - Replace Video Visit Links</h3>
 
 <h4 id="request-9">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4627745
+</code></pre>
+
+<h4 id="body-6">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/value",
+    "value": "http://providerlink.vmr.net"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/1/telecom/0/value",
+    "value": "http://patientlink.vmr.net"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/period/start",
+    "value": "2019-07-13T08:00:00.000Z"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/period/end",
+    "value": "2019-07-13T08:10:00.000Z"
+  }
+]</code></pre>
+
+<h4 id="response-9">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10-1"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---update-participant-status">Example - Update Participant Status</h3>
+
+<h4 id="request-10">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
-<h4 id="body-6">Body</h4>
+<h4 id="body-7">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
@@ -2119,7 +2207,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
   }
 ]</code></pre>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-10">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -2670,12 +2758,12 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h3 id="example---proposed-appointment">Example - Proposed Appointment</h3>
 
-<h4 id="request-10">Request</h4>
+<h4 id="request-11">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
 </code></pre>
 
-<h4 id="body-7">Body</h4>
+<h4 id="body-8">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
@@ -2719,7 +2807,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
   ]
 }</code></pre>
 
-<h4 id="response-10">Response</h4>
+<h4 id="response-11">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -2741,12 +2829,12 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
 
 <h3 id="example---booked-appointment">Example - Booked Appointment</h3>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
 </code></pre>
 
-<h4 id="body-8">Body</h4>
+<h4 id="body-9">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
@@ -2771,7 +2859,7 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
   ]
 }</code></pre>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 

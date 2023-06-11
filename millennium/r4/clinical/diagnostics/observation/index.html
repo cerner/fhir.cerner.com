@@ -738,7 +738,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
     <p>The <code>comments</code> field may have RTF or other formatted data rather than simple text. This is an issue that will be resolved in a future correction. We are investigating alternative solutions to fix this.</p>
   </li>
   <li>
-    <p>Social History results won’t be affected by date and _lastUpdated parameters, results may contain social history records out of the given timeframe.</p>
+    <p>Social History results won’t be affected by _lastUpdated parameter, results may contain social history records out of the given timeframe.</p>
   </li>
   <li>
     <p>Searching records with vital-signs category by code with proprietary system will result in empty response.</p>
@@ -765,6 +765,13 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><code>_id</code></td>
+      <td>This or <code>patient</code> or <code>subject</code>
+</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource id associated with the resource.</td>
+    </tr>
     <tr>
       <td><code>patient</code></td>
       <td>This or <code>subject</code>
@@ -828,6 +835,12 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 
 <ul>
   <li>
+    <p>If <code>_id</code> is provided, no other parameters may be provided.</p>
+  </li>
+  <li>
+    <p>Search by _id for observation labs only supports single id.</p>
+  </li>
+  <li>
     <p>The <code>subject</code> parameter must represent a Patient resource and may use the <code>:Patient</code> modifier.</p>
   </li>
   <li>
@@ -863,7 +876,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
     <p>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code></p>
   </li>
   <li>
-    <p>The <code>_revinclude</code> parameter may be provided with the <code>patient/subject</code> parameter. Example: <code>patient=12457977&amp;category=vital-signs&amp;_revinclude=Provenance:target</code></p>
+    <p>The <code>_revinclude</code> parameter may be provided with the <code>_id/patient/subject</code> parameter. Example: <code>patient=12457977&amp;category=vital-signs&amp;_revinclude=Provenance:target</code></p>
   </li>
   <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope.</li>
 </ul>
