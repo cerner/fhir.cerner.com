@@ -1208,7 +1208,7 @@ Access tokens are conveyed to resource servers as HTTP headers,
   allowable HTTP header. The exact value varies between vendors,
   but is typically in the 4K-8K range. If the authorization server
   detects that it is about to return an access token that would be
-  unusable, it will instead return an error. Try reducing the number
+  unusably large, it will return an error instead. Try reducing the number
   of scopes in your request to the minimum necessary for your application.
 
 ## References ##
