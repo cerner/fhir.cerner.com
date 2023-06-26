@@ -1201,6 +1201,18 @@ Cerner currently does not have guidance on how to deliver
   with the browser on the device where Citrix Receiver
   is run.
 
+**Why am I getting an error about having too many scopes?**
+
+Access tokens are conveyed to resource servers as HTTP headers,
+  and most web servers place an upper limit on the largest
+  allowable HTTP header. The exact value varies between vendors,
+  but is typically in the 4K-8K range. Since scopes are included in
+  access tokens, using more of them makes the access token larger.
+  If the authorization server detects that it is about to return an
+  access token that would be unusably large, it will return an error instead.
+  Try reducing the number of scopes in your request to the minimum necessary
+  for your application.
+
 ## References ##
 - ["The OAuth 2.0 Authorization Framework"][OAUTH]
 - ["OAuth 2.0 Threat Model and Security Considerations"][OAUTH-THREAT]
