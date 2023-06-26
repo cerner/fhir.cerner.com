@@ -74,7 +74,6 @@ _Implementation Notes_
 
 * When searching with the `period` parameter:
   * It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
-  * `Period` parameter  must include a time.
 
 * When searching with the `encounter` parameter:
   * Patient level documents are filtered out from responses when the encounter id is zero/blank.
