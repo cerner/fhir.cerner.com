@@ -1181,7 +1181,7 @@ curl -X POST 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0
 
 <h4 id="jwt-authentication">JWT Authentication</h4>
 
-<p>Alternatively, clients may authenticate themselves using signed JSON Web Tokens (JWTs). This process is similar to the above, but uses <code>Authorization: Bearer</code> instead. This is the preferred mode of authentication for <a href="http://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> clients. For complete details, see <a href="https://www.rfc-editor.org/rfc/rfc7519">Java Web Token (JWT)</a> and <a href="https://www.rfc-editor.org/rfc/rfc7523">JSON Web Token (JWT) Profile for OAuth 2.0 Client Authentication and Authorization Grants</a>.</p>
+<p>Alternatively, clients may authenticate themselves using signed JSON Web Tokens (JWTs). This is the preferred mode of authentication for <a href="http://hl7.org/fhir/uv/bulkdata/">Bulk Data</a> clients. For complete details, see <a href="http://hl7.org/fhir/smart-app-launch/STU2/backend-services.html">SMART App Launch: Backend Services</a>.</p>
 
 <p>Note that clients leveraging this type of authentication must also pre-register their JSON Web Key Sets (JWKS) using <a href="https://wiki.cerner.com/display/CernerCentral/System+Account+Management+Help">Cerner Central System Account Management</a>. For complete details, see <a href="https://wiki.cerner.com/display/public/CernerCentral/Managing+JSON+Web+Key+Sets+in+System+Account+Management">Managing JSON Web Key Sets in System Account Management</a>.</p>
 
@@ -1333,6 +1333,18 @@ for further details.</p>
   unless other steps are taken to allow for interaction
   with the browser on the device where Citrix Receiver
   is run.</p>
+
+<p><strong>Why am I getting an error about having too many scopes?</strong></p>
+
+<p>Access tokens are conveyed to resource servers as HTTP headers,
+  and most web servers place an upper limit on the largest
+  allowable HTTP header. The exact value varies between vendors,
+  but is typically in the 4K-8K range. Since scopes are included in
+  access tokens, using more of them makes the access token larger.
+  If the authorization server detects that it is about to return an
+  access token that would be unusably large, it will return an error instead.
+  Try reducing the number of scopes in your request to the minimum necessary
+  for your application.</p>
 
 <h2 id="references">References</h2>
 <ul>
