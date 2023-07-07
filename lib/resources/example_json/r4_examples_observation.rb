@@ -49,11 +49,13 @@ module Cerner
             },
             {
               'system': 'http://loinc.org',
-              'code': '8328-7'
+              'code': '8328-7',
+              'display': 'Axillary temperature'
             },
             {
               'system': 'http://loinc.org',
-              'code': '8310-5'
+              'code': '8310-5',
+              'display': 'Body temperature'
             }
           ],
           'text': 'Temperature Axillary'
@@ -411,11 +413,13 @@ module Cerner
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '2708-6'
+                  'code': '2708-6',
+                  'display': 'Oxygen saturation in Arterial blood'
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '59408-5'
+                  'code': '59408-5',
+                  'display': 'Oxygen saturation in Arterial blood by Pulse oximetry'
                 }
               ],
               'text': 'SpO2'
@@ -1099,11 +1103,13 @@ module Cerner
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '75539-7'
+                  'code': '75539-7',
+                  'display': 'Body temperature - Temporal artery'
                 },
                 {
                   'system': 'http://loinc.org',
-                  'code': '8310-5'
+                  'code': '8310-5',
+                  'display': 'Body temperature'
                 }
               ],
               'text': 'Temperature Temporal Artery'
