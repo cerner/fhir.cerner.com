@@ -6,7 +6,7 @@ layout: millennium/overview
 # Overview
 
 This describes the resources that make up Cerner's implementation of the HL7<sup>®</sup> FHIR<sup>®</sup> standard. If 
-you have any problems or requests, please post to our [developer group](https://groups.google.com/d/forum/cerner-fhir-developers).
+you have any problems or requests, please post to the [Open Developer Experience forum](https://forums.oracle.com/ords/apexds/domain/open-developer-experience).
 
 * TOC
 {:toc}

@@ -150,7 +150,7 @@ Creating your first app can be overwhelming, so Cerner has created a [step by st
 
 ### code Console and Sandbox ###
 
-Cerner's implementation of SMART on FHIR ecosystem allows you to register, update, and delete your SMART app from our [code Console](https://code.cerner.com/developer/smart-on-fhir).  Additionally, you can open and test your app from code Console in our Sandbox environment.  Currently, there is a 15-minute waiting period for new or updated app configurations to take effect.  If you cannot open the application after the 15-minute period, post a question to the [Cerner FHIR Developers Google Group](https://groups.google.com/forum/#!forum/cerner-fhir-developers).
+Cerner's implementation of SMART on FHIR ecosystem allows you to register, update, and delete your SMART app from our [code Console](https://code.cerner.com/developer/smart-on-fhir).  Additionally, you can open and test your app from code Console in our Sandbox environment.  Currently, there is a 15-minute waiting period for new or updated app configurations to take effect.  If you cannot open the application after the 15-minute period, post a question to the [Open Developer Experience forum](https://forums.oracle.com/ords/apexds/domain/open-developer-experience).
 
 ### Launch Context ###
 
@@ -206,4 +206,4 @@ Direct to consumers apps may also be launched from our patient portal, HealtheLi
 
 - [Cerner Millennium FHIR API Documentation](http://fhir.cerner.com/millennium/dstu2/)
 - [Cerner Authorization Documentation](http://fhir.cerner.com/authorization/)
-- [Cerner FHIR Developers Google Group](https://groups.google.com/forum/#!forum/cerner-fhir-developers)
+- [Open Developer Experience forum](https://forums.oracle.com/ords/apexds/domain/open-developer-experience)
