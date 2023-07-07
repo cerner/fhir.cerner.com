@@ -728,9 +728,6 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
     <p>The <code>comments</code> field may have RTF or other formatted data rather than simple text. This is an issue that will be resolved in a future correction. We are investigating alternative solutions to fix this.</p>
   </li>
   <li>
-    <p>Social History results won’t be affected by _lastUpdated parameter, results may contain social history records out of the given timeframe.</p>
-  </li>
-  <li>
     <p>Searching records with vital-signs category by code with proprietary system will result in empty response.</p>
   </li>
   <li>
@@ -1115,11 +1112,13 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
             },
             {
               "system": "http://loinc.org",
-              "code": "2708-6"
+              "code": "2708-6",
+              "display": "Oxygen saturation in Arterial blood"
             },
             {
               "system": "http://loinc.org",
-              "code": "59408-5"
+              "code": "59408-5",
+              "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
             }
           ],
           "text": "SpO2"
@@ -1236,11 +1235,13 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
             },
             {
               "system": "http://loinc.org",
-              "code": "8328-7"
+              "code": "8328-7",
+              "display": "Axillary temperature"
             },
             {
               "system": "http://loinc.org",
-              "code": "8310-5"
+              "code": "8310-5",
+              "display": "Body temperature"
             }
           ],
           "text": "Temperature Axillary"
@@ -1431,11 +1432,13 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
             },
             {
               "system": "http://loinc.org",
-              "code": "75539-7"
+              "code": "75539-7",
+              "display": "Body temperature - Temporal artery"
             },
             {
               "system": "http://loinc.org",
-              "code": "8310-5"
+              "code": "8310-5",
+              "display": "Body temperature"
             }
           ],
           "text": "Temperature Temporal Artery"
@@ -1900,11 +1903,13 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
         },
         {
           "system": "http://loinc.org",
-          "code": "8328-7"
+          "code": "8328-7",
+          "display": "Axillary temperature"
         },
         {
           "system": "http://loinc.org",
-          "code": "8310-5"
+          "code": "8310-5",
+          "display": "Body temperature"
         }
       ],
       "text": "Temperature Axillary"
