@@ -83,8 +83,6 @@ _Implementation Notes_
 
 * The `comments` field may have RTF or other formatted data rather than simple text. This is an issue that will be resolved in a future correction. We are investigating alternative solutions to fix this.
 
-* Social History results won't be affected by _lastUpdated parameter, results may contain social history records out of the given timeframe.
-
 * Searching records with vital-signs category by code with proprietary system will result in empty response.
 
 * When multiple pages of Observation results are returned for a single query:
