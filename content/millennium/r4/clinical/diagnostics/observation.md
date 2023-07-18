@@ -110,7 +110,7 @@ Notes:
 
 * If `_id` is provided, no other parameters may be provided.
 
-* Search by _id for observation labs only supports single id. 
+* Search by _id for observation labs supports multiple ids from single patient only. 
 
 * The `subject` parameter must represent a Patient resource and may use the `:Patient` modifier.
 
