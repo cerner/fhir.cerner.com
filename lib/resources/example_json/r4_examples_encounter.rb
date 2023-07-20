@@ -715,6 +715,45 @@ module Cerner
       ]
     }.freeze
 
+    R4_COMBINED_ENCOUNTER_ENTRY ||= {
+      "resourceType": "Encounter",
+      "id": "97865451",
+      "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Encounter</b></p><p><b>Type</b>: Unknown</p></div>"
+      },
+      "status": "unknown",
+      "class": {
+          "extension": [
+              {
+                  "valueCode": "unknown",
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+              }
+          ]
+      },
+      "type": [
+          {
+              "extension": [
+                  {
+                      "valueCode": "unknown",
+                      "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+                  }
+              ]
+          }
+      ],
+      "subject": {
+          "extension": [
+              {
+                  "valueCode": "unknown",
+                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+              }
+          ]
+      },
+      "partOf": {
+          "reference": "Encounter/97855447"
+      }
+    }.freeze
+
     R4_ENCOUNTER_PATIENT_ENTRY ||= {
       "resourceType": 'Encounter',
       "id": '97954225',
