@@ -214,7 +214,7 @@ _Implementation Notes_
 
 ### Encounter Combines Example
 
-Cerner Millennium supports the ability to logically merge a encounter record into another encounter record when both records are describing the same patient. This is known
+Cerner Millennium supports the ability to logically merge a encounter record into another encounter record when both records are describing the same ecounter. This is known
 as a "encounter combine". If necessary, this merging can later be undone by performing a "encounter uncombine". When the requested encounter record has been combined into another
 record, an inactive Encounter entry will be returned which has a reference to the current Encounter entry in the partOf field. Entries for combined encounters will only be returned when retrieving
 the entries directly by id. They will not be returned when searching with other parameters.
