@@ -1540,117 +1540,237 @@ module Cerner
     }.freeze
 
     R4_OBSERVATION_REVINCLUDE_BUNDLE ||= {
-      "resourceType": 'Observation',
-      "id": 'VS-CV-78693473-SECT-8098',
-      "meta": {
-        "versionId": '0',
-        "lastUpdated": '2022-11-26T15:53:45Z'
-      },
-      "text": {
-        "status": 'generated',
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Observation</b></p><p><b>Patient Id</b>: 15116458</p><p>
-        <b>Status</b>: Final</p><p><b>Categories</b>: Vital Signs</p><p><b>Code</b>: SpO2</p><p><b>Result</b>: 91 %</p>
-        <p><b>Effective Date</b>: Jun  5, 2022  3:00 A.M. CDT</p></div>'
-      },
-      "identifier": [
+      'resourceType': 'Bundle',
+      'id': '79c71e5b-2793-4ace-bc5e-190e38784e80',
+      'type': 'searchset',
+      'link': [
         {
-          "system": 'https://fhir.cerner.com/cvuuid',
-          "value": '583a1e6e-e16b-4f5e-b893-4cf6e4a44daf'
+          'relation': 'self',
+          'url': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation?Observation?patient=12457977&category=vital-signs&_revinclude=Provenance%3Atarget'
         }
       ],
-      "status": 'amended',
-      "category": [
+      'entry': [
         {
-          "coding": [
-            {
-              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
-              "code": 'vital-signs',
-              "display": 'Vital Signs'
-            }
-          ],
-          "text": 'Vital Signs'
-        }
-      ],
-      "code": {
-        "coding": [
-          {
-            "system": 'http://loinc.org',
-            "code": '2708-6'
-          },
-          {
-            "system": 'http://loinc.org',
-            "code": '59408-5'
-          }
-        ],
-        "text": 'SpO2'
-      },
-      "subject": {
-        "reference": 'Patient/15116458'
-      },
-      "encounter": {
-        "reference": 'Encounter/15693783'
-      },
-      "effectiveDateTime": '2022-06-05T08:00:38.000Z',
-      "issued": '2022-06-05T08:00:38Z',
-      "performer": [
-        {
-          "extension": [
-            {
-              "valueCodeableConcept": {
-                "coding": [
-                  {
-                    "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
-                    "code": 'LA',
-                    "display": 'legal authenticator'
-                  }
-                ],
-                "text": 'legal authenticator'
-              },
-              "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
-            }
-          ],
-          "reference": 'Practitioner/15441459'
-        }
-      ],
-      "valueQuantity": {
-        "value": 57,
-        "unit": '%',
-        "system": 'http://unitsofmeasure.org',
-        "code": '%'
-      },
-      "component": [
-        {
-          "code": {
-            "coding": [
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-196190669',
+          'resource': {
+            'resourceType': 'Observation',
+            'id': 'VS-196190669',
+            'meta': {
+              'versionId': '2',
+              'lastUpdated': '2017-02-25T02:41:03.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Observation</b></p><p><b>Patient Id</b>:12457977'\
+                      '</p><p><b>Status</b>: Entered in Error</p><p><b>Categories</b>: Vital Signs</p><p><b>Code</b>'\
+                      ': Temperature Temporal Artery</p><p><b>Result</b>: 39 degC</p><p><b>Interpretation</b>'\
+                      ': Normal</p><p><b>Effective Date</b>: Feb 24, 2017  8:37 P.M. CST</p>'\
+                      '<p><b>Reference Range</b>: 36-38 degC</p></div>'
+            },
+            'identifier': [
               {
-                "system": 'http://loinc.org',
-                "code": '3151-8'
+                'system': 'https://fhir.cerner.com/ceuuid',
+                'value': 'CE87caf4b7-9397-4667-9897-702218017c9e-196190669-2017022502373000'
               }
             ],
-            "text": 'Oxygen Flow Rate'
+            'status': 'entered-in-error',
+            'category': [
+              {
+                'coding': [
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    'code': 'vital-signs',
+                    'display': 'Vital Signs'
+                  }
+                ],
+                'text': 'Vital Signs'
+              }
+            ],
+            'code': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '4157752',
+                  'display': 'Temperature Temporal Artery',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '75539-7',
+                  'display': 'Body temperature - Temporal artery'
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '8310-5',
+                  'display': 'Body temperature'
+                }
+              ],
+              'text': 'Temperature Temporal Artery'
+            },
+            'subject': {
+              'reference': 'Patient/12457977'
+            },
+            'encounter': {
+              'reference': 'Encounter/97697398'
+            },
+            'effectiveDateTime': '2017-02-25T02:37:00.000Z',
+            'issued': '2017-02-25T02:41:03.000Z',
+            'performer': [
+              {
+                'extension': [
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                          'code': 'LA',
+                          'display': 'legal authenticator'
+                        }
+                      ],
+                      'text': 'legal authenticator'
+                    },
+                    'url': 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+                  },
+                  {
+                    'valueCodeableConcept': {
+                      'coding': [
+                        {
+                          'system': 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                          'code': 'PPRF',
+                          'display': 'primary performer'
+                        }
+                      ],
+                      'text': 'primary performer'
+                    },
+                    'url': 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+                  }
+                ],
+                'reference': 'Practitioner/11638346'
+              }
+            ],
+            'valueQuantity': {
+              'value': 39,
+              'unit': 'degC',
+              'system': 'http://unitsofmeasure.org',
+              'code': 'Cel'
+            },
+            'interpretation': [
+              {
+                'coding': [
+                  {
+                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/52',
+                    'code': '214',
+                    'userSelected': true
+                  },
+                  {
+                    'system': 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                    'code': 'N',
+                    'display': 'Normal'
+                  }
+                ]
+              }
+            ],
+            'note': [
+              {
+                'authorReference': {
+                  'reference': 'Practitioner/11638346'
+                },
+                'time': '2017-02-25T02:41:03.000Z',
+                'text': 'Other\n'
+              }
+            ],
+            'referenceRange': [
+              {
+                'low': {
+                  'value': 36,
+                  'unit': 'degC',
+                  'system': 'http://unitsofmeasure.org',
+                  'code': 'Cel'
+                },
+                'high': {
+                  'value': 38,
+                  'unit': 'degC',
+                  'system': 'http://unitsofmeasure.org',
+                  'code': 'Cel'
+                },
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                      'code': 'normal',
+                      'display': 'Normal Range'
+                    }
+                  ],
+                  'text': 'Normal Range'
+                }
+              }
+            ]
           },
-          "valueQuantity": {
-            "value": 7,
-            "unit": 'L/min',
-            "system": 'http://unitsofmeasure.org',
-            "code": 'L/min'
+          'search': {
+            'mode': 'match'
           }
         },
         {
-          "code": {
-            "coding": [
+          'fullUrl': 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/vit-4',
+          'resource': {
+            'resourceType': 'Provenance',
+            'id': 'vit-4',
+            'meta': {
+              'versionId': '4',
+              'lastUpdated': '2020-12-03T16:28:02Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Provenance</b></p><p><b>Target</b>:</p>'\
+                    '<ul><li>Observation/VS-196190669</li></ul><p><b>Recorded</b>: Oct 25, 2019  9:57 A.M.'\
+                    ' CDT</p><p><b>Agents</b>:</p><dl><dt>Unknown</dt><dd><b>Agent Type</b>: Author</dd><dd>'\
+                    '<b>Agent Role</b>: Source</dd></dl><p><b>Entity Source</b>: DocumentReference/S-100</p></div>'
+            },
+            'target': [
               {
-                "system": 'http://loinc.org',
-                "code": '3150-0'
+                'reference': 'Observation/VS-196190669'
               }
             ],
-            "text": 'FIO2'
+            'recorded': '2019-10-25T14:57:43Z',
+            'agent': [
+              {
+                'type': {
+                  'coding': [
+                    {
+                      'system': 'http://terminology.hl7.org/CodeSystem/provenance-participant-type',
+                      'code': 'author'
+                    }
+                  ],
+                  'text': 'Author'
+                },
+                'role': [
+                  {
+                    'coding': [
+                      {
+                        'system': 'http://terminology.hl7.org/CodeSystem/contractsignertypecodes',
+                        'code': 'SOURCE'
+                      }
+                    ],
+                    'text': 'Source'
+                  }
+                ],
+                'who': {
+                  'reference': 'Organization/101',
+                  'display': 'Unknown'
+                }
+              }
+            ],
+            'entity': [
+              {
+                'role': 'source',
+                'what': {
+                  'reference': 'DocumentReference/S-100'
+                }
+              }
+            ]
           },
-          "valueQuantity": {
-            "value": 27,
-            "unit": '%',
-            "system": 'http://unitsofmeasure.org',
-            "code": '%'
+          'search': {
+            'mode': 'include'
           }
         }
       ]
