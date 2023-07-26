@@ -131,6 +131,18 @@ Requires both the appropriate Binary.read and DocumentReference.read scopes to b
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
 
+### Parameters
+
+ Name     | Required? | Type          | Description
+----------|-----------|---------------|-------------------------------------------------
+`patient` | Y         | [`reference`] | A reference to the patient that is the subject of the CCD. Example: `12345`
+`start`   | N         | [`date`]      | The start of the date range for which the CCD is to be generated. If not provided, then all records from the beginning of time are included. Example: `2014-09-24T12:00:00.000Z`
+`end`     | N         | [`date`]      | The end of the date range for which the CCD is to be generated. If not provided, then all records up to the current date are included. Example: `2016-09-24T12:00:00.000Z`
+
+Notes:   
+
+- The `start` and `end` parameters must be valid [dateTime]s with a time component. They must have prefixes of `eq` or nothing.
+
 ### Headers
 
 An `Accept` header of `application/xml` could be supplied instead, if the XML Binary resource is desired insetad of the JSON data.
