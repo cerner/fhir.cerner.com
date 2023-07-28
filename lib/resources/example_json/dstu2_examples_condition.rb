@@ -8,7 +8,21 @@ module Cerner
       'id': 'p73077203',
       'meta': {
         'versionId': '73079095',
-        'lastUpdated': '2020-04-05T04:00:46.000Z'
+        'lastUpdated': '2020-04-05T04:00:46.000Z',
+        'security': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PHY',
+            'display': 'physician requested information sensitivity',
+            'userSelected': false
+          },
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PRS',
+            'display': 'patient requested information sensitivity',
+            'userSelected': false
+          }
+        ]
       },
       'text': {
         'status': 'generated',
@@ -56,7 +70,21 @@ module Cerner
         'id': 'd2572382197',
         'meta': {
           'versionId': '2572382197',
-          'lastUpdated': '2020-06-11T04:03:21.000Z'
+          'lastUpdated': '2020-06-11T04:03:21.000Z',
+          'security': [
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PHY',
+              'display': 'physician requested information sensitivity',
+              'userSelected': false
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PRS',
+              'display': 'patient requested information sensitivity',
+              'userSelected': false
+            }
+          ]
         },
         'text': {
           'status': 'generated',
@@ -113,7 +141,21 @@ module Cerner
         'id': '00a5d6eb-c567-42f7-be07-53804cece075',
         'meta': {
           'versionId': '00a5d6eb-c567-42f7-be07-53804cece075',
-          'lastUpdated': '2020-07-06T19:36:23.000Z'
+          'lastUpdated': '2020-07-06T19:36:23.000Z',
+          'security': [
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PHY',
+              'display': 'physician requested information sensitivity',
+              'userSelected': false
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PRS',
+              'display': 'patient requested information sensitivity',
+              'userSelected': false
+            }
+          ]
         },
         'text': {
           'status': 'generated',
