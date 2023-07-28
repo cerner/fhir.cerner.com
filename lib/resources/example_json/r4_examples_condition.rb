@@ -200,6 +200,7 @@ module Cerner
       'id': 'd2266495305',
       'meta': {
         'versionId': '2266495305',
+        'lastUpdated': '2020-06-11T04:05:04.000Z',
         'security': [
           {
             'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
