@@ -8,7 +8,21 @@ module Cerner
       'id': 'p73077203',
       'meta': {
         'versionId': '73080185',
-        'lastUpdated': '2020-06-11T04:05:04.000Z'
+        'lastUpdated': '2020-06-11T04:05:04.000Z',
+        'security': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PHY',
+            'display': 'physician requested information sensitivity',
+            'userSelected': false
+          },
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PRS',
+            'display': 'patient requested information sensitivity',
+            'userSelected': false
+          }
+        ]
       },
       'text': {
         'status': 'generated',
@@ -92,7 +106,21 @@ module Cerner
       'id': 'p109117485',
       'meta': {
         'versionId': '109117485',
-        'lastUpdated': '2020-06-11T04:05:04.000Z'
+        'lastUpdated': '2020-06-11T04:05:04.000Z',
+        'security': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PHY',
+            'display': 'physician requested information sensitivity',
+            'userSelected': false
+          },
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PRS',
+            'display': 'patient requested information sensitivity',
+            'userSelected': false
+          }
+        ]
       },
       'text': {
         'status': 'generated',
@@ -171,7 +199,21 @@ module Cerner
       'resourceType': 'Condition',
       'id': 'd2266495305',
       'meta': {
-        'versionId': '2266495305'
+        'versionId': '2266495305',
+        'security': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PHY',
+            'display': 'physician requested information sensitivity',
+            'userSelected': false
+          },
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PRS',
+            'display': 'patient requested information sensitivity',
+            'userSelected': false
+          }
+        ]
       },
       'text': {
         'status': 'generated',
@@ -232,7 +274,21 @@ module Cerner
       'id': 'a077dc30-8eee-4bb7-ae7f-ced1273f5c68',
       'meta': {
         'versionId': 'a077dc30-8eee-4bb7-ae7f-ced1273f5c68',
-        'lastUpdated': '2020-12-03T22:47:30.000Z'
+        'lastUpdated': '2020-12-03T22:47:30.000Z',
+        'security': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PHY',
+            'display': 'physician requested information sensitivity',
+            'userSelected': false
+          },
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PRS',
+            'display': 'patient requested information sensitivity',
+            'userSelected': false
+          }
+        ]
       },
       'text': {
         'status': 'generated',
@@ -298,7 +354,21 @@ module Cerner
         'id': 'd2572382197',
         'meta': {
           'versionId': '2572382197',
-          'lastUpdated': '2020-06-11T04:03:21.000Z'
+          'lastUpdated': '2020-06-11T04:03:21.000Z',
+          'security': [
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PHY',
+              'display': 'physician requested information sensitivity',
+              'userSelected': false
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PRS',
+              'display': 'patient requested information sensitivity',
+              'userSelected': false
+            }
+          ]
         },
         'text': {
           'status': 'generated',
@@ -391,7 +461,21 @@ module Cerner
         'id': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
         'meta': {
           'versionId': 'bed1c2ec-1f33-4097-8296-f6aa01824387',
-          'lastUpdated': '2020-10-20T20:46:41.000Z'
+          'lastUpdated': '2020-10-20T20:46:41.000Z',
+          'security': [
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PHY',
+              'display': 'physician requested information sensitivity',
+              'userSelected': false
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PRS',
+              'display': 'patient requested information sensitivity',
+              'userSelected': false
+            }
+          ]
         },
         'text': {
           'status': 'generated',
@@ -490,7 +574,21 @@ module Cerner
             'id': '00a5d6eb-c567-42f7-be07-53804cece075',
             'meta': {
               'versionId': '00a5d6eb-c567-42f7-be07-53804cece075',
-              'lastUpdated': '2020-07-06T19:36:23.000Z'
+              'lastUpdated': '2020-07-06T19:36:23.000Z',
+              'security': [
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+                  'code': 'PHY',
+                  'display': 'physician requested information sensitivity',
+                  'userSelected': false
+                },
+                {
+                  'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+                  'code': 'PRS',
+                  'display': 'patient requested information sensitivity',
+                  'userSelected': false
+                }
+              ]
             },
             'text': {
               'status': 'generated',
