@@ -223,6 +223,10 @@ module Cerner
           end
         end
       end
+
+      def security_field_disclaimer
+        'The `meta.security` field will be present only when a problem or diagnosis is marked as confidential.'
+      end
     end
   end
 end
