@@ -98,8 +98,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_condition_bundle) %>
-
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 ### Example with RevInclude
 
@@ -116,6 +116,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_condition_revinclude_bundle) %>
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 #### Patient Authorization Request
 
@@ -125,8 +126,8 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_patient_condition_bundle) %>
-
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 ### Errors
 
@@ -156,8 +157,8 @@ List an individual Condition by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_condition_entry) %>
-
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 #### Patient Authorization Request For Resolved Status
 
@@ -167,8 +168,8 @@ List an individual Condition by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_patient_condition_entry) %>
-
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 #### Patient Authorization Request For Active Status
 
@@ -178,8 +179,8 @@ List an individual Condition by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_patient_active_entry) %>
-
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 #### Patient Authorization Request For Entered in Error Status
 
@@ -189,8 +190,8 @@ List an individual Condition by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_patient_entered_in_error_entry) %>
-
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 ### Errors
 
