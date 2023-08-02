@@ -136,12 +136,12 @@ Requires both the appropriate Binary.read and DocumentReference.read scopes to b
  Name     | Required? | Type          | Description
 ----------|-----------|---------------|-------------------------------------------------
 `patient` | Y         | [`reference`] | A reference to the patient that is the subject of the CCD. Example: `12345`
-`start`   | N         | [`date`]      | The start of the date range for which the CCD is to be generated. If not provided, then all records from the beginning of time are included. Example: `2014-09-24T12:00:00.000Z`
-`end`     | N         | [`date`]      | The end of the date range for which the CCD is to be generated. If not provided, then all records up to the current date are included. Example: `2016-09-24T12:00:00.000Z`
+`start`   | N         | [`dateTime`]  | The start of the date range for which the CCD is to be generated. If not provided, then all records from the beginning of time are included. Example: `2014-09-24T12:00:00.000Z`
+`end`     | N         | [`dateTime`]  | The end of the date range for which the CCD is to be generated. If not provided, then all records up to the current date are included. Example: `2016-09-24T12:00:00.000Z`
 
 Notes:   
 
-- The `start` and `end` parameters must be valid [dateTime]s with a time component. There is no prefix required.
+- The `start` and `end` parameters must be valid dateTimes with a time component. There is no prefix required.
 
 ### Headers
 
@@ -183,7 +183,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/r4/search.html#token
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
-[`date`]: http://hl7.org/fhir/R4/search.html#date
-[dateTime]: http://hl7.org/fhir/R4/datatypes.html#dateTime
+[`dateTime`]: http://hl7.org/fhir/R4/datatypes.html#dateTime
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
