@@ -182,5 +182,8 @@ An `Accept` header of `application/xml` could be supplied instead, if the XML Bi
 The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/r4/search.html#token
+[`reference`]: http://hl7.org/fhir/R4/search.html#reference
+[`date`]: http://hl7.org/fhir/R4/search.html#date
+[dateTime]: http://hl7.org/fhir/R4/datatypes.html#dateTime
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
