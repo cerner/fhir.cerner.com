@@ -141,7 +141,7 @@ Requires both the appropriate Binary.read and DocumentReference.read scopes to b
 
 Notes:   
 
-- The `start` and `end` parameters must be valid [dateTime]s with a time component. They must have prefixes of `eq` or nothing.
+- The `start` and `end` parameters must be valid [dateTime]s with a time component. There is no prefix required.
 
 ### Headers
 
