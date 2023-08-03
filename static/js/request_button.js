@@ -54,8 +54,8 @@ function showRequestFailureMessage(xhr = null, emptyBundle = false) {
                                 `X-Request-Id: ${xhr.getResponseHeader('X-Request-Id')}`;
   }
   else {
-    body.firstElementChild.innerHTML = 'Failed to make this request: If this issue persists, please post to our ' +
-                                '<a href="https://groups.google.com/d/forum/cerner-fhir-developers">developer group' +
+    body.firstElementChild.innerHTML = 'Failed to make this request: If this issue persists, please post to the ' +
+                                '<a href="https://forums.oracle.com/ords/apexds/domain/open-developer-experience">Open Developer Experience forum' +
                                 `</a>.\nX-Request-Id: ${xhr.getResponseHeader('X-Request-Id')}`;
   }
 }

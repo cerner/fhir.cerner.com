@@ -1,12 +1,11 @@
 ---
-title: Cerner | Home
+title: Cerner Ignite APIs℠ | Home
 layout: overview
 ---
 
 <div class="wrapper feature">
   <h1>
-    Leverage the power of the <br />
-    HL7<sup>®</sup> FHIR<sup>®</sup> standard in your SMART app.
+    Leverage the power of the HL7<sup>®</sup> FHIR<sup>®</sup> standard in your SMART<sup>®</sup> app.
   </h1>
   <p class="intro">Jump right into the API documentation to get started.</p>
   <a href="millennium/overview/" class="button">Browse the Millennium documentation</a>
