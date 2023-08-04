@@ -169,7 +169,7 @@ a img {
   color: #fff;
   font-size: 16px;
   padding: 15px;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 .button:hover {
@@ -220,22 +220,21 @@ a img {
 
 #header-button {
   background: #5C9A32;
-  margin: 10px 0 0;
   float: right;
+  padding: 10px;
 }
 
 #top-header {
-  height: 50px;
+  height: 40px;
   padding: 15px 0;
   background: #fff;
 }
 
 #top-header .logo {
   float: left;
-  width: 208px;
-  height: 30px;
-  margin: 10px 0 0;
-  background: url(../images/code-logo-rgb.svg) 0 0 no-repeat;
+  width: 200px;
+  height: 38.2px;
+  background: url(../images/OC_logo.png) center/contain no-repeat;
   text-indent: -999em;
 }
 
@@ -331,7 +330,7 @@ a img {
   display: inline-block;
   margin-top: -4px;
   width: 51px;
-  border-radius: 3px;
+  border-radius: 6px;
   background: url(/images/search.png) 5px center no-repeat #fff;
 
   -webkit-transition: width 0.3s ease-in-out 0s;
@@ -390,7 +389,7 @@ a img {
   right: 0px;
   width: 260px;
   background-color: #fff;
-  border-radius: 4px;
+  border-radius: 6px;
   min-height: 40px;
   z-index: 100;
   overflow: hidden;
@@ -611,7 +610,7 @@ a img {
 
 .full-width-divider {
   width: 100%;
-  background: #f2f2f2;
+  background: #f0f1f2;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   overflow: hidden;
@@ -685,7 +684,7 @@ a .mega-octicon {
 }
 
 .sidebar-module {
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
   margin-bottom: 20px;
   font-size: 12px;
@@ -699,7 +698,7 @@ a .mega-octicon {
 .sidebar-module.notice {
   background: #fafafb;
   border: 1px solid #CACACA;
-  border-radius: 4px;
+  border-radius: 6px;
   line-height: 1.5em;
 }
 
@@ -933,7 +932,7 @@ a .mega-octicon {
   background-position: -52px 0;
 }
 
-#top-footer #social-links li a.youtube:before{
+#top-footer #social-links li a.instagram:before{
   background-position: -78px 0;
 }
 
@@ -978,7 +977,7 @@ a .mega-octicon {
 
 .dev-program.feature,
 .dev-program-callout {
-  background: #FF9633;
+  background: #f0f1f2;
 }
 
 .dev-program.feature .intro {
@@ -1010,7 +1009,7 @@ a .mega-octicon {
 
 .dev-program-callout .wrapper {
   padding: 40px 0;
-  background: #FF9633;
+  background: #f0f1f2;
 }
 
 .dev-program.feature h1,
@@ -1611,7 +1610,7 @@ pre span.comment {color: #aaa;}
   margin-top: 1em;
   padding: 12px;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 3px;
   background-color: #FFF9E6;
   border-color: #FFE79D;
 }

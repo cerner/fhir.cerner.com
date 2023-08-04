@@ -2,18 +2,17 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta http-equiv="Content-Language" content="en-us">
-  <meta http-equiv="imagetoolbar" content="false">
+  <meta http-equiv="imagetoolbar" content="no">
   <title>Binary | R4 API</title>
   
   <link href="../../../../../css/reset.css" rel="stylesheet" type="text/css">
   <link href="../../../../../css/documentation.css" media="screen" rel="stylesheet" type="text/css">
   <link href="../../../../../css/pygments.css" media="screen" rel="stylesheet" type="text/css">
-  <script src="../../../../../js/jquery.js" type="text/javascript"></script>
-  <script src="../../../../../js/millennium_diff_table_config.js" type="text/javascript"></script>  
-  <script src="../../../../../js/millennium_diff_table.js" type="text/javascript"></script>
-  <script src="../../../../../js/documentation.js" type="text/javascript"></script>
-  <script src="../../../../../js/request_button.js" type="text/javascript"></script>
+  <script src="../../../../../js/jquery.js"></script>
+  <script src="../../../../../js/millennium_diff_table_config.js"></script>
+  <script src="../../../../../js/millennium_diff_table.js"></script>
+  <script src="../../../../../js/documentation.js" defer></script>
+  <script src="../../../../../js/request_button.js"></script>
 </head>
 
 
@@ -59,7 +58,7 @@
         <li><a href="../../../">R4 (4.0.1)</a></li>
         <li><a href="../../../../bulk-data/">Bulk Data Access (v1.0.1)</a></li>
         <li><a href="../../../../faq/" class="nav-faq">FAQ</a></li>
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Support</a></li>
+        <li><a href="https://forums.oracle.com/ords/apexds/domain/open-developer-experience">Forum</a></li>
       </ul>
     
   </div>
@@ -84,6 +83,7 @@
   <li>
 <a href="#autogen-ccd-if" id="markdown-toc-autogen-ccd-if">$autogen-ccd-if</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
+      <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
@@ -634,6 +634,48 @@
 <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
+<h3 id="parameters">Parameters</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Required?</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>patient</code></td>
+      <td>Y</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
+      <td>A reference to the patient that is the subject of the CCD. Example: <code>12345</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>start</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a></td>
+      <td>The start of the date range for which the CCD is to be generated. If not provided, then all records from the beginning of time are included. Example: <code>2014-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>end</code></td>
+      <td>N</td>
+      <td><a href="http://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a></td>
+      <td>The end of the date range for which the CCD is to be generated. If not provided, then all records up to the current date are included. Example: <code>2016-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Notes:</p>
+
+<ul>
+  <li>The <code>start</code> and <code>end</code> parameters must be valid dateTimes with a time component. There is no prefix required.</li>
+</ul>
+
 <h3 id="headers-1">Headers</h3>
 
 <p>An <code>Accept</code> header of <code>application/xml</code> could be supplied instead, if the XML Binary resource is desired insetad of the JSON data.</p>
@@ -843,16 +885,16 @@
     <div class="footer-wrapper">
 
       <ul id="footer-pages">
-        <li><a href="https://groups.google.com/d/forum/cerner-fhir-developers">Contact</a></li>
-        <li><a href="http://engineering.cerner.com/">Blog</a></li>
-        <li><a href="https://www.cerner.com/About_Cerner/">About</a></li>
+        <li><a target="_blank" href="https://forums.oracle.com/ords/apexds/domain/open-developer-experience">Forum</a></li>
+        <li><a target="_blank" href="https://engineering.cerner.com/">Blog</a></li>
+        <li><a target="_blank" href="https://www.cerner.com/about">About</a></li>
       </ul>
 
       <ul id="social-links">
-        <li><a target="_blank" href="https://www.linkedin.com/company/cerner-corporation" class="linkedin">LinkedIn</a></li>
-        <li><a target="_blank" href="https://twitter.com/cerner/" class="twitter">Twitter</a></li>
-        <li><a target="_blank" href="https://www.facebook.com/Cerner/" class="facebook">Facebook</a></li>
-        <li><a target="_blank" href="https://www.youtube.com/user/CernerCorporation" class="youtube">YouTube</a></li>
+        <li><a target="_blank" href="https://www.linkedin.com/showcase/oraclehealth/" class="linkedin">LinkedIn</a></li>
+        <li><a target="_blank" href="https://twitter.com/oraclehealth" class="twitter">Twitter</a></li>
+        <li><a target="_blank" href="https://www.facebook.com/OracleHealth/" class="facebook">Facebook</a></li>
+        <li><a target="_blank" href="https://www.instagram.com/oraclehealth/" class="instagram">Instagram</a></li>
       </ul>
 
     </div>
@@ -863,12 +905,12 @@
   <div id="bottom-footer">
     <div class="footer-wrapper">
 
-      <p>© <span class="js-year"></span> Cerner Corporation.  All rights reserved.</p>
+      <p>© <span class="js-year"></span>, Oracle</p>
 
       <ul id="footer-legal">
-        <li><a href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
-        <li><a href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
-        <li><a href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
+        <li><a target="_blank" href="http://www.cerner.com/Terms_Of_Use/">Terms of Use</a></li>
+        <li><a target="_blank" href="http://www.cerner.com/Privacy/">Privacy Policy</a></li>
+        <li><a target="_blank" href="http://www.cerner.com/GlobalPrivacy/">Safe Harbor Guidelines</a></li>
       </ul>
 
     </div>
