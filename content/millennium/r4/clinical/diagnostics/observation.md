@@ -241,7 +241,6 @@ _Implementation Notes_
 * Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood
   pressures are paired in Millennium. See [Configure Blood Pressure Event Set Pairing Hierarchy].
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
-* Also supports creating observation with proprietary codes.
 * Modifier fields should not be provided, and will cause the transaction to fail.
 * Also supports creating observation with proprietary codes with the latest version of observation.
 
