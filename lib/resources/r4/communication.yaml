@@ -36,7 +36,7 @@ fields:
   url: https://hl7.org/fhir/r4/communication-definitions.html#Communication.category
   note: |
     <ul>
-      <li>Only CommunicationCategory values of <code>notification</code> and <code>reminder</code> and SNOMED CT <code>312853008</code> are supported.</li>
+      <li>Only CommunicationCategory values of <code>notification</code> is supported.</li>
     </ul>
   example: |
     {
