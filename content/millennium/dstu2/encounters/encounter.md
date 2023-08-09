@@ -133,6 +133,24 @@ _Implementation Notes_
 
 <%= disclaimer %>
 
+### Encounter Combines Example
+
+Cerner Millennium supports the ability to logically merge an encounter record into another encounter record when both records are describing the same ecounter. This is known
+as an "encounter combine". If necessary, this merging can later be undone by performing an "encounter uncombine". When the requested encounter record has been combined into another
+record, an inactive Encounter entry will be returned which has a reference to the current Encounter entry in the partOf field. Entries for combined encounters will only be returned when retrieving
+the entries directly by id. They will not be returned when searching with other parameters.
+
+The ability to perform encounter combine or uncombine operations is not available through the Cerner Ignite platform.
+
+#### Request
+
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/97865451
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:dstu2_combined_encounter) %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.

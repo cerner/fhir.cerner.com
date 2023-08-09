@@ -219,6 +219,19 @@ module Cerner
       }
     }.freeze
 
+    DSTU2_COMBINED_ENCOUNTER ||= {
+      "resourceType": 'Encounter',
+      "id": '97865451',
+      "text": {
+        "status": 'generated',
+        "div": '<div><p><b>Encounter</b></p></div>'
+      },
+      "status": 'unknown',
+      "part_of": {
+        "reference": 'Encounter/97855447'
+      }
+    }.freeze
+
     DSTU2_ENCOUNTER_BUNDLE ||= {
       'resourceType': 'Bundle',
       'id': '73b0b7c8-e5e0-4e72-96f9-dcfb257fc40a',
