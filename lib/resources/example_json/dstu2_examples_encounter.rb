@@ -220,15 +220,15 @@ module Cerner
     }.freeze
 
     DSTU2_COMBINED_ENCOUNTER ||= {
-      "resourceType": "Encounter",
-      "id": "97865451",
+      "resourceType": 'Encounter',
+      "id": '97865451',
       "text": {
-          "status": "generated",
-          "div": "<div><p><b>Encounter</b></p></div>"
+        "status": 'generated',
+        "div": '<div><p><b>Encounter</b></p></div>'
       },
-      "status": "unknown",
+      "status": 'unknown',
       "part_of": {
-          "reference": "Encounter/97855447"
+        "reference": 'Encounter/97855447'
       }
     }.freeze
 
