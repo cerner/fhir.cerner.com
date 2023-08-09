@@ -302,7 +302,9 @@ fields:
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out",
       "valueBoolean": true
     }
-  note:
-    - The default value is boolean value 'true'.
-    - Only supported when the target is Encounter
+  note: >
+    <ul>
+      <li>The default value is boolean value 'true'.</li>
+      <li>Only supported when the target is Encounter</li>
+    </ul>
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out?_format=json
