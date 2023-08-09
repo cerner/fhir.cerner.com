@@ -27,6 +27,7 @@ The FinancialTransaction resource provides the ability to record and exchange fi
 * [Financial Transaction Method]
 * [Financial Transaction Tendered Amount]
 * [Financial Transaction Type]
+* [Apply First In First Out]
 
 ### Custom Extensions
 
@@ -44,6 +45,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `financial-transaction-method`          | [`string`]                        | Describes the method of payment for the financial transaction.
  `financial-transaction-tendered-amount` | [`Money`]                         | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  `financial-transaction-type`            | [`CodeableConcept`]               | The classification of the transaction.
+ `apply-first-in-first-out`              | [`boolean`]                       | Whether to apply FIFO logic for recurring encounters or not.
 
 ## Create
 
@@ -189,6 +191,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`Extension`]: https://www.hl7.org/fhir/r4/extensibility.html#Extension
 [`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
 [`string`]: https://www.hl7.org/fhir/r4/datatypes.html#string
+[`boolean`]: https://www.hl7.org/fhir/r4/datatypes.html#boolean
 [Financial Transaction Account Number]: #custom-extensions
 [Financial Transaction Alias]: #custom-extensions
 [Financial Transaction Allocation]: #custom-extensions
@@ -199,3 +202,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Financial Transaction Method]: #custom-extensions
 [Financial Transaction Tendered Amount]: #custom-extensions
 [Financial Transaction Type]: #custom-extensions
+[Apply First In First Out]: #custom-extensions
