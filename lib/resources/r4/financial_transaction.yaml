@@ -291,3 +291,18 @@ fields:
       - display: Currencies
         system: urn:iso:std:iso:4217
         info_link: https://hl7.org/fhir/r4/valueset-currencies.html
+
+- name: Apply First In First Out Extension
+  required: 'No'
+  type: Boolean
+  description: Whether to apply FIFO logic for recurring encounters or not.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out",
+      "valueBoolean": true
+    }
+  note:
+    - The default value is boolean value 'true'.
+    - Only supported when the target is Encounter
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out?_format=json
