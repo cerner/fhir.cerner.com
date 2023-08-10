@@ -1472,14 +1472,14 @@ module Cerner
 
     R4_OBSERVATION_VITALS_PO_UPDATE ||= {
       "resourceType": 'Observation',
-      "id": 'VS-197356031',
+      "id": 'VS-CV-83059963-SECT-8098',
       "identifier": [
         {
-          "system": 'https://fhir.cerner.com/ceuuid',
-          "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-197356031-2021061619245900'
+          "system": 'https://fhir.cerner.com/cvuuid',
+          "value": '8344a9b7-b1b7-406e-b303-1009edd66459'
         }
       ],
-      "status": 'corrected',
+      "status": 'amended',
       "category": [
         {
           "coding": [
@@ -1495,13 +1495,17 @@ module Cerner
       "code": {
         "coding": [
           {
-            "system": 'https://fhir.cerner.com/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/codeSet/72',
-            "code": '703558',
-            "display": 'Temperature Oral',
-            "userSelected": true
+            "system": 'http://loinc.org',
+            "code": '2708-6',
+            "display": 'Oxygen saturation in Arterial blood'
+          },
+          {
+            "system": 'http://loinc.org',
+            "code": '59408-5',
+            "display": 'Oxygen saturation in Arterial blood by Pulse oximetry'
           }
         ],
-        "text": 'Temperature Oral'
+        "text": 'SpO2'
       },
       "subject": {
         "reference": 'Patient/12457979'
@@ -1509,8 +1513,8 @@ module Cerner
       "encounter": {
         "reference": 'Encounter/97787491'
       },
-      "effectiveDateTime": '2020-07-04T07:15:00.000Z',
-      "issued": '2021-05-06T20:07:14.000Z',
+      "effectiveDateTime": '2022-06-05T08:00:38.022Z',
+      "issued": '2022-06-05T08:00:56Z',
       "performer": [
         {
           "extension": [
@@ -1528,15 +1532,53 @@ module Cerner
               "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
             }
           ],
-          "reference": 'Practitioner/1'
+          "reference": 'Practitioner/15441459'
         }
       ],
       "valueQuantity": {
-        "value": 123,
-        "unit": 'mmHg',
+        "value": 44,
+        "unit": '%',
         "system": 'http://unitsofmeasure.org',
-        "code": 'mm[Hg]'
-      }
+        "code": '%'
+      },
+      "component": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '3151-8',
+                "display": 'Inhaled oxygen flow rate'
+              }
+            ],
+            "text": 'Oxygen Flow Rate'
+          },
+          "valueQuantity": {
+            "value": 55,
+            "unit": 'L/min',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'L/min'
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '3150-0',
+                "display": 'Inhaled oxygen concentration'
+              }
+            ],
+            "text": 'FIO2'
+          },
+          "valueQuantity": {
+            "value": 66,
+            "unit": '%',
+            "system": 'http://unitsofmeasure.org',
+            "code": '%'
+          }
+        }
+      ]
     }.freeze
 
     R4_OBSERVATION_REVINCLUDE_BUNDLE ||= {

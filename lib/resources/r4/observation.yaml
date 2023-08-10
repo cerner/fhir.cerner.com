@@ -625,7 +625,7 @@ fields:
     </ul>
 
     <ul>
-      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime`. </li>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString`, `valueAttachment` and `valueDateTime`. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
@@ -1107,7 +1107,7 @@ fields:
         info_link: https://hl7.org/fhir/R4/valueset-data-absent-reason.html
 
 - name: component
-  required: 'no'
+  required: 'No'
   type: List of BackboneElement
   description:
     Some observations have multiple component observations. These component observations are expressed as separate code

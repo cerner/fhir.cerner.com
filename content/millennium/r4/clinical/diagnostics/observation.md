@@ -271,11 +271,11 @@ _Note_:
 <%= json(:R4_OBSERVATION_CREATE) %>
 
 #### Vitals - Blood Pressure Body Example
-
+<%= beta_tag(action: true) %>
 <%= json(:R4_OBSERVATION_BP_CREATE) %>
 
 #### Vitals - Pulse Oximetry Body Example
-
+<%= beta_tag(action: true) %>
 <%= json(:R4_OBSERVATION_PO_CREATE) %>
 
 #### Labs Body Example
@@ -358,7 +358,7 @@ _Note_:
     PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/BP-59857018-59857020
 
 #### Vitals - Blood Pressure Body Example
-
+<%= beta_tag(action: true) %>
 <%= json(:R4_OBSERVATION_VITALS_BP_UPDATE) %>
 
 #### Request
@@ -366,7 +366,7 @@ _Note_:
     PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-CV-78693473-SECT-8098
 
 #### Vitals - Pulse Oximetry Body Example
-
+<%= beta_tag(action: true) %>
 <%= json(:R4_OBSERVATION_VITALS_PO_UPDATE) %>
 
 #### Response
