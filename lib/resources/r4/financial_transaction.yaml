@@ -304,7 +304,7 @@ fields:
     }
   note: >
     <ul>
-      <li>The default value is the boolean value 'true'.</li>
+      <li>The default boolean value is 'true'.</li>
       <li>When the value is 'true' the payment will be posted across existing financial activity with any outstanding balances using FIFO logic. If there is no existing financial activity, the system will create a new financial activity for the current month and post the payment. If there is an existing financial activity with no outstanding balance, the system will post the payment to the latest month's financial activity.</li>
       <li>When the value is 'false' the system will post the payment to the current month's financial activity given it exists. If not, the system creates a new financial activity for the current month and posts the payment.</li>
       <li>Only supported for the Payment Transaction Type with target as Encounter</li>
