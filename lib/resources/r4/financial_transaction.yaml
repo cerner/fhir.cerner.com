@@ -305,6 +305,8 @@ fields:
   note: >
     <ul>
       <li>The default value is boolean value 'true'.</li>
+      <li>When the value is 'true' the payment will be posted across existing self-pay balances.</li>
+      <li>When the value is 'false' the system creates a new recurring encounter and posts the payment to the new self pay balance.</li>
       <li>Only supported when the target is Encounter</li>
     </ul>
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out?_format=json
