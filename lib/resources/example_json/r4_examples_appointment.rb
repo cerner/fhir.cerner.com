@@ -21,6 +21,10 @@ module Cerner
         },
         'extension': [
           {
+            'valueString': 'not required, cancelled',
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment'
+          },
+          {
             'valueBoolean': false,
             'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable'
           },
