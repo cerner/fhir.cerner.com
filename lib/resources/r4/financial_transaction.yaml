@@ -305,9 +305,9 @@ fields:
   note: >
     <ul>
       <li>The default boolean value is 'true'.</li>
-      <li>When the value is 'true' the payment will be posted across existing financial activity with any outstanding balances using FIFO logic. If there is no existing financial activity, the system will create a new financial activity for the current month and post the payment. If there is an existing financial activity with no outstanding balance, the system will post the payment to the latest month's financial activity.</li>
-      <li>When the value is 'false' the system will post the payment to the current month's financial activity given it exists. If not, the system creates a new financial activity for the current month and posts the payment.</li>
+      <li>When the value is 'true' the system posts the payment across existing financial activity with any outstanding balances using FIFO logic. If there is no existing financial activity, the system creates a new financial activity for the current month and posts the payment to the new financial activity. If there is an existing financial activity with no outstanding balance, the system will post the payment to the latest month's financial activity.</li>
+      <li>When the value is 'false' the system posts the payment to the current month's financial activity given it exists. If there is no existing financial activity, the system creates a new financial activity for the current month and posts the payment.</li>
       <li>Only supported for the Payment Transaction Type with target as Encounter</li>
-      <li>This extension is only supported for recurring encounter and not other types of encounters like inpatient, outpatient, etc.</li>
+      <li>Only supported for recurring encounters and not other types of encounters like inpatient, outpatient, etc.</li>
     </ul>
   url: https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out?_format=json
