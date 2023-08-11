@@ -274,7 +274,7 @@ operations:
   - name: replace-action-comment
     path: /extension
     operation: replace
-    type: code
+    type: Extension
     url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension
     description: The comment to be associated with the action performed on the resource.
     example: |
@@ -296,7 +296,7 @@ operations:
   - name: replace-comment
     path: /comment
     operation: replace
-    type: code
+    type: string
     url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment
     description: Additional text to aid in facilitating the appointment.
     example: |
