@@ -518,6 +518,24 @@ module Cerner
       }
     ].freeze
 
+    R4_APPOINTMENT_EXTENSION_ACTION_COMMENT_PATCH ||=  [
+      {
+        "op": "replace",
+        "path": "/extension",
+        "value": [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment",
+            "valueString": "not required cancelled"
+          }
+        ]
+      },
+      {
+        "op": "replace",
+        "path": "/status",
+        "value": "cancelled"
+      }
+    ].freeze
+
     R4_APPOINTMENT_CREATE ||= {
       'resourceType': 'Appointment',
       'status': 'booked',
