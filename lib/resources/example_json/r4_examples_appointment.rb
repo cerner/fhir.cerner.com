@@ -21,7 +21,7 @@ module Cerner
         },
         'extension': [
           {
-            'valueString': 'not required, cancelled',
+            'valueString': 'Appointment action comment',
             'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment'
           },
           {
@@ -96,6 +96,7 @@ module Cerner
             'reference': 'Slot/21265426-633867-6828001-60'
           }
         ],
+        'comment': 'Appointment request comment',
         'participant': [
           {
             'type': [
