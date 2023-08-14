@@ -290,7 +290,7 @@ operations:
         }
     note: >
       <ul>
-        <li>This patch operation must be accompanied by the replace status patch operation when updating status to "arrived", "checked-in", "cancelled", and "fulfilled".</li>
+        <li>When present, this patch operation must be accompanied by the replace status Patch operation with a value of "cancelled".</li>
         <li>Only one value may be provided in the value array.</li>
       </ul>
   - name: replace-comment
@@ -307,5 +307,5 @@ operations:
       }
     note: >
       <ul>
-        <li>This Patch comment operation should be accompanied with replace slot operation with an appropriate Slot reference Id.</li>
+        <li>When present, this patch operation must be accompanied with replace slot Patch operation.</li>
       </ul>
