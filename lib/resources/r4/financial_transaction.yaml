@@ -291,3 +291,23 @@ fields:
       - display: Currencies
         system: urn:iso:std:iso:4217
         info_link: https://hl7.org/fhir/r4/valueset-currencies.html
+
+- name: Apply First In First Out Extension
+  required: 'No'
+  type: Boolean
+  description: Whether to apply FIFO logic for recurring encounters or not.
+  action: create
+  example: |
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out",
+      "valueBoolean": true
+    }
+  note: >
+    <ul>
+      <li>The default boolean value is 'true'.</li>
+      <li>When the value is 'true' the system posts the payment across existing financial activity with any outstanding balances using FIFO logic. If there is no existing financial activity, the system creates a new financial activity for the current month and posts the payment to the new financial activity. If there is an existing financial activity with no outstanding balance, the system will post the payment to the latest month's financial activity.</li>
+      <li>When the value is 'false' the system posts the payment to the current month's financial activity given it exists. If there is no existing financial activity, the system creates a new financial activity for the current month and posts the payment.</li>
+      <li>Only supported for the Payment Transaction Type with target as Encounter</li>
+      <li>Only supported for recurring encounters and not other types of encounters like inpatient, outpatient, etc.</li>
+    </ul>
+  url: https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out?_format=json

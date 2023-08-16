@@ -17,6 +17,7 @@ The FinancialTransaction resource provides the ability to record and exchange fi
 
 ## Extensions
 
+* [Apply First In First Out]
 * [Financial Transaction Account Number]
 * [Financial Transaction Alias]
 * [Financial Transaction Allocation]
@@ -34,6 +35,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
  ID                                      | Value\[x] Type                    | Description
 -----------------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `apply-first-in-first-out`              | [`boolean`]                       | Whether to apply FIFO logic for recurring encounters or not.
  `financial-transaction-account-number`  | [`string`]                        | A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
  `financial-transaction-alias`           | [`string`]                        | Client defined value to represent the combination of the type, subtype, and reason describing the financial transaction.
  `financial-transaction-allocation`      | None (contains nested extensions) | Defines how the payment or adjustment is to be allocated across other resources.
@@ -189,6 +191,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`Extension`]: https://www.hl7.org/fhir/r4/extensibility.html#Extension
 [`Money`]: https://hl7.org/fhir/r4/datatypes.html#Money
 [`string`]: https://www.hl7.org/fhir/r4/datatypes.html#string
+[`boolean`]: https://www.hl7.org/fhir/r4/datatypes.html#boolean
+[Apply First In First Out]: #custom-extensions
 [Financial Transaction Account Number]: #custom-extensions
 [Financial Transaction Alias]: #custom-extensions
 [Financial Transaction Allocation]: #custom-extensions
