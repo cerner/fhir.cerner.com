@@ -271,3 +271,41 @@ operations:
         <li>This patch operation may be used only for appointments with a "booked" status</li>
         <li>This patch operation may be used only for Patient participants with a "tentative" status</li>
       </ul>
+  - name: replace-action-comment
+    path: /extension
+    operation: replace
+    type: Extension
+    url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension
+    description: The comment to be associated with the action performed on the resource.
+    example: |
+        {
+          "op": "replace",
+          "path": "/extension",
+          "value": [
+            {
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment",
+              "valueString": "not required, cancelled"
+            }
+          ]
+        }
+    note: >
+      <ul>
+        <li>When present, this patch operation must be accompanied by the replace status patch operation when updating the status to "cancelled".</li>
+        <li>Only one value may be provided in the value array.</li>
+      </ul>
+  - name: replace-comment
+    path: /comment
+    operation: replace
+    type: string
+    url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment
+    description: Additional text to aid in facilitating the appointment.
+    example: |
+      {
+        "op": "replace",
+        "path": "/comment",
+        "value": "Arrived"
+      }
+    note: >
+      <ul>
+        <li>When present, this patch operation must be accompanied with replace slot Patch operation.</li>
+      </ul>

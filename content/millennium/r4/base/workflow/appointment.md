@@ -51,7 +51,7 @@ The following fields are returned if valued:
 * [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * [Patient Instruction](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction){:target="_blank"}
 * [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
-* [Extensions including is cancelable, is reschedulable, group appointment id](#extensions){:target="_blank"}
+* [Extensions including action comment, group appointment id, is cancelable, is reschedulable](#extensions){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -59,9 +59,10 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [Action Comment]
+* [Group Appointment Id]
 * [Is Cancelable]
 * [Is Reschedulable]
-* [Group Appointment Id]
 
 ### Custom Extensions
 
@@ -69,9 +70,10 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ID                               | Value\[x] Type                                              | Description
 -----------------------------    |-------------------------------------------------------------|--------------------------------------------------------------------
+`action-comment`                 | [`string`](https://hl7.org/fhir/r4/datatypes.html#string)   | The comment to be associated with the action performed on the resource.
+`group-appointment-id`           | [`string`](https://hl7.org/fhir/r4/datatypes.html#string)   | The ID of the appointment group that this appointment is a part of.
 `is-cancelable`                  | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be canceled or not.
 `is-reschedulable`               | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be rescheduled or not.
-`group-appointment-id`           | [`string`](https://hl7.org/fhir/r4/datatypes.html#string)   | The ID of the appointment group that this appointment is a part of.
 
 ## Search
 
@@ -426,6 +428,34 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 <%= disclaimer %>
 
+### Example - Update Action Comment
+
+#### Request
+
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
+
+#### Body
+
+<%= json(:r4_appointment_extension_action_comment_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Fri, 11 Aug 2023 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Fri, 11 Aug 2023 15:42:29 GMT
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -549,6 +579,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [implicitRules]: http://hl7.org/fhir/r4/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension
 [OperationOutcomes]: ../../../#operation-outcomes
+[Action Comment]: #custom-extensions
+[Group Appointment Id]: #custom-extensions
 [Is Cancelable]: #custom-extensions
 [Is Reschedulable]: #custom-extensions
-[Group Appointment Id]: #custom-extensions

@@ -21,6 +21,10 @@ module Cerner
         },
         'extension': [
           {
+            'valueString': 'Appointment action comment',
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment'
+          },
+          {
             'valueBoolean': false,
             'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable'
           },
@@ -92,6 +96,7 @@ module Cerner
             'reference': 'Slot/21265426-633867-6828001-60'
           }
         ],
+        'comment': 'Appointment request comment',
         'participant': [
           {
             'type': [
@@ -515,6 +520,24 @@ module Cerner
         'op': 'replace',
         'path': '/patient-status',
         'value': 'accepted'
+      }
+    ].freeze
+
+    R4_APPOINTMENT_EXTENSION_ACTION_COMMENT_PATCH ||= [
+      {
+        'op': 'replace',
+        'path': '/extension',
+        'value': [
+          {
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment',
+            'valueString': 'not required cancelled'
+          }
+        ]
+      },
+      {
+        'op': 'replace',
+        'path': '/status',
+        'value': 'cancelled'
       }
     ].freeze
 
