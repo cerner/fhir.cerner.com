@@ -71,6 +71,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_condition_bundle) %>
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 ### Example Read by Ids
 
@@ -83,6 +84,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_condition_bundle_by_id) %>
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 ### Errors
 
@@ -113,6 +115,7 @@ List an individual Condition by its id:
 <%= headers status: 200 %>
 <%= json(:dstu2_condition_health_concern_resource) %>
 <%= disclaimer %>
+<%= security_field_disclaimer %>
 
 ### Errors
 
