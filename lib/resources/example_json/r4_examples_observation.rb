@@ -806,6 +806,254 @@ module Cerner
       ]
     }.freeze
 
+    R4_OBSERVATION_BP_CREATE ||= {
+      "resourceType": 'Observation',
+      "status": 'final',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '85354-9'
+          }
+        ],
+        "text": 'Blood pressure'
+      },
+      "subject": {
+        "reference": 'Patient/12457981'
+      },
+      "encounter": {
+        "reference": 'Encounter/97845408'
+      },
+      "effectiveDateTime": '2022-06-04T08:00:38.000Z',
+      "issued": '2022-06-04T08:00:38Z',
+      "component": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '8480-6'
+              }
+            ],
+            "text": 'Systolic Blood Pressure Invasive'
+          },
+          "valueQuantity": {
+            "value": 120,
+            "unit": 'mmHg',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'mm[Hg]'
+          },
+          "interpretation": [
+            {
+              "coding": [
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                  "code": 'N'
+                }
+              ]
+            }
+          ],
+          "referenceRange": [
+            {
+              "low": {
+                "value": 45.0,
+                "unit": 'mmHg',
+                "system": 'http://unitsofmeasure.org',
+                "code": 'mm[Hg]'
+              },
+              "high": {
+                "value": 75.0,
+                "unit": 'mmHg',
+                "system": 'http://unitsofmeasure.org',
+                "code": 'mm[Hg]'
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                    "code": 'normal'
+                  }
+                ],
+                "text": 'Normal Range'
+              }
+            }
+          ]
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '8462-4'
+              }
+            ],
+            "text": 'Diastolic Blood Pressure Invasive'
+          },
+          "valueQuantity": {
+            "value": 80,
+            "unit": 'mmHg',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'mm[Hg]'
+          },
+          "interpretation": [
+            {
+              "coding": [
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                  "code": 'N'
+                }
+              ]
+            }
+          ],
+          "referenceRange": [
+            {
+              "low": {
+                "value": 35.8,
+                "unit": 'mmHg',
+                "system": 'http://unitsofmeasure.org',
+                "code": 'mm[Hg]'
+              },
+              "high": {
+                "value": 37.3,
+                "unit": 'mmHg',
+                "system": 'http://unitsofmeasure.org',
+                "code": 'mm[Hg]'
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                    "code": 'normal'
+                  }
+                ],
+                "text": 'Normal Range'
+              }
+            }
+          ]
+        }
+      ]
+    }.freeze
+
+    R4_OBSERVATION_PO_CREATE ||= {
+      "resourceType": 'Observation',
+      "status": 'final',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '59408-5'
+          }
+        ],
+        "text": 'SpO2'
+      },
+      "subject": {
+        "reference": 'Patient/12457981'
+      },
+      "encounter": {
+        "reference": 'Encounter/97845408'
+      },
+      "effectiveDateTime": '2022-06-05T08:00:38.004Z',
+      "issued": '2022-06-05T08:00:34Z',
+      "performer": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                    "code": 'LA',
+                    "display": 'legal authenticator'
+                  }
+                ],
+                "text": 'legal authenticator'
+              },
+              "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+            }
+          ],
+          "reference": 'Practitioner/15441459'
+        }
+      ],
+      "component": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '3151-8',
+                "display": 'Inhaled oxygen flow rate'
+              }
+            ],
+            "text": 'Oxygen Flow Rate'
+          },
+          "valueQuantity": {
+            "value": 7,
+            "unit": 'L/min',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'L/min'
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '3150-0'
+              }
+            ],
+            "text": 'FIO2'
+          },
+          "valueQuantity": {
+            "value": 21,
+            "unit": '%',
+            "system": 'http://unitsofmeasure.org',
+            "code": '%'
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '59408-5'
+              }
+            ],
+            "text": 'SpO2'
+          },
+          "valueQuantity": {
+            "value": 96,
+            "unit": '%',
+            "system": 'http://unitsofmeasure.org',
+            "code": '%'
+          }
+        }
+      ]
+    }.freeze
+
     R4_OBSERVATION_LABS_CREATE ||= {
       "resourceType": 'Observation',
       "status": 'final',
@@ -1044,6 +1292,293 @@ module Cerner
         "system": 'http://unitsofmeasure.org',
         "code": 'mm[Hg]'
       }
+    }.freeze
+
+    R4_OBSERVATION_VITALS_BP_UPDATE ||= {
+      "resourceType": 'Observation',
+      "id": 'BP-59857018-59857020',
+      "identifier": [
+        {
+          "system": 'https://fhir.cerner.com/ceuuid',
+          "value": 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-59857018-2022111805415000'
+        },
+        {
+          "system": 'https://fhir.cerner.com/ceuuid',
+          "value": 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-59857020-2022111805415000'
+        }
+      ],
+      "status": 'corrected',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '85354-9',
+            "display": 'Blood pressure panel with all children optional'
+          }
+        ],
+        "text": 'Blood pressure'
+      },
+      "subject": {
+        "reference": 'Patient/15116458'
+      },
+      "encounter": {
+        "reference": 'Encounter/15687784'
+      },
+      "effectiveDateTime": '2022-06-09T08:00:58.000Z',
+      "issued": '2022-06-09T08:00:58.000Z',
+      "performer": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                    "code": 'LA',
+                    "display": 'legal authenticator'
+                  }
+                ],
+                "text": 'legal authenticator'
+              },
+              "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+            }
+          ],
+          "reference": 'Practitioner/15441459'
+        }
+      ],
+      "component": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '8480-6'
+              }
+            ],
+            "text": 'Systolic Blood Pressure Sitting'
+          },
+          "valueQuantity": {
+            "value": 99,
+            "unit": 'mmHg',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'mm[Hg]'
+          },
+          "interpretation": [
+            {
+              "coding": [
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                  "code": 'N',
+                  "display": 'Normal'
+                }
+              ]
+            }
+          ],
+          "referenceRange": [
+            {
+              "low": {
+                "value": 35,
+                "unit": 'mmHg',
+                "system": 'http://unitsofmeasure.org',
+                "code": 'mm[Hg]'
+              },
+              "high": {
+                "value": 37,
+                "unit": 'mmHg',
+                "system": 'http://unitsofmeasure.org',
+                "code": 'mm[Hg]'
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                    "code": 'normal',
+                    "display": 'Normal Range'
+                  }
+                ],
+                "text": 'Normal Range'
+              }
+            }
+          ]
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '8462-4'
+              }
+            ],
+            "text": 'Diastolic Blood Pressure Sitting'
+          },
+          "valueQuantity": {
+            "value": 66,
+            "unit": 'mmHg',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'mm[Hg]'
+          },
+          "interpretation": [
+            {
+              "coding": [
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                  "code": 'N',
+                  "display": 'Normal'
+                }
+              ]
+            }
+          ],
+          "referenceRange": [
+            {
+              "low": {
+                "value": 35,
+                "unit": 'mmHg',
+                "system": 'http://unitsofmeasure.org',
+                "code": 'mm[Hg]'
+              },
+              "high": {
+                "value": 37,
+                "unit": 'mmHg',
+                "system": 'http://unitsofmeasure.org',
+                "code": 'mm[Hg]'
+              },
+              "type": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                    "code": 'normal',
+                    "display": 'Normal Range'
+                  }
+                ],
+                "text": 'Normal Range'
+              }
+            }
+          ]
+        }
+      ]
+    }.freeze
+
+    R4_OBSERVATION_VITALS_PO_UPDATE ||= {
+      "resourceType": 'Observation',
+      "id": 'VS-CV-83059963-SECT-8098',
+      "identifier": [
+        {
+          "system": 'https://fhir.cerner.com/cvuuid',
+          "value": '8344a9b7-b1b7-406e-b303-1009edd66459'
+        }
+      ],
+      "status": 'amended',
+      "category": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+              "code": 'vital-signs',
+              "display": 'Vital Signs'
+            }
+          ],
+          "text": 'Vital Signs'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '2708-6',
+            "display": 'Oxygen saturation in Arterial blood'
+          },
+          {
+            "system": 'http://loinc.org',
+            "code": '59408-5',
+            "display": 'Oxygen saturation in Arterial blood by Pulse oximetry'
+          }
+        ],
+        "text": 'SpO2'
+      },
+      "subject": {
+        "reference": 'Patient/12457979'
+      },
+      "encounter": {
+        "reference": 'Encounter/97787491'
+      },
+      "effectiveDateTime": '2022-06-05T08:00:38.022Z',
+      "issued": '2022-06-05T08:00:56Z',
+      "performer": [
+        {
+          "extension": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                    "code": 'LA',
+                    "display": 'legal authenticator'
+                  }
+                ],
+                "text": 'legal authenticator'
+              },
+              "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+            }
+          ],
+          "reference": 'Practitioner/15441459'
+        }
+      ],
+      "valueQuantity": {
+        "value": 44,
+        "unit": '%',
+        "system": 'http://unitsofmeasure.org',
+        "code": '%'
+      },
+      "component": [
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '3151-8',
+                "display": 'Inhaled oxygen flow rate'
+              }
+            ],
+            "text": 'Oxygen Flow Rate'
+          },
+          "valueQuantity": {
+            "value": 55,
+            "unit": 'L/min',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'L/min'
+          }
+        },
+        {
+          "code": {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '3150-0',
+                "display": 'Inhaled oxygen concentration'
+              }
+            ],
+            "text": 'FIO2'
+          },
+          "valueQuantity": {
+            "value": 66,
+            "unit": '%',
+            "system": 'http://unitsofmeasure.org',
+            "code": '%'
+          }
+        }
+      ]
     }.freeze
 
     R4_OBSERVATION_REVINCLUDE_BUNDLE ||= {

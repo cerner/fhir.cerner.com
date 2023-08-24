@@ -625,7 +625,7 @@ fields:
     </ul>
 
     <ul>
-      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString` and `valueDateTime`. </li>
+      <li> Laboratory support `valueQuantity`, `valueCodeableConcept`, `valueString`, `valueAttachment` and `valueDateTime`. </li>
     </ul>
   url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.value[x]
 
@@ -1105,3 +1105,161 @@ fields:
       - display: v4 data absentreason
         system: http://terminology.hl7.org/CodeSystem/data-absent-reason
         info_link: https://hl7.org/fhir/R4/valueset-data-absent-reason.html
+
+- name: component
+  required: 'No'
+  type: List of BackboneElement
+  description:
+    Some observations have multiple component observations. These component observations are expressed as separate code
+    value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood
+    pressure measurement and multiple component observations for genetics observations.
+  action:
+    - create
+    - update
+  example: |
+    {
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '8480-6'
+          }
+        ],
+        "text": 'Systolic Blood Pressure Invasive'
+      },
+      "valueQuantity": {
+        "value": 120,
+        "unit": 'mmHg',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mm[Hg]'
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+              "code": 'N'
+            }
+          ]
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 45.0,
+            "unit": 'mmHg',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'mm[Hg]'
+          },
+          "high": {
+            "value": 75.0,
+            "unit": 'mmHg',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'mm[Hg]'
+          },
+          "type": {
+            "coding": [
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                "code": 'normal'
+              }
+            ],
+            "text": 'Normal Range'
+          }
+        }
+      ]
+    }
+  url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.component
+  note: |
+    <ul>
+      <li> Component is required to create blood pressure. </li>
+    </ul>
+  children:
+
+  - name: code
+    required: 'Yes'
+    type: CodeableConcept
+    description: Describes what was observed. Sometimes this is called the observation "name".
+    example: |
+      {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '8480-6'
+          }
+        ],
+        "text": 'Systolic Blood Pressure Invasive'
+      }
+    url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.code
+
+  - name: value[x]
+    required: 'No'
+    type: List of CodeableConcept
+    description: The information determined as a result of making the observation, if the information has a simple value.
+    example: |
+      {
+        "value": 120,
+        "unit": 'mmHg',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mm[Hg]'
+      }
+    note: |
+      <ul>
+        <li> Supports writing observations with only valueQuantity. </li>
+      </ul>
+    url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.value[x]
+  
+  - name: interpretation
+    required: 'No'
+    type: List of CodeableConcept
+    description: A categorical assessment of an observation value. For example, high, low, normal.
+    example: |
+     {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+            "code": 'N'
+          }
+        ],
+        "text": 'NORMAL'
+      }
+    note: |
+      <ul>
+        <li> Only one interpretation may be supplied. </li>
+      </ul>
+    url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.interpretation
+
+  - name: referenceRange
+    required: 'No'
+    type: CodeableConcept
+    description: Guidance on how to interpret the value by comparison to a normal or recommended range.
+    example: |
+      {
+        "low": {
+          "value": 45.0,
+          "unit": 'mmHg',
+          "system": 'http://unitsofmeasure.org',
+          "code": 'mm[Hg]'
+        },
+        "high": {
+          "value": 75.0,
+          "unit": 'mmHg',
+          "system": 'http://unitsofmeasure.org',
+          "code": 'mm[Hg]'
+        },
+        "type": {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+              "code": 'normal'
+            }
+          ],
+          "text": 'Normal Range'
+        }
+      }
+    note: |
+      <ul>
+        <li> Only one referenceRange is supported </li>
+        <li> `ReferenceRange.text` is not supported when `referenceRange.high` and/or `referenceRange.low` are provided. Only a referenceRange.type of `normal` is supported. </li>
+      </ul>
+    url: https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.referenceRange
