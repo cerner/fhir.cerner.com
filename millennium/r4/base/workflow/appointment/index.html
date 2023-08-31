@@ -106,6 +106,7 @@
       <li><a href="#example---add-video-visit-links" id="markdown-toc-example---add-video-visit-links">Example - Add Video Visit Links</a></li>
       <li><a href="#example---replace-video-visit-links" id="markdown-toc-example---replace-video-visit-links">Example - Replace Video Visit Links</a></li>
       <li><a href="#example---update-participant-status" id="markdown-toc-example---update-participant-status">Example - Update Participant Status</a></li>
+      <li><a href="#example---update-action-comment" id="markdown-toc-example---update-action-comment">Example - Update Action Comment</a></li>
       <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
@@ -172,7 +173,7 @@
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment" target="_blank">Comment</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction" target="_blank">Patient Instruction</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod" target="_blank">Requested period</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including is cancelable, is reschedulable, group appointment id</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including action comment, group appointment id, is cancelable, is reschedulable</a></li>
 </ul>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
@@ -449,9 +450,10 @@
 <h2 id="extensions">Extensions</h2>
 
 <ul>
+  <li><a href="#custom-extensions">Action Comment</a></li>
+  <li><a href="#custom-extensions">Group Appointment Id</a></li>
   <li><a href="#custom-extensions">Is Cancelable</a></li>
   <li><a href="#custom-extensions">Is Reschedulable</a></li>
-  <li><a href="#custom-extensions">Group Appointment Id</a></li>
 </ul>
 
 <h3 id="custom-extensions">Custom Extensions</h3>
@@ -468,6 +470,16 @@
   </thead>
   <tbody>
     <tr>
+      <td><code>action-comment</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>The comment to be associated with the action performed on the resource.</td>
+    </tr>
+    <tr>
+      <td><code>group-appointment-id</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
+      <td>The ID of the appointment group that this appointment is a part of.</td>
+    </tr>
+    <tr>
       <td><code>is-cancelable</code></td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>boolean</code></a></td>
       <td>Indication of whether the Appointment can be canceled or not.</td>
@@ -476,11 +488,6 @@
       <td><code>is-reschedulable</code></td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>boolean</code></a></td>
       <td>Indication of whether the Appointment can be rescheduled or not.</td>
-    </tr>
-    <tr>
-      <td><code>group-appointment-id</code></td>
-      <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
-      <td>The ID of the appointment group that this appointment is a part of.</td>
     </tr>
   </tbody>
 </table>
@@ -636,6 +643,10 @@
           },
           "extension": [
             {
+              "valueString": "Appointment action comment",
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment"
+            },
+            {
               "valueBoolean": false,
               "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable"
             },
@@ -707,6 +718,7 @@
               "reference": "Slot/21265426-633867-6828001-60"
             }
           ],
+          "comment": "Appointment request comment",
           "participant": [
             {
               "type": [
@@ -820,6 +832,10 @@
     },
     "extension": [
       {
+        "valueString": "Appointment action comment",
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment"
+      },
+      {
         "valueBoolean": false,
         "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable"
       },
@@ -891,6 +907,7 @@
         "reference": "Slot/21265426-633867-6828001-60"
       }
     ],
+    "comment": "Appointment request comment",
     "participant": [
       {
         "type": [
@@ -1851,6 +1868,96 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       </td>
     </tr>
   
+    <tr>
+      <td>
+        <a name="replace-action-comment">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension"><code>/extension</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The comment to be associated with the action performed on the resource.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/extension",
+  "value": [
+    {
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment",
+      "valueString": "not required, cancelled"
+    }
+  ]
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When present, this patch operation must be accompanied by the replace status patch operation when updating the status to "cancelled".</li>
+  <li>Only one value may be provided in the value array.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="replace-comment">
+          
+            </a><a target="_blank" href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment"><code>/comment</code></a>
+          
+        
+      </td>
+      <td>replace</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>Additional text to aid in facilitating the appointment.</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "replace",
+  "path": "/comment",
+  "value": "Arrived"
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When present, this patch operation must be accompanied with replace slot Patch operation.</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
   </tbody>
 </table>
 
@@ -2207,6 +2314,52 @@ Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Vary: Origin
+X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+</pre>
+
+<p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example---update-action-comment">Example - Update Action Comment</h3>
+
+<h4 id="request-11">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
+</code></pre>
+
+<h4 id="body-8">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "replace",
+    "path": "/extension",
+    "value": [
+      {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment",
+        "valueString": "not required cancelled"
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/status",
+    "value": "cancelled"
+  }
+]</code></pre>
+
+<h4 id="response-11">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Fri, 11 Aug 2023 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Fri, 11 Aug 2023 15:42:29 GMT
 Vary: Origin
 X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 </pre>
@@ -2747,12 +2900,12 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
 
 <h3 id="example---proposed-appointment">Example - Proposed Appointment</h3>
 
-<h4 id="request-11">Request</h4>
+<h4 id="request-12">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
 </code></pre>
 
-<h4 id="body-8">Body</h4>
+<h4 id="body-9">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
@@ -2796,7 +2949,7 @@ X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
   ]
 }</code></pre>
 
-<h4 id="response-11">Response</h4>
+<h4 id="response-12">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -2818,12 +2971,12 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
 
 <h3 id="example---booked-appointment">Example - Booked Appointment</h3>
 
-<h4 id="request-12">Request</h4>
+<h4 id="request-13">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
 </code></pre>
 
-<h4 id="body-9">Body</h4>
+<h4 id="body-10">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Appointment",
@@ -2848,7 +3001,7 @@ X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
   ]
 }</code></pre>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 

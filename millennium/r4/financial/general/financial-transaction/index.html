@@ -313,12 +313,14 @@
       </td>
     </tr>
     
+      
   </tbody>
 </table>
 
 <h2 id="extensions">Extensions</h2>
 
 <ul>
+  <li><a href="#custom-extensions">Apply First In First Out</a></li>
   <li><a href="#custom-extensions">Financial Transaction Account Number</a></li>
   <li><a href="#custom-extensions">Financial Transaction Alias</a></li>
   <li><a href="#custom-extensions">Financial Transaction Allocation</a></li>
@@ -344,6 +346,11 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td><code>apply-first-in-first-out</code></td>
+      <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#boolean"><code>boolean</code></a></td>
+      <td>Whether to apply FIFO logic for recurring encounters or not.</td>
+    </tr>
     <tr>
       <td><code>financial-transaction-account-number</code></td>
       <td><a href="https://www.hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
@@ -1072,6 +1079,53 @@
       
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>Must equal the sum of all amounts in the <code>financial-transaction-allocation</code> extension.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-Apply%20First%20In%20First%20Out%20Extension">
+        
+          </a><a target="_blank" href="https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out?_format=json"><code>Apply First In First Out Extension</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>Boolean</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Whether to apply FIFO logic for recurring encounters or not.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/apply-first-in-first-out",
+  "valueBoolean": true
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li>The default boolean value is 'true'.</li>
+  <li>When the value is 'true' the system posts the payment across existing financial activity with any outstanding balances using FIFO logic. If there is no existing financial activity, the system creates a new financial activity for the current month and posts the payment to the new financial activity. If there is an existing financial activity with no outstanding balance, the system will post the payment to the latest month's financial activity.</li>
+  <li>When the value is 'false' the system posts the payment to the current month's financial activity given it exists. If there is no existing financial activity, the system creates a new financial activity for the current month and posts the payment.</li>
+  <li>Only supported for the Payment Transaction Type with target as Encounter</li>
+  <li>Only supported for recurring encounters and not other types of encounters like inpatient, outpatient, etc.</li>
+</ul>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>

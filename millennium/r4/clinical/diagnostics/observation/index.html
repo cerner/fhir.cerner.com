@@ -693,6 +693,11 @@
       </td>
     </tr>
     
+      
+      
+      
+      
+      
   </tbody>
 </table>
 
@@ -2042,7 +2047,7 @@ This extension is defined and referenced from the newer version of FHIR. See <a 
 
 <ul>
   <li>See <a href="https://wiki.cerner.com/pages/releaseview.action?spaceKey=reference&amp;title=Understand%20Supported%20Vital%20Signs%20in%20the%20FHIR%20Observation%20Resource">Understand Supported Vital Signs in the FHIR Observation Resource</a> for a list of vital signs that are supported for the create operation.</li>
-  <li>Components are not currently supported when writing Blood Pressures.</li>
+  <li>Components are supported only when writing Observation Blood Pressure and Pulse Oximetry Profiles.</li>
   <li>Individual systolic and diastolic components will be paired upon subsequent search or read as long as the blood
 pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display/public/reference/Configure+Blood+Pressure+Event+Set+Hierarchy+Pairing">Configure Blood Pressure Event Set Pairing Hierarchy</a>.</li>
   <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
@@ -2677,7 +2682,7 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
 </ul>
 
 <ul>
-  <li> Laboratory support <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code> and <code>valueDateTime</code>. </li>
+  <li> Laboratory support <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code>, <code>valueAttachment</code> and <code>valueDateTime</code>. </li>
 </ul>
 </li></ul>
       
@@ -3035,6 +3040,294 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
       </td>
     </tr>
     
+    <tr>
+      <td>
+        <a name="create-component">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component"><code>component</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": 'http://loinc.org',
+        "code": '8480-6'
+      }
+    ],
+    "text": 'Systolic Blood Pressure Invasive'
+  },
+  "valueQuantity": {
+    "value": 120,
+    "unit": 'mmHg',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'mm[Hg]'
+  },
+  "interpretation": [
+    {
+      "coding": [
+        {
+          "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+          "code": 'N'
+        }
+      ]
+    }
+  ],
+  "referenceRange": [
+    {
+      "low": {
+        "value": 45.0,
+        "unit": 'mmHg',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mm[Hg]'
+      },
+      "high": {
+        "value": 75.0,
+        "unit": 'mmHg',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mm[Hg]'
+      },
+      "type": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+            "code": 'normal'
+          }
+        ],
+        "text": 'Normal Range'
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Component is required to create blood pressure. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-component.code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.code"><code>component.code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Describes what was observed. Sometimes this is called the observation "name".</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "coding": [
+    {
+      "system": 'http://loinc.org',
+      "code": '8480-6'
+    }
+  ],
+  "text": 'Systolic Blood Pressure Invasive'
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-component.value%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.value%5Bx%5D"><code>component.value[x]</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The information determined as a result of making the observation, if the information has a simple value.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "value": 120,
+  "unit": 'mmHg',
+  "system": 'http://unitsofmeasure.org',
+  "code": 'mm[Hg]'
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Supports writing observations with only valueQuantity. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-component.interpretation">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.interpretation"><code>component.interpretation</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A categorical assessment of an observation value. For example, high, low, normal.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+   "coding": [
+     {
+       "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+       "code": 'N'
+     }
+   ],
+   "text": 'NORMAL'
+ }
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only one interpretation may be supplied. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-component.referenceRange">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.referenceRange"><code>component.referenceRange</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Guidance on how to interpret the value by comparison to a normal or recommended range.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "low": {
+    "value": 45.0,
+    "unit": 'mmHg',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'mm[Hg]'
+  },
+  "high": {
+    "value": 75.0,
+    "unit": 'mmHg',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'mm[Hg]'
+  },
+  "type": {
+    "coding": [
+      {
+        "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+        "code": 'normal'
+      }
+    ],
+    "text": 'Normal Range'
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only one referenceRange is supported </li>
+  <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided. Only a referenceRange.type of <code>normal</code> is supported. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -3148,6 +3441,258 @@ pressures are paired in Millennium. See <a href="https://wiki.cerner.com/display
           }
         ],
         "text": "Normal Range"
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="vitals---blood-pressure-body-example">Vitals - Blood Pressure Body Example</h4>
+<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Observation",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "85354-9"
+      }
+    ],
+    "text": "Blood pressure"
+  },
+  "subject": {
+    "reference": "Patient/12457981"
+  },
+  "encounter": {
+    "reference": "Encounter/97845408"
+  },
+  "effectiveDateTime": "2022-06-04T08:00:38.000Z",
+  "issued": "2022-06-04T08:00:38Z",
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6"
+          }
+        ],
+        "text": "Systolic Blood Pressure Invasive"
+      },
+      "valueQuantity": {
+        "value": 120,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+              "code": "N"
+            }
+          ]
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 45.0,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          },
+          "high": {
+            "value": 75.0,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          },
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                "code": "normal"
+              }
+            ],
+            "text": "Normal Range"
+          }
+        }
+      ]
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8462-4"
+          }
+        ],
+        "text": "Diastolic Blood Pressure Invasive"
+      },
+      "valueQuantity": {
+        "value": 80,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+              "code": "N"
+            }
+          ]
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 35.8,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          },
+          "high": {
+            "value": 37.3,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          },
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                "code": "normal"
+              }
+            ],
+            "text": "Normal Range"
+          }
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+<h4 id="vitals---pulse-oximetry-body-example">Vitals - Pulse Oximetry Body Example</h4>
+<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Observation",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "59408-5"
+      }
+    ],
+    "text": "SpO2"
+  },
+  "subject": {
+    "reference": "Patient/12457981"
+  },
+  "encounter": {
+    "reference": "Encounter/97845408"
+  },
+  "effectiveDateTime": "2022-06-05T08:00:38.004Z",
+  "issued": "2022-06-05T08:00:34Z",
+  "performer": [
+    {
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "LA",
+                "display": "legal authenticator"
+              }
+            ],
+            "text": "legal authenticator"
+          },
+          "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+        }
+      ],
+      "reference": "Practitioner/15441459"
+    }
+  ],
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "3151-8",
+            "display": "Inhaled oxygen flow rate"
+          }
+        ],
+        "text": "Oxygen Flow Rate"
+      },
+      "valueQuantity": {
+        "value": 7,
+        "unit": "L/min",
+        "system": "http://unitsofmeasure.org",
+        "code": "L/min"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "3150-0"
+          }
+        ],
+        "text": "FIO2"
+      },
+      "valueQuantity": {
+        "value": 21,
+        "unit": "%",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "59408-5"
+          }
+        ],
+        "text": "SpO2"
+      },
+      "valueQuantity": {
+        "value": 96,
+        "unit": "%",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
       }
     }
   ]
@@ -3275,6 +3820,7 @@ X-Request-Id: 30a3177d-0987-460d-bb27-a5bb6303f03e
   <li>Currently only <code>laboratory</code> and <code>vital-signs</code> are supported.</li>
   <li>Both read and write scopes are required.</li>
   <li>Updates on patient and category are not supported.</li>
+  <li>Components are only supported for vital-sign blood pressure and pulse oximetry profiles</li>
   <li>See <a href="https://hl7.org/fhir/R4/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
 </ul>
 
@@ -4352,6 +4898,294 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
       </td>
     </tr>
     
+    <tr>
+      <td>
+        <a name="update-component">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component"><code>component</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+      {
+        "system": 'http://loinc.org',
+        "code": '8480-6'
+      }
+    ],
+    "text": 'Systolic Blood Pressure Invasive'
+  },
+  "valueQuantity": {
+    "value": 120,
+    "unit": 'mmHg',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'mm[Hg]'
+  },
+  "interpretation": [
+    {
+      "coding": [
+        {
+          "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+          "code": 'N'
+        }
+      ]
+    }
+  ],
+  "referenceRange": [
+    {
+      "low": {
+        "value": 45.0,
+        "unit": 'mmHg',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mm[Hg]'
+      },
+      "high": {
+        "value": 75.0,
+        "unit": 'mmHg',
+        "system": 'http://unitsofmeasure.org',
+        "code": 'mm[Hg]'
+      },
+      "type": {
+        "coding": [
+          {
+            "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+            "code": 'normal'
+          }
+        ],
+        "text": 'Normal Range'
+      }
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Component is required to create blood pressure. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-component.code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.code"><code>component.code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Describes what was observed. Sometimes this is called the observation "name".</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "coding": [
+    {
+      "system": 'http://loinc.org',
+      "code": '8480-6'
+    }
+  ],
+  "text": 'Systolic Blood Pressure Invasive'
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-component.value%5Bx%5D">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.value%5Bx%5D"><code>component.value[x]</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The information determined as a result of making the observation, if the information has a simple value.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "value": 120,
+  "unit": 'mmHg',
+  "system": 'http://unitsofmeasure.org',
+  "code": 'mm[Hg]'
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Supports writing observations with only valueQuantity. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-component.interpretation">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.interpretation"><code>component.interpretation</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A categorical assessment of an observation value. For example, high, low, normal.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+   "coding": [
+     {
+       "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+       "code": 'N'
+     }
+   ],
+   "text": 'NORMAL'
+ }
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only one interpretation may be supplied. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="update-component.referenceRange">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/observation-definitions.html#Observation.component.referenceRange"><code>component.referenceRange</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Guidance on how to interpret the value by comparison to a normal or recommended range.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "low": {
+    "value": 45.0,
+    "unit": 'mmHg',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'mm[Hg]'
+  },
+  "high": {
+    "value": 75.0,
+    "unit": 'mmHg',
+    "system": 'http://unitsofmeasure.org',
+    "code": 'mm[Hg]'
+  },
+  "type": {
+    "coding": [
+      {
+        "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+        "code": 'normal'
+      }
+    ],
+    "text": 'Normal Range'
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> Only one referenceRange is supported </li>
+  <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided. Only a referenceRange.type of <code>normal</code> is supported. </li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#update">top of section</a></div>
+      </td>
+    </tr>
+    
   </tbody>
 </table>
 
@@ -4452,6 +5286,11 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
   ]
 }</code></pre>
 
+<h4 id="request-5">Request</h4>
+
+<pre><code>PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-197356031
+</code></pre>
+
 <h4 id="vitals-body-example-1">Vitals Body Example</h4>
 
 <pre class="body-response"><code class="language-javascript">{
@@ -4521,6 +5360,307 @@ If-Match: W/"&lt;Current version of the Observation resource&gt;"</code></pre>
     "system": "http://unitsofmeasure.org",
     "code": "mm[Hg]"
   }
+}</code></pre>
+
+<h4 id="request-6">Request</h4>
+
+<pre><code>PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/BP-59857018-59857020
+</code></pre>
+
+<h4 id="vitals---blood-pressure-body-example-1">Vitals - Blood Pressure Body Example</h4>
+<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Observation",
+  "id": "BP-59857018-59857020",
+  "identifier": [
+    {
+      "system": "https://fhir.cerner.com/ceuuid",
+      "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-59857018-2022111805415000"
+    },
+    {
+      "system": "https://fhir.cerner.com/ceuuid",
+      "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-59857020-2022111805415000"
+    }
+  ],
+  "status": "corrected",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "85354-9",
+        "display": "Blood pressure panel with all children optional"
+      }
+    ],
+    "text": "Blood pressure"
+  },
+  "subject": {
+    "reference": "Patient/15116458"
+  },
+  "encounter": {
+    "reference": "Encounter/15687784"
+  },
+  "effectiveDateTime": "2022-06-09T08:00:58.000Z",
+  "issued": "2022-06-09T08:00:58.000Z",
+  "performer": [
+    {
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "LA",
+                "display": "legal authenticator"
+              }
+            ],
+            "text": "legal authenticator"
+          },
+          "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+        }
+      ],
+      "reference": "Practitioner/15441459"
+    }
+  ],
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8480-6"
+          }
+        ],
+        "text": "Systolic Blood Pressure Sitting"
+      },
+      "valueQuantity": {
+        "value": 99,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+              "code": "N",
+              "display": "Normal"
+            }
+          ]
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 35,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          },
+          "high": {
+            "value": 37,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          },
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                "code": "normal",
+                "display": "Normal Range"
+              }
+            ],
+            "text": "Normal Range"
+          }
+        }
+      ]
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "8462-4"
+          }
+        ],
+        "text": "Diastolic Blood Pressure Sitting"
+      },
+      "valueQuantity": {
+        "value": 66,
+        "unit": "mmHg",
+        "system": "http://unitsofmeasure.org",
+        "code": "mm[Hg]"
+      },
+      "interpretation": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation",
+              "code": "N",
+              "display": "Normal"
+            }
+          ]
+        }
+      ],
+      "referenceRange": [
+        {
+          "low": {
+            "value": 35,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          },
+          "high": {
+            "value": 37,
+            "unit": "mmHg",
+            "system": "http://unitsofmeasure.org",
+            "code": "mm[Hg]"
+          },
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                "code": "normal",
+                "display": "Normal Range"
+              }
+            ],
+            "text": "Normal Range"
+          }
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+<h4 id="request-7">Request</h4>
+
+<pre><code>PUT https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/VS-CV-78693473-SECT-8098
+</code></pre>
+
+<h4 id="vitals---pulse-oximetry-body-example-1">Vitals - Pulse Oximetry Body Example</h4>
+<div class="beta-tag"><p>This Resource Action is still under development.</p></div>
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Observation",
+  "id": "VS-CV-83059963-SECT-8098",
+  "identifier": [
+    {
+      "system": "https://fhir.cerner.com/cvuuid",
+      "value": "8344a9b7-b1b7-406e-b303-1009edd66459"
+    }
+  ],
+  "status": "amended",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "vital-signs",
+          "display": "Vital Signs"
+        }
+      ],
+      "text": "Vital Signs"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "2708-6",
+        "display": "Oxygen saturation in Arterial blood"
+      },
+      {
+        "system": "http://loinc.org",
+        "code": "59408-5",
+        "display": "Oxygen saturation in Arterial blood by Pulse oximetry"
+      }
+    ],
+    "text": "SpO2"
+  },
+  "subject": {
+    "reference": "Patient/12457979"
+  },
+  "encounter": {
+    "reference": "Encounter/97787491"
+  },
+  "effectiveDateTime": "2022-06-05T08:00:38.022Z",
+  "issued": "2022-06-05T08:00:56Z",
+  "performer": [
+    {
+      "extension": [
+        {
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                "code": "LA",
+                "display": "legal authenticator"
+              }
+            ],
+            "text": "legal authenticator"
+          },
+          "url": "http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+        }
+      ],
+      "reference": "Practitioner/15441459"
+    }
+  ],
+  "valueQuantity": {
+    "value": 44,
+    "unit": "%",
+    "system": "http://unitsofmeasure.org",
+    "code": "%"
+  },
+  "component": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "3151-8",
+            "display": "Inhaled oxygen flow rate"
+          }
+        ],
+        "text": "Oxygen Flow Rate"
+      },
+      "valueQuantity": {
+        "value": 55,
+        "unit": "L/min",
+        "system": "http://unitsofmeasure.org",
+        "code": "L/min"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://loinc.org",
+            "code": "3150-0",
+            "display": "Inhaled oxygen concentration"
+          }
+        ],
+        "text": "FIO2"
+      },
+      "valueQuantity": {
+        "value": 66,
+        "unit": "%",
+        "system": "http://unitsofmeasure.org",
+        "code": "%"
+      }
+    }
+  ]
 }</code></pre>
 
 <h4 id="response-6">Response</h4>

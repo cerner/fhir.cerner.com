@@ -494,6 +494,47 @@
     
       
       
+    <tr>
+      <td>
+      
+          <a target="_blank" href="http://www.hl7.org/fhir/resource-definitions.html#Meta.security">Condition.meta.security</a>
+      
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <ul style="list-style-type: none">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>These tags connect specific resources to the overall security policy and infrastructure.</li></ul>
+          
+          
+
+          
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="http://www.hl7.org/fhir/valueset-security-labels.html">ValueSet</a><br>
+                      
+                        System: http://terminology.hl7.org/CodeSystem/v3-ActCode <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+          
+        </ul>
+      </td>
+    </tr>
+    
+      
+      
       
       
       
@@ -641,7 +682,21 @@
         "id": "p73077203",
         "meta": {
           "versionId": "73080185",
-          "lastUpdated": "2020-06-11T04:05:04.000Z"
+          "lastUpdated": "2020-06-11T04:05:04.000Z",
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PHY",
+              "display": "physician requested information sensitivity",
+              "userSelected": false
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PRS",
+              "display": "patient requested information sensitivity",
+              "userSelected": false
+            }
+          ]
         },
         "text": {
           "status": "generated",
@@ -723,7 +778,21 @@
         "id": "d2572382197",
         "meta": {
           "versionId": "2572382197",
-          "lastUpdated": "2020-06-11T04:03:21.000Z"
+          "lastUpdated": "2020-06-11T04:03:21.000Z",
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PHY",
+              "display": "physician requested information sensitivity",
+              "userSelected": false
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PRS",
+              "display": "patient requested information sensitivity",
+              "userSelected": false
+            }
+          ]
         },
         "text": {
           "status": "generated",
@@ -812,7 +881,21 @@
         "id": "bed1c2ec-1f33-4097-8296-f6aa01824387",
         "meta": {
           "versionId": "bed1c2ec-1f33-4097-8296-f6aa01824387",
-          "lastUpdated": "2020-10-20T20:46:41.000Z"
+          "lastUpdated": "2020-10-20T20:46:41.000Z",
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PHY",
+              "display": "physician requested information sensitivity",
+              "userSelected": false
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PRS",
+              "display": "patient requested information sensitivity",
+              "userSelected": false
+            }
+          ]
         },
         "text": {
           "status": "generated",
@@ -872,8 +955,9 @@
     }
   ]
 }</code></pre>
-
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>meta.security</code> field will be present only when a problem or diagnosis is marked as confidential.</p>
 
 <h3 id="example-with-revinclude">Example with RevInclude</h3>
 
@@ -910,7 +994,21 @@
         "id": "00a5d6eb-c567-42f7-be07-53804cece075",
         "meta": {
           "versionId": "00a5d6eb-c567-42f7-be07-53804cece075",
-          "lastUpdated": "2020-07-06T19:36:23.000Z"
+          "lastUpdated": "2020-07-06T19:36:23.000Z",
+          "security": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PHY",
+              "display": "physician requested information sensitivity",
+              "userSelected": false
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "PRS",
+              "display": "patient requested information sensitivity",
+              "userSelected": false
+            }
+          ]
         },
         "text": {
           "status": "generated",
@@ -1032,6 +1130,8 @@
 }</code></pre>
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
+<p>The <code>meta.security</code> field will be present only when a problem or diagnosis is marked as confidential.</p>
+
 <h4 id="patient-authorization-request">Patient Authorization Request</h4>
 
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition?patient=12742400
@@ -1058,7 +1158,21 @@
       "id": "p109117485",
       "meta": {
         "versionId": "109117485",
-        "lastUpdated": "2020-06-11T04:05:04.000Z"
+        "lastUpdated": "2020-06-11T04:05:04.000Z",
+        "security": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "PHY",
+            "display": "physician requested information sensitivity",
+            "userSelected": false
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "PRS",
+            "display": "patient requested information sensitivity",
+            "userSelected": false
+          }
+        ]
       },
       "text": {
         "status": "generated",
@@ -1132,7 +1246,22 @@
       "resourceType": "Condition",
       "id": "d2266495305",
       "meta": {
-        "versionId": "2266495305"
+        "versionId": "2266495305",
+        "lastUpdated": "2020-06-11T04:05:04.000Z",
+        "security": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "PHY",
+            "display": "physician requested information sensitivity",
+            "userSelected": false
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "PRS",
+            "display": "patient requested information sensitivity",
+            "userSelected": false
+          }
+        ]
       },
       "text": {
         "status": "generated",
@@ -1190,7 +1319,21 @@
       "id": "a077dc30-8eee-4bb7-ae7f-ced1273f5c68",
       "meta": {
         "versionId": "a077dc30-8eee-4bb7-ae7f-ced1273f5c68",
-        "lastUpdated": "2020-12-03T22:47:30.000Z"
+        "lastUpdated": "2020-12-03T22:47:30.000Z",
+        "security": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "PHY",
+            "display": "physician requested information sensitivity",
+            "userSelected": false
+          },
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+            "code": "PRS",
+            "display": "patient requested information sensitivity",
+            "userSelected": false
+          }
+        ]
       },
       "text": {
         "status": "generated",
@@ -1242,8 +1385,9 @@
     }
   ]
 }</code></pre>
-
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>meta.security</code> field will be present only when a problem or diagnosis is marked as confidential.</p>
 
 <h3 id="errors">Errors</h3>
 
@@ -1283,7 +1427,21 @@
   "id": "p73077203",
   "meta": {
     "versionId": "73080185",
-    "lastUpdated": "2020-06-11T04:05:04.000Z"
+    "lastUpdated": "2020-06-11T04:05:04.000Z",
+    "security": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PHY",
+        "display": "physician requested information sensitivity",
+        "userSelected": false
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PRS",
+        "display": "patient requested information sensitivity",
+        "userSelected": false
+      }
+    ]
   },
   "text": {
     "status": "generated",
@@ -1357,8 +1515,9 @@
     "display": "Cerner Test, Women's Health - Nurse Cerner"
   }
 }</code></pre>
-
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>meta.security</code> field will be present only when a problem or diagnosis is marked as confidential.</p>
 
 <h4 id="patient-authorization-request-for-resolved-status">Patient Authorization Request For Resolved Status</h4>
 
@@ -1374,7 +1533,21 @@
   "id": "p109117485",
   "meta": {
     "versionId": "109117485",
-    "lastUpdated": "2020-06-11T04:05:04.000Z"
+    "lastUpdated": "2020-06-11T04:05:04.000Z",
+    "security": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PHY",
+        "display": "physician requested information sensitivity",
+        "userSelected": false
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PRS",
+        "display": "patient requested information sensitivity",
+        "userSelected": false
+      }
+    ]
   },
   "text": {
     "status": "generated",
@@ -1444,8 +1617,9 @@
   "abatementDateTime": "2020-04-04T17:00:00.000Z",
   "recordedDate": "2020-03-05T16:54:50.000Z"
 }</code></pre>
-
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>meta.security</code> field will be present only when a problem or diagnosis is marked as confidential.</p>
 
 <h4 id="patient-authorization-request-for-active-status">Patient Authorization Request For Active Status</h4>
 
@@ -1461,7 +1635,21 @@
   "id": "a077dc30-8eee-4bb7-ae7f-ced1273f5c68",
   "meta": {
     "versionId": "a077dc30-8eee-4bb7-ae7f-ced1273f5c68",
-    "lastUpdated": "2020-12-03T22:47:30.000Z"
+    "lastUpdated": "2020-12-03T22:47:30.000Z",
+    "security": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PHY",
+        "display": "physician requested information sensitivity",
+        "userSelected": false
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PRS",
+        "display": "patient requested information sensitivity",
+        "userSelected": false
+      }
+    ]
   },
   "text": {
     "status": "generated",
@@ -1511,8 +1699,9 @@
   "onsetDateTime": "2020-12-03",
   "recordedDate": "2020-12-03T22:47:30.000Z"
 }</code></pre>
-
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>meta.security</code> field will be present only when a problem or diagnosis is marked as confidential.</p>
 
 <h4 id="patient-authorization-request-for-entered-in-error-status">Patient Authorization Request For Entered in Error Status</h4>
 
@@ -1527,7 +1716,22 @@
   "resourceType": "Condition",
   "id": "d2266495305",
   "meta": {
-    "versionId": "2266495305"
+    "versionId": "2266495305",
+    "lastUpdated": "2020-06-11T04:05:04.000Z",
+    "security": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PHY",
+        "display": "physician requested information sensitivity",
+        "userSelected": false
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "PRS",
+        "display": "patient requested information sensitivity",
+        "userSelected": false
+      }
+    ]
   },
   "text": {
     "status": "generated",
@@ -1580,8 +1784,9 @@
     "reference": "Patient/12742400"
   }
 }</code></pre>
-
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The <code>meta.security</code> field will be present only when a problem or diagnosis is marked as confidential.</p>
 
 <h3 id="errors-1">Errors</h3>
 
