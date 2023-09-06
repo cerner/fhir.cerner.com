@@ -129,7 +129,7 @@ fields:
       description: The national drug code for pharmacy charges. This binding is used in <code>national-drug-product</code> extensions.
       terminology:
         - display: National Drug Product
-          system: https://terminology.hl7.org/5.1.0/CodeSystem-v3-ndc.html
+          system: https://hl7.org/fhir/sid/ndc
           info_link: https://terminology.hl7.org/5.1.0/CodeSystem-v3-ndc.html
 
   - name: National Drug Product Quantity
