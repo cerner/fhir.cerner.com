@@ -46,7 +46,7 @@ fields:
     required: 'No'
     type: Extension
     description: A code providing information about the procedure performed on the patient associated to the resource.
-    url: https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions
+    url: https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions
     binding:
       description: A code providing information about the procedure performed on the patient associated to the resource. This binding is used in <code>procedure-code</code> extensions. <code>Bill code type</code> can be either <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.
       terminology:
@@ -55,7 +55,7 @@ fields:
         info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types
 
   - name: Revenue Code Extension
-    terminology_name: extension[x].valueCodeableConcept
+    terminology_name: extension[x].extension[x].valueCodeableConcept
     required: 'No'
     type: Extension
     description: The type of revenue or cost center providing the product and/or service.
@@ -130,7 +130,7 @@ fields:
       terminology:
         - display: National Drug Product
           system: https://hl7.org/fhir/sid/ndc
-          info_link: https://hl7.org/fhir/sid/ndc
+          info_link: https://terminology.hl7.org/5.1.0/CodeSystem-v3-ndc.html
 
   - name: National Drug Product Quantity
     terminology_name: extension[x].extension[x].valueQuantity

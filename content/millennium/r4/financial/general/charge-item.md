@@ -155,7 +155,7 @@ List an individual ChargeItem by its id:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Operation: charge-item-credit
+## Credit
 
 
 Creates an offsetting ChargeItem for an existing debit ChargeItem.
@@ -209,7 +209,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Operation: charge-item-modify
+## Modify
 
 
 Modifies an existing ChargeItem resulting in a newly created ChargeItem.
@@ -263,12 +263,12 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Operation: charge-item-create
+## Create
 
 
 Creates a charge event which can result in the creation of one or more ChargeItems.
 
-    POST /ChargeItem/:id/$create
+    POST /ChargeItem/$create
 
 _Implementation Notes_
 
