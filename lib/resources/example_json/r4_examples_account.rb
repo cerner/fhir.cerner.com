@@ -24,6 +24,12 @@ module Cerner
           }
         },
         {
+          'valueReference': {
+            'reference': 'Encounter/98028029'
+          },
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/associated-encounter'
+        },
+        {
           'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state',
           'valueCodeableConcept': {
             'coding': [
@@ -103,6 +109,144 @@ module Cerner
             },
             'owner': {
               'reference': 'Organization/647851'
+            }
+          }
+        }
+      ]
+    }.freeze
+
+    R4_ACCOUNT_SEARCH_GUARANTOR_ID ||= {
+      'resourceType': 'Bundle',
+      'id': '25620975-ee28-49d7-84b2-a360a97c4c06',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?_id=G71248138'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/G71248138',
+          'resource': {
+            'resourceType': 'Account',
+            'id': 'G71248138',
+            'text': {
+              'status': 'generated',
+              'div': '&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Account&lt;'\
+                     '/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: guarantor-balance&lt;'\
+                     '/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Jan  1, 2024  7:15 P.M. UTC<&lt;'\
+                     '/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;:Active&lt;/p&gt;&lt;/div&gt;'
+            },
+            'extension': [
+              {
+                'valueMoney': {
+                  'value': '-5.00',
+                  'currency': 'USD'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance'
+              },
+              {
+                'valueReference': {
+                  'reference': 'Encounter/98028029'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/associated-encounter'
+              },
+              {
+                'valueCodeableConcept': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/24451',
+                      'code': '629234',
+                      'display': 'Ready to bill',
+                      'userSelected': true
+                    }
+                  ],
+                  'text': 'Ready to bill'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state'
+              }
+            ],
+            'status': 'active',
+            'type': {
+              'text': 'guarantor-balance'
+            },
+            'servicePeriod': {
+              'start': '2024-01-01T19:15:00Z'
+            },
+            'partOf': {
+              'reference': 'Account/F61886238'
+            }
+          }
+        }
+      ]
+    }.freeze
+
+    R4_ACCOUNT_SEARCH_ENCOUNTER ||= {
+      'resourceType': 'Bundle',
+      'id': '25620975-ee28-49d7-84b2-a360a97c4c06',
+      'type': 'searchset',
+      'total': 1,
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account'\
+                 '?encounter=98028029&type=guarantor-balance'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account'\
+                     '?encounter=98028029&type=guarantor-balance',
+          'resource': {
+            'resourceType': 'Account',
+            'id': 'G71248138',
+            'text': {
+              'status': 'generated',
+              'div': '&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p&gt;&lt;b&gt;Account&lt;'\
+                     '/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Account Type&lt;/b&gt;: guarantor-balance&lt;'\
+                     '/p&gt;&lt;p&gt;&lt;b&gt;Service Period Start Date&lt;/b&gt;: Jan  1, 2024  7:15 P.M. UTC<&lt;'\
+                     '/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;:Active&lt;/p&gt;&lt;/div&gt;'
+            },
+            'extension': [
+              {
+                'valueMoney': {
+                  'value': '-5.00',
+                  'currency': 'USD'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance'
+              },
+              {
+                'valueReference': {
+                  'reference': 'Encounter/98028029'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/associated-encounter'
+              },
+              {
+                'valueCodeableConcept': {
+                  'coding': [
+                    {
+                      'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/24451',
+                      'code': '629234',
+                      'display': 'Ready to bill',
+                      'userSelected': true
+                    }
+                  ],
+                  'text': 'Ready to bill'
+                },
+                'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state'
+              }
+            ],
+            'status': 'active',
+            'type': {
+              'text': 'guarantor-balance'
+            },
+            'servicePeriod': {
+              'start': '2024-01-01T19:15:00Z'
+            },
+            'partOf': {
+              'reference': 'Account/F61886238'
             }
           }
         }

@@ -44,9 +44,10 @@ The following fields are returned if valued:
 
 ## Extensions
 
-* [Account Related Parts]
-* [Account Balance]
-* [Account State]
+1. [Account Related Parts]
+2. [Account Balance]
+3. [Account State]
+4. [Associated Encounter]
 
 ### Custom Extensions
 
@@ -57,6 +58,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  `account-related-parts`    | [`Reference`]       | A reference to other related Accounts.
  `account-balance`          | [`Money`]           | Represents the account balance.
  `account-state`            | [`CodeableConcept`] | The status of the Account within the billing or correspondence workflow.
+ `associated-encounter`     | [`Reference`]       | The encounter associated with the resource.
 
 ## Search
 
@@ -82,16 +84,19 @@ _Implementation Notes_
  `type`       | See notes | [`token`]     | The specific type of account. Example: `financial-account`
  `patient`    | See notes | [`reference`] | The entity that caused the expenses. Example: `Patient/12345`
  `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account. Example: `6330015-6330017`
+`-encounter`  | See notes | [`reference`] | The id to identify the encounter. Example: `98028029`
  `_count`     | no        | [`number`]    | The maximum number of results to return. Defaults to `10`.
 
 Notes:
 
 * You may search via:
   * `_id` alone
+  * `-encounter` and `type` set to 'guarantor-balance'
   * `patient`, `identifier`, and `type` set to 'statement'
   * `-guarantor` and `type` set to 'financial-account'
 * When searching via `identifier`, the system must be 'https://fhir.cerner.com/&lt;EHR source id&gt;/statement-number'. You may not search via `identifier` with a system of 'https://fhir.cerner.com/&lt;EHR source id&gt;/account-number'.
 * The `-guarantor` search parameter should contain a reference to a RelatedPerson when set.
+* The `-encounter` search parameter should contain a Clinical Encounter Id.
 
 ### Headers
 
@@ -107,6 +112,24 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_account_search) %>
+
+#### Request - `_id`
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?_id=G71248138
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_account_search_guarantor_id) %>
+
+#### Request - `-encounter`
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account??encounter=98028029&type=guarantor-balance
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_account_search_encounter) %>
 
 #### Request - `patient`, `identifier`, and `type`
 
@@ -173,4 +196,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Account Related Parts]: #custom-extensions
 [Account Balance]: #custom-extensions
 [Account State]: #custom-extensions
+[Associated Encounter]: #custom-extensions
 [Account.subject]: http://hl7.org/fhir/R4/account-definitions.html#Account.subject
