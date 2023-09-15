@@ -56,7 +56,7 @@ _Implementation Notes_
  `encounter`  | Required if `_id` or `patient` is not present       | [`reference`] | Who care team is for. Example: `encounter=98765`
  `category`   | N                                                   | [`token`]     | The scope of care team being searched for. Examples: `category=longitudinal`
  `status`     | N                                                   | [`token`]     | Indicates the status of the care team
-`_revinclude`      | No                                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+`_revinclude` | N                                                   | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 Notes:
 
@@ -75,11 +75,11 @@ Notes:
 * The `category` parameter
   * Only supports the codes longitudinal and encounter.
   * Can only be used with the `patient` parameter.
-  * The longitudinal and encounter codes are defined by the CareTeam category system
+  * The longitudinal and encounter codes are defined by the CareTeam category system.
 
-* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-
-* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=LIFETIME_PROVIDER-4169494-0-4105597-0-0-0&_revinclude=Provenance:target`
+* The `_revinclude` parameter 
+  * May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+  * May be provided with the `_id/patient` parameter. Example: `_id=LIFETIME_PROVIDER-4169494-0-4105597-0-0-0&_revinclude=Provenance:target`
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
