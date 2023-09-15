@@ -29,7 +29,9 @@ The following fields are returned if valued:
 
 ### Care Teams
 
-The CareTeam resource will be available in the STU3 and R4 versions to represent care team members. Meanwhile, the CarePlan resource will be used to identify the care team members in DSTU2. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or the patient across all encounters (longitudinal).
+For DSTU2 Resources, the CarePlan resource is used to represent care team members.  Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or to the patient across all encounters (longitudinal).
+
+If using R4 Resources, the [R4 CareTeam](http://fhir.cerner.com/millennium/r4/clinical/care-provision/care-team/) resource is available.
 
 The following fields are returned if valued:
 
