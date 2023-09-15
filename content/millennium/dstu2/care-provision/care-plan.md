@@ -29,7 +29,7 @@ The following fields are returned if valued:
 
 ### Care Teams
 
-The CareTeam resource will be available in the STU3 version to represent care team members. Meanwhile, the CarePlan resource will be used to identify the care team members in DSTU2. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or the patient across all encounters (longitudinal).
+The CareTeam resource will be available in the STU3 and R4 versions to represent care team members. Meanwhile, the CarePlan resource will be used to identify the care team members in DSTU2. Care team members or participants include practitioners (physicians, nurses, technicians, etc.), family members, friends, guardians, and the patient. The care team can be specific to an encounter or the patient across all encounters (longitudinal).
 
 The following fields are returned if valued:
 
