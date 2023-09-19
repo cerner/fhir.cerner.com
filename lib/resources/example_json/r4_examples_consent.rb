@@ -7,12 +7,12 @@ module Cerner
       "resourceType": 'Consent',
       "id": 'AR-12742397-12724066',
       "meta": {
-        "versionId": '5',
+        "versionId": '95',
         "lastUpdated": '2020-08-21T15:51:38.000Z'
       },
       "text": {
         "status": 'generated',
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Consent</b></p><p><b>Patient Name</b>: SMART, BABY BOY</p><p><b>Status</b>: Active</p><p><b>Scope</b>: Privacy Consent</p><p><b>Category</b>: Patient Consent</p><p><b>Policy Rule</b>: Consent given for electronic record sharing (finding)</p><p><b>Consent Start Date</b>: Jul  9, 2020  2:15 P.M. UTC</p><p><b>Actor Name</b>: SMART, NANCY</p><p><b>Actor Role</b>: Authorized Representative</p></div>' # rubocop:disable Layout/LineLength
+        "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Consent</b></p><p><b>Patient Name</b>: Smart, BabyBoy</p><p><b>Status</b>: Inactive</p><p><b>Scope</b>: Privacy Consent</p><p><b>Category</b>: Patient Consent</p><p><b>Policy Rule</b>: Consent given for electronic record sharing (finding)</p><p><b>Consent Start Date</b>: Jan  1, 2001  6:00 A.M. UTC</p><p><b>Consent End Date</b>: Sep 14, 2008 12:00 A.M. UTC</p><p><b>Actor Name</b>: Smart II, Nancy</p><p><b>Actor Role</b>: Authorized Representative</p></div>' # rubocop:disable Layout/LineLength
       },
       "status": 'active',
       "scope": {
@@ -39,7 +39,7 @@ module Cerner
       ],
       "patient": {
         "reference": 'Patient/12742397',
-        "display": 'SMART, BABY BOY'
+        "display": 'Smart, BabyBoy'
       },
       "policyRule": {
         "coding": [
@@ -54,7 +54,8 @@ module Cerner
       "provision": {
         "type": 'permit',
         "period": {
-          "start": '2020-07-09T14:15:16.000Z'
+          "start": '2020-07-09T14:15:16.000Z',
+          "end": '2008-09-14T00:00:00.000Z'
         },
         "actor": [
           {
@@ -71,7 +72,7 @@ module Cerner
             },
             "reference": {
               "reference": 'RelatedPerson/12724066-12742397',
-              "display": 'SMART, NANCY'
+              "display": 'Smart II, Nancy'
             }
           }
         ],
@@ -99,17 +100,17 @@ module Cerner
 
     R4_CONSENT_BUNDLE ||= {
       "resourceType": 'Bundle',
-      "id": '9030475d-88ee-458d-8c2d-6907f50b51ef',
+      "id": '2d5d89a5-67b1-489e-b6ef-878878beab55',
       "type": 'searchset',
       "link": [
         {
           "relation": 'self',
-          "url": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066',
           "resource": R4_CONSENT_ENTRY
         },
         "search": {
@@ -125,12 +126,12 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397'
+          "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066',
+          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066',
           "resource": R4_CONSENT_ENTRY
         },
         "search": {
@@ -141,21 +142,21 @@ module Cerner
 
     R4_CONSENT_ID_BUNDLE ||= {
       "resourceType": 'Bundle',
-      "id": 'b8fffddc-85f6-4121-8e50-c42aadacc63b',
+      "id": '5259d04e-1241-4477-a52b-f27c8002aedb',
       "type": 'searchset',
       "link": [
         {
           "relation": 'self',
-          "url": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?_id=AR-12724069-12724066'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?_id=AR-12742397-12724066'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12724069-12724066',
-          "resource": R4_CONSENT_ENTRY
-        },
-        "search": {
-          "mode": 'match'
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066',
+          "resource": R4_CONSENT_ENTRY,
+          "search": {
+            "mode": 'match'
+          }
         }
       ]
     }.freeze
@@ -167,12 +168,12 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?actor=12724066-12724069'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?actor=12724066-12742397'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12724069-12724066',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066',
           "resource": R4_CONSENT_ENTRY
         },
         "search": {
@@ -183,21 +184,21 @@ module Cerner
 
     R4_CONSENT_INCLUDE_BUNDLE ||= {
       "resourceType": 'Bundle',
-      "id": '1ed02fdc-2c0b-4624-b333-15b9d1e86bd9',
+      "id": 'e2d6403f-fe92-4f56-a210-2c5871488345',
       "type": 'searchset',
       "link": [
         {
           "relation": 'self',
-          "url": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397&_include=Consent%3Apatient&_include=Consent%3Aactor'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397&_include=Consent%3Apatient&_include=Consent%3Aactor'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066',
           "resource": R4_CONSENT_ENTRY
         },
         {
-          "fullUrl": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742397',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742397',
           "resource": {
             "resourceType": 'Patient',
             "id": '12742397',
@@ -555,7 +556,7 @@ module Cerner
           }
         },
         {
-          "fullUrl": 'http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724066-12742397',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724066-12742397',
           "resource": {
             "resourceType": 'RelatedPerson',
             "id": '12724066-12742397',
