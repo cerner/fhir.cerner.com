@@ -58,9 +58,9 @@ _Implementation Notes_
  `_id`        | See notes | [`token`]     | The logical resource id associated with the resource.
  `date`       | N         | [`date`]      | Time period plan covers. Example: `date=ge2016&date=le2017 (Jan 1, 2016 - Dec 31, 2017)` or `date=ge2016-08-24T12:00:00.000Z&date=le2017-01-24T12:00:00.000Z`
  `patient`    | See notes | [`reference`] | Who care plan is for. Example: `patient=12345`
- `category`   | See notes | [`token`]     | The scope of care plan being searched for. Examples: `category=assess-plan`
+ `category`   | See notes | [`token`]     | The scope of care plan being searched for. Example: `category=assess-plan`
  [`_count`]   | N         | [`number`]    | Number of results per page.
- `_revinclude`| N         | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ `_revinclude`| N         | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
 
 Notes:
@@ -72,7 +72,7 @@ Notes:
 - The `date` parameter
   - When provided, must use both `ge` and `le` prefixes in the same search.
     - The lower value must have the `ge` prefix and the higher value must have the `le` prefix.
-    - If date precision must be consistent.
+    - Date precision must be consistent.
   - May be combined with the patient and category parameters.
 
 - The `patient` parameter
@@ -85,7 +85,7 @@ Notes:
 
 - The `_revinclude` parameter 
   - May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-  - May be provided with the `_id/patient` parameter. Example: `_id=178866310&_revinclude=Provenance:target`
+  - May be provided with the `_id/` or `patient` parameter. Example: `_id=178866310&_revinclude=Provenance:target`
 
 - When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
