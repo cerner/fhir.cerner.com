@@ -60,9 +60,10 @@ Search for Devices that meet supplied query parameters:
 
 _Implementation notes_
 
-* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-
-* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=214938095&_revinclude=Provenance:target`
+* The `_revinclude` parameter 
+    * May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+    * May be provided with the `_id` parameter. Example: `_id=214938095&_revinclude=Provenance:target`
+    * May be provided with the `patient` parameter. Example: `patient=12742397&_revinclude=Provenance:target`
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
@@ -70,20 +71,9 @@ _Implementation notes_
 
 #### Request
 
-    curl -i -H "Accept: application/fhir+json" "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066"
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066
 
 <%= RequestButton.get('open', :r4, 'Device?patient=12724066', 200, :R4_DEVICE_BUNDLE) %>
-
-#### Patient Authorization Request
-
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_device_patient_bundle) %>
-
-<%= disclaimer %>
 
 ### Example with RevInclude
 
@@ -115,18 +105,17 @@ List an individual Device by its id:
 
 <%= authorization_types(provider: true, patient: true, system: true)%>
 
+### Example
+
 #### Patient Authorization Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245
 
 #### Response
 
-<%= headers status: 200 %>
-<%= json(:r4_device_patient_entry) %>
+<%= RequestButton.get('open', :r4, 'Device/31539245', 200, :R4_DEVICE) %>
 
-<%= disclaimer %>
-
-#### Patient Authorization Request For Entered in Error Status
+#### Patient Authorization Request For 'Entered in Error' Status
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/22118346
 
@@ -136,14 +125,6 @@ List an individual Device by its id:
 <%= json(:r4_device_entered_in_error_status) %>
 
 <%= disclaimer %>
-
-### Example
-
-#### Request
-
-    curl -i -H "Accept: application/fhir+json" "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245"
-
-<%= RequestButton.get('open', :r4, 'Device/31539245', 200, :R4_DEVICE) %>
 
 ### Errors
 
