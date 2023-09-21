@@ -64,12 +64,12 @@ Notes:
   - This is required if `patient` or `encounter` are not provided.
 
 - The `patient` parameter
-  - This is required when `_id` or `encounter` is not provided.
+  - This is required when `_id` or `encounter` are not provided.
   - This can be combined with `status` as per US Core guidelines.
   - This can be combined with the `category` parameter.
 
 - The `encounter` parameter
-  - This is required when `_id` or `patient` is not provided.
+  - This is required when `_id` or `patient` are not provided.
   - This cannot be combined with `category` or status.
 
 - The `category` parameter
