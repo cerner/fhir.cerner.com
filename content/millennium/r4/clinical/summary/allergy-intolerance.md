@@ -9,7 +9,7 @@ title: AllergyIntolerance | R4 API
 
 ## Overview
 
-The AllergyIntolerance resource provides the clinical assessment of a patient's allergy or intolerance when exposed to a specific substance or class of substance including information about the adverse reaction.  Substances include, but are not limited to, medications, foods, environment (such as plants and animals), and insect bites.  The Allergy/Intolerance list exists as a patient safety tool for clinical decision support when ordering medications and nutrition or guiding clinical treatments.  This resource does NOT include adverse reactions or adverse events which are expected for the circumstance such as an over-dose or drug-drug interaction or an error/failure in the clinical process.  References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
+The AllergyIntolerance resource provides the clinical assessment of a patient's allergy or intolerance when exposed to a specific substance, or class of substance, including information about the adverse reaction.  Substances include, but are not limited to, medications, foods, environment (such as plants and animals), and insect bites.  The Allergy/Intolerance list exists as a patient safety tool for clinical decision support when ordering medications and nutrition or guiding clinical treatments.  This resource does NOT include adverse reactions or adverse events which are expected for the circumstance, such as an over-dose or drug-drug interaction, or an error/failure in the clinical process.  References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
 
 No Known Allergies (NKA) or No Known Medication Allergies (NKMA) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes (No known allergy (situation))(716186003) or No Known Medication Allergies (409137002) as long as there are no other active allergies on the patient’s profile.  If there are other active allergies on the patient's profile and the consumer tries to add one of the codes above, the service will throw an exception.
 
@@ -78,20 +78,24 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Parameters
 
- Name               | Required?                                                            | Type          | Description
---------------------|----------------------------------------------------------------------|---------------|-----------------------------------------------------------------------
- `_id`              | This or `patient`, if populated all other parameters are not allowed | [`token`]     | The logical resource id associated with the resource. Example: `12345`
- `patient`          | This or `_id`                                                        | [`reference`] | Who the sensitivity is for. Example: `12345`
- `clinical-status`  | No                                                                   | [`token`]     | The clinical status of the allergy or intolerance. Example: `active`, `inactive`, `resolved`
- `_revinclude`      | No                                                                   | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ Name               | Required?          | Type          | Description
+--------------------|--------------------|---------------|-----------------------------------------------------------------------
+ `_id`              | This or `patient`  | [`token`]     | The logical resource id associated with the resource. Example: `_id=12345`
+ `patient`          | This or `_id`      | [`reference`] | Who the sensitivity is for. Example: `patient=12345`
+ `clinical-status`  | No                 | [`token`]     | The clinical status of the allergy or intolerance. Example: `active`, `inactive`, `resolved`
+ `_revinclude`      | No                 | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
 Notes:
 
-The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+- The `_id` parameter
+  - May not be provided with any other parameters, except for `_revinclude` as indicated below.
 
-The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=74771957,S-75479691&_revinclude=Provenance:target`
+- The `_revinclude` parameter 
+  - May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+  - May be provided with the `_id` parameter. Example: `_id=178866310&_revinclude=Provenance:target`
+  - May be provided with the `_id` parameter. Example: `_patient=12742399&_revinclude=Provenance:target`
 
-When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+- When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
 ### Headers
 
@@ -118,6 +122,7 @@ When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 t
 #### Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?_id=74771957,S-75479691&_revinclude=Provenance:target
+	
 #### Response
 
 <%= headers status: 200 %>
@@ -289,7 +294,7 @@ Content-Type: application/json
 Date: Thu, 05 Dec 2019 17:21:08 GMT
 Etag: W/"8167765"
 Last-Modified: Thu, 05 Dec 2019 17:21:08 GMT
-X-Request-Id: a53f6469ff29031e9197b40f526e9ca6
+X-Request-Id: 11111111111111111111111111111111
 Vary: Origin
 </pre>
 
