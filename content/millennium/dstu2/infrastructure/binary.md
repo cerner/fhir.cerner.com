@@ -12,7 +12,7 @@ title: Binary | DSTU 2 API
 The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, and diagnostic reports.
 _The list of clinical documents and diagnostic reports is subject to change, as the list of clinical events that may qualify can be customized by clients_
 
-It is recommended to request Binary resources only after obtaining a link to the resource via references from [DiagnosticReport](http://fhir.cerner.com/millennium/r4/clinical/diagnostics/diagnostic-report) or [DocumentReference](http://fhir.cerner.com/millennium/r4/foundation/documents/document-reference). It is not recommended to start a workflow in the Binary resource.
+It is recommended to request Binary resources only after obtaining a link to the resource via references from [DiagnosticReport](http://fhir.cerner.com/millennium/dstu2/diagnostic/diagnostic-report/) or [DocumentReference](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/). It is not recommended to start a workflow in the Binary resource.
 
 The consumer must populate the `Accept` header with either `application/json+fhir` or the format returned in the `attachment.contentType` of the referring resource.  If the `Accept` header is `application/json+fhir`, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information see the HL7<sup>®</sup> FHIR<sup>®</sup> [Binary Documentation](http://hl7.org/fhir/dstu2/binary.html#rest).
 
@@ -32,7 +32,7 @@ List an individual Binary by its id:
 
 _Implementation Notes_
 
-* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/r4/foundation/documents/document-reference) or [DiagnosticReport](http://fhir.cerner.com/millennium/r4/clinical/diagnostics/diagnostic-report) and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
+* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/) or [DiagnosticReport](http://fhir.cerner.com/millennium/dstu2/diagnostic/diagnostic-report/) and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
 * Documents containing URL sections are unsupported with contentType of `application/pdf`
 * See the [headers](#headers) section for concerns about the Accept header.
 * See the [authorization](#authorization-types) section for concerns about the required OAuth scopes.
@@ -91,7 +91,7 @@ Generates the Continuity of Care Document (CCD) as a Binary for the supplied que
 
 _Implementation Notes_
 
-* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/r4/foundation/documents/document-reference), and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.
+* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/), and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.
 * See the [headers](#headers-1) section for concerns about the Accept header.
 * See the [authorization](#authorization-types-1) section for concerns about the required OAuth scopes.
 
