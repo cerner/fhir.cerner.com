@@ -16,8 +16,8 @@ operations:
       }
     note: >
       <ul>
-        <li>Only "arrived", "checked-in", "cancelled", "booked", and "fulfilled" are supported</li>
-        <li>This patch operation must be accompanied by the add Slot patch operation when updating status to "booked"</li>
+        <li>Only `arrived`, `checked-in`, `cancelled`, `booked`, and `fulfilled` are supported</li>
+        <li>This patch operation must be accompanied by the add Slot patch operation when updating status to `booked`</li>
       </ul>
   - name: add-slot
     path: /slot
@@ -37,7 +37,7 @@ operations:
       }
     note: >
       <ul>
-        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
+        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of `booked`</li>
         <li>Only one Slot reference may be provided in the value array</li>
       </ul>
   - name: replace-slot
@@ -45,7 +45,7 @@ operations:
     operation: replace
     type: Reference (Slot)
     url: https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot
-    description: The slot that this appointment is filling
+    description: The Slot that this appointment is filling
     example: |
       {
         "op": "replace",
@@ -79,10 +79,10 @@ operations:
       }
     note: >
       <ul>
-        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "booked"</li>
+        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of `booked`</li>
         <li>Only one CodeableConcept may be provided in the value array</li>
         <li>CodeableConcept.text is required and CodeableConcept.coding, if present, will be ignored</li>
-        <li>When the value array is empty, reasonCode will be removed</li>
+        <li>When the value array is empty, any existing reasonCode will be removed</li>
       </ul>
   - name: add-cancelationReason
     path: /cancelationReason
@@ -105,9 +105,9 @@ operations:
       }
     note: >
       <ul>
-        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of "cancelled"</li>
+        <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of `cancelled`</li>
         <li>Only one coding may be provided in the value</li>
-        <li>The cancelation reason `value.coding` can be either from the standard or proprietary system, but not both</li>
+        <li>The cancellation reason `value.coding` can be from either the standard or proprietary system</li>
         <li>CodeableConcept.coding is required and CodeableConcept.text, if present, will be ignored</li>
       </ul>
   - name: add-provider-vmr
@@ -124,8 +124,8 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for Video Visit appointments</li>
-        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
+        <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an `op` of `add`</li>
         <li>The URL length must be less than or equal to 255 characters</li>
       </ul>
   - name: add-patient-vmr
@@ -142,8 +142,8 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for Video Visit appointments</li>
-        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
+        <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an `op` of `add`</li>
         <li>The URL length must be less than or equal to 255 characters</li>
       </ul>
   - name: add-period-start
@@ -160,9 +160,9 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>This patch operation may only be used for Cerner Video Visit appointments</li>
         <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
-        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an `op` of `add`</li>
       </ul>
   - name: add-period-end
     path: /contained/0/telecom/0/period/end
@@ -178,9 +178,9 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>This patch operation may only be used for Cerner Video Visit appointments</li>
         <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
-        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of add</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an `op` of `add`</li>
       </ul>
   - name: replace-provider-vmr
     path: /contained/0/telecom/0/value
@@ -196,8 +196,8 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for Video Visit appointments</li>
-        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+        <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an `op` of `replace`</li>
         <li>The URL length must be less than or equal to 255 characters</li>
       </ul>
   - name: replace-patient-vmr
@@ -214,8 +214,8 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for Video Visit appointments</li>
-        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+        <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an `op` of `replace`</li>
         <li>The URL length must be less than or equal to 255 characters</li>
       </ul>
   - name: replace-period-start
@@ -232,9 +232,9 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>This patch operation may only be used for Cerner Video Visit appointments</li>
         <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
-        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an `op` of `replace`</li>
       </ul>
   - name: replace-period-end
     path: /contained/0/telecom/0/period/end
@@ -250,9 +250,9 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for Video Visit appointments</li>
+        <li>This patch operation may only be used for Cerner Video Visit appointments</li>
         <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
-        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an op of replace</li>
+        <li>This patch operation must be accompanied by all other Video Visit link patch operations with an `op` of `replace`</li>
       </ul>
   - name: replace-participant-status
     path: /patient-status
@@ -268,15 +268,15 @@ operations:
       }
     note: >
       <ul>
-        <li>This patch operation may be used only for appointments with a "booked" status</li>
-        <li>This patch operation may be used only for Patient participants with a "tentative" status</li>
+        <li>This patch operation may be used only for appointments with a `booked` status</li>
+        <li>This patch operation may be used only for Patient participants with a `tentative` status</li>
       </ul>
   - name: replace-action-comment
     path: /extension
     operation: replace
     type: Extension
     url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension
-    description: The comment to be associated with the action performed on the resource.
+    description: The comment to be associated with the action performed on the resource
     example: |
         {
           "op": "replace",
@@ -290,15 +290,15 @@ operations:
         }
     note: >
       <ul>
-        <li>When present, this patch operation must be accompanied by the replace status patch operation when updating the status to "cancelled".</li>
-        <li>Only one value may be provided in the value array.</li>
+        <li>When present, this patch operation must be accompanied by the replace status patch operation when updating the status to `cancelled`</li>
+        <li>Only one value may be provided in the value array</li>
       </ul>
   - name: replace-comment
     path: /comment
     operation: replace
     type: string
     url: http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment
-    description: Additional text to aid in facilitating the appointment.
+    description: Additional text to aid in facilitating the appointment
     example: |
       {
         "op": "replace",
@@ -307,5 +307,5 @@ operations:
       }
     note: >
       <ul>
-        <li>When present, this patch operation must be accompanied with replace slot Patch operation.</li>
+        <li>When present, this patch operation must be accompanied by the replace Slot patch operation</li>
       </ul>

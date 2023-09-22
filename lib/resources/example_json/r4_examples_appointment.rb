@@ -3,157 +3,134 @@
 module Cerner
   module Resources
     R4_APPOINTMENT_ENTRY ||= {
-      'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517',
-      'resource': {
-        'resourceType': 'Appointment',
-        'id': '4817517',
-        'meta': {
-          'versionId': '1',
-          'lastUpdated': '2020-07-06T18:46:08.000Z'
+      "fullUrl": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4822366",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "4822366",
+        "meta": {
+          "versionId": "2",
+          "lastUpdated": "2021-04-22T12:21:26Z"
         },
-        'text': {
-          'status': 'generated',
-          'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Appointment</b></p><p><b>Status</b>: Booked</p>'\
-                 '<p><b>Service Type</b>: Established Patient</p><p><b>Start</b>: Jul  8, 2020  1:00 P.M. UTC</p>'\
-                 '<p><b>End</b>: Jul  8, 2020  1:15 P.M. UTC</p><p><b>Slot Id</b>: 21265426-633867-6828001-60</p>'\
-                 '<p><b>Participants</b>: Practitioner: Cerner Test, Physician - Primary Care Cerner, '\
-                 'Patient: SMART,NANCY, Location: MX Clinic 1</p></div>'
+        "text": {
+          "status": "generated",
+          "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Appointment</b></p><p><b>Status</b>: Cancelled</p><p><b>Service Type</b>: Surgery Rapid</p><p><b>Start</b>: Jan 23, 2020 10:10 P.M. UTC</p><p><b>End</b>: Jan 23, 2020 11:10 P.M. UTC</p><p><b>Participants</b>:</p><dl><dd><b>Location</b>: Endoscopy</dd><dd><b>Other Resource</b>: Endoscopy Rooms</dd><dd><b>Patient</b>: Smart II, Nancy</dd></dl></div>"
         },
-        'extension': [
+        "extension": [
           {
-            'valueString': 'Appointment action comment',
-            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment'
+            "valueString": "",
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment"
           },
           {
-            'valueBoolean': false,
-            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable'
+            "valueBoolean": false,
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-cancelable"
           },
           {
-            'valueString': '1408108',
-            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/group-appointment-id'
-          },
-          {
-            'valueBoolean': false,
-            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-reschedulable'
+            "valueBoolean": false,
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-reschedulable"
           }
         ],
-        'status': 'booked',
-        'cancelationReason': {
-          'coding': [
+        "status": "cancelled",
+        "cancelationReason": {
+          "coding": [
             {
-              'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14229',
-              'code': '2191414701',
-              'display': 'Scheduled by mistake',
-              'userSelected': true
-            },
-            {
-              'system': 'http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason',
-              'code': 'oth-err',
-              'display': 'Other: Error',
-              'userSelected': false
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14229",
+              "code": "0",
+              "userSelected": true
             }
-          ],
-          'text': 'Scheduled by mistake'
+          ]
         },
-        'serviceCategory': [
+        "serviceType": [
           {
-            'coding': [
+            "coding": [
               {
-                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/16127',
-                'code': '22721463',
-                'display': 'DIAGNOSTIC',
-                'userSelected': true
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249",
+                "code": "4047611",
+                "display": "Surgery Rapid",
+                "userSelected": true
               },
               {
-                'system': 'http://snomed.info/sct',
-                'code': '261004008',
-                'display': 'Diagnostic intent (qualifier value)',
-                'userSelected': false
+                "system": "http://snomed.info/sct",
+                "code": "394576009",
+                "display": "Accident & emergency (qualifier value)",
+                "userSelected": false
               }
             ],
-            'text': 'DIAGNOSTIC'
+            "text": "Surgery Rapid"
           }
         ],
-        'serviceType': [
+        "reasonCode": [
           {
-            'coding': [
+            "text": "I have a cramp"
+          }
+        ],
+        "description": "Surgery Rapid",
+        "start": "2020-01-23T22:10:00Z",
+        "end": "2020-01-23T23:10:00Z",
+        "minutesDuration": 60,
+        "participant": [
+          {
+            "actor": {
+              "reference": "Location/32216049",
+              "display": "Endoscopy"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "type": [
               {
-                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249',
-                'code': '24477854',
-                'display': 'Established Patient',
-                'userSelected': true
-              }
-            ],
-            'text': 'Established Patient'
-          }
-        ],
-        'description': 'Established Patient',
-        'start': '2020-07-08T13:00:00.000Z',
-        'end': '2020-07-08T13:15:00.000Z',
-        'minutesDuration': 15,
-        'slot': [
-          {
-            'reference': 'Slot/21265426-633867-6828001-60'
-          }
-        ],
-        'comment': 'Appointment request comment',
-        'participant': [
-          {
-            'type': [
-              {
-                'coding': [
+                "coding": [
                   {
-                    'system': 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
-                    'code': 'PPRF',
-                    'display': 'primary performer'
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250",
+                    "code": "269829903",
+                    "display": "Endoscopy Rooms",
+                    "userSelected": true
+                  }
+                ],
+                "text": "Endoscopy Rooms"
+              },
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer"
                   }
                 ]
               }
             ],
-            'actor': {
-              'reference': 'Practitioner/593923',
-              'display': 'Cerner Test, Physician - Primary Care Cerner'
+            "actor": {
+              "display": "Endoscopy Rooms"
             },
-            'required': 'required',
-            'status': 'accepted'
+            "required": "required",
+            "status": "accepted"
           },
           {
-            'type': [
+            "type": [
               {
-                'coding': [
+                "coding": [
                   {
-                    'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250',
-                    'code': '4572',
-                    'display': 'Patient',
-                    'userSelected': true
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14250",
+                    "code": "4572",
+                    "display": "Patient",
+                    "userSelected": true
                   }
                 ],
-                'text': 'Patient'
+                "text": "Patient"
               }
             ],
-            'actor': {
-              'reference': 'Patient/12724066',
-              'display': 'SMART, NANCY'
+            "actor": {
+              "reference": "Patient/12724066",
+              "display": "Smart II, Nancy"
             },
-            'required': 'required',
-            'status': 'accepted'
-          },
-          {
-            'actor': {
-              'reference': 'Location/21304876',
-              'display': 'MX Clinic 1'
-            },
-            'required': 'required',
-            'status': 'accepted'
+            "required": "required",
+            "status": "accepted"
           }
         ],
-        'patientInstruction': "Preparations:\n- Please arrive 30 minutes prior to your scheduled appointment\n" \
-                              "Post Appointment Instructions:\n- Be sure to return to the Front Desk prior to " \
-                              'departing after your appointment',
-        'requestedPeriod': [
+        "requestedPeriod": [
           {
-            'start': '2020-07-08T13:00:00.000Z',
-            'end': '2020-07-08T13:15:00.000Z'
+            "start": "2020-01-23T22:10:00Z",
+            "end": "2020-01-23T23:10:00Z"
           }
         ]
       }
