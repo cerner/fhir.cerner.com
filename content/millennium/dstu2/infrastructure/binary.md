@@ -10,7 +10,7 @@ title: Binary | DSTU 2 API
 ## Overview
 
 The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, and diagnostic reports.
-_The list of clinical documents and diagnostic reports is subject to change, as the list of clinical events that may qualify can be customized by clients_
+_The list of clinical documents and diagnostic reports is subject to change, as the list of clinical events that may qualify can be customized by clients._
 
 It is recommended to request Binary resources only after obtaining a link to the resource via references from [DiagnosticReport](http://fhir.cerner.com/millennium/dstu2/diagnostic/diagnostic-report/) or [DocumentReference](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/). It is not recommended to start a workflow in the Binary resource.
 
