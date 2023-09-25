@@ -9,11 +9,13 @@ title: Binary | R4 API
 
 ## Overview
 
-The Binary resource can contain any clinical content such as text, images, and PDFs. This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, diagnostic reports, and communication message content. The supported diagnostic reports are Anatomic Pathology, Cardiology, Microbiology, and Radiology.
+The Binary resource can contain any clinical content such as text, images, and PDFs. This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, diagnostic reports, and communication message content. 
+Example supported diagnostic report types include Anatomic Pathology, Cardiology, Microbiology, and Radiology.  
+_This list is not exhaustive and subject to change, as the list of clinical events that may qualify can be customized by clients_
 
-It is recommended to request Binary resources only after obtaining links to the resources via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow with Binary resources.
+It is recommended to request Binary resources only after obtaining links to the resources via references from [DiagnosticReport](http://fhir.cerner.com/millennium/r4/clinical/diagnostics/diagnostic-report) or [DocumentReference](http://fhir.cerner.com/millennium/r4/foundation/documents/document-reference). It is not recommended to start a workflow with Binary resources.
 
-The consumer must populate the Accept header with either `application/fhir+json` or the format returned in the `attachment.contentType` of the referring resource. If the Accept header is `application/fhir+json`, a FHIR Binary resource is returned with the raw data populated in `Binary.data`. If the Accept header is anything else, the raw data will be returned instead of a FHIR Binary resource. For more information, see the HL7<sup>®</sup> FHIR<sup>®</sup> [Binary documentation](http://hl7.org/fhir/r4/binary.html#rest).
+The consumer must populate the `Accept` header with either `application/fhir+json` or the format returned in the `attachment.contentType` of the referring resource. If the `Accept` header is `application/fhir+json`, a FHIR Binary resource is returned with the raw data populated in `Binary.data`. If the `Accept` header is anything else, the raw data will be returned instead of a FHIR Binary resource. For more information, see the HL7<sup>®</sup> FHIR<sup>®</sup> [Binary documentation](http://hl7.org/fhir/r4/binary.html#rest).
 
 Note: in order to retrieve documents with the `application/pdf` content type, Cerner's Clinical Reporting (XR) solution must be installed for the client site you are loading data from. For additional information about Cerner's Clinical Reporting (XR) solution see Cerner's [Clinical Reporting (XR) Reference Pages](https://wiki.ucern.com/display/reference/Clinical+Reporting+XR+Reference+Pages).
 
@@ -31,7 +33,7 @@ List an individual Binary by its id:
 
 _Implementation Notes_
 
-* This is usually linked from DocumentReference, DiagnosticReport, or Communication and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
+* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/r4/foundation/documents/document-reference), [DiagnosticReport](http://fhir.cerner.com/millennium/r4/clinical/diagnostics/diagnostic-report), or [Communication](http://fhir.cerner.com/millennium/r4/clinical/request-and-response/communication) and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
 * Documents containing URL sections are unsupported with contentType of `application/pdf`
 * See the [headers](#headers) section for concerns about the Accept header.
 * See the [authorization](#authorization-types) section for concerns about the required OAuth scopes.
@@ -117,17 +119,17 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 Generates the Continuity of Care Document (CCD) as a Binary for the supplied query parameters:
 
-  GET /Binary/$autogen-ccd-if?:parameters
+    GET /Binary/$autogen-ccd-if?:parameters
 
 _Implementation Notes_
 
-* This is usually linked from DocumentReference, and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.
+* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/r4/foundation/documents/document-reference), and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.
 * See the [headers](#headers) section for concerns about the Accept header.
 * See the [authorization](#authorization-types) section for concerns about the required OAuth scopes.
 
 ### Authorization Types
 
-Requires both the appropriate Binary.read and DocumentReference.read scopes to be granted to the caller.
+Requires both the appropriate `Binary.read` and `DocumentReference.read` scopes to be granted to the caller.
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
 
