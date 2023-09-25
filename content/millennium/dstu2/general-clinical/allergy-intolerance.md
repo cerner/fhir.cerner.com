@@ -9,11 +9,11 @@ title: AllergyIntolerance | DSTU 2 API
 
 ## Overview
 
-The AllergyIntolerance resource provides the clinical assessment of a patient's allergy or intolerance when exposed to a specific substance or class of substance including information about the adverse reaction.  Substances include, but are not limited to, medications, foods, environment (such as plants and animals), and insect bites.  The Allergy/Intolerance list exists as a patient safety tool for clinical decision support when ordering medications and nutrition or guiding clinical treatments.  This resource does NOT include adverse reactions or adverse events which are expected for the circumstance such as an over-dose or drug-drug interaction or an error/failure in the clinical process.  References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
+The AllergyIntolerance resource provides the clinical assessment of a patient's allergy or intolerance when exposed to a specific substance, or class of substance, including information about the adverse reaction.  Substances include, but are not limited to, medications, foods, environment (such as plants and animals), and insect bites.  The Allergy/Intolerance list exists as a patient safety tool for clinical decision support when ordering medications and nutrition or guiding clinical treatments.  This resource does NOT include adverse reactions or adverse events which are expected for the circumstance, such as an over-dose or drug-drug interaction, or an error/failure in the clinical process.  References to `implicitRules` and `modifierExtensions` are NOT supported and will fail a Create or Update request.
 
-No Known Allergies (NKA) or No Known Medication Allergies (NKMA) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes No Known Allergies (160244002) or No Known Medication Allergies (409137002) as long as there are no other active allergies on the patient's profile.  If there are other active allergies on the patient's profile and the consumer tries to add one of the codes above, the service will throw an exception.
+No Known Allergies (`NKA`) or No Known Medication Allergies (`NKMA`) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes No Known Allergies `160244002` or No Known Medication Allergies `409137002` as long as there are no other active allergies on the patient's profile.  If there are other active allergies on the patient's profile and the consumer tries to add one of the codes above, the service will throw an exception.
 
-If NKA and/or NKMA exist on the patient's allergy profile and a new allergy is added, the NKA and NKMA will be canceled.
+If `NKA` and/or `NKMA` exist on the patient's allergy profile and a new allergy is added, the `NKA` and `NKMA` will be canceled.
 
 If the consumer is sending in what is deemed to be a duplicate (codified or free text), the service will update the existing allergy or reaction rather than adding a duplicate allergy or reaction.
 
@@ -51,11 +51,16 @@ Search for AllergyIntolerances that meet supplied query parameters:
 
 ### Parameters
 
- Name      | Required?                                                            | Type          | Description
------------|----------------------------------------------------------------------|---------------|-----------------------------------------------------------------------
- `_id`     | This or `patient`, if populated all other parameters are not allowed | [`token`]     | The logical resource id associated with the resource. Example: `12345`
- `patient` | This or `_id`                                                        | [`reference`] | Who the sensitivity is for. Example: `12345`
- `status`  | N                                                                    | [`token`]     | [Certainty of the allergy or intolerance]. Example: `confirmed`
+ Name      | Required?           | Type          | Description
+-----------|---------------------|---------------|-----------------------------------------------------------------------
+ `_id`     | This or `patient`   | [`token`]     | The logical resource id associated with the resource. Example: `12345`
+ `patient` | This or `_id`       | [`reference`] | Who the sensitivity is for. Example: `12345`
+ `status`  | N                   | [`token`]     | [Certainty of the allergy or intolerance]. Example: `confirmed`
+
+Notes:
+
+- The `_id` parameter
+  - May not be provided with any other parameters.
 
 ### Headers
 
@@ -169,7 +174,7 @@ Vary: Origin,User-Agent,Accept-Encoding
 Strict-Transport-Security: max-age=631152000
 X-Xss-Protection: 1; mode=block
 Pragma: no-cache
-X-Request-Id: b0fee21c20d2a240d9b4b86cfbcbd87c
+X-Request-Id: 11111111111111111111111111111111
 Etag: W/"6167733"
 X-Frame-Options: SAMEORIGIN
 X-Content-Type-Options: nosniff
@@ -234,7 +239,7 @@ Vary: Origin,User-Agent,Accept-Encoding
 Strict-Transport-Security: max-age=631152000
 X-Xss-Protection: 1; mode=block
 Pragma: no-cache
-X-Request-Id: d30766e5445f973b32efa9ec516cb5db
+X-Request-Id: 11111111111111111111111111111111
 Etag: W/"6167741"
 X-Frame-Options: SAMEORIGIN
 X-Content-Type-Options: nosniff
