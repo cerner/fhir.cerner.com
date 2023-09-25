@@ -84,7 +84,7 @@ _Implementation Notes_
  `type`       | See notes | [`token`]     | The specific type of account. Example: `financial-account`
  `patient`    | See notes | [`reference`] | The entity that caused the expenses. Example: `Patient/12345`
  `-guarantor` | See notes | [`reference`] | The parties responsible for balancing the account. Example: `6330015-6330017`
-`-encounter`  | See notes | [`reference`] | The id to identify the encounter. Example: `98028029`
+ `-encounter`  | See notes | [`reference`] | The id to identify the encounter. Example: `98028029`
  `_count`     | no        | [`number`]    | The maximum number of results to return. Defaults to `10`.
 
 Notes:
@@ -124,7 +124,7 @@ Notes:
 
 #### Request - `-encounter`
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account??encounter=98028029&type=guarantor-balance
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?encounter=98028029&type=guarantor-balance
 
 #### Response
 
