@@ -32,7 +32,7 @@ List an individual Binary by its id:
 
 _Implementation Notes_
 
-* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/) or [DiagnosticReport](http://fhir.cerner.com/millennium/dstu2/diagnostic/diagnostic-report/) and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
+* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/) or [DiagnosticReport](http://fhir.cerner.com/millennium/dstu2/diagnostic/diagnostic-report/) and should be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.
 * Documents containing URL sections are unsupported with contentType of `application/pdf`
 * See the [headers](#headers) section for concerns about the Accept header.
 * See the [authorization](#authorization-types) section for concerns about the required OAuth scopes.
@@ -91,7 +91,7 @@ Generates the Continuity of Care Document (CCD) as a Binary for the supplied que
 
 _Implementation Notes_
 
-* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/), and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.
+* This is usually linked from [DocumentReference](http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/), and should be accessed using the exact link given in that resource. Modifying the link has undefined consequences.
 * See the [headers](#headers-1) section for concerns about the Accept header.
 * See the [authorization](#authorization-types-1) section for concerns about the required OAuth scopes.
 
