@@ -93,7 +93,7 @@
     </ul>
   </li>
   <li>
-<a href="#operation-charge-item-credit" id="markdown-toc-operation-charge-item-credit">Operation: charge-item-credit</a>    <ul>
+<a href="#credit" id="markdown-toc-credit">Credit</a>    <ul>
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
@@ -102,7 +102,7 @@
     </ul>
   </li>
   <li>
-<a href="#operation-charge-item-modify" id="markdown-toc-operation-charge-item-modify">Operation: charge-item-modify</a>    <ul>
+<a href="#modify" id="markdown-toc-modify">Modify</a>    <ul>
       <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
       <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body Fields</a></li>
@@ -111,7 +111,7 @@
     </ul>
   </li>
   <li>
-<a href="#operation-charge-item-create" id="markdown-toc-operation-charge-item-create">Operation: charge-item-create</a>    <ul>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
       <li><a href="#authorization-types-4" id="markdown-toc-authorization-types-4">Authorization Types</a></li>
       <li><a href="#headers-4" id="markdown-toc-headers-4">Headers</a></li>
       <li><a href="#body-fields-2" id="markdown-toc-body-fields-2">Body Fields</a></li>
@@ -279,7 +279,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/charge-item/#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
       
       </td>
     </tr>
@@ -320,7 +320,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
     <tr>
       <td>
       
-          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions">Chargeitem.extension[x].valueCodeableConcept</a>
+          <a target="_blank" href="https://fhir.cerner.com/millennium/r4/financial/general/charge-item/#extensions">Chargeitem.extension[x].extension[x].valueCodeableConcept</a>
       
       </td>
     </tr>
@@ -543,7 +543,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/sid/ndc">National Drug Product</a><br>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/5.1.0/CodeSystem-v3-ndc.html">National Drug Product</a><br>
                       
                         System: https://hl7.org/fhir/sid/ndc <br>
                       
@@ -1455,7 +1455,7 @@ The main usage of the ChargeItem is to enable the billing process and internal c
 
 <p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
-<h2 id="operation-charge-item-credit">Operation: charge-item-credit</h2>
+<h2 id="credit">Credit</h2>
 
 <p>Creates an offsetting ChargeItem for an existing debit ChargeItem.</p>
 
@@ -1819,7 +1819,7 @@ X-Request-Id: 11111111111111111111111111111111
 
 <p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
-<h2 id="operation-charge-item-modify">Operation: charge-item-modify</h2>
+<h2 id="modify">Modify</h2>
 
 <p>Modifies an existing ChargeItem resulting in a newly created ChargeItem.</p>
 
@@ -3041,11 +3041,11 @@ X-Request-Id: 11111111111111111111111111111111
 
 <p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
-<h2 id="operation-charge-item-create">Operation: charge-item-create</h2>
+<h2 id="create">Create</h2>
 
 <p>Creates a charge event which can result in the creation of one or more ChargeItems.</p>
 
-<pre><code>POST /ChargeItem/:id/$create
+<pre><code>POST /ChargeItem/$create
 </code></pre>
 
 <p><em>Implementation Notes</em></p>

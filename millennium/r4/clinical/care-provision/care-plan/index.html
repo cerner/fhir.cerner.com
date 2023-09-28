@@ -321,7 +321,7 @@
       <td><code>category</code></td>
       <td>See notes</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The scope of care plan being searched for. Examples: <code>category=assess-plan</code>
+      <td>The scope of care plan being searched for. Example: <code>category=assess-plan</code>
 </td>
     </tr>
     <tr>
@@ -332,9 +332,10 @@
     </tr>
     <tr>
       <td><code>_revinclude</code></td>
-      <td>No</td>
+      <td>N</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
+      <td>Provenance resource entries to be returned as part of the bundle. Example: <code>_revinclude=Provenance:target</code>
+</td>
     </tr>
   </tbody>
 </table>
@@ -344,16 +345,16 @@
 <ul>
   <li>The <code>_id</code> parameter
     <ul>
-      <li>May not be provided with any other parameters.</li>
+      <li>May not be provided with any other parameters, except for <code>_revinclude</code> as indicated below.</li>
       <li>When provided, <code>_count</code> is ignored.</li>
     </ul>
   </li>
   <li>The <code>date</code> parameter
     <ul>
-      <li>When provided, must use both <code>ge</code> and <code>le</code> prefixes in the same search
+      <li>When provided, must use both <code>ge</code> and <code>le</code> prefixes in the same search.
         <ul>
-          <li>The lower value must have the <code>ge</code> prefix and the higher value must have the <code>le</code> prefix</li>
-          <li>If date precision must be consistent</li>
+          <li>The lower value must have the <code>ge</code> prefix and the higher value must have the <code>le</code> prefix.</li>
+          <li>Date precision must be consistent.</li>
         </ul>
       </li>
       <li>May be combined with the patient and category parameters.</li>
@@ -371,13 +372,15 @@
       <li>This can be combined with the patient parameter.</li>
     </ul>
   </li>
-  <li>
-    <p>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code></p>
+  <li>The <code>_revinclude</code> parameter
+    <ul>
+      <li>May be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code>
+</li>
+      <li>May be provided with the <code>_id</code> or <code>patient</code> parameter. Example: <code>_id=178866310&amp;_revinclude=Provenance:target</code>
+</li>
+    </ul>
   </li>
-  <li>
-    <p>The <code>_revinclude</code> parameter may be provided with the <code>_id/patient</code> parameter. Example: <code>_id=178866310&amp;_revinclude=Provenance:target</code></p>
-  </li>
-  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilized for patient persona.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>

@@ -324,7 +324,7 @@
       <td><code>category</code></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The scope of care team being searched for. Examples: <code>category=longitudinal</code>
+      <td>The scope of care team being searched for. Example: <code>category=longitudinal</code>
 </td>
     </tr>
     <tr>
@@ -335,9 +335,10 @@
     </tr>
     <tr>
       <td><code>_revinclude</code></td>
-      <td>No</td>
+      <td>N</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
+      <td>Provenance resource entries to be returned as part of the bundle. Example: <code>_revinclude=Provenance:target</code>
+</td>
     </tr>
   </tbody>
 </table>
@@ -352,31 +353,33 @@
   </li>
   <li>The <code>patient</code> parameter
     <ul>
-      <li>This is required when <code>_id</code> or <code>encounter</code> is not provided.</li>
+      <li>This is required when <code>_id</code> or <code>encounter</code> are not provided.</li>
       <li>This can be combined with <code>status</code> as per US Core guidelines.</li>
       <li>This can be combined with the <code>category</code> parameter.</li>
     </ul>
   </li>
   <li>The <code>encounter</code> parameter
     <ul>
-      <li>This is required when <code>_id</code> or <code>patient</code> is not provided.</li>
+      <li>This is required when <code>_id</code> or <code>patient</code> are not provided.</li>
       <li>This cannot be combined with <code>category</code> or status.</li>
     </ul>
   </li>
   <li>The <code>category</code> parameter
     <ul>
-      <li>Only supports the codes longitudinal and encounter.</li>
+      <li>Only supports the codes <code>longitudinal</code> and <code>encounter</code>.</li>
       <li>Can only be used with the <code>patient</code> parameter.</li>
-      <li>The longitudinal and encounter codes are defined by the CareTeam category system</li>
+      <li>The <code>longitudinal</code> and <code>encounter</code> codes are defined by the CareTeam category system.</li>
     </ul>
   </li>
-  <li>
-    <p>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code></p>
+  <li>The <code>_revinclude</code> parameter
+    <ul>
+      <li>May be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code>
+</li>
+      <li>May be provided with the <code>_id</code> or <code>patient</code> parameter. Example: <code>_id=LIFETIME_PROVIDER-4169494-0-4105597-0-0-0&amp;_revinclude=Provenance:target</code>
+</li>
+    </ul>
   </li>
-  <li>
-    <p>The <code>_revinclude</code> parameter may be provided with the <code>_id/patient</code> parameter. Example: <code>_id=LIFETIME_PROVIDER-4169494-0-4105597-0-0-0&amp;_revinclude=Provenance:target</code></p>
-  </li>
-  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilized for patient persona.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>

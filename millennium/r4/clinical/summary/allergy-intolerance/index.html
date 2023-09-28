@@ -116,11 +116,11 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The AllergyIntolerance resource provides the clinical assessment of a patient’s allergy or intolerance when exposed to a specific substance or class of substance including information about the adverse reaction.  Substances include, but are not limited to, medications, foods, environment (such as plants and animals), and insect bites.  The Allergy/Intolerance list exists as a patient safety tool for clinical decision support when ordering medications and nutrition or guiding clinical treatments.  This resource does NOT include adverse reactions or adverse events which are expected for the circumstance such as an over-dose or drug-drug interaction or an error/failure in the clinical process.  References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.</p>
+<p>The AllergyIntolerance resource provides the clinical assessment of a patient’s allergy or intolerance when exposed to a specific substance, or class of substance, including information about the adverse reaction.  Substances include, but are not limited to, medications, foods, environment (such as plants and animals), and insect bites.  The Allergy/Intolerance list exists as a patient safety tool for clinical decision support when ordering medications and nutrition or guiding clinical treatments.  This resource does NOT include adverse reactions or adverse events which are expected for the circumstance, such as an over-dose or drug-drug interaction, or an error/failure in the clinical process.  References to <code>implicitRules</code> and <code>modifierExtensions</code> are NOT supported and will fail a Create or Update request.</p>
 
-<p>No Known Allergies (NKA) or No Known Medication Allergies (NKMA) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes (No known allergy (situation))(716186003) or No Known Medication Allergies (409137002) as long as there are no other active allergies on the patient’s profile.  If there are other active allergies on the patient’s profile and the consumer tries to add one of the codes above, the service will throw an exception.</p>
+<p>No Known Allergies (<code>NKA</code>) or No Known Medication Allergies (<code>NKMA</code>) will be conveyed with predefined codes while Not Asked is conveyed via the absence of information (empty query response).  Consumers can supply the negation codes (No known allergy (situation))(<code>716186003</code>) or No Known Medication Allergies (<code>409137002</code>) as long as there are no other active allergies on the patient’s profile.  If there are other active allergies on the patient’s profile and the consumer tries to add one of the codes above, the service will throw an exception.</p>
 
-<p>If NKA and/or NKMA exist on the patient’s allergy profile and a new allergy is added, the NKA and NKMA will be canceled.</p>
+<p>If <code>NKA</code> and/or <code>NKMA</code> exist on the patient’s allergy profile and a new allergy is added, the <code>NKA</code> and <code>NKMA</code> will be canceled.</p>
 
 <p>If the consumer is sending in what is deemed to be a duplicate (codified or free text), the service will update the existing allergy or reaction rather than adding a duplicate allergy or reaction.</p>
 
@@ -626,9 +626,10 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or <code>patient</code>, if populated all other parameters are not allowed</td>
+      <td>This or <code>patient</code>
+</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource. Example: <code>12345</code>
+      <td>The logical resource id associated with the resource. Example: <code>_id=12345</code>
 </td>
     </tr>
     <tr>
@@ -636,7 +637,7 @@
       <td>This or <code>_id</code>
 </td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>Who the sensitivity is for. Example: <code>12345</code>
+      <td>Who the sensitivity is for. Example: <code>patient=12345</code>
 </td>
     </tr>
     <tr>
@@ -650,18 +651,32 @@
       <td><code>_revinclude</code></td>
       <td>No</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
+      <td>Provenance resource entries to be returned as part of the bundle. Example: <code>_revinclude=Provenance:target</code>
+</td>
     </tr>
   </tbody>
 </table>
 
 <p>Notes:</p>
 
-<p>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code></p>
-
-<p>The <code>_revinclude</code> parameter may be provided with the <code>_id/patient</code> parameter. Example: <code>_id=74771957,S-75479691&amp;_revinclude=Provenance:target</code></p>
-
-<p>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</p>
+<ul>
+  <li>The <code>_id</code> parameter
+    <ul>
+      <li>May not be provided with any other parameters, except for <code>_revinclude</code> as indicated below.</li>
+    </ul>
+  </li>
+  <li>The <code>_revinclude</code> parameter
+    <ul>
+      <li>May be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code>
+</li>
+      <li>May be provided with the <code>_id</code> parameter. Example: <code>_id=178866310&amp;_revinclude=Provenance:target</code>
+</li>
+      <li>May be provided with the <code>_patient</code> parameter. Example: <code>_patient=12742399&amp;_revinclude=Provenance:target</code>
+</li>
+    </ul>
+  </li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -912,8 +927,10 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?_id=74771957,S-75479691&amp;_revinclude=Provenance:target #### Response
+<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?_id=74771957,S-75479691&amp;_revinclude=Provenance:target
 </code></pre>
+
+<h4 id="response-1">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1225,7 +1242,7 @@
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance?patient=12742399
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1331,7 +1348,7 @@
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760025
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1437,7 +1454,7 @@
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760025
 </code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1503,7 +1520,7 @@
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/12760051
 </code></pre>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -2390,7 +2407,7 @@
   ]
 }</code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -3218,7 +3235,7 @@ If-Match: W/"&lt;Current version of the AllergyIntolerance resource&gt;"</code><
   ]
 }</code></pre>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -3229,7 +3246,7 @@ Content-Type: application/json
 Date: Thu, 05 Dec 2019 17:21:08 GMT
 Etag: W/"8167765"
 Last-Modified: Thu, 05 Dec 2019 17:21:08 GMT
-X-Request-Id: a53f6469ff29031e9197b40f526e9ca6
+X-Request-Id: 11111111111111111111111111111111
 Vary: Origin
 </pre>
 

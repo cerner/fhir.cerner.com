@@ -377,11 +377,12 @@
 
 <h2 id="extensions">Extensions</h2>
 
-<ul>
+<ol>
   <li><a href="#custom-extensions">Account Related Parts</a></li>
   <li><a href="#custom-extensions">Account Balance</a></li>
   <li><a href="#custom-extensions">Account State</a></li>
-</ul>
+  <li><a href="#custom-extensions">Associated Encounter</a></li>
+</ol>
 
 <h3 id="custom-extensions">Custom Extensions</h3>
 
@@ -410,6 +411,11 @@
       <td><code>account-state</code></td>
       <td><a href="http://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
       <td>The status of the Account within the billing or correspondence workflow.</td>
+    </tr>
+    <tr>
+      <td><code>associated-encounter</code></td>
+      <td><a href="http://hl7.org/fhir/r4/references.html#Reference"><code>Reference</code></a></td>
+      <td>The encounter associated with the resource.</td>
     </tr>
   </tbody>
 </table>
@@ -483,6 +489,13 @@
 </td>
     </tr>
     <tr>
+      <td><code>-encounter</code></td>
+      <td>See notes</td>
+      <td><a href="http://hl7.org/fhir/r4/references.html#Reference"><code>reference</code></a></td>
+      <td>The id to identify the encounter. Example: <code>98028029</code>
+</td>
+    </tr>
+    <tr>
       <td><code>_count</code></td>
       <td>no</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
@@ -499,6 +512,8 @@
       <li>
 <code>_id</code> alone</li>
       <li>
+<code>-encounter</code> and <code>type</code> set to ‘guarantor-balance’</li>
+      <li>
 <code>patient</code>, <code>identifier</code>, and <code>type</code> set to ‘statement’</li>
       <li>
 <code>-guarantor</code> and <code>type</code> set to ‘financial-account’</li>
@@ -506,6 +521,7 @@
   </li>
   <li>When searching via <code>identifier</code>, the system must be ‘https://fhir.cerner.com/&lt;EHR source id&gt;/statement-number’. You may not search via <code>identifier</code> with a system of ‘https://fhir.cerner.com/&lt;EHR source id&gt;/account-number’.</li>
   <li>The <code>-guarantor</code> search parameter should contain a reference to a RelatedPerson when set.</li>
+  <li>The <code>-encounter</code> search parameter should contain a Clinical Encounter Id.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -580,13 +596,163 @@
   ]
 }</code></pre>
 
+<h4 id="request---id-1">Request - <code>_id</code>
+</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?_id=G71248138
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "25620975-ee28-49d7-84b2-a360a97c4c06",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?_id=G71248138"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/G71248138",
+      "resource": {
+        "resourceType": "Account",
+        "id": "G71248138",
+        "text": {
+          "status": "generated",
+          "div": "&amp;lt;div xmlns=\\&amp;quot;http://www.w3.org/1999/xhtml\\&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Type&amp;lt;/b&amp;gt;: guarantor-balance&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period Start Date&amp;lt;/b&amp;gt;: Jan  1, 2024  7:15 P.M. UTC&lt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Status&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;:Active&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
+        },
+        "extension": [
+          {
+            "valueMoney": {
+              "value": "-5.00",
+              "currency": "USD"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance"
+          },
+          {
+            "valueReference": {
+              "reference": "Encounter/98028029"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/associated-encounter"
+          },
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/24451",
+                  "code": "629234",
+                  "display": "Ready to bill",
+                  "userSelected": true
+                }
+              ],
+              "text": "Ready to bill"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "text": "guarantor-balance"
+        },
+        "servicePeriod": {
+          "start": "2024-01-01T19:15:00Z"
+        },
+        "partOf": {
+          "reference": "Account/F61886238"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h4 id="request----encounter">Request - <code>-encounter</code>
+</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?encounter=98028029&amp;type=guarantor-balance
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "25620975-ee28-49d7-84b2-a360a97c4c06",
+  "type": "searchset",
+  "total": 1,
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?encounter=98028029&amp;type=guarantor-balance"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?encounter=98028029&amp;type=guarantor-balance",
+      "resource": {
+        "resourceType": "Account",
+        "id": "G71248138",
+        "text": {
+          "status": "generated",
+          "div": "&amp;lt;div xmlns=\\&amp;quot;http://www.w3.org/1999/xhtml\\&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Account Type&amp;lt;/b&amp;gt;: guarantor-balance&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Service Period Start Date&amp;lt;/b&amp;gt;: Jan  1, 2024  7:15 P.M. UTC&lt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Status&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;:Active&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
+        },
+        "extension": [
+          {
+            "valueMoney": {
+              "value": "-5.00",
+              "currency": "USD"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance"
+          },
+          {
+            "valueReference": {
+              "reference": "Encounter/98028029"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/associated-encounter"
+          },
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/24451",
+                  "code": "629234",
+                  "display": "Ready to bill",
+                  "userSelected": true
+                }
+              ],
+              "text": "Ready to bill"
+            },
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "text": "guarantor-balance"
+        },
+        "servicePeriod": {
+          "start": "2024-01-01T19:15:00Z"
+        },
+        "partOf": {
+          "reference": "Account/F61886238"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
 <h4 id="request---patient-identifier-and-type">Request - <code>patient</code>, <code>identifier</code>, and <code>type</code>
 </h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?identifier=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/statement-number|68002&amp;patient=6330017&amp;type=statement
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -680,7 +846,7 @@
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account?-guarantor=6330015-6330015&amp;type=financial-account
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -896,7 +1062,7 @@
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/G2572738
 </code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -914,6 +1080,12 @@
         "value": "1250.00",
         "currency": "USD"
       }
+    },
+    {
+      "valueReference": {
+        "reference": "Encounter/98028029"
+      },
+      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/associated-encounter"
     },
     {
       "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state",

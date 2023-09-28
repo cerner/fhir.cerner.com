@@ -187,7 +187,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/valueset-consent-scope.html">Request Scope</a><br>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/CodeSystem-consentscope.html">Request Scope</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/consentscope <br>
                       
@@ -479,7 +479,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/v3/PurposeOfUse/vs.html">Provision Purpose</a><br>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/ValueSet-v3-PurposeOfUse.html">Provision Purpose</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/v3-ActReason <br>
                       
@@ -542,7 +542,8 @@
       <td><code>actor</code></td>
       <td>Yes, or _id</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>The actor (RelatedPerson) of the Consent. Example: actor=RelatedPerson/1234 or actor:RelatedPerson=1234</td>
+      <td>The actor (RelatedPerson) of the Consent. Example: <code>actor=RelatedPerson/1234</code> or <code>actor:RelatedPerson=1234</code>
+</td>
     </tr>
     <tr>
       <td><code>actor.identifier</code></td>
@@ -555,7 +556,8 @@
       <td><code>patient</code></td>
       <td>Yes, or _id</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>Who the consent applies to Example subject=Patient/1234</td>
+      <td>Who the consent applies to Example <code>subject=Patient/1234</code>
+</td>
     </tr>
     <tr>
       <td><code>patient.identifier</code></td>
@@ -567,7 +569,8 @@
       <td><a href="http://hl7.org/fhir/r4/search.html#include"><code>_include</code></a></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#string"><code>string</code></a></td>
-      <td>Other resource entries to be returned as part of the bundle. Example _include=Consent:actor or _include=Consent:patient</td>
+      <td>Other resource entries to be returned as part of the bundle. Example <code>_include=Consent:actor</code> or <code>_include=Consent:patient</code>
+</td>
     </tr>
   </tbody>
 </table>
@@ -607,27 +610,27 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "9030475d-88ee-458d-8c2d-6907f50b51ef",
+  "id": "2d5d89a5-67b1-489e-b6ef-878878beab55",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397"
     }
   ],
   "entry": [
     {
-      "fullUrl": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066",
       "resource": {
         "resourceType": "Consent",
         "id": "AR-12742397-12724066",
         "meta": {
-          "versionId": "5",
+          "versionId": "95",
           "lastUpdated": "2020-08-21T15:51:38.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, BABY BOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jul  9, 2020  2:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, BabyBoy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jan  1, 2001  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent End Date&lt;/b&gt;: Sep 14, 2008 12:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: Smart II, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "scope": {
@@ -654,7 +657,7 @@
         ],
         "patient": {
           "reference": "Patient/12742397",
-          "display": "SMART, BABY BOY"
+          "display": "Smart, BabyBoy"
         },
         "policyRule": {
           "coding": [
@@ -669,7 +672,8 @@
         "provision": {
           "type": "permit",
           "period": {
-            "start": "2020-07-09T14:15:16.000Z"
+            "start": "2020-07-09T14:15:16.000Z",
+            "end": "2008-09-14T00:00:00.000Z"
           },
           "actor": [
             {
@@ -686,7 +690,7 @@
               },
               "reference": {
                 "reference": "RelatedPerson/12724066-12742397",
-                "display": "SMART, NANCY"
+                "display": "Smart II, Nancy"
               }
             }
           ],
@@ -726,7 +730,7 @@
 
 <h4 id="request-1">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?_id=AR-12724069-12724066
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?_id=AR-12742397-12724066
 </code></pre>
 
 <h4 id="response-1">Response</h4>
@@ -735,27 +739,27 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "b8fffddc-85f6-4121-8e50-c42aadacc63b",
+  "id": "5259d04e-1241-4477-a52b-f27c8002aedb",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?_id=AR-12724069-12724066"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?_id=AR-12742397-12724066"
     }
   ],
   "entry": [
     {
-      "fullUrl": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12724069-12724066",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066",
       "resource": {
         "resourceType": "Consent",
         "id": "AR-12742397-12724066",
         "meta": {
-          "versionId": "5",
+          "versionId": "95",
           "lastUpdated": "2020-08-21T15:51:38.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, BABY BOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jul  9, 2020  2:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, BabyBoy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jan  1, 2001  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent End Date&lt;/b&gt;: Sep 14, 2008 12:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: Smart II, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "scope": {
@@ -782,7 +786,7 @@
         ],
         "patient": {
           "reference": "Patient/12742397",
-          "display": "SMART, BABY BOY"
+          "display": "Smart, BabyBoy"
         },
         "policyRule": {
           "coding": [
@@ -797,7 +801,8 @@
         "provision": {
           "type": "permit",
           "period": {
-            "start": "2020-07-09T14:15:16.000Z"
+            "start": "2020-07-09T14:15:16.000Z",
+            "end": "2008-09-14T00:00:00.000Z"
           },
           "actor": [
             {
@@ -814,7 +819,7 @@
               },
               "reference": {
                 "reference": "RelatedPerson/12724066-12742397",
-                "display": "SMART, NANCY"
+                "display": "Smart II, Nancy"
               }
             }
           ],
@@ -838,9 +843,7 @@
             }
           ]
         }
-      }
-    },
-    {
+      },
       "search": {
         "mode": "match"
       }
@@ -854,7 +857,7 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?actor=12724066-12724069
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?actor=12724066-12742397
 </code></pre>
 
 <h4 id="response-2">Response</h4>
@@ -868,22 +871,22 @@
   "link": [
     {
       "relation": "self",
-      "url": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?actor=12724066-12724069"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?actor=12724066-12742397"
     }
   ],
   "entry": [
     {
-      "fullUrl": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12724069-12724066",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066",
       "resource": {
         "resourceType": "Consent",
         "id": "AR-12742397-12724066",
         "meta": {
-          "versionId": "5",
+          "versionId": "95",
           "lastUpdated": "2020-08-21T15:51:38.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, BABY BOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jul  9, 2020  2:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, BabyBoy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jan  1, 2001  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent End Date&lt;/b&gt;: Sep 14, 2008 12:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: Smart II, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "scope": {
@@ -910,7 +913,7 @@
         ],
         "patient": {
           "reference": "Patient/12742397",
-          "display": "SMART, BABY BOY"
+          "display": "Smart, BabyBoy"
         },
         "policyRule": {
           "coding": [
@@ -925,7 +928,8 @@
         "provision": {
           "type": "permit",
           "period": {
-            "start": "2020-07-09T14:15:16.000Z"
+            "start": "2020-07-09T14:15:16.000Z",
+            "end": "2008-09-14T00:00:00.000Z"
           },
           "actor": [
             {
@@ -942,7 +946,7 @@
               },
               "reference": {
                 "reference": "RelatedPerson/12724066-12742397",
-                "display": "SMART, NANCY"
+                "display": "Smart II, Nancy"
               }
             }
           ],
@@ -991,27 +995,27 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "1ed02fdc-2c0b-4624-b333-15b9d1e86bd9",
+  "id": "e2d6403f-fe92-4f56-a210-2c5871488345",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397&amp;_include=Consent%3Apatient&amp;_include=Consent%3Aactor"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397&amp;_include=Consent%3Apatient&amp;_include=Consent%3Aactor"
     }
   ],
   "entry": [
     {
-      "fullUrl": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066",
       "resource": {
         "resourceType": "Consent",
         "id": "AR-12742397-12724066",
         "meta": {
-          "versionId": "5",
+          "versionId": "95",
           "lastUpdated": "2020-08-21T15:51:38.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, BABY BOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jul  9, 2020  2:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, BabyBoy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jan  1, 2001  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent End Date&lt;/b&gt;: Sep 14, 2008 12:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: Smart II, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "scope": {
@@ -1038,7 +1042,7 @@
         ],
         "patient": {
           "reference": "Patient/12742397",
-          "display": "SMART, BABY BOY"
+          "display": "Smart, BabyBoy"
         },
         "policyRule": {
           "coding": [
@@ -1053,7 +1057,8 @@
         "provision": {
           "type": "permit",
           "period": {
-            "start": "2020-07-09T14:15:16.000Z"
+            "start": "2020-07-09T14:15:16.000Z",
+            "end": "2008-09-14T00:00:00.000Z"
           },
           "actor": [
             {
@@ -1070,7 +1075,7 @@
               },
               "reference": {
                 "reference": "RelatedPerson/12724066-12742397",
-                "display": "SMART, NANCY"
+                "display": "Smart II, Nancy"
               }
             }
           ],
@@ -1097,7 +1102,7 @@
       }
     },
     {
-      "fullUrl": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742397",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/12742397",
       "resource": {
         "resourceType": "Patient",
         "id": "12742397",
@@ -1455,7 +1460,7 @@
       }
     },
     {
-      "fullUrl": "http://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724066-12742397",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/12724066-12742397",
       "resource": {
         "resourceType": "RelatedPerson",
         "id": "12724066-12742397",
@@ -1730,22 +1735,22 @@
   "link": [
     {
       "relation": "self",
-      "url": "http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397"
+      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent?patient=12742397"
     }
   ],
   "entry": [
     {
-      "fullUrl": "http://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066",
+      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Consent/AR-12742397-12724066",
       "resource": {
         "resourceType": "Consent",
         "id": "AR-12742397-12724066",
         "meta": {
-          "versionId": "5",
+          "versionId": "95",
           "lastUpdated": "2020-08-21T15:51:38.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, BABY BOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jul  9, 2020  2:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, BabyBoy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jan  1, 2001  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent End Date&lt;/b&gt;: Sep 14, 2008 12:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: Smart II, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "scope": {
@@ -1772,7 +1777,7 @@
         ],
         "patient": {
           "reference": "Patient/12742397",
-          "display": "SMART, BABY BOY"
+          "display": "Smart, BabyBoy"
         },
         "policyRule": {
           "coding": [
@@ -1787,7 +1792,8 @@
         "provision": {
           "type": "permit",
           "period": {
-            "start": "2020-07-09T14:15:16.000Z"
+            "start": "2020-07-09T14:15:16.000Z",
+            "end": "2008-09-14T00:00:00.000Z"
           },
           "actor": [
             {
@@ -1804,7 +1810,7 @@
               },
               "reference": {
                 "reference": "RelatedPerson/12724066-12742397",
-                "display": "SMART, NANCY"
+                "display": "Smart II, Nancy"
               }
             }
           ],
@@ -1883,12 +1889,12 @@
   "resourceType": "Consent",
   "id": "AR-12742397-12724066",
   "meta": {
-    "versionId": "5",
+    "versionId": "95",
     "lastUpdated": "2020-08-21T15:51:38.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, BABY BOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jul  9, 2020  2:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, BabyBoy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jan  1, 2001  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent End Date&lt;/b&gt;: Sep 14, 2008 12:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: Smart II, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
   },
   "status": "active",
   "scope": {
@@ -1915,7 +1921,7 @@
   ],
   "patient": {
     "reference": "Patient/12742397",
-    "display": "SMART, BABY BOY"
+    "display": "Smart, BabyBoy"
   },
   "policyRule": {
     "coding": [
@@ -1930,7 +1936,8 @@
   "provision": {
     "type": "permit",
     "period": {
-      "start": "2020-07-09T14:15:16.000Z"
+      "start": "2020-07-09T14:15:16.000Z",
+      "end": "2008-09-14T00:00:00.000Z"
     },
     "actor": [
       {
@@ -1947,7 +1954,7 @@
         },
         "reference": {
           "reference": "RelatedPerson/12724066-12742397",
-          "display": "SMART, NANCY"
+          "display": "Smart II, Nancy"
         }
       }
     ],
@@ -1990,12 +1997,12 @@
   "resourceType": "Consent",
   "id": "AR-12742397-12724066",
   "meta": {
-    "versionId": "5",
+    "versionId": "95",
     "lastUpdated": "2020-08-21T15:51:38.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: SMART, BABY BOY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jul  9, 2020  2:15 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Consent&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: Smart, BabyBoy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Inactive&lt;/p&gt;&lt;p&gt;&lt;b&gt;Scope&lt;/b&gt;: Privacy Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Category&lt;/b&gt;: Patient Consent&lt;/p&gt;&lt;p&gt;&lt;b&gt;Policy Rule&lt;/b&gt;: Consent given for electronic record sharing (finding)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent Start Date&lt;/b&gt;: Jan  1, 2001  6:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Consent End Date&lt;/b&gt;: Sep 14, 2008 12:00 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Name&lt;/b&gt;: Smart II, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Actor Role&lt;/b&gt;: Authorized Representative&lt;/p&gt;&lt;/div&gt;"
   },
   "status": "active",
   "scope": {
@@ -2022,7 +2029,7 @@
   ],
   "patient": {
     "reference": "Patient/12742397",
-    "display": "SMART, BABY BOY"
+    "display": "Smart, BabyBoy"
   },
   "policyRule": {
     "coding": [
@@ -2037,7 +2044,8 @@
   "provision": {
     "type": "permit",
     "period": {
-      "start": "2020-07-09T14:15:16.000Z"
+      "start": "2020-07-09T14:15:16.000Z",
+      "end": "2008-09-14T00:00:00.000Z"
     },
     "actor": [
       {
@@ -2054,7 +2062,7 @@
         },
         "reference": {
           "reference": "RelatedPerson/12724066-12742397",
-          "display": "SMART, NANCY"
+          "display": "Smart II, Nancy"
         }
       }
     ],

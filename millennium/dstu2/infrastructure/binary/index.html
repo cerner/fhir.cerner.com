@@ -92,13 +92,14 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, and diagnostic reports.</p>
+<p>The Binary resource can contain any clinical content such as text, images, and PDFs.  This resource is currently limited to Continuity of Care Documents (CCD), clinical documents, and diagnostic reports.
+<em>The list of clinical documents and diagnostic reports is subject to change, as the list of clinical events that may qualify can be customized by clients.</em></p>
 
-<p>It is recommended to request all Binary resources only after obtaining a link to the resource via references from DiagnosticReport or DocumentReference. It is not recommended to start a workflow in the Binary resource.</p>
+<p>It is recommended to request Binary resources only after obtaining a link to the resource via references from <a href="http://fhir.cerner.com/millennium/dstu2/diagnostic/diagnostic-report/">DiagnosticReport</a> or <a href="http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/">DocumentReference</a>. It is not recommended to start a workflow in the Binary resource.</p>
 
-<p>The consumer must populate the Accept header with either application/json+fhir or the format returned in the attachment.contentType of the referring resource.  If the Accept header is application/json+fhir, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information see <a href="http://hl7.org/fhir/dstu2/binary.html#rest">the Binary Documentation</a>.</p>
+<p>The consumer must populate the <code>Accept</code> header with either <code>application/json+fhir</code> or the format returned in the <code>attachment.contentType</code> of the referring resource.  If the <code>Accept</code> header is <code>application/json+fhir</code>, a FHIR Binary resource is returned with the raw data populated in the content. Otherwise, the raw data will be returned (not contained within a FHIR resource). For more information see the HL7<sup>®</sup> FHIR<sup>®</sup> <a href="http://hl7.org/fhir/dstu2/binary.html#rest">Binary Documentation</a>.</p>
 
-<p>NOTE: To retrieve documents with application/pdf contentType, the client must have installed Cerner’s Clinical Reporting (XR) solution. For additional information about Cerner’s Clinical Reporting (XR) solution see <a href="https://wiki.ucern.com/display/reference/Clinical+Reporting+XR+Reference+Pages">Clinical Reporting (XR) Reference Pages</a>.</p>
+<p>NOTE: To retrieve documents with <code>application/pdf</code> contentType, the client must have installed Cerner’s Clinical Reporting (XR) solution. For additional information about Cerner’s Clinical Reporting (XR) solution see <a href="https://wiki.ucern.com/display/reference/Clinical+Reporting+XR+Reference+Pages">Clinical Reporting (XR) Reference Pages</a>.</p>
 
 <p>The following fields are returned if valued:</p>
 
@@ -118,7 +119,7 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>This is usually linked from DocumentReference or DiagnosticReport and should generally be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.</li>
+  <li>This is usually linked from <a href="http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/">DocumentReference</a> or <a href="http://fhir.cerner.com/millennium/dstu2/diagnostic/diagnostic-report/">DiagnosticReport</a> and should be accessed using the exact link given in the referring resource. Modifying the link has undefined consequences.</li>
   <li>Documents containing URL sections are unsupported with contentType of <code>application/pdf</code>
 </li>
   <li>See the <a href="#headers">headers</a> section for concerns about the Accept header.</li>
@@ -127,7 +128,7 @@
 
 <h3 id="authorization-types">Authorization Types</h3>
 
-<p>The necessary OAuth scopes can be determined by checking the attachment.contentType in the referring resource. For attachments with the <code>application/pdf</code> contentType, the Binary.read and DocumentReference.read scopes are required. For attachments with the <code>text/html</code> contentType, the Binary.read and DiagnosticReport.read scopes are required.</p>
+<p>The necessary OAuth scopes can be determined by checking the <code>attachment.contentType</code> in the referring resource. For attachments with the <code>application/pdf</code> contentType, the <code>Binary.read</code> and <code>DocumentReference.read</code> scopes are required. For attachments with the <code>text/html</code> contentType, the <code>Binary.read</code> and <code>DiagnosticReport.read</code> scopes are required.</p>
 
 <div class="auth-types">
 <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
@@ -474,14 +475,14 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>This is usually linked from DocumentReference, and should generally be accessed using the exact link given in that resource. Modifying the link has undefined consequences.</li>
+  <li>This is usually linked from <a href="http://fhir.cerner.com/millennium/dstu2/infrastructure/document-reference/">DocumentReference</a>, and should be accessed using the exact link given in that resource. Modifying the link has undefined consequences.</li>
   <li>See the <a href="#headers-1">headers</a> section for concerns about the Accept header.</li>
   <li>See the <a href="#authorization-types-1">authorization</a> section for concerns about the required OAuth scopes.</li>
 </ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
-<p>Requires both the appropriate Binary.read and DocumentReference.read scopes to be granted to the caller.</p>
+<p>Requires both the appropriate <code>Binary.read</code> and <code>DocumentReference.read</code> scopes to be granted to the caller.</p>
 
 <div class="auth-types">
 <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
@@ -531,7 +532,8 @@
 
 <h3 id="headers-1">Headers</h3>
 
-<p>The <code>DocumentReference.content.attachment.contentType</code> should be used to set the <code>Accept</code> header. An <code>Accept</code> header of <code>application/json+fhir</code> could be supplied instead, if the JSON Binary resource is desired insetad of the raw data.</p>
+<p>The <code>DocumentReference.content.attachment.contentType</code> should be used to set the <code>Accept</code> header. 
+An <code>Accept</code> header of <code>application/json+fhir</code> could be supplied instead, if the JSON Binary resource is desired insetad of the raw data.</p>
 
 <p>This resource will not accept the <code>application/json</code> mime type unless the underlying binary data is json.</p>
 
