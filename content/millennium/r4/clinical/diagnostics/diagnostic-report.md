@@ -8,7 +8,12 @@ title: DiagnosticReport | R4 API
 {:toc}
 
 ## Overview
-The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a diagnostic service or procedure such as a Radiology or Pathology or Cardiology report. A diagnostic report is the set of information that is typically provided by a diagnostic service when investigations are complete. The information includes a mix of atomic results, text reports, images, and codes. The DiagnosticReport resource has information about the diagnostic report itself, and about the subject and, in the case of laboratory tests, the specimen of the report. Report conclusions can be expressed as a simple text blob, structured coded data or as an attached fully formatted report such as a PDF.
+The DiagnosticReport resource provides a set of information and interpretation following a diagnostic service or procedure such as a Radiology, Pathology, or Cardiology report. The DiagnosticReport resource will produce information about the diagnostic report itself, about the subject, and about the specimen of the report in the case of Laboratory tests. The information produced can include a mix of atomic results, textual reports, images, and codes, depending on the type(s) of diagnostic services being retrieved.
+
+Report conclusions can be expressed as a simple text blob, structured coded data, or as an attached fully formatted report (such as a PDF).
+This resource can retrieve reports of various `Status` types which may need to be considered for filtering purposes if only `Final` or `Corrected` results are desired for retrieval, or to exclude any results that were `Entered-in-Error`. See the `Status` field below for more detail.
+
+In cases where results without textual reports are desired, such as General Laboratory or Vital Signs results, the [`Observation`] resource should be used instead.
 
 * The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
 
@@ -61,12 +66,12 @@ The following fields are returned if valued:
 ------------------|-------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------
  `_id`            | This or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`        | This or `_id`     | [`reference`] | The subject of the report if a patient. Example: `12345`
- `encounter`      | N                 | [`reference`] | The Encounter when the order was made. Must represent an Encounter resource. May include a single or comma separated list of references. Example: `encounter=1621910`
- `date`           | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/time can be given. Example: `date=lt2017-01-5`
- `_count`         | N                 | [`number`]    | The maximum number of results to return. Defaults to `10` and maximum `100`  documents can be returned.
- `category`       | N                 | [`token`]     | The diagnostic discipline/department created the report. Example: `{{*[http://loinc.org\\\|P7839-6* or +*LAB*(For micro/Gen lab reports)+}}\\|http://loinc.org/]`
- `code`           | N                 | [`token`]     | The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result. Example: `*[http://loinc.org\\\|630-4*\\|http://loinc.org/]`
- `_revinclude`    | No                | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
+ `encounter`      | N                 | [`reference`] | The Encounter when the order was made. Must represent an Encounter resource. Example: `encounter=1621910`
+ `date`           | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/times can be given. Example: `date=lt2017-01-5`
+ `_count`         | N                 | [`number`]    | The maximum number of results to return. Defaults to `10` and a maximum of `100` documents can be returned.
+ `category`       | N                 | [`token`]     | The diagnostic discipline/department which created the report. Example: `http://terminology.hl7.org/CodeSystem/v2-0074|LAB` or `http://loinc.org|LP29684-5`
+ `code`           | N                 | [`token`]     | The specific code for describing the report. Example: `http://loinc.org|24323-8`
+ `_revinclude`    | N                 | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
 _Implementation Notes_
 
@@ -76,32 +81,25 @@ _Implementation Notes_
 
 * When searching with the `encounter` parameter:
   * Patient level documents are filtered out from responses when the encounter id is zero/blank.
+  * May include a single value or comma separated list of references. Example `encounter=12345,67890`
 
-* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-
-* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=214938095&_revinclude=Provenance:target`
+* When searching with the `_revinclude` parameter 
+  * It may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+  * It may be provided with the `_id` or `patient` parameters. Example: `_id=214938095&_revinclude=Provenance:target`
 
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-[`token`]: https://hl7.org/fhir/R4/search.html#token
-[`reference`]: https://hl7.org/fhir/R4/search.html#reference
-[`date`]: https://hl7.org/fhir/R4/search.html#date
-[`number`]: https://hl7.org/fhir/R4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
-[Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
-
 ### Headers
 
 <%= headers %>
 
-### Example
+### Example Search by Patient with Category
 
 #### Request
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066
+    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http://terminology.hl7.org/CodeSystem/v2-0074|RAD
 
 #### Response
 
@@ -111,7 +109,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 <%= disclaimer %>
 
 
-### Example with RevInclude
+### Example Search by _ID with RevInclude
 
 
 ### Authorization Types
@@ -148,7 +146,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 <%= headers %>
 
-### Example
+### Example Single Retrieve by _ID
 
 #### Request
 
@@ -164,3 +162,12 @@ The common [errors] and [OperationOutcomes] may be returned.
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
+
+[`token`]: https://hl7.org/fhir/R4/search.html#token
+[`reference`]: https://hl7.org/fhir/R4/search.html#reference
+[`date`]: https://hl7.org/fhir/R4/search.html#date
+[`number`]: https://hl7.org/fhir/R4/search.html#number
+[errors]: ../../#client-errors
+[OperationOutcomes]: ../../#operation-outcomes
+[Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
+[`Observation`]: ../Observation

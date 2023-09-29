@@ -4,38 +4,44 @@ module Cerner
   module Resources
     R4_DIAGNOSTIC_REPORT_SEARCH_BY_ID ||= {
       "resourceType": 'Bundle',
-      "id": '2bae404f-007d-4abf-8552-6e540f0226b6',
+      "id": '4e95721b-490b-4c57-84f5-7d055a8a5dec',
       "type": 'searchset',
       "link": [
+	    {
+         "relation": 'self',
+         "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD'
+        },
         {
-          "relation": 'self',
-          "url": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066'
+          "relation": 'next',
+          "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD&-pageContext=eJwdyk0KwjAURtG9fOME8jTNT8GJbqBQcVpCmtaCJJImKJTu3eLwHu4Gn2osaEkwjGFy9XXEBl_zmjJa3Lqclofsr59lpq7eSy8vYHi6dYjhe7wl18DwdnMYfIrlb2hO9mxISG61aLgkIbihMHIySupJKU3WYd9_FHYmXg%3D%3D&-pageDirection=NEXT'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197480987',
+          "fullUrl": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197369077',
           "resource": {
             "resourceType": 'DiagnosticReport',
-            "id": '197480987',
+            "id": '197369077',
             "meta": {
               "versionId": '1',
-              "lastUpdated": '2021-05-11T18:17:17.000Z'
+              "lastUpdated": '2020-08-13T19:36:06.000Z'
             },
             "text": {
               "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Diagnostic Report</b></p>'\
-                      '<p><b>Patient</b>: Smart, Nancyu Nha Eeeeee</p><p><b>Status</b>: Partial</p>'\
-                      '<p><b>Code</b>: Abdominal Ultrasound</p><p>'\
-                      '<b>Effective End Date</b>: May 11, 2021  6:16 P.M. UTC</p></div>'
+              "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Diagnostic Report</b></p>'\
+                '<p><b>Patient</b>: Smart II, Nancy</p>'\
+                '<p><b>Document Title</b>: Some Title 4x</p>'\
+                '<p><b>Status</b>: Final</p>'\
+                '<p><b>Code</b>: Radiology Reports</p>'\
+                '<p><b>Effective End Date</b>: Aug 13, 2020  7:36 P.M. UTC</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
             },
             "identifier": [
               {
                 "system": 'https://fhir.cerner.com/ceuuid',
-                "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-197480987-2021051118171700'
+                "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-197369077-2020081319360600'
               }
             ],
-            "status": 'partial',
+            "status": 'final',
             "category": [
               {
                 "coding": [
@@ -52,40 +58,59 @@ module Cerner
               "coding": [
                 {
                   "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
-                  "code": '2820643',
-                  "display": 'Abdominal Ultrasound',
+                  "code": '63293819',
+                  "display": 'Radiology Reports',
                   "userSelected": true
                 },
                 {
                   "system": 'http://loinc.org',
-                  "code": '24558-9',
+                  "code": '75490-3',
                   "userSelected": false
                 }
               ],
-              "text": 'Abdominal Ultrasound'
+              "text": 'Radiology Reports'
             },
             "subject": {
               "reference": 'Patient/12724066',
-              "display": 'Smart, Nancyu Nha Eeeeee'
+              "display": 'Smart II, Nancy'
+            },
+            "encounter": {
+              "reference": 'Encounter/97953477'
             },
             "effectivePeriod": {
-              "end": '2021-05-11T18:16:00.000Z'
+              "end": '2020-08-13T19:36:00.000Z'
             },
-            "issued": '2021-05-11T18:17:17Z',
+            "issued": '2020-08-13T19:36:06Z',
             "performer": [
               {
-                "reference": 'Practitioner/1',
-                "display": 'SYSTEM, SYSTEM Cerner'
+                "reference": 'Practitioner/12742069',
+                "display": "Portal, Portal"
+              }
+            ],
+            "resultsInterpreter": [
+              {
+                "reference": 'Practitioner/12742069',
+                "display": 'Portal, Portal'
               }
             ],
             "presentedForm": [
               {
-                "extension": [
-                  {
-                    "valueCode": 'unsupported',
-                    "url": 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
-                  }
-                ]
+                "contentType": 'application/pdf',
+                "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197369077',
+                "title": 'Some Title 4x',
+                "creation": '2020-08-13T19:36:00.000Z'
+              },
+              {
+                "contentType": 'application/xml',
+                "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XML-197369077',
+                "title": 'Some Title 4x',
+                "creation": '2020-08-13T19:36:00.000Z'
+              },
+              {
+                "contentType": 'text/html',
+                "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197369077',
+                "title": 'Some Title 4x',
+                "creation": '2020-08-13T19:36:00.000Z'
               }
             ]
           },
@@ -165,12 +190,14 @@ module Cerner
       "issued": '2017-01-06T20:09:17Z',
       "performer": [
         {
-          "reference": 'Practitioner/11648064'
+          "reference": 'Practitioner/11648064',
+          "display": 'Model, User 437 Cerner'
         }
       ],
       "resultsInterpreter": [
         {
-          "reference": 'Practitioner/11648064'
+          "reference": 'Practitioner/11648064',
+          "display": 'Model, User 437 Cerner'
         }
       ],
       "presentedForm": [
@@ -271,12 +298,14 @@ module Cerner
             "issued": '2017-01-06T20:09:17Z',
             "performer": [
               {
-                "reference": 'Practitioner/11648064'
+                "reference": 'Practitioner/11648064',
+                "display": 'Model, User 437 Cerner'
               }
             ],
             "resultsInterpreter": [
               {
-                "reference": 'Practitioner/11648064'
+                "reference": 'Practitioner/11648064',
+                "display": 'Model, User 437 Cerner'
               }
             ],
             "presentedForm": [
