@@ -170,4 +170,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
-[`Observation`]: ../Observation
+[`Observation`]: /Observation
