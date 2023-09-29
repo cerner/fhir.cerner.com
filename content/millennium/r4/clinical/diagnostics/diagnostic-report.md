@@ -13,7 +13,7 @@ The DiagnosticReport resource provides a set of information and interpretation f
 Report conclusions can be expressed as a simple text blob, structured coded data, or as an attached fully formatted report (such as a PDF).
 This resource can retrieve reports of various `Status` types which may need to be considered for filtering purposes if only `Final` or `Corrected` results are desired for retrieval, or to exclude any results that were `Entered-in-Error`. See the `Status` field below for more detail.
 
-In cases where results without textual reports are desired, such as General Laboratory or Vital Signs results, the [`Observation`] resource should be used instead.
+In cases where results without textual reports are desired, such as General Laboratory or Vital Signs results, the [`Observation`](http://fhir.cerner.com/millennium/r4/clinical/diagnostics/observation/) resource should be used instead.
 
 * The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
 
@@ -170,4 +170,3 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
-[`Observation`]: ./Observation
