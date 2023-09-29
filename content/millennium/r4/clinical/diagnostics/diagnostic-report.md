@@ -137,6 +137,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
+Retrieve an individual DiagnosticReport by its id:
+
+    GET /DiagnosticReport/:id
+
+
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
