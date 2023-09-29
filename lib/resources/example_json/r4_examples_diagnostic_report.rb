@@ -7,9 +7,9 @@ module Cerner
       "id": '4e95721b-490b-4c57-84f5-7d055a8a5dec',
       "type": 'searchset',
       "link": [
-	    {
-         "relation": 'self',
-         "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD'
+        {
+          "relation": 'self',
+          "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD'
         },
         {
           "relation": 'next',
@@ -33,7 +33,8 @@ module Cerner
                 '<p><b>Document Title</b>: Some Title 4x</p>'\
                 '<p><b>Status</b>: Final</p>'\
                 '<p><b>Code</b>: Radiology Reports</p>'\
-                '<p><b>Effective End Date</b>: Aug 13, 2020  7:36 P.M. UTC</p><p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+                '<p><b>Effective End Date</b>: Aug 13, 2020  7:36 P.M. UTC</p>'\
+				'<p><b>Verifying Provider</b>: Portal, Portal</p></div>'
             },
             "identifier": [
               {
@@ -84,7 +85,7 @@ module Cerner
             "performer": [
               {
                 "reference": 'Practitioner/12742069',
-                "display": "Portal, Portal"
+                "display": 'Portal, Portal'
               }
             ],
             "resultsInterpreter": [
