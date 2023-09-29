@@ -69,8 +69,8 @@ The following fields are returned if valued:
  `encounter`      | N                 | [`reference`] | The Encounter when the order was made. Must represent an Encounter resource. Example: `encounter=1621910`
  `date`           | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/times can be given. Example: `date=lt2017-01-5`
  `_count`         | N                 | [`number`]    | The maximum number of results to return. Defaults to `10` and a maximum of `100` documents can be returned.
- `category`       | N                 | [`token`]     | The diagnostic discipline/department which created the report. Example: `http://terminology.hl7.org/CodeSystem/v2-0074|LAB` or `http://loinc.org|LP29684-5`
- `code`           | N                 | [`token`]     | The specific code for describing the report. Example: `http://loinc.org|24323-8`
+ `category`       | N                 | [`token`]     | The diagnostic discipline/department which created the report. Example: `http://terminology.hl7.org/CodeSystem/v2-0074\|LAB` or `http://loinc.org|LP29684-5`
+ `code`           | N                 | [`token`]     | The specific code for describing the report. Example: `http://loinc.org\|24323-8`
  `_revinclude`    | N                 | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
 _Implementation Notes_
@@ -170,4 +170,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
-[`Observation`]: /Observation
+[`Observation`]: ./Observation
