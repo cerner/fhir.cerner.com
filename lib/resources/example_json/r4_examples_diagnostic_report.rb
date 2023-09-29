@@ -34,7 +34,7 @@ module Cerner
                 '<p><b>Status</b>: Final</p>'\
                 '<p><b>Code</b>: Radiology Reports</p>'\
                 '<p><b>Effective End Date</b>: Aug 13, 2020  7:36 P.M. UTC</p>'\
-				'<p><b>Verifying Provider</b>: Portal, Portal</p></div>'
+                '<p><b>Verifying Provider</b>: Portal, Portal</p></div>'
             },
             "identifier": [
               {
