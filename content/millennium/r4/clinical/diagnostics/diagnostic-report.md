@@ -99,7 +99,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http://terminology.hl7.org/CodeSystem/v2-0074|RAD
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http://terminology.hl7.org/CodeSystem/v2-0074|RAD
 
 #### Response
 

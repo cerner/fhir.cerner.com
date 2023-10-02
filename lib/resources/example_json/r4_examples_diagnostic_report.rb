@@ -9,16 +9,16 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD'
         },
         {
           "relation": 'next',
-          "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD&-pageContext=eJwdyk0KwjAURtG9fOME8jTNT8GJbqBQcVpCmtaCJJImKJTu3eLwHu4Gn2osaEkwjGFy9XXEBl_zmjJa3Lqclofsr59lpq7eSy8vYHi6dYjhe7wl18DwdnMYfIrlb2hO9mxISG61aLgkIbihMHIySupJKU3WYd9_FHYmXg%3D%3D&-pageDirection=NEXT'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD&-pageContext=eJwdyk0KwjAURtG9fOME8jTNT8GJbqBQcVpCmtaCJJImKJTu3eLwHu4Gn2osaEkwjGFy9XXEBl_zmjJa3Lqclofsr59lpq7eSy8vYHi6dYjhe7wl18DwdnMYfIrlb2hO9mxISG61aLgkIbihMHIySupJKU3WYd9_FHYmXg%3D%3D&-pageDirection=NEXT'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197369077',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197369077',
           "resource": {
             "resourceType": 'DiagnosticReport',
             "id": '197369077',
@@ -97,19 +97,19 @@ module Cerner
             "presentedForm": [
               {
                 "contentType": 'application/pdf',
-                "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197369077',
+                "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197369077',
                 "title": 'Some Title 4x',
                 "creation": '2020-08-13T19:36:00.000Z'
               },
               {
                 "contentType": 'application/xml',
-                "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XML-197369077',
+                "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XML-197369077',
                 "title": 'Some Title 4x',
                 "creation": '2020-08-13T19:36:00.000Z'
               },
               {
                 "contentType": 'text/html',
-                "url": 'https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197369077',
+                "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197369077',
                 "title": 'Some Title 4x',
                 "creation": '2020-08-13T19:36:00.000Z'
               }
