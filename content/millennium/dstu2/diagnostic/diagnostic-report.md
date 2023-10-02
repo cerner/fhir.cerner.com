@@ -9,10 +9,9 @@ title: DiagnosticReport | DSTU 2 API
 
 ## Overview
 
-The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a
-diagnostic service or procedure such as a Radiology or Pathology report.
+The DiagnosticReport resource provides a set of information and interpretation following a diagnostic service or procedure such as a Radiology, Pathology, or Cardiology report. The DiagnosticReport resource will produce information about the diagnostic report itself and about the subject.
 
-This resource currently only supports Radiology reports in the presented form of either PDF or HTML.
+The information produced can include a mix of textual reports, images, and codes, depending on the type(s) of diagnostic services being retrieved. This resource currently only supports Radiology reports in the presented form of either PDF or HTML.
 
 The following fields are returned if valued:
 
@@ -41,13 +40,6 @@ Search for DiagnosticReports that meet supplied query parameters:
 
     GET /DiagnosticReport?:parameters
 
-_Implementation Notes_
-
-* If a DiagnosticReport references a PDF with URL sections, it may not be returned from the Binary resource. See the
-[Binary implementation notes].
-* When requesting the presentedForm.url, the Accept header should be populated with the presentedForm.contentType. For more
-information, see the [Binary accept] documentation.
-
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
@@ -56,10 +48,17 @@ information, see the [Binary accept] documentation.
 
   Name             | Required?       | Type          | Description
 -------------------|-----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `patient`         | This or subject | [`reference`] | The subject of the report if a patient. Example: `12345`
- `subject:Patient` | This or patient | [`reference`] | The subject (Patient) of the report. Example: `12345`
- `date`            | N               | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Must be present once and prefixed by 'ge' or present twice and prefixed by 'ge' / 'lt'. EG: `date=ge2014-09-24T12:00:00.000Z` `&date=lt2015-10-24T12:00:00.000Z`
- [`_count`]        | N               | [`number`]    | The maximum number of results to return per page.
+ `patient`         | This or `subject` | [`reference`] | The subject of the report if a patient. Example: `12345`
+ `subject:Patient` | This or `patient` | [`reference`] | The subject (Patient) of the report. Example: `12345`
+ `date`            | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Must be present once and prefixed by 'ge' or present twice and prefixed by 'ge' / 'lt'. EG: `date=ge2014-09-24T12:00:00.000Z` `&date=lt2015-10-24T12:00:00.000Z`
+ [`_count`]        | N                 | [`number`]    | The maximum number of results to return. Defaults to `10` and a maximum of `100` documents can be returned.
+
+_Implementation Notes_
+
+* If a DiagnosticReport references a PDF with URL sections, it may not be returned from the `Binary` resource. See the
+[Binary implementation notes].
+* When requesting the presentedForm.url, the `Accept` header should be populated with the `presentedForm.contentType`. For more
+information, see the [Binary accept] documentation.
 
 ### Headers
 
