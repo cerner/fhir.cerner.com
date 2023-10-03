@@ -11,47 +11,51 @@ title: Appointment | R4 API
 
 The Appointment resource provides the ability to retrieve information about appointments, write new appointments, and update the status of existing appointments.
 
-Date is required when searching by patient, practitioner, or location.
+A date is required when searching by [Patient](../individuals/patient), [Practitioner](../individuals/practitioner), or [Location](../entities/location).
 
-When integrating your application with a client’s production environment you will work with the client to determine the Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available to third-party applications for enabling scheduling functionality.
+When integrating your application with a client’s environments, you will work with the client to determine the Practitioner and Location IDs (Millennium personnel and location codes, respectively) which they want to make available to third-party applications for enabling scheduling functionality.
 
-Appointment types for use in FHIR scheduling workflows must be resource list based. The ability to retrieve slots and book appointments that are order role based are not supported in FHIR workflows.
+Appointment types for use in FHIR scheduling workflows must be _resource list_ based. The ability to retrieve slots and book appointments that are _order role_ based are not supported in FHIR workflows.
 
-The status of arrived does not change the state of the millennium appointment but instead updates the patient tracking status to a value of Arrived.
+The status of `arrived` does not change the state of the Millennium appointment but, instead, updates the patient tracking status to a value of `Arrived`.
 
-R4 exposes a native checked-in status which allows for an appointment to transition from the booked state to the checked-in state. This is a change from the DSTU2 value mapping.
+R4 exposes a native checked-in status, which allows for an appointment to transition from the `booked` state to the `checked-in` state. This is a change from the DSTU2 functionality.
 
 When updating an appointment, the resource provides the ability to change the [Appointment.status] in the following sequences:
 
-* From Proposed to Booked, or Cancelled
-* From Booked to Arrived, Checked-In, or Cancelled
-* From Arrived to Checked-In, or Cancelled
-* From Checked-In to Fulfilled, or Cancelled
+* From `Proposed` to `Booked` or `Cancelled`
+* From `Booked` to `Arrived`, `Checked-In`, or `Cancelled`
+* From `Arrived` to `Checked-In` or `Cancelled`
+* From `Checked-In` to `Fulfilled` or `Cancelled`
 
-Video Visit functionality requires additional licensing, configuration and application support.
+Video Visit functionality requires additional licensing, configuration, and application support.
 
 The following fields are returned if valued:
 
 * [Appointment id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status){:target="_blank"}
 * [Cancelation Reason](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason){:target="_blank"}
-* [ServiceCategory](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory){:target="_blank"}
-* [ServiceType](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType){:target="_blank"}
+* [Service Category](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceCategory){:target="_blank"}
+* [Service Type](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.serviceType){:target="_blank"}
 * [Slot](https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.slot){:target="_blank"}
 * [Participant](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant){:target="_blank"}
   * [Type](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.type){:target="_blank"}
   * [Actor](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
   * [Required](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
   * [Status](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status){:target="_blank"}
-* [Reason code](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode){:target="_blank"}
+* [Reason Code](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode){:target="_blank"}
 * [Description](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.description){:target="_blank"}
-* [Start date time](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.start){:target="_blank"}
-* [End date time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end){:target="_blank"}
+* [Start Date/Time](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.start){:target="_blank"}
+* [End Date/Time](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.end){:target="_blank"}
 * [Duration in minutes](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.minutesDuration){:target="_blank"}
 * [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * [Patient Instruction](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction){:target="_blank"}
 * [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
-* [Extensions including action comment, group appointment id, is cancelable, is reschedulable](#extensions){:target="_blank"}
+* [Extensions including action-comment, group-appointment-id, is-cancelable, and is-reschedulable](#extensions){:target="_blank"}
+
+<%= disclaimer %>
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
@@ -83,7 +87,7 @@ Search for Appointments that meet supplied query parameters:
 
 _Implementation Notes_
 
-* Valid ids for the `practitioner` and `location` search parameters will be determined by the client and provided when integrating your application with the client's production environment. See [overview](#overview) for details.
+* Valid IDs for the `practitioner` and `location` search parameters will be determined by the client and provided when integrating your application with the client's environment. See [overview](#overview) for details.
 
 ### Authorization Types
 
@@ -93,13 +97,13 @@ _Implementation Notes_
 
  Name                  | Required?                                                                          | Type          | Description
 -----------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------
- `_id`                 | Yes, or one of `patient`, `practitioner`, or `location`.                           | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
- `date`                | Yes, or `-date-or-req-period` when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment start date time with offset. Example: `2019-06-07T22:22:16.270Z`
- `-date-or-req-period` | Yes, or `date` when using `patient`, `practitioner`, or `location`.                | [`date`]      | The Appointment start date time with offset or the Appointment requested period date time with offset. Example: `2019-06-07T22:22:16.270Z`
- `patient`             | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
- `practitioner`        | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
- `location`            | Yes, or `_id`                                                                      | [`reference`] | A single or comma separated list of Location references. Example: `633867`
- `status`              | No                                                                                 | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
+ `_id`                 | Yes, or `patient` or `practitioner` or `location`.                                 | [`token`]     | The logical resource id associated with the Appointment. Example: `_id=3005759`
+ `patient`             | Yes, or `_id` or `practitioner` or `location`.                                     | [`reference`] | A single or comma separated list of Patient references. Example: `patient=12724066`
+ `practitioner`        | Yes, or `_id` or `patient` or `location`.                                          | [`reference`] | A single or comma separated list of Practitioner references. Example: `practitioner=593923`
+ `location`            | Yes, or `_id` or `patient` or `practitioner`.                                      | [`reference`] | A single or comma separated list of Location references. Example: `location=21304876`
+ `date`                | Yes, or `-date-or-req-period` when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment start date time with offset. Example: `date=ge2019-06-07T22:22:16.000Z`
+ `-date-or-req-period` | Yes, or `date` when using `patient`, `practitioner`, or `location`.                | [`date`]      | The Appointment start date time with offset or the Appointment requested period date time with offset. Example: `-date-or-req-period=ge2019-06-07T22:22:16.000Z`
+ `status`              | No                                                                                 | [`token`]     | A single or comma separated list of appointment statuses. Example: `status=arrived`
  [`_count`]            | No                                                                                 | [`number`]    | The maximum number of results to return.
 
 Notes:
@@ -108,9 +112,9 @@ Notes:
 * Either `date` or `-date-or-req-period` parameter may be provided:
   * once with a prefix and time component to indicate a specific date/time. (e.g. `&date=ge2019-12-07T22:22:16.270Z`, `&date=lt2019-12-14T22:22:16.270Z`)
   * twice with the prefixes `ge` and `lt` to indicate a specific range. The date and prefix pairs must define an upper and lower bound. (e.g. `&date=ge2019-12-07T22:22:16.270Z&date=lt2019-12-14T22:22:16.270Z`)
-* Search by `date` returns appointments with a status other than `proposed` that start and end within the date range provided.
-* Search by `-date-or-req-period` returns the same appointments as the `date` parameter, but also returns appointments with a status of `proposed` that either are requested to start or are requested to end between the dates provided.
-* The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
+* Search by `date` returns appointments with a status other than `proposed` that start or end within the date range provided.
+* Search by `-date-or-req-period` returns the same appointments as the `date` parameter, but also returns appointments with a status of `proposed` that either are requested to start or end between the dates provided.
+* The retrieved appointments are sorted by `start` date ascending (earliest first).
 
 ### Headers
 
@@ -127,15 +131,9 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_appointment_bundle) %>
 
-<%= disclaimer %>
+## Retrieve by ID
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual Appointment by its id:
+List an individual Appointment by its ID:
 
     GET /Appointment/:id
 
@@ -151,14 +149,12 @@ List an individual Appointment by its id:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4822366
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:r4_appointment_entry) %>
-
-<%= disclaimer %>
 
 ### Example - Video Visit
 
@@ -171,12 +167,6 @@ List an individual Appointment by its id:
 <%= headers status: 200 %>
 <%= json(:r4_appointment_video_visit_entry) %>
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ## Patch
 
 Patch an existing Appointment.
@@ -185,11 +175,11 @@ Patch an existing Appointment.
 
 _Implementation Notes_
 
-* For Video Visit link patch operations, both read and write scopes are required.
-* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
+* Video Visit functionality requires additional licensing, configuration and application support.
+* For Video Visit link patch operations, both `Appointment.read` and `Appointment.write` scopes are required.
+* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) specification.
 * Only operations on the paths listed below are supported.
 * For Video Visit link patch operation paths, `contained` index 0 represents the provider link and `contained` index 1 represents the patient link.
-* Video Visit link patching requires additional licensing, client configuration, cloud configuration, and application support.
 
 ### Authorization Types
 
@@ -225,12 +215,9 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Update Status to Booked
 
@@ -253,12 +240,9 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Update reasonCode
 
@@ -281,12 +265,9 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Add cancelationReason
 
@@ -309,12 +290,9 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Replace Slot
 
@@ -337,12 +315,9 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Add Video Visit Links
 
@@ -365,12 +340,9 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10-1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Replace Video Visit Links
 
@@ -393,12 +365,9 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10-1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Update Participant Status
 
@@ -421,12 +390,9 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Update Action Comment
 
@@ -449,26 +415,21 @@ Date: Fri, 11 Aug 2023 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Fri, 11 Aug 2023 15:42:29 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
-
-In addition, the following errors may be returned:
+In addition to the common [errors] and [OperationOutcomes], the following errors may be returned:
 
 * Updating an Appointment resource with the incorrect version will result in a `409 Conflict` response.
 * Updating an Appointment resource without sending the `If-Match` header will result in a `412 Precondition Failed` response.
 * Updating an Appointment resource which is currently being modified will result in a `423 Locked` response.
 * If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), `424 Failed Dependency` response will be returned.
-* Patching a Video Visit appointment with add operations that has previously been patched for Video Visit links will result in a `409 Conflict` response.
+* Patching a Video Visit Appointment with add operations that has previously been patched for Video Visit links will result in a `409 Conflict` response.
 * Mixing add and replace patch operations is not supported while patching a Video Visit Appointment and will result in a `422 Unprocessable Entity` response.
-* Patching a Video Visit appointment with any missing required patch operations will result in a `422 Unprocessable Entity` response.
+* Patching a Video Visit Appointment with any missing required patch operations will result in a `422 Unprocessable Entity` response.
 * Patching an Appointment with a participant status other than "accepted" will result in a `422 Unprocessable Entity` response.
 
 ## Create
@@ -481,7 +442,7 @@ _Implementation Notes_
 
 * The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
 * `Appointment.status` must be set to `proposed` or `booked`.
-* `Appointment.reasonCode` if set, must be a list containing exactly one CodeableConcept.
+* `Appointment.reasonCode`, if set, must be a list containing exactly one CodeableConcept.
 * When `Appointment.status` is set to `proposed`:
   * `Appointment.serviceType` must be a list containing exactly one CodeableConcept.
   * `Appointment.participant` must be a list containing exactly one Patient participant and at least one Location participant.
@@ -494,6 +455,7 @@ _Implementation Notes_
   * `Appointment.participant.actor` must be a reference to a Patient.
   * `Appointment.participant.status` must be set to `accepted`.
 * `Appointment.participant.type` must not be set.
+* The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
 ### Authorization Types
 
@@ -529,12 +491,11 @@ Etag: W/"0"
 Last-Modified: Tue, 12 May 2020 20:25:01 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/6427746
 Vary: Origin
-X-Request-Id: 12814f1d23156f10ca94374f94c9ea02
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
 
 ### Example - Booked Appointment
 
@@ -558,16 +519,9 @@ Etag: W/"0"
 Last-Modified: Thu, 30 May 2019 19:49:23 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/20465903
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [Appointment.status]: https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.status
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
