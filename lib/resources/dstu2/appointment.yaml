@@ -1,6 +1,6 @@
 ---
 name: Appointment
-field_name_base_url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment
+field_name_base_url: https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment
 fields:
 - name: resourceType
   required: 'Yes'
@@ -10,8 +10,8 @@ fields:
     {
       "resourceType: "Appointment"
     }
-  note: resourceType must be Appointment
-  url: http://hl7.org/fhir/DSTU2/json.html#resources
+  note: Must be `Appointment`
+  url: https://hl7.org/fhir/DSTU2/json.html#resources
 
 - name: type
   required: 'Yes'
@@ -32,13 +32,13 @@ fields:
                 "text": "Same Day"
                }
              }
-  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type
+  url: https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type
   binding:
     description:  Additional details about where the content was created (e.g. clinical specialty).
     terminology:
     - display: Practice Setting Code Value Set
       system: http://snomed.info/sct
-      info_link: http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html
+      info_link: https://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html
     - display: Millennium Scheduling Appointment Synonyms or Types
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249
       info_link: https://fhir.cerner.com/millennium/dstu2/proprietary-codes/#code-set-14249-scheduling-appointment-synonyms-or-types
@@ -47,7 +47,7 @@ fields:
   required: 'Yes'
   type: List of Reference (Slot)
   description: The availability to which the appointment is booked.
-  note: At most one slot can be populated.
+  note: Exactly one Slot must be provided.
   example: |
     {
       "slot": [
@@ -56,38 +56,38 @@ fields:
         }
       ]
     }
-  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot
+  url: https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot
   action: create
 
 - name: status
   required: 'Yes'
   type: code
   description: A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
-  note: When creating a new appointment, the status must be "proposed".
+  note: Must be `proposed`
   action: create
   example: |
       {
         "status": "proposed"
       }
-  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status
+  url: https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status
 
 - name: status
   required: 'Yes'
   type: code
   description: A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
-  note: When updating an appointment, the status must be "arrived" or "cancelled".
+  note: Must be `arrived` or `cancelled`
   action: update
   example: |
     {
       "status": "arrived"
     }
-  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status
+  url: https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status
 
 - name: participant
   required: 'Yes'
   type: List of BackboneElement
   description: Participants involved in appointment.
-  note: When creating a new appointment, at most one participant can be populated.
+  note: Exactly one participant must be provided.
   action: create
   example: |
       {
@@ -107,7 +107,7 @@ fields:
     required: 'Yes'
     type: Reference (Patient)
     description: A person, location, healthcare service or device that is participating in the appointment.
-    note: When creating a new appointment, this must be a Patient participant.
+    note: Must be a Patient
     example: |
       {
         "actor": {
@@ -120,7 +120,7 @@ fields:
     required: 'Yes'
     type: code
     description: Participation status of the Patient.
-    note: When creating a new appointment, this value must be "needs-action".
+    note: Must be <code>needs-action</code>
     example: |
       {
         "status": "needs-action"
@@ -161,7 +161,7 @@ fields:
     required: 'Yes'
     type: code
     description: Participation status of the actor.
-    note: When updating an appointment, this value must be "accepted".
+    note: Must be `accepted`
     example: |
       {
         "status": "accepted"
@@ -176,4 +176,4 @@ fields:
     {
       "comment: "Further explain MRI results"
     }
-  url: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment
+  url: https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment
