@@ -13,7 +13,11 @@ module Cerner
         },
         "text": {
           "status": 'generated',
-          "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Appointment</b></p><p><b>Status</b>: Cancelled</p><p><b>Service Type</b>: Surgery Rapid</p><p><b>Start</b>: Jan 23, 2020 10:10 P.M. UTC</p><p><b>End</b>: Jan 23, 2020 11:10 P.M. UTC</p><p><b>Participants</b>:</p><dl><dd><b>Location</b>: Endoscopy</dd><dd><b>Other Resource</b>: Endoscopy Rooms</dd><dd><b>Patient</b>: Smart II, Nancy</dd></dl></div>'
+          "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Appointment</b></p>'\
+          '<p><b>Status</b>: Cancelled</p><p><b>Service Type</b>: Surgery Rapid</p>'\
+          '<p><b>Start</b>: Jan 23, 2020 10:10 P.M. UTC</p><p><b>End</b>: Jan 23, 2020 11:10 P.M. UTC</p>'\
+          '<p><b>Participants</b>:</p><dl><dd><b>Location</b>: Endoscopy</dd>'\
+          '<dd><b>Other Resource</b>: Endoscopy Rooms</dd><dd><b>Patient</b>: Smart II, Nancy</dd></dl></div>'
         },
         "extension": [
           {
