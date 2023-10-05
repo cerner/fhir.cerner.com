@@ -97,7 +97,7 @@ Notes:
 
 * When `_include=Slot:schedule` is provided in a request to the closed endpoint, the OAuth2 token must include one of `user/Schedule.read`, `patient/Schedule.read` or `system/Schedule.read` scopes in addition to the Slot scope.
 
-*  When `_include=Schedule:actor:Practitioner` is provided in a request to the closed endpoint, the OAuth2 token must include  one of `user/Practitioner.read`, `patient/Practitioner.read` or `system/Practitioner.read` scopes in addition to the Slot and Schedule scope.
+*  When `_include=Schedule:actor:Practitioner` is provided in a request to the closed endpoint, the OAuth2 token must include  one of `user/Practitioner.read`, `patient/Practitioner.read` or `system/Practitioner.read` scopes and one of `user/Schedule.read`, `patient/Schedule.read` or `system/Schedule.read` scopes in addition to the Slot scope.
 
 ### Headers
 
