@@ -167,6 +167,97 @@ List an individual Appointment by its ID:
 <%= headers status: 200 %>
 <%= json(:r4_appointment_video_visit_entry) %>
 
+## Create
+
+Create a new Appointment.
+
+    POST /Appointment
+
+_Implementation Notes_
+
+* The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
+* `Appointment.status` must be set to `proposed` or `booked`.
+* `Appointment.reasonCode`, if set, must be a list containing exactly one CodeableConcept.
+* When `Appointment.status` is set to `proposed`:
+  * `Appointment.serviceType` must be a list containing exactly one CodeableConcept.
+  * `Appointment.participant` must be a list containing exactly one Patient participant and at least one Location participant.
+  * `Appointment.participant.actor` must be a reference to a Patient or a Location.
+  * `Appointment.participant.status` must be set to `needs-action`.
+  * `Appointment.requestedPeriod` must be a list containing a single Period. Both `Appointment.requestedPeriod.start` and `Appointment.requestedPeriod.end` must be set.
+* When`Appointment.status` is set to `booked`:
+  * `Appointment.slot` must be a list containing exactly one reference to the Slot in which this appointment is being booked. `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
+  * `Appointment.participant` must be a list containing exactly one Patient participant.
+  * `Appointment.participant.actor` must be a reference to a Patient.
+  * `Appointment.participant.status` must be set to `accepted`.
+* `Appointment.participant.type` must not be set.
+* The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:appointment, :create, :r4) %>
+
+### Example - Proposed Appointment
+
+#### Request
+
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
+
+#### Body
+
+<%= json(:r4_proposed_appointment_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Tue, 12 May 2020 20:25:01 GMT
+Etag: W/"0"
+Last-Modified: Tue, 12 May 2020 20:25:01 GMT
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/6427746
+Vary: Origin
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
+</pre>
+
+The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
+
+### Example - Booked Appointment
+
+#### Request
+
+    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
+
+#### Body
+
+<%= json(:r4_appointment_create) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: application/fhir+json
+Date: Thu, 30 May 2019 19:49:25 GMT
+Etag: W/"0"
+Last-Modified: Thu, 30 May 2019 19:49:23 GMT
+Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/20465903
+Vary: Origin
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
+</pre>
+
 ## Patch
 
 Patch an existing Appointment.
@@ -188,7 +279,7 @@ _Implementation Notes_
 ### Headers
 
 <%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Accept': 'application/fhir+json',
-                   'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Appointment resource>"'} %>
+'Content-Type': 'application/json-patch+json', 'If-Match': 'W/"&lt;Current version of the Appointment resource>"'} %>
 
 ### Patch Operations
 
@@ -431,97 +522,6 @@ In addition to the common [errors] and [OperationOutcomes], the following errors
 * Mixing add and replace patch operations is not supported while patching a Video Visit Appointment and will result in a `422 Unprocessable Entity` response.
 * Patching a Video Visit Appointment with any missing required patch operations will result in a `422 Unprocessable Entity` response.
 * Patching an Appointment with a participant status other than "accepted" will result in a `422 Unprocessable Entity` response.
-
-## Create
-
-Create a new Appointment.
-
-    POST /Appointment
-
-_Implementation Notes_
-
-* The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
-* `Appointment.status` must be set to `proposed` or `booked`.
-* `Appointment.reasonCode`, if set, must be a list containing exactly one CodeableConcept.
-* When `Appointment.status` is set to `proposed`:
-  * `Appointment.serviceType` must be a list containing exactly one CodeableConcept.
-  * `Appointment.participant` must be a list containing exactly one Patient participant and at least one Location participant.
-  * `Appointment.participant.actor` must be a reference to a Patient or a Location.
-  * `Appointment.participant.status` must be set to `needs-action`.
-  * `Appointment.requestedPeriod` must be a list containing a single Period. Both `Appointment.requestedPeriod.start` and `Appointment.requestedPeriod.end` must be set.
-* When`Appointment.status` is set to `booked`:
-  * `Appointment.slot` must be a list containing exactly one reference to the Slot in which this appointment is being booked. `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
-  * `Appointment.participant` must be a list containing exactly one Patient participant.
-  * `Appointment.participant.actor` must be a reference to a Patient.
-  * `Appointment.participant.status` must be set to `accepted`.
-* `Appointment.participant.type` must not be set.
-* The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-### Authorization Types
-
-<%= authorization_types(provider: true, system: true) %>
-
-### Headers
-
-<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
-
-### Body Fields
-
-<%= definition_table(:appointment, :create, :r4) %>
-
-### Example - Proposed Appointment
-
-#### Request
-
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
-
-#### Body
-
-<%= json(:r4_proposed_appointment_create) %>
-
-#### Response
-
-<%= headers status: 201 %>
-<pre class="terminal">
-Cache-Control: no-cache
-Content-Length: 0
-Content-Type: application/fhir+json
-Date: Tue, 12 May 2020 20:25:01 GMT
-Etag: W/"0"
-Last-Modified: Tue, 12 May 2020 20:25:01 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/6427746
-Vary: Origin
-opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
-X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
-</pre>
-
-The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-### Example - Booked Appointment
-
-#### Request
-
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment
-
-#### Body
-
-<%= json(:r4_appointment_create) %>
-
-#### Response
-
-<%= headers status: 201 %>
-<pre class="terminal">
-Cache-Control: no-cache
-Content-Length: 0
-Content-Type: application/fhir+json
-Date: Thu, 30 May 2019 19:49:25 GMT
-Etag: W/"0"
-Last-Modified: Thu, 30 May 2019 19:49:23 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/20465903
-Vary: Origin
-opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
-X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
-</pre>
 
 [Appointment.status]: https://hl7.org/fhir/r4/appointment-definitions.html#Appointment.status
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
