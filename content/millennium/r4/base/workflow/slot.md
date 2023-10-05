@@ -1,4 +1,4 @@
-content/millennium/r4/base/workflow/slot.md
+---
 title: Slot | R4 API
 ---
 
