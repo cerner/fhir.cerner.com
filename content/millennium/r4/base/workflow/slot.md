@@ -1,4 +1,4 @@
----
+content/millennium/r4/base/workflow/slot.md---
 title: Slot | R4 API
 ---
 
@@ -68,7 +68,7 @@ _Implementation Notes_
  `-location`      | No                    | [`reference`] | A single or comma separated list of Location references. Example: `-location='5678'`
  `start`          | See Notes             | [`date`]      | The Slot date-time. Example: `start=ge2016-08-24T12:00:00.000Z&start=lt2017-01-24T12:00:00.000Z`
  [`_count`]       | No                    | [`number`]    | The maximum number of results to be returned per page.
- [`_include`]     | No                    | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule`
+ [`_include`]     | No                    | [`string`]    | Other resource entries to be returned as part of the bundle. Example: `_include=Slot:schedule` or `_include=Schedule:actor:Practitioner`
 
 Notes:
 
@@ -91,11 +91,13 @@ Notes:
 
 * The search operation will only return free slots which are available to be booked. However, booked slots may still be retrieved when using the `_id` parameter.
 
-* The `_include` parameter may be provided once with the value `Slot:schedule`. Example: `_include=Slot:schedule`
+* The `_include` parameter may be provided once with the value `Slot:schedule` or `Schedule:actor:Practitioner`. Example: `_include=Slot:schedule` or `_include=Schedule:actor:Practitioner`
 
 * The `_include` parameter may be provided with the `_id` parameter. Example: `_id=21265426-633867-3121665-0&_include=Slot:schedule`
 
-* When `_include` is provided in a request to the closed endpoint, the OAuth2 token must include one of `user/Schedule.read`, `patient/Schedule.read`, or `system/Schedule.read` scopes in addition to the Slot scope.
+* When `_include=Slot:schedule` is provided in a request to the closed endpoint, the OAuth2 token must include one of `user/Schedule.read`, `patient/Schedule.read` or `system/Schedule.read` scopes in addition to the Slot scope.
+
+*  When `_include=Schedule:actor:Practitioner` is provided in a request to the closed endpoint, the OAuth2 token must include  one of `user/Practitioner.read`, `patient/Practitioner.read` or `system/Practitioner.read` scopes in addition to the Slot and Schedule scope.
 
 ### Headers
 
@@ -127,7 +129,7 @@ Notes:
 
 ### Example with Include
 
-#### Request
+#### Request when `_include=Slot:schedule`
 
     GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&_include=Slot:schedule&_count=5
 
@@ -138,7 +140,18 @@ Notes:
 
 <%= disclaimer %>
 
-#### Patient Authorization Request
+#### Request when `_include=Schedule:acto:Practitioner`
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&_include=Schedule:acto:Practitioner&_count=5
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_slot_bundle_include_practitioner) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request when `_include=Slot:schedule`
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&_include=Slot:schedule&_count=5
 
@@ -146,6 +159,17 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_slot_patient_access_bundle_include_schedule) %>
+
+<%= disclaimer %>
+
+#### Patient Authorization Request when `_include=Schedule:acto:Practitioner`
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Slot?service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611&start=ge2016-01-23T22:05:47Z&start=lt2020-06-08T18:13:55Z&_include=Schedule:acto:Practitionere&_count=5
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_slot_patient_access_bundle_include_practitioner) %>
 
 <%= disclaimer %>
 
