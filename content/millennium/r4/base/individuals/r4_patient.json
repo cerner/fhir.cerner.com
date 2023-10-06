@@ -1,0 +1,719 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "R4 Patient",
+    "description": "The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers. \nThe following HL7® FHIR® US Core Implementation Guide STU 4.0.0 Profiles are supported by this resource:\n* [US Core Patient Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-patient.html)",
+    "version": "1.0.0",
+    "termsOfService": "https://www.cerner.com/terms-of-use"
+  },
+  "externalDocs": {
+    "description": "HL7® FHIR® R4 Patient specification",
+    "url": "https://hl7.org/fhir/r4/patient.html"
+  },
+  "servers": [
+    {
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d",
+      "description": "Open sandbox"
+    }
+  ],
+  "tags": [
+    {
+      "name": "FHIR"
+    }
+  ],
+  "paths": {
+    "/Patient/": {
+      "get": {
+        "description": "Retrieve all Patients matching provided query parameters",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "resourceType": {
+                      "type": "string",
+                      "default": "Bundle"
+                    },
+                    "id": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string",
+                      "default": "searchset"
+                    },
+                    "link": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Link"
+                      }
+                    },
+                    "entry": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "fullUrl": {
+                            "type": "string"
+                          },
+                          "resource": {
+                            "$ref": "#/components/schemas/Patient"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Patient/{id}": {
+      "description": "",
+      "parameters": [
+        {
+          "in": "path",
+          "name": "id",
+          "schema": {
+            "type": "string"
+          },
+          "required": true,
+          "example": "12724066"
+        }
+      ],
+      "get": {
+        "summary": "Patient details",
+        "responses": {
+          "200": {
+            "description": "Patient information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Patient"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/schemas/OperationOutcome"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Patient": {
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "default": "Patient"
+          },
+          "id": {
+            "type": "string",
+            "example": "12724066"
+          },
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "text": {
+            "$ref": "#/components/schemas/Narrative"
+          },
+          "extension": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "extension": {
+                  "$ref": "#/components/schemas/Extension"
+                },
+                "url": {
+                  "type": "string",
+                  "enum": [
+                    "http://hl7.org/fhir/StructureDefinition/patient-birthTime",
+                    "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+                    "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+                    "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+                    "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+                  ]
+                }
+              },
+              "items": {
+                "$ref": "#/components/schemas/Extension"
+              }
+            }
+          },
+          "identifier": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Identifier"
+            }
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "name": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HumanName"
+            }
+          },
+          "telecom": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ContactPoint"
+            }
+          },
+          "gender": {
+            "$ref": "#/components/schemas/AdministrativeGender"
+          },
+          "birthDate": {
+            "type": "string",
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/datatypes.html#date"
+            }
+          },
+          "deceasedBoolean": {
+            "type": "boolean"
+          },
+          "deceasedDateTime": {
+            "type": "string",
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/datatypes.html#dateTime"
+            }
+          },
+          "address": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Address"
+            }
+          },
+          "maritalStatus": {
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Coding"
+                }
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus"
+            }
+          },
+          "multipleBirthBoolean": {
+            "type": "boolean"
+          },
+          "multipleBirthInteger": {
+            "type": "integer"
+          },
+          "contact": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Contact"
+            },
+            "description": ""
+          },
+          "communication": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Communication"
+            }
+          },
+          "generalPractitioner": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reference"
+            },
+            "description": "References Practitioner",
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner"
+            }
+          }
+        },
+        "required": [
+          "resourceType",
+          "id"
+        ]
+      },
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "versionId": {
+            "type": "string",
+            "example": "12"
+          },
+          "lastUpdated": {
+            "$ref": "#/components/schemas/Instant"
+          }
+        }
+      },
+      "OperationOutcome": {
+        "type": "object",
+        "properties": {
+          "resourceType": {
+            "type": "string",
+            "default": "OperationOutcome"
+          },
+          "issue": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "severity": {
+                  "type": "string",
+                  "enum": [
+                    "fatal",
+                    "error",
+                    "warning",
+                    "information"
+                  ]
+                },
+                "code": {
+                  "type": "string",
+                  "externalDocs": {
+                    "url": "https://www.hl7.org/fhir/r4/valueset-issue-type.html"
+                  }
+                },
+                "details": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CodeableConcept"
+                  }
+                },
+                "diagnostics": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string",
+                  "deprecated": true
+                },
+                "expression": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "severity",
+                "code"
+              ]
+            }
+          }
+        }
+      },
+      "Narrative": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "div": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "div"
+        ]
+      },
+      "Period": {
+        "type": "object",
+        "properties": {
+          "start": {
+            "$ref": "#/components/schemas/DateTime"
+          },
+          "end": {
+            "$ref": "#/components/schemas/DateTime"
+          }
+        }
+      },
+      "DateTime": {
+        "type": "string",
+        "externalDocs": {
+          "url": "https://hl7.org/fhir/r4/datatypes.html#dateTime"
+        }
+      },
+      "Instant": {
+        "type": "string",
+        "externalDocs": {
+          "url": "https://hl7.org/fhir/R4/datatypes.html#instant"
+        },
+        "example": "2023-09-13T09:02:39.000Z"
+      },
+      "HumanName": {
+        "type": "object",
+        "properties": {
+          "use": {
+            "type": "string",
+            "enum": [
+              "usual",
+              "official",
+              "temp",
+              "nickname",
+              "anonymous",
+              "old",
+              "maiden"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "family": {
+            "type": "string"
+          },
+          "given": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "prefix": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "suffix": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          }
+        }
+      },
+      "CodeableConcept": {
+        "type": "object",
+        "properties": {
+          "coding": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Coding"
+            }
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "externalDocs": {
+          "url": "https://www.hl7.org/fhir/r4/datatypes.html#CodeableConcept"
+        }
+      },
+      "Coding": {
+        "type": "object",
+        "properties": {
+          "system": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "display": {
+            "type": "string"
+          },
+          "userSelected": {
+            "type": "boolean"
+          }
+        },
+        "externalDocs": {
+          "url": "https://www.hl7.org/fhir/r4/datatypes.html#Coding"
+        }
+      },
+      "Identifier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "use": {
+            "type": "string",
+            "enum": [
+              "usual",
+              "official",
+              "temp",
+              "secondary",
+              "old"
+            ]
+          },
+          "type": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CodeableConcept"
+            }
+          },
+          "system": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "externalDocs": {
+                "url": "https://hl7.org/fhir/R4/datatypes.html#uri"
+              }
+            }
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "period": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Period"
+            }
+          },
+          "_value": {
+            "type": "object",
+            "properties": {
+              "extension": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Extension"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Extension": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "valueString": {
+              "type": "string"
+            },
+            "valueCoding": {
+              "$ref": "#/components/schemas/Coding"
+            },
+            "url": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "ContactPoint": {
+        "type": "object",
+        "properties": {
+          "system": {
+            "type": "string",
+            "enum": [
+              "phone",
+              "fax",
+              "email",
+              "pager",
+              "url",
+              "sms",
+              "other"
+            ],
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/valueset-contact-point-system.html"
+            }
+          },
+          "value": {
+            "type": "string"
+          },
+          "use": {
+            "type": "string",
+            "enum": [
+              "home",
+              "work",
+              "temp",
+              "old",
+              "mobile"
+            ],
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/valueset-contact-point-use.html"
+            }
+          },
+          "rank": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          }
+        }
+      },
+      "AdministrativeGender": {
+        "type": "string",
+        "enum": [
+          "male",
+          "female",
+          "other",
+          "unknown"
+        ],
+        "externalDocs": {
+          "url": "https://hl7.org/fhir/R4/valueset-administrative-gender.html"
+        }
+      },
+      "Address": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "use": {
+            "type": "string",
+            "enum": [
+              "home",
+              "work",
+              "temp",
+              "old",
+              "billing"
+            ]
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "postal",
+              "physical",
+              "both"
+            ]
+          },
+          "text": {
+            "type": "string"
+          },
+          "line": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "city": {
+            "type": "string"
+          },
+          "district": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "postalCode": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          }
+        }
+      },
+      "Contact": {
+        "type": "object",
+        "properties": {
+          "relationship": {
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Coding"
+                }
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/valueset-patient-contactrelationship.html"
+            }
+          },
+          "name": {
+            "$ref": "#/components/schemas/HumanName"
+          },
+          "telecom": {
+            "$ref": "#/components/schemas/ContactPoint"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "gender": {
+            "$ref": "#/components/schemas/AdministrativeGender"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/Reference"
+          },
+          "period": {
+            "$ref": "#/components/schemas/Period"
+          }
+        }
+      },
+      "Reference": {
+        "type": "object",
+        "properties": {
+          "reference": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/valueset-resource-types.html"
+            }
+          },
+          "identifier": {
+            "$ref": "#/components/schemas/Identifier"
+          },
+          "display": {
+            "type": "string"
+          }
+        }
+      },
+      "Communication": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "object",
+            "properties": {
+              "coding": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/Coding"
+                }
+              },
+              "text": {
+                "type": "string"
+              }
+            },
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication.language"
+            }
+          },
+          "preferred": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "language"
+        ]
+      },
+      "Link": {
+        "type": "object",
+        "properties": {
+          "relation": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "externalDocs": {
+              "url": "https://hl7.org/fhir/R4/datatypes.html#uri"
+            }
+          }
+        }
+      }
+    }
+  }
+}
