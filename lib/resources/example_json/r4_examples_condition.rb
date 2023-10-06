@@ -102,171 +102,168 @@ module Cerner
     }.freeze
 
     R4_PATIENT_CONDITION_ENTRY ||= {
-      'resourceType': 'Condition',
-      'id': 'p109117485',
-      'meta': {
-        'versionId': '109117485',
-        'lastUpdated': '2020-06-11T04:05:04.000Z',
-        'security': [
-          {
-            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
-            'code': 'PHY',
-            'display': 'physician requested information sensitivity',
-            'userSelected': false
-          },
-          {
-            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
-            'code': 'PRS',
-            'display': 'patient requested information sensitivity',
-            'userSelected': false
-          }
-        ]
+      "resourceType": 'Condition',
+      "id": 'p73875571',
+      "meta": {
+        "versionId": '73936721',
+        "lastUpdated": '2023-08-01T16: 09: 08.000Z'
       },
-      'text': {
-        'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Patient</b>: SMART, NANCY'\
-               '</p><p><b>Problem</b>: Pregnant, Patient currently pregnant (finding)</p>'\
-               '<p><b>Category Classification</b>: Medical</p><p><b>Clinical Status</b>: Resolved</p>'\
-               '<p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 12, 2019</p>'\
-               '<p><b>Resolved</b>: Apr  4, 2020  5:00 P.M. UTC</p></div>'
+      "text": {
+        "status": 'generated',
+        # rubocop:disable Layout/LineLength
+        "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Condition</b></p><p><b>Patient</b>: Smart II, Nancy</p><p><b>Problem</b>: Opioid abuse, Opioid abuse</p><p><b>Category Classification</b>: Medical</p><p><b>Clinical Status</b>: Resolved</p><p><b>Verification Status</b>: Confirmed</p></div>'
+        # rubocop:enable Layout/LineLength
       },
-      'clinicalStatus': {
-        'coding': [
+      "clinicalStatus": {
+        "coding": [
           {
-            'system': 'http://terminology.hl7.org/CodeSystem/condition-clinical',
-            'code': 'resolved',
-            'display': 'Resolved',
-            'userSelected': false
+            "system": 'http: //terminology.hl7.org/CodeSystem/condition-clinical',
+            "code": 'resolved',
+            "display": 'Resolved',
+            "userSelected": false
           }
         ],
-        'text': 'Resolved'
+        "text": 'Resolved'
       },
-      'verificationStatus': {
-        'coding': [
+      "verificationStatus": {
+        "coding": [
           {
-            'system': 'http://terminology.hl7.org/CodeSystem/condition-ver-status',
-            'code': 'confirmed',
-            'display': 'Confirmed',
-            'userSelected': false
+            "system": 'http: //terminology.hl7.org/CodeSystem/condition-ver-status',
+            "code": 'confirmed',
+            "display": 'Confirmed',
+            "userSelected": false
           }
         ],
-        'text': 'Confirmed'
+        "text": 'Confirmed'
       },
-      'category': [
+      "category": [
         {
-          'coding': [
+          "coding": [
             {
-              'system': 'http://terminology.hl7.org/CodeSystem/condition-category',
-              'code': 'problem-list-item',
-              'display': 'Problem List Item'
+              "system": 'http: //terminology.hl7.org/CodeSystem/condition-category',
+              "code": 'problem-list-item',
+              "display": 'Problem List Item'
             }
           ],
-          'text': 'Problem List Item'
+          "text": 'Problem List Item'
         },
         {
-          'coding': [
+          "coding": [
             {
-              'system': 'http://snomed.info/sct',
-              'code': '74188005',
-              'display': 'Medical (qualifier value)',
-              'userSelected': false
+              "system": 'http: //snomed.info/sct',
+              "code": '74188005',
+              "display": 'Medical (qualifier value)',
+              "userSelected": false
             }
           ],
-          'text': 'Medical'
+          "text": 'Medical'
         }
       ],
-      'code': {
-        'coding': [
+      "code": {
+        "coding": [
           {
-            'system': 'http://snomed.info/sct',
-            'code': '77386006',
-            'display': 'Patient currently pregnant (finding)',
-            'userSelected': true
+            "system": 'http: //e-imo.com/products/problem-it',
+            "code": '87295',
+            "display": 'Opioid abuse',
+            "userSelected": false
+          },
+          {
+            "system": 'http: //snomed.info/sct',
+            "code": '5602001',
+            "display": 'Opioid abuse (disorder)',
+            "userSelected": false
           }
         ],
-        'text': 'Pregnant'
+        "text": 'Opioid abuse'
       },
-      'subject': {
-        'reference': 'Patient/12742400',
-        'display': 'SMART, NANCY'
+      "subject": {
+        "reference": 'Patient/12724066',
+        "display": 'Smart II, Nancy'
       },
-      'onsetDateTime': '2019-06-12',
-      'abatementDateTime': '2020-04-04T17:00:00.000Z',
-      'recordedDate': '2020-03-05T16:54:50.000Z'
+      "recordedDate": '2023-05-21T02: 19: 13.000Z',
+      "recorder": {
+        "reference": 'Practitioner/12742069',
+        "display": 'Portal, Portal'
+      }
     }.freeze
 
     R4_PATIENT_ENTERED_IN_ERROR_ENTRY ||= {
-      'resourceType': 'Condition',
-      'id': 'd2266495305',
-      'meta': {
-        'versionId': '2266495305',
-        'lastUpdated': '2020-06-11T04:05:04.000Z',
-        'security': [
+      "resource": {
+        "resourceType": 'Condition',
+        "id": 'p73703587',
+        "meta": {
+          "versionId": '73875225',
+          "lastUpdated": '2023-05-20T19:17:15.000Z'
+        },
+        "text": {
+          "status": 'generated',
+          # rubocop:disable Layout/LineLength
+          "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Condition</b></p><p><b>Patient</b>: Smart II, Nancy</p><p><b>Problem</b>: Therapeutic drug monitoring, Patient encounter status (finding)</p><p><b>Category Classification</b>: Medical</p><p><b>Verification Status</b>: Entered in Error</p><p><b>Onset</b>: Aug 19, 2003</p></div>'
+          # rubocop:enable Layout/LineLength
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/condition-ver-status',
+              "code": 'entered-in-error',
+              "display": 'Entered in Error'
+            }
+          ],
+          "text": 'Entered in Error'
+        },
+        "category": [
           {
-            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
-            'code': 'PHY',
-            'display': 'physician requested information sensitivity',
-            'userSelected': false
+            "coding": [
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/condition-category',
+                "code": 'problem-list-item',
+                "display": 'Problem List Item'
+              }
+            ],
+            "text": 'Problem List Item'
           },
           {
-            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
-            'code': 'PRS',
-            'display': 'patient requested information sensitivity',
-            'userSelected': false
-          }
-        ]
-      },
-      'text': {
-        'status': 'generated',
-        'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Diagnosis</b>:'\
-            ' Error, Error</p><p><b>Category Classification</b>: Medical</p><p><b>Verification Status</b>:'\
-            ' Entered in Error</p></div>'
-      },
-      'verificationStatus': {
-        'coding': [
-          {
-            'system': 'http://terminology.hl7.org/CodeSystem/condition-clinical',
-            'code': 'entered-in-error',
-            'display': 'Entered in Error'
+            "coding": [
+              {
+                "system": 'http://snomed.info/sct',
+                "code": '74188005',
+                "display": 'Medical (qualifier value)',
+                "userSelected": false
+              }
+            ],
+            "text": 'Medical'
           }
         ],
-        'text': 'Entered in Error'
-      },
-      'category': [
-        {
-          'coding': [
+        "code": {
+          "coding": [
             {
-              'system': 'http://terminology.hl7.org/CodeSystem/condition-category',
-              'code': 'encounter-diagnosis',
-              'display': 'Encounter Diagnosis'
+              "system": 'http://snomed.info/sct',
+              "code": '305058001',
+              "display": 'Patient encounter status (finding)',
+              "userSelected": false
+            },
+            {
+              "system": 'http://e-imo.com/products/problem-it',
+              "code": '818990',
+              "display": 'Therapeutic drug monitoring',
+              "userSelected": false
             }
           ],
-          'text': 'Encounter Diagnosis'
+          "text": 'Therapeutic drug monitoring'
         },
-        {
-          'coding': [
-            {
-              'system': 'http://snomed.info/sct',
-              'code': '74188005',
-              'display': 'Medical (qualifier value)',
-              'userSelected': false
-            }
-          ],
-          'text': 'Medical'
+        "subject": {
+          "reference": 'Patient/12724066',
+          "display": 'Smart II, Nancy'
+        },
+        "onsetDateTime": '2003-08-19',
+        "recordedDate": '2022-08-24T20:22:15.000Z',
+        "recorder": {
+          "reference": 'Practitioner/12742069',
+          "display": 'Portal, Portal'
         }
-      ],
-      'code': {
-        'coding': [
-          {
-            'system': 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
-            'code': 'error',
-            'display': 'Error'
-          }
-        ],
-        'text': 'Error'
       },
-      'subject': {
-        'reference': 'Patient/12742400'
+      "search": {
+        "mode": 'match'
       }
     }.freeze
 
