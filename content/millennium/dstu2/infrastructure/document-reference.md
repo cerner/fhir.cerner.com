@@ -212,10 +212,6 @@ Argonaut operation for querying DocumentReferences for the supplied parameters:
 
     GET /DocumentReference/$docref?:parameters
 
-_Implementation Notes_
-
-* The [`relatesTo`] modifier element is not supported and will not be returned.
-
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
@@ -233,7 +229,7 @@ _Implementation Notes_
 `start`   | N         | [`date`]      | The start of the date range from which document reference records should be included. Example: `2014-09-24T12:00:00.000Z`
 `end`     | N         | [`date`]      | The end of the date range till which document reference records should be included. Example: `2016-09-24T12:00:00.000Z`
 
-Notes:
+_Implementation Notes_
 
 - The `type` parameter:
   - It must include both a system and a code. (e.g. `&type=http://loinc.org\|34133-9`)
@@ -243,7 +239,8 @@ Notes:
   - They must have prefixes of `eq` or nothing.
   - If `start` is not provided, then all records from the beginning of time are included.
   - If `end` is not provided, then all records up to the current date are included.
-  
+- The [`relatesTo`] modifier element is not supported and will not be returned.
+
 
 ### Headers
 
