@@ -17,7 +17,7 @@ module Cerner
         'Unknown</p><p><b>Document Title</b>: test1</p><p><b>Service Start Date</b>: '\
         'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Service End Date</b>: '\
         'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Document Status</b>: '\
-        'Final</p><p><b>Verifying Provider</b>: Model, User 154 Cerner</p></div>"'
+        'Final</p><p><b>Verifying Provider</b>: Model, User 154 Cerner</p></div>'
       },
       "identifier": [
         {
