@@ -366,4 +366,4 @@ _Implementation Notes_
 [dateTime]: http://hl7.org/fhir/R4/datatypes.html#dateTime
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
-[`Binary`]: ../../other/binary/#overview
+[`Binary`]: ../other/binary/#overview
