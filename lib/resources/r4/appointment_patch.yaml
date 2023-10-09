@@ -290,7 +290,7 @@ operations:
         }
     note: >
       <ul>
-        <li>When present, this patch operation must be accompanied by the replace status patch operation when updating the status to `cancelled`</li>
+        <li>When present, this patch operation must be accompanied by add cancellation reason and replace status patch operation when updating the status to `cancelled`</li>
         <li>Only one value may be provided in the value array</li>
       </ul>
   - name: replace-comment
