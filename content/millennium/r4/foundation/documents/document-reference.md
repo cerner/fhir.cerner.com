@@ -326,7 +326,7 @@ US Core operation for querying DocumentReferences for the supplied parameters:
 _Implementation Notes_
 
 - The `type` parameter:
-  - It must include both a system and a code. (e.g. `&type=http://loinc.org\|34133-9`)
+  - It must include both a system and a code. e.g. `&type=http://loinc.org\|34133-9`
   - It may be a single system and code, or a comma-separated list.
 - The `start` and `end` parameters:
   - They must be valid [dateTime]s with a time component.
