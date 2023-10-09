@@ -86,7 +86,7 @@ _Implementation Notes_
   - It can be provided either with or without the :Patient modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`
 - When searching with the `encounter` parameter:
   - It must appear once, and must represent an Encounter resource.
-  - It can be provided with either a single references, or a comma-separated list of references. Example `encounter=1234` or `encounter=1234,5678`
+  - It can be provided with either a single reference, or a comma-separated list of references. Example `encounter=1234` or `encounter=1234,5678`
 - When searching with the `created` parameter:
   - It must be provided twice, once with the `ge` parameter and once with the `le` parameter.
   - The two provided date/times may not be equal and must form a closed range.
