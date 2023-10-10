@@ -106,7 +106,21 @@ module Cerner
       "id": 'p73875571',
       "meta": {
         "versionId": '73936721',
-        "lastUpdated": '2023-08-01T16: 09: 08.000Z'
+        "lastUpdated": '2023-08-01T16: 09: 08.000Z',
+        'security': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PHY',
+            'display': 'physician requested information sensitivity',
+            'userSelected': false
+          },
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+            'code': 'PRS',
+            'display': 'patient requested information sensitivity',
+            'userSelected': false
+          }
+        ]
       },
       "text": {
         "status": 'generated',
@@ -193,7 +207,21 @@ module Cerner
         "id": 'p73703587',
         "meta": {
           "versionId": '73875225',
-          "lastUpdated": '2023-05-20T19:17:15.000Z'
+          "lastUpdated": '2023-05-20T19:17:15.000Z',
+          'security': [
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PHY',
+              'display': 'physician requested information sensitivity',
+              'userSelected': false
+            },
+            {
+              'system': 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+              'code': 'PRS',
+              'display': 'patient requested information sensitivity',
+              'userSelected': false
+            }
+          ]
         },
         "text": {
           "status": 'generated',
