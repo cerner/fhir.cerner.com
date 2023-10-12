@@ -62,14 +62,14 @@ Search for Locations that meet supplied query parameters:
 ----------------------|-------------------------|--------------|-------------------------------------------------------
  `_id`                | This or `-physicalType` | [`token`]    | The logical resource id associated with the resource.
  `-physicalType`      | This or `_id`           | [`token`]    | The location’s physical type. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
- `identifier`         | no                      | [`token`]    | The location’s identifier. Example: `653385|FSI^~BUILD^~NU` 
- [`_count`]           | no                      | [`number`]   | The maximum number of results to return. Defaults to `100`.
- `address`            | no                      | [`string`]   | A (part of the) address of the location.
- `address-city`       | no                      | [`string`]   | A city specified in an address
- `address-state`      | no                      | [`string`]   | A state specified in an address
- `address-postalcode` | no                      | [`string`]   | A postal code specified in an address
- `name`               | no                      | [`string`]   | A portion of the location's name or alias
- `organization`       | no                      | [`reference`]| Searches for locations that are managed by the provided organization
+ `identifier`         | No                      | [`token`]    | The location’s identifier. Example: `653385|FSI^~BUILD^~NU` 
+ [`_count`]           | No                      | [`number`]   | The maximum number of results to return. Defaults to `100`
+ `address`            | No                      | [`string`]   | A (part of the) address of the location. Example: `123%20Main`
+ `address-city`       | No                      | [`string`]   | A city specified in an address. Example: `Kansas`
+ `address-state`      | No                      | [`string`]   | A state specified in an address. Example: `MO`
+ `address-postalcode` | No                      | [`string`]   | A postal code specified in an address: `64111`
+ `name`               | No                      | [`string`]   | A portion of the location's name or alias. Example: `Main`
+ `organization`       | No                      | [`reference`]| Searches for locations that are managed by the provided organization. Example: `675844`
 
 
  Notes:
@@ -77,7 +77,9 @@ Search for Locations that meet supplied query parameters:
 - The `-physicalType` parameter
   - Searching by Millennium proprietary codes is not supported.
 - The `-address-city` parameter
-  - needs address-state or address-postalcode while searching with address-city
+  - must be accompanied with any of following: `address-state` or `address-postalcode` 
+- The `name` and `organization` parameters
+  - must be accompanied with any of following: `_id`, `-physicalType`, `identifier`, `address`, `address-state`, `address-city`, or `address-postalcode`
 
 ### Headers
 
@@ -113,7 +115,7 @@ Search for Locations that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=MO
 
 #### Response
 
@@ -126,7 +128,7 @@ Search for Locations that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&address-city=Malvern
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=MO&address-city=Kansas
 
 #### Response
 
@@ -152,7 +154,7 @@ Search for Locations that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&organization=3054032
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&organization=667844
 
 #### Response
 
