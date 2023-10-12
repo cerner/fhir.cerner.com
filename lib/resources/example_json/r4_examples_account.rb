@@ -192,13 +192,12 @@ module Cerner
         {
           'relation': 'self',
           'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account'\
-                 '?encounter=98028029&type=guarantor-balance'
+                 '?-encounter=98028029&type=guarantor-balance'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account'\
-                     '?encounter=98028029&type=guarantor-balance',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Account/G71248138',
           'resource': {
             'resourceType': 'Account',
             'id': 'G71248138',
