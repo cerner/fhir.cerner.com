@@ -9,16 +9,24 @@ title: InsurancePlan | R4 API
 
 ## Overview
 
-InsurancePlan describes a health insurance offering comprised of a list of covered benefits, costs associated with those benefits, and additional information about the offering, such as who it is owned and administered by, a coverage area contact information.
+The InsurancePlan resource is used to describe a health insurance offering and supports the return of a list of details, such as who it is owned and administered by, the plan's coverage area, and contact information.
 
 The following fields are returned if valued:
 
-* [InsurancePlan id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [InsurancePlan id](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.identifier){:target="_blank"}
 * [Status](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.status){:target="_blank"}
 * [Type](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.type){:target="_blank"}
 * [Name](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.name){:target="_blank"}
 * [Period](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.period){:target="_blank"}
 * [OwnedBy](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.ownedBy){:target="_blank"}
+
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
@@ -36,11 +44,18 @@ Search for InsurancePlans that meet supplied query parameters:
 
 ### Parameters
 
-Name                  | Required?          | Type          | Description
-----------------------|--------------------|---------------|-------------------------------------------------------
-`_id`                 | This or `owned-by` | [`token`]     | The logical resource id associated with the resource.
-`owned-by`            | Yes                | [`reference`] | Organization associated with the InsurancePlan.
+Name       | Required?          | Type          | Description
+-----------|--------------------|---------------|-------------------------------------------------------
+`_id`      | This or `owned-by` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
+`owned-by` | This or `_id`      | [`reference`] | The Organization associated with the InsurancePlan. Example: `12345`
 
+_Implementation Notes_
+
+- The `_id` and `owned-by` search parameters cannot be provided together.
+- When searching with the `_id` parameter:
+  - It can be provided with either a single reference, or a comma-separated list of references. Example: `_id=12345` or `_id=12345,67890`
+- When searching with the `owned-by` parameter:
+  - It must be provided only once. Example: `owned-by=12345`
 
 ### Headers
 
@@ -57,11 +72,6 @@ Name                  | Required?          | Type          | Description
 <%= headers status: 200 %>
 <%= json(:r4_insuranceplan_bundle) %>
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by id
 
@@ -87,12 +97,6 @@ List an individual InsurancePlan by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_insuranceplan_entry) %>
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
