@@ -67,7 +67,7 @@ Search for Locations that meet supplied query parameters:
  `address`            | No                      | [`string`]   | A (part of the) address of the location. Example: `123%20Main`
  `address-city`       | No                      | [`string`]   | A city specified in an address. Example: `Kansas`
  `address-state`      | No                      | [`string`]   | A state specified in an address. Example: `MO`
- `address-postalcode` | No                      | [`string`]   | A postal code specified in an address: `64111`
+ `address-postalcode` | No                      | [`string`]   | A postal code specified in an address. Example: `64111`
  `name`               | No                      | [`string`]   | A portion of the location's name or alias. Example: `Main`
  `organization`       | No                      | [`reference`]| Searches for locations that are managed by the provided organization. Example: `675844`
 
