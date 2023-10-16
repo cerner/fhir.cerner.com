@@ -9,33 +9,34 @@ title: Appointment | DSTU 2 API
 
 ## Overview
 
-The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office
-visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location.
+The Appointment resource provides information about scheduled appointments such as a [Procedure](../../general-clinical/procedure) (mammogram) or office
+visit for a [Patient](../../individuals/patient), [Practitioner](../../individuals/practitioner), or Location.
 
-When integrating your application with a client's production environment you will work with the client to determine the
-Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
+When integrating your application with a client's environments you will work with the client to determine the
+Practitioner and Location IDs (Millennium personnel and location codes, respectively), which they want to make available
 to third-party applications for enabling scheduling functionality.
-
-We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in
-the future.
 
 The following fields are returned if valued:
 
-* [Appointment id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Appointment ID](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status){:target="_blank"}
 * [Type](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type){:target="_blank"}
 * [Participant](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant){:target="_blank"}
 * [Reason](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.reason){:target="_blank"}
 * [Description](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.description){:target="_blank"}
-* [Start date/time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.start){:target="_blank"}
-* [End date/time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end){:target="_blank"}
+* [Start Date/Time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.start){:target="_blank"}
+* [End Date/Time](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end){:target="_blank"}
 * [Duration in minutes](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.minutesDuration){:target="_blank"}
 * [Comment](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * Details of participants involved in the appointment:
   * [Type](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.type){:target="_blank"}
   * [Actor (name)](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor){:target="_blank"}
-  * [Required (always 'required')](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
+  * [Required (always `required`)](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required){:target="_blank"}
   * [Status](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status){:target="_blank"}
+
+<%= disclaimer %>
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
@@ -49,8 +50,8 @@ Search for Appointments that meet supplied query parameters:
 
 _Implementation Notes_
 
-- Valid ids for the `practitioner` and `location` search parameters will be determined by the client and provided when
-  integrating your application with the client's production environment. See [overview](#overview) for details.
+- Valid IDs for the `practitioner` and `location` search parameters will be determined by the client and provided when
+  integrating your application with the client's environments. See [overview](#overview) for details.
 
 ### Authorization Types
 
@@ -60,26 +61,26 @@ _Implementation Notes_
 
  Name          | Required?                                                | Type          | Description
 ---------------|----------------------------------------------------------|-----------------------------------------------------------------------------------
-`_id`          | Yes, or one of `patient`, `practitioner`, or `location`. | [`token`]     | The logical resource id associated with the Appointment. Example: `3005759`
-`date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date/time. Example: `2016`
-`patient`      | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Patient references. Example: `4704007`
-`practitioner` | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Practitioner references. Example: `2578010`
-`location`     | Yes, or `_id`                                            | [`reference`] | A single or comma separated list of Location references. Example: `633867`
-`status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `arrived`
+`_id`          | Yes, or `patient` or `practitioner` or `location`.       | [`token`]     | The logical resource id associated with the Appointment. Example: `_id=3005759`
+`patient`      | Yes, or `_id` or `practitioner` or `location`.           | [`reference`] | A single or comma separated list of Patient references. Example: `patient=4704007`
+`practitioner` | Yes, or `_id` or `patient` or `location`.                | [`reference`] | A single or comma separated list of Practitioner references. Example: `practitioner=2578010`
+`location`     | Yes, or `_id` or `patient` or `practitioner`.            | [`reference`] | A single or comma separated list of Location references. Example: `location=633867`
+`date`         | Yes when using `patient`, `practitioner`, or `location`. | [`date`]      | The Appointment date/time. Example: `date=2020-01`
+`status`       | No                                                       | [`token`]     | A single or comma separated list of appointment statuses. Example: `status=arrived`
 [`_count`]     | No                                                       | [`number`]    | The maximum number of results to return.
 
 Notes:
 
-- The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination with the others.
+- The `patient`, `practitioner`, and `location` parameters may be included only once and may not be used in combination.
   For example, `patient=1234,5678` is supported but `patient=1234&patient=5678` and `patient=1234&location=5678` are not.
 
 - The `date` parameter may be provided:
   - once without a prefix or time component to imply a date range. (e.g. `&date=2016`, `&date=2016-07`, `&date=2016-07-04`)
   - once without a prefix and with a time component to indicate a specific date/time. (e.g `&date=2016-07-04T13:00:00.000-05:00`)
-  - twice with the prefixes `ge`, `gt`, `le`, or `lt` to indicate a specific range. The date and prefix pairs must define
+  - twice with the prefixes `ge` or `gt` and `le` or `lt` to indicate a specific range. The date and prefix pairs must define
     an upper and lower bound. (e.g. `&date=ge2014&date=lt2016`, `&date=ge2014-03-15&date=le2017`)
 
-- The retrieved appointments are sorted first by `start` date ascending (earliest first), followed by the provided search parameter (`patient`, `practitioner` or `location`) and `start` time ascending (earliest first).
+- The retrieved appointments are sorted by `start` date, ascending (earliest first).
 
 ### Headers
 
@@ -89,22 +90,16 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?date=2020&patient=12724066
+    GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?patient=12724066&date=2020-02
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:dstu2_appointment_bundle) %>
 
-<%= disclaimer %>
+## Retrieve by ID
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual Appointment by its id:
+List an individual Appointment by its ID:
 
     GET /Appointment/:id
 
@@ -127,12 +122,6 @@ List an individual Appointment by its id:
 <%= headers status: 200 %>
 <%= json(:dstu2_appointment_read) %>
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ## Create
 
 Create a new Appointment.
@@ -144,11 +133,12 @@ _Implementation Notes_
 * The modifier elements [implicitRules] and [modifierExtension] are not supported and will be rejected if present.
 * `Appointment.status` must be set to `proposed`.
 * `Appointment.slot` must be a list containing a single reference to the Slot in which this appointment is being booked.
-  * `Appointment.slot[0].reference` specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.
+  * `Appointment.slot[0].reference` specifies an availability in the Scheduling system.
 * `Appointment.participant` must have exactly one participant.
   * `Appointment.participant.status` must be set to `needs-action`.
   * `Appointment.participant.type` must not be set.
-* `Appointment.comment` must be a string.
+
+Scheduling examples are time sensitive. Recreating the below example will require a [Slot](../slot) with a status of `free`.
 
 ### Authorization Types
 
@@ -189,6 +179,7 @@ access-control-max-age: 0
 cache-control: no-cache
 etag: W/"0"
 location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/20465903
+opc-request-id: /A6715F018F26C503BBE42F2625DF3DF0/6CEB8EC1BDBB5BC448FE51BCA94E7149
 strict-transport-security: max-age=631152000
 vary: Origin,User-Agent,Accept-Encoding
 x-content-type-options: nosniff
@@ -199,10 +190,6 @@ x-xss-protection: 1; mode=block
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-<%= disclaimer %>
-
-Scheduling examples are time-sensitive and could already be booked when attempted. Recreating this example will require an available Slot reference, populated from the Slot Resource.
-
 ## Update
 
 Update an Appointment.
@@ -211,9 +198,11 @@ Update an Appointment.
 
 _Implementation Notes_
 
-* The only supported change is to update the [Appointment.status] to either `arrived` or `cancelled`.
-* `Appointment.participant` must have at least one participant.
-* `Appointment.participant.status` must be `accepted` for each participant.
+* The only supported change is to update the [Appointment.status](http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status) to either `arrived` or `cancelled`.
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+<%= disclaimer %>
 
 ### Authorization Types
 
@@ -267,20 +256,16 @@ x-xss-protection: 1; mode=block
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-<%= disclaimer %>
-
-Scheduling examples are time-sensitive and could already be booked when attempted. Recreating this example will require a new appointment for an available slot, then updating its status.
-
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned.
+The following errors may be returned:
 
-In addition, the following errors may be returned:
-
-* If either the patient URL or the provider URLs are longer than 255 characters, it will return a `422 Unprocessable Entity` response.
-* Updating an Appointment resource without sending the `If-Match` header will result in a `412 Precondition Failed` response.
-* Updating an Appointment resource which is currently being modified will result in a `423 Locked` response.
-* If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), `424 Failed Dependency` response will be returned.
+* `412 Precondition Failed` - The `If-Match` header was not provided.
+* `422 Unprocessable Entity` - The resource is in a status that cannot be changed.
+* `422 Unprocessable Entity` - The `status` provided is not supported. See notes above.
+* `422 Unprocessable Entity` - The patient URL or the provider URLs are longer than 255 characters.
+* `423 Locked` - The resource is currently being modified elsewhere.
+* `424 Failed Dependency` - An external operation is necessary for the update (e.g. encounter association).
 
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
@@ -291,4 +276,3 @@ In addition, the following errors may be returned:
 [implicitRules]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
 [modifierExtension]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
 [OperationOutcomes]: ../../#operation-outcomes
-[Appointment.status]: http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status

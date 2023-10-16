@@ -11,7 +11,7 @@ title: Appointment | R4 API
 
 The Appointment resource provides the ability to retrieve information about appointments, write new appointments, and update the status of existing appointments.
 
-A date is required when searching by [Patient](../individuals/patient), [Practitioner](../individuals/practitioner), or [Location](../entities/location).
+A date is required when searching by [Patient](../../individuals/patient), [Practitioner](../../individuals/practitioner), or [Location](../../entities/location).
 
 When integrating your application with a client’s environments, you will work with the client to determine the Practitioner and Location IDs (Millennium personnel and location codes, respectively) which they want to make available to third-party applications for enabling scheduling functionality.
 
