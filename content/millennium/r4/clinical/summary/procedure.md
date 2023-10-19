@@ -57,7 +57,7 @@ Search for Procedures that meet supplied query parameters:
  `_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
  `patient`         | This or `_id` or `subject`     | [`reference`] | Who the procedure is for. Example: `12345`
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the procedure is for. Example: `Patient/12345`
- `date`            | No                              | [`dateTime`]  | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
+ `date`            | No                             | [`dateTime`]  | Date range in which the procedure was performed. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
  `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
 
 Notes:
