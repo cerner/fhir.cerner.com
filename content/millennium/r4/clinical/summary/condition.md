@@ -69,19 +69,16 @@ _Implementation Notes_
  `subject`         | This or `_id` or `patient`     | [`reference`] | Who the condition is for. Example: `Patient/12345`
  `clinical-status` | No                             | [`token`]     | The clinical status of the condition. Example: `active`, `inactive`, `resolved`
  `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item, encounter-diagnosis and health-concern are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`, `health-concern`
- `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:`_revinclude=Provenance:target`
  `encounter`       | No                             | [`reference`] | The encounter ID/s for the patient. Encounter-diagnosis conditions that match the encounter ID/s and all problem-list-item conditions of the patient are returned. Example: `encounter=97733489`
 
 Notes:
 
 * If `_id` is provided, no other parameters may be provided.
-
-* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-
-* The `_revinclude` parameter may be provided with the `_id/patient` parameter. Example: `_id=82c1c95c-83bb-47d2-86d7-7961aa996082&_revinclude=Provenance:target`
-
+* The `_revinclude` parameter may
+  * be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+  * be provided with the `_id/patient` parameter. Example: `_id=82c1c95c-83bb-47d2-86d7-7961aa996082&_revinclude=Provenance:target`
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
-
 * When `encounter` is provided, encounter-diagnosis for the matched encounter/s and all problem-list-item conditions of the patient will be returned. No HealthConcerns are returned.
 
 ### Headers
@@ -162,7 +159,7 @@ List an individual Condition by its id:
 
 #### Patient Authorization Request For Resolved Status
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p109117485
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p73875571
 
 #### Response
 
@@ -184,7 +181,7 @@ List an individual Condition by its id:
 
 #### Patient Authorization Request For Entered in Error Status
 
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/d2266495305
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/p73703587
 
 #### Response
 
@@ -208,8 +205,8 @@ _Implementation Notes_
 * The Condition Create API supports only the API fields mentioned below. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
 * The code.coding field can have at most 2 codings.
-  * One of the codings must have userSelected: true
-  * The other coding must have userSelected: false
+  * One of the codings must have `userSelected: true`
+  * The other coding must have `userSelected: false`
 * The Condition Create API currently supports only Conditions with a category of `problem-list-item` or `encounter-diagnosis`.
 * An `encounter-diagnosis` Condition will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.
 * On FHIR write of an encounter-diagnosis, the diagnosis will automatically receive the next available diagnosis priority within the problem list component.
@@ -269,7 +266,7 @@ _Implementation Notes_
 
 * Currently `problem-list-item` and `encounter-diagnosis` are supported.
 * Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
-* The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.
+* The code.coding field can have at most 2 codings, one of which must be set as `userSelected: true` and the other one must be set as `userSelected: false`.
 
 ### Authorization Types
 
