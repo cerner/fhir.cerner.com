@@ -9,7 +9,7 @@ title: InsurancePlan | R4 API
 
 ## Overview
 
-The InsurancePlan resource is used to describe a health insurance offering and supports the return of a list of details, such as who it is owned and administered by, the plan's coverage area, and contact information.
+The Insurance Plan resource is used to describe a health insurance offering and supports the return of a list of details, such as who it is owned and administered by, the plan's coverage area, and contact information.
 
 The following fields are returned if valued:
 
@@ -34,7 +34,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for InsurancePlans that meet supplied query parameters:
+Search for insurance plans that meet supplied query parameters:
 
     GET /InsurancePlan?:parameters
 
@@ -44,10 +44,10 @@ Search for InsurancePlans that meet supplied query parameters:
 
 ### Parameters
 
-Name       | Required?          | Type          | Description
+Name       | Required          | Type          | Description
 -----------|--------------------|---------------|-------------------------------------------------------
-`_id`      | This or `owned-by` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
-`owned-by` | This or `_id`      | [`reference`] | The Organization associated with the InsurancePlan. Example: `12345`
+`_id`      | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `owned-by` parameter is not used. Example: `12345`
+`owned-by` | Conditionally      | [`reference`] | The organization associated with the insurance plan. This parameter is required if the `_id` parameter is not used. Example: `12345`
 
 _Implementation Notes_
 
@@ -73,9 +73,9 @@ _Implementation Notes_
 <%= json(:r4_insuranceplan_bundle) %>
 
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual InsurancePlan by its id:
+List an individual insurance plan by the associated ID:
 
     GET /InsurancePlan/:id
 
