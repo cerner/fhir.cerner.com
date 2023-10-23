@@ -79,7 +79,7 @@ Search for Locations that meet supplied query parameters:
 - The `-address-city` parameter
   - must be accompanied with any of following: `address-state` or `address-postalcode` 
 - The `name` and `organization` parameters
-  - must be accompanied with any of following: `_id`, `-physicalType`, `identifier`, `address`, `address-state`, `address-city`, or `address-postalcode`
+  - must be accompanied with any of following: `identifier`, `address`, `address-state`, `address-city`, or `address-postalcode`
 
 ### Headers
 
