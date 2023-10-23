@@ -108,13 +108,14 @@ Name          | Required?                                                     | 
 `date`        | No                                                                             | [`dateTime`]  | Datetime range into which the encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
 [`_count`]    | No                                                                             | [`number`]    | The maximum number of results to return.
 `status`      | No                                                                             | [`token`]     | The status of the encounter. Example: `planned`
-`_revinclude` | No                                                                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+`_revinclude` | No                                                                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
   
 Notes:
 
-* `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-* `_revinclude` parameter may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
-* `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently, `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilized for patient persona.
+* When using the `_revinclude` parameter:
+  * It may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+  * It may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
+* If `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently, `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilized for patient persona.
 * `_count` and `status` must be provided with patient
 * `status` valid parameters are `planned`, `in-progress`, `finished`, `cancelled`
 * The `date` parameter may be provided:
@@ -160,6 +161,7 @@ Notes:
 #### Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter?_id=1361920&_revinclude=Provenance:target
+
 #### Response
 
 <%= headers status: 200 %>
@@ -284,7 +286,7 @@ Etag: W/"0"
 Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/1621910
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+X-Request-Id: 11111111111111111111111111111111
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -338,7 +340,7 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Request-Id: 11111111111111111111111111111111
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
