@@ -77,7 +77,7 @@ Search for Immunizations that meet supplied query parameters:
  `_id`            | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `M12345`
  `patient`        | This, or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
  `date`           | N                  | [`date`]      | Date range for the immunization administration(s). Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
- `target-disease` | N                  | [`token`]     | The target disease the dose is being administered against. Example: `http://hl7.org/fhir/sid/cvx\|213`
+ `target-disease` | N                  | [`token`]     | The target disease the dose is being administered against. Example: `http://hl7.org/fhir/sid/cvx|213`
  `_revinclude`    | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle.
 
 _Implementation Notes_
