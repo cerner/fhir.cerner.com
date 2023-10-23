@@ -184,7 +184,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
-List an individual encounter by its ID:
+List an individual encounter by the associated ID:
 
     GET /Encounter/:id
 
