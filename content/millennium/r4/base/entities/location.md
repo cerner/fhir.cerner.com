@@ -61,8 +61,8 @@ Search for Locations that meet supplied query parameters:
  Name                 | Required?               | Type         | Description
 ----------------------|-------------------------|--------------|-------------------------------------------------------
  `_id`                | This or `-physicalType` | [`token`]    | The logical resource id associated with the resource.
- `-physicalType`      | This or `_id`           | [`token`]    | The location’s physical type. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type\|ro`
- `identifier`         | No                      | [`token`]    | The location’s identifier. Example: `653385\|FSI^~BUILD^~NU` 
+ `-physicalType`      | This or `_id`           | [`token`]    | The location’s physical type. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
+ `identifier`         | No                      | [`token`]    | The location’s identifier. Example: `653385|FSI^~BUILD^~NU` 
  [`_count`]           | No                      | [`number`]   | The maximum number of results to return. Defaults to `100`
  `address`            | No                      | [`string`]   | A (part of the) address of the location. Example: `123%20Main`
  `address-city`       | No                      | [`string`]   | A city specified in an address. Example: `Kansas`
