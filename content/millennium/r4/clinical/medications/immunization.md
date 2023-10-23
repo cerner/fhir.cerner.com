@@ -9,7 +9,7 @@ title: Immunization | R4 API
 
 ## Overview
 
-The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines in all care settings and all regions.  This resource contains the functionality to query a patient's immunization history. Detailed administration records may be found in the [`MedicationAdministration`] resource, while this Immunization resource would represent the known vaccination history regardless of where the administration itself was done.
+The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines, in all care settings, and all regions.  This resource contains the functionality to query a patient's immunization history. Detailed administration records may be found in the [`MedicationAdministration`] resource, while this Immunization resource would represent the known vaccination history regardless of where the administration itself was done.
 
 An immunization reaction may indicate an allergy or intolerance. If so, a separate [`AllergyIntolerance`] resource instance should be created as well.
 
@@ -72,13 +72,13 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name             | Required?          | Type          | Description
-------------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
- `_id`            | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `M12345`
- `patient`        | This, or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
- `date`           | N                  | [`date`]      | Date range for the immunization administration(s). Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
- `target-disease` | N                  | [`token`]     | The target disease the dose is being administered against. Example: `http://hl7.org/fhir/sid/cvx|213`
- `_revinclude`    | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle.
+ Name             | Required?     | Type          | Description
+------------------|---------------|---------------|-----------------------------------------------------------------------------------------------------
+ `_id`            | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `M12345`
+ `patient`        | Conditionally | [`reference`] | The patient for the vaccination record. This parameter is required if the `_id` parameter is not used. Example: `12345`
+ `date`           | No            | [`date`]      | Date range for the immunization administration(s). Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
+ `target-disease` | No            | [`token`]     | The target disease the dose is being administered against. Example: `http://hl7.org/fhir/sid/cvx|213`
+ `_revinclude`    | No            | [`token`]     | Provenance resource entries to be returned as part of the bundle.
 
 _Implementation Notes_
 
@@ -142,9 +142,9 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_PATIENT_BUNDLE) %>
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual Immunization by its id:
+List an individual Immunization by the associated ID:
 
     GET /Immunization/:id
 
