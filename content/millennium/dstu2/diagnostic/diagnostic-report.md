@@ -50,15 +50,21 @@ Search for DiagnosticReports that meet supplied query parameters:
 -------------------|-----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  `patient`         | This or `subject` | [`reference`] | The subject of the report if a patient. Example: `12345`
  `subject:Patient` | This or `patient` | [`reference`] | The subject (Patient) of the report. Example: `12345`
- `date`            | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Must be present once and prefixed by 'ge' or present twice and prefixed by 'ge' / 'lt'. EG: `date=ge2014-09-24T12:00:00.000Z` `&date=lt2015-10-24T12:00:00.000Z`
+ `date`            | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Example: `date=ge2020-01-01T08:00:00.000Z&date=lt2020-01-31T17:00:00.000Z`
  [`_count`]        | N                 | [`number`]    | The maximum number of results to return. Defaults to `10` and a maximum of `100` documents can be returned.
 
 _Implementation Notes_
 
-* If a DiagnosticReport references a PDF with URL sections, it may not be returned from the `Binary` resource. See the
-[Binary implementation notes].
-* When requesting the presentedForm.url, the `Accept` header should be populated with the `presentedForm.contentType`. For more
-information, see the [Binary accept] documentation.
+* When searching with the `date` parameter:
+  * For a single `date` occurrence:
+    * It must be provided with the `ge` prefix to imply a date range.
+    * The `time` component is optional.
+  * For two `date` occurences: 
+    * It must be provided with `ge` and `lt` prefixes to search for report(s) within a specific range. 
+    * The `time` component is optional for both parameters.
+
+* If a DiagnosticReport references a PDF with URL sections, it may not be returned from the `Binary` resource. See the [Binary implementation notes].
+* When requesting the presentedForm.url, the `Accept` header should be populated with the `presentedForm.contentType`. For more information, see the [Binary accept] documentation.
 
 ### Headers
 
