@@ -9,7 +9,7 @@ title: Encounter | R4 API
 
 ## Overview
 
-The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, etc. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.
+The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, and so on. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.
 
 The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
 
@@ -82,7 +82,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ## Search
 
-Search for Encounters that meet supplied query parameters:
+Search for encounters that meet supplied query parameters:
 
     GET /Encounter?:parameters
 
@@ -98,9 +98,9 @@ _Implementation Notes_
 
 ### Parameters
 
-Name          | Required?                                                     | Type          | Description
+Name          | Required                                                     | Type          | Description
 --------------|--------------------------------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------
- `_id`        | This or `patient` or `subject` or `account` or `identifier` or `pageContext`   | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
+ `_id`        | This or `patient` or `subject` or `account` or `identifier` or `pageContext`   | [`token`]     | The logical resource ID associated with the encounter. Example: `7891`
 `patient`     | This or `subject` or `account` or `_id` or `identifier` or `pageContext`       | [`reference`] | The patient present at the encounter. Example: `12345`
 `subject`     | This or `patient` or `account` or `_id` or `identifier` or `pageContext`       | [`reference`] | The patient present at the encounter. Example: `subject=Patient/12345` or `subject:Patient=12345`
 `account`     | This or `patient` or `subject` or `_id` or `identifier` or `pageContext`       | [`reference`] | The account associated with the encounters. Example: `F703726`
@@ -182,9 +182,9 @@ Notes:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual Encounter by its id:
+List an individual encounter by its ID:
 
     GET /Encounter/:id
 
@@ -216,10 +216,10 @@ _Implementation Notes_
 
 ### Encounter Combines Example
 
-Cerner Millennium supports the ability to logically merge an encounter record into another encounter record when both records are describing the same ecounter. This is known
-as an "encounter combine". If necessary, this merging can later be undone by performing an "encounter uncombine". When the requested encounter record has been combined into another
-record, an inactive Encounter entry will be returned which has a reference to the current Encounter entry in the partOf field. Entries for combined encounters will only be returned when retrieving
-the entries directly by id. They will not be returned when searching with other parameters.
+Cerner Millennium supports the ability to logically merge an encounter record into another encounter record when both records are describing the same encounter. This is known
+as an encounter combine. If necessary, this merging can later be undone by performing an encounter uncombine. When the requested encounter record has been combined into another
+record, an inactive encounter entry is returned which has a reference to the current encounter entry in the partOf field. Entries for combined encounters will only be returned when retrieving
+the entries directly by ID. They will not be returned when searching with other parameters.
 
 The ability to perform encounter combine or uncombine operations is not available through the Cerner Ignite platform.
 
@@ -248,7 +248,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-Create an individual Encounter.
+Create an individual encounter.
 
     POST /Encounter
 
