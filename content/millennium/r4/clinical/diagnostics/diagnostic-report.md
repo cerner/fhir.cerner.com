@@ -56,6 +56,11 @@ The following fields are returned if valued:
 
 ## Search
 
+Search for DiagnosticReports that meet supplied query parameters:
+
+    GET /DiagnosticReport/?:parameters
+
+
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: true, system: true) %>
@@ -67,7 +72,7 @@ The following fields are returned if valued:
  `_id`            | This or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`        | This or `_id`     | [`reference`] | The subject of the report if a patient. Example: `12345`
  `encounter`      | N                 | [`reference`] | The Encounter when the order was made. Must represent an Encounter resource. Example: `encounter=1621910`
- `date`           | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/times can be given. Example: `date=lt2017-01-5`
+ `date`           | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/times can be given. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
  `_count`         | N                 | [`number`]    | The maximum number of results to return. Defaults to `10` and a maximum of `100` documents can be returned.
  `category`       | N                 | [`token`]     | The diagnostic discipline/department which created the report. Example: `http://terminology.hl7.org/CodeSystem/v2-0074|LAB` or `http://loinc.org|LP29684-5`
  `code`           | N                 | [`token`]     | The specific code for describing the report. Example: `http://loinc.org|24323-8`
@@ -76,8 +81,12 @@ The following fields are returned if valued:
 _Implementation Notes_
 
 * When searching with the `date` parameter:
-  * It must be provided once or twice, with or without prefixes.
-  * If time is provided, it must be provided consistently.
+  * For a single `date` occurrence:
+    * It can be provided with a prefix to imply a date range, or without a prefix to search for report(s) last updated at a specific date/time.
+    * The `time` component is optional.
+  * For two `date` occurences: 
+    * It must be provided with `le` or `lt` and `ge` or `gt` prefixes to search for report(s) within a specific range. 
+    * The `time` component is required for both parameters.
 
 * When searching with the `encounter` parameter:
   * Patient level documents are filtered out from responses when the encounter id is zero/blank.
@@ -109,7 +118,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 <%= disclaimer %>
 
 
-### Example Search by _ID with RevInclude
+### Example Search by _id with RevInclude
 
 
 ### Authorization Types
@@ -135,11 +144,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Retrieve by id
+## Retrieve by ID
 
-Retrieve an individual DiagnosticReport by its id:
+Retrieve an individual DiagnosticReport by its ID:
 
-    GET /DiagnosticReport/:id
+    GET /DiagnosticReport/:ID
 
 
 ### Authorization Types
