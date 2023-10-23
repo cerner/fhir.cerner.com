@@ -70,9 +70,9 @@ Search for DocumentReferences that meet supplied query parameters:
  `_id`         | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
  `patient`     | This, or `_id`     | [`reference`] | The specific patient to return Document(s) for. Example: `12345`
  `encounter`   | N                  | [`reference`] | The Encounter(s) in which the document was created. Example: `12345`
- `type`        | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: <code>http://loinc.org|11488-4</code>
+ `type`        | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`
  `_count`      | N                  | [`number`]    | The maximum number of results to return. Defaults to `10` and maximum `100` documents can be returned.
- `category`    | N                  | [`token`]     | The categorization of document. Example: <code>http://loinc.org|11488-4</code>
+ `category`    | N                  | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
  `_revinclude` | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
  `date`        | N                  | [`date`]      | When this document reference was created. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
  `period`      | N                  | [`date`]      | Time of service that is being documented. Example: `period=ge2017-01-01&period=lt2017-01-05`
