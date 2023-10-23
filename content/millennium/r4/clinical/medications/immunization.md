@@ -9,13 +9,13 @@ title: Immunization | R4 API
 
 ## Overview
 
-The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines, in all care settings, and all regions.  This resource contains the functionality to query a patient's immunization history. Detailed administration records may be found in the [`MedicationAdministration`] resource, while this Immunization resource would represent the known vaccination history regardless of where the administration itself was done.
+The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines, in all care settings, and all regions. This resource contains the functionality to query a patient's immunization history. You can find detailed administration records in the [`MedicationAdministration`] resource, while this Immunization resource represents the known vaccination history regardless of where the administration itself was done.
 
-An immunization reaction may indicate an allergy or intolerance. If so, a separate [`AllergyIntolerance`] resource instance should be created as well.
+An immunization reaction may indicate an allergy or intolerance. If so, create a separate [`AllergyIntolerance`] resource instance as well.
 
-Note that while the terms "immunization" and "vaccination" are not clinically identical, for the purposes of FHIR resources, the terms are used synonymously.
+Note that while the terms immunization and vaccination are not clinically identical, for the purposes of FHIR resources, the terms are used synonymously.
 
-  * The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
+  * This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) profiles:
 
     * [US Core Immunization Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-immunization.html)
 
@@ -62,7 +62,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Immunizations that meet supplied query parameters:
+Search for immunizations that meet supplied query parameters:
 
     GET /Immunization?:parameters
 
@@ -72,35 +72,35 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name             | Required?     | Type          | Description
-------------------|---------------|---------------|-----------------------------------------------------------------------------------------------------
- `_id`            | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `M12345`
- `patient`        | Conditionally | [`reference`] | The patient for the vaccination record. This parameter is required if the `_id` parameter is not used. Example: `12345`
- `date`           | No            | [`date`]      | Date range for the immunization administration(s). Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
- `target-disease` | No            | [`token`]     | The target disease the dose is being administered against. Example: `http://hl7.org/fhir/sid/cvx|213`
- `_revinclude`    | No            | [`token`]     | Provenance resource entries to be returned as part of the bundle.
+ Name             | Required?          | Type          | Description
+------------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
+ `_id`            | Conditionally      | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `M12345`
+ `patient`        | Conditionally      | [`reference`] | The patient for the vaccination record. This parameter is required if the `_id` parameter is not used. Example: `12345`
+ `date`           | No                 | [`date`]      | The date range for the immunization administration or administrations. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
+ `target-disease` | No                 | [`token`]     | The target disease that the dose is being administered against. Example: `http://hl7.org/fhir/sid/cvx|213`
+ `_revinclude`    | No                 | [`token`]     | The Provenance resource entries that are returned as part of the bundle.
 
 _Implementation Notes_
 
 - When searching with the `_id` parameter:
-  - It can be provided with either a single reference, or a comma-separated list of references. Example `_id=M1234` or `_id=M1234,M5678`
-  - It must not be provided with any other parameters, except with `_revinclude` as indicated below
+  - It can be provided with either a single reference, or a comma-separated list of references. Example: `_id=M1234` or `_id=M1234,M5678`
+  - It must not be provided with any other parameters, except with `_revinclude` as indicated below.
 - When searching with the `patient` parameter:
   - It can be provided with only a single reference; a comma-separated list is not supported.
 - When searching with the `date` parameter:
   - For a single `date` occurrence:
-    - It must be provided with either the `le` or `ge` prefix to search for vaccination record(s) administrations earlier or later than the given date.
+    - It must be provided with either the `le` or `ge` prefix to search for vaccination record administrations earlier or later than the given date.
     - The `time` component is optional.
-  - For two `date` occurences: 
-    - It must be provided with `le` and `ge` prefixes to search for vaccination record(s) within a specific range. 
+  - For two `date` occurrences: 
+    - It must be provided with `le` and `ge` prefixes to search for vaccination records within a specific range. 
     - The `time` component is optional, but must be consistent. If one date has a `time` component, so must the other.
-- When searching with the `target-disease` parameter
-  - Searching by Millennium proprietary codes is not supported
-- When searching with the `_revinclude` parameter 
-  - May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-  - May be provided with the `_id` or `patient` parameter. Example: `_id=M17255835&_revinclude=Provenance:target`
+- When searching with the `target-disease` parameter:
+  - Searching by Cerner Millennium proprietary codes is not supported.
+- When searching with the `_revinclude` parameter:
+  - It can be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
+  - It can be provided with the `_id` or `patient` parameter. Example: `_id=M17255835&_revinclude=Provenance:target`
 
-- When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilized for patient persona.
+- When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently, `patient/Provenance.read` is not supported; hence, `_revinclude` cannot be used for patient persona.
 
 ### Headers
 
@@ -144,7 +144,7 @@ _Implementation Notes_
 
 ## Retrieve by ID
 
-List an individual Immunization by the associated ID:
+List an individual immunization by the associated ID:
 
     GET /Immunization/:id
 
@@ -186,7 +186,7 @@ List an individual Immunization by the associated ID:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_ENTERED_IN_ERROR_STATUS) %>
 
-#### Patient Authorization Request For Not done Status
+#### Patient Authorization Request For Not Done Status
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/HM178147794
 
@@ -197,7 +197,7 @@ List an individual Immunization by the associated ID:
 
 ## Create
 
-Create a new Immunization.
+Create a new immunization.
 
     POST /Immunization
 
@@ -242,7 +242,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ## Update
 
-Update an Immunization.
+Update an immunization.
 
     PUT /Immunization/:id
 
