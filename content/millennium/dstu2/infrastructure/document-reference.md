@@ -17,30 +17,30 @@ References to [`implicitRules`], [`modifierExtension`], and [`relatesTo`] are NO
 The following fields are returned if valued for clinical documents:
 
 * [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
-* [Subject (patient)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
+* [Subject](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
 * [Document type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
 * [Document description/title](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
 * [Authenticator/verifying provider](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
 * [Create date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.created){:target="_blank"}
 * [Indexed date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
-* [Status (typically current)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
-* [Document status (typically final or amended)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
+* [Status](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
+* [Document status](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
 * [Content](https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content){:target="_blank"}
   * [Attachment](https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
     * [Content type](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
-    * [URL (fully qualified link to the document)](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.url){:target="_blank"}
+    * [URL](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.url){:target="_blank"}
     * [Title](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.title){:target="_blank"}
 * [Patient encounter](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
 
 The following fields are returned if valued for the $docref operation (CCD read):
 
 * [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
-* [Subject (patient)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
+* [Subject](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
 * [Document type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
-* [Index date/time (when document reference created)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
-* [Status (current)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
+* [Index date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
+* [Status](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
 * [Format](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
-* [ContentType and URL (fully qualified link to the Binary CCD)](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+* [ContentType and URL](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
 
 
 <%= disclaimer %>
@@ -72,7 +72,7 @@ Search for DocumentReferences that meet supplied query parameters:
  `subject`   | This, or one of `_id` or `patient`     | [`reference`] | The subject of the document reference. May use the :Patient modifier. Example: `Patient/12345` 
  `encounter` | N                                      | [`reference`] | The encounter to which the document reference belongs. Example: `12345`
  `created`   | N                                      | [`date`]      | A date/time the referenced document was created. Example: `created=ge2017-01-07&created=le2017-02-05`
- [`_count`]  | N                                      | [`number`]    | The maximum number of results to return. Defaults to `10` and a maximum of `100` documents can be returned.
+ [`_count`]  | N                                      | [`number`]    | The maximum number of results to return.
 
 _Implementation Notes_
 
@@ -117,9 +117,6 @@ _Implementation Notes_
 
 - Contents of the document are found by following the Attachment URL. 
   - See more information on the [`Binary`] resource to determine what Authorization scopes are required, and how to set the `Accept` header when downloading document contents.
-- If no mappings are available for LOINC codes when returning `type` codings, an unknown data absent reason will be returned in place of the LOINC codes. 
-  - This is to follow the [Argonaut profile's](http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-documentreference.html) required binding for type. 
-  - When available, Proprietary codings will be returned in addition to the data absent reason.
 
 ### Authorization Types
 
@@ -150,7 +147,7 @@ _Implementation Notes_
 
 - The modifier elements [`implicitRules`], [`modifierExtension`], and [`relatesTo`] are not supported and will be rejected if present.
 - Currently only XHTML formatted documents are supported. 
-  - You can validate your document using any available strict XHTML 1.0 validator (eg: [w3 validator] or this [html5 validator]).
+  - You can validate your document using any available strict XHTML 1.0 validator (eg: [W3C Markup Validation Service] or [Nu Html Checker]).
 
 ### Authorization Types
 
@@ -192,9 +189,10 @@ cache-control: no-cache
 location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/5789254
 strict-transport-security: max-age=631152000
 vary: Origin,User-Agent,Accept-Encoding
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
 x-content-type-options: nosniff
 x-frame-options: SAMEORIGIN
-x-request-id: 111111111111111111111111111111111111
+x-request-id: 11111111-1111-1111-1111-111111111111
 x-xss-protection: 1; mode=block
 </pre>
 
@@ -237,9 +235,9 @@ _Implementation Notes_
 - The `start` and `end` parameters:
   - They must be valid [dateTime]s with a time component.
   - They must have prefixes of `eq` or nothing.
-  - If `start` is not provided, then all records from the beginning of time are included.
-  - If `end` is not provided, then all records up to the current date are included.
-- The [`relatesTo`] modifier element is not supported and will not be returned.
+  - If `start` is not provided, then all previous records up to the `end` date are included.
+  - If `end` is not provided, then all records between the `start` date and the current date are included.
+- The [`relatesTo`] modifier element is not supported for this operation, and will not be returned.
 
 
 ### Headers
@@ -260,8 +258,8 @@ _Implementation Notes_
 [`implicitRules`]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
 [`modifierExtension`]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
 [`relatesTo`]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
-[html5 validator]: https://html5.validator.nu/
-[w3 validator]: http://validator.w3.org/#validate_by_upload+with_options
+[Nu Html Checker]: https://html5.validator.nu/
+[W3C Markup Validation Service]: https://validator.w3.org/#validate_by_upload+with_options
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`_count`]: http://hl7.org/fhir/dstu2/search.html#count
