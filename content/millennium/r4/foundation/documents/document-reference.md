@@ -28,8 +28,7 @@ The following fields are returned if valued for clinical documents:
 * [Subject (Patient)](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
 * [Created Date](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.date){:target="_blank"}
 * [Author](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.author){:target="_blank"}
-  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} 
-  * ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Authenticator/verifying provider](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
 * [Document Attachment](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
   * [Attachment ContentType](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
