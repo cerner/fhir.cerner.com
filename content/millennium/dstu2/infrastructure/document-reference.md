@@ -12,7 +12,7 @@ title: DocumentReference | DSTU 2 API
 The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a PDF. When retrieving document links and metadata, this resource will refer to the [`Binary`] resource for downloading the complete document. 
 
 Additionally, this resource supports writing an unstructured document. 
-References to [`implicitRules`], [`modifierExtension`], and [`relatesTo`] are NOT supported and will fail a create request. For fields supported on write, see the [create](#create) section.
+For fields supported on write, see the [create](#create) section.
 
 The following fields are returned if valued for clinical documents:
 
@@ -145,7 +145,6 @@ Create new documents. Currently limited to unstructured clinical notes or docume
 
 _Implementation Notes_
 
-- The modifier elements [`implicitRules`], [`modifierExtension`], and [`relatesTo`] are not supported and will be rejected if present.
 - Currently only XHTML formatted documents are supported. 
   - You can validate your document using any available strict XHTML 1.0 validator (eg: [W3C Markup Validation Service] or [Nu Html Checker]).
 
@@ -196,14 +195,6 @@ x-request-id: 11111111-1111-1111-1111-111111111111
 x-xss-protection: 1; mode=block
 </pre>
 
-### Errors
-
-In addition to the common [OperationOutcomes], the following Outcome can be returned for this operation:
-
- HTTP Status | Cause                              | Severity  | Code
--------------|------------------------------------|-----------|---------------
- 422         | Body contained relatesTo           | error     | not-supported
-
 ## Operation: $docref
 
 Argonaut operation for querying DocumentReferences for the supplied parameters:
@@ -237,8 +228,6 @@ _Implementation Notes_
   - They must have prefixes of `eq` or nothing.
   - If `start` is not provided, then all previous records up to the `end` date are included.
   - If `end` is not provided, then all records between the `start` date and the current date are included.
-- The [`relatesTo`] modifier element is not supported for this operation, and will not be returned.
-
 
 ### Headers
 
@@ -255,9 +244,6 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:dstu2_document_reference_docref_bundle) %>
 
-[`implicitRules`]: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules
-[`modifierExtension`]: http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension
-[`relatesTo`]: http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo
 [Nu Html Checker]: https://html5.validator.nu/
 [W3C Markup Validation Service]: https://validator.w3.org/#validate_by_upload+with_options
 [`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
