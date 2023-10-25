@@ -13,8 +13,8 @@ The InsurancePlan resource is used to describe a health insurance offering and s
 
 The following fields are returned if valued:
 
-* [Id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [InsurancePlan id](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.identifier){:target="_blank"}
+* [ID](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [InsurancePlan identifier](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.identifier){:target="_blank"}
 * [Status](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.status){:target="_blank"}
 * [Type](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.type){:target="_blank"}
 * [Name](https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.name){:target="_blank"}
@@ -46,16 +46,16 @@ Search for insurance plans that meet supplied query parameters:
 
 Name       | Required      | Type          | Description
 -----------|---------------|---------------|-------------------------------------------------------
-`_id`      | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `owned-by` parameter is not used. Example: `12345`
-`owned-by` | Conditionally | [`reference`] | The organization associated with the insurance plan. This parameter is required if the `_id` parameter is not used. Example: `12345`
+`_id`      | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `owned-by` parameter is not used. Example: `1234`
+`owned-by` | Conditionally | [`reference`] | The organization associated with the insurance plan. This parameter is required if the `_id` parameter is not used. Example: `Organization/5678`
 
 _Implementation Notes_
 
 - The `_id` and `owned-by` search parameters cannot be provided together.
 - When searching with the `_id` parameter:
-  - It can be provided with either a single reference, or a comma-separated list of references. Example: `_id=12345` or `_id=12345,67890`
+  - It can be provided with either a single value, or a comma-separated list of references. Example: `_id=12345` or `_id=12345,67890`
 - When searching with the `owned-by` parameter:
-  - It must be provided only once. Example: `owned-by=12345`
+  - It must be provided only once. 
 
 ### Headers
 
@@ -65,7 +65,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=589783
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=Organization/589783
 
 #### Response
 
