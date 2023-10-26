@@ -53,7 +53,7 @@ _Notes_
 Name                    | Required? | Type        | Description
 ------------------------|-----------|-------------|---------------------------------------------------------------------------------------------------
 `_type`                 | No        | [`string`]  | A string of comma-delimited FHIR resource types. Example: `_type=Patient,Encounter,Location`
-`_typeFilter`           | No        | [`string`]  | A string of comma-delimited FHIR Rest queries provided in combination with `_type`. Example: `_typeFilter=Condition?clinical-status=active,Encounter?status=planned`
+`_typeFilter`           | No        | [`string`]  | A string of comma-delimited FHIR Rest queries provided in combination with `_type`. Example: `_typeFilter=Condition?clinical-status=active,Encounter?status=planned`. Note that queries within typeFilter must be url encoded, so this example should be submitted as `_typeFilter=Condition%3Fclinical-status%3Dactive,Encounter%3Fstatus%3Dplanned`.
 `_since`                | No        | [`instant`] | Resources updated after this time will be included in the response. Example: `2021-03-18T19:19:42.000Z`
 `includeAssociatedData` | No        | [`string`]  | When provided, the group export will return or omit a pre-defined set of FHIR resources associated with the request. A string of comma-delimited values. Example: `includeAssociatedData=LatestProvenanceResources`
 `_outputFormat`         | No        | [`string`]  | The format for the requested bulk data files to be generated. Example: `_outputFormat=application/ndjson`
