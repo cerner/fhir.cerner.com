@@ -9,7 +9,7 @@ title: Encounter | DSTU 2 API
 
 ## Overview
 
-The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, etc. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.
+The Encounter resource provides admissions or visits during which health care services were provided to a patient. An encounter has a class to distinguish between different health care settings such as inpatient, outpatient, emergency, and so on. A patient may have one medical record number with multiple encounter numbers per facility or organization. There is substantial variance between organizations in the definition of an encounter and what events are aggregated together to constitute an encounter.
 
 The following fields are returned if valued:
 
@@ -101,9 +101,9 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual Encounter by its id:
+List an individual Encounter by the associated ID:
 
     GET /Encounter/:id
 
@@ -135,10 +135,10 @@ _Implementation Notes_
 
 ### Encounter Combines Example
 
-Cerner Millennium supports the ability to logically merge an encounter record into another encounter record when both records are describing the same ecounter. This is known
-as an "encounter combine". If necessary, this merging can later be undone by performing an "encounter uncombine". When the requested encounter record has been combined into another
-record, an inactive Encounter entry will be returned which has a reference to the current Encounter entry in the partOf field. Entries for combined encounters will only be returned when retrieving
-the entries directly by id. They will not be returned when searching with other parameters.
+Cerner Millennium supports the ability to logically merge an encounter record into another encounter record when both records are describing the same encounter. This is known
+as an encounter combine. If necessary, this merging can later be undone by performing an encounter uncombine. When the requested encounter record has been combined into another
+record, an inactive encounter entry is returned which has a reference to the current encounter entry in the partOf field. Entries for combined encounters will only be returned when retrieving
+the entries directly by ID. They will not be returned when searching with other parameters.
 
 The ability to perform encounter combine or uncombine operations is not available through the Cerner Ignite platform.
 
