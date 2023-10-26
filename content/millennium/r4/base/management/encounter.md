@@ -286,7 +286,7 @@ Etag: W/"0"
 Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/1621910
 Vary: Origin
-X-Request-Id: 11111111111111111111111111111111
+X-Request-Id: 2d38b49013e3496c806d60954922b464
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
@@ -340,7 +340,7 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 11111111111111111111111111111111
+X-Request-Id: 0ba2de3d01494af99b79efdb57baff18
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
