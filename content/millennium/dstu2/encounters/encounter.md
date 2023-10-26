@@ -13,7 +13,7 @@ The Encounter resource provides admissions or visits during which health care se
 
 The following fields are returned if valued:
 
-* [Encounter id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Encounter ID](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Encounter identifier (eg: FIN)](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.identifier){:target="_blank"}
 * [Status](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.status){:target="_blank"}
 * [Class](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.class){:target="_blank"}
@@ -75,10 +75,10 @@ _Implementation Notes_
 
 ### Parameters
 
- Name      | Required?       | Type          | Description
+ Name      | Required       | Type          | Description
 -----------|-----------------|---------------|---------------------------------------------------------------------------
- `_id`     | This or patient | [`token`]     | The logical resource id associated with the Encounter. Example: `7891`
- `patient` | This or _id     | [`reference`] | The patient present at the encounter. Example: `12345`
+ `_id`     | Conditional     | [`token`]     | The logical resource ID associated with the Encounter. This parameter is required if `patient` is not used. Example: `7891`
+ `patient` | Conditional     | [`reference`] | The Patient present at the Encounter. This parameter is required if `_id` is not used. Example: `12345`
 
 ### Headers
 
