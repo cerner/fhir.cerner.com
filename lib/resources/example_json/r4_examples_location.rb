@@ -50,8 +50,8 @@ module Cerner
               "userSelected": true
             ]
           },
-          "system": 'FIN NBR',
-          "value": '16000'
+          "system": 'FIN_NBR',
+          "value": 'SE123456-O12345'
         }
       ],
       "status": 'active',
@@ -135,8 +135,8 @@ module Cerner
               "userSelected": true
             ]
           },
-          "system": 'FIN NBR',
-          "value": '16000'
+          "system": 'FIN_NBR',
+          "value": 'SE123456-O12345'
         }
       ],
       "status": 'active',
@@ -252,8 +252,8 @@ module Cerner
                     "userSelected": true
                   ]
                 },
-                "system": 'FIN NBR',
-                "value": '16000'
+                "system": 'FIN_NBR',
+                "value": 'SE123456-O12345'
               }
             ],
             "status": 'active',
@@ -342,8 +342,8 @@ module Cerner
                     "userSelected": true
                   ]
                 },
-                "system": 'FIN NBR',
-                "value": '16000'
+                "system": 'FIN_NBR',
+                "value": 'SE123456-O12345'
               }
             ],
             "status": 'active',
