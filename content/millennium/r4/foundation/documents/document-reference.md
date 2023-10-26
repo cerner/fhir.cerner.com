@@ -21,7 +21,7 @@ The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.
 The following fields are returned if valued for clinical documents:
 
 * [DocumentReference id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Status]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
+* [Status](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
 * [Document status](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
 * [Document type](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
 * [Document category](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.category){:target="_blank"}
@@ -36,10 +36,10 @@ The following fields are returned if valued for clinical documents:
   * [Title](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title){:target="_blank"}
   * [URL (fully qualified link to the document)](https://hl7.org/fhir/r4/datatypes-definitions.html#Attachment.url){:target="_blank"}
 * [Document Format](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
-* [Patient encounter]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
+* [Patient encounter](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
   * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Encounter](https://hl7.org/fhir/r4/encounter.html){:target="_blank"})
-* [Document period]( https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
-* [Custodian]( https://www.hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.custodian){:target="_blank"}
+* [Document period](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.period){:target="_blank"}
+* [Custodian](https://www.hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.custodian){:target="_blank"}
 * [Related](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.context.related){:target="_blank"}
 
 <%= disclaimer %>
