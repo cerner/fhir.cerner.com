@@ -9,7 +9,7 @@ title: Location | R4 API
 
 ## Overview
 
-The Location resource describes physical places where healthcare services are provided. In Cerner Millennium, facilities are the top level of the patient location hierarchy. A facility is also an Organization resource that is associated with patient locations. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area such as a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
+The Location resource describes physical places where healthcare services are provided. In Cerner Millennium, facilities are the top level of the patient location hierarchy. A facility is also an [Organization](../Organization) resource that is associated with patient locations. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area such as a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
 
 * This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles:
 
@@ -17,7 +17,7 @@ The Location resource describes physical places where healthcare services are pr
 
 The following fields are returned if valued:
 
-* [Location id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Location ID](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/location-definitions.html#Location.status){:target="_blank"}
 * [Name](http://hl7.org/fhir/R4/location-definitions.html#Location.name){:target="_blank"}
 * [Alias](http://hl7.org/fhir/R4/location-definitions.html#Location.alias){:target="_blank"}
@@ -69,7 +69,7 @@ Search for locations that meet supplied query parameters:
  `address-state`      | No                      | [`string`]   | The state specified in the address. Example: `MO`
  `address-postalcode` | No                      | [`string`]   | The postal code specified in the address. Example: `64111`
  `name`               | No                      | [`string`]   | The portion of the location's name or alias. Example: `Main`
- `organization`       | No                      | [`reference`]| The organization that manages the location. Example: `675844`
+ `organization`       | No                      | [`reference`]| The Organization that manages the location. Example: `675844`
 
 
  Notes:
