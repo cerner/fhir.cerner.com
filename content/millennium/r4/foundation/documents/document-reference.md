@@ -241,7 +241,8 @@ Date: Fri, 04 Nov 2022 10:15:11 GMT
 Etag: W/"1"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/201051629
 Vary: Origin
-X-Request-Id: 1111111111111111111111111111111111111111111111
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
+X-Request-Id: 11111111-1111-1111-1111-111111111111
 </pre>
 
 ## Update
@@ -294,7 +295,8 @@ Date: Fri, 04 Nov 2022 11:54:04 GMT
 Etag: W/"2"
 Last-Modified: Fri, 04 Nov 2022 11:54:04 GMT
 Vary: Origin
-X-Request-Id: 1111111111111111111111111111111111111111111111
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
+X-Request-Id: 11111111-1111-1111-1111-111111111111
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent update.
