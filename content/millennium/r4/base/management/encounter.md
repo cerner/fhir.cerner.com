@@ -17,7 +17,7 @@ The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.
 
 The following fields are returned if valued:
 
-* [Encounter id](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.id){:target="_blank"}
+* [Encounter ID](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.id){:target="_blank"}
 * [Encounter identifier (eg: FIN)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.identifier){:target="_blank"}
 * [Status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.status){:target="_blank"}
 * [Class](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.class){:target="_blank"}
@@ -48,7 +48,7 @@ The following fields are returned if valued:
   * [Name](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location){:target="_blank"}
   * [Location status](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.status){:target="_blank"}
 * [Service provider (Organization)](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.serviceProvider){:target="_blank"}
-* [Extensions including client organization, custom attribute, estimated financial responsibility amount, estimated financial responsibility not collected reason, military service connected indicator, and payment collection status](#extensions){:target="_blank"}
+* [Extensions](#extensions)
 
 ### Contained Location Bindings
 
@@ -100,11 +100,11 @@ _Implementation Notes_
 
 Name          | Required         | Type          | Description
 --------------|------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `_id`        | Conditional      | [`token`]     | The logical resource ID associated with the Encounter. This parameter is required if `patient` or `subject` or `account` or `identifier` or `pageContext` is not used. Example: `7891`
-`patient`     | Conditional      | [`reference`] | The patient present at the Encounter. This parameter is required if `subject` or `account` or `_id` or `identifier` or `pageContext`  is not used. Example: `12345`
-`subject`     | Conditional      | [`reference`] | The patient present at the Encounter. This parameter is required if `patient` or `account` or `_id` or `identifier` or `pageContext` is not used. Example: `subject=Patient/12345` or `subject:Patient=12345`
-`account`     | Conditional      | [`reference`] | The account associated with the Encounters. This parameter is required if `patient` or `subject` or `_id` or `identifier` or `pageContext` is not used. Example: `F703726`
-`identifier`  | Conditional      | [`token`]     | An Encounter's identifier. This parameter is required if `patient` or `subject` or `account` or `_id` or `pageContext` is not used. Example: `urn:oid:1.2.243.58|110219457`
+ `_id`        | Conditional      | [`token`]     | The logical resource ID associated with the Encounter. This parameter is required if `patient` or `subject` or `account` or `identifier` is not used. Example: `7891`
+`patient`     | Conditional      | [`reference`] | The patient present at the Encounter. This parameter is required if `subject` or `account` or `_id` or `identifier` is not used. Example: `12345`
+`subject`     | Conditional      | [`reference`] | The patient present at the Encounter. This parameter is required if `patient` or `account` or `_id` or `identifier` is not used. Example: `subject=Patient/12345` or `subject:Patient=12345`
+`account`     | Conditional      | [`reference`] | The account associated with the Encounters. This parameter is required if `patient` or `subject` or `_id` or `identifier` is not used. Example: `F703726`
+`identifier`  | Conditional      | [`token`]     | An Encounter's identifier. This parameter is required if `patient` or `subject` or `account` or `_id` is not used. Example: `urn:oid:1.2.243.58|110219457`
 `date`        | No               | [`dateTime`]  | Datetime range into which the Encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.
 [`_count`]    | No               | [`number`]    | The maximum number of results to return.
 `status`      | No               | [`token`]     | The status of the Encounter. Example: `planned`
@@ -218,10 +218,8 @@ _Implementation Notes_
 
 Cerner Millennium supports the ability to logically merge an encounter record into another encounter record when both records are describing the same encounter. This is known
 as an encounter combine. If necessary, this merging can later be undone by performing an encounter uncombine. When the requested encounter record has been combined into another
-record, an inactive encounter entry is returned which has a reference to the current encounter entry in the partOf field. Entries for combined encounters will only be returned when retrieving
+record, an inactive encounter entry is returned which has a reference to the current encounter entry in the `partOf` field. Entries for combined encounters will only be returned when retrieving
 the entries directly by ID. They will not be returned when searching with other parameters.
-
-The ability to perform encounter combine or uncombine operations is not available through the Cerner Ignite platform.
 
 #### Request
 

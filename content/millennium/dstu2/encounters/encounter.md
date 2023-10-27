@@ -137,10 +137,8 @@ _Implementation Notes_
 
 Cerner Millennium supports the ability to logically merge an encounter record into another encounter record when both records are describing the same encounter. This is known
 as an encounter combine. If necessary, this merging can later be undone by performing an encounter uncombine. When the requested encounter record has been combined into another
-record, an inactive encounter entry is returned which has a reference to the current encounter entry in the partOf field. Entries for combined encounters will only be returned when retrieving
+record, an inactive encounter entry is returned which has a reference to the current encounter entry in the `partOf` field. Entries for combined encounters will only be returned when retrieving
 the entries directly by ID. They will not be returned when searching with other parameters.
-
-The ability to perform encounter combine or uncombine operations is not available through the Cerner Ignite platform.
 
 #### Request
 
