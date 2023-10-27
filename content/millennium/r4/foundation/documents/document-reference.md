@@ -66,15 +66,15 @@ Search for DocumentReferences that meet supplied query parameters:
 
  Name          | Required?          | Type          | Description
 ---------------|--------------------|---------------|--------------------------------------------------------------------------------------------------------
- `_id`         | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
- `patient`     | This, or `_id`     | [`reference`] | The specific patient to return Document(s) for. Example: `12345`
- `encounter`   | N                  | [`reference`] | The Encounter(s) in which the document was created. Example: `12345`
- `type`        | N                  | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`
- `_count`      | N                  | [`number`]    | The maximum number of results to return. Defaults to `10` and maximum `100` documents can be returned.
- `category`    | N                  | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
- `_revinclude` | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
- `date`        | N                  | [`date`]      | When this document reference was created. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
- `period`      | N                  | [`date`]      | Time of service that is being documented. Example: `period=ge2017-01-01&period=lt2017-01-05`
+ `_id`         | Conditionally | [`token`]     | The logical resource id associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `12345`
+ `patient`     | Conditionally | [`reference`] | The specific patient to return Document(s) for. This parameter is required if the `_id` parameter is not used. Example: `12345`
+ `encounter`   | No            | [`reference`] | The Encounter(s) in which the document was created. Example: `12345`
+ `type`        | No            | [`token`]     | The type of document. May be a list separated by commas. Example: `http://loinc.org|11488-4`
+ `_count`      | No            | [`number`]    | The maximum number of results to return. Defaults to `10` and maximum `100` documents can be returned.
+ `category`    | No            | [`token`]     | The categorization of document. Example: `http://loinc.org|11488-4`
+ `_revinclude` | No            | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
+ `date`        | No            | [`date`]      | When this document reference was created. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
+ `period`      | No            | [`date`]      | Time of service that is being documented. Example: `period=ge2017-01-01&period=lt2017-01-05`
  
 _Implementation Notes_
 
@@ -319,10 +319,10 @@ US Core operation for querying DocumentReferences for the supplied parameters:
 
  Name      | Required? | Type          | Description
 -----------|-----------|---------------|--------------------------------------------------------------------------------------------------------
- `patient` | Y         | [`reference`] | The specific patient to return DocumentReferences for. Example: `12345`
- `type`    | N         | [`token`]     | The document reference type, can be a list of comma separated values. Example: `http://loinc.org\|34133-9`
- `start`   | N         | [`number`]    | The start of the date range from which document reference records should be included. Example: `2014-09-24T12:00:00.000Z`
- `end`     | N         | [`number`]    | The end of the date range till which document reference records should be included. Example: `2016-09-24T12:00:00.000Z`
+ `patient` | Yes       | [`reference`] | The specific patient to return DocumentReferences for. Example: `12345`
+ `type`    | No        | [`token`]     | The document reference type, can be a list of comma separated values. Example: `http://loinc.org\|34133-9`
+ `start`   | No        | [`number`]    | The start of the date range from which document reference records should be included. Example: `2014-09-24T12:00:00.000Z`
+ `end`     | No        | [`number`]    | The end of the date range till which document reference records should be included. Example: `2016-09-24T12:00:00.000Z`
 
 _Implementation Notes_
 
