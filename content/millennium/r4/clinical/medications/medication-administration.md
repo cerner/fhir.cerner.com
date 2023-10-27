@@ -77,7 +77,7 @@ Search for MedicationAdministrations that meet supplied query parameters:
  Name             | Required?     | Type          | Description
 ------------------|---------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  `_id`            | Conditionally | [`token`]     | The logical resource id associated with the resource. It may be a list separated by commas. This parameter is required if the `patient` parameter is not used. Example: `_id=12345`
- `patient`        | Conditionally | [`reference`] | The specific patient to return MedicationAdministrations for. This parameter is required if the `_id` parameter is not used. Example: `patient=1234`
+ `patient`        | Conditionally | [`reference`] | The specific patient to return medication administrations for. This parameter is required if the `_id` parameter is not used. Example: `patient=1234`
  `status`         | No            | [`token`]     | The status of the medication administration event. It may be a list separated by commas. Example: `status=completed,not-done`
  `performer`      | No            | [`reference`] | The identity of the individual who administered the medication. It may be a list separated by commas. Example: `performer=1245,7659`
  `effective-time` | No            | [`date`]      | A date range for when the administration happened. Example: `effective-time=ge2014-05-19T20:54:02.000Z`
