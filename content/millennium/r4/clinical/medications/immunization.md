@@ -235,7 +235,8 @@ Etag: W/"1"
 Last-Modified: Sun, 30 Jun 2019 10:35:00 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/147391087
 Vary: Origin
-X-Request-Id: 11111111111111111111111111111111
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
+X-Request-Id: 11111111-1111-1111-1111-111111111111
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.

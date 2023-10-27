@@ -133,8 +133,8 @@ fields:
     }
   note: |
     <ul>
-      <li> Encounter is required field to create charted immunizations. </li>
-      <li> Encounter is not a required field to create staged immunizations. </li>
+      <li> encounter is required field to create charted immunizations. </li>
+      <li> encounter is not a required field to create staged immunizations. </li>
     </ul> 
 
 - name: encounter
