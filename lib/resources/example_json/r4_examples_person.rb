@@ -37,27 +37,27 @@ module Cerner
       },
       'identifier': [
         {
-          "id": "CI-490525912-3",
-          "use": "usual",
+          "id": 'CI-490525912-3',
+          "use": 'usual',
           "type": {
             "coding": [
               {
-                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4",
-                "code": "10",
-                "display": "MRN",
+                "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4',
+                "code": '10',
+                "display": 'MRN',
                 "userSelected": true
               },
               {
-                "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                "code": "MR",
-                "display": "Medical record number",
+                "system": 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                "code": 'MR',
+                "display": 'Medical record number',
                 "userSelected": false
               }
             ],
-            "text": "MRN"
+            "text": 'MRN'
           },
-          "system": "urn:oid:2.16.840.1.113883.6.1000",
-          "value": "31577"
+          "system": 'urn:oid:2.16.840.1.113883.6.1000',
+          "value": '31577'
         }
       ],
       'name': [
