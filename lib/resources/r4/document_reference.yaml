@@ -30,7 +30,7 @@ fields:
     terminology:
       - display: DocumentReference status
         system: http://hl7.org/fhir/document-reference-status
-        info_link: https://www.hl7.org/fhir/valueset-document-reference-status.html
+        info_link: https://www.hl7.org/fhir/r4/valueset-document-reference-status.html
 
 - name: docStatus
   required: 'Yes'
@@ -180,7 +180,7 @@ fields:
     - create
   description: The document or URL of the document along with critical metadata to prove content has integrity.
   note: Data and content type must be provided.
-  url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.content.attachment
+  url: https://www.hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment
   example: |
    {
      "attachment": {
@@ -196,9 +196,9 @@ fields:
   type: Code
   action:
     - create
-  description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+  description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes MIME type parameters such as charset where appropriate.
   note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/plain;charset=utf-8`, `text/richtext;charset=utf-8`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
-  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
+  url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Attachment.contentType
   example: |
    {
      "contentType": "application/xml;charset=utf-8"
@@ -210,7 +210,7 @@ fields:
   action:
     - create
   description: The actual data of the attachment - a sequence of bytes, base64 encoded.
-  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.data
+  url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Attachment.data
   example: |
    {
      "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
@@ -225,7 +225,7 @@ fields:
   action:
     - create
   description: A label or set of text to display in place of the data.
-  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
+  url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title
   example: |
    {
      "title": "Height Weight Allergy Rule",
@@ -237,7 +237,7 @@ fields:
   action:
     - create
   description: The date that the attachment was first created.
-  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation
+  url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation
   note: A time component must be provided with the date.
   example: |
    {
@@ -303,7 +303,7 @@ fields:
   action:
     - update
   description: The status of this document reference.
-  note: Both `current` and `entered-in-error` are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  note: Both `current` and <code>entered-in-error</code> are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status
   example: |
     {
@@ -316,11 +316,11 @@ fields:
   action:
     - update
   description: The status of the underlying document.
-  note: Allowed values for docStatus are&#58; `final`, `amended`, and `entered-in-error`. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+  note: Allowed values for docStatus are&#58; `final`, `amended`, and <code>entered-in-error</code>. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
   url: http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus
   example: |
     {
-      "docStatus": “amended”
+      "docStatus": "amended"
     }
 
 - name: type
@@ -424,7 +424,7 @@ fields:
     - update
   description: The document or URL of the document along with critical metadata to prove content has integrity.
   note: Data and content type must be provided.
-  url: https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.content.attachment
+  url: https://www.hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.content.attachment
   example: |
    {
      "attachment": {
@@ -440,9 +440,9 @@ fields:
   type: Code
   action:
     - update
-  description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+  description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes MIME type parameters such as charset where appropriate.
   note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
-  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
+  url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Attachment.contentType
   example: |
    {
      "contentType": "application/xml;charset=utf-8"
@@ -454,7 +454,7 @@ fields:
   action:
     - update
   description: The actual data of the attachment - a sequence of bytes, base64 encoded.
-  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.data
+  url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Attachment.data
   example: |
    {
      "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
@@ -469,7 +469,7 @@ fields:
   action:
     - update
   description: A label or set of text to display in place of the data.
-  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
+  url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Attachment.title
   example: |
    {
      "title": "Height Weight Allergy Rule"
@@ -481,7 +481,7 @@ fields:
   action:
     - update
   description: The date that the attachment was first created.
-  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation
+  url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Attachment.creation
   note: A time component must be provided with the date. The new date must not be earlier than the previous content.attachment.creation date.
   example: |
    {
