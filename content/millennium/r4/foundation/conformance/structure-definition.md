@@ -9,30 +9,30 @@ title: StructureDefinition | R4 API
 
 ## Overview
 
-The StructureDefinition resource describes a FHIR structure including data elements and their usage. Our current implementation uses this resource to define custom extensions.
+The StructureDefinition resource describes a FHIR structure including data elements and their usage. This resource is used to define custom extensions.
 
 The following fields are returned if valued:
 
-* [Id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [URL](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.url){:target="_blank"}
-* [Name](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.name){:target="_blank"}
-* [Title](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.title){:target="_blank"}
-* [Status](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.status){:target="_blank"}
-* [Date](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.date){:target="_blank"}
-* [Publisher](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.publisher){:target="_blank"}
-* [Description](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.description){:target="_blank"}
-* [Fhir version](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.fhirVersion){:target="_blank"}
-* [Kind](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.kind){:target="_blank"}
-* [Abstract](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.abstract){:target="_blank"}
-* [Type](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.type){:target="_blank"}
-* [Context](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.context){:target="_blank"}
-* [Base definition](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.baseDefinition){:target="_blank"}
-* [Snapshot](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.snapshot){:target="_blank"}
-* [Differential](http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.differential){:target="_blank"}
+* [ID](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [URL](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.url){:target="_blank"}
+* [Name](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.name){:target="_blank"}
+* [Title](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.title){:target="_blank"}
+* [Status](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.status){:target="_blank"}
+* [Date](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.date){:target="_blank"}
+* [Publisher](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.publisher){:target="_blank"}
+* [Description](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.description){:target="_blank"}
+* [FHIR version](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.fhirVersion){:target="_blank"}
+* [Kind](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.kind){:target="_blank"}
+* [Abstract](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.abstract){:target="_blank"}
+* [Type](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.type){:target="_blank"}
+* [Context](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.context){:target="_blank"}
+* [Base definition](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.baseDefinition){:target="_blank"}
+* [Snapshot](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.snapshot){:target="_blank"}
+* [Differential](https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.differential){:target="_blank"}
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual StructureDefinition by its id:
+List an individual StructureDefinition by its ID:
 
     GET /StructureDefinition/:id
 
@@ -49,14 +49,11 @@ _Implementation Notes_
 
 Authorization is not required.
 
-<%= authorization_types(provider: true, patient: true, system: true) %>
-
 ### Headers
 
 <%= headers head: {Accept: 'application/fhir+json'} %>
 
 ### Example
-
 
 #### Request
 
