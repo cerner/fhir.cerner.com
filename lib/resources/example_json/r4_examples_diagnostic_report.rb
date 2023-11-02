@@ -557,6 +557,24 @@ module Cerner
     R4_DIAGNOSTIC_REPORT_POST_CARDIOLOGY ||= {
       "resourceType": 'DiagnosticReport',
       "status": 'amended',
+      "identifier": [
+        {
+          "use": 'usual',
+          "type": {
+            "coding": [
+              {
+                "code": 'Coding',
+                "system": 'http://snomed.info/sct',
+                "version": '4.0.1',
+                "display": 'test',
+                "userSelected": true
+              }
+            ]
+          },
+          "system": 'http://hl7.org/fhir/sid/us-ssn',
+          "value": '11182457'
+        }
+      ],
       "category": [
         {
           "coding": [
@@ -579,24 +597,6 @@ module Cerner
         ],
         "text": 'string'
       },
-      "identifier": [
-        {
-          "use": 'usual',
-          "type": {
-            "coding": [
-              {
-                "code": 'Coding',
-                "system": 'http://snomed.info/sct',
-                "version": '4.0.1',
-                "display": 'test',
-                "userSelected": true
-              }
-            ]
-          },
-          "system": 'http://hl7.org/fhir/sid/us-ssn',
-          "value": '11182457'
-        }
-      ],
       "subject": {
         "reference": 'Patient/12804513'
       },
@@ -659,11 +659,6 @@ module Cerner
           "text": 'string'
         }
       ],
-      "performer": [
-        {
-          "reference": 'Practitioner/11786042'
-        }
-      ],
       "code": {
         "coding": [
           {
@@ -681,6 +676,11 @@ module Cerner
       "encounter": {
         "reference": 'Encounter/98041577'
       },
+      "performer": [
+        {
+          "reference": 'Practitioner/11786042'
+        }
+      ],
       "effectiveDateTime": '2020-12-27T09:12:28Z',
       "issued": '2020-12-29T09:12:28Z',
       "presentedForm": [

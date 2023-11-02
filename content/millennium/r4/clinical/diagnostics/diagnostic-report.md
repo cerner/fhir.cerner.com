@@ -181,7 +181,7 @@ Create a new diagnostic report.
 
 _Implementation Notes_
 
-* DiagnosticReports of type Cardiology and Anatomic Pathology are supported for the create operation.
+* DiagnosticReports of type Cardiology and Anotomic Pathology are supported for the create operation.
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * All provided dates must have a time component.
 * Supported MIME Types: application/pdf, text/plain, text/richtext, text/rtf, text/html, application/xml, and application/xhtml+xml
