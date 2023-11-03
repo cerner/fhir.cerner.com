@@ -89,7 +89,7 @@ _Implementation Notes_
 Name      | Required       | Type          | Description
 ----------|-----------------|---------------|-------------------------------------------------------
 `_id`     | Conditionally   | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` is not used. 
-`patient` | This or _id     | [`reference`] | The identity of a subject to list family member history items for. his parameter is required if `_id_` is not used. Example: `12345`
+`patient` | Conditionally   | [`reference`] | The identity of a subject to list family member history items for. This parameter is required if `_id_` is not used. Example: `12345`
 `status`  | No              | [`token`] | The status of the record of the family history of a specific family member. May only be provided when the `patient` search parameter is provided.
 
 ### Headers
