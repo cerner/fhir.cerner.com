@@ -20,7 +20,7 @@ fields:
   required: 'Yes'
   type: id
   url: https://www.hl7.org/fhir/r4/resource-definitions.html#Resource.id
-  description: The logical id of the resource to update.
+  description: The logical ID of the resource to update.
   action: update
   example: |
     {

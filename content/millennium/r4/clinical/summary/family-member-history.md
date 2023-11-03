@@ -49,18 +49,6 @@ The following fields are returned if valued:
 
 <%= terminology_table(:family_member_history, :r4) %>
 
-## Modifier Extensions
-
-* [Condition Result]
-* [Condition Lifecycle Status]
-
-## Extensions
-
-* [Patient Adopted]
-* [Precision Extension]
-* [Condition Course]
-* [Family Member History Severity]
-
 ## Custom Modifier Extensions and Extensions
 
 URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{ID}`
