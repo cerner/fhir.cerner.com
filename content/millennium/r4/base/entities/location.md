@@ -9,15 +9,15 @@ title: Location | R4 API
 
 ## Overview
 
-The Location resource describes physical places where healthcare services are provided. In Millennium, facilities are the top level of the patient location hierarchy. A facility is also an Organization resource at which patient locations are associated. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area like a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
+The Location resource describes physical places where healthcare services are provided. In Cerner Millennium, facilities are the top level of the patient location hierarchy. A facility is also an [Organization](../Organization) resource that is associated with patient locations. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area such as a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.
 
-* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+* This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles:
 
   * [US Core Location Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-location.html){:target="_blank"}
 
 The following fields are returned if valued:
 
-* [Location id](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Location ID](http://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](http://hl7.org/fhir/R4/location-definitions.html#Location.status){:target="_blank"}
 * [Name](http://hl7.org/fhir/R4/location-definitions.html#Location.name){:target="_blank"}
 * [Alias](http://hl7.org/fhir/R4/location-definitions.html#Location.alias){:target="_blank"}
@@ -40,15 +40,15 @@ The following fields are returned if valued:
 
 ### Custom Extensions
 
-All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`.
 
  ID                 | Value\[x] Type                    | Description
 --------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------
- `custom-attribute` | None (contains nested extensions) | A client defined custom attribute for the resource. Attribute values can be of type [`integer`], [`string`], or [`CodeableConcept`].
+ `custom-attribute` | None (contains nested extensions) | A client-defined custom attribute for the resource. Attribute values can be the following types: [`integer`], [`string`], or [`CodeableConcept`].
 
 ## Search
 
-Search for Locations that meet supplied query parameters:
+Search for locations that meet supplied query parameters:
 
     GET /Location?:parameters
 
@@ -60,24 +60,26 @@ Search for Locations that meet supplied query parameters:
 
  Name                 | Required?               | Type         | Description
 ----------------------|-------------------------|--------------|-------------------------------------------------------
- `_id`                | This or `-physicalType` | [`token`]    | The logical resource id associated with the resource.
- `-physicalType`      | This or `_id`           | [`token`]    | The location’s physical type. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
- `identifier`         | no                      | [`token`]    | The location’s identifier. Example: `653385|FSI^~BUILD^~NU` 
- [`_count`]           | no                      | [`number`]   | The maximum number of results to return. Defaults to `100`.
- `address`            | no                      | [`string`]   | A (part of the) address of the location.
- `address-city`       | no                      | [`string`]   | A city specified in an address
- `address-state`      | no                      | [`string`]   | A state specified in an address
- `address-postalcode` | no                      | [`string`]   | A postal code specified in an address
- `name`               | no                      | [`string`]   | A portion of the location's name or alias
- `organization`       | no                      | [`reference`]| Searches for locations that are managed by the provided organization
+ `_id`                | Conditionally           | [`token`]    | The logical resource ID associated with the resource. This parameter is required if the `-physicalType` parameter is not used.
+ `-physicalType`      | Conditionally           | [`token`]    | The location’s physical type. This parameter is required if the `_id` parameter is not used. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
+ `identifier`         | No                      | [`token`]    | The location’s identifier. Example: `653385|FSI^~BUILD^~NU` 
+ [`_count`]           | No                      | [`number`]   | The maximum number of results to return. Default: `100`
+ `address`            | No                      | [`string`]   | Part of the location's address. Example: `123%20Main`
+ `address-city`       | No                      | [`string`]   | The city specified in the address. Example: `Kansas`
+ `address-state`      | No                      | [`string`]   | The state specified in the address. Example: `MO`
+ `address-postalcode` | No                      | [`string`]   | The postal code specified in the address. Example: `64111`
+ `name`               | No                      | [`string`]   | The portion of the location's name or alias. Example: `Main`
+ `organization`       | No                      | [`reference`]| The Organization that manages the location. Example: `675844`
 
 
  Notes:
 
-- The `-physicalType` parameter
-  - Searching by Millennium proprietary codes is not supported.
-- The `-address-city` parameter
-  - needs address-state or address-postalcode while searching with address-city
+- When searching with the `-physicalType` parameter:
+  - Searching by Cerner Millennium proprietary codes is not supported.
+- When searching with the `-address-city` parameter:
+  - Must include any of the following parameters: `address-state` or `address-postalcode`.
+- When searching with the `name` and `organization` parameters:
+  - Must include any of the following parameters: `-physicalType`, `identifier`, `address`, `address-state`, `address-city`, or `address-postalcode`.
 
 ### Headers
 
@@ -113,7 +115,7 @@ Search for Locations that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=MO
 
 #### Response
 
@@ -126,7 +128,7 @@ Search for Locations that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&address-city=Malvern
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=MO&address-city=Kansas
 
 #### Response
 
@@ -152,7 +154,7 @@ Search for Locations that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&organization=3054032
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&organization=667844
 
 #### Response
 
@@ -165,9 +167,9 @@ Search for Locations that meet supplied query parameters:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual Location by its id:
+List an individual location by the associated ID:
 
     GET /Location/:id
 

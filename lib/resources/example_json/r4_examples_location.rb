@@ -112,85 +112,79 @@ module Cerner
     }.freeze
 
     R4_LOCATION_ADDRESS_ENTRY ||= {
-      "resourceType": 'Location',
-      "id": '982243103',
-      "meta": {
-        "versionId": '0',
-        "lastUpdated": '2019-03-29T14:40:50Z'
-      },
-      "text": {
-        "status": 'generated',
-        "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p><p><b>Name</b>: '\
-        'Anushka Org One</p><p><b>Alias</b>: ADOne</p><p><b>Managing Organization</b>: Anushka Org One</p>'\
-        '<p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
-      },
-      "identifier": [
-        {
-          "use": 'official',
-          "type": {
-            "coding": [
-              "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73',
-              "code": 'ACCTRECEIVABLE',
-              "display": 'FIN NBR',
-              "userSelected": true
-            ]
-          },
-          "system": 'FIN NBR',
-          "value": '16000'
-        }
-      ],
-      "status": 'active',
-      "name": 'Anushka Org One',
-      "alias": [
-        'ADOne'
-      ],
-      "mode": 'instance',
-      "address": {
-        "use": 'work',
-        "text": "111th West st\nMalvern, PA 19355\nUSA",
-        "line": [
-          '111th West st'
+      "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/20573078',
+      "resource": {
+        "resourceType": 'Location',
+        "id": '20573078',
+        "meta": {
+          "versionId": '20',
+          "lastUpdated": '2018-05-22T16:42:00Z'
+        },
+        "text": {
+          "status": 'generated',
+          # rubocop:disable Layout/LineLength
+          "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Location</b></p><p><b>Name</b>: Model Behavioral Health Clinic</p><p><b>Alias</b>: MX BH CL</p><p><b>Managing Organization</b>: Model Behavioral Health Clinic</p><p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
+          # rubocop:enable Layout/LineLength
+        },
+        "status": 'active',
+        "name": 'Model Behavioral Health Clinic',
+        "alias": [
+          'MX BH CL'
         ],
-        "city": 'Malvern',
-        "state": 'PA',
-        "postalCode": '19355',
-        "country": 'USA'
-      },
-      "physicalType": {
-        "coding": [
+        "mode": 'instance',
+        "telecom": [
           {
-            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
-            "code": '783',
-            "display": 'Facility(s)',
-            "userSelected": true
-          },
-          {
-            "system": 'http://terminology.hl7.org/CodeSystem/location-physical-type',
-            "code": 'si',
-            "display": 'Site'
+            "system": 'phone',
+            "value": '555 555 0001'
           }
         ],
-        "text": 'Facility(s)'
-      },
-      "managingOrganization": {
-        "reference": 'Organization/28096355',
-        "display": 'Anushka Org One'
+        "address": {
+          "use": 'work',
+          "text": '1234 Main\nKansas City, MO 64111\nUS',
+          "line": [
+            '1234 Main'
+          ],
+          "city": 'Kansas City',
+          "state": 'MO',
+          "postalCode": '64111',
+          "country": 'US'
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
+              "code": '783',
+              "display": 'Facility(s)',
+              "userSelected": true
+            },
+            {
+              "system": 'http://terminology.hl7.org/CodeSystem/location-physical-type',
+              "code": 'si',
+              "display": 'Site'
+            }
+          ],
+          "text": 'Facility(s)'
+        },
+        "managingOrganization": {
+          "reference": 'Organization/667844',
+          "display": 'Model Behavioral Health Clinic'
+        }
       }
     }.freeze
 
     R4_LOCATION_ADDRESS_BUNDLE ||= {
       "resourceType": 'Bundle',
-      "id": 'f4749f7a-e67d-49d1-8b92-ddbef46eae15',
+      "id": 'd7638736-7e04-4e36-9fd1-357159396499',
       "type": 'searchset',
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=MO'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=MO',
           "resource": R4_LOCATION_ADDRESS_ENTRY
         }
       ]
@@ -203,12 +197,12 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&address-city=Malvern'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=MO&address-city=Kansas'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&address-city=Malvern',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=MO&address-city=Kansas',
           "resource": R4_LOCATION_ADDRESS_ENTRY
         }
       ]
@@ -311,85 +305,13 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&organization=3054032'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&organization=667844'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/2554914033',
-          "resource": {
-            "resourceType": 'Location',
-            "id": '2554914033',
-            "meta": {
-              "versionId": '0',
-              "lastUpdated": '2017-09-19T17:38:08Z'
-            },
-            "text": {
-              "status": 'generated',
-              "div": '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Location</b></p>'\
-              '<p><b>Name</b>: ABC Taxi Company</p><p><b>Alias</b>: ABC Taxi</p>'\
-              '<p><b>Managing Organization</b>: ABC Taxi Company</p>'\
-              '<p><b>Physical Type</b>: Facility(s)</p><p><b>Status</b>: Active</p></div>'
-            },
-            "identifier": [
-              {
-                "use": 'official',
-                "type": {
-                  "coding": [
-                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73',
-                    "code": 'ACCTRECEIVABLE',
-                    "display": 'FIN NBR',
-                    "userSelected": true
-                  ]
-                },
-                "system": 'FIN NBR',
-                "value": '16000'
-              }
-            ],
-            "status": 'active',
-            "name": 'ABC Taxi Company',
-            "alias": [
-              'ABC Taxi'
-            ],
-            "mode": 'instance',
-            "telecom": [
-              {
-                "system": 'phone',
-                "value": '8168769999'
-              }
-            ],
-            "address": {
-              "use": 'work',
-              "text": "123 Main Street\nKansas City, MO 64117\nUS",
-              "line": [
-                '123 Main Street'
-              ],
-              "city": 'Kansas City',
-              "state": 'MO',
-              "postalCode": '64117',
-              "country": 'US'
-            },
-            "physicalType": {
-              "coding": [
-                {
-                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
-                  "code": '783',
-                  "display": 'Facility(s)',
-                  "userSelected": true
-                },
-                {
-                  "system": 'http://terminology.hl7.org/CodeSystem/location-physical-type',
-                  "code": 'si',
-                  "display": 'Site'
-                }
-              ],
-              "text": 'Facility(s)'
-            },
-            "managingOrganization": {
-              "reference": 'Organization/3054032',
-              "display": 'ABC Taxi Company'
-            }
-          }
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/20573078',
+          "resource": R4_LOCATION_ADDRESS_ENTRY
         }
       ]
     }.freeze
