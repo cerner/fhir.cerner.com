@@ -221,7 +221,7 @@ fields:
     terminology:
     - display: Encounter Priority
       system: http://hl7.org/fhir/encounter-priority
-      info_link: http://hl7.org/fhir/v3/ActPriority/vs.html
+      info_link: https://hl7.org/fhir/R4/v3/ActPriority/vs.html
     - display: Millennium Encounter Admit Type
       system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/3
       info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-3-encounter-admission-type
