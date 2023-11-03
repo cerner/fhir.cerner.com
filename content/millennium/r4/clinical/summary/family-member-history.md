@@ -17,7 +17,7 @@ It is recommended that an update to FamilyMemberHistory contain all relevant dat
 
 The following fields are returned if valued:
 
-* [Id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [ID](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.status){:target="_blank"}
 * [Data Absent Reason](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason){:target="_blank"}
 * [Patient](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.patient){:target="_blank"}
@@ -28,21 +28,21 @@ The following fields are returned if valued:
 * [Born](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.born_x_){:target="_blank"}
 * [Age](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.age_x_){:target="_blank"}
 * [Deceased](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_]){:target="_blank"}
-  * [Precision Extension](#extensions){:target="_blank"}
-* [Extension](#extensions){:target="_blank"}
-  * [Patient Adopted](#extensions){:target="_blank"}
+  * [Precision Extension](https://hl7.org/fhir/extensibility.html#Extension){:target="_blank"}
+* [Extension](https://hl7.org/fhir/extensibility.html#Extension){:target="_blank"}
+  * [Patient Adopted](https://hl7.org/fhir/extensibility.html#Extension){:target="_blank"}
 * [Condition](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition){:target="_blank"}
-  * [Id](https://hl7.org/fhir/R4/element-definitions.html#Element.id){:target="_blank"}
+  * [ID](https://hl7.org/fhir/R4/element-definitions.html#Element.id){:target="_blank"}
   * [Code](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.code){:target="_blank"}
   * [Onset](https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_){:target="_blank"}
-     * [Precision Extension](#extensions){:target="_blank"}
+     * [Precision Extension](https://hl7.org/fhir/extensibility.html#Extension){:target="_blank"}
   * [Note](https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.note){:target="_blank"}
-  * [Modifier Extension](#modifier-extensions){:target="_blank"}
-     * [Condition Result](#custom-extensions){:target="_blank"}
-     * [Condition Lifecycle Status](#extensions){:target="_blank"}
-  * [Extension](#extensions){:target="_blank"}
-     * [Condition Course](#extensions){:target="_blank"}
-     * [Family Member History Severity](#extensions){:target="_blank"}
+  * [Modifier Extension](https://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension){:target="_blank"}
+     * [Condition Result](https://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension){:target="_blank"}
+     * [Condition Lifecycle Status](https://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension){:target="_blank"}
+  * [Extension](https://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.extension){:target="_blank"}
+     * [Condition Course](https://hl7.org/fhir/extensibility.html#Extension){:target="_blank"}
+     * [Family Member History Severity](https://terminology.hl7.org/CodeSystem-v3-RoleCode.html){:target="_blank"}
 
 
 ## Terminology Bindings
@@ -63,14 +63,14 @@ The following fields are returned if valued:
 
 ## Custom Modifier Extensions and Extensions
 
-URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{ID}`
 
 ### Modifier Extensions
 
 ID              | Value\[x] Type                                                    | Description
 -----------------------------|-----------------------------------------------------------------------------|-----------------------------------------------
-`condition-result`           | [`CodeableConcpet`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of the presence (positive) or absence (negative) of a given condition.
-`condition-lifecycle-status` | [`CodeableConcpet`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of whether a condition is active, inactive, resolved, etc.
+`condition-result`           | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of the presence (positive) or absence (negative) of a given condition.
+`condition-lifecycle-status` | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of whether a condition is active, inactive, resolved, etc.
 
 
 ### Extensions
@@ -78,8 +78,9 @@ ID              | Value\[x] Type                                                
 ID              | Value\[x] Type                                                    | Description
 -----------------------------|-----------------------------------------------------------------------------|-----------------------------------------------
 `patient-adopted`            | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)                 | Indication of whether a patient is adopted. Only returned when true.
-`precision`                  | [`CodeableConcpet`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of the precision of a given value.
-`condition-course`           | [`CodeableConcpet`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of a condition's progress since diagnosis.
+`precision`                  | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of the precision of a given value.
+`condition-course`           | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of a condition's progress since diagnosis.
+`familymemberhistory-severity` | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | A qualification of the seriousness or impact on health of the family member condition.
 
 ## Search
 
@@ -97,15 +98,11 @@ _Implementation Notes_
 
 ### Parameters
 
-Name      | Required?       | Type          | Description
+Name      | Required       | Type          | Description
 ----------|-----------------|---------------|-------------------------------------------------------
-`_id`     | This or patient | [`token`]     | The logical resource id associated with the resource.
-`patient` | This or _id     | [`reference`] | The identity of a subject to list family member history items for. Example: `12345`
-`status`  | No              | [`token`] | The status of the record of the family history of a specific family member.
-
-_Implementation Notes_
-
-`status` may only be provided when the `patient` search parameter is provided
+`_id`     | Conditionally   | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` is not used. 
+`patient` | This or _id     | [`reference`] | The identity of a subject to list family member history items for. his parameter is required if `_id_` is not used. Example: `12345`
+`status`  | No              | [`token`] | The status of the record of the family history of a specific family member. May only be provided when the `patient` search parameter is provided.
 
 ### Headers
 
@@ -128,11 +125,11 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual FamilyMemberHistory by its id:
+List an individual FamilyMemberHistory by its ID:
 
-    GET /FamilyMemberHistory/:id
+    GET /FamilyMemberHistory/:ID
 
 _Implementation Notes_
 
@@ -220,12 +217,12 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 Update a FamilyMemberHistory.
 
-    PUT /FamilyMemberHistory/:id
+    PUT /FamilyMemberHistory/:ID
 
 _Implementation Notes_
 
-* Conditions can be removed from a FamilyMemberHistory by setting the 'condition-lifecycle-status' modifierExtension to 'entered-in-error' with system 'http://terminology.hl7.org/CodeSystem/condition-ver-status'. Only existing conditions can be removed; condition id must be provided.
-* An update should only be performed directly after a FamilyMemberHistory is retrieved. If a condition.id is returned on the get operation, it MUST be provided on the subsequent update and must match the condition.id returned from the get.
+* Conditions can be removed from a FamilyMemberHistory by setting the 'condition-lifecycle-status' modifierExtension to 'entered-in-error' with system 'http://terminology.hl7.org/CodeSystem/condition-ver-status'. Only existing conditions can be removed; condition ID must be provided.
+* An update should only be performed directly after a FamilyMemberHistory is retrieved. If a condition.ID is returned on the get operation, it MUST be provided on the subsequent update and must match the condition.ID returned from the get.
 
 ### Authorization Types
 
