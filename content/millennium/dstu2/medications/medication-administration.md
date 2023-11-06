@@ -83,7 +83,7 @@ Search for MedicationAdministrations that meet supplied query parameters:
 `practitioner`  | No            | [`reference`] | The logical resource ID of the practitioner who administered the medication. It may be a list separated by commas. Example: `practitioner=1245,7659`
 `notgiven`      | No            | [`token`]     | Administrations that were not made. A value of `true` will search for these, and a value of `false` will exclude them. 
 `effectivetime` | No            | [`dateTime`]  | A date range for when the administration happened. Example: `effectivetime=ge2014-05-19T20:54:02.000Z`
-[`_count`]      | No            | [`number`]    | The maximum number of results to return. Example: _`count=50`
+[`_count`]      | No            | [`number`]    | The maximum number of results to return. Example: `_count=50`
 
 _Implementation Notes_
 
