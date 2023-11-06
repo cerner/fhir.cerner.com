@@ -10,7 +10,7 @@ title: MedicationAdministration | R4 API
 ## Overview
 
 The MedicationAdministration resource provides information about medications administered to a patient or consumed by a patient including injections, intravenous solutions, and self administered oral medications. 
-When using this resource, full administration details for vaccinations administered by the current healthcare system can be searched. For historically administered vaccines, or vaccines adminstered by other healthcare disciplines, care settings, or regions, the [`Immunization`] resource must be used for creating or retrieving data.
+When using this resource, full administration details for vaccinations administered by the current healthcare system can be searched. For historically administered vaccines, or vaccines administered by other healthcare disciplines, care settings, or regions, the [`Immunization`] resource must be used for creating or retrieving data.
 
 * **IMPORTANT NOTE**: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage dose does not equal the [contained] Medication ingredient strength denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage dose. This will be the actual amount of medication administered.
 
@@ -76,12 +76,12 @@ Search for MedicationAdministrations that meet supplied query parameters:
 
  Name             | Required?     | Type          | Description
 ------------------|---------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `_id`            | Conditionally | [`token`]     | The logical resource id associated with the resource. It may be a list separated by commas. This parameter is required if the `patient` parameter is not used. Example: `_id=12345`
+ `_id`            | Conditionally | [`token`]     | The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the `patient` parameter is not used. Example: `_id=12345`
  `patient`        | Conditionally | [`reference`] | The specific patient to return medication administrations for. This parameter is required if the `_id` parameter is not used. Example: `patient=1234`
  `status`         | No            | [`token`]     | The status of the medication administration event. It may be a list separated by commas. Example: `status=completed,not-done`
- `performer`      | No            | [`reference`] | The identity of the individual who administered the medication. It may be a list separated by commas. Example: `performer=1245,7659`
- `effective-time` | No            | [`date`]      | A date range for when the administration happened. Example: `effective-time=ge2014-05-19T20:54:02.000Z`
- `_count`         | No            | [`number`]    | The maximum number of results to include in a page. Example: `50`
+ `performer`      | No            | [`reference`] | The practitioner who administered the medication. It may be a list separated by commas. Example: `performer=1245,7659`
+ `effective-time` | No            | [`dateTime`]  | A date range for when the administration happened. Example: `effective-time=ge2014-05-19T20:54:02.000Z`
+ [`_count`]       | No            | [`number`]    | The maximum number of results to include in a page. Example: `50`
 
 _Implementation Notes_
 
@@ -89,11 +89,11 @@ _Implementation Notes_
   - It must not be provided with any other parameters.
 - When searching with the `effective-time` parameter:
   - For a single `effective-time` occurrence:
-    - It must be provided with a `ge` `gt` `le` or `lt` prefix to imply the date range to search for administrations within.
+    - It must be provided with a `ge`, `gt`, `le`, or `lt` prefix to imply the date range to search for administrations within.
     - The time component is required.
     - Example: `effective-time=ge2014-05-19T20:54:02.000Z`
   - For two `effective-time` occurences: 
-    - It must be provided with `le` or `lt` and `ge` or `gt` prefixes to search for administrations within a specific range. 
+    - It must be provided once with the `le` or `lt` prefix, and once with the `ge` or `gt` prefix to search for administrations within the given upper and lower timestamps, respectively.
     - The time component is required for both parameters.
     - Example: `effective-time=ge2014-05-19T20:54:02.000Z&effective-time=le2014-05-20T20:54:02.000Z`
 
@@ -140,6 +140,7 @@ List an individual MedicationAdministration by its ID:
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [`date`]: http://hl7.org/fhir/R4/search.html#date
+[`dateTime`]: https://hl7.org/fhir/r4/datatypes.html#dateTime
 [`_count`]: http://hl7.org/fhir/R4/search.html#count
 [`number`]: http://hl7.org/fhir/R4/search.html#number
 [CodeableConcept]: http://hl7.org/fhir/R4/datatypes.html#codeableconcept
