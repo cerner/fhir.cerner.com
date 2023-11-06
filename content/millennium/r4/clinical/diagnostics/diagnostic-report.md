@@ -205,7 +205,7 @@ _Implementation Notes_
 
 #### Request
 
-    POST https://fhir-ehr.cerner.com/r4/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/DiagnosticReport
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport
 
 ### Body
 
@@ -221,7 +221,7 @@ Connection: keep-alive
 Cache-Control: no-cache
 Etag: W/"1"
 Last-Modified: Mon, 09 Oct 2023 17:29:02 GMT
-Location: https://fhir-ehr.cerner.com/r4/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/DiagnosticReport/197466617
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197466617
 Referrer-Policy: strict-origin-when-cross-origin
 Server-Response-Time: 1288.314512
 Strict-Transport-Security: max-age=631152000
@@ -242,7 +242,7 @@ Transfer-Encoding: chunked
 
 #### Request
 
-    POST https://fhir-ehr.cerner.com/r4/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/DiagnosticReport
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport
 
 ### Body
 
@@ -258,7 +258,7 @@ Connection: keep-alive
 Cache-Control: no-cache
 Etag: W/"1"
 Last-Modified: Mon, 09 Oct 2023 17:29:02 GMT
-Location: https://fhir-ehr.cerner.com/r4/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/DiagnosticReport/197466627
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197466627
 Referrer-Policy: strict-origin-when-cross-origin
 Server-Response-Time: 4626.253472
 Strict-Transport-Security: max-age=631152000

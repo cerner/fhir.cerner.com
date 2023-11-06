@@ -663,7 +663,7 @@ module Cerner
         "coding": [
           {
             "code": '4187236',
-            "system": 'https://fhir.cerner.com/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/codeSet/72',
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
             "isUserSelected": true,
             "display": 'Anatomic Pathology'
           }

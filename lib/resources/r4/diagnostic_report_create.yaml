@@ -90,7 +90,7 @@ fields:
   description: Specifies the particular kind of diagnostic report.
   note: The code must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
         <br/><br/>
-        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example&#58; 'https://fhir.cerner.com/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/codeSet/72'.
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
         <br/><br/>
   url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.code
   example: |
@@ -99,7 +99,7 @@ fields:
         "coding": [
             {
                 "code": "703535",
-                "system": "https://fhir.cerner.com/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/codeSet/72",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
                 "userSelected": true,
                 "display": "Temperature Axillary"
             }
@@ -113,7 +113,7 @@ fields:
         "coding": [
             {
                 "code": "4187236",
-                "system": "https://fhir.cerner.com/d242a518-4074-4bd4-a3a6-adfe0c5c1c51/codeSet/72",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
                 "userSelected": true,
                 "display": "Anatomic Pathology"
             }
