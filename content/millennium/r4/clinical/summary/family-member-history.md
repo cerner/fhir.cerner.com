@@ -55,7 +55,7 @@ URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/Struct
 
 ### Modifier Extensions
 
-ID              | Value\[x] Type                                                    | Description
+ID                           | Value\[x] Type                                                              | Description
 -----------------------------|-----------------------------------------------------------------------------|-----------------------------------------------
 `condition-result`           | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of the presence (positive) or absence (negative) of a given condition.
 `condition-lifecycle-status` | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of whether a condition is active, inactive, resolved, etc.
@@ -63,11 +63,11 @@ ID              | Value\[x] Type                                                
 
 ### Extensions
 
-ID              | Value\[x] Type                                                    | Description
------------------------------|-----------------------------------------------------------------------------|-----------------------------------------------
-`patient-adopted`            | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)                 | Indication of whether a patient is adopted. Only returned when true.
-`precision`                  | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of the precision of a given value.
-`condition-course`           | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of a condition's progress since diagnosis.
+ID                             | Value\[x] Type                                                              | Description
+-------------------------------|-----------------------------------------------------------------------------|-----------------------------------------------
+`patient-adopted`              | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean)                 | Indication of whether a patient is adopted. Only returned when true.
+`precision`                    | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of the precision of a given value.
+`condition-course`             | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | Indication of a condition's progress since diagnosis.
 `familymemberhistory-severity` | [`CodeableConcept`](https://hl7.org/fhir/r4/datatypes.html#codeableconcept) | A qualification of the seriousness or impact on health of the family member condition.
 
 ## Search
@@ -86,11 +86,11 @@ _Implementation Notes_
 
 ### Parameters
 
-Name      | Required       | Type          | Description
+Name      | Required        | Type          | Description
 ----------|-----------------|---------------|-------------------------------------------------------
 `_id`     | Conditionally   | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` is not used. 
 `patient` | Conditionally   | [`reference`] | The identity of a subject to list family member history items for. This parameter is required if `_id_` is not used. Example: `12345`
-`status`  | No              | [`token`] | The status of the record of the family history of a specific family member. May only be provided when the `patient` search parameter is provided.
+`status`  | No              | [`token`]     | The status of the record of the family history of a specific family member. May only be provided when the `patient` search parameter is provided.
 
 ### Headers
 
