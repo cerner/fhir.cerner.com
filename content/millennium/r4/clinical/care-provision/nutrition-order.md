@@ -43,7 +43,7 @@ The following fields are returned if valued:
 
 ## Search
 
-Search for NutritionOrders that meet supplied query parameters:
+Search for nutrition orders that meet the supplied query parameters.
 
     GET /NutritionOrder?:parameters
 
@@ -56,17 +56,17 @@ Search for NutritionOrders that meet supplied query parameters:
  Name              | Required                       | Type          | Description
 -------------------|--------------------------------|---------------|-----------------------------------------------------------------------
  `_id`             | Conditionally                  | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `subject` is not used. Example: `11111111`
- `patient`         | Conditionally                  | [`reference`] | Who the Nutrition Order is for. This parameter is required if the `_id` parameter is not used. Example: `12345`
- `status`          | No                             | [`token`]     | The status of the Nutrition Order. Example: `active`
- `_lastUpdated`    | No                             | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the Nutrition Order. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: `ge2014-05-19T20:54:02.000Z`
-[`_count`]         | No                             | [`number`]    | The maximum number of Nutrition Orders to include in a page.
+ `patient`         | Conditionally                  | [`reference`] | Who the nutrition order is for. This parameter is required if the `_id` parameter is not used. Example: `12345`
+ `status`          | No                             | [`token`]     | The status of the nutrition order. Example: `active`
+ `_lastUpdated`    | No                             | [`date`]      | An explicit or implied date and time range during which the most recent clinically relevant update was made to the nutrition order. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: `ge2014-05-19T20:54:02.000Z`
+[`_count`]         | No                             | [`number`]    | The maximum number of nutrition orders to include on a page.
 
 Notes:
 
-* If `_id` is provided, no other parameters may be provided.
-* The `_lastUpdated` parameter may be provided:
-    * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
-    * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
+* If `_id` is provided, no other parameters are required.
+* The `_lastUpdated` parameter may be provided in the following formats:
+    * Once with a prefix of ‘ge’ or ‘le’ representing the earliest date or latest date (for example, `date=ge2015-01-01` or `date=le2016-01-01`).
+    * Twice with the prefixes of ‘ge’ and ‘le’ to indicate a specific range (for example, `date=ge2015-01-01&date=le2016-01-01`).
 
 ### Headers
 
@@ -103,7 +103,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
-List an individual NutritionOrder by its ID:
+List an individual nutrition order by its ID.
 
     GET /NutritionOrder/:id
 
