@@ -13,7 +13,7 @@ The NutritionOrder resource returns requests or orders to supply a diet or suppl
 
 The following fields are returned if valued:
 
-* [NutritionOrder id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id)
+* [NutritionOrder ID](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id)
 * [Status](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.status)
 * [Intent](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.intent)
 * [Extensions including basedOn](#extensions)
@@ -43,7 +43,7 @@ The following fields are returned if valued:
 
 ## Search
 
-Search for NutritionOrders that meet supplied query parameters:
+Search for nutrition orders that meet the supplied query parameters.
 
     GET /NutritionOrder?:parameters
 
@@ -53,20 +53,20 @@ Search for NutritionOrders that meet supplied query parameters:
 
 ### Parameters
 
- Name              | Required?                      | Type          | Description
+ Name              | Required                       | Type          | Description
 -------------------|--------------------------------|---------------|-----------------------------------------------------------------------
- `_id`             | This or `patient`              | [`token`]     | The logical resource id associated with the resource.
- `patient`         | This or `_id` or `subject`     | [`reference`] | Who the nutrition order is for. Example: `12345`
+ `_id`             | Conditionally                  | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `subject` is not used. Example: `11111111`
+ `patient`         | Conditionally                  | [`reference`] | Who the nutrition order is for. This parameter is required if the `_id` parameter is not used. Example: `12345`
  `status`          | No                             | [`token`]     | The status of the nutrition order. Example: `active`
- `_lastUpdated`    | No                             | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the nutrition order. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: `ge2014-05-19T20:54:02.000Z`
-[`_count`]         | No                             | [`number`]    | The maximum number of nutrition orders to include in a page.
+ `_lastUpdated`    | No                             | [`date`]      | An explicit or implied date and time range during which the most recent clinically relevant update was made to the nutrition order. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: `ge2014-05-19T20:54:02.000Z`
+[`_count`]         | No                             | [`number`]    | The maximum number of nutrition orders to include on a page.
 
 Notes:
 
-* If `_id` is provided, no other parameters may be provided.
-* The `_lastUpdated` parameter may be provided:
-    * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
-    * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
+* If `_id` is provided, no other parameters are required.
+* The `_lastUpdated` parameter may be provided in the following formats:
+    * Once with a prefix of ‘ge’ or ‘le’ representing the earliest date or latest date (for example, `date=ge2015-01-01` or `date=le2016-01-01`).
+    * Twice with the prefixes of ‘ge’ and ‘le’ to indicate a specific range (for example, `date=ge2015-01-01&date=le2016-01-01`).
 
 ### Headers
 
@@ -101,9 +101,9 @@ Notes:
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual NutritionOrder by its id:
+List an individual nutrition order by its ID.
 
     GET /NutritionOrder/:id
 
@@ -125,17 +125,6 @@ List an individual NutritionOrder by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_nutrition_order_entry) %>
-
-<%= disclaimer %>
-
-#### Request
-
-    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_nutrition_order_child_entry) %>
 
 <%= disclaimer %>
 
