@@ -19,31 +19,33 @@ Not all practitioners have access to the EHR but can be referenced by other reso
 
 The following fields are returned if valued:
 
-* [Practitioner id](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Identifiers/Aliases such as NPI and DEA](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.identifier){:target="_blank"}
-* [Active (true/false)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.active){:target="_blank"}
+* [Practitioner ID](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Identifier](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.identifier){:target="_blank"}
+* [Active](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.active){:target="_blank"}
 * [Name](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.name){:target="_blank"}
-* [Telecom Information (secure email and phone)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
-* [Address (Provider and System Authorization Only)](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address){:target="_blank"}
+* [Telecom](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
+* [Address](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address){:target="_blank"}
 * [Gender](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.gender){:target="_blank"}
 * [Qualification](https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.qualification){:target="_blank"}
 * [Is Physician Extension](#extensions)
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
 <%= terminology_table(:practitioner, :r4) %>
 
-## Extensions
-
-* [Is Physician]
-
-### Custom Extensions
+## Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
 
- ID                    | Value\[x] Type                                              | Description
------------------------|----------------|------------------------------------------------------------------------------------------------
- `is-physician`        | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the provider is a physician or not.
+| ID             | Value\[x] Type                                              | Description                                                   |
+|----------------|-------------------------------------------------------------|---------------------------------------------------------------|
+| `is-physician` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the practitioner is a physician or not. |
 
 ## Search
 
@@ -57,22 +59,23 @@ Search for Practitioners that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?                                                  | Type       | Description
--------------|------------------------------------------------------------|------------|------------------------------------------------------------------------
- `_id`       | This or any other required search parameter                | [`token`]  | The logical resource id associated with the resource.
- `identifier`| This or any other required search parameter                | [`token`]  | A practitioner identifier/alias. Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
- `family`    | This or any other required search parameter                | [`string`] | The start of the family name of the practitioner. Example: `Smith`
- `given`     | This and `family`, or any other required search parameter  | [`string`] | The start of the given name of the practitioner. Example: `John`
- `name`      | This or any other required search parameter                | [`string`] | The start of the first, middle or last name of the practitioner. Example: `John` or `Smith`
- `active`    | This or any other required search parameter                | [`token`]  | true or false. Example: `active=true`
- [`_count`]  | No                                                         | [`number`]    | Number of results per page.
+| Name         | Required?     | Type       | Description                                                                                                                                                                   |
+|--------------|---------------|------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `_id`        | Conditionally | [`token`]  | The logical resource ID associated with the resource. This parameter is required if `identifier` or `family` or `name` or `active` is not used. Example: `12345`              |
+| `identifier` | Conditionally | [`token`]  | A practitioner identifier. This parameter is required if `_id` or `family` or `name` or `active` is not used.                                                                 |
+| `family`     | Conditionally | [`string`] | The start of the family name of the practitioner. This parameter is required if `_id` or `identifier` or `name` or `active` is not used. Example: `Smith`                     |
+| `name`       | Conditionally | [`string`] | The start of the given name or the family name of the practitioner. This parameter is required if `_id` or `identifier` or `family` or `active` is not used. Example: `Riley` |
+| `active`     | Conditionally | [`token`]  | Whether this practitioner's record is in active use. This parameter is required if `_id` or `identifier` or `family` or `name` is not used. Example: `active=true`            |
+| `given`      | No            | [`string`] | The start of the given name of the practitioner. Example: `John`                                                                                                              |
+| [`_count`]   | No            | [`number`] | Number of results per page.                                                                                                                                                   |
 
- Notes:
+Notes:
 
-* When provided, the `identifier` query parameter must include both a system and a code.
-* The `given` parameter may only be provided if `family` parameter is provided.
-* The `name` parameter must have at least 2 characters
-* When provided, the `active` query parameter must not include system. It accepts only true or false code.
+* The `identifier` query parameter must include both a system and a code.
+  * Example: `http://hl7.org/fhir/sid/us-npi|4326587548`
+* If the `given` parameter is provided, the `family` parameter is required.
+* The `name` parameter must have at least 2 characters.
+* The `active` query parameter must not include a system, and the code must be `true` or `false`. Example: `active=false`
 
 ### Headers
 
@@ -82,43 +85,16 @@ Search for Practitioners that meet supplied query parameters:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?identifier=http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Fus-npi%7C1111111111
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:r4_practitioner_bundle) %>
 
-<%= disclaimer %>
+## Retrieve by ID
 
-#### Request
-
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_practitioner_active_bundle) %>
-
-<%= disclaimer %>
-
-#### Patient Authorization Request
-
-    GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_practitioner_patient_access_bundle) %>
-
-<%= disclaimer %>
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual Practitioner by its id:
+List an individual Practitioner by its ID:
 
     GET /Practitioner/:id
 
@@ -140,21 +116,6 @@ List an individual Practitioner by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_practitioner_entry) %>
-
-<%= disclaimer %>
-#### Patient Authorization Request
-
-    GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936
-
-#### Response
-
-<%= headers status: 200 %>
-<%= json(:r4_practitioner_patient_access_entry) %>
-
-<%= disclaimer %>
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -197,16 +158,13 @@ Last-Modified: Mon, 09 Dec 2019 18:57:39 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/7118008
 Vary: Origin
 X-Request-Id: 9d3aecfa-c846-4ce2-825a-7ba2fce4813f
+opc-request-id: /D14ABE620D8D0DBB4D5970966EED037B/6A781B5941C550741C19E1AE1E795C33
 </pre>
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-[`token`]: http://hl7.org/fhir/r4/search.html#token
+[`token`]: https://hl7.org/fhir/r4/search.html#token
 [`string`]: https://hl7.org/fhir/R4/search.html#string
-[`_count`]: http://hl7.org/fhir/r4/search.html#count
-[`number`]: http://hl7.org/fhir/r4/search.html#number
+[`boolean`]: https://hl7.org/fhir/r4/datatypes.html#boolean
+[`_count`]: https://hl7.org/fhir/r4/search.html#count
+[`number`]: https://hl7.org/fhir/r4/search.html#number
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
-[Is Physician]: #custom-extensions
