@@ -7,62 +7,56 @@ module Cerner
       'resourceType': 'Practitioner',
       'id': '4122622',
       'meta': {
-        'versionId': '18',
-        'lastUpdated': '2016-04-28T15:01:59.000Z'
+        'versionId': '19',
+        'lastUpdated': '2021-07-01T13:16:02.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div><p><b>Practitioner</b></p><p><b>Name</b>: Cerner Test, Physician - Hospitalist Cerner</p>'\
-               '<p><b>Identifiers</b>: EXTERNALID: CERNERPHYSHOSP, NPI: 1111111111, MESSAGING: 4122622</p>'\
-               '<p><b>Status</b>: Active</p></div>'
+        'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Practitioner</b></p><p><b>Name</b>: Cerner Test, '\
+          'Physician - Hospitalist Cerner</p><p><b>Identifiers</b>: NPI: 1111111111</p><p><b>Status</b>: '\
+          'Active</p></div>'
       },
+      'extension': [
+        {
+          'valueBoolean': true,
+          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician'
+        }
+      ],
       'identifier': [
         {
           'use': 'usual',
           'type': {
-            'text': 'External Identifier'
-          },
-          'value': 'CERNERPHYSHOSP',
-          'period': {
-            'start': '2016-04-28T15:01:59.000Z'
-          }
-        },
-        {
-          'use': 'usual',
-          'type': {
+            'coding': [
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                'code': 'NPI',
+                'display': 'National provider identifier'
+              }
+            ],
             'text': 'National Provider Identifier'
           },
+          'system': 'http://hl7.org/fhir/sid/us-npi',
           'value': '1111111111',
           'period': {
             'start': '2015-10-14T05:00:00.000Z'
           }
-        },
-        {
-          'use': 'usual',
-          'type': {
-            'text': 'Messaging'
-          },
-          'value': '4122622',
-          'period': {
-            'start': '2015-08-18T05:00:00.000Z'
-          }
         }
       ],
       'active': true,
-      'name': {
-        'use': 'usual',
-        'text': 'Cerner Test, Physician - Hospitalist Cerner',
-        'family': [
-          'Cerner Test'
-        ],
-        'given': [
-          'Physician - Hospitalist',
-          'Cerner'
-        ],
-        'period': {
-          'start': '2016-04-28T15:01:59.000Z'
+      'name': [
+        {
+          'use': 'usual',
+          'text': 'Cerner Test, Physician - Hospitalist Cerner',
+          'family': 'Cerner Test',
+          'given': [
+            'Physician - Hospitalist',
+            'Cerner'
+          ],
+          'period': {
+            'start': '2015-09-22T20:58:42.000Z'
+          }
         }
-      }
+      ]
     }.freeze
 
     DSTU2_PRACTITIONER_BUNDLE ||= {

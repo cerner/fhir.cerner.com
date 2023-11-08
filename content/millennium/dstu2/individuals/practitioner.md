@@ -13,13 +13,19 @@ The Practitioner resource provides information about a person formally involved 
 
 The following fields are returned if valued:
 
-  * [Practitioner id](http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
-  * [Identifiers/Aliases such as NPI and DEA](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.identifier){:target="_blank"}
-  * [Active](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.active){:target="_blank"}
-  * [Name](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.name){:target="_blank"}
-  * [Contact (secure email and phone)](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
-  * [Address](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.address){:target="_blank"}
-  * [Gender](http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.gender){:target="_blank"}
+  * [Practitioner ID](https://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
+  * [Identifier](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.identifier){:target="_blank"}
+  * [Active](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.active){:target="_blank"}
+  * [Name](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.name){:target="_blank"}
+  * [Contact](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.telecom){:target="_blank"}
+  * [Address](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.address){:target="_blank"}
+  * [Gender](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.gender){:target="_blank"}
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
@@ -39,7 +45,7 @@ Search for Practitioners that meet supplied query parameters:
 
  Name  | Required? | Type      | Description
 -------|-----------|-----------|-------------------------------------------------------
- `_id` | Yes       | [`token`] | The logical resource id associated with the resource.
+ `_id` | Yes       | [`token`] | The logical resource ID associated with the resource.
 
 ### Headers
 
@@ -55,15 +61,9 @@ Search for Practitioners that meet supplied query parameters:
 
 <%= headers status: 200 %> <%= json(:dstu2_practitioner_bundle) %>
 
-<%= disclaimer %>
+## Retrieve by ID
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual Practitioner by its id:
+List an individual Practitioner by its ID:
 
     GET /Practitioner/:id
 
@@ -84,12 +84,6 @@ List an individual Practitioner by its id:
 #### Response
 
 <%= headers status: 200 %> <%= json(:dstu2_practitioner_entry) %>
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [errors]: ../../#client-errors
