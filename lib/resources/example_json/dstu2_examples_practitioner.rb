@@ -12,23 +12,16 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Practitioner</b></p><p><b>Name</b>: Cerner Test, '\
-          'Physician - Hospitalist Cerner</p><p><b>Identifiers</b>: NPI: 1111111111</p><p><b>Status</b>: '\
-          'Active</p></div>'
+        'div': '<div><p><b>Practitioner</b></p><p><b>Name</b>: Cerner Test, Physician - Hospitalist Cerner</p>'\
+          '<p><b>Identifiers</b>: NPI: 1111111111</p><p><b>Status</b>: Active</p></div>'
       },
-      'extension': [
-        {
-          'valueBoolean': true,
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician'
-        }
-      ],
       'identifier': [
         {
           'use': 'usual',
           'type': {
             'coding': [
               {
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                'system': 'http://hl7.org/fhir/v2/0203',
                 'code': 'NPI',
                 'display': 'National provider identifier'
               }
@@ -43,20 +36,20 @@ module Cerner
         }
       ],
       'active': true,
-      'name': [
-        {
-          'use': 'usual',
-          'text': 'Cerner Test, Physician - Hospitalist Cerner',
-          'family': 'Cerner Test',
-          'given': [
-            'Physician - Hospitalist',
-            'Cerner'
-          ],
-          'period': {
-            'start': '2015-09-22T20:58:42.000Z'
-          }
+      'name': {
+        'use': 'usual',
+        'text': 'Cerner Test, Physician - Hospitalist Cerner',
+        'family': [
+          'Cerner Test'
+        ],
+        'given': [
+          'Physician - Hospitalist',
+          'Cerner'
+        ],
+        'period': {
+          'start': '2015-09-22T20:58:42.000Z'
         }
-      ]
+      }
     }.freeze
 
     DSTU2_PRACTITIONER_BUNDLE ||= {
