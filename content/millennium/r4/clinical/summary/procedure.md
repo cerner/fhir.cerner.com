@@ -16,13 +16,13 @@ The Procedure resource returns medical and surgical procedures performed on or f
 
 The following fields are returned if valued:
 
-* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [ID](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Status (completed, entered-in-error)](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status){:target="_blank"}
 * [Code](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code){:target="_blank"}
 * [Subject](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject){:target="_blank"}
   * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](http://hl7.org/fhir/r4/patient.html){:target="_blank"})
 * [Encounter](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter){:target="_blank"}
-* [Date performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
+* [Performed Period](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
   * [DateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"}
   * [Period](https://hl7.org/fhir/R4/datatypes.html#Period){:target="_blank"}
 * [Who recorded](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder){:target="_blank"}
@@ -52,21 +52,24 @@ Search for Procedures that meet supplied query parameters:
 
 ### Parameters
 
- Name              | Required?                      | Type          | Description
--------------------|--------------------------------|---------------|-----------------------------------------------------------------------
- `_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
- `patient`         | This or `_id` or `subject`     | [`reference`] | Who the procedure is for. Example: `12345`
- `subject`         | This or `_id` or `patient`     | [`reference`] | Who the procedure is for. Example: `Patient/12345`
- `date`            | No                              | [`dateTime`]  | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
- `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
+ Name              | Required?     | Type          | Description
+-------------------|---------------|---------------|-----------------------------------------------------------------------
+ `_id`             | Conditionally | [`token`]     | The logical resource id associated with the resource. This parameter is required if `patient` or `subject` are not used.
+ `patient`         | Conditionally | [`reference`] | Who the Procedure is for. This parameter is required if `_id` or `subject` are not used. Example: `12345`
+ `subject`         | Conditionally | [`reference`] | Who the Procedure is for. This parameter is required if `_id` or `patient` are not used. Example: `Patient/12345`
+ `date`            | No            | [`dateTime`]  | Date range in which the Procedure's `performedPeriod` or `performedDateTime` falls within. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
+ `_revinclude`     | No            | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
 
 Notes:
 
 * If `_id` is provided, `patient` or `subject` can no longer be provided.
-* A `date` parameter may be provided once with a prefix and time component to imply a date range. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes and time component to search for procedures within a specific range. The date and prefix pairs must create a closed range.
-* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-* The `_revinclude` parameter may be provided in combination with the `_id/patient` parameter. Example: `_id=570007845&_revinclude=Provenance:target` or `patient=12345&_revinclude=Provenance:target`.
-* When `_revinclude` is provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
+* The `date` parameter 
+  * May be provided once with a prefix and time component to imply a date range. Example: `date=gt2015-09-24T00:00:00.000Z`
+  * May otherwise be provided twice with `le`, `lt`, `ge`, or `gt` prefixes and time component to search for procedures within a specific range. The date and prefix pairs must create a closed range.
+* The `_revinclude` parameter 
+  * May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+  * May be provided in combination with the `_id` or `patient` parameter. Example: `_id=570007845&_revinclude=Provenance:target` or `patient=12345&_revinclude=Provenance:target`.
+  * When provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
 * **Currently the `patient/Provenance.read` scope is not supported and hence `_revinclude` cannot be utilised for patient persona.**
 
 ### Headers

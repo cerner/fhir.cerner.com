@@ -13,15 +13,15 @@ The Procedure resource returns current and historical procedures performed on a 
 
 The following fields are returned if valued:
 
-* [Procedure id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
-* [Patient](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.subject){:target="_blank"}
-* [Status (completed, entered-in-error)](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.status){:target="_blank"}
-* [Procedure](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.code){:target="_blank"}
-* [Reason performed](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.reason_x_){:target="_blank"}
-* [Who performed](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.performer){:target="_blank"}
-* [Date performed](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
-* [Patient encounter](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.encounter){:target="_blank"}
-* [Notes](http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.notes){:target="_blank"}
+* [ID](https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Patient](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.subject){:target="_blank"}
+* [Status (completed, entered-in-error)](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.status){:target="_blank"}
+* [Procedure](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.code){:target="_blank"}
+* [Reason performed](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.reason_x_){:target="_blank"}
+* [Who performed](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.performer){:target="_blank"}
+* [Date performed](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
+* [Patient encounter](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.encounter){:target="_blank"}
+* [Notes](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.notes){:target="_blank"}
 
 ## Terminology Bindings
 
@@ -43,18 +43,19 @@ _Implementation Notes_
 
 ### Parameters
 
- Name         | Required?                             | Type          | Description
---------------|---------------------------------------|---------------|------------------------------------------------------------------------------------
- `_id`        | This, or one of `patient` or `subject`| [`token`]     | The logical resource id associated with the resource. Example: `_id=7891`
- `patient`    | This, or one of `_id` or `subject`    | [`reference`] | The patient subject of the Procedure. Example: `patient=12345`
- `subject`    | This, or one of `_id` or `patient`    | [`reference`] | The subject of the Procedure. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`
- `date`       | N                                     | [`date`]      | The date/time when the Procedure was performed. Must use the `ge` and/or `le` prefixes. Example: `date=le2017-02-01T10:30:00Z`
+ Name              | Required?     | Type          | Description
+-------------------|---------------|---------------|-------------------------------------------------------------------------------------
+`_id`              | Conditionally | [`token`]     | The logical resource id associated with the resource. Example: `_id=7891`
+`patient`          | Conditionally | [`reference`] | The patient of the Procedure. Example: `patient=12345`
+`subject`          | Conditionally | [`reference`] | The subject of the Procedure. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`
+`date`             | No            | [`dateTime`]  | The date/time when the Procedure's `performedDateTime` was performed. Must use the `ge` and/or `le` prefixes. Example: `date=le2017-02-01T10:30:00Z`
 
 Notes:
 
-  - The `_id` parameter may not be provided at the same time as the `patient`, `subject`, or `date` parameters.
-
-  - The `date` parameter must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes. When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
+* The `_id` parameter may not be provided at the same time as the `patient`, `subject`, or `date` parameters.
+* The `date` parameter 
+  * Must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes. 
+  * When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
 
 ### Headers
 
