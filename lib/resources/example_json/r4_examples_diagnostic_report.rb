@@ -553,5 +553,142 @@ module Cerner
         }
       ]
     }.freeze
+
+    R4_DIAGNOSTIC_REPORT_POST_CARDIOLOGY ||= {
+      "resourceType": 'DiagnosticReport',
+      "status": 'amended',
+      "identifier": [
+        {
+          "use": 'usual',
+          "type": {
+            "coding": [
+              {
+                "code": 'Coding',
+                "system": 'http://snomed.info/sct',
+                "version": '4.0.1',
+                "display": 'test',
+                "userSelected": true
+              }
+            ]
+          },
+          "system": 'http://hl7.org/fhir/sid/us-ssn',
+          "value": '11182457'
+        }
+      ],
+      "category": [
+        {
+          "coding": [
+            {
+              "code": 'LP29708-2',
+              "display": 'Cardiology',
+              "isUserSelected": false,
+              "system": 'http://loinc.org'
+            }
+          ],
+          "text": 'string'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "system": 'http://loinc.org',
+            "code": '8328-7'
+          }
+        ],
+        "text": 'string'
+      },
+      "subject": {
+        "reference": 'Patient/12804513'
+      },
+      "encounter": {
+        "reference": 'Encounter/98041577'
+      },
+      "performer": [
+        {
+          "reference": 'Practitioner/11786042',
+          "display": 'Practitioner name string'
+        }
+      ],
+      "resultsInterpreter": [
+        {
+          "reference": 'Practitioner/11786042',
+          "display": 'Practitioner name string'
+        }
+      ],
+      "effectivePeriod": {
+        "start": '2020-09-14T09:05:12.000Z',
+        "end": '2020-09-14T09:05:12.000Z'
+      },
+      "issued": '2020-12-29T09:12:28Z',
+      "presentedForm": [
+        {
+          "contentType": 'application/pdf;charset=utf-8',
+          "url": 'http://snomed.info/sct',
+          "data": 'JVBERi0xLjQKJcfsj6IKNSAwIG9iago8PC9MZW5ndGggNiAwIF',
+          "title": 'CT image',
+          "creation": '2020-12-29T09:12:28Z'
+        }
+      ],
+      "conclusion": 'conclusion string'
+    }.freeze
+
+    R4_DIAGNOSTIC_REPORT_POST_PATHOLOGY ||= {
+      "resourceType": 'DiagnosticReport',
+      "status": 'amended',
+      "identifier": [
+        {
+          "system": 'https://fhir.cerner.com/ceuuid',
+          "value": 'CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-34824240-2022051205454801'
+        }
+      ],
+      "basedOn": [
+        {
+          "reference": 'ServiceRequest/99928073'
+        }
+      ],
+      "category": [
+        {
+          "coding": [
+            {
+              "code": 'LP7839-6',
+              "display": 'Pathology study',
+              "isUserSelected": false,
+              "system": 'http://loinc.org'
+            }
+          ],
+          "text": 'string'
+        }
+      ],
+      "code": {
+        "coding": [
+          {
+            "code": '4187236',
+            "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+            "isUserSelected": true,
+            "display": 'Anatomic Pathology'
+          }
+        ],
+        "text": 'string'
+      },
+      "subject": {
+        "reference": 'Patient/12804513'
+      },
+      "encounter": {
+        "reference": 'Encounter/98041577'
+      },
+      "performer": [
+        {
+          "reference": 'Practitioner/11786042'
+        }
+      ],
+      "effectiveDateTime": '2020-12-27T09:12:28Z',
+      "issued": '2020-12-29T09:12:28Z',
+      "presentedForm": [
+        {
+          "contentType": 'application/pdf;charset=utf-8',
+          'data': 'PGh08L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4='
+        }
+      ]
+    }.freeze
   end
 end

@@ -1,0 +1,416 @@
+---
+name: DiagnosticReport
+field_name_base_url: https://www.hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport
+fields:
+- name: resourceType
+  required: 'Yes'
+  type: string
+  description: The type of the FHIR resource.
+  example: |
+    {
+      "resourceType": "DiagnosticReport"
+    }
+  note: resourceType must be DiagnosticReport.
+  url: http://hl7.org/fhir/r4/DiagnosticReport.html
+
+- name: status
+  required: 'Yes'
+  type: code
+  action:
+    - create
+  description: The status of the diagnostic report.
+  note: Must be one of amended, cancelled, entered-in-error, final, partial, preliminary, registered, superseded, or unknown.
+  url: http://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.status
+  example: |
+    {
+      "status": "final"
+    }
+  binding:
+    description: The status of the diagnostic report.
+    terminology:
+      - display: DiagnosticReport status
+        system: http://hl7.org/fhir/diagnostic-report-status
+        info_link: https://www.hl7.org/fhir/valueset-diagnostic-report-status.html
+
+- name: category
+  required: 'Yes'
+  type: CodeableConcept
+  action:
+    - create
+  description: A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. Cardiology, Anatomic Pathology). This is used for searching, sorting and display purposes.
+  note: The code must be LP29708-2 for Cardiology concept, LP7839-6 for Anatomic Pathology concept.
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.category
+  example: |
+    {
+      "category": [
+        {
+            "coding": [
+                {
+                    "code": "LP29708-2",
+                    "display": "Cardiology",
+                    "isUserSelected": false,
+                    "system": "http://loinc.org"
+                }
+            ],
+            "text": "string"
+        }
+      ]
+    }
+  example2: |
+    {
+      "category": [
+        {
+            "coding": [
+                {
+                    "code": "LP7839-6",
+                    "display": "Pathology study",
+                    "isUserSelected": false,
+                    "system": "http://loinc.org"
+                }
+            ],
+            "text": "string"
+        }
+      ]
+    }
+  binding:
+    description: A categorization for the type of diagnostic report.
+    terminology:
+    - display: US Core DiagnosticReport Category
+      system: http://hl7.org/fhir/us/core/CodeSystem/us-core-category
+      info_link: https://hl7.org/fhir/us/core/ValueSet-us-core-diagnosticreport-category.html
+    - display: US Core DiagnosticReport Category
+      system: http://loinc.org
+      info_link: https://hl7.org/fhir/us/core/ValueSet-us-core-diagnosticreport-category.html
+
+- name: code
+  required: 'Yes'
+  type: CodeableConcept
+  action:
+    - create
+  description: Specifies the particular kind of diagnostic report.
+  note: The code must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided.
+        <br/><br/>
+        When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'.
+        <br/><br/>
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.code
+  example: |
+    {
+      "code": {
+        "coding": [
+            {
+                "code": "703535",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+                "userSelected": true,
+                "display": "Temperature Axillary"
+            }
+        ],
+        "text": "Cardiology"
+      }
+    }
+  example2: |
+    {
+      "code": {
+        "coding": [
+            {
+                "code": "4187236",
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+                "userSelected": true,
+                "display": "Anatomic Pathology"
+            }
+        ],
+        "text": "Anatomic Pathology"
+      }
+    }
+  binding:
+    description: Specifies the particular kind of diagnostic report.
+    terminology:
+    - display: US Core DiagnosticReport Code
+      system: http://loinc.org
+      info_link: http://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html
+      info_link: http://hl7.org/fhir/us/core/ValueSet-us-core-diagnosticreport-report-and-note-codes.html
+    - display: US Core DiagnosticReport Code
+      system: http://terminology.hl7.org/CodeSystem/v3-NullFlavor (when type doesn't have a LOINC code)
+      info_link: http://hl7.org/fhir/us/core/ValueSet-us-core-laboratory-test-codes.html
+      info_link: http://hl7.org/fhir/us/core/ValueSet-us-core-diagnosticreport-report-and-note-codes.html
+    - display: Millennium Event Code
+      system: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/72
+      info_link: https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes
+
+- name: subject
+  required: 'Yes'
+  type: Reference
+  action:
+    - create
+  description: The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
+  note: Only patient references are supported.
+  url: http://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.subject
+  example: |
+    {
+      "subject": {
+        "reference": "Patient/12457977"
+      }
+    }
+
+- name: performer
+  required: 'Yes'
+  type: Reference
+  action:
+    - create
+  description: The diagnostic service that is responsible for issuing the report.
+  note: Must contain Practitioner or Organization references with valid millennium ids.
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.performer
+  example: |
+    {
+      "performer": [
+        {
+          "reference": "Practitioner/3332064"
+        }
+      ]
+    }
+
+- name: resultsInterpreter
+  required: 'No'
+  type: Reference
+  action:
+    - create
+  description: The practitioner or organization that is responsible for the report's conclusions and interpretations.
+  note: <li>
+          <ul>
+            <li>Only concept Cardiology supports resultsInterpreter field.</li>
+            <li>Must contain Practitioner or Organization references with valid millennium ids.</li>
+            <li>Diagnostic Report cardiology Create API requires
+              <ul>
+                <li>A default user to be setup in the domain to chart a document</li>
+                <li>If not default user is defined in the domain, a results_interpreter attribute is mandatory to chart a cardiology document.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.resultsInterpreter
+  example: |
+    {
+      "resultsInterpreter": {
+        "reference": "Practitioner/3332064"
+      }
+    }
+
+- name: identifier
+  required: 'Yes'
+  type: Identifier
+  action:
+    - create
+  description: Identifiers assigned to this report by the performer or other systems.
+  note: >
+    <ul>
+       <li>The identifier for concept Cardiology must include fields- use, type, system, value.
+        <br/><br/>
+        The type would include coding. Coding internally would include code, system, version, display, userSelected.
+        <br/><br/></li>
+       <li>The identifier for concept Anatomic Pathology must include fields- system, value.</li>
+    </ul>
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.identifier
+  example: |
+    {
+      "identifier": [
+        {
+            "use": "usual",
+            "type": {
+                "coding": [
+                    {
+                        "code": "Coding",
+                        "system": "http://snomed.info/sct",
+                        "version": "4.0.1",
+                        "display": "test",
+                        "userSelected": true
+                    }
+                ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-ssn",
+            "value": "11182456"
+        }
+      ]
+    }
+  example2: |
+    {
+      "identifier": [
+        {
+            "system": "https://fhir.cerner.com/ceuuid",
+            "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-34824240-2022051205454801"
+        }
+      ]
+    }
+
+- name: effectivePeriod
+  required: 'Yes'
+  type: Period
+  action:
+    - create
+  description: The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
+  note: Only concept Cardiology supports effectivePeriod field.
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.effective[x]
+  example: |
+    {
+      "effectivePeriod": {
+        "start": "2020-09-14T09:05:12.000Z",
+        "end": "2020-09-14T09:05:12.000Z"
+      }
+    }
+
+- name: effectiveDateTime
+  required: 'Yes'
+  type: dateTime
+  action:
+    - create
+  description: The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
+  note: Only concept Anatomic Pathology supports effectiveDateTime field.
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.effective[x]
+  example: |
+    {
+      "effectiveDateTime": "2020-12-27T09:12:28Z",
+    }
+
+- name: presentedForm
+  required: 'Yes'
+  type: Attachment
+  action:
+    - create
+  description: Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
+  note: Data and content type must be provided. Concept Cardiology supports fields contentType, data, url, title, creation fields under presented forms, whereas concept Anatomic Pathology supports contentType and data fields under present forms.
+  url: https://www.hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.presentedForm
+  example: |
+   {
+     "presentedForm": {
+            "contentType": "application/pdf;charset=utf-8",
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+            "url": "http://snomed.info/sct"
+            "title": "CT image",
+            "creation": "2020-07-29T21:02:04.000Z"
+          }
+   }
+  example2: |
+   {
+     "presentedForm": {
+            "contentType": "application/pdf;charset=utf-8",
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+          }
+   }
+
+- name: presentedForm.contentType
+  required: 'Yes'
+  type: Code
+  action:
+    - create
+  description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+  note: Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/plain;charset=utf-8`, `text/richtext;charset=utf-8`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType
+  example: |
+   {
+     "contentType": "application/pdf;charset=utf-8"
+   }
+
+- name: presentedForm.data
+  required: 'Yes'
+  type: base64Binary
+  action:
+    - create
+  description: The actual data of the attachment - a sequence of bytes, base64 encoded.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.data
+  example: |
+   {
+     "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+   }
+
+- name: presentedForm.url
+  required: 'No'
+  type: string
+  action:
+    - create
+  description: A location where the data can be accessed.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.url
+  example: |
+   {
+     "title": "http://snomed.info/sct",
+   }
+
+- name: presentedForm.title
+  required: 'No'
+  type: string
+  action:
+    - create
+  description: A label or set of text to display in place of the data.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title
+  example: |
+   {
+     "title": "CT image",
+   }
+
+- name: presentedForm.creation
+  required: 'No'
+  type: dateTime
+  action:
+    - create
+  description: The date that the attachment was first created.
+  url: https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation
+  note: A time component must be provided with the date.
+  example: |
+   {
+     "creation": "2020-07-29T21:02:04.000Z"
+   }
+
+- name: encounter
+  required: 'No'
+  type: Reference
+  action:
+    - create
+  description: The healthcare event (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
+  note: The encounter has to match the original document encounter.
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.encounter
+  example: |
+    {
+      "encounter": {
+        "reference": "Encounter/98041577"
+      }
+    }
+
+- name: issued
+  required: 'No'
+  type: dateTime
+  action:
+    - create
+  description: The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
+  note: A time component must be provided with the date.
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.issued
+  example: |
+    {
+      "issued": "2020-07-29T21:02:04.000Z"
+    }
+
+- name: conclusion
+  required: 'No'
+  type: string
+  action:
+    - create
+  description: Concise and clinically contextualized summary conclusion (interpretation/impression) of the diagnostic report.
+  note: Only concept Cardiology supports conclusion field. Need to be able to provide a conclusion that is not lost among the basic result data.
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.conclusion
+  example: |
+    {
+      "conclusion": "conclusion string"
+    }
+
+- name: basedOn
+  required: 'No'
+  type: Reference
+  action:
+    - create
+  description: Details concerning a service requested.
+  note: Only concept Anatomic Pathology supports basedOn field. Must contain ServiceRequest references with valid millennium ids.
+  url: https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.basedOn
+  example: |
+    {
+      "basedOn": [
+        {
+            "reference": "ServiceRequest/99928073"
+        }
+      ]
+    }

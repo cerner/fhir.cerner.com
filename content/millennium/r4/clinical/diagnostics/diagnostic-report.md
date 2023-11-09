@@ -173,6 +173,108 @@ Retrieve an individual DiagnosticReport by its ID:
 
 <%= disclaimer %>
 
+## Create
+
+Create a new diagnostic report.
+
+    POST /DiagnosticReport
+
+_Implementation Notes_
+
+* DiagnosticReports of type Cardiology and Anatomic Pathology are supported for the create operation.
+* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* All provided dates must have a time component.
+* Supported MIME Types: application/pdf, text/plain, text/richtext, text/rtf, text/html, application/xml, and application/xhtml+xml
+* Diagnostic Report Cardiology Create API requires
+    * A default user to be setup in the domain to chart a document
+    * If not default user is defined in the domain, a results_interpreter attribute is mandatory to chart a cardiology document.
+
+### Authorization Types
+
+<%= authorization_types(provider: true, system: true) %>
+
+### Headers
+
+<%= headers head: {Authorization: '&lt;OAuth2 Bearer Token>', 'Content-Type': 'application/fhir+json'} %>
+
+### Body Fields
+
+<%= definition_table(:diagnostic_report_create, :create, :r4) %>
+
+### Example for Cardiology Concept Create
+
+#### Request
+
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport
+
+### Body
+
+<%= json(:R4_DIAGNOSTIC_REPORT_POST_CARDIOLOGY) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Date: Mon, 09 Oct 2023 17:29:02 GMT
+Content-Type: text/html
+Connection: keep-alive
+Cache-Control: no-cache
+Etag: W/"1"
+Last-Modified: Mon, 09 Oct 2023 17:29:02 GMT
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197466617
+Referrer-Policy: strict-origin-when-cross-origin
+Server-Response-Time: 1288.314512
+Strict-Transport-Security: max-age=631152000
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Frame-Options: SAMEORIGIN
+X-Permitted-Cross-Domain-Policies: none
+X-Request-Id: 7ce8599d-6fd7-9c53-3ca2-c08c708aecc0+Kccx_BLlz
+X-Runtime: 1.288262
+X-Xss-Protection: 1; mode=block
+Transfer-Encoding: chunked
+</pre>
+
+<%= disclaimer %>
+
+### Example for Anatomic Pathology Concept Create
+
+#### Request
+
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport
+
+### Body
+
+<%= json(:R4_DIAGNOSTIC_REPORT_POST_PATHOLOGY) %>
+
+#### Response
+
+<%= headers status: 201 %>
+<pre class="terminal">
+Date: Mon, 09 Oct 2023 17:29:02 GMT
+Content-Type: text/html
+Connection: keep-alive
+Cache-Control: no-cache
+Etag: W/"1"
+Last-Modified: Mon, 09 Oct 2023 17:29:02 GMT
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197466627
+Referrer-Policy: strict-origin-when-cross-origin
+Server-Response-Time: 4626.253472
+Strict-Transport-Security: max-age=631152000
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Frame-Options: SAMEORIGIN
+X-Permitted-Cross-Domain-Policies: none
+X-Request-Id: a72ca419-4773-9e2d-a9dd-e9a56b6693ab+BExf_xcbw
+X-Runtime: 4.626156
+X-Xss-Protection: 1; mode=block
+Transfer-Encoding: chunked
+</pre>
+
+<%= disclaimer %>
+
 ### Errors
 
 The common [errors] and [OperationOutcomes] may be returned.
@@ -181,6 +283,6 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`date`]: https://hl7.org/fhir/R4/search.html#date
 [`number`]: https://hl7.org/fhir/R4/search.html#number
-[errors]: ../../#client-errors
-[OperationOutcomes]: ../../#operation-outcomes
+[errors]: ../../../#client-errors
+[OperationOutcomes]: ../../../#operation-outcomes
 [Update documentation]: https://www.hl7.org/fhir/r4/http.html#update
