@@ -129,9 +129,9 @@ module Cerner
             },
             "required": 'required',
             "status": 'accepted',
-            "period": {
-              "start": "2023-07-26T14:00:00Z",
-              "end": "2023-07-26T15:00:00Z"
+            'period': {
+              'start': '2023-07-26T14:00:00Z',
+              'end': '2023-07-26T15:00:00Z'
             }
           }
         ],
@@ -284,9 +284,9 @@ module Cerner
           },
           'required': 'required',
           'status': 'accepted',
-          "period": {
-            "start": "2023-07-26T14:00:00Z",
-            "end": "2023-07-26T15:00:00Z"
+          'period': {
+            'start': '2023-07-26T14:00:00Z',
+            'end': '2023-07-26T15:00:00Z'
           }
         },
         {
