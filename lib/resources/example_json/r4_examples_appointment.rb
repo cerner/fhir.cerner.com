@@ -128,7 +128,11 @@ module Cerner
               "display": 'Smart II, Nancy'
             },
             "required": 'required',
-            "status": 'accepted'
+            "status": 'accepted',
+            "period": {
+              "start": "2023-07-26T14:00:00Z",
+              "end": "2023-07-26T15:00:00Z"
+            }
           }
         ],
         "requestedPeriod": [
@@ -279,7 +283,11 @@ module Cerner
             'display': 'SMART, NANCY'
           },
           'required': 'required',
-          'status': 'accepted'
+          'status': 'accepted',
+          "period": {
+            "start": "2023-07-26T14:00:00Z",
+            "end": "2023-07-26T15:00:00Z"
+          }
         },
         {
           'type': [
