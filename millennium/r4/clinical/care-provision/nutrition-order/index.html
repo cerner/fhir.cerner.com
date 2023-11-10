@@ -81,7 +81,7 @@
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
@@ -97,7 +97,7 @@
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id">NutritionOrder id</a></li>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id">NutritionOrder ID</a></li>
   <li><a href="https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.status">Status</a></li>
   <li><a href="https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.intent">Intent</a></li>
   <li><a href="#extensions">Extensions including basedOn</a></li>
@@ -522,7 +522,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for NutritionOrders that meet supplied query parameters:</p>
+<p>Search for nutrition orders that meet the supplied query parameters.</p>
 
 <pre><code>GET /NutritionOrder?:parameters
 </code></pre>
@@ -539,7 +539,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Required?</th>
+      <th>Required</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -547,17 +547,16 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or <code>patient</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>The logical resource ID associated with the resource. This parameter is required if <code>subject</code> is not used. Example: <code>11111111</code>
+</td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This or <code>_id</code> or <code>subject</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>Who the nutrition order is for. Example: <code>12345</code>
+      <td>Who the nutrition order is for. This parameter is required if the <code>_id</code> parameter is not used. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
@@ -571,14 +570,14 @@
       <td><code>_lastUpdated</code></td>
       <td>No</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
-      <td>An explicit or implied date-time range within which the most recent clinically relevant update was made to the nutrition order. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: <code>ge2014-05-19T20:54:02.000Z</code>
+      <td>An explicit or implied date and time range during which the most recent clinically relevant update was made to the nutrition order. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: <code>ge2014-05-19T20:54:02.000Z</code>
 </td>
     </tr>
     <tr>
       <td><a href="https://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
       <td>No</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of nutrition orders to include in a page.</td>
+      <td>The maximum number of nutrition orders to include on a page.</td>
     </tr>
   </tbody>
 </table>
@@ -586,11 +585,11 @@
 <p>Notes:</p>
 
 <ul>
-  <li>If <code>_id</code> is provided, no other parameters may be provided.</li>
-  <li>The <code>_lastUpdated</code> parameter may be provided:
+  <li>If <code>_id</code> is provided, no other parameters are required.</li>
+  <li>The <code>_lastUpdated</code> parameter may be provided in the following formats:
     <ul>
-      <li>once with a prefix <code>ge</code> or <code>le</code> representing the earliest date or latest date. (e.g. <code>date=ge2015-01-01</code>, <code>date=le2016-01-01</code>)</li>
-      <li>twice with the prefixes <code>ge</code>, <code>le</code> to indicate a specific range. (e.g. <code>date=ge2015-01-01&amp;date=le2016-01-01</code>)</li>
+      <li>Once with a prefix of ‘ge’ or ‘le’ representing the earliest date or latest date (for example, <code>date=ge2015-01-01</code> or <code>date=le2016-01-01</code>).</li>
+      <li>Twice with the prefixes of ‘ge’ and ‘le’ to indicate a specific range (for example, <code>date=ge2015-01-01&amp;date=le2016-01-01</code>).</li>
     </ul>
   </li>
 </ul>
@@ -1126,9 +1125,9 @@
 
 <p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
-<h2 id="retrieve-by-id">Retrieve by id</h2>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<p>List an individual NutritionOrder by its id:</p>
+<p>List an individual nutrition order by its ID.</p>
 
 <pre><code>GET /NutritionOrder/:id
 </code></pre>
@@ -1403,277 +1402,12 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h4 id="request-2">Request</h4>
-
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
-</code></pre>
-
-<h4 id="response-3">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "NutritionOrder",
-  "id": "328575687",
-  "meta": {
-    "versionId": "2",
-    "lastUpdated": "2021-05-03T14:37:55.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Nutrition Order&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: SMART, NANCY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Intent&lt;/b&gt;: Instance Order&lt;/p&gt;&lt;p&gt;&lt;b&gt;Date&lt;/b&gt;: May  3, 2021  2:30 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Orderer&lt;/b&gt;: CERNER, CERNER CERNER&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diet Type&lt;/b&gt;: Bland Diet&lt;/p&gt;&lt;p&gt;&lt;b&gt;Diet Instruction&lt;/b&gt;: 05/03/21 9:30:00 CDT, Start Meal: Now, Vegetarian diet, Gluten Free, 2000 kcal, Medium (1,700-2,000 cal) 75g CHO, Low, 24 Hour Fluid Permitted 2000 mL, NDD3 (Chopped), Thin Liquid, No free water, keep sodium to a minimum., Anemia due to membrane defect&lt;/p&gt;&lt;/div&gt;"
-  },
-  "extension": [
-    {
-      "valueReference": {
-        "reference": "NutritionOrder/41862407"
-      },
-      "url": "http://hl7.org/fhir/StructureDefinition/event-basedOn"
-    }
-  ],
-  "status": "active",
-  "intent": "instance-order",
-  "patient": {
-    "reference": "Patient/12724066",
-    "display": "SMART, NANCY"
-  },
-  "encounter": {
-    "reference": "Encounter/97959185"
-  },
-  "dateTime": "2021-05-03T09:30:52.000-05:00",
-  "orderer": {
-    "reference": "Practitioner/2",
-    "display": "CERNER, CERNER CERNER"
-  },
-  "foodPreferenceModifier": [
-    {
-      "coding": [
-        {
-          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6102",
-          "code": "658488",
-          "display": "Vegetarian diet",
-          "userSelected": true
-        },
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/diet",
-          "code": "vegetarian",
-          "display": "Vegetarian",
-          "userSelected": false
-        }
-      ],
-      "text": "Vegetarian diet"
-    }
-  ],
-  "oralDiet": {
-    "type": [
-      {
-        "coding": [
-          {
-            "system": "http://snomed.info/sct",
-            "code": "38226001",
-            "display": "Bland diet (finding)",
-            "userSelected": false
-          }
-        ],
-        "text": "Bland Diet"
-      }
-    ],
-    "schedule": [
-      {
-        "repeat": {
-          "boundsPeriod": {
-            "start": "2021-05-03T09:30:00.000-05:00"
-          }
-        }
-      }
-    ],
-    "nutrient": [
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100194",
-              "code": "31168891",
-              "display": "Medium (1,700-2,000 cal) 75g CHO",
-              "userSelected": true
-            }
-          ],
-          "text": "Medium (1,700-2,000 cal) 75g CHO"
-        }
-      },
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100196",
-              "code": "31170565",
-              "display": "1000 mg phosphorus",
-              "userSelected": true
-            }
-          ],
-          "text": "1000 mg phosphorus"
-        }
-      },
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6113",
-              "code": "658536",
-              "display": "2000 kcal",
-              "userSelected": true
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "76426001",
-              "display": "Calorie diet (finding)",
-              "userSelected": false
-            }
-          ],
-          "text": "2000 kcal"
-        }
-      },
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6117",
-              "code": "658565",
-              "display": "Low",
-              "userSelected": true
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "226358006",
-              "display": "Fat - dietary (substance)",
-              "userSelected": false
-            }
-          ],
-          "text": "Low"
-        }
-      },
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6114",
-              "code": "658544",
-              "display": "2000 mL",
-              "userSelected": true
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "33463005",
-              "display": "Liquid substance (substance)",
-              "userSelected": false
-            }
-          ],
-          "text": "2000 mL"
-        }
-      },
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6116",
-              "code": "31170379",
-              "display": "1.5 g sodium",
-              "userSelected": true
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "39972003",
-              "display": "Sodium (substance)",
-              "userSelected": false
-            }
-          ],
-          "text": "1.5 g sodium"
-        }
-      },
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6118",
-              "code": "658567",
-              "display": "2 g potassium",
-              "userSelected": true
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "88480006",
-              "display": "Potassium (substance)",
-              "userSelected": false
-            }
-          ],
-          "text": "2 g potassium"
-        }
-      },
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/6119",
-              "code": "658576",
-              "display": "60 g protein",
-              "userSelected": true
-            },
-            {
-              "system": "http://snomed.info/sct",
-              "code": "226356005",
-              "display": "Protein and protein derivatives - dietary (substance)",
-              "userSelected": false
-            }
-          ],
-          "text": "60 g protein"
-        }
-      }
-    ],
-    "texture": [
-      {
-        "modifier": {
-          "coding": [
-            {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100197",
-              "code": "31170633",
-              "display": "NDD3 (Chopped)",
-              "userSelected": true
-            }
-          ],
-          "text": "NDD3 (Chopped)"
-        }
-      }
-    ],
-    "fluidConsistencyType": [
-      {
-        "coding": [
-          {
-            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100123",
-            "code": "25442691",
-            "display": "Thin Liquid",
-            "userSelected": true
-          }
-        ],
-        "text": "Thin Liquid"
-      }
-    ],
-    "instruction": "05/03/21 9:30:00 CDT, Start Meal: Now, Vegetarian diet, Gluten Free, 2000 kcal, Medium (1,700-2,000 cal) 75g CHO, Low, 24 Hour Fluid Permitted 2000 mL, NDD3 (Chopped), Thin Liquid, No free water, keep sodium to a minimum., Anemia due to membrane defect"
-  },
-  "note": [
-    {
-      "text": "Order comments"
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
 <h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
 
 <pre><code>GET https://fhir-ehr.cerner.com/4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/313790117
 </code></pre>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1909,7 +1643,7 @@
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder/328575703
 </code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 

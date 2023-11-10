@@ -90,7 +90,7 @@
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
@@ -101,11 +101,11 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Location resource describes physical places where healthcare services are provided. In Millennium, facilities are the top level of the patient location hierarchy. A facility is also an Organization resource at which patient locations are associated. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area like a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.</p>
+<p>The Location resource describes physical places where healthcare services are provided. In Cerner Millennium, facilities are the top level of the patient location hierarchy. A facility is also an <a href="../Organization">Organization</a> resource that is associated with patient locations. All facilities are organizations, but not all organizations are facilities. A location can also be an ambulatory patient care area such as a clinic or an emergency room. The location hierarchy from highest to lowest is facility, building, nursing unit, room, and bed.</p>
 
 <ul>
   <li>
-    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+    <p>This resource supports the following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7 FHIR US Core Implementation Guide STU 4.0.0</a> profiles:</p>
 
     <ul>
       <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-location.html" target="_blank">US Core Location Profile</a></li>
@@ -116,7 +116,7 @@
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Location id</a></li>
+  <li><a href="http://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Location ID</a></li>
   <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.status" target="_blank">Status</a></li>
   <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.name" target="_blank">Name</a></li>
   <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.alias" target="_blank">Alias</a></li>
@@ -520,7 +520,7 @@
 
 <h3 id="custom-extensions">Custom Extensions</h3>
 
-<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code>.</p>
 
 <table>
   <thead>
@@ -534,14 +534,14 @@
     <tr>
       <td><code>custom-attribute</code></td>
       <td>None (contains nested extensions)</td>
-      <td>A client defined custom attribute for the resource. Attribute values can be of type <a href="https://hl7.org/fhir/r4/datatypes.html#integer"><code>integer</code></a>, <a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a>, or <a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>.</td>
+      <td>A client-defined custom attribute for the resource. Attribute values can be the following types: <a href="https://hl7.org/fhir/r4/datatypes.html#integer"><code>integer</code></a>, <a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a>, or <a href="https://hl7.org/fhir/r4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="search">Search</h2>
 
-<p>Search for Locations that meet supplied query parameters:</p>
+<p>Search for locations that meet supplied query parameters:</p>
 
 <pre><code>GET /Location?:parameters
 </code></pre>
@@ -566,67 +566,72 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or <code>-physicalType</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>The logical resource ID associated with the resource. This parameter is required if the <code>-physicalType</code> parameter is not used.</td>
     </tr>
     <tr>
       <td><code>-physicalType</code></td>
-      <td>This or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The location’s physical type. Example: <code>http://terminology.hl7.org/CodeSystem/location-physical-type|ro</code>
+      <td>The location’s physical type. This parameter is required if the <code>_id</code> parameter is not used. Example: <code>http://terminology.hl7.org/CodeSystem/location-physical-type|ro</code>
 </td>
     </tr>
     <tr>
       <td><code>identifier</code></td>
-      <td>no</td>
+      <td>No</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
       <td>The location’s identifier. Example: <code>653385|FSI^~BUILD^~NU</code>
 </td>
     </tr>
     <tr>
       <td><a href="https://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
-      <td>no</td>
+      <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return. Defaults to <code>100</code>.</td>
+      <td>The maximum number of results to return. Default: <code>100</code>
+</td>
     </tr>
     <tr>
       <td><code>address</code></td>
-      <td>no</td>
+      <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
-      <td>A (part of the) address of the location.</td>
+      <td>Part of the location’s address. Example: <code>123%20Main</code>
+</td>
     </tr>
     <tr>
       <td><code>address-city</code></td>
-      <td>no</td>
+      <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
-      <td>A city specified in an address</td>
+      <td>The city specified in the address. Example: <code>Kansas</code>
+</td>
     </tr>
     <tr>
       <td><code>address-state</code></td>
-      <td>no</td>
+      <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
-      <td>A state specified in an address</td>
+      <td>The state specified in the address. Example: <code>MO</code>
+</td>
     </tr>
     <tr>
       <td><code>address-postalcode</code></td>
-      <td>no</td>
+      <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
-      <td>A postal code specified in an address</td>
+      <td>The postal code specified in the address. Example: <code>64111</code>
+</td>
     </tr>
     <tr>
       <td><code>name</code></td>
-      <td>no</td>
+      <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#string"><code>string</code></a></td>
-      <td>A portion of the location’s name or alias</td>
+      <td>The portion of the location’s name or alias. Example: <code>Main</code>
+</td>
     </tr>
     <tr>
       <td><code>organization</code></td>
-      <td>no</td>
+      <td>No</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>Searches for locations that are managed by the provided organization</td>
+      <td>The Organization that manages the location. Example: <code>675844</code>
+</td>
     </tr>
   </tbody>
 </table>
@@ -634,14 +639,19 @@
 <p>Notes:</p>
 
 <ul>
-  <li>The <code>-physicalType</code> parameter
+  <li>When searching with the <code>-physicalType</code> parameter:
     <ul>
-      <li>Searching by Millennium proprietary codes is not supported.</li>
+      <li>Searching by Cerner Millennium proprietary codes is not supported.</li>
     </ul>
   </li>
-  <li>The <code>-address-city</code> parameter
+  <li>When searching with the <code>-address-city</code> parameter:
     <ul>
-      <li>needs address-state or address-postalcode while searching with address-city</li>
+      <li>Must include any of the following parameters: <code>address-state</code> or <code>address-postalcode</code>.</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>name</code> and <code>organization</code> parameters:
+    <ul>
+      <li>Must include any of the following parameters: <code>-physicalType</code>, <code>identifier</code>, <code>address</code>, <code>address-state</code>, <code>address-city</code>, or <code>address-postalcode</code>.</li>
     </ul>
   </li>
 </ul>
@@ -899,7 +909,7 @@
 
 <h4 id="request-2">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=MO
 </code></pre>
 
 <h4 id="response-2">Response</h4>
@@ -908,81 +918,73 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "f4749f7a-e67d-49d1-8b92-ddbef46eae15",
+  "id": "d7638736-7e04-4e36-9fd1-357159396499",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=MO"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=PA",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=MO",
       "resource": {
-        "resourceType": "Location",
-        "id": "982243103",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2019-03-29T14:40:50Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Anushka Org One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: ADOne&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Anushka Org One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "use": "official",
-            "type": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73",
-                  "code": "ACCTRECEIVABLE",
-                  "display": "FIN NBR",
-                  "userSelected": true
-                }
-              ]
-            },
-            "system": "FIN NBR",
-            "value": "16000"
-          }
-        ],
-        "status": "active",
-        "name": "Anushka Org One",
-        "alias": [
-          "ADOne"
-        ],
-        "mode": "instance",
-        "address": {
-          "use": "work",
-          "text": "111th West st\nMalvern, PA 19355\nUSA",
-          "line": [
-            "111th West st"
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/20573078",
+        "resource": {
+          "resourceType": "Location",
+          "id": "20573078",
+          "meta": {
+            "versionId": "20",
+            "lastUpdated": "2018-05-22T16:42:00Z"
+          },
+          "text": {
+            "status": "generated",
+            "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Model Behavioral Health Clinic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: MX BH CL&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Model Behavioral Health Clinic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          },
+          "status": "active",
+          "name": "Model Behavioral Health Clinic",
+          "alias": [
+            "MX BH CL"
           ],
-          "city": "Malvern",
-          "state": "PA",
-          "postalCode": "19355",
-          "country": "USA"
-        },
-        "physicalType": {
-          "coding": [
+          "mode": "instance",
+          "telecom": [
             {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
-              "code": "783",
-              "display": "Facility(s)",
-              "userSelected": true
-            },
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
-              "code": "si",
-              "display": "Site"
+              "system": "phone",
+              "value": "555 555 0001"
             }
           ],
-          "text": "Facility(s)"
-        },
-        "managingOrganization": {
-          "reference": "Organization/28096355",
-          "display": "Anushka Org One"
+          "address": {
+            "use": "work",
+            "text": "1234 Main\\nKansas City, MO 64111\\nUS",
+            "line": [
+              "1234 Main"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64111",
+            "country": "US"
+          },
+          "physicalType": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                "code": "783",
+                "display": "Facility(s)",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+                "code": "si",
+                "display": "Site"
+              }
+            ],
+            "text": "Facility(s)"
+          },
+          "managingOrganization": {
+            "reference": "Organization/667844",
+            "display": "Model Behavioral Health Clinic"
+          }
         }
       }
     }
@@ -995,7 +997,7 @@
 
 <h4 id="request-3">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&amp;address-city=Malvern
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=MO&amp;address-city=Kansas
 </code></pre>
 
 <h4 id="response-3">Response</h4>
@@ -1009,76 +1011,68 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&amp;address-city=Malvern"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=MO&amp;address-city=Kansas"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=PA&amp;address-city=Malvern",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=MO&amp;address-city=Kansas",
       "resource": {
-        "resourceType": "Location",
-        "id": "982243103",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2019-03-29T14:40:50Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Anushka Org One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: ADOne&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Anushka Org One&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "use": "official",
-            "type": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73",
-                  "code": "ACCTRECEIVABLE",
-                  "display": "FIN NBR",
-                  "userSelected": true
-                }
-              ]
-            },
-            "system": "FIN NBR",
-            "value": "16000"
-          }
-        ],
-        "status": "active",
-        "name": "Anushka Org One",
-        "alias": [
-          "ADOne"
-        ],
-        "mode": "instance",
-        "address": {
-          "use": "work",
-          "text": "111th West st\nMalvern, PA 19355\nUSA",
-          "line": [
-            "111th West st"
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/20573078",
+        "resource": {
+          "resourceType": "Location",
+          "id": "20573078",
+          "meta": {
+            "versionId": "20",
+            "lastUpdated": "2018-05-22T16:42:00Z"
+          },
+          "text": {
+            "status": "generated",
+            "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Model Behavioral Health Clinic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: MX BH CL&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Model Behavioral Health Clinic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          },
+          "status": "active",
+          "name": "Model Behavioral Health Clinic",
+          "alias": [
+            "MX BH CL"
           ],
-          "city": "Malvern",
-          "state": "PA",
-          "postalCode": "19355",
-          "country": "USA"
-        },
-        "physicalType": {
-          "coding": [
+          "mode": "instance",
+          "telecom": [
             {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
-              "code": "783",
-              "display": "Facility(s)",
-              "userSelected": true
-            },
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
-              "code": "si",
-              "display": "Site"
+              "system": "phone",
+              "value": "555 555 0001"
             }
           ],
-          "text": "Facility(s)"
-        },
-        "managingOrganization": {
-          "reference": "Organization/28096355",
-          "display": "Anushka Org One"
+          "address": {
+            "use": "work",
+            "text": "1234 Main\\nKansas City, MO 64111\\nUS",
+            "line": [
+              "1234 Main"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64111",
+            "country": "US"
+          },
+          "physicalType": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                "code": "783",
+                "display": "Facility(s)",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+                "code": "si",
+                "display": "Site"
+              }
+            ],
+            "text": "Facility(s)"
+          },
+          "managingOrganization": {
+            "reference": "Organization/667844",
+            "display": "Model Behavioral Health Clinic"
+          }
         }
       }
     }
@@ -1193,7 +1187,7 @@
 
 <h4 id="request-5">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;organization=3054032
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;organization=667844
 </code></pre>
 
 <h4 id="response-5">Response</h4>
@@ -1207,82 +1201,68 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;organization=3054032"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;organization=667844"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/2554914033",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/20573078",
       "resource": {
-        "resourceType": "Location",
-        "id": "2554914033",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2017-09-19T17:38:08Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: ABC Taxi Company&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: ABC Taxi&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: ABC Taxi Company&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "identifier": [
-          {
-            "use": "official",
-            "type": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73",
-                  "code": "ACCTRECEIVABLE",
-                  "display": "FIN NBR",
-                  "userSelected": true
-                }
-              ]
-            },
-            "system": "FIN NBR",
-            "value": "16000"
-          }
-        ],
-        "status": "active",
-        "name": "ABC Taxi Company",
-        "alias": [
-          "ABC Taxi"
-        ],
-        "mode": "instance",
-        "telecom": [
-          {
-            "system": "phone",
-            "value": "8168769999"
-          }
-        ],
-        "address": {
-          "use": "work",
-          "text": "123 Main Street\nKansas City, MO 64117\nUS",
-          "line": [
-            "123 Main Street"
+        "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/20573078",
+        "resource": {
+          "resourceType": "Location",
+          "id": "20573078",
+          "meta": {
+            "versionId": "20",
+            "lastUpdated": "2018-05-22T16:42:00Z"
+          },
+          "text": {
+            "status": "generated",
+            "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Model Behavioral Health Clinic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: MX BH CL&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Model Behavioral Health Clinic&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          },
+          "status": "active",
+          "name": "Model Behavioral Health Clinic",
+          "alias": [
+            "MX BH CL"
           ],
-          "city": "Kansas City",
-          "state": "MO",
-          "postalCode": "64117",
-          "country": "US"
-        },
-        "physicalType": {
-          "coding": [
+          "mode": "instance",
+          "telecom": [
             {
-              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
-              "code": "783",
-              "display": "Facility(s)",
-              "userSelected": true
-            },
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
-              "code": "si",
-              "display": "Site"
+              "system": "phone",
+              "value": "555 555 0001"
             }
           ],
-          "text": "Facility(s)"
-        },
-        "managingOrganization": {
-          "reference": "Organization/3054032",
-          "display": "ABC Taxi Company"
+          "address": {
+            "use": "work",
+            "text": "1234 Main\\nKansas City, MO 64111\\nUS",
+            "line": [
+              "1234 Main"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64111",
+            "country": "US"
+          },
+          "physicalType": {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                "code": "783",
+                "display": "Facility(s)",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+                "code": "si",
+                "display": "Site"
+              }
+            ],
+            "text": "Facility(s)"
+          },
+          "managingOrganization": {
+            "reference": "Organization/667844",
+            "display": "Model Behavioral Health Clinic"
+          }
         }
       }
     }
@@ -1295,9 +1275,9 @@
 
 <p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
-<h2 id="retrieve-by-id">Retrieve by id</h2>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<p>List an individual Location by its id:</p>
+<p>List an individual location by the associated ID:</p>
 
 <pre><code>GET /Location/:id
 </code></pre>

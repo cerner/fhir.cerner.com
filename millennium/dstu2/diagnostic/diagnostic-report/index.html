@@ -83,10 +83,9 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a
-diagnostic service or procedure such as a Radiology or Pathology report.</p>
+<p>The DiagnosticReport resource provides a set of information and interpretation following a diagnostic service or procedure such as a Radiology, Pathology, or Cardiology report. The DiagnosticReport resource will produce information about the diagnostic report itself and about the subject.</p>
 
-<p>This resource currently only supports Radiology reports in the presented form of either PDF or HTML.</p>
+<p>The information produced can include a mix of textual reports, images, and codes, depending on the type(s) of diagnostic services being retrieved. This resource currently only supports Radiology reports in the presented form of either PDF or HTML.</p>
 
 <p>The following fields are returned if valued:</p>
 
@@ -208,15 +207,6 @@ diagnostic service or procedure such as a Radiology or Pathology report.</p>
 <pre><code>GET /DiagnosticReport?:parameters
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>If a DiagnosticReport references a PDF with URL sections, it may not be returned from the Binary resource. See the
-<a href="../../infrastructure/binary/#retrieve-by-id">Binary implementation notes</a>.</li>
-  <li>When requesting the presentedForm.url, the Accept header should be populated with the presentedForm.contentType. For more
-information, see the <a href="../../infrastructure/binary/#headers">Binary accept</a> documentation.</li>
-</ul>
-
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
@@ -237,14 +227,16 @@ information, see the <a href="../../infrastructure/binary/#headers">Binary accep
   <tbody>
     <tr>
       <td><code>patient</code></td>
-      <td>This or subject</td>
+      <td>This or <code>subject</code>
+</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
       <td>The subject of the report if a patient. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
       <td><code>subject:Patient</code></td>
-      <td>This or patient</td>
+      <td>This or <code>patient</code>
+</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
       <td>The subject (Patient) of the report. Example: <code>12345</code>
 </td>
@@ -253,17 +245,40 @@ information, see the <a href="../../infrastructure/binary/#headers">Binary accep
       <td><code>date</code></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the diagnostic report falls (effectiveDateTime). Must be present once and prefixed by ‘ge’ or present twice and prefixed by ‘ge’ / ‘lt’. EG: <code>date=ge2014-09-24T12:00:00.000Z</code> <code>&amp;date=lt2015-10-24T12:00:00.000Z</code>
+      <td>Date range into which the diagnostic report falls (effectiveDateTime). Example: <code>date=ge2020-01-01T08:00:00.000Z&amp;date=lt2020-01-31T17:00:00.000Z</code>
 </td>
     </tr>
     <tr>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#count"><code>_count</code></a></td>
       <td>N</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return per page.</td>
+      <td>The maximum number of results to return. Defaults to <code>10</code> and a maximum of <code>100</code> documents can be returned.</td>
     </tr>
   </tbody>
 </table>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>When searching with the <code>date</code> parameter:
+    <ul>
+      <li>For a single <code>date</code> occurrence:
+        <ul>
+          <li>It must be provided with the <code>ge</code> prefix to imply a date range.</li>
+          <li>The <code>time</code> component is optional.</li>
+        </ul>
+      </li>
+      <li>For two <code>date</code> occurences:
+        <ul>
+          <li>It must be provided with <code>ge</code> and <code>lt</code> prefixes to search for report(s) within a specific range.</li>
+          <li>The <code>time</code> component is optional for both parameters.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>If a DiagnosticReport references a PDF with URL sections, it may not be returned from the <code>Binary</code> resource. See the <a href="../../infrastructure/binary/#retrieve-by-id">Binary implementation notes</a>.</li>
+  <li>When requesting the presentedForm.url, the <code>Accept</code> header should be populated with the <code>presentedForm.contentType</code>. For more information, see the <a href="../../infrastructure/binary/#headers">Binary accept</a> documentation.</li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 

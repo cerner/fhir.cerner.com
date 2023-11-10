@@ -75,25 +75,41 @@
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
-      <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#example-with-revinclude" id="markdown-toc-example-with-revinclude">Example with RevInclude</a></li>
+      <li><a href="#example-search-by-patient-with-category" id="markdown-toc-example-search-by-patient-with-category">Example Search by Patient with Category</a></li>
+      <li><a href="#example-search-by-id-with-revinclude" id="markdown-toc-example-search-by-id-with-revinclude">Example Search by _id with RevInclude</a></li>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
-      <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#example-single-retrieve-by-id" id="markdown-toc-example-single-retrieve-by-id">Example Single Retrieve by _ID</a></li>
+    </ul>
+  </li>
+  <li>
+<a href="#create" id="markdown-toc-create">Create</a>    <ul>
+      <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
+      <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
+      <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
+      <li><a href="#example-for-cardiology-concept-create" id="markdown-toc-example-for-cardiology-concept-create">Example for Cardiology Concept Create</a></li>
+      <li><a href="#body" id="markdown-toc-body">Body</a></li>
+      <li><a href="#example-for-anatomic-pathology-concept-create" id="markdown-toc-example-for-anatomic-pathology-concept-create">Example for Anatomic Pathology Concept Create</a></li>
+      <li><a href="#body-1" id="markdown-toc-body-1">Body</a></li>
       <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
-<p>The DiagnosticReport resource typically provides a textual set of information and interpretation after performing a diagnostic service or procedure such as a Radiology or Pathology or Cardiology report. A diagnostic report is the set of information that is typically provided by a diagnostic service when investigations are complete. The information includes a mix of atomic results, text reports, images, and codes. The DiagnosticReport resource has information about the diagnostic report itself, and about the subject and, in the case of laboratory tests, the specimen of the report. Report conclusions can be expressed as a simple text blob, structured coded data or as an attached fully formatted report such as a PDF.</p>
+<p>The DiagnosticReport resource provides a set of information and interpretation following a diagnostic service or procedure such as a Radiology, Pathology, or Cardiology report. The DiagnosticReport resource will produce information about the diagnostic report itself, about the subject, and about the specimen of the report in the case of Laboratory tests. The information produced can include a mix of atomic results, textual reports, images, and codes, depending on the type(s) of diagnostic services being retrieved.</p>
+
+<p>Report conclusions can be expressed as a simple text blob, structured coded data, or as an attached fully formatted report (such as a PDF).
+This resource can retrieve reports of various <code>Status</code> types which may need to be considered for filtering purposes if only <code>Final</code> or <code>Corrected</code> results are desired for retrieval, or to exclude any results that were <code>Entered-in-Error</code>. See the <code>Status</code> field below for more detail.</p>
+
+<p>In cases where results without textual reports are desired, such as General Laboratory or Vital Signs results, the <a href="http://fhir.cerner.com/millennium/r4/clinical/diagnostics/observation/"><code>Observation</code></a> resource should be used instead.</p>
 
 <ul>
   <li>
@@ -357,6 +373,11 @@
 
 <h2 id="search">Search</h2>
 
+<p>Search for DiagnosticReports that meet supplied query parameters:</p>
+
+<pre><code>GET /DiagnosticReport/?:parameters
+</code></pre>
+
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
@@ -395,39 +416,39 @@
       <td><code>encounter</code></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
-      <td>The Encounter when the order was made. Must represent an Encounter resource. May include a single or comma separated list of references. Example: <code>encounter=1621910</code>
+      <td>The Encounter when the order was made. Must represent an Encounter resource. Example: <code>encounter=1621910</code>
 </td>
     </tr>
     <tr>
       <td><code>date</code></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/time can be given. Example: <code>date=lt2017-01-5</code>
+      <td>Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/times can be given. Example: <code>date=ge2020-01-01T08:00:00.000Z&amp;date=le2020-01-31T17:00:00.000Z</code>
 </td>
     </tr>
     <tr>
       <td><code>_count</code></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return. Defaults to <code>10</code> and maximum <code>100</code>  documents can be returned.</td>
+      <td>The maximum number of results to return. Defaults to <code>10</code> and a maximum of <code>100</code> documents can be returned.</td>
     </tr>
     <tr>
       <td><code>category</code></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The diagnostic discipline/department created the report. Example: <code>{{*[http://loinc.org\\\|P7839-6* or +*LAB*(For micro/Gen lab reports)+}}\\|http://loinc.org/]</code>
+      <td>The diagnostic discipline/department which created the report. Example: <code>http://terminology.hl7.org/CodeSystem/v2-0074|LAB</code> or <code>http://loinc.org|LP29684-5</code>
 </td>
     </tr>
     <tr>
       <td><code>code</code></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The code for the report, as opposed to codes for the atomic results, which are the names on the observation resource referred to from the result. Example: <code>*[http://loinc.org\\\|630-4*\\|http://loinc.org/]</code>
+      <td>The specific code for describing the report. Example: <code>http://loinc.org|24323-8</code>
 </td>
     </tr>
     <tr>
       <td><code>_revinclude</code></td>
-      <td>No</td>
+      <td>N</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>Provenance resource entries to be returned as part of the bundle. Example: <code>_revinclude=Provenance:target</code>
 </td>
@@ -440,36 +461,50 @@
 <ul>
   <li>When searching with the <code>date</code> parameter:
     <ul>
-      <li>It must be provided once or twice, with or without prefixes.</li>
-      <li>If time is provided, it must be provided consistently.</li>
+      <li>For a single <code>date</code> occurrence:
+        <ul>
+          <li>It can be provided with a prefix to imply a date range, or without a prefix to search for report(s) last updated at a specific date/time.</li>
+          <li>The <code>time</code> component is optional.</li>
+        </ul>
+      </li>
+      <li>For two <code>date</code> occurences:
+        <ul>
+          <li>It must be provided with <code>le</code> or <code>lt</code> and <code>ge</code> or <code>gt</code> prefixes to search for report(s) within a specific range.</li>
+          <li>The <code>time</code> component is required for both parameters.</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>When searching with the <code>encounter</code> parameter:
     <ul>
       <li>Patient level documents are filtered out from responses when the encounter id is zero/blank.</li>
+      <li>May include a single value or comma separated list of references. Example <code>encounter=12345,67890</code>
+</li>
     </ul>
   </li>
-  <li>
-    <p>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code></p>
-  </li>
-  <li>
-    <p>The <code>_revinclude</code> parameter may be provided with the <code>_id/patient</code> parameter. Example: <code>_id=214938095&amp;_revinclude=Provenance:target</code></p>
+  <li>When searching with the <code>_revinclude</code> parameter
+    <ul>
+      <li>It may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code>
+</li>
+      <li>It may be provided with the <code>_id</code> or <code>patient</code> parameters. Example: <code>_id=214938095&amp;_revinclude=Provenance:target</code>
+</li>
+    </ul>
   </li>
   <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
 </ul>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h3 id="headers">Headers</h3>
 
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
-<h3 id="example">Example</h3>
+<h3 id="example-search-by-patient-with-category">Example Search by Patient with Category</h3>
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&amp;category=http://terminology.hl7.org/CodeSystem/v2-0074|RAD
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -478,35 +513,39 @@
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Bundle",
-  "id": "2bae404f-007d-4abf-8552-6e540f0226b6",
+  "id": "4e95721b-490b-4c57-84f5-7d055a8a5dec",
   "type": "searchset",
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&amp;category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD"
+    },
+    {
+      "relation": "next",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport?patient=12724066&amp;category=http%3A%2F%2Fterminology.hl7.org%2FCodeSystem%2Fv2-0074%7CRAD&amp;-pageContext=eJwdyk0KwjAURtG9fOME8jTNT8GJbqBQcVpCmtaCJJImKJTu3eLwHu4Gn2osaEkwjGFy9XXEBl_zmjJa3Lqclofsr59lpq7eSy8vYHi6dYjhe7wl18DwdnMYfIrlb2hO9mxISG61aLgkIbihMHIySupJKU3WYd9_FHYmXg%3D%3D&amp;-pageDirection=NEXT"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197480987",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197369077",
       "resource": {
         "resourceType": "DiagnosticReport",
-        "id": "197480987",
+        "id": "197369077",
         "meta": {
           "versionId": "1",
-          "lastUpdated": "2021-05-11T18:17:17.000Z"
+          "lastUpdated": "2020-08-13T19:36:06.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart, Nancyu Nha Eeeeee&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Partial&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Abdominal Ultrasound&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective End Date&lt;/b&gt;: May 11, 2021  6:16 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Diagnostic Report&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient&lt;/b&gt;: Smart II, Nancy&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: Some Title 4x&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Code&lt;/b&gt;: Radiology Reports&lt;/p&gt;&lt;p&gt;&lt;b&gt;Effective End Date&lt;/b&gt;: Aug 13, 2020  7:36 P.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Portal, Portal&lt;/p&gt;&lt;/div&gt;"
         },
         "identifier": [
           {
             "system": "https://fhir.cerner.com/ceuuid",
-            "value": "CE87caf4b7-9397-4667-9897-702218017c9e-197480987-2021051118171700"
+            "value": "CE87caf4b7-9397-4667-9897-702218017c9e-197369077-2020081319360600"
           }
         ],
-        "status": "partial",
+        "status": "final",
         "category": [
           {
             "coding": [
@@ -523,40 +562,59 @@
           "coding": [
             {
               "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
-              "code": "2820643",
-              "display": "Abdominal Ultrasound",
+              "code": "63293819",
+              "display": "Radiology Reports",
               "userSelected": true
             },
             {
               "system": "http://loinc.org",
-              "code": "24558-9",
+              "code": "75490-3",
               "userSelected": false
             }
           ],
-          "text": "Abdominal Ultrasound"
+          "text": "Radiology Reports"
         },
         "subject": {
           "reference": "Patient/12724066",
-          "display": "Smart, Nancyu Nha Eeeeee"
+          "display": "Smart II, Nancy"
+        },
+        "encounter": {
+          "reference": "Encounter/97953477"
         },
         "effectivePeriod": {
-          "end": "2021-05-11T18:16:00.000Z"
+          "end": "2020-08-13T19:36:00.000Z"
         },
-        "issued": "2021-05-11T18:17:17Z",
+        "issued": "2020-08-13T19:36:06Z",
         "performer": [
           {
-            "reference": "Practitioner/1",
-            "display": "SYSTEM, SYSTEM Cerner"
+            "reference": "Practitioner/12742069",
+            "display": "Portal, Portal"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "reference": "Practitioner/12742069",
+            "display": "Portal, Portal"
           }
         ],
         "presentedForm": [
           {
-            "extension": [
-              {
-                "valueCode": "unsupported",
-                "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
-              }
-            ]
+            "contentType": "application/pdf",
+            "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-197369077",
+            "title": "Some Title 4x",
+            "creation": "2020-08-13T19:36:00.000Z"
+          },
+          {
+            "contentType": "application/xml",
+            "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XML-197369077",
+            "title": "Some Title 4x",
+            "creation": "2020-08-13T19:36:00.000Z"
+          },
+          {
+            "contentType": "text/html",
+            "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/TR-197369077",
+            "title": "Some Title 4x",
+            "creation": "2020-08-13T19:36:00.000Z"
           }
         ]
       },
@@ -569,7 +627,7 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example-with-revinclude">Example with RevInclude</h3>
+<h3 id="example-search-by-id-with-revinclude">Example Search by _id with RevInclude</h3>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
@@ -669,12 +727,14 @@
         "issued": "2017-01-06T20:09:17Z",
         "performer": [
           {
-            "reference": "Practitioner/11648064"
+            "reference": "Practitioner/11648064",
+            "display": "Model, User 437 Cerner"
           }
         ],
         "resultsInterpreter": [
           {
-            "reference": "Practitioner/11648064"
+            "reference": "Practitioner/11648064",
+            "display": "Model, User 437 Cerner"
           }
         ],
         "presentedForm": [
@@ -912,9 +972,14 @@
 
 <h3 id="errors">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
-<h2 id="retrieve-by-id">Retrieve by id</h2>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
+
+<p>Retrieve an individual DiagnosticReport by its ID:</p>
+
+<pre><code>GET /DiagnosticReport/:ID
+</code></pre>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
 
@@ -927,7 +992,7 @@
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
 
-<h3 id="example-1">Example</h3>
+<h3 id="example-single-retrieve-by-id">Example Single Retrieve by _ID</h3>
 
 <h4 id="request-2">Request</h4>
 
@@ -1003,12 +1068,14 @@
   "issued": "2017-01-06T20:09:17Z",
   "performer": [
     {
-      "reference": "Practitioner/11648064"
+      "reference": "Practitioner/11648064",
+      "display": "Model, User 437 Cerner"
     }
   ],
   "resultsInterpreter": [
     {
-      "reference": "Practitioner/11648064"
+      "reference": "Practitioner/11648064",
+      "display": "Model, User 437 Cerner"
     }
   ],
   "presentedForm": [
@@ -1029,9 +1096,1149 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
+<h2 id="create">Create</h2>
+
+<p>Create a new diagnostic report.</p>
+
+<pre><code>POST /DiagnosticReport
+</code></pre>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>DiagnosticReports of type Cardiology and Anatomic Pathology are supported for the create operation.</li>
+  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
+  <li>All provided dates must have a time component.</li>
+  <li>Supported MIME Types: application/pdf, text/plain, text/richtext, text/rtf, text/html, application/xml, and application/xhtml+xml</li>
+  <li>Diagnostic Report Cardiology Create API requires
+    <ul>
+      <li>A default user to be setup in the domain to chart a document</li>
+      <li>If not default user is defined in the domain, a results_interpreter attribute is mandatory to chart a cardiology document.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="authorization-types-3">Authorization Types</h3>
+
+<div class="auth-types">
+<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
+</div>
+
+<h3 id="headers-3">Headers</h3>
+
+<pre class="headers"><code><a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;
+<a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
+
+<h3 id="body-fields">Body Fields</h3>
+
+<table style="white-space: normal">
+  <thead>
+    <tr>
+    <th>Name</th>
+    <th>Required</th>
+    <th>Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+    <tr>
+      <td>
+        <a name="create-resourceType">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/DiagnosticReport.html"><code>resourceType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The type of the FHIR resource.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resourceType": "DiagnosticReport"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>resourceType must be DiagnosticReport.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-status">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.status"><code>status</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The status of the diagnostic report.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "status": "final"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Must be one of amended, cancelled, entered-in-error, final, partial, preliminary, registered, superseded, or unknown.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-category">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.category"><code>category</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. Cardiology, Anatomic Pathology). This is used for searching, sorting and display purposes.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "category": [
+    {
+        "coding": [
+            {
+                "code": "LP29708-2",
+                "display": "Cardiology",
+                "isUserSelected": false,
+                "system": "http://loinc.org"
+            }
+        ],
+        "text": "string"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "category": [
+    {
+        "coding": [
+            {
+                "code": "LP7839-6",
+                "display": "Pathology study",
+                "isUserSelected": false,
+                "system": "http://loinc.org"
+            }
+        ],
+        "text": "string"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The code must be LP29708-2 for Cardiology concept, LP7839-6 for Anatomic Pathology concept.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-code">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.code"><code>code</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Specifies the particular kind of diagnostic report.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+        {
+            "code": "703535",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+            "userSelected": true,
+            "display": "Temperature Axillary"
+        }
+    ],
+    "text": "Cardiology"
+  }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "code": {
+    "coding": [
+        {
+            "code": "4187236",
+            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+            "userSelected": true,
+            "display": "Anatomic Pathology"
+        }
+    ],
+    "text": "Anatomic Pathology"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The code must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided. <br><br> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example: 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'. <br><br>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-subject">
+        
+          </a><a target="_blank" href="http://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.subject"><code>subject</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "subject": {
+    "reference": "Patient/12457977"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only patient references are supported.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-performer">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.performer"><code>performer</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The diagnostic service that is responsible for issuing the report.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "performer": [
+    {
+      "reference": "Practitioner/3332064"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Must contain Practitioner or Organization references with valid millennium ids.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-resultsInterpreter">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.resultsInterpreter"><code>resultsInterpreter</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The practitioner or organization that is responsible for the report's conclusions and interpretations.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "resultsInterpreter": {
+    "reference": "Practitioner/3332064"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none">
+<li>
+<li> <ul> <li>Only concept Cardiology supports resultsInterpreter field.</li> <li>Must contain Practitioner or Organization references with valid millennium ids.</li> <li>Diagnostic Report cardiology Create API requires <ul> <li>A default user to be setup in the domain to chart a document</li> <li>If not default user is defined in the domain, a results_interpreter attribute is mandatory to chart a cardiology document.</li> </ul> </li> </ul> </li>
+</ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-identifier">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.identifier"><code>identifier</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identifiers assigned to this report by the performer or other systems.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "identifier": [
+    {
+        "use": "usual",
+        "type": {
+            "coding": [
+                {
+                    "code": "Coding",
+                    "system": "http://snomed.info/sct",
+                    "version": "4.0.1",
+                    "display": "test",
+                    "userSelected": true
+                }
+            ]
+        },
+        "system": "http://hl7.org/fhir/sid/us-ssn",
+        "value": "11182456"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "identifier": [
+    {
+        "system": "https://fhir.cerner.com/ceuuid",
+        "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-34824240-2022051205454801"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+   <li>The identifier for concept Cardiology must include fields- use, type, system, value.
+    <br><br>
+    The type would include coding. Coding internally would include code, system, version, display, userSelected.
+    <br><br>
+</li>
+   <li>The identifier for concept Anatomic Pathology must include fields- system, value.</li>
+</ul>
+</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-effectivePeriod">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.effective%5Bx%5D"><code>effectivePeriod</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "effectivePeriod": {
+    "start": "2020-09-14T09:05:12.000Z",
+    "end": "2020-09-14T09:05:12.000Z"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only concept Cardiology supports effectivePeriod field.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-effectiveDateTime">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.effective%5Bx%5D"><code>effectiveDateTime</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "effectiveDateTime": "2020-12-27T09:12:28Z",
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only concept Anatomic Pathology supports effectiveDateTime field.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-presentedForm">
+        
+          </a><a target="_blank" href="https://www.hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.presentedForm"><code>presentedForm</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Attachment"><code>Attachment</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "presentedForm": {
+         "contentType": "application/pdf;charset=utf-8",
+         "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+         "url": "http://snomed.info/sct"
+         "title": "CT image",
+         "creation": "2020-07-29T21:02:04.000Z"
+       }
+}
+</pre></li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "presentedForm": {
+         "contentType": "application/pdf;charset=utf-8",
+         "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+       }
+}
+</pre></li></ul>
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Data and content type must be provided. Concept Cardiology supports fields contentType, data, url, title, creation fields under presented forms, whereas concept Anatomic Pathology supports contentType and data fields under present forms.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-presentedForm.contentType">
+        
+          </a><a target="_blank" href="https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.contentType"><code>presentedForm.contentType</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<code>Code</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "contentType": "application/pdf;charset=utf-8"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/plain;charset=utf-8`, `text/richtext;charset=utf-8`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-presentedForm.data">
+        
+          </a><a target="_blank" href="https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.data"><code>presentedForm.data</code></a>
+        
+        
+      </td>
+      <td>Yes </td>
+      <td>
+<code>base64Binary</code> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The actual data of the attachment - a sequence of bytes, base64 encoded.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-presentedForm.url">
+        
+          </a><a target="_blank" href="https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.url"><code>presentedForm.url</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A location where the data can be accessed.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "title": "http://snomed.info/sct",
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-presentedForm.title">
+        
+          </a><a target="_blank" href="https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.title"><code>presentedForm.title</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>A label or set of text to display in place of the data.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "title": "CT image",
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-presentedForm.creation">
+        
+          </a><a target="_blank" href="https://www.hl7.org/fhir/datatypes-definitions.html#Attachment.creation"><code>presentedForm.creation</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The date that the attachment was first created.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "creation": "2020-07-29T21:02:04.000Z"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>A time component must be provided with the date.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-encounter">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.encounter"><code>encounter</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The healthcare event (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "encounter": {
+    "reference": "Encounter/98041577"
+  }
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>The encounter has to match the original document encounter.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-issued">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.issued"><code>issued</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#dateTime"><code>dateTime</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "issued": "2020-07-29T21:02:04.000Z"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>A time component must be provided with the date.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-conclusion">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.conclusion"><code>conclusion</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Concise and clinically contextualized summary conclusion (interpretation/impression) of the diagnostic report.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "conclusion": "conclusion string"
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only concept Cardiology supports conclusion field. Need to be able to provide a conclusion that is not lost among the basic result data.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
+        <a name="create-basedOn">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/diagnosticreport-definitions.html#DiagnosticReport.basedOn"><code>basedOn</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Details concerning a service requested.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "basedOn": [
+    {
+        "reference": "ServiceRequest/99928073"
+    }
+  ]
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>Only concept Anatomic Pathology supports basedOn field. Must contain ServiceRequest references with valid millennium ids.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+  </tbody>
+</table>
+
+<h3 id="example-for-cardiology-concept-create">Example for Cardiology Concept Create</h3>
+
+<h4 id="request-3">Request</h4>
+
+<pre><code>POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport
+</code></pre>
+
+<h3 id="body">Body</h3>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "DiagnosticReport",
+  "status": "amended",
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "code": "Coding",
+            "system": "http://snomed.info/sct",
+            "version": "4.0.1",
+            "display": "test",
+            "userSelected": true
+          }
+        ]
+      },
+      "system": "http://hl7.org/fhir/sid/us-ssn",
+      "value": "11182457"
+    }
+  ],
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "LP29708-2",
+          "display": "Cardiology",
+          "isUserSelected": false,
+          "system": "http://loinc.org"
+        }
+      ],
+      "text": "string"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "8328-7"
+      }
+    ],
+    "text": "string"
+  },
+  "subject": {
+    "reference": "Patient/12804513"
+  },
+  "encounter": {
+    "reference": "Encounter/98041577"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/11786042",
+      "display": "Practitioner name string"
+    }
+  ],
+  "resultsInterpreter": [
+    {
+      "reference": "Practitioner/11786042",
+      "display": "Practitioner name string"
+    }
+  ],
+  "effectivePeriod": {
+    "start": "2020-09-14T09:05:12.000Z",
+    "end": "2020-09-14T09:05:12.000Z"
+  },
+  "issued": "2020-12-29T09:12:28Z",
+  "presentedForm": [
+    {
+      "contentType": "application/pdf;charset=utf-8",
+      "url": "http://snomed.info/sct",
+      "data": "JVBERi0xLjQKJcfsj6IKNSAwIG9iago8PC9MZW5ndGggNiAwIF",
+      "title": "CT image",
+      "creation": "2020-12-29T09:12:28Z"
+    }
+  ],
+  "conclusion": "conclusion string"
+}</code></pre>
+
+<h4 id="response-3">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Date: Mon, 09 Oct 2023 17:29:02 GMT
+Content-Type: text/html
+Connection: keep-alive
+Cache-Control: no-cache
+Etag: W/"1"
+Last-Modified: Mon, 09 Oct 2023 17:29:02 GMT
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197466617
+Referrer-Policy: strict-origin-when-cross-origin
+Server-Response-Time: 1288.314512
+Strict-Transport-Security: max-age=631152000
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Frame-Options: SAMEORIGIN
+X-Permitted-Cross-Domain-Policies: none
+X-Request-Id: 7ce8599d-6fd7-9c53-3ca2-c08c708aecc0+Kccx_BLlz
+X-Runtime: 1.288262
+X-Xss-Protection: 1; mode=block
+Transfer-Encoding: chunked
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="example-for-anatomic-pathology-concept-create">Example for Anatomic Pathology Concept Create</h3>
+
+<h4 id="request-4">Request</h4>
+
+<pre><code>POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport
+</code></pre>
+
+<h3 id="body-1">Body</h3>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "DiagnosticReport",
+  "status": "amended",
+  "identifier": [
+    {
+      "system": "https://fhir.cerner.com/ceuuid",
+      "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-34824240-2022051205454801"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/99928073"
+    }
+  ],
+  "category": [
+    {
+      "coding": [
+        {
+          "code": "LP7839-6",
+          "display": "Pathology study",
+          "isUserSelected": false,
+          "system": "http://loinc.org"
+        }
+      ],
+      "text": "string"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "code": "4187236",
+        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+        "isUserSelected": true,
+        "display": "Anatomic Pathology"
+      }
+    ],
+    "text": "string"
+  },
+  "subject": {
+    "reference": "Patient/12804513"
+  },
+  "encounter": {
+    "reference": "Encounter/98041577"
+  },
+  "performer": [
+    {
+      "reference": "Practitioner/11786042"
+    }
+  ],
+  "effectiveDateTime": "2020-12-27T09:12:28Z",
+  "issued": "2020-12-29T09:12:28Z",
+  "presentedForm": [
+    {
+      "contentType": "application/pdf;charset=utf-8",
+      "data": "PGh08L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+    }
+  ]
+}</code></pre>
+
+<h4 id="response-4">Response</h4>
+
+<pre class="headers"><code>Status: 201 Created</code></pre>
+
+<pre class="terminal">
+Date: Mon, 09 Oct 2023 17:29:02 GMT
+Content-Type: text/html
+Connection: keep-alive
+Cache-Control: no-cache
+Etag: W/"1"
+Last-Modified: Mon, 09 Oct 2023 17:29:02 GMT
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/197466627
+Referrer-Policy: strict-origin-when-cross-origin
+Server-Response-Time: 4626.253472
+Strict-Transport-Security: max-age=631152000
+Vary: Origin
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Frame-Options: SAMEORIGIN
+X-Permitted-Cross-Domain-Policies: none
+X-Request-Id: a72ca419-4773-9e2d-a9dd-e9a56b6693ab+BExf_xcbw
+X-Runtime: 4.626156
+X-Xss-Protection: 1; mode=block
+Transfer-Encoding: chunked
+</pre>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
 <h3 id="errors-1">Errors</h3>
 
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
 
     </div>
 

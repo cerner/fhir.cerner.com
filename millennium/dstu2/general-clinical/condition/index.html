@@ -182,7 +182,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/icd.html">ICD-9-CM</a><br>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/ICD.html#icd-9-variants">ICD-9-CM</a><br>
                       
                         System: http://hl7.org/fhir/sid/icd-9-cm <br>
                       
@@ -198,7 +198,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/icd.html">ICD-10-CM</a><br>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/CodeSystem-icd10CM.html">ICD-10-CM</a><br>
                       
                         System: http://hl7.org/fhir/sid/icd-10-cm <br>
                       
@@ -1066,8 +1066,10 @@
   </li>
   <li>The code.coding field can have at most 2 codings.
     <ul>
-      <li>One of the codings must have userSelected: true</li>
-      <li>The other coding must have userSelected: false</li>
+      <li>One of the codings must have <code>userSelected: true</code>
+</li>
+      <li>The other coding must have <code>userSelected: false</code>
+</li>
     </ul>
   </li>
   <li>A Condition with a category code of diagnosis will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.</li>
@@ -1701,7 +1703,7 @@ Content-Type: application/json
 <ul>
   <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="http://hl7.org/fhir/DSTU2/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
   <li>Currently, <code>health-concern</code> category code is not supported for updating conditions.</li>
-  <li>The code.coding field can have at most 2 codings, one of which must be set as userSelected true and the other one must be set as userSelected false.</li>
+  <li>The code.coding field can have at most 2 codings, one of which must be set as <code>userSelected: true</code> and the other one must be set as <code>userSelected: false</code>.</li>
 </ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>

@@ -76,15 +76,13 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -101,45 +99,46 @@
       <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
       <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Appointment resource provides information about scheduled appointments such as a procedure (mammogram) or office
-visit for a patient, practitioner or location. Date is required when searching by patient, practitioner or location.</p>
+<p>The Appointment resource provides information about scheduled appointments such as a <a href="../../general-clinical/procedure">Procedure</a> (mammogram) or office
+visit for a <a href="../../individuals/patient">Patient</a>, <a href="../../individuals/practitioner">Practitioner</a>, or Location.</p>
 
-<p>When integrating your application with a client’s production environment you will work with the client to determine the
-Practitioner and Location ids (Millennium personnel and location codes, respectively) which they want to make available
+<p>When integrating your application with a client’s environments you will work with the client to determine the
+Practitioner and Location IDs (Millennium personnel and location codes, respectively), which they want to make available
 to third-party applications for enabling scheduling functionality.</p>
-
-<p>We understand this is a bit cumbersome, but we are always evaluating community feedback and look to improve the API in
-the future.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Appointment id</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Appointment ID</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status" target="_blank">Status</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type" target="_blank">Type</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant" target="_blank">Participant</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.reason" target="_blank">Reason</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.description" target="_blank">Description</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.start" target="_blank">Start date/time</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end" target="_blank">End date/time</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.start" target="_blank">Start Date/Time</a></li>
+  <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.end" target="_blank">End Date/Time</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.minutesDuration" target="_blank">Duration in minutes</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment" target="_blank">Comment</a></li>
   <li>Details of participants involved in the appointment:
     <ul>
       <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.type" target="_blank">Type</a></li>
       <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor" target="_blank">Actor (name)</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required" target="_blank">Required (always ‘required’)</a></li>
+      <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.required" target="_blank">Required (always <code>required</code>)</a></li>
       <li><a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status" target="_blank">Status</a></li>
     </ul>
   </li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -152,7 +151,7 @@ the future.</p>
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type">Appointment.type</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type">Appointment.type</a>
       
       </td>
     </tr>
@@ -170,7 +169,7 @@ the future.</p>
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html">Practice Setting Code Value Set</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html">Practice Setting Code Value Set</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -227,8 +226,8 @@ the future.</p>
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Valid ids for the <code>practitioner</code> and <code>location</code> search parameters will be determined by the client and provided when
-integrating your application with the client’s production environment. See <a href="#overview">overview</a> for details.</li>
+  <li>Valid IDs for the <code>practitioner</code> and <code>location</code> search parameters will be determined by the client and provided when
+integrating your application with the client’s environments. See <a href="#overview">overview</a> for details.</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -251,47 +250,44 @@ integrating your application with the client’s production environment. See <a 
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>Yes, or one of <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
+      <td>Yes, or <code>patient</code> or <code>practitioner</code> or <code>location</code>.</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Appointment. Example: <code>3005759</code>
+      <td>The logical resource id associated with the Appointment. Example: <code>_id=3005759</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>patient</code></td>
+      <td>Yes, or <code>_id</code> or <code>practitioner</code> or <code>location</code>.</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A single or comma separated list of Patient references. Example: <code>patient=4704007</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>practitioner</code></td>
+      <td>Yes, or <code>_id</code> or <code>patient</code> or <code>location</code>.</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A single or comma separated list of Practitioner references. Example: <code>practitioner=2578010</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>location</code></td>
+      <td>Yes, or <code>_id</code> or <code>patient</code> or <code>practitioner</code>.</td>
+      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A single or comma separated list of Location references. Example: <code>location=633867</code>
 </td>
     </tr>
     <tr>
       <td><code>date</code></td>
       <td>Yes when using <code>patient</code>, <code>practitioner</code>, or <code>location</code>.</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>The Appointment date/time. Example: <code>2016</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>patient</code></td>
-      <td>Yes, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Patient references. Example: <code>4704007</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>practitioner</code></td>
-      <td>Yes, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Practitioner references. Example: <code>2578010</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>location</code></td>
-      <td>Yes, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A single or comma separated list of Location references. Example: <code>633867</code>
+      <td>The Appointment date/time. Example: <code>date=2020-01</code>
 </td>
     </tr>
     <tr>
       <td><code>status</code></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>A single or comma separated list of appointment statuses. Example: <code>arrived</code>
+      <td>A single or comma separated list of appointment statuses. Example: <code>status=arrived</code>
 </td>
     </tr>
     <tr>
@@ -307,18 +303,18 @@ integrating your application with the client’s production environment. See <a 
 
 <ul>
   <li>
-    <p>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination with the others.
+    <p>The <code>patient</code>, <code>practitioner</code>, and <code>location</code> parameters may be included only once and may not be used in combination.
 For example, <code>patient=1234,5678</code> is supported but <code>patient=1234&amp;patient=5678</code> and <code>patient=1234&amp;location=5678</code> are not.</p>
   </li>
   <li>The <code>date</code> parameter may be provided:
     <ul>
       <li>once without a prefix or time component to imply a date range. (e.g. <code>&amp;date=2016</code>, <code>&amp;date=2016-07</code>, <code>&amp;date=2016-07-04</code>)</li>
       <li>once without a prefix and with a time component to indicate a specific date/time. (e.g <code>&amp;date=2016-07-04T13:00:00.000-05:00</code>)</li>
-      <li>twice with the prefixes <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> to indicate a specific range. The date and prefix pairs must define
+      <li>twice with the prefixes <code>ge</code> or <code>gt</code> and <code>le</code> or <code>lt</code> to indicate a specific range. The date and prefix pairs must define
 an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <code>&amp;date=ge2014-03-15&amp;date=le2017</code>)</li>
     </ul>
   </li>
-  <li>The retrieved appointments are sorted first by <code>start</code> date ascending (earliest first), followed by the provided search parameter (<code>patient</code>, <code>practitioner</code> or <code>location</code>) and <code>start</code> time ascending (earliest first).</li>
+  <li>The retrieved appointments are sorted by <code>start</code> date, ascending (earliest first).</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -330,7 +326,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?date=2020&amp;patient=12724066
+<pre><code>GET https://fhir-open.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment?patient=12724066&amp;date=2020-02
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -461,15 +457,9 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Appointment by its id:</p>
+<p>List an individual Appointment by its ID:</p>
 
 <pre><code>GET /Appointment/:id
 </code></pre>
@@ -603,12 +593,6 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="create">Create</h2>
 
 <p>Create a new Appointment.</p>
@@ -626,7 +610,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 <code>Appointment.slot</code> must be a list containing a single reference to the Slot in which this appointment is being booked.
     <ul>
       <li>
-<code>Appointment.slot[0].reference</code> specifies an availability in the Scheduling system, which indicates details such as practitioner, location, and time.</li>
+<code>Appointment.slot[0].reference</code> specifies an availability in the Scheduling system.</li>
     </ul>
   </li>
   <li>
@@ -638,9 +622,9 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
 <code>Appointment.participant.type</code> must not be set.</li>
     </ul>
   </li>
-  <li>
-<code>Appointment.comment</code> must be a string.</li>
 </ul>
+
+<p>Scheduling examples are time sensitive. Recreating the below example will require a <a href="../slot">Slot</a> with a status of <code>free</code>.</p>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
 
@@ -670,7 +654,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       <td>
         <a name="create-resourceType">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -697,7 +681,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>resourceType must be Appointment</li></ul>
+        <ul style="list-style-type: none"><li>Must be <code>Appointment</code>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -708,7 +693,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       <td>
         <a name="create-slot">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot"><code>slot</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot"><code>slot</code></a>
         
         
       </td>
@@ -739,7 +724,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>At most one slot can be populated.</li></ul>
+        <ul style="list-style-type: none"><li>Exactly one Slot must be provided.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -750,7 +735,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       <td>
         <a name="create-status">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"><code>status</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"><code>status</code></a>
         
         
       </td>
@@ -777,7 +762,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>When creating a new appointment, the status must be "proposed".</li></ul>
+        <ul style="list-style-type: none"><li>Must be <code>proposed</code>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -788,7 +774,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       <td>
         <a name="create-participant">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"><code>participant</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"><code>participant</code></a>
         
         
       </td>
@@ -823,7 +809,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>When creating a new appointment, at most one participant can be populated.</li></ul>
+        <ul style="list-style-type: none"><li>Exactly one participant must be provided.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -834,7 +820,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       <td>
         <a name="create-participant.actor">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"><code>participant.actor</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"><code>participant.actor</code></a>
         
         
       </td>
@@ -864,7 +850,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>When creating a new appointment, this must be a Patient participant.</li></ul>
+        <ul style="list-style-type: none"><li>Must be a Patient</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -875,7 +861,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       <td>
         <a name="create-participant.status">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"><code>participant.status</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"><code>participant.status</code></a>
         
         
       </td>
@@ -902,7 +888,8 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>When creating a new appointment, this value must be "needs-action".</li></ul>
+        <ul style="list-style-type: none"><li>Must be <code>needs-action</code>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -913,7 +900,7 @@ an upper and lower bound. (e.g. <code>&amp;date=ge2014&amp;date=lt2016</code>, <
       <td>
         <a name="create-comment">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment"><code>comment</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment"><code>comment</code></a>
         
         
       </td>
@@ -992,6 +979,7 @@ access-control-max-age: 0
 cache-control: no-cache
 etag: W/"0"
 location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/20465903
+opc-request-id: /A6715F018F26C503BBE42F2625DF3DF0/6CEB8EC1BDBB5BC448FE51BCA94E7149
 strict-transport-security: max-age=631152000
 vary: Origin,User-Agent,Accept-Encoding
 x-content-type-options: nosniff
@@ -1001,10 +989,6 @@ x-xss-protection: 1; mode=block
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<p>Scheduling examples are time-sensitive and could already be booked when attempted. Recreating this example will require an available Slot reference, populated from the Slot Resource.</p>
 
 <h2 id="update">Update</h2>
 
@@ -1017,11 +1001,11 @@ x-xss-protection: 1; mode=block
 
 <ul>
   <li>The only supported change is to update the <a href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status">Appointment.status</a> to either <code>arrived</code> or <code>cancelled</code>.</li>
-  <li>
-<code>Appointment.participant</code> must have at least one participant.</li>
-  <li>
-<code>Appointment.participant.status</code> must be <code>accepted</code> for each participant.</li>
 </ul>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="authorization-types-3">Authorization Types</h3>
 
@@ -1052,7 +1036,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       <td>
         <a name="update-resourceType">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -1079,7 +1063,8 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>resourceType must be Appointment</li></ul>
+        <ul style="list-style-type: none"><li>Must be <code>Appointment</code>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -1090,7 +1075,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       <td>
         <a name="update-status">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"><code>status</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"><code>status</code></a>
         
         
       </td>
@@ -1117,7 +1102,8 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>When updating an appointment, the status must be "arrived" or "cancelled".</li></ul>
+        <ul style="list-style-type: none"><li>Must be <code>arrived</code> or <code>cancelled</code>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -1128,7 +1114,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       <td>
         <a name="update-participant">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"><code>participant</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"><code>participant</code></a>
         
         
       </td>
@@ -1171,7 +1157,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       <td>
         <a name="update-participant.actor">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"><code>participant.actor</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"><code>participant.actor</code></a>
         
         
       </td>
@@ -1209,7 +1195,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       <td>
         <a name="update-participant.status">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"><code>participant.status</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"><code>participant.status</code></a>
         
         
       </td>
@@ -1236,7 +1222,8 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>When updating an appointment, this value must be "accepted".</li></ul>
+        <ul style="list-style-type: none"><li>Must be <code>accepted</code>
+</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -1392,21 +1379,23 @@ x-xss-protection: 1; mode=block
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h3 id="errors">Errors</h3>
 
-<p>Scheduling examples are time-sensitive and could already be booked when attempted. Recreating this example will require a new appointment for an available slot, then updating its status.</p>
-
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<p>In addition, the following errors may be returned:</p>
+<p>The following errors may be returned:</p>
 
 <ul>
-  <li>If either the patient URL or the provider URLs are longer than 255 characters, it will return a <code>422 Unprocessable Entity</code> response.</li>
-  <li>Updating an Appointment resource without sending the <code>If-Match</code> header will result in a <code>412 Precondition Failed</code> response.</li>
-  <li>Updating an Appointment resource which is currently being modified will result in a <code>423 Locked</code> response.</li>
-  <li>If the Appointment resource could not be updated because of an operation that is necessary for the update (eg. encounter association), <code>424 Failed Dependency</code> response will be returned.</li>
+  <li>
+<code>412 Precondition Failed</code> - The <code>If-Match</code> header was not provided.</li>
+  <li>
+<code>422 Unprocessable Entity</code> - The resource is in a status that cannot be changed.</li>
+  <li>
+<code>422 Unprocessable Entity</code> - The <code>status</code> provided is not supported. See notes above.</li>
+  <li>
+<code>422 Unprocessable Entity</code> - The patient URL or the provider URLs are longer than 255 characters.</li>
+  <li>
+<code>423 Locked</code> - The resource is currently being modified elsewhere.</li>
+  <li>
+<code>424 Failed Dependency</code> - An external operation is necessary for the update (e.g. encounter association).</li>
 </ul>
 
 
