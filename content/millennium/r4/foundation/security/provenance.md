@@ -85,9 +85,9 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual Provenance by its id:
+List an individual Provenance by its ID:
 
     GET /Provenance/:id
 
