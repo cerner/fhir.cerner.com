@@ -27,6 +27,12 @@ The following fields are returned if valued:
 * [Entity role](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role){:target="_blank"}
 * [Entity what (Continuity of Care DocumentReference ID)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what){:target="_blank"}
 
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Terminology Bindings
 
 <%= terminology_table(:provenance, :r4) %>
@@ -68,8 +74,6 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:r4_provenance_bundle) %>
 
-<%= disclaimer %>
-
 #### Patient Authorization Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=all-1595070
@@ -78,12 +82,6 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_provenance_patient_access_entry) %>
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
@@ -110,8 +108,6 @@ List an individual Provenance by its ID:
 <%= headers status: 200 %>
 <%= json(:r4_provenance_entry) %>
 
-<%= disclaimer %>
-
 #### Patient Authorization Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/all-1595070
@@ -120,12 +116,6 @@ List an individual Provenance by its ID:
 
 <%= headers status: 200 %>
 <%= json(:r4_provenance_patient_access_bundle) %>
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
@@ -177,12 +167,6 @@ X-Request-Id: 11111111-1111-1111-1111-111111111111
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
