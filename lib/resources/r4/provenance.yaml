@@ -32,8 +32,7 @@ fields:
   note: |
     <ul>
       <li> Only one target may be provided.</li>
-      <li> The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest,
-        Observation, Patient and Procedure resources are supported.</li>
+      <li> The `AllergyIntolerance`, `CarePlan`, `CareTeam`, `Condition`, `DiagnosticReport`, `DocumentReference`,`Encounter`, `Goal`, `Immunization`, `MedicationRequest`, `Observation`, `Patient`, and `Procedure` resources are supported.</li>
     </ul>
   url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target
 
@@ -93,7 +92,7 @@ fields:
       type: CodeableConcept
       description: The participation the agent had with respect to the activity.
       action: create
-      url: https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.type
+      url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type
       example: |
         {
           "type": {
@@ -113,7 +112,7 @@ fields:
       type: CodeableConcept
       description: The function of the agent with respect to the activity.
       action: create
-      url: https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.role
+      url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role
       example: |
         {
           "role": [
@@ -135,7 +134,7 @@ fields:
       type: Reference
       description: The individual, device or organization that participated in the event.
       action: create
-      url: https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.who
+      url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who
       example: |
         {
           "who": {
@@ -189,7 +188,7 @@ fields:
       type: Reference
       description: Identity of the Entity used.
       action: create
-      url: https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.entity.what
+      url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what
       example: |
         {
           "what": {
