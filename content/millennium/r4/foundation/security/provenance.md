@@ -9,9 +9,9 @@ title: Provenance | R4 API
 
 ## Overview
 
-The Provenance resource tracks the source of external data, and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter.  Target references a Resource and ID which this Provenance entry is related to. Entities are Continuity of Care Documents (CCDs) generated through the `DocumentReference` resource.
+The Provenance resource tracks the source of external information and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter. The target references a resource and ID that this Provenance entry is related to. Entities are Continuity of Care Documents (CCDs) generated through the DocumentReference resource.
 
-The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles:
 
 * [US Core Provenance Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-provenance.html){:target="_blank"}
 
@@ -39,7 +39,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Provenances that meet supplied query parameters:
+Search for provenances that meet the supplied query parameters.
 
     GET /Provenance?:parameters
 
@@ -52,12 +52,12 @@ Search for Provenances that meet supplied query parameters:
  Name      | Required?     | Type          | Description
 -----------|---------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`     | Conditionally | [`token`]     | The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the `target` parameter is not used. Example: `doc-1234`
- `target`  | Conditionally | [`reference`] | Target Reference(s), which can be version-specific. The `AllergyIntolerance`, `CarePlan`, `CareTeam`, `Condition`, `DiagnosticReport`, `DocumentReference`, `Encounter`, `Goal`, `Immunization`, `MedicationRequest`, `Observation`, `Patient`, and `Procedure` resources are supported. Example: `DocumentReference/66547`
+ `target`  | Conditionally | [`reference`] | The target references, which can be version-specific. The AllergyIntolerance, CarePlan, CareTeam, Condition, DiagnosticReport, DocumentReference, Encounter, Goal, Immunization, MedicationRequest, Observation, Patient, and Procedure resources are supported. Example: `DocumentReference/66547`
 
-_Implementation Notes_
+_Notes_
 
-- When searching with the `_id` parameter
-  - It must not be provided with any other parameters.
+- When searching with the `_id` parameter:
+  - Must not include any other parameters.
 
 ### Headers
 
@@ -85,7 +85,7 @@ _Implementation Notes_
 
 ## Retrieve by ID
 
-List an individual Provenance by its ID:
+List an individual provenance by its ID.
 
     GET /Provenance/:id
 
@@ -119,14 +119,14 @@ List an individual Provenance by its ID:
 
 ## Create
 
-Create a new Provenance.
+Create a new provenance.
 
     POST /Provenance
 
-_Implementation Notes_
+_Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored, or can result in errors.
-* The `Provenance.write` scopes must be provided in order to create a Provenance with an Observation Measurement target.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored or can result in errors.
+* The `Provenance.write` scopes must be provided to create a provenance with an Observation Measurement target.
 
 ### Authorization Types
 
