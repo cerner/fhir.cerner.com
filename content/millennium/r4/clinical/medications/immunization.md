@@ -90,10 +90,10 @@ _Implementation Notes_
 - When searching with the `date` parameter:
   - For a single `date` occurrence:
     - It must be provided with either the `le` or `ge` prefix to search for vaccination record administrations earlier or later than the given date.
-    - The `time` component is optional.
+    - The time component is optional.
   - For two `date` occurrences: 
     - It must be provided with `le` and `ge` prefixes to search for vaccination records within a specific range. 
-    - The `time` component is optional, but must be consistent. If one date has a `time` component, so must the other.
+    - The time component is optional, but must be consistent. If one date has a time component, so must the other.
 - When searching with the `target-disease` parameter:
   - Searching by Cerner Millennium proprietary codes is not supported.
 - When searching with the `_revinclude` parameter:
