@@ -140,10 +140,10 @@ Search for MedicationRequests that meet supplied query parameters:
 _Implementation Notes_
 
 * When searching with the `_id` parameter:
-  * It must not be provided with any other parameters, except with the `_revinclude` parameter as indicated below
+  * It must not be provided with any other parameters, except with the `_revinclude` parameter as indicated below.
 * When searching with the `-timing-boundsPeriod` parameter:
   * It must be provided with a `ge` prefix to imply the date range to search for medications within.
-  * The time component is optional
+  * The time component is optional.
   * Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z`
 * When searching with the `_lastUpdated` parameter:
   * For a single `_lastUpdated` occurence:
