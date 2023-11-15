@@ -345,3 +345,5 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 [status]: https://www.hl7.org/fhir/r4/valueset-medicationrequest-status.html
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
+[clinical-instruction]: #custom-extensions
+[pharmacy-verification-status]: #custom-extensions
