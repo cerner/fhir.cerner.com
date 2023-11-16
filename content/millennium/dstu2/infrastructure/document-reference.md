@@ -16,31 +16,31 @@ For fields supported on write, see the [create](#create) section.
 
 The following fields are returned if valued for clinical documents:
 
-* [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
-* [Subject](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
-* [Document type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
-* [Document description/title](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
-* [Authenticator/verifying provider](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
-* [Create date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.created){:target="_blank"}
-* [Indexed date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
-* [Status](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
-* [Document status](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
+* [DocumentReference ID](https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Subject](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
+* [Document type](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
+* [Document description/title](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
+* [Authenticator/verifying provider](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.authenticator){:target="_blank"}
+* [Create date/time](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.created){:target="_blank"}
+* [Indexed date/time](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
+* [Status](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
+* [Document status](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus){:target="_blank"}
 * [Content](https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content){:target="_blank"}
   * [Attachment](https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
     * [Content type](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.contentType){:target="_blank"}
     * [URL](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.url){:target="_blank"}
     * [Title](https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.title){:target="_blank"}
-* [Patient encounter](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
+* [Patient encounter](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter){:target="_blank"}
 
 The following fields are returned if valued for the $docref operation (CCD read):
 
-* [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
-* [Subject](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
-* [Document type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
-* [Index date/time](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
-* [Status](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
-* [Format](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
-* [ContentType and URL](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
+* [DocumentReference ID](https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Subject](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
+* [Document type](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
+* [Index date/time](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed){:target="_blank"}
+* [Status](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status){:target="_blank"}
+* [Format](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format){:target="_blank"}
+* [ContentType and URL](https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment){:target="_blank"}
 
 
 <%= disclaimer %>
@@ -65,14 +65,14 @@ Search for DocumentReferences that meet supplied query parameters:
 
 ### Parameters
 
- Name        | Required?                              | Type          | Description
--------------|----------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `_id`       | This, or one of `patient` or `subject` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
- `patient`   | This, or one of `_id` or `subject`     | [`reference`] | The patient to which the document reference belongs. Example: `12345`
- `subject`   | This, or one of `_id` or `patient`     | [`reference`] | The subject of the document reference. May use the :Patient modifier. Example: `Patient/12345` 
- `encounter` | N                                      | [`reference`] | The encounter to which the document reference belongs. Example: `12345`
- `created`   | N                                      | [`date`]      | A date/time the referenced document was created. Example: `created=ge2017-01-07&created=le2017-02-05`
- [`_count`]  | N                                      | [`number`]    | The maximum number of results to return.
+ Name        | Required?     | Type          | Description
+-------------|---------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`       | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if neither the `patient` nor `subject` parameters are used. Example: `_id=1234`
+ `patient`   | Conditionally | [`reference`] | The patient to which the document reference belongs. This parameter is required if neither the `_id` nor `subject` parameters are used. Example: `patient=5678`
+ `subject`   | Conditionally | [`reference`] | The subject of the document reference. May use the ":Patient" modifier. This parameter is required if neither the `_id` nor `patient` parameters are used. Example: `subject=Patient/91011` 
+ `encounter` | No            | [`reference`] | The encounter to which the document reference belongs. Example: `encounter=1213`
+ `created`   | No            | [`date`]      | A date/time the referenced document was created. Example: `created=ge2017-01-07&created=le2017-02-05`
+ [`_count`]  | No            | [`number`]    | The maximum number of results to return.
 
 _Implementation Notes_
 
@@ -107,9 +107,9 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:dstu2_document_reference_docref_search) %>
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual DocumentReference by its id:
+List an individual DocumentReference by its ID:
 
     GET /DocumentReference/:id
 
@@ -213,10 +213,10 @@ Argonaut operation for querying DocumentReferences for the supplied parameters:
 
  Name     | Required? | Type          | Description
 ----------|-----------|---------------|-------------------------------------------------
-`patient` | Y         | [`reference`] | A reference to the patient whose document references are required. Example: `12345`
-`type`    | Y         | [`token`]     | The document reference type. Example: `http://loinc.org\|34133-9`
-`start`   | N         | [`date`]      | The start of the date range from which document reference records should be included. Example: `2014-09-24T12:00:00.000Z`
-`end`     | N         | [`date`]      | The end of the date range till which document reference records should be included. Example: `2016-09-24T12:00:00.000Z`
+`patient` | Yes       | [`reference`] | A reference to the patient whose document references are required. Example: `patient=12345`
+`type`    | Yes       | [`token`]     | The document reference type. Example: `type=http://loinc.org\|34133-9`
+`start`   | No        | [`date`]      | The start of the date range from which document reference records should be included. Example: `start=2014-09-24T12:00:00.000Z`
+`end`     | No        | [`date`]      | The end of the date range till which document reference records should be included. Example: `end=2016-09-24T12:00:00.000Z`
 
 _Implementation Notes_
 
@@ -246,12 +246,12 @@ _Implementation Notes_
 
 [Nu Html Checker]: https://html5.validator.nu/
 [W3C Markup Validation Service]: https://validator.w3.org/#validate_by_upload+with_options
-[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
-[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
-[`_count`]: http://hl7.org/fhir/dstu2/search.html#count
-[`number`]: http://hl7.org/fhir/dstu2/search.html#number
-[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
-[dateTime]: http://hl7.org/fhir/DSTU2/datatypes.html#dateTime
+[`reference`]: https://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: https://hl7.org/fhir/DSTU2/search.html#token
+[`_count`]: https://hl7.org/fhir/dstu2/search.html#count
+[`number`]: https://hl7.org/fhir/dstu2/search.html#number
+[`date`]: https://hl7.org/fhir/DSTU2/search.html#date
+[dateTime]: https://hl7.org/fhir/DSTU2/datatypes.html#dateTime
 [errors]: ../../#client-errors
 [`Binary`]: ../binary/#authorization-types
 [OperationOutcomes]: ../../#operation-outcomes
