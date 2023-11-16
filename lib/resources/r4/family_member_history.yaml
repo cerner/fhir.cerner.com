@@ -20,7 +20,7 @@ fields:
   required: 'Yes'
   type: id
   url: https://www.hl7.org/fhir/r4/resource-definitions.html#Resource.id
-  description: The logical id of the resource to update.
+  description: The logical ID of the resource to update.
   action: update
   example: |
     {
@@ -151,7 +151,7 @@ fields:
     terminology:
       - display: V3 Value SetFamilyMember
         system: http://terminology.hl7.org/CodeSystem/v3-RoleCode
-        info_link: https://hl7.org/fhir/v3/FamilyMember/vs.html
+        info_link: https://terminology.hl7.org/CodeSystem-v3-RoleCode.html
 
 - name: sex
   type: CodeableConcept
@@ -284,7 +284,7 @@ fields:
   type: BackboneElement
   required: 'No'
   description: The significant Conditions (or condition) that the family member had.
-  url: https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition
+  url: https://hl7.org/fhir/R4/familymemberhistory-definitions.html#FamilyMemberHistory.condition
   action:
     - update
   note: Each item in the list must represent a distinct condition.
@@ -429,7 +429,7 @@ fields:
   type: CodeableConcept
   required: 'Yes'
   description: Indication of the presence (positive) or absence (negative) of a given condition. Must be provided. The result may indicate the absence of a condition which may lead to different clinical decisions than if the result were positive.
-  url: https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension
+  url: https://hl7.org/fhir/R4/backboneelement-definitions.html#BackboneElement.modifierExtension
   action:
     - update
     - terminology
@@ -460,7 +460,7 @@ fields:
   type: CodeableConcept
   required: 'No'
   description: Indication of whether a condition is active, inactive, resolved, etc. The lifecycle status indicates the relevance of a given condition. If a condition is resolved or inactivated, it may no longer be clinically relevant. The lifecycle status may not be returned if it is not applicable to the given condition.
-  url: https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension
+  url: https://hl7.org/fhir/R4/backboneelement-definitions.html#BackboneElement.modifierExtension
   action:
     - update
     - terminology
