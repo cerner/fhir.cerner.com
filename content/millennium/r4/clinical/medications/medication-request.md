@@ -9,11 +9,11 @@ title: MedicationRequest | R4 API
 
 ## Overview
 
-The MedicationRequest resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient's historical or documented home medications reported by the patient, significant other or another provider.
+The MedicationRequest resource provides orders for all medications with administration instructions for a patient in both the inpatient and outpatient settings (orders or prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient's historical or documented home medications reported by the patient, significant other, or another provider.
 
-If the MedicationRequest represents a prescription the patient takes at home, the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical, past, and home medications are commonly captured when taking the patient’s medical history.
+If the medication request represents a prescription the patient takes at home, then the start, stop, and other information may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical, past, and home medications are commonly captured when taking the patient’s medical history.
 
-The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles:
 
 * [US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-medicationrequest.html){:target="_blank"}
 
@@ -102,7 +102,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  ID                              | Value\[x] Type | Description
 ---------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------
  `clinical-instruction`          | [String](https://hl7.org/fhir/r4/datatypes.html#string)                   | Extension to MedicationRequest.dosageInstruction. Represents instructions for an order that are intended for healthcare providers.
- `pharmacy-verification-status`  | [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept) | Represents whether a MedicationRequest has been verified by a pharmacist. Supported values are 'Does not need pharmacy verification', 'Needs pharmacy verification', or 'Rejected by pharmacy'.
+ `pharmacy-verification-status`  | [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept) | Represents whether a medication request was verified by a pharmacist. Supported values are `Does not need pharmacy verification`, `Needs pharmacy verification`, or `Rejected by pharmacy`.
 
 ### Swedish Extensions
 
@@ -116,7 +116,7 @@ All URLs for Swedish extensions are defined as `http://electronichealth.se/fhir/
 
 ## Search
 
-Search for MedicationRequests that meet supplied query parameters:
+Search for medication requests that meet supplied query parameters.
 
     GET /MedicationRequest?:parameters
 
@@ -129,34 +129,34 @@ Search for MedicationRequests that meet supplied query parameters:
  Name                   | Required?     | Type          | Description
 ------------------------|---------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  `_id`                  | Conditionally | [`token`]     | The logical resource ID associated with the resource. Example: `_id=1234`
- `patient`              | Conditionally | [`reference`] | The specific patient to return MedicationRequests for. Example: `patient=5678`
+ `patient`              | Conditionally | [`reference`] | The specific patient to return medication requests for. Example: `patient=5678`
  `status`               | No            | [`token`]     | The [status] of the medication. May be a list separated by commas. Example: `status=active,completed`
  `intent`               | No            | [`token`]     | Whether the medication is an authorization or a medication reported by a patient. Example: `intent=order,plan`
- `-timing-boundsPeriod` | No            | [`token`]     | The date-time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` when the medication should be given to the patient. Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z` 
- `_lastUpdated`         | No            | [`date`]      | The date-time range within which the most recent clinically relevant update was made to the medication. The time component is required. It must be prefixed by `ge` or `le`. Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
- `_count`               | No            | [`number`]    | The maximum number of results to include in a page. Example: `_count=50`
- `_revinclude`          | No            | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
+ `-timing-boundsPeriod` | No            | [`token`]     | The date and time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` when the medication should be given to the patient. Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z` 
+ `_lastUpdated`         | No            | [`date`]      | The date and time range within which the most recent clinically relevant update was made to the medication. The time component is required. It must be prefixed by `ge` or `le`. Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
+ `_count`               | No            | [`number`]    | The maximum number of results to include on a page. Example: `_count=50`
+ `_revinclude`          | No            | [`token`]     | The Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
-_Implementation Notes_
+_Notes_
 
 * When searching with the `_id` parameter:
   * It must not be provided with any other parameters, except with the `_revinclude` parameter as indicated below.
 * When searching with the `-timing-boundsPeriod` parameter:
-  * It must be provided with a `ge` prefix to imply the date range to search for medications within.
+  * It must be provided with a `ge` prefix to imply the date range for the medications search.
   * The time component is optional.
   * Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z`
 * When searching with the `_lastUpdated` parameter:
   * For a single `_lastUpdated` occurence:
-    * It must be provided with a `le` or `ge` prefix to imply the date range to search for medications within.
+    * It must be provided with a `le` or `ge` prefix to imply the date range for the medications search.
     * Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
   * For two `_lastUpdated` occurences:
     * It must be provided with the `le` and `ge` prefixes to search for medications within the given upper and lower timestamps, respectively.
     * Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z&_lastUpdated=le2014-05-20T12:00:00.000Z`
 * When searching with the `_revinclude` parameter:
-  * It may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-  * It may be provided with the `_id` or `patient` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
+  * It can be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
+  * It can be provided with the `_id` or `patient` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
 
-* If `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+* If `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently, `patient/Provenance.read` is not supported; hence, `_revinclude` cannot be used for patient persona.
 
 ### Headers
 
@@ -199,7 +199,7 @@ _Implementation Notes_
 
 ## Retrieve by ID
 
-List an individual medication request by its ID:
+List an individual medication request by its ID.
 
     GET /MedicationRequest/:id
 
@@ -242,13 +242,13 @@ List an individual medication request by its ID:
 
 ## Create
 
-Create an individual MedicationRequest.
+Create an individual medication request.
 
     POST /MedicationRequest
 
-_Implementation Notes_
+_Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored
+* Only the body fields mentioned below are supported. Unsupported fields are ignored.
 
 ### Authorization Types
 
@@ -294,9 +294,9 @@ Patch an existing medication request.
 
     PATCH /MedicationRequest/:id
 
-_Implementation Notes_
+_Notes_
 
-* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
+* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) specification.
 * Only operations on the paths listed below are supported.
 
 ### Authorization Types
