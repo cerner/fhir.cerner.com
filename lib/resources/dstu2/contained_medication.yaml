@@ -1,12 +1,12 @@
 ---
 name: Medication
-field_name_base_url: http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication
+field_name_base_url: https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication
 fields:
 
 - name: code
   required: 'No'
   type: CodeableConcept
-  description:  Codes that identify this medication.
+  description: Codes that identify this medication.
   example: |
     {
       "code": {
@@ -25,8 +25,8 @@ fields:
     description: A code that defines the type of medication.
     terminology:
     - display: RxNorm
-      system: http://www.nlm.nih.gov/research/umls/rxnorm
-      info_link: http://hl7.org/fhir/dstu2/rxnorm.html
+      system: https://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: https://hl7.org/fhir/dstu2/rxnorm.html
 
 - name: product
   required: 'No'
@@ -43,4 +43,4 @@ fields:
       terminology:
           - display: NCI Metathesaurus
             system: http://ncimeta.nci.nih.gov
-            info_link: http://hl7.org/fhir/dstu2/ncimeta.html
+            info_link: https://hl7.org/fhir/dstu2/ncimeta.html
