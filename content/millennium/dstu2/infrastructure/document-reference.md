@@ -16,7 +16,7 @@ For fields supported on write, see the [create](#create) section.
 
 The following fields are returned if valued for clinical documents:
 
-* [DocumentReference id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [DocumentReference ID](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Subject](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject){:target="_blank"}
 * [Document type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type){:target="_blank"}
 * [Document description/title](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description){:target="_blank"}
