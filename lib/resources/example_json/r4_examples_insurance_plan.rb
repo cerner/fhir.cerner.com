@@ -21,7 +21,7 @@ module Cerner
             'id': '2798233',
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
                      'Medicare Part A</p><p><b>Type</b>: Medical Service Plan</p><p><b>Owned By</b>:' \
                      'Organization/589783</p><p><b>Period Start Date</b>: Aug 14, 2015  2:32 P.M. UTC</p></div>'
             },
@@ -61,7 +61,7 @@ module Cerner
             'id': '3132244',
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
                      'Medicare Part A and B</p><p><b>Type</b>: Medical Service Plan</p><p><b>Owned By</b>:' \
                      'Organization/589783</p><p><b>Period Start Date</b>: Apr  3, 2018  8:37 P.M. UTC</p></div>'
             },
@@ -101,7 +101,7 @@ module Cerner
             'id': '3132243',
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
                      'Medicare Part B</p><p><b>Type</b>: Medical Service Plan</p><p><b>Owned By</b>:' \
                      'Organization/589783</p><p><b>Period Start Date</b>: Apr  3, 2018  8:36 P.M. UTC</p></div>'
             },
@@ -141,7 +141,7 @@ module Cerner
             'id': '3226346',
             'text': {
               'status': 'generated',
-              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
+              'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Insurance Plan</b></p><p><b>Name</b>:' \
                      'Medicare Provider Liable</p><p><b>Type</b>: Medical Service Plan</p><p><b>Owned By</b>:' \
                      'Organization/589783</p><p><b>Period Start Date</b>: Apr 16, 2019  5:42 P.M. UTC</p></div>'
             },
