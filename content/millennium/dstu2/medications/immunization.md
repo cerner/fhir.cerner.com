@@ -9,11 +9,11 @@ title: Immunization | DSTU 2 API
 
 ## Overview
 
-The Immunization resource includes the view of current and historical administration of vaccinations to a patient in all healthcare settings. This resource contains the functionality to query a patient's immunization history.
+The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines, in all care settings, and all regions.  This resource contains the functionality to query a patient's immunization history. Detailed administration records may be found in the [`MedicationAdministration`] resource, while this Immunization resource would represent the known vaccination history regardless of where the administration itself was done.
 
-Detailed administration records may be found in MedicationAdministration, while the Immunization resource would represent the known vaccination history regardless of where the administration itself was done.
+An immunization reaction may indicate an allergy or intolerance. If so, a separate [`AllergyIntolerance`] resource instance must be created.
 
-An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well.
+Note that while the terms immunization and vaccination are not clinically identical, for the purposes of FHIR resources, the terms are used synonymously.
 
 The following fields are returned if valued:
 
@@ -33,13 +33,19 @@ The following fields are returned if valued:
 * [Expiration date](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.expirationDate){:target="_blank"}
 * [Dose](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.doseQuantity){:target="_blank"}
 
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Terminology Bindings
 
 <%= terminology_table(:immunization, :dstu2) %>
 
 ## Search
 
-Search for Immunizations that meet supplied query parameters:
+Search for immunizations that meet supplied query parameters:
 
     GET /Immunization?:parameters
 
@@ -49,15 +55,27 @@ Search for Immunizations that meet supplied query parameters:
 
 ### Parameters
 
- Name      | Required?          | Type          | Description
------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
- `_id`     | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
- `patient` | This, or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
- `date`    | N                  | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
+ Name      | Required      | Type          | Description
+-----------|---------------|---------------|-----------------------------------------------------------------------------------------------------
+ `_id`     | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `12345`
+ `patient` | Conditionally | [`reference`] | The patient for the vaccination record(s). This parameter is required if the `_id` parameter is not used. Example: `12345`
+ `date`    | No            | [`date`]      | Date range for the immunization administration(s). Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
 
-Notes:
+_Implementation Notes_
 
-* The `date` parameter value should be prefixed once by 'ge' representing the earliest date, and once by 'le' representing the latest date. Examples: `date=ge2015-01-01&date=le2016-01-01`, `date=ge2015-01-01`, `date=le2016-01-01`
+- When searching with the `_id` parameter:
+  - It can be provided with either a single reference, or a comma-separated list of references. Example `_id=1234` or `_id=1234,5678`
+  - It must not be provided with any other parameters.
+- When searching with the `patient` parameter:
+  - It can be provided with only a single reference; a comma-separated list is not supported.
+- When searching with the `date` parameter:
+  - For a single `date` occurrence:
+    - It must be provided with either the `le` or `ge` prefix to search for vaccination record(s) administrations earlier or later than the given date.
+    - The `time` component is optional.
+  - For two `date` occurences: 
+    - It must be provided with `le` and `ge` prefixes to search for vaccination record(s) within a specific range. 
+    - The `time` component is optional, but must be consistent. If one date has a `time` component, so must the other.
+
 
 ### Headers
 
@@ -74,15 +92,10 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_immunization_bundle) %>
 
-<%= disclaimer %>
 
-### Errors
+## Retrieve by ID
 
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual Immunization by its id:
+List an individual immunization by the associated ID:
 
     GET /Immunization/:id
 
@@ -105,14 +118,11 @@ List an individual Immunization by its id:
 <%= headers status: 200 %>
 <%= json(:dstu2_immunization_1) %>
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/DSTU2/search.html#token
 [`reference`]: http://hl7.org/fhir/dstu2/search.html#reference
 [`date`]: http://hl7.org/fhir/DSTU2/search.html#date
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[`MedicationAdministration`]: ../medication-administration/#overview
+[`AllergyIntolerance`]: ../../general-clinical/allergy-intolerance/#overview
