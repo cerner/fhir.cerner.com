@@ -9,9 +9,9 @@ title: MedicationOrder | DSTU 2 API
 
 ## Overview
 
-The Medication Order resource provides orders for all medications, along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource does NOT include historical or home medications documented or reported to have been taken by patient, significant other, or another provider.
+The MedicationOrder resource provides orders for all medications with administration instructions for a patient in both the inpatient and outpatient settings (orders or prescriptions filled by a pharmacy and discharge medication orders). This resource does not include historical or home medications documented or reported to have been taken by the patient, significant other, or another provider.
 
-If the Medication Order represents a prescription the patient takes at home, the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled.
+If the medication order represents a prescription the patient takes at home, then the start, stop, and other information may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled.
 
 The following fields are returned if valued:
 
@@ -60,12 +60,12 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2
 
  ID                         | Value\[x] Type | Description
 ----------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------
- `patient-friendly-display` | [`string`]     | Extension to MedicationRequest.dosageInstruction. The display that can be used for this field when producing a view suitable for a patient.
+ `patient-friendly-display` | [`string`]     | Extension to MedicationRequest.dosageInstruction. The display name that can be used for this field when producing a view suitable for a patient.
 
 
 ## Search
 
-Search for MedicationOrders that meet supplied query parameters:
+Search for medication orders that meet supplied query parameters.
 
     GET /MedicationOrder?:parameters
 
@@ -80,28 +80,28 @@ Search for MedicationOrders that meet supplied query parameters:
  `_id`                  | Conditionally | [`token`]     | The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the `patient` parameter is not used. Example: `_id=1234`
  `patient`              | Conditionally | [`reference`] | The specific patient to return orders for. This parameter is required if the `_id` parameter is not used. Example: `patient=5678`
  `status`               | No            | [`token`]     | The [status] of the medication order. It may be a list separated by commas. Example: `status=active,draft`
- `-timing-boundsPeriod` | No            | [`date`]     | The date-time which should fall within the [period] when the medication should be given to the patient. This parameter cannot be provided at the same time as the `_lastUpdated` parameter. Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z` 
- `_lastUpdated`         | No            | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. This parameter cannot be provided at the same time as the `-timing-boundsPeriod` parameter. Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
- [`_count`]             | No            | [`number`]    | The maximum number of results to include in a page. Example: `_count=50`
+ `-timing-boundsPeriod` | No            | [`date`]     | The date and time that should fall within the [period] when the medication should be given to the patient. This parameter cannot be provided at the same time as the `_lastUpdated` parameter. Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z` 
+ `_lastUpdated`         | No            | [`date`]      | An explicit or implied date and time range within which the most recent clinically relevant update was made to the medication. This parameter cannot be provided at the same time as the `-timing-boundsPeriod` parameter. Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
+ [`_count`]             | No            | [`number`]    | The maximum number of results to include on a page. Example: `_count=50`
 
-_Implementation Notes_
+_Notes_
 
-* MedicationOrder.medication may be a reference to a [contained] Medication when the Medication cannot be represented by a [CodeableConcept] because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationOrder and cannot be referenced independently.
+* MedicationOrder.medication may be a reference to a [contained] medication when the medication cannot be represented by a [CodeableConcept] because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication order and cannot be referenced independently.
 * When searching with the `_id` parameter:
   * It must not be provided with any other parameters.
 * When searching with the `-timing-boundsPeriod` parameter:
-  * It must be provided with a `ge` prefix to imply the date range to search for medication orders within.
+  * It must be provided with a `ge` prefix to imply the date range for the medication orders search.
   * The time component is optional.
   * Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z`
 * When searching with the `_lastUpdated` parameter:
   * The time component is required.
   * For a single `_lastUpdated` occurence:
-    * It must be provided with a `le` or `ge` prefix to imply the date range to search for medication orders within.
+    * It must be provided with a `le` or `ge` prefix to imply the date range for the medication orders search.
     * Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
   * For two `_lastUpdated` occurences:
     * It must be provided with the `le` and `ge` prefixes to search for medication orders within the given upper and lower timestamps, respectively.
     * Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z&_lastUpdated=le2014-05-20T12:00:00.000Z`
-  * It will only detect changes that affect the clinical meaning of the order. An example of the types of changes that won't be caught by this query are changes that would affect the version, but not the FHIR content.
+  * It only detects changes that affect the clinical meaning of the order. An example of changes that are not caught by this query are changes that would affect the version, but not the FHIR content.
 
 ### Headers
 
@@ -120,7 +120,7 @@ _Implementation Notes_
 
 ## Retrieve by ID
 
-List an individual MedicationOrder by its ID:
+List an individual medication order by its ID.
 
     GET /MedicationOrder/:id
 
