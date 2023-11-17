@@ -15,7 +15,7 @@ The following fields are returned if valued:
 
 * [ID](https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Patient](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.subject){:target="_blank"}
-* [Status (completed, entered-in-error)](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.status){:target="_blank"}
+* [Status](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.status){:target="_blank"}
 * [Procedure](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.code){:target="_blank"}
 * [Reason performed](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.reason_x_){:target="_blank"}
 * [Who performed](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.performer){:target="_blank"}
@@ -27,13 +27,19 @@ The following fields are returned if valued:
 
 <%= terminology_table(:procedure, :dstu2) %>
 
+<%= disclaimer %>
+
+## Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Search
 
 Search for Procedures that meet supplied query parameters:
 
     GET /Procedure?:parameters
 
-_Implementation Notes_
+_Notes_
 
 * The [Procedure.notPerformed] modifier element is not supported and will not be returned.
 
@@ -45,14 +51,13 @@ _Implementation Notes_
 
  Name              | Required?     | Type          | Description
 -------------------|---------------|---------------|-------------------------------------------------------------------------------------
-`_id`              | Conditionally | [`token`]     | The logical resource id associated with the resource. Example: `_id=7891`
-`patient`          | Conditionally | [`reference`] | The patient of the Procedure. Example: `patient=12345`
-`subject`          | Conditionally | [`reference`] | The subject of the Procedure. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`
+`_id`              | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` or `subject` are not used. Example: `_id=7891`
+`patient`          | Conditionally | [`reference`] | Who the Procedure is for. This parameter is required if `_id` or `subject` are not used. Example: `12345`
+`subject`          | Conditionally | [`reference`] | Who the Procedure is for. This parameter is required if `_id` or `patient` are not used. Example: `subject=Patient/12345` or `subject:Patient=12345`
 `date`             | No            | [`dateTime`]  | The date/time when the Procedure's `performedDateTime` was performed. Must use the `ge` and/or `le` prefixes. Example: `date=le2017-02-01T10:30:00Z`
 
 Notes:
 
-* The `_id` parameter may not be provided at the same time as the `patient`, `subject`, or `date` parameters.
 * The `date` parameter 
   * Must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes. 
   * When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
@@ -71,15 +76,10 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_bundle) %>
-<%= disclaimer %>
 
-### Errors
+## Retrieve by ID
 
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual Procedure by its id:
+List an individual Procedure by its ID:
 
     GET /Procedure/:id
 
@@ -105,15 +105,10 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:dstu2_procedure_entry) %>
-<%= disclaimer %>
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
-[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
-[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
-[Procedure.notPerformed]: http://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.notPerformed
+[`dateTime`]: https://hl7.org/fhir/r4/datatypes.html#dateTime
+[`reference`]: https://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: https://hl7.org/fhir/DSTU2/search.html#token
+[Procedure.notPerformed]: https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.notPerformed
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
