@@ -1,6 +1,6 @@
 ---
 name: Patient
-field_name_base_url: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient
+field_name_base_url: https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient
 fields:
 - name: identifier
   type: List of Identifier
@@ -11,15 +11,17 @@ fields:
   - name: type
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
-    url: http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type
+    url: https://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type
     action: terminology
     binding:
       description: The type used to determine which identifier to use for a specific purpose.
       terminology:
       - display: Identifier Type Codes
         system: http://hl7.org/fhir/identifier-type
+        info_link: https://hl7.org/fhir/DSTU2/valueset-identifier-type.html
       - display: v2 Identifier Type
         system: http://hl7.org/fhir/v2/0203
+        info_link: https://hl7.org/fhir/DSTU2/v2/0203/index.html
 
 - name: contact
   type: List of BackboneElement
@@ -36,6 +38,7 @@ fields:
       terminology:
       - display: PatientContactRelationship
         system: http://hl7.org/fhir/patient-contact-relationship
+        info_link: https://hl7.org/fhir/DSTU2/valueset-patient-contact-relationship.html
 
 - name: resourceType
   required: 'Yes'
@@ -46,8 +49,8 @@ fields:
     {
       "resourceType": "Patient"
     }
-  note: resourceType must be Patient
-  url: http://hl7.org/fhir/DSTU2/json.html#resources
+  note: resourceType must be `Patient`
+  url: https://hl7.org/fhir/DSTU2/json.html#resources
 
 - name: identifier
   required: 'Yes'
@@ -59,7 +62,7 @@ fields:
       "identifier": [
         {
           "assigner": {
-            "reference": "Organization/619848"
+            "reference": "Organization/685844"
           }
         },
         {
@@ -80,22 +83,22 @@ fields:
         }
       ]
     }
-  note: The first identifier must only contain an `assigner` field with a reference to the Organization in which the patient is being enrolled.
-    The subsequent identifiers must not contain the `assigner` and `use` fields, must contain the `type`, `system`, and `value` fields,
-    and must include a time component when specifying a `period`.
-  url: http://hl7.org/fhir/dstu2/datatypes.html#Identifier
-
-- name: active
-  required: 'No'
-  type: boolean
-  description: Whether this patient record is in active use.
-  action: create
-  example: |
-    {
-      "active": true
-    }
-  note: If set, active must be true
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.active
+  note: |
+    <ul>
+      <li>At least one identifier <b>must</b> be provided. The provided identifier must meet the following conditions:
+        <ul>
+          <li>Must contain only an `assigner` field with a reference to the Organization in which the patient is being enrolled.</li>
+        </ul>
+      </li>
+      <li>Subsequent identifiers may be provided but have the following constraints:
+        <ul>
+          <li>Must not contain the `assigner` and `use` fields.</li>
+          <li>Must contain the `type`, `system`, and `value` fields.</li>
+          <li>When specifying a `period`, must include a time component with a timezone.</li>
+        </ul>
+      </li>
+    </ul>
+  url: https://hl7.org/fhir/dstu2/datatypes.html#Identifier
 
 - name: name
   required: 'Yes'
@@ -135,12 +138,44 @@ fields:
     Only one `family` name. If additional family names are required they must be provided as a single string separated by blank spaces.
     Up to two `given` names may be provided. If additional given names are required they must be provided in the second value as a single
     string separated by blank spaces. Only one `prefix` and one `suffix` may be provided.
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.name
+    <ul>
+      <li>At least one name <b>must</b> be provided. The provided name must meet the following conditions:
+      <ul>
+        <li>Must have a `use` of `official`.</li>
+        <li>Must include both `given` and `family`.</li>
+        <li>If set, `period` must not have an `end` date.</li>
+      </ul>
+      </li>
+      <li>Subsequent names may be provided but have the following constraints:</li>
+      <ul>
+        <li>The name must include the `use` field.</li>
+        <li>The name must contain either the `given` or `family` fields.</li>
+        <li>The name cannot contain the `text` field.</li>
+        <li>Up to two `given` names may be provided. If additional given names are required, they must be provided in the second value as a single string separated by blank spaces.</li>
+        <li>Only one `prefix` and one `suffix` may be provided.</li>
+        <li>When specifying a `period`, the fields must include a time component with a timezone.</li>
+        <li>The `family` field has a character limit of 100.</li>
+        <li>Each value for the `given`, `prefix`, and `suffix` fields has a character limit of 100.</li>
+      </ul>
+    </ul>
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.name
+
+- name: active
+  required: 'No'
+  type: boolean
+  description: Whether this patient record is in active use.
+  action: create
+  example: |
+    {
+      "active": true
+    }
+  note: If set, the value must be `true`
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.active
 
 - name: telecom
   required: 'No'
   type: List of ContactPoint
-  description: A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
+  description: A contact detail (e.g., a telephone number or an email address) by which the patient may be contacted.
   action: create
   example: |
     {
@@ -156,7 +191,7 @@ fields:
       ]
     }
   note: All values must contain the `system`, `use`, and `value` fields.
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.telecom
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.telecom
 
 - name: gender
   required: 'No'
@@ -167,7 +202,7 @@ fields:
     {
       "gender": "male"
     }
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.gender
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.gender
 
 - name: birthDate
   required: 'No'
@@ -176,9 +211,9 @@ fields:
   action: create
   example: |
     {
-      "birthDate": "1990-09-15"
+      "birthDate": "1989-09-17"
     }
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.birthDate
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.birthDate
 
 - name: address
   required: 'No'
@@ -205,8 +240,8 @@ fields:
         }
       ]
     }
-  note: Each address must contain the `use` field, and must not contain the `text` field.
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.address
+  note: Each address must contain the `use` field and must not contain the `text` field.
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.address
 
 - name: maritalStatus
   required: 'No'
@@ -218,15 +253,15 @@ fields:
       "maritalStatus": {
         "coding": [
           {
-            "system": "http://hl7.org/fhir/v3/NullFlavor",
-            "code": "UNK",
-            "display": "Unknown"
+            "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+            "code": "S",
+            "display": "Never Married"
           }
         ],
-        "text": "Unknown"
+        "text": "Single"
       },
     }
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.maritalStatus
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.maritalStatus
 
 - name: communication
   required: 'No'
@@ -254,7 +289,7 @@ fields:
   note: Only one communication may be provided.
         <br/><br/>
         All the language codes must use ISO-639-1 alpha 2 code in lower case, e.g. "en" for English.
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.communication
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.communication
 
 - name: careProvider
   required: 'No'
@@ -272,8 +307,8 @@ fields:
         }
       ]
     }
-  note: careProvider must be a reference to a Practitioner
-  url: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider
+  note: The careProvider must be a reference to a Practitioner
+  url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider
 
 - name: Birth Sex Extension
   required: 'No'
@@ -289,4 +324,4 @@ fields:
         }
       ],
     }
-  url: http://argonautwiki.hl7.org/index.php?title=Draft_Birth_Sex_Extension
+  url: https://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-birthsex.html
