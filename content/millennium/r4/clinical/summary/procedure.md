@@ -36,15 +36,15 @@ The following fields are returned if valued:
   * [Annotation Author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
     * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Terminology Bindings
 
 <%= terminology_table(:procedure, :r4) %>
-
-<%= disclaimer %>
-
-## Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 

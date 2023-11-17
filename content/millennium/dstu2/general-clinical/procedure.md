@@ -23,15 +23,15 @@ The following fields are returned if valued:
 * [Patient encounter](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.encounter){:target="_blank"}
 * [Notes](https://hl7.org/fhir/DSTU2/procedure-definitions.html#Procedure.notes){:target="_blank"}
 
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Terminology Bindings
 
 <%= terminology_table(:procedure, :dstu2) %>
-
-<%= disclaimer %>
-
-## Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
