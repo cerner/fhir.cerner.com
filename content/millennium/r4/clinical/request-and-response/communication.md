@@ -9,13 +9,13 @@ title: Communication | R4 API
 
 ## Overview
 
-The Communication resource is a conveyance of information from one entity, a sender, to another entity, a receiver. The information includes encoded data and optionally a related Patient and a related Encounter.
+The Communication resource is a conveyance of information from one entity, a sender, to another entity, a receiver. The information includes encoded data and optionally a related [`Patient`] and a related [`Encounter`].
 
 The following fields are returned if valued:
 
-* [Communication Id](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.identifier)
+* [ID](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.identifier)
 * [In Response To](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.inResponseTo)
-* [Status (Completed)](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.status)
+* [Status](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.status)
 * [Category](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.category)
 * [Priority](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.priority)
 * [Subject](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.subject)
@@ -39,8 +39,8 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ID             | Value\[x] Type      | Description
 ---------------|---------------------|----------------------------------------------------------------------------------
-`reply-to`     | [`Reference`]       | Used to direct where replies to the communication should be sent. Must be a Group.
-`email-status` | [`CodeableConcept`] | Status of the electronic communication (in-progress, completed, received).
+`reply-to`     | [`Reference`]       | Used to direct where replies to the Communication should be sent. Must be a Group.
+`email-status` | [`CodeableConcept`] | Status of the electronic Communication (in-progress, completed, received).
 
 ## Search
 
@@ -48,9 +48,9 @@ Search for communications that meet supplied query parameters:
 
     GET /Communication?:parameters
 
-_Implementation Notes_
+_Notes_
 
-* The Content of a communication will be returned through the binary resource. A reference to the payload will be provided in the Payload section.
+* The Content of a Communication will be returned through the binary resource. A reference to the payload will be provided in the Payload section.
 * Only 1000 elements max will be returned based on the date range.
 
 ### Authorization Types
@@ -59,21 +59,20 @@ _Implementation Notes_
 
 ### Parameters
 
- Name              | Required?                                                          | Type          | Description
--------------------|--------------------------------------------------------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
- `_id`             | This or (`category`, `-email-status`, `recipient` and `received`) | [`token`]     | The logical resource id associated with the resource. Example: `489580643.0.-4.prsnl`
- `category`        | (This, `recipient`, `received` and `-email-status`) or `_id`      | [`token`]     | A token for a [`CodeableConcept`] that points to the CodeableConcept used for Communication.category. Example: `http://terminology.hl7.org/CodeSystem/communication-category|notification`
- `recipient`       | (This, `category`, `received` and `-email-status`) or `_id`       | [`reference`] | The recipient of the communication. Example: `Practitioner/3456783`
- `received`        | (This, `category`, `recipient` and `-email-status`) or `_id`      | [`date`]      | Date range into which the communication falls. Example: `le2017-02-01T10:30:00Z`
- `-email-status`   | (This, `category`, `recipient` and `received`) or `_id`           | [`token`]     | The status of the email. Example: `http://hl7.org/fhir/task-status|in-progress`
+ Name                                                | Required?     | Type          | Description
+-----------------------------------------------------|---------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`                                               | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `category`, `-email-status`, `recipient` and `received` are not used. Example: `489580643.0.-4.prsnl`
+ `category`                                          | Conditionally | [`token`]     | A token for a [`CodeableConcept`] that points to the CodeableConcept used for `Communication.category`. This parameter is required along with `recipient`, `received` and `-email-status` if `_id` is not used. Example: `http://terminology.hl7.org/CodeSystem/communication-category|notification`
+ `recipient:Group` or `recipient:Practitioner`       | Conditionally | [`reference`] | The recipient of the Communication. This parameter is required along with `category`, `received` and `-email-status` if `_id`  is not used. Example: `3456783`
+ `received`                                          | Conditionally | [`date`]      | Date range into which the Communication falls. This parameter is required along with `category`, `recipient` and `-email-status` if `_id`  is not used. Example: `ge2017-02-01T10:30:00Z`
+ `-email-status`                                     | Conditionally | [`token`]     | The status of the email. This parameter is required along with `category`, `recipient` and `received` if `_id`  is not used. Example: `http://hl7.org/fhir/task-status|in-progress`
 
 
  Notes:
 
- * The `recipient` parameter must represent a Practitioner or a Group.
  * The `received` parameter may be provided:
-   * once with the `ge` prefix.
-   * twice with the lower value prefixed by `ge` and the higher value prefixed by `le`.
+   * Once with the `ge` prefix.
+   * Twice with the lower value prefixed by `ge` and the higher value prefixed by `le`.
 
 ### Headers
 
@@ -95,9 +94,9 @@ _Implementation Notes_
 
 The common [errors] and [OperationOutcomes] may be returned.
 
-## Retrieve by id
+## Retrieve by ID
 
-List an individual communication by its id:
+List an individual Communication by its ID:
 
     GET /Communication/:id
 
@@ -123,11 +122,11 @@ List an individual communication by its id:
 
 ## Create
 
-Create a new communication.
+Create a new Communication.
 
     POST /Communication
 
-_Implementation Notes_
+_Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
@@ -183,11 +182,11 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Patch
 
-Patch an existing communication.
+Patch an existing Communication.
 
     PATCH /Communication/:id
 
-_Implementation Notes_
+_Notes_
 
 * This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
 * Only operations on the paths listed below are supported.
@@ -244,5 +243,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [`date`]: https://hl7.org/fhir/R4/search.html#date
 [`CodeableConcept`]: https://hl7.org/fhir/R4/datatypes.html#codeableconcept
+[`Patient`]: /millennium/r4/base/individuals/patient/
+[`Encounter`]: /millennium/r4/base/management/encounter/
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
