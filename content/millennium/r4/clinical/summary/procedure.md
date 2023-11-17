@@ -68,7 +68,6 @@ Search for Procedures that meet supplied query parameters:
 
 Notes:
 
-* If `_id` is provided, `patient` or `subject` can no longer be provided.
 * The `date` parameter 
   * May be provided once with a prefix and time component to imply a date range. Example: `date=gt2015-09-24T00:00:00.000Z`
   * May otherwise be provided twice with `le`, `lt`, `ge`, or `gt` prefixes and time component to search for procedures within a specific range. The date and prefix pairs must create a closed range.
