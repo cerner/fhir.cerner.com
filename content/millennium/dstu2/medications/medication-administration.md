@@ -9,10 +9,9 @@ title: MedicationAdministration | DSTU 2 API
 
 ## Overview
 
-The MedicationAdministration resource provides information about medications administered to a patient or consumed by a patient including injections, intravenous solutions, and self administered oral medications. 
-When using this resource, full administration details for vaccinations administered by the current healthcare system can be searched. For historically administered vaccines, or vaccines adminstered by other healthcare disciplines, care settings, or regions, the [`Immunization`] resource must be used for retrieving data.
+The MedicationAdministration resource provides information about medications administered to a patient or consumed by a patient including injections, intravenous solutions, and self-administered oral medications. You can use this resource to search for full administration details for vaccinations administered by the current healthcare system. For historically administered vaccines, or vaccines adminstered by other healthcare disciplines, care settings, or regions, you must use the [`Immunization`] resource to retrieve information.
 
-* **IMPORTANT NOTE**: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage dose does not equal the [contained] Medication ingredient strength denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
+* **Important!**: Infuse or bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage dose does not equal the [contained] medication ingredient strength denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This result is the actual amount of medication administered.
 
 The following fields are returned if valued:
 
@@ -32,7 +31,7 @@ The following fields are returned if valued:
   * [Site](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.site_x_){:target="_blank"}
   * [Rate](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.rate_x_){:target="_blank"}
 
-* MedicationAdministration.medication may be a reference to a [contained] Medication when the Medication cannot be represented by a [CodeableConcept] because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be referenced independently.
+* MedicationAdministration.medication may be a reference to a [contained] medication when the medication cannot be represented by a [CodeableConcept] because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication administration and cannot be referenced independently.
 
 <%= disclaimer %>
 
@@ -55,7 +54,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 ### Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
-For more information, refer to the [`StructureDefinition`] resource.
+For more information, see the [`StructureDefinition`] resource.
 
  ID                 | Value\[x] Type | Description
 --------------------|----------------|------------------------------------------------------------------------------------------------
@@ -63,7 +62,7 @@ For more information, refer to the [`StructureDefinition`] resource.
 
 ## Search
 
-Search for MedicationAdministrations that meet supplied query parameters:
+Search for medication administrations that meet supplied query parameters.
 
     GET /MedicationAdministration?:parameters
 
@@ -81,17 +80,17 @@ Search for MedicationAdministrations that meet supplied query parameters:
 `patient`       | Conditionally | [`reference`] | The specific patient to return medication administrations for. This parameter is required if the `_id` parameter is not used. Example: `patient=1234`
 `status`        | No            | [`token`]     | The status of the medication administration event. It may be a list separated by commas. Example: `status=completed,not-done`
 `practitioner`  | No            | [`reference`] | The logical resource ID of the practitioner who administered the medication. It may be a list separated by commas. Example: `practitioner=1245,7659`
-`notgiven`      | No            | [`token`]     | Administrations that were not made. A value of `true` will search for these, and a value of `false` will exclude them. 
+`notgiven`      | No            | [`token`]     | Administrations that were not made. A value of `true` includes these administrations in the search results, and a value of `false` excludes them. 
 `effectivetime` | No            | [`dateTime`]  | A date range for when the administration happened. Example: `effectivetime=ge2014-05-19T20:54:02.000Z`
 [`_count`]      | No            | [`number`]    | The maximum number of results to return. Example: `_count=50`
 
-_Implementation Notes_
+_Notes_
 
-- When searching with the `_id` parameter
+- When searching with the `_id` parameter:
   - It must not be provided with any other parameters.
 - When searching with the `effectivetime` parameter:
   - For a single `effectivetime` occurrence:
-    - It must be provided with a `ge` `gt` `le` or `lt` prefix to imply the date range to search for administrations within.
+    - It must be provided with a `ge` `gt` `le` or `lt` prefix to imply the date range for an administrations search.
     - The time component is required.
     - Example: `effectivetime=ge2014-05-19T20:54:02.000Z`
   - For two `effectivetime` occurences: 
@@ -125,7 +124,7 @@ _Implementation Notes_
 
 ## Retrieve by ID
 
-List an individual MedicationAdministration by its ID:
+List an individual medication administration by its ID.
 
     GET /MedicationAdministration/:id
 
