@@ -27,6 +27,12 @@ The following fields are returned if valued:
 * [Sender](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.sender)
 * [Payload](https://hl7.org/FHIR/r4/communication-definitions.html#Communication.payload)
 
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Terminology Bindings
 
 <%= terminology_table(:communication, :r4) %>
@@ -88,11 +94,6 @@ _Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_communication_bundle) %>
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Retrieve by ID
 
@@ -118,7 +119,6 @@ List an individual Communication by its ID:
 
 <%= headers status: 200 %>
 <%= json(:r4_communication_entry) %>
-<%= disclaimer %>
 
 ## Create
 
@@ -174,12 +174,6 @@ X-Runtime: 0.022706
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ## Patch
 
 Patch an existing Communication.
@@ -232,12 +226,6 @@ X-Runtime: 0.826616
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/R4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
