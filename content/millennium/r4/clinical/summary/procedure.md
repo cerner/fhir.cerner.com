@@ -9,9 +9,9 @@ title: Procedure | R4 API
 
 ## Overview
 
-The Procedure resource returns medical and surgical procedures performed on or for a patient during their lifetime.   Historical procedures, as well as procedures recorded during a specific visit, are returned. Surgical procedures from finalized surgical cases will be returned as free text procedures, if the solution has been configured to write procedures from finalized cases to Procedure History.
+The Procedure resource returns medical and surgical procedures performed on or for a patient during their lifetime. Historical procedures and procedures recorded during a specific visit are returned. Surgical procedures from finalized surgical cases are returned as free-text procedures if the product is configured to write procedures from finalized cases to procedure history.
 
-* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
+* This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) profiles:
   * [US Core Procedure Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-procedure.html)
 
 The following fields are returned if valued:
@@ -48,7 +48,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Procedures that meet supplied query parameters:
+Search for procedures that meet supplied query parameters.
 
     GET /Procedure?:parameters
 
@@ -60,22 +60,22 @@ Search for Procedures that meet supplied query parameters:
 
  Name              | Required?     | Type          | Description
 -------------------|---------------|---------------|-----------------------------------------------------------------------
- `_id`             | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` or `subject` are not used. Example: `_id=7891`
- `patient`         | Conditionally | [`reference`] | Who the Procedure is for. This parameter is required if `_id` or `subject` are not used. Example: `12345`
- `subject`         | Conditionally | [`reference`] | Who the Procedure is for. This parameter is required if `_id` or `patient` are not used. Example: `Patient/12345`
- `date`            | No            | [`dateTime`]  | Date range in which the Procedure's `performedPeriod` or `performedDateTime` falls within. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
- `_revinclude`     | No            | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
+ `_id`             | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` or `subject` is not used. Example: `_id=7891`
+ `patient`         | Conditionally | [`reference`] | Who the procedure is for. This parameter is required if `_id` or `subject` is not used. Example: `12345`
+ `subject`         | Conditionally | [`reference`] | Who the procedure is for. This parameter is required if `_id` or `patient` is not used. Example: `Patient/12345`
+ `date`            | No            | [`dateTime`]  | The date range that the procedure's `performedPeriod` or `performedDateTime` falls within. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
+ `_revinclude`     | No            | [`token`]     | The Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
 
 Notes:
 
-* The `date` parameter 
+* The `date` parameter: 
   * May be provided once with a prefix and time component to imply a date range. Example: `date=gt2015-09-24T00:00:00.000Z`
-  * May otherwise be provided twice with `le`, `lt`, `ge`, or `gt` prefixes and time component to search for procedures within a specific range. The date and prefix pairs must create a closed range.
-* The `_revinclude` parameter 
-  * May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+  * May otherwise be provided twice with `le`, `lt`, `ge`, or `gt` prefixes and a time component to search for procedures within a specific range. The date and prefix pairs must create a closed range.
+* The `_revinclude` parameter:
+  * May be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
   * May be provided in combination with the `_id` or `patient` parameter. Example: `_id=570007845&_revinclude=Provenance:target` or `patient=12345&_revinclude=Provenance:target`.
   * When provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
-* **Currently the `patient/Provenance.read` scope is not supported and hence `_revinclude` cannot be utilised for patient persona.**
+* Currently, the `patient/Provenance.read` scope is not supported; hence, `_revinclude` cannot be used for patient persona.
 
 ### Headers
 
@@ -92,7 +92,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_procedure_bundle) %>
 
-### Example with RevInclude
+### Example With RevInclude
 
 ### Authorization Types
 
@@ -118,7 +118,7 @@ Notes:
 
 ## Retrieve by ID
 
-List an individual Procedure by its ID:
+List an individual procedure by its ID.
 
     GET /Procedure/:id
 
@@ -162,13 +162,13 @@ List an individual Procedure by its ID:
 
 ## Create
 
-Create a new Procedure.
+Create a new procedure.
 
     POST /Procedure
 
 _Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored.
 
 ### Authorization Types
 
