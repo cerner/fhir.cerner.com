@@ -4,7 +4,7 @@ module Cerner
   module Resources
     R4_NUTRITION_ORDER_ENTRY ||= {
       "resourceType": 'NutritionOrder',
-      "id": '313790117',
+      "id": '328575687',
       "meta": {
         "versionId": '2',
         "lastUpdated": '2021-05-03T14:37:55.000Z'
