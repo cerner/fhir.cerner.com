@@ -9,7 +9,7 @@ title: Procedure | DSTU 2 API
 
 ## Overview
 
-The Procedure resource returns current and historical procedures performed on a patient. A procedure can be invasive or non-invasive treatments/procedures and observations. For example, a patient who has breast cancer could have significant & pertinent procedures that include mammograms, BRCA testing, breast examination documentation & lumpectomy. It is up to the user what procedures are clinically significant to document. Surgical and radiology procedures documented in other Cerner solutions will return if manually added by a clinician in the patient's procedure history.
+The Procedure resource returns current and historical procedures performed on a patient. A procedure can be invasive or noninvasive treatments or procedures and observations. For example, a patient who has breast cancer could have significant and pertinent procedures that include mammograms, BRCA testing, breast examination documentation, and lumpectomy. The user decides what procedures are clinically significant to document. Surgical and radiology procedures documented in other Oracle Cerner products are returned if manually added by a clinician in the patient's procedure history.
 
 The following fields are returned if valued:
 
@@ -35,13 +35,13 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Procedures that meet supplied query parameters:
+Search for procedures that meet supplied query parameters.
 
     GET /Procedure?:parameters
 
 _Notes_
 
-* The [Procedure.notPerformed] modifier element is not supported and will not be returned.
+* The [Procedure.notPerformed] modifier element is not supported and not returned.
 
 ### Authorization Types
 
@@ -51,14 +51,14 @@ _Notes_
 
  Name              | Required?     | Type          | Description
 -------------------|---------------|---------------|-------------------------------------------------------------------------------------
-`_id`              | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` or `subject` are not used. Example: `_id=7891`
-`patient`          | Conditionally | [`reference`] | Who the Procedure is for. This parameter is required if `_id` or `subject` are not used. Example: `12345`
-`subject`          | Conditionally | [`reference`] | Who the Procedure is for. This parameter is required if `_id` or `patient` are not used. Example: `subject=Patient/12345` or `subject:Patient=12345`
-`date`             | No            | [`dateTime`]  | The date/time when the Procedure's `performedDateTime` was performed. Must use the `ge` and/or `le` prefixes. Example: `date=le2017-02-01T10:30:00Z`
+`_id`              | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` or `subject` is not used. Example: `_id=7891`
+`patient`          | Conditionally | [`reference`] | Who the procedure is for. This parameter is required if `_id` or `subject` is not used. Example: `12345`
+`subject`          | Conditionally | [`reference`] | Who the procedure is for. This parameter is required if `_id` or `patient` is not used. Example: `subject=Patient/12345` or `subject:Patient=12345`
+`date`             | No            | [`dateTime`]  | The date and time when the procedure's `performedDateTime` was performed. Must use the `ge` or `le` prefix, or both prefixes. Example: `date=le2017-02-01T10:30:00Z`
 
 Notes:
 
-* The `date` parameter 
+* The `date` parameter:
   * Must have a time, may be provided up to two times, and must use the `ge` or `le` prefixes. 
   * When provided twice, the lower value must have the `ge` prefix and the higher value must have the `le` prefix.
 
@@ -79,13 +79,13 @@ Notes:
 
 ## Retrieve by ID
 
-List an individual Procedure by its ID:
+List an individual procedure by its ID.
 
     GET /Procedure/:id
 
-_Implementation Notes_
+_Notes_
 
-* The [Procedure.notPerformed] modifier element is not supported and will not be returned.
+* The [Procedure.notPerformed] modifier element is not supported and not returned.
 
 ### Authorization Types
 
