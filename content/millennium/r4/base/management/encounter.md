@@ -115,7 +115,7 @@ Notes:
 * When using the `_revinclude` parameter:
   * It may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
   * It may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
-* If `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently, `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilized for patient persona.
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
 * `_count` and `status` must be provided with patient
 * `status` valid parameters are `planned`, `in-progress`, `finished`, `cancelled`
 * The `date` parameter may be provided:
