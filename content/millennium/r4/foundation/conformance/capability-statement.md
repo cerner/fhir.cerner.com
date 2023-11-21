@@ -44,7 +44,7 @@ Authorization is not required.
 
     curl -i -H "Accept: application/fhir+json" "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/metadata"
 
-<%= RequestButton.get('ehr-code', :r4, 'metadata', 200, :r4_auth_metadata) %>
+<%= RequestButton.get('ehr', :r4, 'metadata', 200, :r4_auth_metadata) %>
 
 [`:serviceRootURL/metadata`]: ../../#service-root-url
 
@@ -72,4 +72,4 @@ Authorization is not required.
 
     curl -i -H "Accept: application/json" "https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/.well-known/smart-configuration"
 
-<%= RequestButton.get('ehr-code', :r4, '.well-known/smart-configuration', 200, :r4_well_known) %>
+<%= RequestButton.get('ehr', :r4, '.well-known/smart-configuration', 200, :r4_well_known) %>

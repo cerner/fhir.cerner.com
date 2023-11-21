@@ -1761,8 +1761,8 @@ module Cerner
                                 'protocols/oauth2/profiles/smart-v1/personas/provider/authorize',
       'token_endpoint': 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
                         'protocols/oauth2/profiles/smart-v1/token',
-      'revocation_endpoint': 'https://authorization.devcerner.com/tenants/'\
-                        '2c400054-42d8-4e74-87b7-80b5bd5fde9f/protocols/oauth2/profiles/smart-v1/token/revoke',
+      'revocation_endpoint': 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
+                        'protocols/oauth2/profiles/smart-v1/token/revoke',
       'token_endpoint_auth_methods_supported': [
         'client_secret_basic',
         'private_key_jwt'
@@ -1771,12 +1771,18 @@ module Cerner
         'RS384',
         'ES384'
       ],
+      'jwks_uri': 'https://authorization.cerner.com/jwk',
+      'grant_types_supported': [
+        'authorization_code',
+        'client_credentials'
+      ],
       'scopes_supported': [
         'launch',
         'profile',
         'fhirUser',
         'openid',
         'online_access',
+        'offline_access',
         'user/Account.read',
         'patient/Account.read',
         'system/Account.read',
@@ -1804,12 +1810,27 @@ module Cerner
         'user/CareTeam.read',
         'patient/CareTeam.read',
         'system/CareTeam.read',
+        'user/ChargeItem.read',
+        'patient/ChargeItem.read',
+        'system/ChargeItem.read',
+        'user/ChargeItem.write',
+        'patient/ChargeItem.write',
+        'system/ChargeItem.write',
+        'user/Communication.read',
+        'patient/Communication.read',
+        'system/Communication.read',
+        'user/Communication.write',
+        'patient/Communication.write',
+        'system/Communication.write',
         'user/Condition.read',
         'patient/Condition.read',
         'system/Condition.read',
         'user/Condition.write',
         'patient/Condition.write',
         'system/Condition.write',
+        'user/Consent.read',
+        'patient/Consent.read',
+        'system/Consent.read',
         'user/Coverage.read',
         'patient/Coverage.read',
         'system/Coverage.read',
@@ -1819,6 +1840,9 @@ module Cerner
         'user/Device.read',
         'patient/Device.read',
         'system/Device.read',
+        'user/DiagnosticReport.read',
+        'patient/DiagnosticReport.read',
+        'system/DiagnosticReport.read',
         'user/DocumentReference.read',
         'patient/DocumentReference.read',
         'system/DocumentReference.read',
@@ -1831,12 +1855,29 @@ module Cerner
         'user/Encounter.write',
         'patient/Encounter.write',
         'system/Encounter.write',
+        'user/FamilyMemberHistory.read',
+        'patient/FamilyMemberHistory.read',
+        'system/FamilyMemberHistory.read',
+        'user/FamilyMemberHistory.write',
+        'patient/FamilyMemberHistory.write',
+        'system/FamilyMemberHistory.write',
+        'user/Goal.read',
+        'patient/Goal.read',
+        'system/Goal.read',
         'user/Immunization.read',
         'patient/Immunization.read',
         'system/Immunization.read',
         'user/Immunization.write',
         'patient/Immunization.write',
         'system/Immunization.write',
+        'user/InsurancePlan.read',
+        'patient/InsurancePlan.read',
+        'system/InsurancePlan.read',
+        'user/Location.read',
+        'system/Location.read',
+        'user/MedicationAdministration.read',
+        'patient/MedicationAdministration.read',
+        'system/MedicationAdministration.read',
         'user/MedicationRequest.read',
         'patient/MedicationRequest.read',
         'system/MedicationRequest.read',
@@ -1881,35 +1922,58 @@ module Cerner
         'user/Provenance.write',
         'patient/Provenance.write',
         'system/Provenance.write',
+        'user/Questionnaire.read',
+        'patient/Questionnaire.read',
+        'system/Questionnaire.read',
+        'user/QuestionnaireResponse.read',
+        'patient/QuestionnaireResponse.read',
+        'system/QuestionnaireResponse.read',
+        'user/QuestionnaireResponse.write',
+        'patient/QuestionnaireResponse.write',
+        'system/QuestionnaireResponse.write',
         'user/RelatedPerson.read',
         'patient/RelatedPerson.read',
         'system/RelatedPerson.read',
+        'user/RelatedPerson.write',
+        'patient/RelatedPerson.write',
+        'system/RelatedPerson.write',
         'user/Schedule.read',
         'patient/Schedule.read',
         'system/Schedule.read',
         'user/ServiceRequest.read',
         'patient/ServiceRequest.read',
         'system/ServiceRequest.read',
+        'user/Slot.read',
+        'patient/Slot.read',
+        'system/Slot.read',
+        'user/Slot.write',
+        'patient/Slot.write',
+        'system/Slot.write',
         'system/FinancialTransaction.write'
       ],
       'response_types_supported': [
         'code'
       ],
-      'management_endpoint': 'https://authorization.devcerner.com/tenants/'\
-                             '2c400054-42d8-4e74-87b7-80b5bd5fde9f/personas/provider/my-authorizations',
+      'management_endpoint': 'https://authorization.cerner.com/tenants/'\
+                             'ec2458f2-1e24-41c8-b71b-0e701af7583d/personas/provider/my-authorizations',
       'introspection_endpoint': 'https://authorization.cerner.com/tokeninfo',
-      'capabilities': %w[
-        launch-ehr
-        launch-standalone
-        client-public
-        client-confidential-symmetric
-        sso-openid-connect
-        context-banner
-        context-style
-        context-ehr-patient
-        context-ehr-encounter
-        permission-patient
-        permission-user
+      'capabilities': [
+        'authorize-post',
+        'launch-ehr',
+        'launch-standalone',
+        'client-public',
+        'client-confidential-symmetric',
+        'sso-openid-connect',
+        'context-banner',
+        'context-style',
+        'context-ehr-patient',
+        'context-ehr-encounter',
+        'permission-patient',
+        'permission-user',
+        'permission-offline',
+        'permission-online',
+        'permission-v1',
+        'health-cards'
       ]
     }.freeze
 
