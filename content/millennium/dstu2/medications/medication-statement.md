@@ -9,9 +9,9 @@ title: MedicationStatement | DSTU 2 API
 
 ## Overview
 
-The MedicationStatement resource provides a snapshot in time of known medications taken by the patient now, or in the past, and reported by either the patient, a significant other, or a provider. Future orders are not returned. 
+The MedicationStatement resource provides a snapshot in time of known medications taken by the patient now or in the past, which were reported by the patient, a significant other, or a provider. Future orders are not returned. 
 
-Documented historical/past/home medications are commonly captured when taking the patient's medical history. Prescriptions without documented compliance are intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be taken unless documented otherwise.
+Historical, past, or home medications are commonly captured when documenting the patient's medical history. Prescriptions without documented compliance are considered intended because whether the patient is actively taking the medication or has filled the prescription is unknown. Medications are assumed to be taken unless documented otherwise.
 
 The following fields are returned if valued:
 
@@ -38,9 +38,9 @@ The following fields are returned if valued:
 
 ### Querying for Active Medications
 
-To get all possible current medications, an application should query MedicationStatement with the `status` query parameter set to `active,intended`. Since MedicationStatement is a snapshot in time, this is only a representation of what the system knew of during the last contact with the patient, and will not include things that have happened since the patient last visited with their provider.
+To get all possible current medications, an application should query the MedicationStatement resource with the `status` query parameter set to `active,intended`. Because the MedicationStatement resource provides a snapshot in time, the reponse includes only the information that was in the system as of the last contact with the patient. Changes in medications that occurred after the patient last visited their provider are not included.
 
-To get the list of current medications that would likely be shown by default to a practitioner, the [`MedicationOrder`] resource should be used in addition to the query above in order to ensure that `draft` orders are included. Duplicates can be removed using the `MedicationStatement.supportingInformation` reference. A duplicate is identified when `MedicationOrder.id` is equivalent to the `supportingInformation` referenced `MedicationOrder/[id]`
+To get the list of current medications that would likely be shown by default to a practitioner, use the [MedicationOrder] resource and the query above to ensure that `draft` orders are included. You can use the `MedicationStatement.supportingInformation` reference to remove duplicates. A duplicate is identified when the `MedicationOrder.id` is equivalent to the `MedicationOrder/[id]` in the `supportingInformation` reference.
 
 <%= disclaimer %>
 
@@ -71,13 +71,13 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2
 
  ID                              | Value\[x] Type      | Description
 ---------------------------------|---------------------|-------------------------------------------------------------------------------------------
- `patient-friendly-display`      | [`string`]          | Extension to MedicationRequest.dosageInstruction. The display that can be used for this field when producing a view suitable for a patient.
- `medication-statement-category` | [`CodeableConcept`] | The [category] of the order, for example: patientspecified, outpatient, etc.
+ `patient-friendly-display`      | [`string`]          | Extension to MedicationRequest.dosageInstruction. The display name that can be used for this field when producing a view suitable for a patient.
+ `medication-statement-category` | [`CodeableConcept`] | The [category] of the order, for example: patientspecified, outpatient, and so on.
 
 
 ## Search
 
-Search for MedicationStatements that meet supplied query parameters:
+Search for medication statements that meet supplied query parameters.
 
     GET /MedicationStatement?:parameters
 
@@ -93,14 +93,14 @@ Search for MedicationStatements that meet supplied query parameters:
 ------------ |---------------|---------------|--------------------------------------------------------------------------------------------------------
  `_id`       | Conditionally | [`token`]     | The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the `patient` parameter is not used. Example: `_id=1234`
  `patient`   | Conditionally | [`reference`] | The specific patient to return medication statements for. This parameter is required if the `_id` parameter is not used. Example: `patient=5678`
- `status`    | No            | [`token`]     | The status of the medication statement, may be a list separated by commas. Example: `status=active,completed`
+ `status`    | No            | [`token`]     | The status of the medication statement. It may be a list separated by commas. Example: `status=active,completed`
  [`_count`]  | No            | [`number`]    | The maximum number of results to return. Defaults to `_count=50`.
 
 
-_Implementation Notes_
+_Notes_
 
-* [MedicationStatement.informationSource] may be a reference to a [contained] Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.
-* [MedicationStatement.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a [`CodeableConcept`] because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.
+* [MedicationStatement.informationSource] may be a reference to a [contained] practitioner or related person. Only the relationship between the patient and information source is known; therefore, a specific practitioner or related person cannot be referenced.
+* [MedicationStatement.medication] may be a reference to a [contained] medication when the medication cannot be represented by a [`CodeableConcept`] because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication statement and cannot be be referenced independently.
 * When searching with the `_id` parameter:
   * It must not be provided with any other parameters.
 
@@ -121,7 +121,7 @@ _Implementation Notes_
 
 ## Retrieve by ID
 
-List an individual MedicationStatement by its ID:
+List an individual medication statement by its ID.
 
     GET /MedicationStatement/:id
 
@@ -146,15 +146,15 @@ List an individual MedicationStatement by its ID:
 
 ## Create
 
-Create a new MedicationStatement:
+Create a new medication statement.
 
     POST /MedicationStatement
 
-_Implementation Notes_
+_Notes_
 
-* If [MedicationStatement.medication] is a reference, it must refer to a [contained] Medication with the code field populated and cannot have any product.ingredients populated.
-* Only medication statements about home medications or historical medications can be created. Medication statements about prescribed medications cannot be created because MedicationStatement isn't used to capture compliance information.
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored or result in errors.
+* If [MedicationStatement.medication] is a reference, it must refer to a [contained] medication with the code field populated and cannot have any product.ingredients populated.
+* Only medication statements about home medications or historical medications can be created. Medication statements about prescribed medications cannot be created because the MedicationStatement resource is not used to capture compliance information.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored or result in errors.
 
 ### Authorization Types
 
@@ -213,16 +213,16 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ## Update
 
-Update a MedicationStatement:
+Update a medication statement.
 
     PUT /MedicationStatement/:id
 
-_Implementation Notes_
+_Notes_
 
-* Only medication statements without a reference to a Medication order can be updated. When a medication statement is tied to a prescription or order, its status is updated when the order itself is completed or cancelled.
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored or result in errors.
+* Only medication statements without a reference to a medication order can be updated. When a medication statement is associated with a prescription or order, its status is updated when the order itself is completed or canceled.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored or result in errors.
 * In addition to the common [errors], the following error may be returned:
-  * Updating a medication statement without sending the `If-Match` header will result in a `412 Precondition Failed` response.
+  * Updating a medication statement without sending the `If-Match` header returns a `412 Precondition Failed` response.
 
 ### Authorization Types
 
