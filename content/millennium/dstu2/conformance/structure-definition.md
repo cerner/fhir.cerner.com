@@ -32,14 +32,14 @@ The following fields are returned if valued:
 
 ## Retrieve by ID
 
-List an individual StructureDefinition by its ID:
+List an individual structure definition by its ID.
 
     GET /StructureDefinition/:id
 
-_Implementation Notes_
+_Notes_
 
 * Authentication is not required to access the StructureDefinition resource.
-* This resource can be retrieved by its defining URL or from the StructureDefinition resource located at the [service root URL](../../#service-root-url). For example, both of these URLs work:
+* You can retrieve this resource by its defining URL or from the StructureDefinition resource located at the [service root URL](../../#service-root-url). For example, both of these URLs work:
 
     `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display`
 
@@ -68,11 +68,11 @@ Authorization is not required.
 
 ID                                |  Description
 ----------------------------------|----------------------------------------------
-[`patient-friendly-display`]      |  Display string suitable for patient viewing.
-[`scheduling-location`]           |  Reference to the location of an appointment being scheduled.
-[`medication-statement-category`] |  Category of an order.
-[`infuse-over-time`]              |  The length of time in minutes it took to infuse a medication.
-[`encounter-guarantor`]           |  The guarantors of an encounter. Contains a reference to a Patient, Person, or Organization and a period when the guarantor is effective.
+[`patient-friendly-display`]      |  The display name suitable for patient viewing.
+[`scheduling-location`]           |  The reference to the location of a scheduled appointment.
+[`medication-statement-category`] |  The category of an order.
+[`infuse-over-time`]              |  The length of time in minutes to infuse a medication.
+[`encounter-guarantor`]           |  The guarantors of an encounter. Contains a reference to a patient, person, or organization, and a period when the guarantor is effective.
 
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display?_format=json
 [`scheduling-location`]: https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location?_format=json

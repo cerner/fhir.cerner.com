@@ -32,14 +32,14 @@ The following fields are returned if valued:
 
 ## Retrieve by ID
 
-List an individual StructureDefinition by its ID:
+List an individual structure definition by its ID.
 
     GET /StructureDefinition/:id
 
-_Implementation Notes_
+_Notes_
 
-* Authentication is not required to access the StructureDefinition resource
-* This resource can be retrieved by its defining URL or from the StructureDefinition resource located at the [service root URL](../../#service-root-url). For example, both of these URLs work:
+* Authentication is not required to access the StructureDefinition resource.
+* You can retrieve this resource by its defining URL or from the StructureDefinition resource located at the [service root URL](../../#service-root-url). For example, both of these URLs work:
 
     `https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance`
 
@@ -64,70 +64,70 @@ Authorization is not required.
 <%= headers status: 200 %>
 <%= json(:r4_structure_definition_bundle) %>
 
-## List of StructureDefinitions
+## List of Structure Definitions
 
  ID                                                          | Description
 -------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------
- [`account-balance`]                                         | Represents the account balance.
- [`account-presented-form`]                                  | Link to the PDF statement image related to the statement account.
- [`account-related-parts`]                                   | A reference to other related Accounts.
- [`account-state`]                                           | The status of the Account within the billing or correspondence workflow.
- [`bill-code-schedule`]                                      | A defined group of bill codes that drives billing behavior.
- [`choice-answer`]                                           | Indicates answers come from a list of options.
- [`client-instruction`]                                      | Represents instructions for an order that are intended for healthcare providers.
+ [`account-balance`]                                         | The account balance.
+ [`account-presented-form`]                                  | The link to the PDF statement image related to the statement account.
+ [`account-related-parts`]                                   | The reference to other related accounts.
+ [`account-state`]                                           | The status of the account in the billing or correspondence workflow.
+ [`bill-code-schedule`]                                      | The defined group of bill codes that drives billing behavior.
+ [`choice-answer`]                                           | The indication that answers come from a list of options.
+ [`client-instruction`]                                      | The instructions for an order that are intended for healthcare providers.
  [`client-organization`]                                     | The financially responsible organization.
  [`clinical-instruction`]                                    | The clinical instructions for an order that are intended for healthcare providers.
- [`condition-course`]                                        | Indication of a condition's progress since diagnosis.
- [`condition-lifecycle-status`]                              | Indication of whether a condition is active, inactive, resolved, etc.
- [`condition-result`]                                        | Indication of the presence (positive) or absence (negative) of a given condition.
- [`converted-measurement`]                                   | Returns a converted measurement of a different measurement system than the original quantity.
- [`coverage-encounter`]                                      | Reference to the Encounter associated to the encounter level Coverage.
- [`communication-preference`]                                | Defines communication methods preferred by a patient.
- [`custom-attribute`]                                        | A client defined custom attribute for the resource.
- [`description`]                                             | A description providing additional details of the resource.
+ [`condition-course`]                                        | The indication of a condition's progress since diagnosis.
+ [`condition-lifecycle-status`]                              | The indication of whether a condition is active, inactive, resolved, and so on.
+ [`condition-result`]                                        | The indication of the presence (positive) or absence (negative) of a given condition.
+ [`converted-measurement`]                                   | The converted measurement of a different measurement system than the original quantity.
+ [`coverage-encounter`]                                      | The encounter associated with the encounter-level coverage.
+ [`communication-preference`]                                | The communication methods preferred by a patient.
+ [`custom-attribute`]                                        | The client-defined custom attribute for the resource.
+ [`description`]                                             | The description providing additional details of the resource.
  [`email-status`]                                            | The status of the electronic communication.
  [`estimated-financial-responsibility-amount`]               | The estimated amount to be collected for the encounter.
  [`estimated-financial-responsibility-not-collected-reason`] | The reason no estimated amount is collected for the encounter.
- [`financial-transaction-account-number`]                    | A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.
- [`financial-transaction-alias`]                             | Client defined value to represent the combination of the type, subtype, and reason describing the financial transaction.
- [`financial-transaction-allocation`]                        | Defines how the payment or adjustment is to be allocated across other resources.
+ [`financial-transaction-account-number`]                    | The value associated with the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number, or the lockbox number.
+ [`financial-transaction-alias`]                             | The client-defined value to represent the combination of the type, subtype, and reason describing the financial transaction.
+ [`financial-transaction-allocation`]                        | The indication of how the payment or adjustment is to be allocated across other resources.
  [`financial-transaction-amount`]                            | The total amount of the financial transaction.
- [`financial-transaction-card-brand`]                        | Identifies the brand of credit card when credit card is used as a payment method.
- [`financial-transaction-date`]                              | Represents the expiration date if method is card, check date if method is check, EFT date if method is EFT or Lockbox date if method is lockbox.
- [`financial-transaction-location`]                          | Client configured value representing the location or workflow that the payment was received in.
- [`financial-transaction-method`]                            | Describes the method of payment for the financial transaction.
+ [`financial-transaction-card-brand`]                        | The brand of credit card when a credit card is used as a payment method.
+ [`financial-transaction-date`]                              | The expiration date if the method is card, check date if the method is check, EFT date if the method is EFT, or lockbox date if the method is lockbox.
+ [`financial-transaction-location`]                          | The client-configured value representing the location or workflow that the payment was received in.
+ [`financial-transaction-method`]                            | The method of payment for the financial transaction.
  [`financial-transaction-tendered-amount`]                   | The amount of cash originally tendered for payment. This value should be greater than or equal to the amount of the cash payment.
  [`financial-transaction-type`]                              | The classification of the transaction.
- [`formatted-text`]                                          | Link to the formatted text for a note. It is used in cases when the note is not a plain text.
- [`infuse-over-time`]                                        | The length of time in minutes it took to infuse a medication.
- [`is-modifiable`]                                           | Indication of whether data is modifiable or not.
- [`is-physician`]                                            | Indication of whether the provider is a physician or not.
- [`military-service-connected-indicator`]                    | Identifies whether an encounter is connected to military service.
- [`modifier-code`]                                           | A code providing additional detail about a product or service.
+ [`formatted-text`]                                          | The link to the formatted text for a note. This link is used when the note is not in plain text.
+ [`infuse-over-time`]                                        | The length of time in minutes to infuse a medication.
+ [`is-modifiable`]                                           | The indication of whether data is modifiable.
+ [`is-physician`]                                            | The indication of whether the provider is a physician.
+ [`military-service-connected-indicator`]                    | The indication of whether an encounter is connected to military service.
+ [`modifier-code`]                                           | The code providing additional detail about a product or service.
  [`national-drug-product`]                                   | The national drug product used in care.
  [`net-price`]                                               | The quantity times the unit price for a resource (total price).
- [`note`]                                                    | Additional details related to an element within the resource along with author and date/time information.
- [`note-allowed`]                                            | Indication of whether an additional comment is permitted.
- [`note-type`]                                               | Describes the type of note represented. This can be useful when there are multiple notes.
- [`offset-by`]                                               | Indicates a resource that this resource is offset by. This resource is no longer active when offset.
- [`patient-adopted`]                                         | Indication of whether a patient is adopted.
- [`patient-friendly-display`]                                | An expression of the original string in terminology that patients should be able to understand.
+ [`note`]                                                    | The additional details related to an element in the resource with author and date and time information.
+ [`note-allowed`]                                            | The indication of whether an additional comment is permitted.
+ [`note-type`]                                               | The type of note represented. Note type can be useful when multiple notes exist.
+ [`offset-by`]                                               | The indication of another resource that offets this resource. This resource is no longer active when offset.
+ [`patient-adopted`]                                         | The indication of whether a patient is adopted.
+ [`patient-friendly-display`]                                | The display name suitable for patient viewing.
  [`payment-collection-status`]                               | The status of the payment collection for the encounter.
- [`performing-location`]                                     | A location where the resource was performed.
- [`period`]                                                  | A time period defined by a start and end date/time.
- [`pharmacy-verification-status`]                            | Represents whether a MedicationRequest has been verified by a pharmacist.
- [`precision`]                                               | Indication of the precision of a given value.
- [`priority`]                                                | The priority of the element within a list.
- [`procedure-code`]                                          | A code providing information about the procedure performed on the patient associated to the resource.
+ [`performing-location`]                                     | The location where the resource was performed.
+ [`period`]                                                  | The time period defined by a start and end date and time.
+ [`pharmacy-verification-status`]                            | The indication of whether a medication request is verified by a pharmacist.
+ [`precision`]                                               | The indication of the precision of a given value.
+ [`priority`]                                                | The priority of the element in a list.
+ [`procedure-code`]                                          | The code providing information about the procedure performed on the patient associated with the resource.
  [`quantity-conversion-factor`]                              | The conversion factor used to calculate the quantity for billing.
- [`related-person-encounter`]                                | Reference to the Encounter associated to the encounter level RelatedPerson.
+ [`related-person-encounter`]                                | The encounter associated with the encounter-level related person.
  [`relation`]                                                | The related person's familial relationship to the patient.
  [`relationship-level`]                                      | The resource's relationship to either the patient or encounter level.
- [`replaced-by`]                                             | The resource containing this link must no longer be used. The link points forward to another resource that must be used in lieu of the resource that contains this link.
- [`replacing`]                                               | A reference to a resource that this resource is replacing.
- [`reply-to`]                                                | A link to a resource that the reply should be directed to.
- [`revenue-code`]                                            | The type of revenue or cost center providing the product and/or service.
- [`transmitting-organization`]                               | An organization that transmitted or participated in the creation of a resource, but not the author.
+ [`replaced-by`]                                             | The resource containing this link must no longer be used. The link points to another resource that must be used in lieu of the resource that contains this link.
+ [`replacing`]                                               | The reference to a resource that this resource is replacing.
+ [`reply-to`]                                                | The link to a resource that the reply should be directed to.
+ [`revenue-code`]                                            | The type of revenue or cost center providing the product, service, or both.
+ [`transmitting-organization`]                               | The organization that transmitted or participated in the creation of a resource, but not the author.
  [`unit-price`]                                              | The price of a single unit for the resource.
 
 [`account-balance`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance?_format=json
