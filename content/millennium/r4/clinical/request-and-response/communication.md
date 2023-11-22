@@ -45,19 +45,19 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 ID             | Value\[x] Type      | Description
 ---------------|---------------------|----------------------------------------------------------------------------------
-`reply-to`     | [`Reference`]       | Used to direct where replies to the Communication should be sent. Must be a Group.
-`email-status` | [`CodeableConcept`] | Status of the electronic Communication (in-progress, completed, received).
+`reply-to`     | [`Reference`]       | Directs where replies to the communication are sent. Must be a group.
+`email-status` | [`CodeableConcept`] | The status of the electronic communication (in-progress, completed, or received).
 
 ## Search
 
-Search for communications that meet supplied query parameters:
+Search for communications that meet supplied query parameters.
 
     GET /Communication?:parameters
 
 _Notes_
 
-* The Content of a Communication will be returned through the binary resource. A reference to the payload will be provided in the Payload section.
-* Only 1000 elements max will be returned based on the date range.
+* The content of a communication is returned through the Binary resource. A reference to the payload is provided in the Payload section.
+* Only a maximum of 1000 elements are returned based on the date range.
 
 ### Authorization Types
 
@@ -67,11 +67,11 @@ _Notes_
 
  Name                                                | Required?     | Type          | Description
 -----------------------------------------------------|---------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
- `_id`                                               | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `category`, `-email-status`, `recipient` and `received` are not used. Example: `489580643.0.-4.prsnl`
- `category`                                          | Conditionally | [`token`]     | A token for a [`CodeableConcept`] that points to the CodeableConcept used for `Communication.category`. This parameter is required along with `recipient`, `received` and `-email-status` if `_id` is not used. Example: `http://terminology.hl7.org/CodeSystem/communication-category|notification`
- `recipient:Group` or `recipient:Practitioner`       | Conditionally | [`reference`] | The recipient of the Communication. This parameter is required along with `category`, `received` and `-email-status` if `_id`  is not used. Example: `3456783`
- `received`                                          | Conditionally | [`date`]      | Date range into which the Communication falls. This parameter is required along with `category`, `recipient` and `-email-status` if `_id`  is not used. Example: `ge2017-02-01T10:30:00Z`
- `-email-status`                                     | Conditionally | [`token`]     | The status of the email. This parameter is required along with `category`, `recipient` and `received` if `_id`  is not used. Example: `http://hl7.org/fhir/task-status|in-progress`
+ `_id`                                               | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `category`, `-email-status`, `recipient`, and `received` are not used. Example: `489580643.0.-4.prsnl`
+ `category`                                          | Conditionally | [`token`]     | A token for a [`CodeableConcept`] that points to the CodeableConcept used for `Communication.category`. This parameter is required with `recipient`, `received`, and `-email-status` if `_id` is not used. Example: `http://terminology.hl7.org/CodeSystem/communication-category|notification`
+ `recipient:Group` or `recipient:Practitioner`       | Conditionally | [`reference`] | The recipient of the communication. This parameter is required with `category`, `received`, and `-email-status` if `_id`  is not used. Example: `3456783`
+ `received`                                          | Conditionally | [`date`]      | The date range that the communication falls within. This parameter is required with `category`, `recipient`, and `-email-status` if `_id`  is not used. Example: `ge2017-02-01T10:30:00Z`
+ `-email-status`                                     | Conditionally | [`token`]     | The status of the email. This parameter is required with `category`, `recipient`, and `received` if `_id`  is not used. Example: `http://hl7.org/fhir/task-status|in-progress`
 
 
  Notes:
@@ -97,7 +97,7 @@ _Notes_
 
 ## Retrieve by ID
 
-List an individual Communication by its ID:
+List an individual communication by its ID.
 
     GET /Communication/:id
 
@@ -122,14 +122,14 @@ List an individual Communication by its ID:
 
 ## Create
 
-Create a new Communication.
+Create a new communication.
 
     POST /Communication
 
 _Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
-* Modifier fields should not be provided, and will cause the transaction to fail.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored.
+* Do not provide modifier fields because they cause the transaction to fail.
 
 ### Authorization Types
 
@@ -176,13 +176,13 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ## Patch
 
-Patch an existing Communication.
+Patch an existing communication.
 
     PATCH /Communication/:id
 
 _Notes_
 
-* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
+* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) specification.
 * Only operations on the paths listed below are supported.
 
 ### Authorization Types
