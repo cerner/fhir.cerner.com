@@ -9,7 +9,7 @@ title: Person | DSTU 2 API
 
 ## Overview
 
-The Person resource identifies an individual outside of a specific health care context providing a mechanism to link person resources across different facilities or organizations.
+The Person resource identifies an individual outside of a specific healthcare context and provides a mechanism to associate person resources across different facilities or organizations.
 
 The following fields are returned if valued:
 
@@ -34,7 +34,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Persons that meet supplied query parameters:
+Search for persons that meet supplied query parameters.
 
     GET /Person?:parameters
 
@@ -70,7 +70,7 @@ Notes:
 
 ## Retrieve by ID
 
-List an individual Person by its ID:
+List an individual person by their ID.
 
     GET /Person/:id
 
@@ -95,10 +95,7 @@ List an individual Person by its ID:
 
 ### Person Combines Example
 
-Cerner Millennium supports the ability to logically merge a person record into another person record when both records are describing the same person. This is known
-as a person combine. If necessary, this merging can later be undone by performing a person uncombine. When the requested person record has been combined into another
-record, an inactive Person entry will be returned which has a link to the current Person entry. Entries for combined patients will only be returned when retrieving
-the entries directly by ID. They will not be returned when searching with other parameters.
+Oracle Health Millennium Platform supports the ability to logically merge a person record into another person record when both records are describing the same person. This merge is known as a person combine. If necessary, you can perform a person uncombine to undo the merge. When the requested person record is combined into another record, an inactive person entry is returned with a link to the current person entry. Entries for combined patients are only returned when retrieving the entries directly by ID. They are not returned when searching with other parameters.
 
 #### Request
 
