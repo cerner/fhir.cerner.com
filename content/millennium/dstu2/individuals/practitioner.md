@@ -9,7 +9,7 @@ title: Practitioner | DSTU 2 API
 
 ## Overview
 
-The Practitioner resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include and are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.
+The Practitioner resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include but are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.
 
 The following fields are returned if valued:
 
@@ -33,7 +33,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Practitioners that meet supplied query parameters:
+Search for practitioners that meet supplied query parameters.
 
     GET /Practitioner?:parameters
 
@@ -63,7 +63,7 @@ Search for Practitioners that meet supplied query parameters:
 
 ## Retrieve by ID
 
-List an individual Practitioner by its ID:
+List an individual practitioner by their ID.
 
     GET /Practitioner/:id
 
