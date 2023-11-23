@@ -1922,7 +1922,7 @@ module Cerner
                   {
                     'valueUri': 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
                                 'protocols/oauth2/profiles/smart-v1/token/revoke',
-                    'url': "revoke"
+                    'url': 'revoke'
                   },
                   {
                     'valueUri': 'https://authorization.cerner.com/tenants/ec2458f2-1e24-41c8-b71b-0e701af7583d/'\
