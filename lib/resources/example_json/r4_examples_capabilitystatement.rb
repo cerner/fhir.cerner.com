@@ -831,206 +831,206 @@ module Cerner
                 }
               ]
             },
+            {
+              'type': 'FamilyMemberHistory',
+              'interaction': [
                 {
-                  'type': 'FamilyMemberHistory',
-                  'interaction': [
-                    {
-                      'code': 'read'
-                    },
-                    {
-                      'code': 'search-type'
-                    }
-                  ],
-                  'searchParam': [
-                    {
-                      'name': '_id',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
-                      'type': 'token',
-                      'documentation': 'A single or comma separated list of FamilyMemberHistory ids. It is a required '\
-                                       'field if the patient field is not given.'
-                    },
-                    {
-                      'name': 'patient',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
-                      'type': 'reference',
-                      'documentation': 'Who the family member history is for. It is a required field if the _id field '\
-                                       'is not given. It is a required field if the status parameter is provided.'
-                    },
-                    {
-                      'name': 'status',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/status',
-                      'type': 'token',
-                      'documentation': 'The status of the FamilyMemberHistory.'
-                    }
-                  ]
+                  'code': 'read'
                 },
                 {
-                  'type': 'Goal',
-                  'supportedProfile': [
-                    'http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal'
-                  ],
-                  'interaction': [
-                    {
-                      'code': 'read'
-                    },
-                    {
-                      'code': 'search-type'
-                    }
-                  ],
-                  'searchRevInclude': [
-                    'Provenance:target'
-                  ],
-                  'searchParam': [
-                    {
-                      'name': '_id',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
-                      'type': 'token',
-                      'documentation': 'Goal id supports only the single id. It is a required field if the patient '\
-                                       'field is not given.'
-                    },
-                    {
-                      'name': 'patient',
-                      'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-goal-patient',
-                      'type': 'reference',
-                      'documentation': 'Who has the goal is for. It is a required field if the _id field is not given.'
-                    },
-                    {
-                      'name': 'target-date',
-                      'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-goal-target-date',
-                      'type': 'date',
-                      'documentation': 'A date or date range from which to find Goals.'
-                    }
-                  ]
+                  'code': 'search-type'
+                }
+              ],
+              'searchParam': [
+                {
+                  'name': '_id',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  'type': 'token',
+                  'documentation': 'A single or comma separated list of FamilyMemberHistory ids. It is a required '\
+                                   'field if the patient field is not given.'
                 },
                 {
-                  'type': 'Immunization',
-                  'supportedProfile': [
-                    'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
-                  ],
-                  'interaction': [
-                    {
-                      'code': 'read'
-                    },
-                    {
-                      'code': 'search-type'
-                    }
-                  ],
-                  'searchRevInclude': [
-                    'Provenance:target'
-                  ],
-                  'searchParam': [
-                    {
-                      'name': '_id',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
-                      'type': 'token',
-                      'documentation': 'A single or comma separated list of Immunization ids. It is a required field '\
-                                       'if the patient field is not given.'
-                    },
-                    {
-                      'name': 'patient',
-                      'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-patient',
-                      'type': 'reference',
-                      'documentation': 'The patient for the vaccination record. It is a required field if the _id '\
-                                       'field is not given.'
-                    },
-                    {
-                      'name': 'date',
-                      'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-date',
-                      'type': 'date',
-                      'documentation': 'Vaccination (non)-Administration Date.'
-                    },
-                    {
-                      'name': 'target-disease',
-                      'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-target-disease',
-                      'type': 'token',
-                      'documentation': 'A single or comma separated list of target diseases the dose is being '\
-                                       'administered against.'
-                    }
-                  ]
+                  'name': 'patient',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
+                  'type': 'reference',
+                  'documentation': 'Who the family member history is for. It is a required field if the _id field '\
+                                   'is not given. It is a required field if the status parameter is provided.'
                 },
                 {
-                  'type': 'InsurancePlan',
-                  'interaction': [
-                    {
-                      'code': 'read'
-                    },
-                    {
-                      'code': 'search-type'
-                    }
-                  ],
-                  'searchParam': [
-                    {
-                      'name': '_id',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
-                      'type': 'token',
-                      'documentation': 'A single or comma separated list of InsurancePlan ids.'
-                    },
-                    {
-                      'name': 'owned-by',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/InsurancePlan-owned-by',
-                      'type': 'reference',
-                      'documentation': 'The organization that is providing the health insurance product.'
-                    }
-                  ]
+                  'name': 'status',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/status',
+                  'type': 'token',
+                  'documentation': 'The status of the FamilyMemberHistory.'
+                }
+              ]
+            },
+            {
+              'type': 'Goal',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal'
+              ],
+              'interaction': [
+                {
+                  'code': 'read'
                 },
                 {
-                  'type': 'Location',
-                  'supportedProfile': [
-                    'http://hl7.org/fhir/us/core/StructureDefinition/us-core-location'
-                  ],
-                  'interaction': [
-                    {
-                      'code': 'read'
-                    },
-                    {
-                      'code': 'search-type'
-                    }
-                  ],
-                  'searchParam': [
-                    {
-                      'name': '_id',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
-                      'type': 'token',
-                      'documentation': 'A single or comma separated list of Location ids. It is a required field if '\
-                                       'the -physicalType field is not given'
-                    },
-                    {
-                      'name': '-physicalType',
-                      'type': 'token',
-                      'documentation': "The Location's physical type. It is a required field if the _id field is not "\
-                                       'given'
+                  'code': 'search-type'
+                }
+              ],
+              'searchRevInclude': [
+                'Provenance:target'
+              ],
+              'searchParam': [
+                {
+                  'name': '_id',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  'type': 'token',
+                  'documentation': 'Goal id supports only the single id. It is a required field if the patient '\
+                                   'field is not given.'
+                },
+                {
+                  'name': 'patient',
+                  'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-goal-patient',
+                  'type': 'reference',
+                  'documentation': 'Who has the goal is for. It is a required field if the _id field is not given.'
+                },
+                {
+                  'name': 'target-date',
+                  'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-goal-target-date',
+                  'type': 'date',
+                  'documentation': 'A date or date range from which to find Goals.'
+                }
+              ]
+            },
+            {
+              'type': 'Immunization',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-immunization'
+              ],
+              'interaction': [
+                {
+                  'code': 'read'
+                },
+                {
+                  'code': 'search-type'
+                }
+              ],
+              'searchRevInclude': [
+                'Provenance:target'
+              ],
+              'searchParam': [
+                {
+                  'name': '_id',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  'type': 'token',
+                  'documentation': 'A single or comma separated list of Immunization ids. It is a required field '\
+                                   'if the patient field is not given.'
+                },
+                {
+                  'name': 'patient',
+                  'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-patient',
+                  'type': 'reference',
+                  'documentation': 'The patient for the vaccination record. It is a required field if the _id '\
+                                   'field is not given.'
+                },
+                {
+                  'name': 'date',
+                  'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-date',
+                  'type': 'date',
+                  'documentation': 'Vaccination (non)-Administration Date.'
+                },
+                {
+                  'name': 'target-disease',
+                  'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-target-disease',
+                  'type': 'token',
+                  'documentation': 'A single or comma separated list of target diseases the dose is being '\
+                                   'administered against.'
+                }
+              ]
+            },
+            {
+              'type': 'InsurancePlan',
+              'interaction': [
+                {
+                  'code': 'read'
+                },
+                {
+                  'code': 'search-type'
+                }
+              ],
+              'searchParam': [
+                {
+                  'name': '_id',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  'type': 'token',
+                  'documentation': 'A single or comma separated list of InsurancePlan ids.'
+                },
+                {
+                  'name': 'owned-by',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/InsurancePlan-owned-by',
+                  'type': 'reference',
+                  'documentation': 'The organization that is providing the health insurance product.'
+                }
+              ]
+            },
+            {
+              'type': 'Location',
+              'supportedProfile': [
+                'http://hl7.org/fhir/us/core/StructureDefinition/us-core-location'
+              ],
+              'interaction': [
+                {
+                  'code': 'read'
+                },
+                {
+                  'code': 'search-type'
+                }
+              ],
+              'searchParam': [
+                {
+                  'name': '_id',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
+                  'type': 'token',
+                  'documentation': 'A single or comma separated list of Location ids. It is a required field if '\
+                                   'the -physicalType field is not given'
+                },
+                {
+                  'name': '-physicalType',
+                  'type': 'token',
+                  'documentation': "The Location's physical type. It is a required field if the _id field is not "\
+                                   'given'
                 },
                 {
                   'name': 'identifier',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-location-identifier',
                   'type': 'token',
                   'documentation': "A location's identifier."
-                    },
-                    {
-                      'name': 'address',
-                      'type': 'string',
-                      'documentation': 'A (part of the) address of the location'
-                    },
-                    {
-                      'name': 'address-city',
-                      'type': 'string',
-                      'documentation': 'A city specified in an address. It is a required field if the address-state '\
-                                       'or address-postalcode fields are not given'
-                    },
-                    {
-                      'name': 'address-state',
-                      'type': 'string',
-                      'documentation': 'A state specified in an address'
-                    },
-                    {
-                      'name': 'address-postalcode',
-                      'type': 'string',
-                      'documentation': 'A postal code specified in an address'
-                    },
-                    {
-                      'name': 'name',
-                      'type': 'string',
-                      'documentation': "A portion of the location's name or alias"
+                },
+                {
+                  'name': 'address',
+                  'type': 'string',
+                  'documentation': 'A (part of the) address of the location'
+                },
+                {
+                  'name': 'address-city',
+                  'type': 'string',
+                  'documentation': 'A city specified in an address. It is a required field if the address-state '\
+                                   'or address-postalcode fields are not given'
+                },
+                {
+                  'name': 'address-state',
+                  'type': 'string',
+                  'documentation': 'A state specified in an address'
+                },
+                {
+                  'name': 'address-postalcode',
+                  'type': 'string',
+                  'documentation': 'A postal code specified in an address'
+                },
+                {
+                  'name': 'name',
+                  'type': 'string',
+                  'documentation': "A portion of the location's name or alias"
                 },
                 {
                   'name': 'organization',
@@ -1321,12 +1321,12 @@ module Cerner
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Organization-identifier',
                   'type': 'token',
                   'documentation': "The Organization's Identifier."
-                    },
-                    {
-                      'name': 'type',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/Organization-type',
-                      'type': 'token',
-                      'documentation': "The Organization's type."
+                },
+                {
+                  'name': 'type',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/Organization-type',
+                  'type': 'token',
+                  'documentation': "The Organization's type."
                 },
                 {
                   'name': '_count',
@@ -1339,12 +1339,12 @@ module Cerner
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Organization-name',
                   'type': 'string',
                   'documentation': "The Organization's name."
-                    },
-                    {
-                      'name': 'address',
-                      'definition': 'http://hl7.org/fhir/R4/SearchParameter/Organization-address',
-                      'type': 'string',
-                      'documentation': "The Organization's address."
+                },
+                {
+                  'name': 'address',
+                  'definition': 'http://hl7.org/fhir/R4/SearchParameter/Organization-address',
+                  'type': 'string',
+                  'documentation': "The Organization's address."
                 }
               ],
               'operation': [
@@ -1490,8 +1490,8 @@ module Cerner
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Person-identifier',
                   'type': 'token',
                   'documentation': "A person's Identifier. It is a required field if the _id field is not given"
-                    }
-                  ]
+                }
+              ]
             },
             {
               'type': 'Practitioner',
