@@ -1266,7 +1266,7 @@ module Cerner
                                    'provided once without a prefix or time component to imply a date range or once '\
                                    'without a prefix and with a time component to search for observations at a '\
                                    "specific time. Alternately it may be provided twice with 'le', 'lt', 'ge', or "\
-                                   "gt' prefixes to search for observations within a specific range. The date and "\
+                                   "'gt' prefixes to search for observations within a specific range. The date and "\
                                    'prefix pairs must create a closed range.'
                 },
                 {
@@ -1386,7 +1386,7 @@ module Cerner
                   'type': 'token',
                   'documentation': "A patient identifier. Either the '_id' parameter, or a combination of "\
                                    "'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', "\
-                                   "phone', or 'email' parameters must be provided."
+                                   "'phone', or 'email' parameters must be provided."
                 },
                 {
                   'name': 'name',
@@ -2112,7 +2112,7 @@ module Cerner
                   'name': '-date-or-req-period',
                   'type': 'date',
                   'documentation': 'A start date or requested period from which to find appointments. This or the '\
-                                   "date' parameter must be set when using patient, practitioner or location. The "\
+                                   "'date' parameter must be set when using patient, practitioner or location. The "\
                                    "'-date-or-req-period' parameter may be provided once without a prefix or time "\
                                    'component to imply a date range or once without a prefix and with a time '\
                                    'component to search for appointments at a specific time. Alternately it may be '\
