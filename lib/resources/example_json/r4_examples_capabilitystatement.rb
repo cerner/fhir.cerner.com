@@ -77,8 +77,8 @@ module Cerner
                 {
                   'name': '-guarantor',
                   'type': 'reference',
-                  'documentation': 'The entity that responsible for payment. It is a required field if the _id or patient '\
-                                   'fields are not given.'
+                  'documentation': 'The entity that responsible for payment. It is a required field if the _id or '\
+                                   'patient fields are not given.'
                 },
                 {
                   'name': 'type',
@@ -121,8 +121,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of AllergyIntolerance ids. It is a required field '\
-                                   'if the patient field is not given.'
+                  'documentation': 'A single or comma separated list of AllergyIntolerance ids. It is a required '\
+                                   'field if the patient field is not given.'
                 },
                 {
                   'name': 'patient',
@@ -153,8 +153,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': "A single or comma separated list of Appointment ids. Either the '_id' parameter or "\
-                                   "one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                  'documentation': "A single or comma separated list of Appointment ids. Either the '_id' parameter "\
+                                   "or one of the 'patient', 'practitioner' or 'location' parameters must be set."
                 },
                 {
                   'name': '_count',
@@ -166,23 +166,24 @@ module Cerner
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Appointment-date',
                   'type': 'date',
-                  'documentation': "A date or date range from which to find appointments. This or the '-date-or-req-period' "\
-                                   "parameter must be set when using patient, practitioner or location. The 'date' parameter "\
-                                   'may be provided once without a prefix or time component to imply a date range or once '\
-                                   'without a prefix and with a time component to search for appointments at a specific time. '\
-                                   "Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments "\
+                  'documentation': 'A date or date range from which to find appointments. This or the '\
+                                   "'-date-or-req-period' parameter must be set when using patient, practitioner or "\
+                                   "location. The 'date' parameter may be provided once without a prefix or time "\
+                                   'component to imply a date range or once without a prefix and with a time '\
+                                   'component to search for appointments at a specific time. Alternately it may be '\
+                                   "provided twice with 'le' and 'gt' prefixes to search for appointments "\
                                    'within a specific range. The date prefix pair must create a closed range.'
                 },
                 {
                   'name': '-date-or-req-period',
                   'type': 'date',
-                  'documentation': "A start date or requested period from which to find appointments. This or the 'date' "\
-                                   'parameter must be set when using patient, practitioner or location. The '\
+                  'documentation': 'A start date or requested period from which to find appointments. This or the '\
+                                   "'date' parameter must be set when using patient, practitioner or location. The "\
                                    "'-date-or-req-period' parameter may be provided once without a prefix or time "\
-                                   'component to imply a date range or once without a prefix and with a time component '\
-                                   'to search for appointments at a specific time. Alternately it may be provided twice '\
-                                   "with 'le' and 'gt' prefixes to search for appointments within a specific range. The "\
-                                   'date prefix pair must create a closed range.'
+                                   'component to imply a date range or once without a prefix and with a time '\
+                                   'component to search for appointments at a specific time. Alternately it may be '\
+                                   "provided twice with 'le' and 'gt' prefixes to search for appointments within a "\
+                                   'specific range. The date prefix pair must create a closed range.'
             },
             {
               'name': 'patient',
@@ -409,30 +410,31 @@ module Cerner
               'name': 'category',
               'definition': 'http://hl7.org/fhir/R4/SearchParameter/Communication-category',
               'type': 'token',
-              'documentation': 'The message category. It is a required field if the _id field is not given. Must be set '\
-                               'with received, recipient and -email-status.'
+              'documentation': 'The message category. It is a required field if the _id field is not given. Must be '\
+                               'set with received, recipient and -email-status.'
             },
             {
               'name': 'received',
               'definition': 'http://hl7.org/fhir/R4/SearchParameter/Communication-received',
               'type': 'date',
-              'documentation': 'When the message is received. It is a required field if the _id field is not given. Must '\
-                               "be set with category, recipient and -email-status. If used, the ‘received’ parameter "\
-                               "may be provided once or twice. Once with a 'ge' prefix representing the earliest received "\
-                               "date, and/or once with a 'le’ prefix representing the latest received date."
+              'documentation': 'When the message is received. It is a required field if the _id field is not given. '\
+                               "Must be set with category, recipient and -email-status. If used, the ‘received’ "\
+                               "parameter may be provided once or twice. Once with a 'ge' prefix representing the "\
+                               "earliest received date, and/or once with a 'le’ prefix representing the latest "\
+                               'received date.'
             },
             {
               'name': 'recipient',
               'definition': 'http://hl7.org/fhir/R4/SearchParameter/Communication-recipient',
               'type': 'reference',
-              'documentation': 'The recipient of the message. It is a required field if the _id field is not given. Must '\
-                               'be set with category, recipient and -email-status.'
+              'documentation': 'The recipient of the message. It is a required field if the _id field is not given. '\
+                               'Must be set with category, recipient and -email-status.'
             },
             {
               'name': '-email-status',
               'type': 'token',
-              'documentation': 'The email status of the message. It is a required field if the _id field is not given. Must '\
-                               'be set with category, received and recipient.'
+              'documentation': 'The email status of the message. It is a required field if the _id field is not '\
+                               'given. Must be set with category, received and recipient.'
             }
           ]
         },
@@ -457,14 +459,15 @@ module Cerner
               'name': '_id',
               'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
               'type': 'token',
-              'documentation': 'A single or comma separated list of Condition ids. It is a required field if the patient or '\
-                               'subject fields are not given.'
+              'documentation': 'A single or comma separated list of Condition ids. It is a required field if the '\
+                               'patient or subject fields are not given.'
             },
             {
               'name': 'patient',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-condition-patient',
               'type': 'reference',
-              'documentation': 'Who has the condition. It is a required field if the subject or _id fields are not given.'
+              'documentation': 'Who has the condition. It is a required field if the subject or _id fields are not '\
+                               'given.'
             },
             {
               'name': 'encounter',
@@ -476,7 +479,8 @@ module Cerner
               'name': 'subject',
               'definition': 'http://hl7.org/fhir/R4/SearchParameter/Condition-subject',
               'type': 'reference',
-              'documentation': 'Who has the condition. It is a required field if the patient or _id fields are not given.'
+              'documentation': 'Who has the condition. It is a required field if the patient or _id fields are not '\
+                               'given.'
             },
             {
               'name': 'clinical-status',
@@ -531,8 +535,9 @@ module Cerner
               'name': 'patient.identifier',
               'definition': 'http://hl7.org/fhir/R4/SearchParameter/Consent-patient.identifier',
               'type': 'token',
-              'documentation': 'The patient.identifier allows to search by patient aliases. Federated Person Principle, '\
-                               'SSN, MRN etc... are supported as of now. It is a required field if the _id field is not given.'
+              'documentation': 'The patient.identifier allows to search by patient aliases. Federated Person '\
+                               'Principle, SSN, MRN etc... are supported as of now. It is a required field if the _id '\
+                               'field is not given.'
             },
             {
               'name': 'actor.identifier',
@@ -596,7 +601,8 @@ module Cerner
               'name': 'patient',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-device-patient',
               'type': 'reference',
-              'documentation': 'The patient to whom Device is affixed. It is a required field if the _id field is not given.'
+              'documentation': 'The patient to whom Device is affixed. It is a required field if the _id field is not '\
+                               'given.'
             }
           ]
         },
@@ -654,10 +660,10 @@ module Cerner
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-diagnosticreport-date',
               'type': 'date',
               'documentation': 'A date range with which to find Documents. A date parameter may be provided once with '\
-                               'or without prefix and time component to imply a date range. Alternately it may be provided '\
-                               "twice with 'le', 'lt', 'ge', or 'gt'  prefixes and time component to search for procedures "\
-                               'within a specific range. The date and prefix pairs must create a closed range. Must be set '\
-                               'with patient or subject.'
+                               'or without prefix and time component to imply a date range. Alternately it may be '\
+                               "provided twice with 'le', 'lt', 'ge', or 'gt'  prefixes and time component to search "\
+                               'for procedures within a specific range. The date and prefix pairs must create a '\
+                               'closed range. Must be set with patient or subject.'
             },
             {
               'name': '_count',
@@ -688,14 +694,15 @@ module Cerner
               'name': '_id',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-id',
               'type': 'token',
-              'documentation': 'A single or comma separated list of DocumentReference ids. It is a required field if the '\
-                               'patient field is not given.'
+              'documentation': 'A single or comma separated list of DocumentReference ids. It is a required field if '\
+                               'the patient field is not given.'
             },
             {
               'name': 'patient',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-patient',
               'type': 'reference',
-              'documentation': 'The patient the document is about. It is a required field if the subject field is not given.'
+              'documentation': 'The patient the document is about. It is a required field if the subject field is not '\
+                               'given.'
             },
             {
               'name': 'encounter',
@@ -707,10 +714,10 @@ module Cerner
               'name': 'period',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-period',
               'type': 'date',
-              'documentation': "A date range with which to find Documents. If used, the 'period' parameter must be provided "\
-                               "twice. Once with a 'ge' prefix representing the earliest date, and once with a 'lt' prefix "\
-                               'representing the latest date. The period prefix pair must create a closed range and cannot '\
-                               'be equal to each other.'
+              'documentation': "A date range with which to find Documents. If used, the 'period' parameter must be "\
+                               "provided twice. Once with a 'ge' prefix representing the earliest date, and once with "\
+                               "a 'lt' prefix representing the latest date. The period prefix pair must create a "\
+                               'closed range and cannot be equal to each other.'
             },
             {
               'name': '_count',
@@ -734,11 +741,12 @@ module Cerner
               'name': 'date',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-date',
               'type': 'date',
-              'documentation': 'It must be provided  once with a prefix to imply a date  range or without a prefix to search '\
-                               "for document(s) at a specific date. Alternately it may be provided twice with `le`, `lt`, "\
-                               "`ge`, or `gt` prefixes to search for document(s) within specific range. The date and prefix "\
-                               "pairs must create a closed range. For a single 'date' occurrence, `time` component is optional "\
-                               "but for two `date` occurrences, must include `time` component."
+              'documentation': 'It must be provided  once with a prefix to imply a date  range or without a prefix to '\
+                               'search for document(s) at a specific date. Alternately it may be provided twice with '\
+                               "`le`, `lt`, `ge`, or `gt` prefixes to search for document(s) within specific range. "\
+                               "The date and prefix pairs must create a closed range. For a single 'date' occurrence, "\
+                               "`time` component is optional but for two `date` occurrences, must include `time` "\
+                               'component.'
             }
           ],
           'operation': [
@@ -770,8 +778,8 @@ module Cerner
               'name': '_id',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-encounter-id',
               'type': 'token',
-              'documentation': 'A single or comma separated list of Encounter ids. It is a required field if the account '\
-                               'or identifier or -pageContext or patient or subject fields are not given.'
+              'documentation': 'A single or comma separated list of Encounter ids. It is a required field if the '\
+                               'account or identifier or -pageContext or patient or subject fields are not given.'
             },
             {
               'name': '_count',
@@ -803,17 +811,17 @@ module Cerner
               'name': 'date',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-encounter-date',
               'type': 'date',
-              'documentation': 'A date parameter may be provided once with a prefix and time component to imply a date '\
-                               "range. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes and "\
-                               'time component to search for encounters within a specific range. The date and prefix '\
-                               'pairs must create a closed range. Must be set with patient or subject.'
+              'documentation': 'A date parameter may be provided once with a prefix and time component to imply a '\
+                               "date range. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' "\
+                               'prefixes and time component to search for encounters within a specific range. The '\
+                               'date and prefix pairs must create a closed range. Must be set with patient or subject.'
             },
             {
               'name': 'identifier',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-encounter-identifier',
               'type': 'token',
-              'documentation': "An encounter's identifier. It is a required field if the account or _id or -pageContext "\
-                               'or patient or subject fields are not given.'
+              'documentation': "An encounter's identifier. It is a required field if the account or _id or "\
+                               '-pageContext or patient or subject fields are not given.'
                 }
               ]
             },
@@ -832,15 +840,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of FamilyMemberHistory ids. It is a required field if the '\
-                                   'patient field is not given.'
+                  'documentation': 'A single or comma separated list of FamilyMemberHistory ids. It is a required '\
+                                   'field if the patient field is not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
                   'type': 'reference',
-                  'documentation': 'Who the family member history is for. It is a required field if the _id field is not given. '\
-                                   'It is a required field if the status parameter is provided.'
+                  'documentation': 'Who the family member history is for. It is a required field if the _id field '\
+                                   'is not given. It is a required field if the status parameter is provided.'
                 },
                 {
                   'name': 'status',
@@ -871,7 +879,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'Goal id supports only the single id. It is a required field if the patient field is not given.'
+                  'documentation': 'Goal id supports only the single id. It is a required field if the patient field '\
+                                   'is not given.'
                 },
                 {
                   'name': 'patient',
@@ -908,15 +917,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Immunization ids. It is a required field if the '\
-                                   'patient field is not given.'
+                  'documentation': 'A single or comma separated list of Immunization ids. It is a required field if '\
+                                   'the patient field is not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-patient',
                   'type': 'reference',
-                  'documentation': 'The patient for the vaccination record. It is a required field if the _id field is not '\
-                                   'given.'
+                  'documentation': 'The patient for the vaccination record. It is a required field if the _id field '\
+                                   'is not given.'
                 },
                 {
                   'name': 'date',
@@ -928,7 +937,8 @@ module Cerner
                   'name': 'target-disease',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-target-disease',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of target diseases the dose is being administered against.'
+                  'documentation': 'A single or comma separated list of target diseases the dose is being '\
+                                   'administered against.'
                 }
               ]
             },
@@ -1062,10 +1072,11 @@ module Cerner
               'name': 'effective-time',
               'definition': 'http://hl7.org/fhir/R4/SearchParameter/medicationadministration-effective-time',
               'type': 'date',
-              'documentation': "A effective-time parameter may be provided once with 'le' or 'lt' or 'ge' or 'gt' prefix "\
-                               "and time component to imply a date range. Alternately it may be provided twice with 'le', "\
-                               "'lt', 'ge', or 'gt' prefixes and time component to search for medications administered "\
-                               'within a specific range. The date and prefix pairs must create a closed range.'
+              'documentation': "A effective-time parameter may be provided once with 'le' or 'lt' or 'ge' or 'gt' "\
+                               'prefix and time component to imply a date range. Alternately it may be provided twice '\
+                               "with 'le', 'lt', 'ge', or 'gt' prefixes and time component to search for medications "\
+                               'administered within a specific range. The date and prefix pairs must create a closed '\
+                               'range.'
             }
           ]
         },
@@ -1245,10 +1256,11 @@ module Cerner
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-observation-date',
               'type': 'date',
               'documentation': "A date or date range from which to find observations. The 'date' parameter may be "\
-                               'provided once without a prefix or time component to imply a date range or once without '\
-                               'a prefix and with a time component to search for observations at a specific time. '\
-                               "Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search "\
-                               'for observations within a specific range. The date and prefix pairs must create a closed range.'
+                               'provided once without a prefix or time component to imply a date range or once '\
+                               'without a prefix and with a time component to search for observations at a specific '\
+                               "time. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to "\
+                               'search for observations within a specific range. The date and prefix pairs must '\
+                               'create a closed range.'
             },
             {
               'name': '_lastUpdated',
@@ -1258,8 +1270,8 @@ module Cerner
                                "period. The '_lastUpdated' parameter may be provided once without a prefix or time "\
                                'component to imply a date range or once without a prefix and with a time component to '\
                                'search for observations at a specific time. Alternately it may be provided twice with '\
-                               "'le', 'lt', 'ge', or 'gt' prefixes to search for observations within a specific range. "\
-                               'The date and prefix pairs must create a closed range.'
+                               "'le', 'lt', 'ge', or 'gt' prefixes to search for observations within a specific "\
+                               'range. The date and prefix pairs must create a closed range.'
             },
             {
               'name': '_count',
@@ -1358,8 +1370,8 @@ module Cerner
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-patient-id',
               'type': 'token',
               'documentation': "A single or comma separated list of Patient ids. Either the '_id' parameter, or a "\
-                               "combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', "\
-                               "'phone', or 'email' parameters must be provided."
+                               "combination of 'identifier', 'birthdate', 'name', 'given', 'family', "\
+                               "'address-postalcode', 'phone', or 'email' parameters must be provided."
             },
             {
               'name': 'identifier',
@@ -1373,9 +1385,9 @@ module Cerner
               'name': 'name',
               'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-patient-name',
               'type': 'string',
-              'documentation': "The beginning of any name of the patient. Either the '_id' parameter, or a combination "\
-                               "of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', "\
-                               "or 'email' parameters must be provided."
+              'documentation': "The beginning of any name of the patient. Either the '_id' parameter, or a "\
+                               "combination of 'identifier', 'birthdate', 'name', 'given', 'family', "\
+                               "'address-postalcode', 'phone', or 'email' parameters must be provided."
             },
             {
               'name': 'given',
@@ -1492,48 +1504,49 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': "A single or comma separated list of Practitioner ids. Either the '_id', 'identifier', "\
-                                   "'name', 'active' or 'family' parameter, or a combination of 'given' and 'family' "\
-                                   'parameters must be provided.'
+                  'documentation': "A single or comma separated list of Practitioner ids. Either the '_id', "\
+                                   "'identifier', 'name', 'active' or 'family' parameter, or a combination of 'given' "\
+                                   "and 'family' parameters must be provided."
                 },
                 {
                   'name': 'identifier',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-practitioner-identifier',
                   'type': 'token',
-                  'documentation': "A practitioner's Identifier. Either the '_id', 'identifier', 'name', 'active' or 'family' "\
-                                   "parameter, or a combination of 'given' and 'family' parameters must be provided."
+                  'documentation': "A practitioner's Identifier. Either the '_id', 'identifier', 'name', 'active' or "\
+                                   "'family' parameter, or a combination of 'given' and 'family' parameters must be "\
+                                   'provided.'
                 },
                 {
                   'name': 'given',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/individual-given',
                   'type': 'string',
-                  'documentation': "The beginning of the given name of the practitioner. Either the '_id', 'identifier', "\
-                                   "'name', 'active' or 'family' parameter, or a combination of 'given' and 'family' "\
-                                   'parameters must be provided.'
+                  'documentation': "The beginning of the given name of the practitioner. Either the '_id', "\
+                                   "'identifier', 'name', 'active' or 'family' parameter, or a combination of 'given' "\
+                                   "and 'family' parameters must be provided."
                 },
                 {
                   'name': 'family',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/individual-family',
                   'type': 'string',
-                  'documentation': "The beginning of the family name of the practitioner. Either the '_id', 'identifier', "\
-                                   "'name', 'active' or 'family' parameter, or a combination of 'given' and 'family' "\
-                                   'parameters must be provided.'
+                  'documentation': "The beginning of the family name of the practitioner. Either the '_id', "\
+                                   "'identifier', 'name', 'active' or 'family' parameter, or a combination of 'given' "\
+                                   "and 'family' parameters must be provided."
                 },
                 {
                   'name': 'name',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/individual-name',
                   'type': 'string',
-                  'documentation': "The beginning of the first, last or middle name of the practitioner. Either the '_id', "\
-                                   "'identifier', 'name', 'active' or 'family' parameter, or a combination of 'given' and "\
-                                   "'family' parameters must be provided."
+                  'documentation': 'The beginning of the first, last or middle name of the practitioner. Either the '\
+                                   "'_id', 'identifier', 'name', 'active' or 'family' parameter, or a combination of "\
+                                   "'given' and 'family' parameters must be provided."
                 },
                 {
                   'name': 'active',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-active',
                   'type': 'token',
-                  'documentation': "Whether the practitioner record is active. Either the '_id', 'identifier', 'name', "\
-                                   "'active' or 'family' parameter, or a combination of 'given' and 'family' parameters "\
-                                   'must be provided.'
+                  'documentation': "Whether the practitioner record is active. Either the '_id', 'identifier', "\
+                                   "'name', 'active' or 'family' parameter, or a combination of 'given' and 'family' "\
+                                   'parameters must be provided.'
                 },
                 {
                   'name': '_count',
@@ -1573,8 +1586,8 @@ module Cerner
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-procedure-patient',
                   'type': 'reference',
-                  'documentation': 'Search by subject - a patient. It is a required field if the _id or subject fields '\
-                                   'are not given'
+                  'documentation': 'Search by subject - a patient. It is a required field if the _id or subject '\
+                                   'fields are not given'
                 },
                 {
                   'name': 'subject',
@@ -1586,11 +1599,11 @@ module Cerner
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-procedure-date',
                   'type': 'date',
-                  'documentation': 'A date parameter may be provided once without a prefix or time component to imply a '\
-                                   'date range or once without a prefix and with a time component. Alternately it may be '\
-                                   "provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search for procedures within "\
-                                   'a specific range. The date and prefix pairs must create a closed range. Must be set '\
-                                   'with patient or subject.'
+                  'documentation': 'A date parameter may be provided once without a prefix or time component to imply '\
+                                   'a date range or once without a prefix and with a time component. Alternately it '\
+                                   "may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search for "\
+                                   'procedures within a specific range. The date and prefix pairs must create a '\
+                                   'closed range. Must be set with patient or subject.'
                 }
               ]
             },
@@ -1612,15 +1625,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Provenance ids. It is a required field if the target '\
-                                   'field is not given'
+                  'documentation': 'A single or comma separated list of Provenance ids. It is a required field if the '\
+                                   'target field is not given'
                 },
                 {
                   'name': 'target',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Provenance-target',
                   'type': 'reference',
-                  'documentation': 'The resource(s) the Provenance is associated with. It is a required field if the _id '\
-                                   'field is not given'
+                  'documentation': 'The resource(s) the Provenance is associated with. It is a required field if the '\
+                                   '_id field is not given'
                 }
               ]
             },
@@ -1658,15 +1671,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of QuestionnaireResponse ids. It is a required field '\
-                                   'if the patient field is not given.'
+                  'documentation': 'A single or comma separated list of QuestionnaireResponse ids. It is a required '\
+                                   'field if the patient field is not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/QuestionnaireResponse-patient',
                   'type': 'reference',
-                  'documentation': 'The patient that is the subject of the questionnaire response. It is a required field '\
-                                   'if the _id field is not given'
+                  'documentation': 'The patient that is the subject of the questionnaire response. It is a required '\
+                                   'field if the _id field is not given'
                 }
               ]
             },
@@ -1685,34 +1698,34 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of RelatedPerson ids. It is a required field if the '\
-                                   'identifier or patient or -encounter fields are not given.'
+                  'documentation': 'A single or comma separated list of RelatedPerson ids. It is a required field if '\
+                                   'the identifier or patient or -encounter fields are not given.'
                 },
                 {
                   'name': 'identifier',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Patient-identifier',
                   'type': 'token',
-                  'documentation': 'An Identifier of the RelatedPerson. It is a required field if the id or patient or '\
-                                   '-encounter fields are not given'
+                  'documentation': 'An Identifier of the RelatedPerson. It is a required field if the id or patient '\
+                                   'or -encounter fields are not given'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
                   'type': 'reference',
-                  'documentation': 'The patient this related person is related to. It is a required field if the id or '\
-                                   'identifier or -encounter fields are not given'
+                  'documentation': 'The patient this related person is related to. It is a required field if the id '\
+                                   'or identifier or -encounter fields are not given'
                 },
                 {
                   'name': '-encounter',
                   'type': 'reference',
-                  'documentation': 'The encounter this related person is related to. It is a required field if the id or '\
-                                   'identifier or patient fields are not given'
+                  'documentation': 'The encounter this related person is related to. It is a required field if the id '\
+                                   'or identifier or patient fields are not given'
                 },
                 {
                   'name': '-relationship-level',
                   'type': 'token',
-                  'documentation': "The resource's relationship to either the patient or encounter level. Must be provided "\
-                                   'with Patient and Identifier searches.'
+                  'documentation': "The resource's relationship to either the patient or encounter level. Must be "\
+                                   'provided with Patient and Identifier searches.'
                 }
               ]
             },
@@ -1763,8 +1776,8 @@ module Cerner
                   'name': 'subject',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/ServiceRequest-subject',
                   'type': 'reference',
-                  'documentation': 'Individual or Entity the service is ordered for. It is a required field if the patient '\
-                                   'or _id fields are not given.'
+                  'documentation': 'Individual or Entity the service is ordered for. It is a required field if the '\
+                                   'patient or _id fields are not given.'
                 },
                 {
                   'name': 'code',
@@ -1812,18 +1825,18 @@ module Cerner
                   'name': 'start',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Slot-date',
                   'type': 'date',
-                  'documentation': "A date or date range from which the slots are to be retrieved. The 'start' parameter "\
-                                   'is required when service-type, schedule.actor, -location is provided. When provided, must '\
-                                   "use both 'lt' and 'ge' prefixes to search for slots within a specific range. Time "\
-                                   'component should be provided for both the instances. The date and prefix pairs must '\
-                                   'create a closed range.'
+                  'documentation': "A date or date range from which the slots are to be retrieved. The 'start' "\
+                                   'parameter is required when service-type, schedule.actor, -location is provided. '\
+                                   "When provided, must use both 'lt' and 'ge' prefixes to search for slots within a "\
+                                   'specific range. Time component should be provided for both the instances. The '\
+                                   'date and prefix pairs must create a closed range.'
                 },
                 {
                   'name': 'service-type',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Service-type',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of appointment types that can be booked into the slot. '\
-                                   "Either the '_id' parameter or 'service-type' must be set."
+                  'documentation': 'A single or comma separated list of appointment types that can be booked into the '\
+                                   "slot. Either the '_id' parameter or 'service-type' must be set."
                 },
                 {
                   'name': 'schedule.actor',
@@ -1841,8 +1854,8 @@ module Cerner
                   'name': '_count',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-count',
                   'type': 'number',
-                  'documentation': 'The maximum number of results to return in a page. This value should be in the range '\
-                                   '[5,200]. If no value is provided, a default page size of 50 will be used.'
+                  'documentation': 'The maximum number of results to return in a page. This value should be in the '\
+                                   'range [5,200]. If no value is provided, a default page size of 50 will be used.'
                 }
               ]
             },
@@ -1977,8 +1990,8 @@ module Cerner
                 {
                   'name': '-guarantor',
                   'type': 'reference',
-                  'documentation': 'The entity that responsible for payment. It is a required field if the _id or patient '\
-                                   'fields are not given.'
+                  'documentation': 'The entity that responsible for payment. It is a required field if the _id or '\
+                                   'patient fields are not given.'
                 },
                 {
                   'name': 'type',
@@ -2028,8 +2041,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of AllergyIntolerance ids. It is a required field '\
-                                   'if the patient field is not given.'
+                  'documentation': 'A single or comma separated list of AllergyIntolerance ids. It is a required '\
+                                   'field if the patient field is not given.'
                 },
                 {
                   'name': 'patient',
@@ -2066,8 +2079,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': "A single or comma separated list of Appointment ids. Either the '_id' parameter or "\
-                                   "one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                  'documentation': "A single or comma separated list of Appointment ids. Either the '_id' parameter "\
+                                   "or one of the 'patient', 'practitioner' or 'location' parameters must be set."
                 },
                 {
                   'name': '_count',
@@ -2079,44 +2092,48 @@ module Cerner
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Appointment-date',
                   'type': 'date',
-                  'documentation': "A date or date range from which to find appointments. This or the '-date-or-req-period' "\
-                                   "parameter must be set when using patient, practitioner or location. The 'date' parameter "\
-                                   'may be provided once without a prefix or time component to imply a date range or once '\
-                                   'without a prefix and with a time component to search for appointments at a specific time. '\
-                                   "Alternately it may be provided twice with 'le' and 'gt' prefixes to search for appointments "\
-                                   'within a specific range. The date prefix pair must create a closed range.'
+                  'documentation': 'A date or date range from which to find appointments. This or the '\
+                                   "'-date-or-req-period' parameter must be set when using patient, practitioner or "\
+                                   "location. The 'date' parameter may be provided once without a prefix or time "\
+                                   'component to imply a date range or once without a prefix and with a time '\
+                                   'component to search for appointments at a specific time. Alternately it may be '\
+                                   "provided twice with 'le' and 'gt' prefixes to search for appointments within a "\
+                                   'specific range. The date prefix pair must create a closed range.'
                 },
                 {
                   'name': '-date-or-req-period',
                   'type': 'date',
-                  'documentation': "A start date or requested period from which to find appointments. This or the 'date' "\
-                                   'parameter must be set when using patient, practitioner or location. The '\
+                  'documentation': 'A start date or requested period from which to find appointments. This or the '\
+                                   "date' parameter must be set when using patient, practitioner or location. The "\
                                    "'-date-or-req-period' parameter may be provided once without a prefix or time "\
-                                   'component to imply a date range or once without a prefix and with a time component '\
-                                   'to search for appointments at a specific time. Alternately it may be provided twice '\
-                                   "with 'le' and 'gt' prefixes to search for appointments within a specific range. The "\
-                                   'date prefix pair must create a closed range.'
+                                   'component to imply a date range or once without a prefix and with a time '\
+                                   'component to search for appointments at a specific time. Alternately it may be '\
+                                   "provided twice with 'le' and 'gt' prefixes to search for appointments within a "\
+                                   'specific range. The date prefix pair must create a closed range.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Appointment-patient',
                   'type': 'reference',
-                  'documentation': "One of the individuals of the appointment is this patient. Either the '_id' parameter "\
-                                   "or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                  'documentation': "One of the individuals of the appointment is this patient. Either the '_id' "\
+                                   "parameter or one of the 'patient', 'practitioner' or 'location' parameters must "\
+                                   'be set.'
                 },
                 {
                   'name': 'practitioner',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Appointment-practitioner',
                   'type': 'reference',
                   'documentation': "One of the individuals of the appointment is this practitioner. Either the '_id' "\
-                                   "parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                                   "parameter or one of the 'patient', 'practitioner' or 'location' parameters must "\
+                                   'be set.'
                 },
                 {
                   'name': 'location',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Appointment-location',
                   'type': 'reference',
                   'documentation': "This location is listed in the participants of the appointment. Either the '_id' "\
-                                   "parameter or one of the 'patient', 'practitioner' or 'location' parameters must be set."
+                                   "parameter or one of the 'patient', 'practitioner' or 'location' parameters must "\
+                                   'be set.'
                 },
                 {
                   'name': 'status',
@@ -2229,8 +2246,8 @@ module Cerner
                   'name': 'category',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/CareTeam-category',
                   'type': 'token',
-                  'documentation': 'The category of the careteam. Category Longitudinal (patient level) or Encounter is '\
-                                   'supported as of now.'
+                  'documentation': 'The category of the careteam. Category Longitudinal (patient level) or Encounter '\
+                                   'is supported as of now.'
                 },
                 {
                   'name': 'encounter',
@@ -2267,26 +2284,28 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'ChargeItem id supports only the single id. It is a required field if the account or '\
-                                   'context fields are not given.'
+                  'documentation': 'ChargeItem id supports only the single id. It is a required field if the account '\
+                                   'or context fields are not given.'
                 },
                 {
                   'name': 'context',
                   'type': 'reference',
-                  'documentation': "Encounter associated with the ChargeItem. If provided, the '-status' parameter must "\
-                                   'also be provided. It is a required field if the _id or account fields are not given.'
+                  'documentation': "Encounter associated with the ChargeItem. If provided, the '-status' parameter "\
+                                   'must also be provided. It is a required field if the _id or account fields are '\
+                                   'not given.'
                 },
                 {
                   'name': 'account',
                   'type': 'reference',
                   'documentation': "Account associated with the ChargeItem. If provided, the '-status' parameter must "\
-                                   'also be provided. It is a required field if the _id or context fields are not given.'
+                                   'also be provided. It is a required field if the _id or context fields are not '\
+                                   'given.'
                 },
                 {
                   'name': '-status',
                   'type': 'token',
-                  'documentation': "The status of the ChargeItem. Must be set to 'billable'. Must be provided with the "\
-                                   'context and account parameter.'
+                  'documentation': "The status of the ChargeItem. Must be set to 'billable'. Must be provided with "\
+                                   'the context and account parameter.'
                 },
                 {
                   'name': '_count',
@@ -2334,37 +2353,38 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Communication ids. It is a required field if the '\
-                                   'category, -email-status, received and recipient fields are not given.'
+                  'documentation': 'A single or comma separated list of Communication ids. It is a required field if '\
+                                   'the category, -email-status, received and recipient fields are not given.'
                 },
                 {
                   'name': 'category',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Communication-category',
                   'type': 'token',
-                  'documentation': 'The message category. It is a required field if the _id field is not given. Must be set '\
-                                   'with received, recipient and -email-status.'
+                  'documentation': 'The message category. It is a required field if the _id field is not given. Must '\
+                                   'be set with received, recipient and -email-status.'
                 },
                 {
                   'name': 'received',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Communication-received',
                   'type': 'date',
-                  'documentation': 'When the message is received. It is a required field if the _id field is not given. Must '\
-                                   "be set with category, recipient and -email-status. If used, the ‘received’ parameter "\
-                                   "may be provided once or twice. Once with a 'ge' prefix representing the earliest received "\
-                                   "date, and/or once with a 'le’ prefix representing the latest received date."
+                  'documentation': 'When the message is received. It is a required field if the _id field is not '\
+                                   'given. Must be set with category, recipient and -email-status. If used, the '\
+                                   "‘received’ parameter may be provided once or twice. Once with a 'ge' prefix "\
+                                   "representing the earliest received date, and/or once with a 'le’ prefix "\
+                                   'representing the latest received date.'
                 },
                 {
                   'name': 'recipient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Communication-recipient',
                   'type': 'reference',
-                  'documentation': 'The recipient of the message. It is a required field if the _id field is not given. Must '\
-                                   'be set with category, recipient and -email-status.'
+                  'documentation': 'The recipient of the message. It is a required field if the _id field is not '\
+                                   'given. Must be set with category, recipient and -email-status.'
                 },
                 {
                   'name': '-email-status',
                   'type': 'token',
-                  'documentation': 'The email status of the message. It is a required field if the _id field is not given. Must '\
-                                   'be set with category, received and recipient.'
+                  'documentation': 'The email status of the message. It is a required field if the _id field is not '\
+                                   'given. Must be set with category, received and recipient.'
                 }
               ]
             },
@@ -2396,14 +2416,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Condition ids. It is a required field if the patient or '\
-                                   'subject fields are not given.'
+                  'documentation': 'A single or comma separated list of Condition ids. It is a required field if the '\
+                                   'patient or subject fields are not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-condition-patient',
                   'type': 'reference',
-                  'documentation': 'Who has the condition. It is a required field if the subject or _id fields are not given.'
+                  'documentation': 'Who has the condition. It is a required field if the subject or _id fields are '\
+                                   'not given.'
                 },
                 {
                   'name': 'encounter',
@@ -2415,7 +2436,8 @@ module Cerner
                   'name': 'subject',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Condition-subject',
                   'type': 'reference',
-                  'documentation': 'Who has the condition. It is a required field if the patient or _id fields are not given.'
+                  'documentation': 'Who has the condition. It is a required field if the patient or _id fields are '\
+                                   'not given.'
                 },
                 {
                   'name': 'clinical-status',
@@ -2427,8 +2449,8 @@ module Cerner
                   'name': 'category',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-condition-category',
                   'type': 'token',
-                  'documentation': 'The category of the condition. Categories problem-list-item, encounter-diagnosis and '\
-                                   'health-concern are supported as of now.'
+                  'documentation': 'The category of the condition. Categories problem-list-item, encounter-diagnosis '\
+                                   'and health-concern are supported as of now.'
                 }
               ]
             },
@@ -2463,23 +2485,24 @@ module Cerner
                   'name': 'actor',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Consent-actor',
                   'type': 'reference',
-                  'documentation': 'Resource for the actor (or group, by role). It is a required field if the _id field '\
-                                   'is not given.'
+                  'documentation': 'Resource for the actor (or group, by role). It is a required field if the _id '\
+                                   'field is not given.'
                 },
                 {
                   'name': 'patient.identifier',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Consent-patient.identifier',
                   'type': 'token',
-                  'documentation': 'The patient.identifier allows to search by patient aliases. Federated Person Principle, '\
-                                   'SSN, MRN etc... are supported as of now. It is a required field if the _id field is not given.'
+                  'documentation': 'The patient.identifier allows to search by patient aliases. Federated Person '\
+                                   'Principle, SSN, MRN etc... are supported as of now. It is a required field if the '\
+                                   '_id field is not given.'
                 },
                 {
                   'name': 'actor.identifier',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Consent-actor.identifier',
                   'type': 'token',
                   'documentation': 'The actor.identifier allows to search by related person aliases. Federated Person '\
-                                   'Principle is the only supported alias as of now. It is a required field if the _id '\
-                                   'field is not given.'
+                                   'Principle is the only supported alias as of now. It is a required field if the '\
+                                   '_id field is not given.'
                 }
               ]
             },
@@ -2534,14 +2557,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Device ids. It is a required field if the patient '\
-                                   'field is not given.'
+                  'documentation': 'A single or comma separated list of Device ids. It is a required field if the '\
+                                   'patient field is not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-device-patient',
                   'type': 'reference',
-                  'documentation': 'The patient to whom Device is affixed. It is a required field if the _id field is not given.'
+                  'documentation': 'The patient to whom Device is affixed. It is a required field if the _id field is '\
+                                   'not given.'
                 }
               ]
             },
@@ -2567,8 +2591,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of DiagnosticReport ids. It is a required field if '\
-                                   'the patient field is not given.'
+                  'documentation': 'A single or comma separated list of DiagnosticReport ids. It is a required field '\
+                                   'if the patient field is not given.'
                 },
                 {
                   'name': 'category',
@@ -2598,11 +2622,11 @@ module Cerner
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-diagnosticreport-date',
                   'type': 'date',
-                  'documentation': 'A date range with which to find Documents. A date parameter may be provided once with '\
-                                   'or without prefix and time component to imply a date range. Alternately it may be provided '\
-                                   "twice with 'le', 'lt', 'ge', or 'gt'  prefixes and time component to search for procedures "\
-                                   'within a specific range. The date and prefix pairs must create a closed range. Must be set '\
-                                   'with patient or subject.'
+                  'documentation': 'A date range with which to find Documents. A date parameter may be provided once '\
+                                   'with or without prefix and time component to imply a date range. Alternately it '\
+                                   "may be provided twice with 'le', 'lt', 'ge', or 'gt'  prefixes and time component "\
+                                   'to search for procedures within a specific range. The date and prefix pairs must '\
+                                   'create a closed range. Must be set with patient or subject.'
                 },
                 {
                   'name': '_count',
@@ -2640,14 +2664,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of DocumentReference ids. It is a required field if the '\
-                                   'patient field is not given.'
+                  'documentation': 'A single or comma separated list of DocumentReference ids. It is a required field '\
+                                   'if the patient field is not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-patient',
                   'type': 'reference',
-                  'documentation': 'The patient the document is about. It is a required field if the subject field is not given.'
+                  'documentation': 'The patient the document is about. It is a required field if the subject field is '\
+                                   'not given.'
                 },
                 {
                   'name': 'encounter',
@@ -2659,10 +2684,10 @@ module Cerner
                   'name': 'period',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-period',
                   'type': 'date',
-                  'documentation': "A date range with which to find Documents. If used, the 'period' parameter must be provided "\
-                                   "twice. Once with a 'ge' prefix representing the earliest date, and once with a 'lt' prefix "\
-                                   'representing the latest date. The period prefix pair must create a closed range and cannot '\
-                                   'be equal to each other.'
+                  'documentation': "A date range with which to find Documents. If used, the 'period' parameter must "\
+                                   "be provided twice. Once with a 'ge' prefix representing the earliest date, and "\
+                                   "once with a 'lt' prefix representing the latest date. The period prefix pair must "\
+                                   'create a closed range and cannot be equal to each other.'
                 },
                 {
                   'name': '_count',
@@ -2686,11 +2711,12 @@ module Cerner
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-documentreference-date',
                   'type': 'date',
-                  'documentation': 'It must be provided  once with a prefix to imply a date  range or without a prefix to search '\
-                                   "for document(s) at a specific date. Alternately it may be provided twice with `le`, `lt`, "\
-                                   "`ge`, or `gt` prefixes to search for document(s) within specific range. The date and prefix "\
-                                   "pairs must create a closed range. For a single 'date' occurrence, `time` component is optional "\
-                                   "but for two `date` occurrences, must include `time` component."
+                  'documentation': 'It must be provided  once with a prefix to imply a date  range or without a '\
+                                   'prefix to search for document(s) at a specific date. Alternately it may be '\
+                                   "provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for document(s) "\
+                                   'within specific range. The date and prefix pairs must create a closed range. For '\
+                                   "a single 'date' occurrence, `time` component is optional but for two `date` "\
+                                   "occurrences, must include `time` component."
                 }
               ],
               'operation': [
@@ -2728,8 +2754,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-encounter-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Encounter ids. It is a required field if the account '\
-                                   'or identifier or -pageContext or patient or subject fields are not given.'
+                  'documentation': 'A single or comma separated list of Encounter ids. It is a required field if the '\
+                                   'account or identifier or -pageContext or patient or subject fields are not given.'
                 },
                 {
                   'name': '_count',
@@ -2741,15 +2767,15 @@ module Cerner
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-encounter-patient',
                   'type': 'reference',
-                  'documentation': 'The patient present at the encounter. It is a required field if the account or _id or '\
-                                   'identifier or -pageContext or subject fields are not given.'
+                  'documentation': 'The patient present at the encounter. It is a required field if the account or '\
+                                   '_id or identifier or -pageContext or subject fields are not given.'
                 },
                 {
                   'name': 'subject',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Encounter-subject',
                   'type': 'reference',
-                  'documentation': 'The patient present at the encounter. It is a required field if the account or _id or '\
-                                   'identifier or -pageContext or patient fields are not given.'
+                  'documentation': 'The patient present at the encounter. It is a required field if the account or '\
+                                   '_id or identifier or -pageContext or patient fields are not given.'
                 },
                 {
                   'name': 'status',
@@ -2761,17 +2787,18 @@ module Cerner
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-encounter-date',
                   'type': 'date',
-                  'documentation': 'A date parameter may be provided once with a prefix and time component to imply a date '\
-                                   "range. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes and "\
-                                   'time component to search for encounters within a specific range. The date and prefix '\
-                                   'pairs must create a closed range. Must be set with patient or subject.'
+                  'documentation': 'A date parameter may be provided once with a prefix and time component to imply a '\
+                                   "date range. Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' "\
+                                   'prefixes and time component to search for encounters within a specific range. The '\
+                                   'date and prefix pairs must create a closed range. Must be set with patient or '\
+                                   'subject.'
                 },
                 {
                   'name': 'identifier',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-encounter-identifier',
                   'type': 'token',
-                  'documentation': "An encounter's identifier. It is a required field if the account or _id or -pageContext "\
-                                   'or patient or subject fields are not given.'
+                  'documentation': "An encounter's identifier. It is a required field if the account or _id or "\
+                                   '-pageContext or patient or subject fields are not given.'
                 }
               ]
             },
@@ -2797,15 +2824,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of FamilyMemberHistory ids. It is a required field if the '\
-                                   'patient field is not given.'
+                  'documentation': 'A single or comma separated list of FamilyMemberHistory ids. It is a required '\
+                                   'field if the patient field is not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
                   'type': 'reference',
-                  'documentation': 'Who the family member history is for. It is a required field if the _id field is not given. '\
-                                   'It is a required field if the status parameter is provided.'
+                  'documentation': 'Who the family member history is for. It is a required field if the _id field is '\
+                                   'not given. It is a required field if the status parameter is provided.'
                 },
                 {
                   'name': 'status',
@@ -2836,7 +2863,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'Goal id supports only the single id. It is a required field if the patient field is not given.'
+                  'documentation': 'Goal id supports only the single id. It is a required field if the patient field '\
+                                   'is not given.'
                 },
                 {
                   'name': 'patient',
@@ -2891,15 +2919,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Immunization ids. It is a required field if the '\
-                                   'patient field is not given.'
+                  'documentation': 'A single or comma separated list of Immunization ids. It is a required field if '\
+                                   'the patient field is not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-patient',
                   'type': 'reference',
-                  'documentation': 'The patient for the vaccination record. It is a required field if the _id field is not '\
-                                   'given.'
+                  'documentation': 'The patient for the vaccination record. It is a required field if the _id field '\
+                                   'is not given.'
                 },
                 {
                   'name': 'date',
@@ -2911,7 +2939,8 @@ module Cerner
                   'name': 'target-disease',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-immunization-target-disease',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of target diseases the dose is being administered against.'
+                  'documentation': 'A single or comma separated list of target diseases the dose is being '\
+                                   'administered against.'
                 }
               ]
             },
@@ -3026,8 +3055,8 @@ module Cerner
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/medicationadministration-patient',
                   'type': 'reference',
-                  'documentation': 'The identity of a patient to list administrations for. It is a required field if the '\
-                                   '_id field is not given.'
+                  'documentation': 'The identity of a patient to list administrations for. It is a required field if '\
+                                   'the _id field is not given.'
                 },
                 {
                   'name': 'status',
@@ -3045,10 +3074,11 @@ module Cerner
                   'name': 'effective-time',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/medicationadministration-effective-time',
                   'type': 'date',
-                  'documentation': "A effective-time parameter may be provided once with 'le' or 'lt' or 'ge' or 'gt' prefix "\
-                                   "and time component to imply a date range. Alternately it may be provided twice with 'le', "\
-                                   "'lt', 'ge', or 'gt' prefixes and time component to search for medications administered "\
-                                   'within a specific range. The date and prefix pairs must create a closed range.'
+                  'documentation': "A effective-time parameter may be provided once with 'le' or 'lt' or 'ge' or 'gt' "\
+                                   'prefix and time component to imply a date range. Alternately it may be provided '\
+                                   "twice with 'le', 'lt', 'ge', or 'gt' prefixes and time component to search for "\
+                                   'medications administered within a specific range. The date and prefix pairs must '\
+                                   'create a closed range.'
                 }
               ]
             },
@@ -3085,8 +3115,8 @@ module Cerner
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-medicationrequest-patient',
                   'type': 'reference',
-                  'documentation': 'The patient to return MedicationRequests for. It is a required field if the _id field '\
-                                   'is not given.'
+                  'documentation': 'The patient to return MedicationRequests for. It is a required field if the _id '\
+                                   'field is not given.'
                 },
                 {
                   'name': 'intent',
@@ -3207,8 +3237,8 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Observation ids. It is a required field if the '\
-                                   'patient field is not given.'
+                  'documentation': 'A single or comma separated list of Observation ids. It is a required field if '\
+                                   'the patient field is not given.'
                 },
                 {
                   'name': 'patient',
@@ -3221,8 +3251,8 @@ module Cerner
                   'name': 'subject',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Observation-subject',
                   'type': 'reference',
-                  'documentation': 'The patient subject the observation is about. It is a required field if the patient '\
-                                   'field is not given.'
+                  'documentation': 'The patient subject the observation is about. It is a required field if the '\
+                                   'patient field is not given.'
                 },
                 {
                   'name': 'category',
@@ -3241,21 +3271,22 @@ module Cerner
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-observation-date',
                   'type': 'date',
                   'documentation': "A date or date range from which to find observations. The 'date' parameter may be "\
-                                   'provided once without a prefix or time component to imply a date range or once without '\
-                                   'a prefix and with a time component to search for observations at a specific time. '\
-                                   "Alternately it may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search "\
-                                   'for observations within a specific range. The date and prefix pairs must create a closed range.'
+                                   'provided once without a prefix or time component to imply a date range or once '\
+                                   'without a prefix and with a time component to search for observations at a '\
+                                   "specific time. Alternately it may be provided twice with 'le', 'lt', 'ge', or "\
+                                   "'gt' prefixes to search for observations within a specific range. The date and "\
+                                   'prefix pairs must create a closed range.'
                 },
                 {
                   'name': '_lastUpdated',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-lastUpdated',
                   'type': 'date',
-                  'documentation': 'A date or date range used to search for observations which were last updated in that '\
-                                   "period. The '_lastUpdated' parameter may be provided once without a prefix or time "\
-                                   'component to imply a date range or once without a prefix and with a time component to '\
-                                   'search for observations at a specific time. Alternately it may be provided twice with '\
-                                   "'le', 'lt', 'ge', or 'gt' prefixes to search for observations within a specific range. "\
-                                   'The date and prefix pairs must create a closed range.'
+                  'documentation': 'A date or date range used to search for observations which were last updated in '\
+                                   "that period. The '_lastUpdated' parameter may be provided once without a prefix "\
+                                   'or time component to imply a date range or once without a prefix and with a time '\
+                                   'component to search for observations at a specific time. Alternately it may be '\
+                                   "provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search for observations "\
+                                   'within a specific range. The date and prefix pairs must create a closed range.'
                 },
                 {
                   'name': '_count',
@@ -3363,24 +3394,24 @@ module Cerner
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-patient-id',
                   'type': 'token',
                   'documentation': "A single or comma separated list of Patient ids. Either the '_id' parameter, or a "\
-                                   "combination of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', "\
-                                   "'phone', or 'email' parameters must be provided."
+                                   "combination of 'identifier', 'birthdate', 'name', 'given', 'family', "\
+                                   "'address-postalcode', 'phone', or 'email' parameters must be provided."
                 },
                 {
                   'name': 'identifier',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-patient-identifier',
                   'type': 'token',
-                  'documentation': "A patient identifier. Either the '_id' parameter, or a combination of 'identifier', "\
-                                   "'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', or 'email' "\
-                                   'parameters must be provided.'
+                  'documentation': "A patient identifier. Either the '_id' parameter, or a combination of "\
+                                   "'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', "\
+                                   "'phone', or 'email' parameters must be provided."
                 },
                 {
                   'name': 'name',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-patient-name',
                   'type': 'string',
-                  'documentation': "The beginning of any name of the patient. Either the '_id' parameter, or a combination "\
-                                   "of 'identifier', 'birthdate', 'name', 'given', 'family', 'address-postalcode', 'phone', "\
-                                   "or 'email' parameters must be provided."
+                  'documentation': "The beginning of any name of the patient. Either the '_id' parameter, or a "\
+                                   "combination of 'identifier', 'birthdate', 'name', 'given', 'family', "\
+                                   "'address-postalcode', 'phone', or 'email' parameters must be provided."
                 },
                 {
                   'name': 'given',
@@ -3500,48 +3531,49 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': "A single or comma separated list of Practitioner ids. Either the '_id', 'identifier', "\
-                                   "'name', 'active' or 'family' parameter, or a combination of 'given' and 'family' "\
-                                   'parameters must be provided.'
+                  'documentation': "A single or comma separated list of Practitioner ids. Either the '_id', "\
+                                   "'identifier', 'name', 'active' or 'family' parameter, or a combination of 'given' "\
+                                   "and 'family' parameters must be provided."
                 },
                 {
                   'name': 'identifier',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-practitioner-identifier',
                   'type': 'token',
-                  'documentation': "A practitioner's Identifier. Either the '_id', 'identifier', 'name', 'active' or 'family' "\
-                                   "parameter, or a combination of 'given' and 'family' parameters must be provided."
+                  'documentation': "A practitioner's Identifier. Either the '_id', 'identifier', 'name', 'active' or "\
+                                   "'family' parameter, or a combination of 'given' and 'family' parameters must be "\
+                                   'provided.'
                 },
                 {
                   'name': 'given',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/individual-given',
                   'type': 'string',
-                  'documentation': "The beginning of the given name of the practitioner. Either the '_id', 'identifier', "\
-                                   "'name', 'active' or 'family' parameter, or a combination of 'given' and 'family' "\
-                                   'parameters must be provided.'
+                  'documentation': "The beginning of the given name of the practitioner. Either the '_id', "\
+                                   "'identifier', 'name', 'active' or 'family' parameter, or a combination of 'given' "\
+                                   "and 'family' parameters must be provided."
                 },
                 {
                   'name': 'family',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/individual-family',
                   'type': 'string',
-                  'documentation': "The beginning of the family name of the practitioner. Either the '_id', 'identifier', "\
-                                   "'name', 'active' or 'family' parameter, or a combination of 'given' and 'family' "\
-                                   'parameters must be provided.'
+                  'documentation': "The beginning of the family name of the practitioner. Either the '_id', "\
+                                   "'identifier', 'name', 'active' or 'family' parameter, or a combination of 'given' "\
+                                   "and 'family' parameters must be provided."
                 },
                 {
                   'name': 'name',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/individual-name',
                   'type': 'string',
-                  'documentation': "The beginning of the first, last or middle name of the practitioner. Either the '_id', "\
-                                   "'identifier', 'name', 'active' or 'family' parameter, or a combination of 'given' and "\
-                                   "'family' parameters must be provided."
+                  'documentation': "The beginning of the first, last or middle name of the practitioner. Either the "\
+                                   "'_id', 'identifier', 'name', 'active' or 'family' parameter, or a combination of "\
+                                   "'given' and 'family' parameters must be provided."
                 },
                 {
                   'name': 'active',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-active',
                   'type': 'token',
-                  'documentation': "Whether the practitioner record is active. Either the '_id', 'identifier', 'name', "\
-                                   "'active' or 'family' parameter, or a combination of 'given' and 'family' parameters "\
-                                   'must be provided.'
+                  'documentation': "Whether the practitioner record is active. Either the '_id', 'identifier', "\
+                                   "'name', 'active' or 'family' parameter, or a combination of 'given' and 'family' "\
+                                   'parameters must be provided.'
                 },
                 {
                   'name': '_count',
@@ -3584,24 +3616,25 @@ module Cerner
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-procedure-patient',
                   'type': 'reference',
-                  'documentation': 'Search by subject - a patient. It is a required field if the _id or subject fields '\
-                                   'are not given'
+                  'documentation': 'Search by subject - a patient. It is a required field if the _id or subject '\
+                                   'fields are not given'
                 },
                 {
                   'name': 'subject',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
                   'type': 'reference',
-                  'documentation': 'Search by subject. It is a required field if the _id or patient fields are not given'
+                  'documentation': 'Search by subject. It is a required field if the _id or patient fields are '\
+                                   'not given'
                 },
                 {
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-procedure-date',
                   'type': 'date',
-                  'documentation': 'A date parameter may be provided once without a prefix or time component to imply a '\
-                                   'date range or once without a prefix and with a time component. Alternately it may be '\
-                                   "provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search for procedures within "\
-                                   'a specific range. The date and prefix pairs must create a closed range. Must be set '\
-                                   'with patient or subject.'
+                  'documentation': 'A date parameter may be provided once without a prefix or time component to imply '\
+                                   'a date range or once without a prefix and with a time component. Alternately it '\
+                                   "may be provided twice with 'le', 'lt', 'ge', or 'gt' prefixes to search for "\
+                                   'procedures within a specific range. The date and prefix pairs must create a '\
+                                   'closed range. Must be set with patient or subject.'
                 }
               ]
             },
@@ -3626,15 +3659,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of Provenance ids. It is a required field if the target '\
-                                   'field is not given'
+                  'documentation': 'A single or comma separated list of Provenance ids. It is a required field if the '\
+                                   'target field is not given'
                 },
                 {
                   'name': 'target',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Provenance-target',
                   'type': 'reference',
-                  'documentation': 'The resource(s) the Provenance is associated with. It is a required field if the _id '\
-                                   'field is not given'
+                  'documentation': 'The resource(s) the Provenance is associated with. It is a required field if the '\
+                                   '_id field is not given'
                 }
               ]
             },
@@ -3676,15 +3709,15 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of QuestionnaireResponse ids. It is a required field '\
-                                   'if the patient field is not given.'
+                  'documentation': 'A single or comma separated list of QuestionnaireResponse ids. It is a required '\
+                                   'field if the patient field is not given.'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/QuestionnaireResponse-patient',
                   'type': 'reference',
-                  'documentation': 'The patient that is the subject of the questionnaire response. It is a required field '\
-                                   'if the _id field is not given'
+                  'documentation': 'The patient that is the subject of the questionnaire response. It is a required '\
+                                   'field if the _id field is not given'
                 }
               ]
             },
@@ -3709,34 +3742,34 @@ module Cerner
                   'name': '_id',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-id',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of RelatedPerson ids. It is a required field if the '\
-                                   'identifier or patient or -encounter fields are not given.'
+                  'documentation': 'A single or comma separated list of RelatedPerson ids. It is a required field if '\
+                                   'the identifier or patient or -encounter fields are not given.'
                 },
                 {
                   'name': 'identifier',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Patient-identifier',
                   'type': 'token',
-                  'documentation': 'An Identifier of the RelatedPerson. It is a required field if the id or patient or '\
-                                   '-encounter fields are not given'
+                  'documentation': 'An Identifier of the RelatedPerson. It is a required field if the id or patient '\
+                                   'or -encounter fields are not given'
                 },
                 {
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
                   'type': 'reference',
-                  'documentation': 'The patient this related person is related to. It is a required field if the id or '\
-                                   'identifier or -encounter fields are not given'
+                  'documentation': 'The patient this related person is related to. It is a required field if the id '\
+                                   'or identifier or -encounter fields are not given'
                 },
                 {
                   'name': '-encounter',
                   'type': 'reference',
-                  'documentation': 'The encounter this related person is related to. It is a required field if the id or '\
-                                   'identifier or patient fields are not given'
+                  'documentation': 'The encounter this related person is related to. It is a required field if the id '\
+                                   'or identifier or patient fields are not given'
                 },
                 {
                   'name': '-relationship-level',
                   'type': 'token',
-                  'documentation': "The resource's relationship to either the patient or encounter level. Must be provided "\
-                                   'with Patient and Identifier searches.'
+                  'documentation': "The resource's relationship to either the patient or encounter level. Must be "\
+                                   'provided with Patient and Identifier searches.'
                 }
               ]
             },
@@ -3787,8 +3820,8 @@ module Cerner
                   'name': 'subject',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/ServiceRequest-subject',
                   'type': 'reference',
-                  'documentation': 'Individual or Entity the service is ordered for. It is a required field if the patient '\
-                                   'or _id fields are not given.'
+                  'documentation': 'Individual or Entity the service is ordered for. It is a required field if the '\
+                                   'patient or _id fields are not given.'
                 },
                 {
                   'name': 'code',
@@ -3839,18 +3872,18 @@ module Cerner
                   'name': 'start',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Slot-date',
                   'type': 'date',
-                  'documentation': "A date or date range from which the slots are to be retrieved. The 'start' parameter "\
-                                   'is required when service-type, schedule.actor, -location is provided. When provided, must '\
-                                   "use both 'lt' and 'ge' prefixes to search for slots within a specific range. Time "\
-                                   'component should be provided for both the instances. The date and prefix pairs must '\
-                                   'create a closed range.'
+                  'documentation': "A date or date range from which the slots are to be retrieved. The 'start' "\
+                                   'parameter is required when service-type, schedule.actor, -location is provided. '\
+                                   "When provided, must use both 'lt' and 'ge' prefixes to search for slots within a "\
+                                   'specific range. Time component should be provided for both the instances. The '\
+                                   'date and prefix pairs must create a closed range.'
                 },
                 {
                   'name': 'service-type',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Service-type',
                   'type': 'token',
-                  'documentation': 'A single or comma separated list of appointment types that can be booked into the slot. '\
-                                   "Either the '_id' parameter or 'service-type' must be set."
+                  'documentation': 'A single or comma separated list of appointment types that can be booked into the '\
+                                   "slot. Either the '_id' parameter or 'service-type' must be set."
                 },
                 {
                   'name': 'schedule.actor',
@@ -3868,8 +3901,8 @@ module Cerner
                   'name': '_count',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Resource-count',
                   'type': 'number',
-                  'documentation': 'The maximum number of results to return in a page. This value should be in the range '\
-                                   '[5,200]. If no value is provided, a default page size of 50 will be used.'
+                  'documentation': 'The maximum number of results to return in a page. This value should be in the '\
+                                   'range [5,200]. If no value is provided, a default page size of 50 will be used.'
                 }
               ]
             },
