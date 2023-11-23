@@ -259,7 +259,7 @@ module Cerner
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careplan-date',
                   'type': 'date',
-                  'documentation': "A date range with which to find CarePlans. If used, the ‘date’ parameter must be "\
+                  'documentation': 'A date range with which to find CarePlans. If used, the ‘date’ parameter must be '\
                                    "provided twice. Once with a 'ge' prefix representing the earliest date, and once "\
                                    "with a 'le’ prefix representing the latest date. The date prefix pair must create "\
                                    'a closed range.'
@@ -748,10 +748,10 @@ module Cerner
                   'type': 'date',
                   'documentation': 'It must be provided  once with a prefix to imply a date  range or without a '\
                                    'prefix to search for document(s) at a specific date. Alternately it may be '\
-                                   "provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for document(s) "\
+                                   'provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for document(s) '\
                                    'within specific range. The date and prefix pairs must create a closed range. For '\
                                    "a single 'date' occurrence, `time` component is optional but for two `date` "\
-                                   "occurrences, must include `time` component."
+                                   'occurrences, must include `time` component.'
                 }
               ],
               'operation': [
@@ -796,15 +796,15 @@ module Cerner
                   'name': 'patient',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-encounter-patient',
                   'type': 'reference',
-                  'documentation': 'The patient present at the encounter. It is a required field if the account or _id '\
-                                   'or identifier or -pageContext or subject fields are not given.'
+                  'documentation': 'The patient present at the encounter. It is a required field if the account or '\
+                                   '_id or identifier or -pageContext or subject fields are not given.'
                 },
                 {
                   'name': 'subject',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/Encounter-subject',
                   'type': 'reference',
-                  'documentation': 'The patient present at the encounter. It is a required field if the account or _id '\
-                                   'or identifier or -pageContext or patient fields are not given.'
+                  'documentation': 'The patient present at the encounter. It is a required field if the account or '\
+                                   '_id or identifier or -pageContext or patient fields are not given.'
                 },
                 {
                   'name': 'status',
@@ -828,9 +828,9 @@ module Cerner
                   'type': 'token',
                   'documentation': "An encounter's identifier. It is a required field if the account or _id or "\
                                    '-pageContext or patient or subject fields are not given.'
-                    }
-                  ]
-                },
+                }
+              ]
+            },
                 {
                   'type': 'FamilyMemberHistory',
                   'interaction': [
@@ -2201,7 +2201,7 @@ module Cerner
                   'name': 'date',
                   'definition': 'http://hl7.org/fhir/us/core/SearchParameter/us-core-careplan-date',
                   'type': 'date',
-                  'documentation': "A date range with which to find CarePlans. If used, the ‘date’ parameter must be "\
+                  'documentation': 'A date range with which to find CarePlans. If used, the ‘date’ parameter must be '\
                                    "provided twice. Once with a 'ge' prefix representing the earliest date, and once "\
                                    "with a 'le’ prefix representing the latest date. The date prefix pair must create "\
                                    'a closed range.'
@@ -2721,10 +2721,10 @@ module Cerner
                   'type': 'date',
                   'documentation': 'It must be provided  once with a prefix to imply a date  range or without a '\
                                    'prefix to search for document(s) at a specific date. Alternately it may be '\
-                                   "provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for document(s) "\
+                                   'provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for document(s) '\
                                    'within specific range. The date and prefix pairs must create a closed range. For '\
                                    "a single 'date' occurrence, `time` component is optional but for two `date` "\
-                                   "occurrences, must include `time` component."
+                                   'occurrences, must include `time` component.'
                 }
               ],
               'operation': [
@@ -3571,7 +3571,7 @@ module Cerner
                   'name': 'name',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/individual-name',
                   'type': 'string',
-                  'documentation': "The beginning of the first, last or middle name of the practitioner. Either the "\
+                  'documentation': 'The beginning of the first, last or middle name of the practitioner. Either the '\
                                    "'_id', 'identifier', 'name', 'active' or 'family' parameter, or a combination of "\
                                    "'given' and 'family' parameters must be provided."
                 },
