@@ -184,7 +184,7 @@ module Cerner
                                    'component to search for appointments at a specific time. Alternately it may be '\
                                    "provided twice with 'le' and 'gt' prefixes to search for appointments within a "\
                                    'specific range. The date prefix pair must create a closed range.'
-            },
+                },
             {
               'name': 'patient',
               'definition': 'http://hl7.org/fhir/R4/SearchParameter/Appointment-patient',
@@ -1593,7 +1593,8 @@ module Cerner
                   'name': 'subject',
                   'definition': 'http://hl7.org/fhir/R4/SearchParameter/clinical-patient',
                   'type': 'reference',
-                  'documentation': 'Search by subject. It is a required field if the _id or patient fields are not given'
+                  'documentation': 'Search by subject. It is a required field if the _id or patient fields are '\
+                                   'not given'
                 },
                 {
                   'name': 'date',
