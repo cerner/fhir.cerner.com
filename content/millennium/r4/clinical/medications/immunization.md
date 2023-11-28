@@ -9,47 +9,52 @@ title: Immunization | R4 API
 
 ## Overview
 
-The Immunization resource includes the view of current and historical administration of vaccinations to a patient in all healthcare settings. This resource contains the functionality to query a patient's immunization history.
+The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines, in all care settings, and all regions. This resource contains the functionality to query a patient's immunization history. You can find detailed administration records in the [`MedicationAdministration`] resource, while this Immunization resource represents the known vaccination history regardless of where the administration itself was done.
 
-Detailed administration records may be found in MedicationAdministration, while the Immunization resource would represent the known vaccination history regardless of where the administration itself was done.
+An immunization reaction may indicate an allergy or intolerance. If so, create a separate [`AllergyIntolerance`] resource instance as well.
 
-An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well.
+Note that while the terms immunization and vaccination are not clinically identical, for the purposes of FHIR resources, the terms are used synonymously.
 
-  * The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
+  * This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) profiles:
 
     * [US Core Immunization Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-immunization.html)
 
 The following fields are returned if valued:
 
-* [Id](http://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [ID](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Immunization Record Identifier](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.identifier){:target="_blank"}
-* [Status](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.status){:target="_blank"}
-* [Status reason](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason){:target="_blank"}
-* [Vaccine administered](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
-* [Patient](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient){:target="_blank"}
-* [Patient encounter](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.encounter){:target="_blank"}
-* [Occurrence DateTime](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
-* [Primary Source](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
-* [Report Origin](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.reportOrigin){:target="_blank"}
-* [Location](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.location){:target="_blank"}
-* [Vaccine manufacturer](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.manufacturer){:target="_blank"}
-* [Vaccine lot number](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.lotNumber){:target="_blank"}
-* [Vaccine expiration date](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.expirationDate){:target="_blank"}
-* [Vaccine administration site](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.site){:target="_blank"}
-* [Vaccine administration route](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.route){:target="_blank"}
-* [Dosage administered](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.doseQuantity){:target="_blank"}
-* [Performer](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer){:target="_blank"}
-  * [Type of performer (ordering or administering)](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function){:target="_blank"}
-  * [Individual who performed](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor){:target="_blank"}
-    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [Organization](http://hl7.org/fhir/R4/organization.html){:target="_blank"})
-* [Note](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"}
-  * [Author reference](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"}
-    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
-  * [Time](http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time){:target="_blank"}
-  * [Text](http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"}
-* [Protocol applied](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied){:target="_blank"}
-  * [Dose Number String](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"}
-  * [Target disease](http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.targetDisease){:target="_blank"}
+* [Status](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.status){:target="_blank"}
+* [Status reason](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason){:target="_blank"}
+* [Vaccine administered](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode){:target="_blank"}
+* [Patient](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient){:target="_blank"}
+* [Patient encounter](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.encounter){:target="_blank"}
+* [Occurrence DateTime](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_){:target="_blank"}
+* [Primary Source](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource){:target="_blank"}
+* [Report Origin](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.reportOrigin){:target="_blank"}
+* [Location](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.location){:target="_blank"}
+* [Vaccine manufacturer](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.manufacturer){:target="_blank"}
+* [Vaccine lot number](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.lotNumber){:target="_blank"}
+* [Vaccine expiration date](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.expirationDate){:target="_blank"}
+* [Vaccine administration site](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.site){:target="_blank"}
+* [Vaccine administration route](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.route){:target="_blank"}
+* [Dosage administered](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.doseQuantity){:target="_blank"}
+* [Performer](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer){:target="_blank"}
+  * [Type of performer (ordering or administering)](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function){:target="_blank"}
+  * [Individual who performed](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor){:target="_blank"}
+    * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"} \| [Organization](https://hl7.org/fhir/R4/organization.html){:target="_blank"})
+* [Note](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note){:target="_blank"} (follows [Annotation](https://hl7.org/fhir/R4/datatypes.html#Annotation) structure)
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+  * [Time](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time){:target="_blank"}
+  * [Text](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text){:target="_blank"}
+* [Protocol applied](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied){:target="_blank"}
+  * [Dose Number String](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_){:target="_blank"}
+  * [Target disease](https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.targetDisease){:target="_blank"}
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
@@ -57,7 +62,7 @@ The following fields are returned if valued:
 
 ## Search
 
-Search for Immunizations that meet supplied query parameters:
+Search for immunizations that meet supplied query parameters:
 
     GET /Immunization?:parameters
 
@@ -69,23 +74,33 @@ Search for Immunizations that meet supplied query parameters:
 
  Name             | Required?          | Type          | Description
 ------------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------
- `_id`            | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
- `patient`        | This, or `_id`     | [`reference`] | The patient for the vaccination record. Example: `12345`
- `date`           | No                 | [`date`]      | Date range into which the immunization administration date falls. Must be prefixed by 'ge' or 'le'.
- `_revinclude`    | No                 | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
- `target-disease` | No                 | [`token`]     | The target disease the dose is being administered against.                                 Example: `http://hl7.org/fhir/sid/cvx|213`
+ `_id`            | Conditionally      | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `M12345`
+ `patient`        | Conditionally      | [`reference`] | The patient for the vaccination record. This parameter is required if the `_id` parameter is not used. Example: `12345`
+ `date`           | No                 | [`date`]      | The date range for the immunization administration or administrations. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
+ `target-disease` | No                 | [`token`]     | The target disease that the dose is being administered against. Example: `http://hl7.org/fhir/sid/cvx|213`
+ `_revinclude`    | No                 | [`token`]     | The Provenance resource entries that are returned as part of the bundle.
 
-Notes:
+_Implementation Notes_
 
-* The `date` parameter may be provided:
-  * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
-  * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
-* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-* The `_revinclude` parameter may be provided in combination with the `_id/patient` parameter. Example: `_id=M17255835,M17255827&_revinclude=Provenance:target`
-* When `_revinclude` is provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
-* **Currently the `patient/Provenance.read` scope is not supported and hence `_revinclude` cannot be utilised for patient persona.**
-* The `target-disease` parameter
-  * Searching by Millennium proprietary codes is not supported
+- When searching with the `_id` parameter:
+  - It can be provided with either a single reference, or a comma-separated list of references. Example: `_id=M1234` or `_id=M1234,M5678`
+  - It must not be provided with any other parameters, except with `_revinclude` as indicated below.
+- When searching with the `patient` parameter:
+  - It can be provided with only a single reference; a comma-separated list is not supported.
+- When searching with the `date` parameter:
+  - For a single `date` occurrence:
+    - It must be provided with either the `le` or `ge` prefix to search for vaccination record administrations earlier or later than the given date.
+    - The time component is optional.
+  - For two `date` occurrences: 
+    - It must be provided with `le` and `ge` prefixes to search for vaccination records within a specific range. 
+    - The time component is optional, but must be consistent. If one date has a time component, so must the other.
+- When searching with the `target-disease` parameter:
+  - Searching by Cerner Millennium proprietary codes is not supported.
+- When searching with the `_revinclude` parameter:
+  - It can be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
+  - It can be provided with the `_id` or `patient` parameter. Example: `_id=M17255835&_revinclude=Provenance:target`
+
+- When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
 
 ### Headers
 
@@ -102,7 +117,6 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_BUNDLE) %>
 
-<%= disclaimer %>
 
 ### Example with RevInclude
 
@@ -118,7 +132,6 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_immunization_revinclude_bundle) %>
-<%= disclaimer %>
 
 #### Patient Authorization Request
 
@@ -129,15 +142,9 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_PATIENT_BUNDLE) %>
 
-<%= disclaimer %>
+## Retrieve by ID
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual Immunization by its id:
+List an individual immunization by the associated ID:
 
     GET /Immunization/:id
 
@@ -160,8 +167,6 @@ List an individual Immunization by its id:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_ENTRY) %>
 
-<%= disclaimer %>
-
 #### Patient Authorization Request For Completed Status
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197197986
@@ -171,7 +176,6 @@ List an individual Immunization by its id:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_PATIENT_ENTRY) %>
 
-<%= disclaimer %>
 
 #### Patient Authorization Request For Entered in Error Status
 
@@ -182,9 +186,7 @@ List an individual Immunization by its id:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_ENTERED_IN_ERROR_STATUS) %>
 
-<%= disclaimer %>
-
-#### Patient Authorization Request For Not done Status
+#### Patient Authorization Request For Not Done Status
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/HM178147794
 
@@ -193,15 +195,9 @@ List an individual Immunization by its id:
 <%= headers status: 200 %>
 <%= json(:R4_IMMUNIZATION_NOT_DONE_STATUS) %>
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ## Create
 
-Create a new Immunization.
+Create a new immunization.
 
     POST /Immunization
 
@@ -239,18 +235,15 @@ Etag: W/"1"
 Last-Modified: Sun, 30 Jun 2019 10:35:00 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/147391087
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
+X-Request-Id: 11111111-1111-1111-1111-111111111111
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ## Update
 
-Update an Immunization.
+Update an immunization.
 
     PUT /Immunization/:id
 
@@ -288,17 +281,15 @@ Date: Sun, 30 Jun 2019 10:40:00 GMT
 Etag: W/"2"
 Last-Modified: Sun, 30 Jun 2019 10:40:00 GMT
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
+X-Request-Id: b72617f9-1a52-46ca-bb52-b0b3f976f9fb
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
 [`date`]: http://hl7.org/fhir/R4/search.html#date
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
+[`MedicationAdministration`]: ../medication-administration/#overview
+[`AllergyIntolerance`]: ../../summary/allergy-intolerance/#overview

@@ -133,7 +133,7 @@ Search for medication requests that meet supplied query parameters.
  `status`               | No            | [`token`]     | The [status] of the medication. May be a list separated by commas. Example: `status=active,completed`
  `intent`               | No            | [`token`]     | Whether the medication is an authorization or a medication reported by a patient. Example: `intent=order,plan`
  `-timing-boundsPeriod` | No            | [`token`]     | The date and time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` when the medication should be given to the patient. Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z` 
- `_lastUpdated`         | No            | [`date`]      | The date and time range within which the most recent clinically relevant update was made to the medication. The time component is required. It must be prefixed by `ge` or `le`. Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
+ `_lastUpdated`         | No            | [`date`]      | The date and time range within which the most recent clinically relevant update was made to the medication. The time component is required. Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
  `_count`               | No            | [`number`]    | The maximum number of results to include on a page. Example: `_count=50`
  `_revinclude`          | No            | [`token`]     | The Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
@@ -155,8 +155,7 @@ _Notes_
 * When searching with the `_revinclude` parameter:
   * It can be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
   * It can be provided with the `_id` or `patient` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
-
-* If `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently, `patient/Provenance.read` is not supported; hence, `_revinclude` cannot be used for patient persona.
+  * If it is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
 
 ### Headers
 
