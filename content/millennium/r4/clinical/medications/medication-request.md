@@ -155,7 +155,8 @@ _Notes_
 * When searching with the `_revinclude` parameter:
   * It can be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
   * It can be provided with the `_id` or `patient` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
-  * If it is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read`, or `system/Provenance.read`
+
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
 
 ### Headers
 
