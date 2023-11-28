@@ -99,8 +99,8 @@ Search for medication statements that meet supplied query parameters.
 
 _Notes_
 
-* [MedicationStatement.informationSource] may be a reference to a [contained] practitioner or related person. Only the relationship between the patient and information source is known; therefore, a specific practitioner or related person cannot be referenced.
-* [MedicationStatement.medication] may be a reference to a [contained] medication when the medication cannot be represented by a [`CodeableConcept`] because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication statement and cannot be be referenced independently.
+* [MedicationStatement.informationSource] may be a reference to a [contained] Practitioner or RelatedPerson. Only the relationship between the patient and information source is known; therefore, a specific practitioner or related person cannot be referenced.
+* [MedicationStatement.medication] may be a reference to a [contained] Medication when the medication cannot be represented by a [`CodeableConcept`] because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication statement and cannot be be referenced independently.
 * When searching with the `_id` parameter:
   * It must not be provided with any other parameters.
 
@@ -152,7 +152,7 @@ Create a new medication statement.
 
 _Notes_
 
-* If [MedicationStatement.medication] is a reference, it must refer to a [contained] medication with the code field populated and cannot have any product.ingredients populated.
+* If [MedicationStatement.medication] is a reference, it must refer to a [contained] Medication with the code field populated and cannot have any product.ingredients populated.
 * Only medication statements about home medications or historical medications can be created. Medication statements about prescribed medications cannot be created because the MedicationStatement resource is not used to capture compliance information.
 * Only the body fields mentioned below are supported. Unsupported fields are ignored or result in errors.
 
