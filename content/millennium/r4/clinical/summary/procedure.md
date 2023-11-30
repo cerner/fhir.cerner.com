@@ -9,32 +9,38 @@ title: Procedure | R4 API
 
 ## Overview
 
-The Procedure resource returns medical and surgical procedures performed on or for a patient during their lifetime.   Historical procedures, as well as procedures recorded during a specific visit, are returned. Surgical procedures from finalized surgical cases will be returned as free text procedures, if the solution has been configured to write procedures from finalized cases to Procedure History.
+The Procedure resource returns medical and surgical procedures performed on or for a patient during their lifetime. Historical procedures and procedures recorded during a specific visit are returned. Surgical procedures from finalized surgical cases are returned as free-text procedures if the product is configured to write procedures from finalized cases to procedure history.
 
-* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
-  * [US Core Procedure Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-procedure.html)
+* This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) profiles:
+  * [US Core Procedure Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-procedure.html)
 
 The following fields are returned if valued:
 
-* [Id](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
-* [Status (completed, entered-in-error)](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status){:target="_blank"}
+* [ID](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Status](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.status){:target="_blank"}
 * [Code](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.code){:target="_blank"}
 * [Subject](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.subject){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](http://hl7.org/fhir/r4/patient.html){:target="_blank"})
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Patient](https://hl7.org/fhir/r4/patient.html){:target="_blank"})
 * [Encounter](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.encounter){:target="_blank"}
-* [Date performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
+* [Performed Period](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performed_x_){:target="_blank"}
   * [DateTime](https://hl7.org/fhir/R4/datatypes.html#dateTime){:target="_blank"}
   * [Period](https://hl7.org/fhir/R4/datatypes.html#Period){:target="_blank"}
 * [Who recorded](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.recorder){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference) ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Who performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.performer.actor){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
 * [Location](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.location){:target="_blank"}
 * [Reason procedure performed](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.reasonReference){:target="_blank"}
-  * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Condition](https://hl7.org/fhir/R4/condition.html){:target="_blank"})
+  * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Condition](https://hl7.org/fhir/R4/condition.html){:target="_blank"})
 * [Comment/Note](https://hl7.org/fhir/R4/procedure-definitions.html#Procedure.note){:target="_blank"}
   * [Annotation Author](https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.author_x_){:target="_blank"}
-    * [Reference](http://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](http://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+    * [Reference](https://hl7.org/fhir/r4/references.html#Reference){:target="_blank"} ([Practitioner](https://hl7.org/fhir/r4/practitioner.html){:target="_blank"})
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
@@ -42,7 +48,7 @@ The following fields are returned if valued:
 
 ## Search
 
-Search for Procedures that meet supplied query parameters:
+Search for procedures that meet supplied query parameters.
 
     GET /Procedure?:parameters
 
@@ -52,21 +58,24 @@ Search for Procedures that meet supplied query parameters:
 
 ### Parameters
 
- Name              | Required?                      | Type          | Description
--------------------|--------------------------------|---------------|-----------------------------------------------------------------------
- `_id`             | This or `patient` or `subject` | [`token`]     | The logical resource id associated with the resource.
- `patient`         | This or `_id` or `subject`     | [`reference`] | Who the procedure is for. Example: `12345`
- `subject`         | This or `_id` or `patient`     | [`reference`] | Who the procedure is for. Example: `Patient/12345`
- `date`            | No                              | [`dateTime`]  | Date range into which the procedure falls. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
- `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
+ Name              | Required?     | Type          | Description
+-------------------|---------------|---------------|-----------------------------------------------------------------------
+ `_id`             | Conditionally | [`token`]     | The logical resource ID associated with the resource. This parameter is required if `patient` or `subject` is not used. Example: `_id=7891`
+ `patient`         | Conditionally | [`reference`] | Who the procedure is for. This parameter is required if `_id` or `subject` is not used. Example: `12345`
+ `subject`         | Conditionally | [`reference`] | Who the procedure is for. This parameter is required if `_id` or `patient` is not used. Example: `Patient/12345`
+ `date`            | No            | [`dateTime`]  | The date range that the procedure's `performedPeriod` or `performedDateTime` falls within. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
+ `_revinclude`     | No            | [`token`]     | The Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
 
 Notes:
 
-* If `_id` is provided, `patient` or `subject` can no longer be provided.
-* A `date` parameter may be provided once with a prefix and time component to imply a date range. Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes and time component to search for procedures within a specific range. The date and prefix pairs must create a closed range.
-* The `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-* The `_revinclude` parameter may be provided in combination with the `_id/patient` parameter. Example: `_id=570007845&_revinclude=Provenance:target` or `patient=12345&_revinclude=Provenance:target`.
-* When `_revinclude` is provided in a request to a closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
+* The `date` parameter: 
+  * May be provided once with a prefix and time component to imply a date range. Example: `date=gt2015-09-24T00:00:00.000Z`
+  * May otherwise be provided twice with `le`, `lt`, `ge`, or `gt` prefixes and a time component to search for procedures within a specific range. The date and prefix pairs must create a closed range.
+* The `_revinclude` parameter:
+  * May be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
+  * May be provided in combination with the `_id` or `patient` parameter. Example: `_id=570007845&_revinclude=Provenance:target` or `patient=12345&_revinclude=Provenance:target`.
+  * When provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
+* Currently, the `patient/Provenance.read` scope is not supported; hence, `_revinclude` cannot be used for patient persona.
 
 ### Headers
 
@@ -83,9 +92,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_procedure_bundle) %>
 
-<%= disclaimer %>
-
-### Example with RevInclude
+### Example With RevInclude
 
 ### Authorization Types
 
@@ -100,8 +107,6 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:r4_procedure_revinclude_bundle) %>
 
-<%= disclaimer %>
-
 #### Patient Authorization Request
 
     GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure?patient=12724066
@@ -110,15 +115,10 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:r4_procedure_patient_bundle) %>
-<%= disclaimer %>
 
-### Errors
+## Retrieve by ID
 
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual Procedure by its id:
+List an individual procedure by its ID.
 
     GET /Procedure/:id
 
@@ -141,7 +141,6 @@ List an individual Procedure by its id:
 <%= headers status: 200 %>
 <%= json(:r4_procedure_entry) %>
 
-<%= disclaimer %>
 
 #### Patient Authorization Request
 
@@ -151,7 +150,6 @@ List an individual Procedure by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_procedure_patient_entry) %>
-<%= disclaimer %>
 
 #### Patient Authorization Request For Entered in Error Status
 
@@ -161,21 +159,16 @@ List an individual Procedure by its id:
 
 <%= headers status: 200 %>
 <%= json(:r4_procedure_entered_in_error_status ) %>
-<%= disclaimer %>
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-Create a new Procedure.
+Create a new procedure.
 
     POST /Procedure
 
-_Implementation Notes_
+_Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields will be ignored.
-* Modifier fields should not be provided, and will cause the transaction to fail.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored.
 
 ### Authorization Types
 
@@ -215,12 +208,6 @@ X-Request-Id: 2e11665d-618d-4017-9a90-c3c1afeeac00
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
