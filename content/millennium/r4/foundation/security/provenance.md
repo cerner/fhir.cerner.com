@@ -142,7 +142,7 @@ Create a new provenance.
 _Notes_
 
 * Only the body fields mentioned below are supported. Unsupported fields are ignored or can result in errors.
-* The `Provenance.write` scopes must be provided to create a provenance with an Observation Measurement target.
+* The `Provenance.write` scope must be provided to create a provenance with an Observation Measurement Target.
 
 ### Authorization Types
 
