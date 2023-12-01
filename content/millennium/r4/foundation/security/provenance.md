@@ -9,7 +9,7 @@ title: Provenance | R4 API
 
 ## Overview
 
-The Provenance resource tracks the source of external information and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter. The target references a resource and ID that this Provenance entry is related to. Entities are Continuity of Care Documents (CCDs) generated through the DocumentReference resource.
+The Provenance resource tracks the source of external information and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter. The `Target` field references a Resource that this Provenance entry is related to. Entities are Continuity of Care Documents (CCDs) generated through the [DocumentReference] resource.
 
 This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles:
 
@@ -20,12 +20,13 @@ The following fields are returned if valued:
 * [Provenance ID](https://hl7.org/fhir/R4/resource-definitions.html#Resource.id){:target="_blank"}
 * [Target](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target){:target="_blank"}
 * [Recorded](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded){:target="_blank"}
-* [Agent type (author or transmitter)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type){:target="_blank"}
-* [Agent role (source or informant)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role){:target="_blank"}
-* [Agent who (Practitioner, Device, or Organization)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who){:target="_blank"}
-* [Agent on behalf of (only when Agent.who is of type Practitioner)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf){:target="_blank"}
+* [Agent](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent){:target="_blank"}
+  * [Agent type](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type){:target="_blank"}
+  * [Agent role](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role){:target="_blank"}
+  * [Agent who](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who){:target="_blank"}
+  * [Agent on behalf of (only when Agent.who is of type Practitioner)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf){:target="_blank"}
 * [Entity role](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role){:target="_blank"}
-* [Entity what (Continuity of Care DocumentReference ID)](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what){:target="_blank"}
+* [Entity what](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what){:target="_blank"}
 
 <%= disclaimer %>
 
@@ -51,13 +52,28 @@ Search for provenances that meet the supplied query parameters.
 
  Name      | Required?     | Type          | Description
 -----------|---------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
- `_id`     | Conditionally | [`token`]     | The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the `target` parameter is not used. Example: `doc-1234`
- `target`  | Conditionally | [`reference`] | The target references, which can be version-specific. The AllergyIntolerance, CarePlan, CareTeam, Condition, DiagnosticReport, DocumentReference, Encounter, Goal, Immunization, MedicationRequest, Observation, Patient, and Procedure resources are supported. Example: `DocumentReference/66547`
+ `_id`     | Conditionally | [`token`]     | The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the `target` parameter is not used. Example: `_id=doc-1234`
+ `target`  | Conditionally | [`reference`] | The target references, which can be version-specific. See Notes for list of supported resources. Example: `target=DocumentReference/66547`
 
 _Notes_
 
 - When searching with the `_id` parameter:
   - Must not include any other parameters.
+- When searching with the `target` parameter:
+  - The following resources are supported at this time:
+    - AllergyIntolerance
+    - CarePlan
+    - CareTeam
+    - Condition
+    - DiagnosticReport
+    - DocumentReference
+    - Encounter
+    - Goal
+    - Immunization
+    - MedicationRequest
+    - Observation
+    - Patient
+    - Procedure
 
 ### Headers
 
@@ -172,3 +188,4 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
+[DocumentReference]: ../../documents/document-reference/#overview
