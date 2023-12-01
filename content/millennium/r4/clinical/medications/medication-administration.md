@@ -11,7 +11,7 @@ title: MedicationAdministration | R4 API
 
 The MedicationAdministration resource provides information about medications administered to a patient or consumed by a patient including injections, intravenous solutions, and self-administered oral medications. You can use this resource to search for full administration details for vaccinations administered by the current healthcare system. For historically administered vaccines, or vaccines administered by other healthcare disciplines, care settings, or regions, you must use the [`Immunization`] resource to create or retrieve information.
 
-* **Important!**: Infuse or bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage dose does not equal the [contained] Medication ingredient strength denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage dose. This result is the actual amount of medication administered.
+* **Important:** Infuse or bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage dose does not equal the [contained] Medication ingredient strength denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage dose. This result is the actual amount of medication administered.
 
 The following fields are returned if valued:
 
