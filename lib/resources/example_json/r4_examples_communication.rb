@@ -117,7 +117,7 @@ module Cerner
           'coding': [
             {
               'system': 'http://terminology.hl7.org/CodeSystem/communication-category',
-              'code': 'reminder'
+              'code': 'notification'
             }
           ]
         }
