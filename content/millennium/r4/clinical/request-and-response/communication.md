@@ -79,6 +79,7 @@ _Notes_
  * The `received` parameter may be provided:
    * Once with the `ge` prefix.
    * Twice with the lower value prefixed by `ge` and the higher value prefixed by `le`.
+   * Must be provided with a time component.
 
 ### Headers
 
@@ -128,8 +129,7 @@ Create a new communication.
 
 _Notes_
 
-* Only the body fields mentioned below are supported. Unsupported fields are ignored.
-* Do not provide modifier fields because they cause the transaction to fail.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored, or can cause errors.
 
 ### Authorization Types
 
