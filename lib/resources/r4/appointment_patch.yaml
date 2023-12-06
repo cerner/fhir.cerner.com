@@ -291,6 +291,7 @@ operations:
     note: >
       <ul>
         <li>When present, this patch operation must be accompanied by add cancellation reason and replace status patch operation when updating the status to `cancelled`</li>
+        <li>When present, this patch operation must be accompanied by replace slot when rescheduling the appointment.</li>
         <li>Only one value may be provided in the value array</li>
       </ul>
   - name: replace-comment
@@ -308,4 +309,28 @@ operations:
     note: >
       <ul>
         <li>When present, this patch operation must be accompanied by the replace Slot patch operation</li>
+      </ul>
+  - name: add-reschedule-reason
+    path: /extension
+    operation: add
+    type: Extension
+    url: https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension
+    description: The coded reason for the appointment being rescheduled
+    example: |
+      {
+        "op": "add",
+        "path": "/extension",
+        "value": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+              "code": "oth-err"
+            }
+          ]
+        }
+      }
+    note: >
+      <ul>
+        <li>When present, this patch operation must be accompanied by replace slot operation</li>
+        <li>Only one value may be provided in the value array</li>
       </ul>

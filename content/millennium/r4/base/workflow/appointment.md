@@ -51,7 +51,7 @@ The following fields are returned if valued:
 * [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * [Patient Instruction](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction){:target="_blank"}
 * [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
-* [Extensions including action-comment, group-appointment-id, is-cancelable, and is-reschedulable](#extensions){:target="_blank"}
+* [Extensions including action-comment, group-appointment-id, is-cancelable, is-reschedulable. and reschedule-reason](#extensions){:target="_blank"}
 
 <%= disclaimer %>
 
@@ -67,6 +67,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 * [Group Appointment Id]
 * [Is Cancelable]
 * [Is Reschedulable]
+* [Reschedule Reason]
 
 ### Custom Extensions
 
@@ -78,6 +79,7 @@ ID                               | Value\[x] Type                               
 `group-appointment-id`           | [`string`](https://hl7.org/fhir/r4/datatypes.html#string)   | The ID of the appointment group that this appointment is a part of.
 `is-cancelable`                  | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be canceled or not.
 `is-reschedulable`               | [`boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indication of whether the Appointment can be rescheduled or not.
+`reschedule-reason`              | [`CodeableConcept`](http://hl7.org/fhir/R4/datatypes.html#CodeableConcept) | The coded reason for the appointment being rescheduled.
 
 ## Search
 
@@ -410,6 +412,31 @@ opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72
 X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
 
+### Example - Add rescheduleReason
+
+#### Request
+
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
+
+#### Body
+
+<%= json(:r4_appointment_rescheduleReason_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"1"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Vary: Origin
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
+</pre>
+
 ### Example - Add Video Visit Links
 
 #### Request
@@ -485,7 +512,32 @@ opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72
 X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
 
-### Example - Update Action Comment
+### Example - Update Action Comment with Replace Slot
+
+#### Request
+
+    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
+
+#### Body
+
+<%= json(:r4_appointment_extension_action_comment_slot_patch) %>
+
+#### Response
+
+<%= headers status: 200 %>
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Fri, 11 Aug 2023 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Fri, 11 Aug 2023 15:42:29 GMT
+Vary: Origin
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
+</pre>
+
+### Example - Update Action Comment with Replace Status
 
 #### Request
 
@@ -537,3 +589,4 @@ In addition to the common [errors] and [OperationOutcomes], the following errors
 [Group Appointment Id]: #custom-extensions
 [Is Cancelable]: #custom-extensions
 [Is Reschedulable]: #custom-extensions
+[Reschedule Reason]: #custom-extensions

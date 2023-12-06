@@ -458,6 +458,35 @@ module Cerner
       }
     ].freeze
 
+    R4_APPOINTMENT_RESCHEDULEREASON_PATCH ||= [
+      {
+        'op': 'replace',
+        'path': '/slot',
+        'value': [
+          {
+            'reference': 'Slot/2582093771-22784981-63303788-60'
+          }
+        ]
+      },
+      {
+        "op": "add",
+        "path": "/extension",
+        "value": [
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/reschedule-reason",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+                  "code": "oth-err"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ].freeze
+
     R4_APPOINTMENT_VIDEO_VISIT_ADD_PATCH ||= [
       {
         'op': 'add',
@@ -539,6 +568,28 @@ module Cerner
             }
           ]
         }
+      }
+    ].freeze
+
+    R4_APPOINTMENT_EXTENSION_ACTION_COMMENT_SLOT_PATCH ||= [
+      {
+        "op": "replace",
+        "path": "/slot",
+        "value": [
+          {
+            "reference": "Slot/2592955413-2581440805-96118899-0"
+          }
+        ]
+      },
+      {
+        'op': 'replace',
+        'path': '/extension',
+        'value': [
+          {
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment',
+            'valueString': 'Rescheduling Appointment'
+          }
+        ]
       }
     ].freeze
 
