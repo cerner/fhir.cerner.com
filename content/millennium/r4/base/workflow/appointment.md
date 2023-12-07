@@ -51,7 +51,7 @@ The following fields are returned if valued:
 * [Comment](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment){:target="_blank"}
 * [Patient Instruction](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction){:target="_blank"}
 * [Requested period](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod){:target="_blank"}
-* [Extensions including action-comment, group-appointment-id, is-cancelable, is-reschedulable. and reschedule-reason](#extensions){:target="_blank"}
+* [Extensions including action-comment, group-appointment-id, is-cancelable, is-reschedulable, and reschedule-reason](#extensions){:target="_blank"}
 
 <%= disclaimer %>
 
