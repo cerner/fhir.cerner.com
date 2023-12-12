@@ -9,9 +9,9 @@ title: Goal | R4 API
 
 ## Overview
 
-The Goal resource describes intended objectives for a patient. A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time. A Goal may address preventative health or mitigation of a diagnosis or problem. Goals can be non-health care related (e.g. dance at a wedding).
+The Goal resource describes intended objectives for a patient. A goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time. A goal may address preventative health or mitigation of a diagnosis or problem. Goals can be nonhealthcare related (for example, dance at a wedding).
 
-* The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) Profiles are supported by this resource:
+* This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/) profiles:
 
   * [US Core Goal Profile](http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-goal.html)
 
@@ -47,7 +47,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Goals that meet supplied query parameters:
+Search for goals that meet supplied query parameters.
 
     GET /Goal?:parameters
 
@@ -59,20 +59,20 @@ Search for Goals that meet supplied query parameters:
 
  Name              | Required?                  | Type          | Description
 -------------------|----------------------------|---------------|---------------------------------------------------------------------------------------------------------------
- `_id`             | Conditionally              | [`token`]     | The logical resource ID associated with the Goal. This parameter is required if `patient` is not used. Example: `_id=7891`
+ `_id`             | Conditionally              | [`token`]     | The logical resource ID associated with the goal. This parameter is required if `patient` is not used. Example: `_id=7891`
  `patient`         | Conditionally              | [`reference`] | The patient who has the goal. This parameter is required if `_id` is not used. Example: `patient=12345`
- `target-date`     | No                         | [`date`]      | A date or date range from which to find Goals. Example: `target-date=ge2016-10-01&target-date=le2016-12-01`
+ `target-date`     | No                         | [`date`]      | A date or date range from which to find goals. Example: `target-date=ge2016-10-01&target-date=le2016-12-01`
  `_revinclude`     | No                         | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
 
 Notes:
 
-* The `target-date` parameter 
+* The `target-date` parameter:
   * May be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. 
-  * Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.
+  * Alternatively, it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within a specific range. The date and prefix pairs must create a closed range.
 * The `_revinclude` parameter: 
-  * May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+  * May be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
   * May be provided with the `_id/patient` parameter. Example: `_id=178866310&_revinclude=Provenance:target`
-  * If provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently `patient/Provenance.read` is not supported and hence `_revinclude` cannot be utilised for patient persona.
+  * If provided in a request to the closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope. Currently, `patient/Provenance.read` is not supported; hence, `_revinclude` cannot be used for patient persona.
 
 
 ### Headers
@@ -139,7 +139,7 @@ Notes:
 
 ## Retrieve by ID
 
-List an individual Goal by its ID:
+List an individual goal by its ID.
 
     GET /Goal/:ID
 

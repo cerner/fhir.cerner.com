@@ -9,7 +9,7 @@ title: Goal | DSTU 2 API
 
 ## Overview
 
-The Goal resource describes intended objectives for a patient.  A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time.  A Goal may address preventative health or mitigation of a diagnosis or problem.  Goals can be non-health care related (e.g. dance at a wedding).
+The Goal resource describes intended objectives for a patient. A goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time. A goal may address preventative health or mitigation of a diagnosis or problem. Goals can be nonhealthcare related (for example, dance at a wedding).
 
 The following fields are returned if valued:
 
@@ -36,7 +36,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Goals that meet supplied query parameters:
+Search for goals that meet supplied query parameters.
 
     GET /Goal?:parameters
 
@@ -48,16 +48,16 @@ Search for Goals that meet supplied query parameters:
 
  Name              | Required?        | Type          | Description
 -------------------|------------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `_id`             | Conditionally    | [`token`]     | The logical resource ID associated with the Goal. This parameter is required if `patient` or `subject` are not used. Example: `_id=7891`
+ `_id`             | Conditionally    | [`token`]     | The logical resource ID associated with the goal. This parameter is required if `patient` or `subject` are not used. Example: `_id=7891`
  `patient`         | Conditionally    | [`reference`] | The patient who has the goal. This parameter is required if `_id` or `subject` are not used. Example: `patient=12345`
  `subject:Patient` | Condtionally     | [`reference`] | The subject who this goal is intended for. Must represent a Patient resource. May use the `:Patient` modifier. This parameter is required if `_id` or `patient` are not used. Example: `subject=Patient/12345` or `subject:Patient=12345`
- `targetdate`      | No               | [`date`]      | A date or date range from which to find Goals. Example: `targetdate=ge2016-10-01&targetdate=le2016-12-01`
+ `targetdate`      | No               | [`date`]      | A date or date range from which to find goals. Example: `targetdate=ge2016-10-01&targetdate=le2016-12-01`
 
 Notes:
 
-* The `targetdate` parameter 
+* The `targetdate` parameter:
   * May be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. 
-  * Alternately it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.
+  * Alternatively, it may be provided twice with `le`, `lt`, `ge`, or `gt` prefixes to search for goals within a specific range. The date and prefix pairs must create a closed range.
 
 ### Headers
 
@@ -74,7 +74,7 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_goal_bundle) %>
 
-### Example Search by Id
+### Example Search by ID
 
 #### Request
 
@@ -87,7 +87,7 @@ Notes:
 
 ## Retrieve by ID
 
-List an individual Goal by its ID:
+List an individual goal by its ID.
 
     GET /Goal/:ID
 
