@@ -102,7 +102,7 @@ fields:
       "resourceType": "Patient"
     }
   note: resourceType must be Patient.
-  url: http://hl7.org/fhir/R4/json.html#resources
+  url: https://hl7.org/fhir/R4/json.html#resources
 
 - name: identifier
   required: 'Yes'
@@ -150,19 +150,7 @@ fields:
         </ul>
       </li>
     </ul>
-  url: http://hl7.org/fhir/R4/datatypes.html#Identifier
-
-- name: active
-  required: 'No'
-  type: boolean
-  description: Whether this patient record is in active use.
-  action: create
-  example: |
-    {
-      "active": true
-    }
-  note: If set, value must be true.
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.active
+  url: https://hl7.org/fhir/R4/datatypes.html#Identifier
 
 - name: name
   required: 'Yes'
@@ -213,6 +201,18 @@ fields:
       <li>Each value for the `given`, `prefix`, and `suffix` fields has a character limit of 100.</li>
     </ul>
   url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.name
+
+- name: active
+  required: 'No'
+  type: boolean
+  description: Whether this patient record is in active use.
+  action: create
+  example: |
+    {
+      "active": true
+    }
+  note: If set, the value must be `true`.
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.active
 
 - name: telecom
   required: 'No'

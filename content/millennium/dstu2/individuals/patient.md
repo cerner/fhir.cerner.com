@@ -13,8 +13,8 @@ The Patient resource provides general demographic information about a person rec
 
 The following fields are returned if valued:
 
-* [Patient name](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name){:target="_blank"}
 * [Patient ID](https://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
+* [name](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name){:target="_blank"}
 * [Extension](#extensions)
 * [Identifier](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier){:target="_blank"}
 * [Telecom](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
