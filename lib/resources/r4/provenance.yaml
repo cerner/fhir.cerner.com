@@ -31,22 +31,22 @@ fields:
     }
   note: |
     <ul>
-      <li> Only one target may be provided.</li>
-      <li> The following resources are supported </li>
+      <li>Only one target may be provided.</li>
+      <li>The following resources are supported</li>
         <ul>
-            <li> `AllergyIntolerance` </li>
-            <li> `CarePlan` </li>
-            <li> `CareTeam` </li>
-            <li> `Condition` </li>
-            <li> `DiagnosticReport` </li>
-            <li> `DocumentReference` </li>
-            <li> `Encounter` </li>
-            <li> `Goal` </li>
-            <li> `Immunization` </li>
-            <li> `MedicationRequest` </li>
-            <li> `Observation` </li>
-            <li> `Patient` </li>
-            <li> `Procedure` </li>
+            <li>AllergyIntolerance</li>
+            <li>CarePlan</li>
+            <li>CareTeam</li>
+            <li>Condition</li>
+            <li>DiagnosticReport</li>
+            <li>DocumentReference</li>
+            <li>Encounter</li>
+            <li>Goal</li>
+            <li>Immunization</li>
+            <li>MedicationRequest</li>
+            <li>Observation</li>
+            <li>Patient</li>
+            <li>Procedure</li>
         </ul>
     </ul>
   url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target
