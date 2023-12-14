@@ -41,7 +41,7 @@ _Notes_
 
 ### Errors
 
-The common [errors] and [OperationOutcomes] may be returned. In addition, a `422 - Unprocessable Entity` will be returned when more than 1,000 patients qualify for the search criteria.
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 

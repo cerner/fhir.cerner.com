@@ -42,7 +42,7 @@ operations:
   description: Test the value of the `Identifier.id` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
   example: |
     {
-      "path": "/identifier/1/id",
+      "path": "/identifier/0/id",
       "op": "test",
       "value": "CI-9926250-1"
     }
@@ -85,7 +85,7 @@ operations:
   description: Replace the `Identifier.value` of the identifier at the given <code>{index}</code> in the list of patient identifiers.
   example: |
     {
-      "path": "/identifier/1/value",
+      "path": "/identifier/0/value",
       "op": "replace",
       "value": "&lt;unique identifier&gt;"
     }
@@ -194,7 +194,7 @@ operations:
   description: Replace the `HumanName.suffix` of the name at the given <code>{index}</code> in the list of patient names.
   example: |
     {
-      "path": "/name/0/suffix",
+      "path": "/name/2/suffix",
       "op": "replace",
       "value": "Jr."
     }
@@ -240,6 +240,7 @@ operations:
         "system": "phone",
         "value": "8168229121",
         "use": "home",
+        "rank": 1,
         "extension": [
           {
             "valueString": "12345",
@@ -336,7 +337,7 @@ operations:
       <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the `ContactPoint.id` of the telecom whose `extension` value is intended to be replaced.</li>
       <li>The `system` field of the telecom whose `extension` is intended to be replaced must be 'phone'.</li>
       <li>If no `valueString` is provided, the phone extension will be unset.</li>
-      <li>The url must be 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'.</li>
+      <li>The `url` value must be `http://hl7.org/fhir/StructureDefinition/contactpoint-extension`.</li>
     </ul>
 - name: replace-telecom-period
   path: /telecom/{index}/period
