@@ -9,30 +9,35 @@ title: MedicationAdministration | DSTU 2 API
 
 ## Overview
 
-The Medication Administration resource provides information about medications and vaccines administered to a patient or consumed by a patient including injections, intravenous solutions, and self administered oral medications.
-<br/><br/>
+The MedicationAdministration resource provides information about medications administered to a patient or consumed by a patient including injections, intravenous solutions, and self-administered oral medications. You can use this resource to search for full administration details for vaccinations administered by the current healthcare system. For historically administered vaccines, or vaccines adminstered by other healthcare disciplines, care settings, or regions, you must use the [`Immunization`] resource to retrieve information.
 
-* **IMPORTANT NOTE**: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
-* **NOTE**:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.
+* **Important!**: Infuse or bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage dose does not equal the [contained] Medication ingredient strength denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This result is the actual amount of medication administered.
 
-<br/><br/>
 The following fields are returned if valued:
 
-* [Medication Administration id](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.identifier){:target="_blank"}
+* [Medication Administration id](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.identifier){:target="_blank"}
 * [Infuse Over Time Extension](#extensions)
-* [Status](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.status){:target="_blank"}
-* [Patient](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.patient){:target="_blank"}
-* [Practitioner](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.practitioner){:target="_blank"}
-* [Encounter](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.encounter){:target="_blank"}
-* [Prescription](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.prescription){:target="_blank"}
-* [Effective Time](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.effectiveTime_x_){:target="_blank"}
-* [Medication](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_){:target="_blank"}
+* [Status](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.status){:target="_blank"}
+* [Patient](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.patient){:target="_blank"}
+* [Practitioner](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.practitioner){:target="_blank"}
+* [Encounter](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.encounter){:target="_blank"}
+* [Prescription](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.prescription){:target="_blank"}
+* [Effective Time](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.effectiveTime_x_){:target="_blank"}
+* [Medication](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_){:target="_blank"}
 * Details of medication administered:
-  * [Text](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.text){:target="_blank"}
-  * [Route](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.route){:target="_blank"}
-  * [Quantity](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.quantity){:target="_blank"}
-  * [Site](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.site_x_){:target="_blank"}
-  * [Rate](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.rate_x_){:target="_blank"}
+  * [Text](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.text){:target="_blank"}
+  * [Route](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.route){:target="_blank"}
+  * [Quantity](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.quantity){:target="_blank"}
+  * [Site](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.site_x_){:target="_blank"}
+  * [Rate](https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.rate_x_){:target="_blank"}
+
+* MedicationAdministration.medication may be a reference to a [contained] Medication when the Medication cannot be represented by a [CodeableConcept] because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication administration and cannot be referenced independently.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
@@ -49,22 +54,17 @@ The following fields are returned if valued:
 ### Custom Extensions
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
+For more information, see the [`StructureDefinition`] resource.
 
- ID                    | Value\[x] Type | Description
------------------------|----------------|------------------------------------------------------------------------------------------------
- `infuse-over-time` | [`Quantity`]  | The length of time in minutes it took to infuse a medication.
+ ID                 | Value\[x] Type | Description
+--------------------|----------------|------------------------------------------------------------------------------------------------
+ `infuse-over-time` | [`Quantity`]   | The length of time in minutes it took to infuse a medication.
 
 ## Search
 
-Search for MedicationAdministrations that meet supplied query parameters:
+Search for medication administrations that meet supplied query parameters.
 
     GET /MedicationAdministration?:parameters
-
-_Implementation Notes_
-
-* [MedicationAdministration.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be referenced independently.
-* **IMPORTANT NOTE**: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
-* **NOTE**:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.
 
 ### Authorization Types
 
@@ -74,21 +74,29 @@ _Implementation Notes_
 ### Parameters
 
 
- Name           | Required?          | Type          | Description
-----------------|--------------------|---------------|-----------------------------------------------------------------------------------------------
-`_id`           | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
-`patient`       | This, or `_id`     | [`reference`] | The patient who has received the medication administration. Example: `patient=12345`
-`status`        | N                  | [`token`]     | The status of the medication administration, may be a list separated by commas.  Example: `status=completed`
-`practitioner`  | N                  | [`reference`] | The performing clinician, may be a list separated by commas. Example: `practitioner=12345`
-`notgiven`      | N                  | [`token`]     | Administrations that were not made. A value of 'true' will search for these, and a value of 'false' will exclude them. Example: `true`
-`effectivetime` | N                  | [`date`]      | The effectivetime search may be provided once with either the ge or le prefix or twice with the ge and le prefixes to indicate a specific range. Example: `effectivetime=ge2010-08-18` or `effectivetime=le2015-07-17` or `effectivetime=ge2010-08-18&effectivetime=le2015-07-17`
-[`_count`]      | N                  | [`number`]    | The maximum number of results to return.
+ Name           | Required?     | Type          | Description
+----------------|---------------|---------------|-----------------------------------------------------------------------------------------------
+`_id`           | Conditionally | [`token`]     | The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the `patient` parameter is not used. Example: `_id=12345`
+`patient`       | Conditionally | [`reference`] | The specific patient to return medication administrations for. This parameter is required if the `_id` parameter is not used. Example: `patient=1234`
+`status`        | No            | [`token`]     | The status of the medication administration event. It may be a list separated by commas. Example: `status=completed,not-done`
+`practitioner`  | No            | [`reference`] | The logical resource ID of the practitioner who administered the medication. It may be a list separated by commas. Example: `practitioner=1245,7659`
+`notgiven`      | No            | [`token`]     | Administrations that were not made. A value of `true` includes these administrations in the search results, and a value of `false` excludes them. 
+`effectivetime` | No            | [`dateTime`]  | A date range for when the administration happened. Example: `effectivetime=ge2014-05-19T20:54:02.000Z`
+[`_count`]      | No            | [`number`]    | The maximum number of results to return. Example: `_count=50`
 
+_Notes_
 
-Notes:
-
-- Either the `_id`, or a combination of `patient`, `status`, `practitioner`, `notgiven`, `effectivetime`, or `_count` parameters must be provided. Default sort is by administration end date time.
-
+- When searching with the `_id` parameter:
+  - It must not be provided with any other parameters.
+- When searching with the `effectivetime` parameter:
+  - For a single `effectivetime` occurrence:
+    - It must be provided with a `ge` `gt` `le` or `lt` prefix to imply the date range for an administrations search.
+    - The time component is required.
+    - Example: `effectivetime=ge2014-05-19T20:54:02.000Z`
+  - For two `effectivetime` occurences: 
+    - It must be provided with `le` or `lt` and `ge` or `gt` prefixes to search for administrations within a specific range. 
+    - The time component is required for both parameters.
+    - Example: `effectivetime=ge2014-05-19T20:54:02.000Z&effectivetime=le2014-05-20T20:54:02.000Z`
 
 ### Headers
 
@@ -114,23 +122,11 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_administration_multiple_ingredients_bundle) %>
 
-<%= disclaimer %>
+## Retrieve by ID
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual MedicationAdministration by its id:
+List an individual medication administration by its ID.
 
     GET /MedicationAdministration/:id
-
-_Implementation Notes_
-
-* [MedicationAdministration.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be be referenced independently.
-* **IMPORTANT NOTE**: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.
-* **NOTE**:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.
 
 ### Authorization Types
 
@@ -160,21 +156,17 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_administration_multiple_ingredients_entry) %>
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
-[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
-[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
-[`quantity`]: http://hl7.org/fhir/DSTU2/search.html#quantity
-[`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
-[`number`]: http://hl7.org/fhir/DSTU2/search.html#number
-[`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
-[contained]: http://hl7.org/fhir/DSTU2/references.html#contained
-[MedicationAdministration.medication]: http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_
+[`reference`]: https://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: https://hl7.org/fhir/DSTU2/search.html#token
+[`date`]: https://hl7.org/fhir/DSTU2/search.html#date
+[`dateTime`]: https://hl7.org/fhir/DSTU2/datatypes.html#dateTime
+[`quantity`]: https://hl7.org/fhir/DSTU2/search.html#quantity
+[`_count`]: https://hl7.org/fhir/DSTU2/search.html#count
+[`number`]: https://hl7.org/fhir/DSTU2/search.html#number
+[CodeableConcept]: https://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
+[contained]: https://hl7.org/fhir/DSTU2/references.html#contained
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
+[`StructureDefinition`]: ../../conformance/structure-definition/#overview
 [Infuse Over Time]: #custom-extensions
+[`Immunization`]: ../immunization/
