@@ -110,10 +110,12 @@
       <li><a href="#example---update-reasoncode" id="markdown-toc-example---update-reasoncode">Example - Update reasonCode</a></li>
       <li><a href="#example---add-cancelationreason" id="markdown-toc-example---add-cancelationreason">Example - Add cancelationReason</a></li>
       <li><a href="#example---replace-slot" id="markdown-toc-example---replace-slot">Example - Replace Slot</a></li>
+      <li><a href="#example---add-reschedulereason" id="markdown-toc-example---add-reschedulereason">Example - Add rescheduleReason</a></li>
       <li><a href="#example---add-video-visit-links" id="markdown-toc-example---add-video-visit-links">Example - Add Video Visit Links</a></li>
       <li><a href="#example---replace-video-visit-links" id="markdown-toc-example---replace-video-visit-links">Example - Replace Video Visit Links</a></li>
       <li><a href="#example---update-participant-status" id="markdown-toc-example---update-participant-status">Example - Update Participant Status</a></li>
-      <li><a href="#example---update-action-comment" id="markdown-toc-example---update-action-comment">Example - Update Action Comment</a></li>
+      <li><a href="#example---update-action-comment-with-replace-slot" id="markdown-toc-example---update-action-comment-with-replace-slot">Example - Update Action Comment with Replace Slot</a></li>
+      <li><a href="#example---update-action-comment-with-replace-status" id="markdown-toc-example---update-action-comment-with-replace-status">Example - Update Action Comment with Replace Status</a></li>
       <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
@@ -174,7 +176,7 @@
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment" target="_blank">Comment</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.patientInstruction" target="_blank">Patient Instruction</a></li>
   <li><a href="http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.requestedPeriod" target="_blank">Requested period</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including action-comment, group-appointment-id, is-cancelable, and is-reschedulable</a></li>
+  <li><a href="#extensions" target="_blank">Extensions including action-comment, group-appointment-id, is-cancelable, is-reschedulable, and reschedule-reason</a></li>
 </ul>
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
@@ -459,6 +461,7 @@
   <li><a href="#custom-extensions">Group Appointment Id</a></li>
   <li><a href="#custom-extensions">Is Cancelable</a></li>
   <li><a href="#custom-extensions">Is Reschedulable</a></li>
+  <li><a href="#custom-extensions">Reschedule Reason</a></li>
 </ul>
 
 <h3 id="custom-extensions">Custom Extensions</h3>
@@ -493,6 +496,11 @@
       <td><code>is-reschedulable</code></td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>boolean</code></a></td>
       <td>Indication of whether the Appointment can be rescheduled or not.</td>
+    </tr>
+    <tr>
+      <td><code>reschedule-reason</code></td>
+      <td><a href="http://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a></td>
+      <td>The coded reason for the appointment being rescheduled.</td>
     </tr>
   </tbody>
 </table>
@@ -752,7 +760,11 @@
                 "display": "Smart II, Nancy"
               },
               "required": "required",
-              "status": "accepted"
+              "status": "accepted",
+              "period": {
+                "start": "2023-07-26T14:00:00Z",
+                "end": "2023-07-26T15:00:00Z"
+              }
             }
           ],
           "requestedPeriod": [
@@ -918,7 +930,11 @@
           "display": "Smart II, Nancy"
         },
         "required": "required",
-        "status": "accepted"
+        "status": "accepted",
+        "period": {
+          "start": "2023-07-26T14:00:00Z",
+          "end": "2023-07-26T15:00:00Z"
+        }
       }
     ],
     "requestedPeriod": [
@@ -1076,7 +1092,11 @@
         "display": "SMART, NANCY"
       },
       "required": "required",
-      "status": "accepted"
+      "status": "accepted",
+      "period": {
+        "start": "2023-07-26T14:00:00Z",
+        "end": "2023-07-26T15:00:00Z"
+      }
     },
     {
       "type": [
@@ -2507,6 +2527,7 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
 <ul>
   <li>When present, this patch operation must be accompanied by add cancellation reason and replace status patch operation when updating the status to <code>cancelled</code>
 </li>
+  <li>When present, this patch operation must be accompanied by replace slot when rescheduling the appointment.</li>
   <li>Only one value may be provided in the value array</li>
 </ul>
 </li></ul>
@@ -2550,6 +2571,56 @@ If-Match: W/"&lt;Current version of the Appointment resource&gt;"</code></pre>
             <ul style="list-style-type: none"><li>
 <ul>
   <li>When present, this patch operation must be accompanied by the replace Slot patch operation</li>
+</ul>
+</li></ul>
+          
+        </ul>
+        <div style="float: right"><a href="#patch_operation">top of section</a></div>
+      </td>
+    </tr>
+  
+    <tr>
+      <td>
+        <a name="add-reschedule-reason">
+          
+            </a><a target="_blank" href="https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension"><code>/extension</code></a>
+          
+        
+      </td>
+      <td>add</td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+        <ul style="list-style-type: none; margin: 1.2em">
+          
+            <li><i>Description</i></li>
+            <ul style="list-style-type: none"><li>The coded reason for the appointment being rescheduled</li></ul>
+          
+          
+            <li><i>Example</i></li>
+            <ul style="list-style-type: none"><li><pre>{
+  "op": "add",
+  "path": "/extension",
+  "value": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+        "code": "oth-err"
+      }
+    ]
+  }
+}
+</pre></li></ul>
+          
+          
+          
+            <li><i>Notes</i></li>
+            <ul style="list-style-type: none"><li>
+<ul>
+  <li>When present, this patch operation must be accompanied by replace slot operation</li>
+  <li>Only one value may be provided in the value array</li>
 </ul>
 </li></ul>
           
@@ -2769,35 +2840,41 @@ opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72
 X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
 
-<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
+<h3 id="example---add-reschedulereason">Example - Add rescheduleReason</h3>
 
 <h4 id="request-10">Request</h4>
 
-<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4627745
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
 <h4 id="body-7">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
-    "op": "add",
-    "path": "/contained/0/telecom/0/value",
-    "value": "http://providerlink.vmr.net"
+    "op": "replace",
+    "path": "/slot",
+    "value": [
+      {
+        "reference": "Slot/2582093771-22784981-63303788-60"
+      }
+    ]
   },
   {
     "op": "add",
-    "path": "/contained/1/telecom/0/value",
-    "value": "http://patientlink.vmr.net"
-  },
-  {
-    "op": "add",
-    "path": "/contained/0/telecom/0/period/start",
-    "value": "2019-07-13T08:00:00.000Z"
-  },
-  {
-    "op": "add",
-    "path": "/contained/0/telecom/0/period/end",
-    "value": "2019-07-13T08:10:00.000Z"
+    "path": "/extension",
+    "value": [
+      {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/reschedule-reason",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+              "code": "oth-err"
+            }
+          ]
+        }
+      }
+    ]
   }
 ]</code></pre>
 
@@ -2810,14 +2887,14 @@ Cache-Control: no-cache
 Content-Length: 0
 Content-Type: text/html
 Date: Tue, 26 Mar 2019 15:42:29 GMT
-Etag: W/"10-1"
+Etag: W/"1"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
 opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
 X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
 
-<h3 id="example---replace-video-visit-links">Example - Replace Video Visit Links</h3>
+<h3 id="example---add-video-visit-links">Example - Add Video Visit Links</h3>
 
 <h4 id="request-11">Request</h4>
 
@@ -2828,22 +2905,22 @@ X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 
 <pre class="body-response"><code class="language-javascript">[
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/value",
     "value": "http://providerlink.vmr.net"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/1/telecom/0/value",
     "value": "http://patientlink.vmr.net"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/period/start",
     "value": "2019-07-13T08:00:00.000Z"
   },
   {
-    "op": "replace",
+    "op": "add",
     "path": "/contained/0/telecom/0/period/end",
     "value": "2019-07-13T08:10:00.000Z"
   }
@@ -2865,14 +2942,62 @@ opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72
 X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
 
-<h3 id="example---update-participant-status">Example - Update Participant Status</h3>
+<h3 id="example---replace-video-visit-links">Example - Replace Video Visit Links</h3>
 
 <h4 id="request-12">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4627745
+</code></pre>
+
+<h4 id="body-9">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/value",
+    "value": "http://providerlink.vmr.net"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/1/telecom/0/value",
+    "value": "http://patientlink.vmr.net"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/period/start",
+    "value": "2019-07-13T08:00:00.000Z"
+  },
+  {
+    "op": "replace",
+    "path": "/contained/0/telecom/0/period/end",
+    "value": "2019-07-13T08:10:00.000Z"
+  }
+]</code></pre>
+
+<h4 id="response-12">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Tue, 26 Mar 2019 15:42:29 GMT
+Etag: W/"10-1"
+Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
+Vary: Origin
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
+</pre>
+
+<h3 id="example---update-participant-status">Example - Update Participant Status</h3>
+
+<h4 id="request-13">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
-<h4 id="body-9">Body</h4>
+<h4 id="body-10">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
@@ -2882,7 +3007,7 @@ X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
   }
 ]</code></pre>
 
-<h4 id="response-12">Response</h4>
+<h4 id="response-13">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -2898,14 +3023,61 @@ opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72
 X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
 </pre>
 
-<h3 id="example---update-action-comment">Example - Update Action Comment</h3>
+<h3 id="example---update-action-comment-with-replace-slot">Example - Update Action Comment with Replace Slot</h3>
 
-<h4 id="request-13">Request</h4>
+<h4 id="request-14">Request</h4>
 
 <pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
 </code></pre>
 
-<h4 id="body-10">Body</h4>
+<h4 id="body-11">Body</h4>
+
+<pre class="body-response"><code class="language-javascript">[
+  {
+    "op": "replace",
+    "path": "/slot",
+    "value": [
+      {
+        "reference": "Slot/2592955413-2581440805-96118899-0"
+      }
+    ]
+  },
+  {
+    "op": "replace",
+    "path": "/extension",
+    "value": [
+      {
+        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment",
+        "valueString": "Rescheduling Appointment"
+      }
+    ]
+  }
+]</code></pre>
+
+<h4 id="response-14">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="terminal">
+Cache-Control: no-cache
+Content-Length: 0
+Content-Type: text/html
+Date: Fri, 11 Aug 2023 15:42:29 GMT
+Etag: W/"10"
+Last-Modified: Fri, 11 Aug 2023 15:42:29 GMT
+Vary: Origin
+opc-request-id: /95685D1463E5BE27E66427BBDA8725DE/BD2E22EED59A7AD48B938357F8CF72E1
+X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
+</pre>
+
+<h3 id="example---update-action-comment-with-replace-status">Example - Update Action Comment with Replace Status</h3>
+
+<h4 id="request-15">Request</h4>
+
+<pre><code>PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/4817517
+</code></pre>
+
+<h4 id="body-12">Body</h4>
 
 <pre class="body-response"><code class="language-javascript">[
   {
@@ -2937,7 +3109,7 @@ X-Request-Id: 26ca6d46-bf47-430b-b92f-bf687b80bfbf
   }
 ]</code></pre>
 
-<h4 id="response-13">Response</h4>
+<h4 id="response-15">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 

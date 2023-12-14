@@ -68,7 +68,11 @@
       <h1 id="documentreference">DocumentReference</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
@@ -76,15 +80,13 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -93,51 +95,38 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#operation-docref" id="markdown-toc-operation-docref">Operation: docref</a>    <ul>
+<a href="#operation-docref" id="markdown-toc-operation-docref">Operation: $docref</a>    <ul>
       <li><a href="#authorization-types-3" id="markdown-toc-authorization-types-3">Authorization Types</a></li>
       <li><a href="#terminology-bindings-1" id="markdown-toc-terminology-bindings-1">Terminology Bindings</a></li>
       <li><a href="#parameters-1" id="markdown-toc-parameters-1">Parameters</a></li>
       <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
-      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a PDF. Additionally, this resource supports writing an unstructured document. References to implicitRules, relatesTo, and modifierExtensions are NOT supported and will fail a create request.</p>
+<p>The DocumentReference resource is used to reference a clinical document for a patient within the health system. This resource supports reading Continuity of Care Documents (CCD), returning a list of clinical documents, and a reference to retrieve a document as a PDF. When retrieving document links and metadata, this resource will refer to the <a href="../binary/#authorization-types"><code>Binary</code></a> resource for downloading the complete document.</p>
 
-<p>For fields supported on write, see the <a href="#create">create</a> section.</p>
-
-<p>The following fields are returned if valued for the docref operation (CCD read):</p>
-
-<ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">DocumentReference id</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject" target="_blank">Subject (patient)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type" target="_blank">Document type</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed" target="_blank">Index date/time (when document reference created)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status" target="_blank">Status (current)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format" target="_blank">Format</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment" target="_blank">ContentType and URL (fully qualified link to the Binary CCD)</a></li>
-</ul>
+<p>Additionally, this resource supports writing an unstructured document. 
+For fields supported on write, see the <a href="#create">create</a> section.</p>
 
 <p>The following fields are returned if valued for clinical documents:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">DocumentReference id</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject" target="_blank">Subject (patient)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type" target="_blank">Document type</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description" target="_blank">Document description/title</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.authenticator" target="_blank">Authenticator/verifying provider</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.created" target="_blank">Create date/time</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed" target="_blank">Indexed date/time</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status" target="_blank">Status (typically current)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus" target="_blank">Document status (typically final or amended)</a></li>
+  <li><a href="https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">DocumentReference ID</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject" target="_blank">Subject</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type" target="_blank">Document type</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.description" target="_blank">Document description/title</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.authenticator" target="_blank">Authenticator/verifying provider</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.created" target="_blank">Create date/time</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed" target="_blank">Indexed date/time</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.docStatus" target="_blank">Document status</a></li>
   <li>
 <a href="https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content" target="_blank">Content</a>
     <ul>
@@ -145,14 +134,32 @@
 <a href="https://hl7.org/fhir/dstu2/documentreference-definitions.html#DocumentReference.content.attachment" target="_blank">Attachment</a>
         <ul>
           <li><a href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.contentType" target="_blank">Content type</a></li>
-          <li><a href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.url" target="_blank">URL (fully qualified link to the document)</a></li>
+          <li><a href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.url" target="_blank">URL</a></li>
           <li><a href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Attachment.title" target="_blank">Title</a></li>
         </ul>
       </li>
     </ul>
   </li>
-  <li><a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter" target="_blank">Patient encounter</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.context.encounter" target="_blank">Patient encounter</a></li>
 </ul>
+
+<p>The following fields are returned if valued for the $docref operation (CCD read):</p>
+
+<ul>
+  <li><a href="https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">DocumentReference ID</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.subject" target="_blank">Subject</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type" target="_blank">Document type</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.indexed" target="_blank">Index date/time</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format" target="_blank">Format</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.attachment" target="_blank">ContentType and URL</a></li>
+</ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -263,13 +270,6 @@
 <pre><code>GET /DocumentReference?:parameters
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>Search results are currently limited to published clinical documents.</li>
-  <li>Contents of the document are found by following the Attachment URL. See more information on the <a href="../binary/#authorization-types">Binary resource</a> to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.</li>
-</ul>
-
 <h3 id="authorization-types">Authorization Types</h3>
 
 <div class="auth-types">
@@ -290,56 +290,77 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or one of <code>patient</code> or <code>subject</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource. Example: <code>_id=7891</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource ID associated with the resource. This parameter is required if neither the <code>patient</code> nor <code>subject</code> parameters are used. Example: <code>_id=1234</code>
 </td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This, or one of <code>_id</code> or <code>subject</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient to which the document reference belongs. Example: <code>patient=12345</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>The patient to which the document reference belongs. This parameter is required if neither the <code>_id</code> nor <code>subject</code> parameters are used. Example: <code>patient=5678</code>
 </td>
     </tr>
     <tr>
       <td><code>subject</code></td>
-      <td>This, or one of <code>_id</code> or <code>patient</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The subject of the document reference. Must represent a Patient resource. May use the :Patient modifier. Example: <code>subject=Patient/12345 or subject:Patient=12345</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>The subject of the document reference. May use the “:Patient” modifier. This parameter is required if neither the <code>_id</code> nor <code>patient</code> parameters are used. Example: <code>subject=Patient/91011</code>
 </td>
     </tr>
     <tr>
       <td><code>encounter</code></td>
       <td>No</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The encounter to which the document reference belongs. Must represent an Encounter resource. May include a single or comma separated list of references. Example: <code>encounter=4567</code>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>The encounter to which the document reference belongs. Example: <code>encounter=1213</code>
 </td>
     </tr>
     <tr>
       <td><code>created</code></td>
       <td>No</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>A date/time the referenced document was created. Must use the <code>ge</code> and <code>le</code> prefixes. Example: <code>created=ge2017-01-07&amp;created=le2017-02-05</code>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>A date/time the referenced document was created. Example: <code>created=ge2017-01-07&amp;created=le2017-02-05</code>
 </td>
     </tr>
     <tr>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#count"><code>_count</code></a></td>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#count"><code>_count</code></a></td>
       <td>No</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#number"><code>number</code></a></td>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to return.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:</p>
+<p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The <code>_id</code> parameter may not be provided at the same time as the <code>patient</code>, <code>subject</code>, <code>encounter</code>, <code>created</code>, or <code>_count</code> parameters.</li>
-  <li>When the <code>created</code> parameter is provided:
+  <li>Search results are currently limited to published clinical documents.</li>
+  <li>Contents of the document are found by following the Attachment URL.
+    <ul>
+      <li>See more information on the <a href="../binary/#authorization-types"><code>Binary</code></a> resource to determine what Authorization scopes are required, and how to set the <code>Accept</code> header when downloading document contents.</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>_id</code> parameter:
+    <ul>
+      <li>It must not be provided with any other parameters.</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>subject</code> parameter:
+    <ul>
+      <li>It must appear once, and must represent a Patient resource.</li>
+      <li>It can be provided either with or without the :Patient modifier. Example: <code>subject=Patient/12345</code> or <code>subject:Patient=12345</code>
+</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>encounter</code> parameter:
+    <ul>
+      <li>It must appear once, and must represent an Encounter resource.</li>
+      <li>It can be provided with either a single reference, or a comma-separated list of references. Example <code>encounter=1234</code> or <code>encounter=1234,5678</code>
+</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>created</code> parameter:
     <ul>
       <li>It must be provided twice, once with the <code>ge</code> parameter and once with the <code>le</code> parameter.</li>
       <li>The two provided date/times may not be equal and must form a closed range.</li>
@@ -437,15 +458,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual DocumentReference by its id:</p>
+<p>List an individual DocumentReference by its ID:</p>
 
 <pre><code>GET /DocumentReference/:id
 </code></pre>
@@ -453,8 +468,11 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>Contents of the document are found by following the Attachment URL. See more information on the <a href="../binary/#authorization-types">Binary resource</a> to determine what Authorization scopes are required, and how to set the Accept header when downloading document contents.</li>
-  <li>If no mappings are available for LOINC codes when returning DocumentReference.type codings, an unknown data absent reason will be returned in place of the LOINC codes. This is to follow the <a href="http://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-documentreference.html">Argonaut profile’s</a> required binding for type. When available, Proprietary codings will be returned in addition to the data absent reason.</li>
+  <li>Contents of the document are found by following the Attachment URL.
+    <ul>
+      <li>See more information on the <a href="../binary/#authorization-types"><code>Binary</code></a> resource to determine what Authorization scopes are required, and how to set the <code>Accept</code> header when downloading document contents.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
@@ -535,12 +553,6 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="create">Create</h2>
 
 <p>Create new documents. Currently limited to unstructured clinical notes or documentation. For example, a document with display formatting or styling can be written, but a CCD cannot.</p>
@@ -551,8 +563,11 @@
 <p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The modifier elements <a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.implicitRules">implicitRules</a>, <a href="http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.modifierExtension">modifierExtension</a> and <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">relatesTo</a> are not supported and will be rejected if present.</li>
-  <li>Currently only XHTML formatted documents are supported. You can validate your document using any available strict XHTML 1.0 validator (eg: <a href="http://validator.w3.org/#validate_by_upload+with_options">w3 validator</a> or this <a href="https://html5.validator.nu/">html5 validator</a>).</li>
+  <li>Currently only XHTML formatted documents are supported.
+    <ul>
+      <li>You can validate your document using any available strict XHTML 1.0 validator (eg: <a href="https://validator.w3.org/#validate_by_upload+with_options">W3C Markup Validation Service</a> or <a href="https://html5.validator.nu/">Nu Html Checker</a>).</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1252,49 +1267,19 @@ cache-control: no-cache
 location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/5789254
 strict-transport-security: max-age=631152000
 vary: Origin,User-Agent,Accept-Encoding
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
 x-content-type-options: nosniff
 x-frame-options: SAMEORIGIN
-x-request-id: 9c7510c0-0bb5-4148-b37e-51a774c4091b
+x-request-id: 11111111-1111-1111-1111-111111111111
 x-xss-protection: 1; mode=block
 </pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned. Additional <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned in the following scenarios:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>HTTP Status</th>
-      <th>Cause</th>
-      <th>Severity</th>
-      <th>Code</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>422</td>
-      <td>Body contained relatesTo</td>
-      <td>error</td>
-      <td>not-supported</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 id="operation-docref">Operation: docref</h2>
+<h2 id="operation-docref">Operation: $docref</h2>
 
 <p>Argonaut operation for querying DocumentReferences for the supplied parameters:</p>
 
 <pre><code>GET /DocumentReference/$docref?:parameters
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>The <a href="http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.relatesTo">DocumentReference.relatesTo</a> modifier element is not supported and will not be returned.</li>
-</ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>
 
@@ -1414,40 +1399,52 @@ x-xss-protection: 1; mode=block
   <tbody>
     <tr>
       <td><code>patient</code></td>
-      <td>Y</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>A reference to the patient whose document references are required. Example: <code>12345</code>
+      <td>Yes</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>A reference to the patient whose document references are required. Example: <code>patient=12345</code>
 </td>
     </tr>
     <tr>
       <td><code>type</code></td>
-      <td>Y</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The document reference type, can be a list of comma separated values. Example: <code>http://loinc.org|34133-9</code>
+      <td>Yes</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The document reference type. Example: <code>type=http://loinc.org\|34133-9</code>
 </td>
     </tr>
     <tr>
       <td><code>start</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>The start of the date range from which document reference records should be included. If not provided, then all records from the beginning of time are included. Example: <code>2014-09-24T12:00:00.000Z</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The start of the date range from which document reference records should be included. Example: <code>start=2014-09-24T12:00:00.000Z</code>
 </td>
     </tr>
     <tr>
       <td><code>end</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>The end of the date range till which document reference records should be included. If not provided, then all records up to the current date are included. Example: <code>2016-09-24T12:00:00.000Z</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
+      <td>The end of the date range till which document reference records should be included. Example: <code>end=2016-09-24T12:00:00.000Z</code>
 </td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:</p>
+<p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The <code>type</code> parameter must include both a system and a code. (e.g. <code>&amp;type=http://loinc.org|34133-9</code>)</li>
-  <li>The <code>start</code> and <code>end</code> parameters must be valid <a href="http://hl7.org/fhir/DSTU2/datatypes.html#dateTime">dateTime</a>s with a time component. They must have prefixes of <code>eq</code> or nothing.</li>
+  <li>The <code>type</code> parameter:
+    <ul>
+      <li>It must include both a system and a code. (e.g. <code>&amp;type=http://loinc.org\|34133-9</code>)</li>
+      <li>It may be a single system and code, or a comma-separated list.</li>
+    </ul>
+  </li>
+  <li>The <code>start</code> and <code>end</code> parameters:
+    <ul>
+      <li>They must be valid <a href="https://hl7.org/fhir/DSTU2/datatypes.html#dateTime">dateTime</a>s with a time component.</li>
+      <li>They must have prefixes of <code>eq</code> or nothing.</li>
+      <li>If <code>start</code> is not provided, then all previous records up to the <code>end</code> date are included.</li>
+      <li>If <code>end</code> is not provided, then all records between the <code>start</code> date and the current date are included.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="headers-3">Headers</h3>
@@ -1516,12 +1513,6 @@ x-xss-protection: 1; mode=block
     }
   ]
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-3">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

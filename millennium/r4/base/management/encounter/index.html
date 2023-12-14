@@ -1312,7 +1312,7 @@
 </li>
     </ul>
   </li>
-  <li>If <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently, <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilized for patient persona.</li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</li>
   <li>
 <code>_count</code> and <code>status</code> must be provided with patient</li>
   <li>

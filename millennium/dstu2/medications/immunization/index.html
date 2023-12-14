@@ -68,7 +68,11 @@
       <h1 id="immunization">Immunization</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
@@ -76,26 +80,24 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Immunization resource includes the view of current and historical administration of vaccinations to a patient in all healthcare settings. This resource contains the functionality to query a patient’s immunization history.</p>
+<p>The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines, in all care settings, and all regions.  This resource contains the functionality to query a patient’s immunization history. Detailed administration records may be found in the <a href="../medication-administration/#overview"><code>MedicationAdministration</code></a> resource, while this Immunization resource would represent the known vaccination history regardless of where the administration itself was done.</p>
 
-<p>Detailed administration records may be found in MedicationAdministration, while the Immunization resource would represent the known vaccination history regardless of where the administration itself was done.</p>
+<p>An immunization reaction may indicate an allergy or intolerance. If so, a separate <a href="../../general-clinical/allergy-intolerance/#overview"><code>AllergyIntolerance</code></a> resource instance must be created.</p>
 
-<p>An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well.</p>
+<p>Note that while the terms immunization and vaccination are not clinically identical, for the purposes of FHIR resources, the terms are used synonymously.</p>
 
 <p>The following fields are returned if valued:</p>
 
@@ -116,6 +118,12 @@
   <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.expirationDate" target="_blank">Expiration date</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.doseQuantity" target="_blank">Dose</a></li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -328,7 +336,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Immunizations that meet supplied query parameters:</p>
+<p>Search for immunizations that meet supplied query parameters:</p>
 
 <pre><code>GET /Immunization?:parameters
 </code></pre>
@@ -345,7 +353,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Required?</th>
+      <th>Required</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -353,33 +361,59 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or <code>patient</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>The logical resource ID associated with the resource. This parameter is required if the <code>patient</code> parameter is not used. Example: <code>12345</code>
+</td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This, or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient for the vaccination record. Example: <code>12345</code>
+      <td>The patient for the vaccination record(s). This parameter is required if the <code>_id</code> parameter is not used. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
       <td><code>date</code></td>
-      <td>N</td>
+      <td>No</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the immunization administration date falls. Must be prefixed by ‘ge’ or ‘le’.</td>
+      <td>Date range for the immunization administration(s). Example: <code>date=ge2020-01-01T08:00:00.000Z&amp;date=le2020-01-31T17:00:00.000Z</code>
+</td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:</p>
+<p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The <code>date</code> parameter value should be prefixed once by ‘ge’ representing the earliest date, and once by ‘le’ representing the latest date. Examples: <code>date=ge2015-01-01&amp;date=le2016-01-01</code>, <code>date=ge2015-01-01</code>, <code>date=le2016-01-01</code>
+  <li>When searching with the <code>_id</code> parameter:
+    <ul>
+      <li>It can be provided with either a single reference, or a comma-separated list of references. Example <code>_id=1234</code> or <code>_id=1234,5678</code>
 </li>
+      <li>It must not be provided with any other parameters.</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>patient</code> parameter:
+    <ul>
+      <li>It can be provided with only a single reference; a comma-separated list is not supported.</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>date</code> parameter:
+    <ul>
+      <li>For a single <code>date</code> occurrence:
+        <ul>
+          <li>It must be provided with either the <code>le</code> or <code>ge</code> prefix to search for vaccination record(s) administrations earlier or later than the given date.</li>
+          <li>The <code>time</code> component is optional.</li>
+        </ul>
+      </li>
+      <li>For two <code>date</code> occurences:
+        <ul>
+          <li>It must be provided with <code>le</code> and <code>ge</code> prefixes to search for vaccination record(s) within a specific range.</li>
+          <li>The <code>time</code> component is optional, but must be consistent. If one date has a <code>time</code> component, so must the other.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -518,15 +552,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Immunization by its id:</p>
+<p>List an individual immunization by the associated ID:</p>
 
 <pre><code>GET /Immunization/:id
 </code></pre>
@@ -604,12 +632,6 @@
     }
   }
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

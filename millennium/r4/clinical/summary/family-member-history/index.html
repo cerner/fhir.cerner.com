@@ -70,12 +70,10 @@
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
-  <li><a href="#modifier-extensions" id="markdown-toc-modifier-extensions">Modifier Extensions</a></li>
-  <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
   <li>
 <a href="#custom-modifier-extensions-and-extensions" id="markdown-toc-custom-modifier-extensions-and-extensions">Custom Modifier Extensions and Extensions</a>    <ul>
-      <li><a href="#modifier-extensions-1" id="markdown-toc-modifier-extensions-1">Modifier Extensions</a></li>
-      <li><a href="#extensions-1" id="markdown-toc-extensions-1">Extensions</a></li>
+      <li><a href="#modifier-extensions" id="markdown-toc-modifier-extensions">Modifier Extensions</a></li>
+      <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
     </ul>
   </li>
   <li>
@@ -88,7 +86,7 @@
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
@@ -117,16 +115,16 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The FamilyMemberHistory resource represents family history for a given patient. It may provide a list of conditions associated to a patient’s family member or the absence of a condition on a given individual. In other cases, the resource may indicate that there is no relevant family history, no significant history for a given relative, or that the patient’s family history is unknown or unable to obtain.</p>
+<p>The FamilyMemberHistory resource represents family history for a given patient. The resource may provide a list of conditions associated with a patient’s family member or the absence of a condition on a given individual. In other cases, the resource may indicate that no relevant family history exists, no significant history for a given relative exists, or the patient’s family history is unknown or unobtainable.</p>
 
-<p>The resource should be leveraged as a snapshot in time and new data should be consistently retrieved through the API rather than stored within an application. There may be instances where a relative had an associated condition removed from the patient’s chart which would then no longer be exposed on a subsequent transaction. It is crucial that the data be refreshed with every interaction.</p>
+<p>The resource should be used as a snapshot in time and new information should be consistently retrieved through the API rather than stored in an application. In some instances, a relative could have an associated condition removed from the patient’s chart, which would then no longer be exposed on a subsequent transaction. Information must be refreshed with every interaction.</p>
 
-<p>It is recommended that an update to FamilyMemberHistory contain all relevant data that previously existed on the resource to ensure that data remains populated in the patient’s chart (e.g., FamilyMemberHistory.sex, FamilyMemberHistory.bornDate, FamilyMemberHistory.condition.onsetDate, etc.). The absence of this optional information may result in the removal of data from the patient’s chart.</p>
+<p>Oracle Cerner recommends that an update to FamilyMemberHistory contains all relevant information that previously existed on the resource to ensure that information remains populated in the patient’s chart (for example, FamilyMemberHistory.sex, FamilyMemberHistory.bornDate, FamilyMemberHistory.condition.onsetDate, and so on). The absence of this optional information may remove the existing information from the patient’s chart.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">ID</a></li>
   <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.status" target="_blank">Status</a></li>
   <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason" target="_blank">Data Absent Reason</a></li>
   <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.patient" target="_blank">Patient</a></li>
@@ -139,39 +137,39 @@
   <li>
 <a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.deceased_x_%5D" target="_blank">Deceased</a>
     <ul>
-      <li><a href="#extensions" target="_blank">Precision Extension</a></li>
+      <li><a href="https://hl7.org/fhir/extensibility.html#Extension" target="_blank">Precision Extension</a></li>
     </ul>
   </li>
   <li>
-<a href="#extensions" target="_blank">Extension</a>
+<a href="https://hl7.org/fhir/extensibility.html#Extension" target="_blank">Extension</a>
     <ul>
-      <li><a href="#extensions" target="_blank">Patient Adopted</a></li>
+      <li><a href="https://hl7.org/fhir/extensibility.html#Extension" target="_blank">Patient Adopted</a></li>
     </ul>
   </li>
   <li>
 <a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition" target="_blank">Condition</a>
     <ul>
-      <li><a href="https://hl7.org/fhir/R4/element-definitions.html#Element.id" target="_blank">Id</a></li>
+      <li><a href="https://hl7.org/fhir/R4/element-definitions.html#Element.id" target="_blank">ID</a></li>
       <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.code" target="_blank">Code</a></li>
       <li>
 <a href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition.onset_x_" target="_blank">Onset</a>
         <ul>
-          <li><a href="#extensions" target="_blank">Precision Extension</a></li>
+          <li><a href="https://hl7.org/fhir/extensibility.html#Extension" target="_blank">Precision Extension</a></li>
         </ul>
       </li>
       <li><a href="https://hl7.org/fhir/r4/familymemberhistory-definitions.html#FamilyMemberHistory.condition.note" target="_blank">Note</a></li>
       <li>
-<a href="#modifier-extensions" target="_blank">Modifier Extension</a>
+<a href="https://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension" target="_blank">Modifier Extension</a>
         <ul>
-          <li><a href="#custom-extensions" target="_blank">Condition Result</a></li>
-          <li><a href="#extensions" target="_blank">Condition Lifecycle Status</a></li>
+          <li><a href="https://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension" target="_blank">Condition Result</a></li>
+          <li><a href="https://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.modifierExtension" target="_blank">Condition Lifecycle Status</a></li>
         </ul>
       </li>
       <li>
-<a href="#extensions" target="_blank">Extension</a>
+<a href="https://hl7.org/fhir/r4/domainresource-definitions.html#DomainResource.extension" target="_blank">Extension</a>
         <ul>
-          <li><a href="#extensions" target="_blank">Condition Course</a></li>
-          <li><a href="#extensions" target="_blank">Family Member History Severity</a></li>
+          <li><a href="https://hl7.org/fhir/extensibility.html#Extension" target="_blank">Condition Course</a></li>
+          <li><a href="https://terminology.hl7.org/CodeSystem-v3-RoleCode.html" target="_blank">Family Member History Severity</a></li>
         </ul>
       </li>
     </ul>
@@ -297,7 +295,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/v3/FamilyMember/vs.html">V3 Value SetFamilyMember</a><br>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/CodeSystem-v3-RoleCode.html">V3 Value SetFamilyMember</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/v3-RoleCode <br>
                       
@@ -588,7 +586,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension">FamilyMemberHistory.condition.modifierExension(condition-result)</a>
+          <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement-definitions.html#BackboneElement.modifierExtension">FamilyMemberHistory.condition.modifierExension(condition-result)</a>
       
       </td>
     </tr>
@@ -629,7 +627,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension">FamilyMemberHistory.condition.modifierExension(condition-lifecycle-status)</a>
+          <a target="_blank" href="https://hl7.org/fhir/R4/backboneelement-definitions.html#BackboneElement.modifierExtension">FamilyMemberHistory.condition.modifierExension(condition-lifecycle-status)</a>
       
       </td>
     </tr>
@@ -766,27 +764,11 @@
   </tbody>
 </table>
 
-<h2 id="modifier-extensions">Modifier Extensions</h2>
-
-<ul>
-  <li><a href="#custom-extensions">Condition Result</a></li>
-  <li><a href="#custom-extensions">Condition Lifecycle Status</a></li>
-</ul>
-
-<h2 id="extensions">Extensions</h2>
-
-<ul>
-  <li><a href="#custom-extensions">Patient Adopted</a></li>
-  <li><a href="#custom-extensions">Precision Extension</a></li>
-  <li><a href="#custom-extensions">Condition Course</a></li>
-  <li><a href="http://hl7.org/fhir/extension-familymemberhistory-severity.html">Family Member History Severity</a></li>
-</ul>
-
 <h2 id="custom-modifier-extensions-and-extensions">Custom Modifier Extensions and Extensions</h2>
 
-<p>URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
+<p>URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{ID}</code></p>
 
-<h3 id="modifier-extensions-1">Modifier Extensions</h3>
+<h3 id="modifier-extensions">Modifier Extensions</h3>
 
 <table>
   <thead>
@@ -799,18 +781,18 @@
   <tbody>
     <tr>
       <td><code>condition-result</code></td>
-      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcpet</code></a></td>
-      <td>Indication of the presence (positive) or absence (negative) of a given condition.</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>Indicates the presence (positive) or absence (negative) of a given condition.</td>
     </tr>
     <tr>
       <td><code>condition-lifecycle-status</code></td>
-      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcpet</code></a></td>
-      <td>Indication of whether a condition is active, inactive, resolved, etc.</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>Indicates whether a condition is active, inactive, resolved, and so on.</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="extensions-1">Extensions</h3>
+<h3 id="extensions">Extensions</h3>
 
 <table>
   <thead>
@@ -824,32 +806,37 @@
     <tr>
       <td><code>patient-adopted</code></td>
       <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>Boolean</code></a></td>
-      <td>Indication of whether a patient is adopted. Only returned when true.</td>
+      <td>Indicates whether a patient is adopted. Only returned when true.</td>
     </tr>
     <tr>
       <td><code>precision</code></td>
-      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcpet</code></a></td>
-      <td>Indication of the precision of a given value.</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>Indicates the precision of a given value.</td>
     </tr>
     <tr>
       <td><code>condition-course</code></td>
-      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcpet</code></a></td>
-      <td>Indication of a condition’s progress since diagnosis.</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>Indicates a condition’s progress since diagnosis.</td>
+    </tr>
+    <tr>
+      <td><code>familymemberhistory-severity</code></td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>Indicates the seriousness or health impact of the family member’s condition.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="search">Search</h2>
 
-<p>Search for FamilyMemberHistories that meet supplied query parameters:</p>
+<p>Search for the family member histories that meet the supplied query parameters.</p>
 
 <pre><code>GET /FamilyMemberHistory?:parameters
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>FamilyMemberHistories with the ‘FAMMEMB’ relation are sometimes system generated.</li>
+  <li>Family member histories with the ‘FAMMEMB’ relation are sometimes system generated.</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -864,7 +851,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Required?</th>
+      <th>Required</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -872,29 +859,25 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or patient</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>The logical resource ID associated with the resource. This parameter is required if <code>patient</code> is not used.</td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This or _id</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>The identity of a subject to list family member history items for. Example: <code>12345</code>
+      <td>The identity of a subject to list family member history items for. This parameter is required if <code>_id_</code> is not used. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
       <td><code>status</code></td>
       <td>No</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The status of the record of the family history of a specific family member.</td>
+      <td>The record status for a specific family member. This parameter is only provided when the <code>patient</code> search parameter is used.</td>
     </tr>
   </tbody>
 </table>
-
-<p><em>Implementation Notes</em></p>
-
-<p><code>status</code> may only be provided when the <code>patient</code> search parameter is provided</p>
 
 <h3 id="headers">Headers</h3>
 
@@ -1116,14 +1099,14 @@
 
 <p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
-<h2 id="retrieve-by-id">Retrieve by id</h2>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<p>List an individual FamilyMemberHistory by its id:</p>
+<p>List an individual family member history by its ID.</p>
 
-<pre><code>GET /FamilyMemberHistory/:id
+<pre><code>GET /FamilyMemberHistory/:ID
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
   <li>FamilyMemberHistories with the ‘FAMMEMB’ relation are sometimes system generated.</li>
@@ -1320,16 +1303,16 @@
 
 <h2 id="create">Create</h2>
 
-<p>Create a new FamilyMemberHistory.</p>
+<p>Create a new family member history.</p>
 
 <pre><code>POST /FamilyMemberHistory
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
-  <li>Conditions cannot be added while creating the FamilyMemberHistory.</li>
+  <li>Only the body fields below are supported. Unsupported fields are ignored.</li>
+  <li>Conditions cannot be added while creating the family member history.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1831,16 +1814,16 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
 
 <h2 id="update">Update</h2>
 
-<p>Update a FamilyMemberHistory.</p>
+<p>Update a family member history.</p>
 
-<pre><code>PUT /FamilyMemberHistory/:id
+<pre><code>PUT /FamilyMemberHistory/:ID
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Conditions can be removed from a FamilyMemberHistory by setting the ‘condition-lifecycle-status’ modifierExtension to ‘entered-in-error’ with system ‘http://terminology.hl7.org/CodeSystem/condition-ver-status’. Only existing conditions can be removed; condition id must be provided.</li>
-  <li>An update should only be performed directly after a FamilyMemberHistory is retrieved. If a condition.id is returned on the get operation, it MUST be provided on the subsequent update and must match the condition.id returned from the get.</li>
+  <li>Conditions can be removed from a family member history if you set the ‘condition-lifecycle-status’ modifierExtension to ‘entered-in-error’ with system ‘http://terminology.hl7.org/CodeSystem/condition-ver-status’. Only existing conditions can be removed and condition ID must be provided.</li>
+  <li>An update should only be performed directly after a family member history is retrieved. If a condition ID is returned for the <code>GET</code> request, the ID must be provided on the subsequent update and must match the condition ID returned from the <code>GET</code>.</li>
 </ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>
@@ -1883,7 +1866,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>The logical id of the resource to update.</li></ul>
+        <ul style="list-style-type: none"><li>The logical ID of the resource to update.</li></ul>
       
       
         <li><i>Example</i></li>
@@ -2344,7 +2327,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
       <td>
         <a name="update-condition">
         
-          </a><a target="_blank" href="https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.condition"><code>condition</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/familymemberhistory-definitions.html#FamilyMemberHistory.condition"><code>condition</code></a>
         
         
       </td>
@@ -2608,7 +2591,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
       <td>
         <a name="update-condition.modifierExension(condition-result)">
         
-          </a><a target="_blank" href="https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension"><code>condition.modifierExension(condition-result)</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/backboneelement-definitions.html#BackboneElement.modifierExtension"><code>condition.modifierExension(condition-result)</code></a>
         
         
       </td>
@@ -2655,7 +2638,7 @@ X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
       <td>
         <a name="update-condition.modifierExension(condition-lifecycle-status)">
         
-          </a><a target="_blank" href="https://hl7.org/fhir/backboneelement-definitions.html#BackboneElement.modifierExtension"><code>condition.modifierExension(condition-lifecycle-status)</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/backboneelement-definitions.html#BackboneElement.modifierExtension"><code>condition.modifierExension(condition-lifecycle-status)</code></a>
         
         
       </td>

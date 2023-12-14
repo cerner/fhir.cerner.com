@@ -288,7 +288,7 @@
 </li>
     </ul>
   </li>
-  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</li>
 </ul>
 
 <h3 id="example">Example</h3>
@@ -299,20 +299,20 @@
 </code></pre>
 
 <div class="example-tabs">
-  <ul id="7748369a-7855-4ad1-a64f-05b735611a4a">
+  <ul id="9a6b03cf-dd1c-4f35-bc2b-ad8751130070">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '7748369a-7855-4ad1-a64f-05b735611a4a'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, '9a6b03cf-dd1c-4f35-bc2b-ad8751130070'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '7748369a-7855-4ad1-a64f-05b735611a4a'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device?patient=12724066" data-header="application/fhir+json" data-status="200" onclick="showTab(this, '9a6b03cf-dd1c-4f35-bc2b-ad8751130070'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="7748369a-7855-4ad1-a64f-05b735611a4a" class="example-tab-content">
+<div data-id="9a6b03cf-dd1c-4f35-bc2b-ad8751130070" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{
@@ -571,20 +571,20 @@
 <h4 id="response-1">Response</h4>
 
 <div class="example-tabs">
-  <ul id="fe145fab-5b0d-4544-ad44-086ad408db02">
+  <ul id="d292b78f-a16a-4951-9f29-51dc896d0490">
     <li>
-      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'fe145fab-5b0d-4544-ad44-086ad408db02'); return false;">
+      <a class="active" href="#example-response" data-tab="example-response-tab" onclick="showTab(this, 'd292b78f-a16a-4951-9f29-51dc896d0490'); return false;">
         Example Response
       </a>
     </li>
     <li>
-      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'fe145fab-5b0d-4544-ad44-086ad408db02'); makeRequest(this); return false;">
+      <a href="#live-response" data-tab="live-response-tab" data-url="https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Device/31539245" data-header="application/fhir+json" data-status="200" onclick="showTab(this, 'd292b78f-a16a-4951-9f29-51dc896d0490'); makeRequest(this); return false;">
         Live Response
       </a>
     </li>
   </ul>
 </div>
-<div data-id="fe145fab-5b0d-4544-ad44-086ad408db02" class="example-tab-content">
+<div data-id="d292b78f-a16a-4951-9f29-51dc896d0490" class="example-tab-content">
   <div data-content="example-response-tab">
     <pre class="headers"><code>Status: 200 OK</code></pre>
 <pre class="body-response"><code class="language-javascript">{

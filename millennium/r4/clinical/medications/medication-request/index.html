@@ -1151,8 +1151,7 @@ URL for this extension is defined as: <code>https://fhir-ehr.cerner.com/r4/Struc
   <li>
 <code>_revinclude</code> parameter may be provided with the <code>_id/patient/subject/account</code> parameter. Example: <code>_id=74771957,4732066&amp;_revinclude=Provenance:target</code>
 </li>
-  <li>
-<code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently <code>patient/Provenance.read</code> is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</li>
   <li>The <code>_lastUpdated</code> parameter may be provided:
     <ul>
       <li>once with a prefix <code>ge</code> or <code>le</code> representing the earliest date or latest date. (e.g. <code>date=ge2015-01-01</code>, <code>date=le2016-01-01</code>)</li>

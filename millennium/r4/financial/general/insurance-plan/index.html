@@ -68,7 +68,11 @@
       <h1 id="insuranceplan">InsurancePlan</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
@@ -76,33 +80,38 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>InsurancePlan describes a health insurance offering comprised of a list of covered benefits, costs associated with those benefits, and additional information about the offering, such as who it is owned and administered by, a coverage area contact information.</p>
+<p>The InsurancePlan resource is used to describe a health insurance offering and supports the return of a list of details, such as who it is owned and administered by, the plan’s coverage area, and contact information.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">InsurancePlan id</a></li>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">ID</a></li>
+  <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.identifier" target="_blank">InsurancePlan identifier</a></li>
   <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.status" target="_blank">Status</a></li>
   <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.type" target="_blank">Type</a></li>
   <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.name" target="_blank">Name</a></li>
   <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.period" target="_blank">Period</a></li>
   <li><a href="https://hl7.org/fhir/r4/insuranceplan-definitions.html#InsurancePlan.ownedBy" target="_blank">OwnedBy</a></li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -168,7 +177,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for InsurancePlans that meet supplied query parameters:</p>
+<p>Search for insurance plans that meet supplied query parameters:</p>
 
 <pre><code>GET /InsurancePlan?:parameters
 </code></pre>
@@ -185,7 +194,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Required?</th>
+      <th>Required</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -193,19 +202,37 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or <code>owned-by</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>The logical resource ID associated with the resource. This parameter is required if the <code>owned-by</code> parameter is not used. Example: <code>1234</code>
+</td>
     </tr>
     <tr>
       <td><code>owned-by</code></td>
-      <td>Yes</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
-      <td>Organization associated with the InsurancePlan.</td>
+      <td>The organization associated with the insurance plan. This parameter is required if the <code>_id</code> parameter is not used. Example: <code>Organization/5678</code>
+</td>
     </tr>
   </tbody>
 </table>
+
+<p><em>Implementation Notes</em></p>
+
+<ul>
+  <li>The <code>_id</code> and <code>owned-by</code> search parameters cannot be provided together.</li>
+  <li>When searching with the <code>_id</code> parameter:
+    <ul>
+      <li>It can be provided with either a single value, or a comma-separated list of references. Example: <code>_id=12345</code> or <code>_id=12345,67890</code>
+</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>owned-by</code> parameter:
+    <ul>
+      <li>It must be provided only once.</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -216,7 +243,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=589783
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/InsurancePlan?owned-by=Organization/589783
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -242,7 +269,7 @@
         "id": "2798233",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Aug 14, 2015  2:32 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part A&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Aug 14, 2015  2:32 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "type": [
@@ -280,7 +307,7 @@
         "id": "3132244",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part A and B&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr  3, 2018  8:37 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part A and B&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr  3, 2018  8:37 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "type": [
@@ -318,7 +345,7 @@
         "id": "3132243",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part B&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr  3, 2018  8:36 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Part B&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr  3, 2018  8:36 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "type": [
@@ -356,7 +383,7 @@
         "id": "3226346",
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Provider Liable&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 16, 2019  5:42 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Insurance Plan&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;:Medicare Provider Liable&lt;/p&gt;&lt;p&gt;&lt;b&gt;Type&lt;/b&gt;: Medical Service Plan&lt;/p&gt;&lt;p&gt;&lt;b&gt;Owned By&lt;/b&gt;:Organization/589783&lt;/p&gt;&lt;p&gt;&lt;b&gt;Period Start Date&lt;/b&gt;: Apr 16, 2019  5:42 P.M. UTC&lt;/p&gt;&lt;/div&gt;"
         },
         "status": "active",
         "type": [
@@ -390,15 +417,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual InsurancePlan by its id:</p>
+<p>List an individual insurance plan by the associated ID:</p>
 
 <pre><code>GET /InsurancePlan/:id
 </code></pre>
@@ -461,12 +482,6 @@
     "display": "SELF PAY"
   }
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

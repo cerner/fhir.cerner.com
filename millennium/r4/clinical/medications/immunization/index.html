@@ -68,7 +68,11 @@
       <h1 id="immunization">Immunization</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
@@ -78,15 +82,13 @@
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
       <li><a href="#example-with-revinclude" id="markdown-toc-example-with-revinclude">Example with RevInclude</a></li>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -95,7 +97,6 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -104,22 +105,21 @@
       <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
       <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
-      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Immunization resource includes the view of current and historical administration of vaccinations to a patient in all healthcare settings. This resource contains the functionality to query a patient’s immunization history.</p>
+<p>The Immunization resource is intended to cover the recording of current and historical administration of vaccines to patients across all healthcare disciplines, in all care settings, and all regions. This resource contains the functionality to query a patient’s immunization history. You can find detailed administration records in the <a href="../medication-administration/#overview"><code>MedicationAdministration</code></a> resource, while this Immunization resource represents the known vaccination history regardless of where the administration itself was done.</p>
 
-<p>Detailed administration records may be found in MedicationAdministration, while the Immunization resource would represent the known vaccination history regardless of where the administration itself was done.</p>
+<p>An immunization reaction may indicate an allergy or intolerance. If so, create a separate <a href="../../summary/allergy-intolerance/#overview"><code>AllergyIntolerance</code></a> resource instance as well.</p>
 
-<p>An immunization reaction may indicate an allergy or intolerance. If so, a separate AllergyIntolerance resource instance should be created as well.</p>
+<p>Note that while the terms immunization and vaccination are not clinically identical, for the purposes of FHIR resources, the terms are used synonymously.</p>
 
 <ul>
   <li>
-    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+    <p>This resource supports the following <a href="https://hl7.org/fhir/us/core/STU4/">HL7 FHIR US Core Implementation Guide STU 4.0.0</a> profiles:</p>
 
     <ul>
       <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-immunization.html">US Core Immunization Profile</a></li>
@@ -130,58 +130,59 @@
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">ID</a></li>
   <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.identifier" target="_blank">Immunization Record Identifier</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason" target="_blank">Status reason</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode" target="_blank">Vaccine administered</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient" target="_blank">Patient</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.encounter" target="_blank">Patient encounter</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_" target="_blank">Occurrence DateTime</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource" target="_blank">Primary Source</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.reportOrigin" target="_blank">Report Origin</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.location" target="_blank">Location</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.manufacturer" target="_blank">Vaccine manufacturer</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.lotNumber" target="_blank">Vaccine lot number</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.expirationDate" target="_blank">Vaccine expiration date</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.site" target="_blank">Vaccine administration site</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.route" target="_blank">Vaccine administration route</a></li>
-  <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.doseQuantity" target="_blank">Dosage administered</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.statusReason" target="_blank">Status reason</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.vaccineCode" target="_blank">Vaccine administered</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.patient" target="_blank">Patient</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.encounter" target="_blank">Patient encounter</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.occurrence_x_" target="_blank">Occurrence DateTime</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.primarySource" target="_blank">Primary Source</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.reportOrigin" target="_blank">Report Origin</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.location" target="_blank">Location</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.manufacturer" target="_blank">Vaccine manufacturer</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.lotNumber" target="_blank">Vaccine lot number</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.expirationDate" target="_blank">Vaccine expiration date</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.site" target="_blank">Vaccine administration site</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.route" target="_blank">Vaccine administration route</a></li>
+  <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.doseQuantity" target="_blank">Dosage administered</a></li>
   <li>
-<a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer" target="_blank">Performer</a>
+<a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer" target="_blank">Performer</a>
     <ul>
-      <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function" target="_blank">Type of performer (ordering or administering)</a></li>
+      <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.function" target="_blank">Type of performer (ordering or administering)</a></li>
       <li>
-<a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor" target="_blank">Individual who performed</a>
+<a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.performer.actor" target="_blank">Individual who performed</a>
         <ul>
           <li>
-<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a> | <a href="http://hl7.org/fhir/R4/organization.html" target="_blank">Organization</a>)</li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a> | <a href="https://hl7.org/fhir/R4/organization.html" target="_blank">Organization</a>)</li>
         </ul>
       </li>
     </ul>
   </li>
   <li>
-<a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note" target="_blank">Note</a>
+<a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note" target="_blank">Note</a> (follows <a href="https://hl7.org/fhir/R4/datatypes.html#Annotation">Annotation</a> structure)
     <ul>
       <li>
-<a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.note" target="_blank">Author reference</a>
-        <ul>
-          <li>
-<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
-        </ul>
-      </li>
-      <li><a href="http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time" target="_blank">Time</a></li>
-      <li><a href="http://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text" target="_blank">Text</a></li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
+      <li><a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.time" target="_blank">Time</a></li>
+      <li><a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Annotation.text" target="_blank">Text</a></li>
     </ul>
   </li>
   <li>
-<a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied" target="_blank">Protocol applied</a>
+<a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied" target="_blank">Protocol applied</a>
     <ul>
-      <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_" target="_blank">Dose Number String</a></li>
-      <li><a href="http://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.targetDisease" target="_blank">Target disease</a></li>
+      <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.doseNumber_x_" target="_blank">Dose Number String</a></li>
+      <li><a href="https://hl7.org/fhir/R4/immunization-definitions.html#Immunization.protocolApplied.targetDisease" target="_blank">Target disease</a></li>
     </ul>
   </li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -214,7 +215,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/valueset-immunization-status-reason.html">Immunization Status Reason</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/valueset-immunization-status-reason.html">Immunization Status Reason</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/v3-ActReason <br>
                       
@@ -275,7 +276,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/cvx.html">CVX</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/cvx.html">CVX</a><br>
                       
                         System: http://hl7.org/fhir/sid/cvx <br>
                       
@@ -291,7 +292,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/ndc.html">NDC</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/ndc.html">NDC</a><br>
                       
                         System: http://hl7.org/fhir/sid/ndc <br>
                       
@@ -352,7 +353,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/valueset-immunization-origin.html">Immunization Report Origin</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/valueset-immunization-origin.html">Immunization Report Origin</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/immunization-origin <br>
                       
@@ -412,7 +413,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -469,7 +470,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -532,7 +533,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/cvx.html">CVX</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/cvx.html">CVX</a><br>
                       
                         System: http://hl7.org/fhir/sid/cvx <br>
                       
@@ -548,7 +549,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/r4/snomedct.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -587,7 +588,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Immunizations that meet supplied query parameters:</p>
+<p>Search for immunizations that meet supplied query parameters:</p>
 
 <pre><code>GET /Immunization?:parameters
 </code></pre>
@@ -612,61 +613,86 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or <code>patient</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>The logical resource ID associated with the resource. This parameter is required if the <code>patient</code> parameter is not used. Example: <code>M12345</code>
+</td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This, or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
-      <td>The patient for the vaccination record. Example: <code>12345</code>
+      <td>The patient for the vaccination record. This parameter is required if the <code>_id</code> parameter is not used. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
       <td><code>date</code></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the immunization administration date falls. Must be prefixed by ‘ge’ or ‘le’.</td>
-    </tr>
-    <tr>
-      <td><code>_revinclude</code></td>
-      <td>No</td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
+      <td>The date range for the immunization administration or administrations. Example: <code>date=ge2020-01-01T08:00:00.000Z&amp;date=le2020-01-31T17:00:00.000Z</code>
+</td>
     </tr>
     <tr>
       <td><code>target-disease</code></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The target disease the dose is being administered against.                                 Example: <code>http://hl7.org/fhir/sid/cvx|213</code>
+      <td>The target disease that the dose is being administered against. Example: <code>http://hl7.org/fhir/sid/cvx|213</code>
 </td>
+    </tr>
+    <tr>
+      <td><code>_revinclude</code></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The Provenance resource entries that are returned as part of the bundle.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:</p>
+<p><em>Implementation Notes</em></p>
 
 <ul>
-  <li>The <code>date</code> parameter may be provided:
+  <li>When searching with the <code>_id</code> parameter:
     <ul>
-      <li>once with a prefix <code>ge</code> or <code>le</code> representing the earliest date or latest date. (e.g. <code>date=ge2015-01-01</code>, <code>date=le2016-01-01</code>)</li>
-      <li>twice with the prefixes <code>ge</code>, <code>le</code> to indicate a specific range. (e.g. <code>date=ge2015-01-01&amp;date=le2016-01-01</code>)</li>
+      <li>It can be provided with either a single reference, or a comma-separated list of references. Example: <code>_id=M1234</code> or <code>_id=M1234,M5678</code>
+</li>
+      <li>It must not be provided with any other parameters, except with <code>_revinclude</code> as indicated below.</li>
     </ul>
   </li>
-  <li>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code>
-</li>
-  <li>The <code>_revinclude</code> parameter may be provided in combination with the <code>_id/patient</code> parameter. Example: <code>_id=M17255835,M17255827&amp;_revinclude=Provenance:target</code>
-</li>
-  <li>When <code>_revinclude</code> is provided in a request to a closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope.</li>
-  <li><strong>Currently the <code>patient/Provenance.read</code> scope is not supported and hence <code>_revinclude</code> cannot be utilised for patient persona.</strong></li>
-  <li>The <code>target-disease</code> parameter
+  <li>When searching with the <code>patient</code> parameter:
     <ul>
-      <li>Searching by Millennium proprietary codes is not supported</li>
+      <li>It can be provided with only a single reference; a comma-separated list is not supported.</li>
     </ul>
   </li>
+  <li>When searching with the <code>date</code> parameter:
+    <ul>
+      <li>For a single <code>date</code> occurrence:
+        <ul>
+          <li>It must be provided with either the <code>le</code> or <code>ge</code> prefix to search for vaccination record administrations earlier or later than the given date.</li>
+          <li>The time component is optional.</li>
+        </ul>
+      </li>
+      <li>For two <code>date</code> occurrences:
+        <ul>
+          <li>It must be provided with <code>le</code> and <code>ge</code> prefixes to search for vaccination records within a specific range.</li>
+          <li>The time component is optional, but must be consistent. If one date has a time component, so must the other.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>When searching with the <code>target-disease</code> parameter:
+    <ul>
+      <li>Searching by Cerner Millennium proprietary codes is not supported.</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>_revinclude</code> parameter:
+    <ul>
+      <li>It can be provided once with the <code>Provenance:target</code> value. Example: <code>_revinclude=Provenance:target</code>
+</li>
+      <li>It can be provided with the <code>_id</code> or <code>patient</code> parameter. Example: <code>_id=M17255835&amp;_revinclude=Provenance:target</code>
+</li>
+    </ul>
+  </li>
+  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -861,8 +887,6 @@
     }
   ]
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h3 id="example-with-revinclude">Example with RevInclude</h3>
 
@@ -1174,7 +1198,6 @@
     }
   ]
 }</code></pre>
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h4 id="patient-authorization-request">Patient Authorization Request</h4>
 
@@ -1362,15 +1385,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Immunization by its id:</p>
+<p>List an individual immunization by the associated ID:</p>
 
 <pre><code>GET /Immunization/:id
 </code></pre>
@@ -1488,8 +1505,6 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
 <h4 id="patient-authorization-request-for-completed-status">Patient Authorization Request For Completed Status</h4>
 
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M197197986
@@ -1566,8 +1581,6 @@
   }
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
 <h4 id="patient-authorization-request-for-entered-in-error-status">Patient Authorization Request For Entered in Error Status</h4>
 
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/M211860902
@@ -1613,9 +1626,7 @@
   }
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h4 id="patient-authorization-request-for-not-done-status">Patient Authorization Request For Not done Status</h4>
+<h4 id="patient-authorization-request-for-not-done-status">Patient Authorization Request For Not Done Status</h4>
 
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/HM178147794
 </code></pre>
@@ -1664,15 +1675,9 @@
   "primarySource": true
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="create">Create</h2>
 
-<p>Create a new Immunization.</p>
+<p>Create a new immunization.</p>
 
 <pre><code>POST /Immunization
 </code></pre>
@@ -1704,7 +1709,7 @@
       <td>
         <a name="create-resourceType">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/r4/json.html#resources"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -1939,7 +1944,7 @@
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> encounter is required field to create charted immunizations </li>
+  <li> encounter is required field to create charted immunizations. </li>
   <li> encounter is not a required field to create staged immunizations. </li>
 </ul> 
 </li></ul>
@@ -2025,7 +2030,7 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>Should not be supplied when primarySource is set to true</li></ul>
+        <ul style="list-style-type: none"><li>Should not be supplied when primarySource is set to true.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -2565,18 +2570,15 @@ Etag: W/"1"
 Last-Modified: Sun, 30 Jun 2019 10:35:00 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Immunization/147391087
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
+X-Request-Id: 11111111-1111-1111-1111-111111111111
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="update">Update</h2>
 
-<p>Update an Immunization.</p>
+<p>Update an immunization.</p>
 
 <pre><code>PUT /Immunization/:id
 </code></pre>
@@ -2609,7 +2611,7 @@ If-Match: W/"&lt;Current version of the Immunization resource&gt;"</code></pre>
       <td>
         <a name="update-resourceType">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/r4/json.html#resources"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/r4/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -2957,7 +2959,7 @@ If-Match: W/"&lt;Current version of the Immunization resource&gt;"</code></pre>
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>Should not be supplied when primarySource is set to true</li></ul>
+        <ul style="list-style-type: none"><li>Should not be supplied when primarySource is set to true.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -3492,14 +3494,10 @@ Date: Sun, 30 Jun 2019 10:40:00 GMT
 Etag: W/"2"
 Last-Modified: Sun, 30 Jun 2019 10:40:00 GMT
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea91
+X-Request-Id: b72617f9-1a52-46ca-bb52-b0b3f976f9fb
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
-
-<h3 id="errors-3">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>
