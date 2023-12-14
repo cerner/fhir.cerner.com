@@ -25,7 +25,7 @@ fields:
     description: A code that defines the type of medication.
     terminology:
     - display: RxNorm
-      system: https://www.nlm.nih.gov/research/umls/rxnorm
+      system: http://www.nlm.nih.gov/research/umls/rxnorm
       info_link: https://hl7.org/fhir/dstu2/rxnorm.html
 
 - name: product
