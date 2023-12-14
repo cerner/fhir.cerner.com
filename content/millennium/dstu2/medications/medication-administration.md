@@ -169,4 +169,4 @@ List an individual medication administration by its ID.
 [OperationOutcomes]: ../../#operation-outcomes
 [`StructureDefinition`]: ../../conformance/structure-definition/#overview
 [Infuse Over Time]: #custom-extensions
-[`Immunization`]: ../immunization/#overview
+[`Immunization`]: ../immunization/
