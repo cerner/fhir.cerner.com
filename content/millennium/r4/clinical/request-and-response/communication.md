@@ -56,7 +56,7 @@ Search for communications that meet supplied query parameters.
 
 _Notes_
 
-* The content of a communication is returned through the Binary resource. A reference to the payload is provided in the Payload section.
+* The content of a communication is returned through the Binary resource. A reference to the payload is provided in `Communication.payload.contentReference`.
 * Only a maximum of 1000 elements are returned based on the date range.
 
 ### Authorization Types
