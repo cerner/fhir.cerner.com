@@ -182,7 +182,7 @@ Patch an existing communication.
 
 _Notes_
 
-* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) specification.
+* This implementation follows RFC 6902, [JSON Patch](https://tools.ietf.org/html/rfc6902).
 * Only operations on the paths listed below are supported.
 
 ### Authorization Types
