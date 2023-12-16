@@ -12,7 +12,7 @@ fields:
       "resourceType": "Practitioner"
     }
   note: resourceType must be `Practitioner`.
-  url: http://hl7.org/fhir/R4/json.html#resources
+  url: https://hl7.org/fhir/R4/json.html#resources
 
 - name: name
   required: 'Yes'
