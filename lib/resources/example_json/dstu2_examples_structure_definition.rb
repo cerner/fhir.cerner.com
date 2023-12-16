@@ -26,8 +26,8 @@ module Cerner
           {
             'path': 'Extension',
             'short': 'String equivalent with patient-friendly terminology',
-            'definition': 'An expression of the original string in terminology that patients should be able to '\
-                          'understand',
+            'definition': 'An expression of the original string in terminology that patients should be able to ' \
+              'understand',
             'min': 0,
             'max': '1',
             'base': {
@@ -86,10 +86,10 @@ module Cerner
             ],
             'short': 'identifies the meaning of the extension',
             'definition': 'Source of the definition for the extension code - a logical name or a URL.',
-            'comments': 'The definition may point directly to a computable or human-readable definition of the '\
-                        'extensibility codes, or it may be a logical URI as declared in some other specification. '\
-                        'The definition should be version specific.  This will ideally be the URI for the Resource '\
-                        'Profile defining the extension, with the code for the extension after a #.',
+            'comments': 'The definition may point directly to a computable or human-readable definition of the ' \
+              'extensibility codes, or it may be a logical URI as declared in some other specification. The ' \
+              'definition should be version specific.  This will ideally be the URI for the Resource ' \
+              'Profile defining the extension, with the code for the extension after a #.',
             'min': 1,
             'max': '1',
             'base': {
@@ -107,8 +107,8 @@ module Cerner
           {
             'path': 'Extension.valueString',
             'short': 'Value of extension',
-            'definition': 'Value of extension - may be a resource or one of a constrained set of the data types '\
-                          '(see Extensibility in the spec for list).',
+            'definition': 'Value of extension - may be a resource or one of a constrained set of the data types (see ' \
+              'Extensibility in the spec for list).',
             'min': 1,
             'max': '1',
             'base': {
@@ -129,8 +129,8 @@ module Cerner
           {
             'path': 'Extension',
             'short': 'String equivalent with patient-friendly terminology',
-            'definition': 'An expression of the original string in terminology that patients should be able to '\
-                          'understand',
+            'definition': 'An expression of the original string in terminology that patients should be able to ' \
+              'understand',
             'min': 0,
             'max': '1',
             'type': [
