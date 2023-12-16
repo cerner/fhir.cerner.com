@@ -45,7 +45,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
 
 | ID             | Value\[x] Type                                              | Description                                                   |
 |----------------|-------------------------------------------------------------|---------------------------------------------------------------|
-| `is-physician` | [`Boolean`](https://hl7.org/fhir/r4/datatypes.html#boolean) | Indicates whether the practitioner is a physician. |
+| `is-physician` | [`boolean`] | Indicates whether the practitioner is a physician. |
 
 ## Search
 
