@@ -61,7 +61,7 @@ Notes:
 
 #### Request
 
-    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Person?identifier=urn%3Aoid%3A2.16.840.1.113883.6.1000%7C31577
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Person?identifier=urn:oid:2.16.840.1.113883.6.1000|31577
 
 #### Response
 
