@@ -1,6 +1,6 @@
 ---
 name: Person
-field_name_base_url: http://hl7.org/fhir/DSTU2/person-definitions.html#Person
+field_name_base_url: https://hl7.org/fhir/DSTU2/person-definitions.html#Person
 fields:
 - name: identifier
   required: 'No'
