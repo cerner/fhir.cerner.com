@@ -21,4 +21,4 @@ fields:
         info_link: https://hl7.org/fhir/DSTU2/valueset-identifier-type.html
       - display: v2 Identifier Type
         system: http://hl7.org/fhir/v2/0203
-        info_link: https://hl7.org/fhir/DSTU2/valueset-identifier-type.html
+        info_link: https://hl7.org/fhir/DSTU2/v2/0203/index.html
