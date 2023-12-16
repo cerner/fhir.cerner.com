@@ -72,7 +72,7 @@ ID                                |  Description
 [`scheduling-location`]           |  The reference to the location of a scheduled appointment.
 [`medication-statement-category`] |  The category of an order.
 [`infuse-over-time`]              |  The length of time in minutes to infuse a medication.
-[`encounter-guarantor`]           |  The guarantors of an encounter. Contains a reference to a patient, person, or organization, and a period when the guarantor is effective.
+[`encounter-guarantor`]           |  The guarantors of an encounter. Contains a reference to a patient, person, or organization and a period when the guarantor is effective.
 
 [`patient-friendly-display`]: https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display?_format=json
 [`scheduling-location`]: https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location?_format=json
