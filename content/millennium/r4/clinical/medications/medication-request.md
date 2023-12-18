@@ -9,17 +9,18 @@ title: MedicationRequest | R4 API
 
 ## Overview
 
-The MedicationRequest resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient's historical or documented home medications reported by the patient, significant other or another provider.
+The MedicationRequest resource provides orders for all medications with administration instructions for a patient in both the inpatient and outpatient settings (orders or prescriptions filled by a pharmacy and discharge medication orders). This resource also includes a patient's historical or documented home medications reported by the patient, significant other, or another provider.
 
-If the MedicationRequest represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical/past/home medications are commonly captured when taking the patient’s medical history.
+If the medication request represents a prescription the patient takes at home, then the start, stop, and other information may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled. Documented historical, past, and home medications are commonly captured when taking the patient’s medical history.
 
-The following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} Profiles are supported by this resource:
+This resource supports the following [HL7 FHIR US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles:
 
 * [US Core MedicationRequest Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-medicationrequest.html){:target="_blank"}
 
 The following fields are returned if valued:
 
-* [MedicationRequest id]( https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [MedicationRequest ID](https://hl7.org/fhir/r4/resource-definitions.html#Resource.id){:target="_blank"}
+* [Extensions](#extensions)
 * [Status](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.status){:target="_blank"}
 * [Status Reason](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.statusReason){:target="_blank"}
 * [Intent](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.intent){:target="_blank"}
@@ -72,6 +73,12 @@ The following fields are returned if valued:
   * [Allowed Boolean](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.substitution.allowed_x_){:target="_blank"}
 * [Prior Prescription](https://hl7.org/fhir/r4/medicationrequest-definitions.html#MedicationRequest.priorPrescription){:target="_blank"}
 
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
 ## Terminology Bindings
 
 <%= terminology_table(:medication_request, :r4) %>
@@ -82,34 +89,36 @@ The following fields are returned if valued:
 
 ## Extensions
 
+* [clinical-instruction] 
+* [pharmacy-verification-status]
 * [NLLPrescriptionFormat](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
 * [NLLRegistrationBasis](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
 * [NLLDosePackaging](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
 
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                              | Value\[x] Type | Description
+---------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `clinical-instruction`          | [String](https://hl7.org/fhir/r4/datatypes.html#string)                   | Extension to MedicationRequest.dosageInstruction. Represents instructions for an order that are intended for healthcare providers.
+ `pharmacy-verification-status`  | [CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept) | Represents whether a medication request was verified by a pharmacist. Supported values are `Does not need pharmacy verification`, `Needs pharmacy verification`, or `Rejected by pharmacy`.
+
+### Swedish Extensions
+
 All URLs for Swedish extensions are defined as `http://electronichealth.se/fhir/StructureDefinition/{id}`
 
  ID                      | Value\[x] Type | Description
------------------------------------------------------------|------------------------------------------------------------------|----------------------------------------------------------------
- `NLLPrescriptionFormat` | Coding         | Current prescription format
- `NLLRegistrationBasis`  | Coding         | Format for prescription registration
- `NLLDosePackaging`      | valueBoolean   | Dose dispensed prescription
-
-## Custom Extensions
-
-* Clinical Instruction: Is an extension on MedicationRequest.dosageInstruction with type of valueString. It represents instructions for an order that are intended for healthcare providers. URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/clinical-instruction`.
-
-* Pharmacy Verification Status: Is an extension on MedicationRequest.extension with type of CodeableConcept. It represents whether a MedicationRequest has been verified by a pharmacist. Supported values are Does not need pharmacy verification, Needs pharmacy verification or Rejected by pharmacy.
-  URL for this extension is defined as: `https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status`.
+-------------------------|-------------------------------------------------------------|-----------------------------------------------------------
+ `NLLPrescriptionFormat` | [Coding](https://hl7.org/fhir/r4/datatypes.html#codesystem) | Current prescription format.
+ `NLLRegistrationBasis`  | [Coding](https://hl7.org/fhir/r4/datatypes.html#codesystem) | Format for prescription registration.
+ `NLLDosePackaging`      | [Boolean](https://hl7.org/fhir/r4/datatypes.html#boolean)   | Dose dispensed prescription.
 
 ## Search
 
-Search for MedicationRequests that meet supplied query parameters:
+Search for medication requests that meet supplied query parameters.
 
     GET /MedicationRequest?:parameters
-
-_Implementation Notes_
-
-We use the intent field to determine if a medication is an authorization or a medication reported by a patient. In the reported field, we support "Plan" and "Order" in accordance with the US Core Profile changes.
 
 ### Authorization Types
 
@@ -117,25 +126,37 @@ We use the intent field to determine if a medication is an authorization or a me
 
 ### Parameters
 
- Name                   | Required?          | Type          | Description
-------------------------|--------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
- `_id`                  | This, or `patient` | [`token`]     | The logical resource id associated with the resource. Example: `12345`
- `patient`              | This, or `_id`     | [`reference`] | The specific patient to return MedicationRequests for. Example: `12345`
- `status`               | N                  | [`token`]     | The [status] of the medication, may be a list separated by commas. Example: `active,completed`
- `intent`               | N                  | [`token`]     | Whether the medication is an authorization or a medication reported by a patient. Example: `order,plan`
- `-timing-boundsPeriod` | N                  | [`token`]     | The date-time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` the medication should be given to the patient. Must be prefixed by `ge`. Example: `ge2014-05-19T20:54:02.000Z` 
- `_lastUpdated`         | N                  | [`date`]      | An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must include a time, and must be prefixed by `ge` or `le`. Example: `ge2014-05-19T20:54:02.000Z`
- `_count`               | N                  | [`number`]    | The maximum number of results to include in a page. Example: `50`
- `_revinclude`          | N                  | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target
+ Name                   | Required?     | Type          | Description
+------------------------|---------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`                  | Conditionally | [`token`]     | The logical resource ID associated with the resource. Example: `_id=1234`
+ `patient`              | Conditionally | [`reference`] | The specific patient to return medication requests for. Example: `patient=5678`
+ `status`               | No            | [`token`]     | The [status] of the medication. May be a list separated by commas. Example: `status=active,completed`
+ `intent`               | No            | [`token`]     | Whether the medication is an authorization or a medication reported by a patient. Example: `intent=order,plan`
+ `-timing-boundsPeriod` | No            | [`token`]     | The date and time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` when the medication should be given to the patient. Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z` 
+ `_lastUpdated`         | No            | [`date`]      | The date and time range within which the most recent clinically relevant update was made to the medication. The time component is required. Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
+ `_count`               | No            | [`number`]    | The maximum number of results to include on a page. Example: `_count=50`
+ `_revinclude`          | No            | [`token`]     | The Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
-Notes:
+_Notes_
 
-* `_revinclude` parameter may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-* `_revinclude` parameter may be provided with the `_id/patient/subject/account` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
+* When searching with the `_id` parameter:
+  * It must not be provided with any other parameters, except with the `_revinclude` parameter as indicated below.
+* When searching with the `-timing-boundsPeriod` parameter:
+  * It must be provided with a `ge` prefix to imply the date range for the medications search.
+  * The time component is optional.
+  * Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z`
+* When searching with the `_lastUpdated` parameter:
+  * For a single `_lastUpdated` occurence:
+    * It must be provided with a `le` or `ge` prefix to imply the date range for the medications search.
+    * Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`
+  * For two `_lastUpdated` occurences:
+    * It must be provided with the `le` and `ge` prefixes to search for medications within the given upper and lower timestamps, respectively.
+    * Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z&_lastUpdated=le2014-05-20T12:00:00.000Z`
+* When searching with the `_revinclude` parameter:
+  * It can be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
+  * It can be provided with the `_id` or `patient` parameter. Example: `_id=74771957,4732066&_revinclude=Provenance:target`
+
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
-* The `_lastUpdated` parameter may be provided:
-  * once with a prefix `ge` or `le` representing the earliest date or latest date. (e.g. `date=ge2015-01-01`, `date=le2016-01-01`)
-  * twice with the prefixes `ge`, `le` to indicate a specific range. (e.g. `date=ge2015-01-01&date=le2016-01-01`)
 
 ### Headers
 
@@ -151,7 +172,6 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_BUNDLE) %>
-<%= disclaimer %>
 
 ### Example with RevInclude
 
@@ -176,21 +196,12 @@ Notes:
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_PATIENT_BUNDLE) %>
-<%= disclaimer %>
 
-### Errors
+## Retrieve by ID
 
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual MedicationRequest by its id:
+List an individual medication request by its ID.
 
     GET /MedicationRequest/:id
-
-_Implementation Notes_
-
-We use the intent field to determine if a medication is an authorization or a medication reported by a patient. In the reported field, we support "Plan" and "Order" in accordance with the US Core Profile changes.
 
 ### Authorization Types
 
@@ -210,7 +221,6 @@ We use the intent field to determine if a medication is an authorization or a me
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_ENTRY) %>
-<%= disclaimer %>
 
 #### Patient Authorization Request For Active Status
 
@@ -220,7 +230,6 @@ We use the intent field to determine if a medication is an authorization or a me
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_PATIENT_ENTRY) %>
-<%= disclaimer %>
 
 #### Patient Authorization Request For Entered in Error Status
 
@@ -230,17 +239,16 @@ We use the intent field to determine if a medication is an authorization or a me
 
 <%= headers status: 200 %>
 <%= json(:R4_MEDICATION_REQUEST_ENTERED_IN_ERROR) %>
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Create
 
-Create an individual MedicationRequest.
+Create an individual medication request.
 
     POST /MedicationRequest
+
+_Notes_
+
+* Only the body fields mentioned below are supported. Unsupported fields are ignored.
 
 ### Authorization Types
 
@@ -276,14 +284,9 @@ Etag: W/"0"
 Last-Modified: Wed, 27 Mar 2019 15:59:30 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/4595905
 Vary: Origin
-X-Request-Id: 1638e30e497b93ff4383b2ff0eaeea68
+X-Request-Id: 11111111-1111-1111-1111-111111111111
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
 </pre>
-
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 ## Patch
 
@@ -291,9 +294,9 @@ Patch an existing medication request.
 
     PATCH /MedicationRequest/:id
 
-_Implementation Notes_
+_Notes_
 
-* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) spec.
+* This implementation follows the [JSON PATCH](https://tools.ietf.org/html/rfc6902) specification.
 * Only operations on the paths listed below are supported.
 
 ### Authorization Types
@@ -329,14 +332,11 @@ Date: Tue, 26 Mar 2019 15:42:29 GMT
 Etag: W/"10"
 Last-Modified: Tue, 26 Mar 2019 15:42:27 GMT
 Vary: Origin
-X-Request-Id: 47306a14c8a2c3afd4ab85aa9594101d
+X-Request-Id: 11111111-1111-1111-1111-111111111111
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
 
 [`token`]: http://hl7.org/fhir/R4/search.html#token
 [`reference`]: http://hl7.org/fhir/R4/search.html#reference
@@ -345,3 +345,5 @@ The common [errors] and [OperationOutcomes] may be returned.
 [status]: https://www.hl7.org/fhir/r4/valueset-medicationrequest-status.html
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
+[clinical-instruction]: #custom-extensions
+[pharmacy-verification-status]: #custom-extensions
