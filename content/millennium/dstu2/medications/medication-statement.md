@@ -9,38 +9,44 @@ title: MedicationStatement | DSTU 2 API
 
 ## Overview
 
-The Medication Statement resource provides a snapshot in time of known medications taken by the patient now or in the past reported by either the patient, significant other or a provider. Future orders are not returned. Documented historical/past/home medications are commonly captured when taking the patient's medical history. Prescriptions without documented compliance are Intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be Taken unless documented otherwise.
+The MedicationStatement resource provides a snapshot in time of known medications taken by the patient now or in the past, which were reported by the patient, a significant other, or a provider. Future orders are not returned. 
 
-References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.
+Historical, past, or home medications are commonly captured when documenting the patient's medical history. Prescriptions without documented compliance are considered intended because whether the patient is actively taking the medication or has filled the prescription is unknown. Medications are assumed to be taken unless documented otherwise.
 
 The following fields are returned if valued:
 
-* [Id](http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
-* [Patient](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient){:target="_blank"}
-* [Source of information](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource){:target="_blank"}
-* [Date/Time recorded](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dateAsserted){:target="_blank"}
-* [Status](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status){:target="_blank"}
-* [Was or Was Not Taken](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken){:target="_blank"}
-* [Date/Time started and ended](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_){:target="_blank"}
-* [Medication](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_){:target="_blank"}
-* [Reference to source MedicationOrder, if applicable](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.supportingInformation){:target="_blank"}
+* [Medication Statement ID](https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id){:target="_blank"}
+* [Patient](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient){:target="_blank"}
+* [Source of information](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource){:target="_blank"}
+* [Date/Time recorded](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dateAsserted){:target="_blank"}
+* [Status](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status){:target="_blank"}
+* [Was or Was Not Taken](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken){:target="_blank"}
+* [Date/Time started and ended](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_){:target="_blank"}
+* [Medication](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_){:target="_blank"}
+* [Reference to source MedicationOrder, if applicable](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.supportingInformation){:target="_blank"}
 * [Category Extension](#extensions)
 * Details of medication taken:
-  * [Dosage](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage){:target="_blank"}
-  * [Route](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route){:target="_blank"}
-  * [Frequency](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing){:target="_blank"}
-  * [Quantity](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_){:target="_blank"}
-  * [Reason for use](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_){:target="_blank"}
-  * [Site](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_){:target="_blank"}
-  * [Rate](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.rate_x_){:target="_blank"}
-  * [Order comments/special instructions](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note){:target="_blank"}
+  * [Dosage](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage){:target="_blank"}
+  * [Route](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route){:target="_blank"}
+  * [Frequency](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing){:target="_blank"}
+  * [Quantity](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_){:target="_blank"}
+  * [Reason for use](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_){:target="_blank"}
+  * [Site](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_){:target="_blank"}
+  * [Rate](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.rate_x_){:target="_blank"}
+  * [Order comments/special instructions](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note){:target="_blank"}
   * [Patient friendly display Extension](#extensions)
 
 ### Querying for Active Medications
 
-To get all possible current medications, an application should query `MedicationStatement` with the `status` query parameter set to `active,intended`. Since `MedicationStatement` is a snapshot in time, this is only a representation of what the system knew of during the last contact with the patient, and will not include things that have happened since the patient last visited with their provider.
+To get all possible current medications, an application should query the MedicationStatement resource with the `status` query parameter set to `active,intended`. Because the MedicationStatement resource provides a snapshot in time, the reponse includes only the information that was in the system as of the last contact with the patient. Changes in medications that occurred after the patient last visited their provider are not included.
 
-To get the list of current medications that would likely be shown by default to a practitioner, the `MedicationOrder` resource should be used in addition to the query above in order to ensure that `draft` orders are included. Duplicates can be removed using the `MedicationStatement.supportingInformation` reference. A duplicate is identified when `MedicationOrder.id` is equivalent to the `supportingInformation` referenced `MedicationOrder/[id]`
+To get the list of current medications that would likely be shown by default to a practitioner, use the [MedicationOrder] resource and the query above to ensure that `draft` orders are included. You can use the `MedicationStatement.supportingInformation` reference to remove duplicates. A duplicate is identified when the `MedicationOrder.id` is equivalent to the `MedicationOrder/[id]` in the `supportingInformation` reference.
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
 
 ## Terminology Bindings
 
@@ -65,20 +71,15 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2
 
  ID                              | Value\[x] Type      | Description
 ---------------------------------|---------------------|-------------------------------------------------------------------------------------------
- `patient-friendly-display`      | [`string`]          | The display that can be used for this field when producing a view suitable for a patient.
- `medication-statement-category` | [`CodeableConcept`] | The [category] of the order, for example: patientspecified, outpatient, etc.
+ `patient-friendly-display`      | [`string`]          | Extension to MedicationRequest.dosageInstruction. The display name that can be used for this field when producing a view suitable for a patient.
+ `medication-statement-category` | [`CodeableConcept`] | The [category] of the order, for example: patientspecified, outpatient, and so on.
 
 
 ## Search
 
-Search for MedicationStatements that meet supplied query parameters:
+Search for medication statements that meet supplied query parameters.
 
     GET /MedicationStatement?:parameters
-
-_Implementation Notes_
-
-* [MedicationStatement.informationSource] may be a reference to a [contained] Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.
-* [MedicationStatement.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.
 
 ### Authorization Types
 
@@ -88,17 +89,20 @@ _Implementation Notes_
 ### Parameters
 
 
- Name            | Required?          | Type          | Description
------------------|--------------------|---------------|--------------------------------------------------------------------------------------------------------
- `_id`           | This, or `patient` | [`token`]     | The logical resource id associated with the resource.
- `patient`       | This, or `_id`     | [`reference`] | The identifier of a patient to list statements for. Example: `12345`
- `status`        | N                  | [`token`]     | The status of the medication statement, may be a list separated by commas. Example: `active,completed`
- [`_count`]      | N                  | [`number`]    | The maximum number of results to return. Defaults to `50`.
+ Name        | Required?     | Type          | Description
+------------ |---------------|---------------|--------------------------------------------------------------------------------------------------------
+ `_id`       | Conditionally | [`token`]     | The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the `patient` parameter is not used. Example: `_id=1234`
+ `patient`   | Conditionally | [`reference`] | The specific patient to return medication statements for. This parameter is required if the `_id` parameter is not used. Example: `patient=5678`
+ `status`    | No            | [`token`]     | The status of the medication statement. It may be a list separated by commas. Example: `status=active,completed`
+ [`_count`]  | No            | [`number`]    | The maximum number of results to return. Defaults to `_count=50`.
 
 
-Notes:
+_Notes_
 
-* Either the `_id` parameter or a combination of the `patient`, `status`, and `_count` parameters must be provided.
+* [MedicationStatement.informationSource] may be a reference to a [contained] Practitioner or RelatedPerson. Only the relationship between the patient and information source is known; therefore, a specific practitioner or related person cannot be referenced.
+* [MedicationStatement.medication] may be a reference to a [contained] Medication when the medication cannot be represented by a [`CodeableConcept`] because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication statement and cannot be be referenced independently.
+* When searching with the `_id` parameter:
+  * It must not be provided with any other parameters.
 
 ### Headers
 
@@ -115,22 +119,11 @@ Notes:
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_statement_bundle) %>
 
-<%= disclaimer %>
+## Retrieve by ID
 
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-## Retrieve by id
-
-List an individual MedicationStatement by its id:
+List an individual medication statement by its ID.
 
     GET /MedicationStatement/:id
-
-_Implementation Notes_
-
-* [MedicationStatement.informationSource] may be a reference to a [contained] Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.
-* [MedicationStatement.medication] may be a reference to a [contained] Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.
 
 ### Authorization Types
 
@@ -151,24 +144,17 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:dstu2_medication_statement_entry) %>
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ## Create
 
-Create a new MedicationStatement.
+Create a new medication statement.
 
     POST /MedicationStatement
 
-_Implementation Notes_
+_Notes_
 
-* [MedicationStatement.status] must be set to `active`.
-* [MedicationStatement.wasNotTaken] set to `true` is not supported.
 * If [MedicationStatement.medication] is a reference, it must refer to a [contained] Medication with the code field populated and cannot have any product.ingredients populated.
-* Only MedicationStatements about home medications or historical medications can be created. MedicationStatements about prescribed medications cannot be created because MedicationStatement isn't used to capture compliance information.
+* Only medication statements about home medications or historical medications can be created. Medication statements about prescribed medications cannot be created because the MedicationStatement resource is not used to capture compliance information.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored or result in errors.
 
 ### Authorization Types
 
@@ -216,30 +202,27 @@ etag: W/"0"
 location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationStatement/20465903
 strict-transport-security: max-age=631152000
 vary: Origin,User-Agent,Accept-Encoding
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
 x-content-type-options: nosniff
 x-frame-options: SAMEORIGIN
-x-request-id: 682c633c-b20f-4f6f-8fae-c58b3aeffe04
+x-request-id: 11111111-1111-1111-1111-111111111111
 x-xss-protection: 1; mode=block
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
 ## Update
 
-Update a MedicationStatement.
+Update a medication statement.
 
     PUT /MedicationStatement/:id
 
-_Implementation Notes_
+_Notes_
 
-* The only supported change is to update the [MedicationStatement.status] to `completed`.
-* Only MedicationStatements that have no reference to a MedicationOrder can be updated. When a MedicationStatement is tied to a prescription or order, its status is updated when the order itself is completed or cancelled.
+* Only medication statements without a reference to a medication order can be updated. When a medication statement is associated with a prescription or order, its status is updated when the order itself is completed or canceled.
+* Only the body fields mentioned below are supported. Unsupported fields are ignored or result in errors.
+* In addition to the common [errors], the following error may be returned:
+  * Updating a medication statement without sending the `If-Match` header returns a `412 Precondition Failed` response.
 
 ### Authorization Types
 
@@ -283,38 +266,28 @@ cache-control: no-cache
 etag: W/"1"
 strict-transport-security: max-age=631152000
 vary: Origin,User-Agent,Accept-Encoding
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
 x-content-type-options: nosniff
 x-frame-options: SAMEORIGIN
-x-request-id: 9dba8326-899a-406f-a125-3fc3d6605dad
+x-request-id: 11111111-1111-1111-1111-111111111111
 x-xss-protection: 1; mode=block
 </pre>
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-<%= disclaimer %>
-
-### Errors
-
-The common [errors] and [OperationOutcomes] may be returned.
-
-In addition, the following error may be returned:
-
-* Updating a MedicationStatement without sending the `If-Match` header will result in a `412 Precondition Failed` response.
-
-[`reference`]: http://hl7.org/fhir/DSTU2/search.html#reference
-[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
-[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
-[`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
-[`number`]: http://hl7.org/fhir/DSTU2/search.html#number
-[`string`]: http://hl7.org/fhir/DSTU2/datatypes.html#string
-[`CodeableConcept`]: http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
-[contained]: http://hl7.org/fhir/DSTU2/references.html#contained
-[MedicationStatement.informationSource]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource
-[MedicationStatement.medication]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
-[MedicationStatement.status]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status
-[MedicationStatement.wasNotTaken]: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken
+[`reference`]: https://hl7.org/fhir/DSTU2/search.html#reference
+[`token`]: https://hl7.org/fhir/DSTU2/search.html#token
+[`date`]: https://hl7.org/fhir/DSTU2/search.html#date
+[`_count`]: https://hl7.org/fhir/DSTU2/search.html#count
+[`number`]: https://hl7.org/fhir/DSTU2/search.html#number
+[`string`]: https://hl7.org/fhir/DSTU2/datatypes.html#string
+[`CodeableConcept`]: https://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept
+[contained]: https://hl7.org/fhir/DSTU2/references.html#contained
+[MedicationStatement.informationSource]: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource
+[MedicationStatement.medication]: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
 [Patient friendly display]: #custom-extensions
 [Order category]: #custom-extensions
-[category]: http://hl7.org/fhir/stu3/valueset-medication-statement-category.html
+[category]: https://hl7.org/fhir/stu3/valueset-medication-statement-category.html
+[`MedicationOrder`]: ../medication-order/#overview

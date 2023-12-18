@@ -1,6 +1,6 @@
 ---
 name: MedicationStatement
-field_name_base_url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement
+field_name_base_url: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement
 fields:
 - name: resourceType
   required: 'Yes'
@@ -10,18 +10,18 @@ fields:
     {
       "resourceType: "MedicationStatement"
     }
-  note: resourceType must be MedicationStatement
-  url: http://hl7.org/fhir/DSTU2/json.html#resources
+  note: resourceType must be MedicationStatement.
+  url: https://hl7.org/fhir/DSTU2/json.html#resources
 
 - name: id
   required: 'Yes'
   type: id
-  description: The logical id of the resource to update.
+  description: The logical ID of the resource to update.
   example: |
     {
       "id": "123412"
     }
-  url: http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id
+  url: https://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id
   action: update
 
 - name: patient
@@ -39,33 +39,41 @@ fields:
   required: 'Yes'
   type: code
   description: >
-    A code representing the patient or other source's judgment about the state of the medication used that this
+    A code representing the patient or other source's judgment about the state of the medication that this
     statement is about.
   example: |
     {
       "status": "active"
     }
+  note: |
+    <ul>
+      <li> When <b>creating</b> a medication statement, only the `active` status is supported. </li>
+      <li> When <b>updating</b> a medication statement, only the `completed` status is supported. </li>
+    </ul>  
 
 - name: reasonForUse[x]
   required: 'No'
   type: CodeableConcept
   action: search
-  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_
+  url: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_
   binding:
     description: A reason for why the medication is being/was taken.
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
+      info_link: https://hl7.org/fhir/dstu2/snomedct.html
     - display: ICD-9
       system: http://hl7.org/fhir/sid/icd-9
+      info_link: https://terminology.hl7.org/ICD.html#icd-9-variants
     - display: ICD-10
       system: http://hl7.org/fhir/sid/icd-10
+      info_link: https://terminology.hl7.org/CodeSystem-icd10CM.html
 
 - name: effectivePeriod
   required: 'No'
   type: Period
   description: The interval of time during which it is being asserted that the patient was taking the medication.
-  note: If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated they need to be the same value.
+  note: If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated, they must be the same value.
   example: |
     {
       "effectivePeriod": {
@@ -73,7 +81,7 @@ fields:
         "end": "2015-05-06T01:00:00.000Z"
       }
     }
-  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_
+  url: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_
   action: create
 
 - name: note
@@ -113,12 +121,13 @@ fields:
         "text": "ciprofloxacin"
       }
     }
-  url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
+  url: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_
   binding:
     description: A code that defines the type of medication.
     terminology:
     - display: RxNorm
       system: http://www.nlm.nih.gov/research/umls/rxnorm
+      info_link: https://hl7.org/fhir/dstu2/rxnorm.html
 
 - name: dosage
   required: 'No'
@@ -147,7 +156,7 @@ fields:
       required: 'No'
       type: Element
       description: A set of rules that describe when the event should occur.
-      url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat
+      url: https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat
       children:
 
       - name: bounds[x]
@@ -155,6 +164,7 @@ fields:
         type: Period | Duration
         description: >
           Either the length of timing schedule or the outer bounds for start and/or end limits of the timing schedule.
+        note: If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated, they must be the same value.
         example: |
           {
             "boundsPeriod": {
@@ -172,7 +182,7 @@ fields:
             }
           }
 
-        url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_
+        url: https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_
 
       - name: count
         required: 'No'
@@ -182,7 +192,7 @@ fields:
           {
             "count": 5
           }
-        url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.count
+        url: https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.count
 
     - name: code
       required: 'No'
@@ -201,14 +211,16 @@ fields:
             "text": "TID"
           }
         }
-      url: http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code
+      url: https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code
       binding:
         description: Code for a known / defined timing pattern.
         terminology:
         - display: TimingAbbreviation
           system: http://hl7.org/fhir/timing-abbreviation
+          info_link: https://hl7.org/fhir/dstu2/valueset-timing-abbreviation.html
         - display: SNOMED CT
           system: http://snomed.info/sct
+          info_link: https://hl7.org/fhir/dstu2/snomedct.html
 
   - name: asNeeded[x]
     required: 'No'
@@ -238,7 +250,8 @@ fields:
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
-    url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_
+        info_link: https://hl7.org/fhir/dstu2/snomedct.html
+    url: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_
 
   - name: siteCodeableConcept
     required: 'No'
@@ -262,7 +275,8 @@ fields:
       terminology:
       - display: SNOMED CT
         system: http://snomed.info/sct
-    url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_
+        info_link: https://hl7.org/fhir/dstu2/snomedct.html
+    url: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_
 
   - name: route
     required: 'No'
@@ -307,4 +321,4 @@ fields:
           "code": "tbl"
         }
       }
-    url: http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_
+    url: https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_
