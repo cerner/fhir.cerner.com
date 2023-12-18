@@ -58,6 +58,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}`
 
+For more information, see the StructureDefinition resource.
+
  ID                         | Value\[x] Type | Description
 ----------------------------|----------------|------------------------------------------------------------------------------------------------------------------------------------------------
  `patient-friendly-display` | [`string`]     | Extension to MedicationRequest.dosageInstruction. The display name that can be used for this field when producing a view suitable for a patient.
