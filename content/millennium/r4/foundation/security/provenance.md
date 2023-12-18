@@ -9,7 +9,7 @@ title: Provenance | R4 API
 
 ## Overview
 
-The Provenance resource tracks the source of external information and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter. The `Target` field references a Resource that this Provenance entry is related to. Entities are Continuity of Care Documents (CCDs) generated through the [DocumentReference] resource.
+The Provenance resource tracks the source of external information and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter. The `target` field references a resource that this Provenance entry is related to. Entities are Continuity of Care Documents (CCDs) generated through the [DocumentReference] resource.
 
 This resource supports the following [HL7® FHIR® US Core Implementation Guide STU 4.0.0](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles:
 
