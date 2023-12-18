@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#!/bin/bash
+new_file="table.md"
+rm "$new_file" 2> /dev/null
+file="$0.md"
+created=0
+while IFS= read -r line
+do
+  if [[ ! "$line" =~ ^.*\|.*\|.*$ ]]; then
+    continue
+  fi
+
+  if [[ "$created" -eq 0 ]]; then
+    touch "$new_file"
+    created=1
+    pwd
+  fi
+
+  echo "$line" >> "$new_file"
+
+done <"$file"
