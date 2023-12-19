@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
-----------------------|-------------------------|--------------|-------------------------------------------------------
  `_id`|Conditionally|[`token`]|The logical resource ID associated with the resource. This parameter is required if the `-physicalType` parameter is not used.
  `-physicalType`|Conditionally|[`token`]|The location’s physical type. This parameter is required if the `_id` parameter is not used. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
  `identifier`|No|[`token`]|The location’s identifier. Example: `653385|FSI^~BUILD^~NU`

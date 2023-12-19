@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
---------------|--------------------|---------------|--------------
  `_id`|This, or `patient`|[`token`]|The logical resource ID associated with the resource.
  `patient`|This, or `_id`|[`reference`]|The patient that the diagnostic report is about.
  `category`|No|[`token`]|The category of the diagnostic report.

@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
---------------------------|---------------------------------|---------------|-----------------------------------------------------------------------------------------------------
  `_id`|This, or `patient` or `subject`|[`token`]|The logical resource id associated with the resource. Example: `12345`
  `patient`|This, or `_id` or `subject`|[`reference`]|The specific patient to return ServiceRequests for. Example: `12345`
  `subject`|This, or `_id` or `patient`|[`reference`]|The subject associated with the ServiceRequest. Must represent a Patient resource. May use the `:Patient` modifier. Example: `subject=Patient/12345` or `subject:Patient=12345`

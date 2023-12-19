@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
-----------------------|----------------------------------------------|------------|--------------------------------------------------------------------------
  `_id`|This or any other required search parameter|[`token`]|The logical resource ID associated with the resource.
  `identifier`|This or any other search parameter, or `_id`|[`token`]|A patient identifier. Only MR, PI, or SB identifiers are supported and therefore searched. Example: `urn:oid:1.1.1.1.1.1`\|`1022228`
  `name`|This or any other search parameter, or `_id`|[`string`]|The start of either the family or the given name of the patient. Previous name values are not searchable. Example: `Doe`

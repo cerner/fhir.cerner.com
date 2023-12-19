@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
------------------------|----------------------------------------------------------|---------------|---------------------------------------------------------------------------------------------------------------
  `_id`|This or `patient` or `identifier` or `-encounter`|[`token`]|The logical resource id associated with the resource.
  `identifier`|This or `_id` or `patient` or `-encounter`|[`token`]|A RelatedPerson identifier.
  `patient`|This or `_id` or `identifier` or `-encounter`|[`reference`]|A reference to a patient associated with the RelatedPerson. Example: `14067892`

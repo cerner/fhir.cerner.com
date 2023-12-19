@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
---------------|-----------|---------------|--------------
  `_id`|Required if `patient` or `encounter` is not present|[`token`]|The logical resource id associated with the resource.
  `patient`|Required if `_id` or `encounter` is not present|[`reference`]|Who care team is for. Example: `patient=12345`
  `encounter`|Required if `_id` or `patient` is not present|[`reference`]|Who care team is for. Example: `encounter=98765`

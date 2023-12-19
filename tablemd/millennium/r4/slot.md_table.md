@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
-------------------|-----------------------|---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  `_id`|Yes or `service-type`|[`token`]|The logical resource id associated with the resource.
  `service-type`|Yes or `_id`|[`token`]|A single or comma separated list of appointment types that can be booked into the slot. Example: `service-type=https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/14249|4047611`
  `schedule.actor`|No|[`reference`]|A single or comma separated list of Practitioner references. Example: `schedule.actor=Practitioner/1234`

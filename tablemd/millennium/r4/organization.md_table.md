@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
--------------|-----------------------------------------|------------|----------------------------------------------------------
  `_id`|No|[`token`]|The logical resource id associated with the resource.
  `identifier`|No|[`token`]|NPI, OID or FederalTAXID identifier for the organization.
  `type`|No|[`token`]|The organization's type. Example: `http://terminology.hl7.org/CodeSystem/organization-type|govt`

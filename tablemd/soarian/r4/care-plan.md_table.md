@@ -1,5 +1,3 @@
- Name|Required?        	|Type|Description
---------------|---------------------|---------------|--------------
  `_id`|This, or `patient`|[`token`]|The logical resource ID associated with the resource.
  `patient`|This, or `_id`|[`reference`]|The patient who has the care plan.
  `category`|See notes|[`token`]|The scope of the care plan. Example: `category=assess-plan`

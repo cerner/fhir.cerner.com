@@ -1,6 +1,4 @@
-|Name|Required?|Type|Description|
-|--------------|-----------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------|
-|`_id`|This or `patient` or `subject`|[`token`]|The logical resource id associated with the resource.|
+||`_id`|This or `patient` or `subject`|[`token`]|The logical resource id associated with the resource.|
 |`patient`|This or `subject`|[`reference`]|The subject (Patient) that the observation is about. Example: `patient=12345`|
 |`subject`|This or `patient`|[`reference`]|The subject (Patient) that the observation is about. Example: `subject=Patient/12345` or `subject:Patient=12345`|
 |`code`|N|[`token`]|The code or component-code of the observation type. Example: `code=http://loinc.org|3094-0,http://loinc.org|3139-3`|

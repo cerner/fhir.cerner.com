@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
----------------|----------------------------------------------|------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------
  `_id`|This, or `patient`|[`token`]											|The logical resource ID associated with the resource.
  `patient`	|This, or `_id`								|[`reference`]											|The patient who has the care team.
  `encounter`|No 										|[`reference`]											|The encounter associated with the care team

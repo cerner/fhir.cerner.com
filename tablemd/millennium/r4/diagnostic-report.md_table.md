@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
-------------------|-------------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------
  `_id`|This or `patient`|[`token`]|The logical resource id associated with the resource. Example: `12345`
  `patient`|This or `_id`|[`reference`]|The subject of the report if a patient. Example: `12345`
  `encounter`|N|[`reference`]|The Encounter when the order was made. Must represent an Encounter resource. Example: `encounter=1621910`

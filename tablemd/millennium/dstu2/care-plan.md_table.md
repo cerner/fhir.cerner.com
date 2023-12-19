@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
---------------|-----------|---------------|--------------
  `_id`|See notes|[`token`]|The logical resource id associated with the resource.
  `date`|N|[`date`]|Time period plan covers. Example: `date=ge2016-08` or `date=le2017-01-24T12:00:00.000Z`
  `patient`|See notes|[`reference`]|Who care plan is for. Example: `patient=12345`

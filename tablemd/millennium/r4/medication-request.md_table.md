@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
-------------------------|---------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  `_id`|Conditionally|[`token`]|The logical resource ID associated with the resource. Example: `_id=1234`
  `patient`|Conditionally|[`reference`]|The specific patient to return medication requests for. Example: `patient=5678`
  `status`|No|[`token`]|The [status] of the medication. May be a list separated by commas. Example: `status=active,completed`

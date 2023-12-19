@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
---------------------------|--------------------|---------------|--------------------------------------------------------------------------------------------------------
  `_id`|This, or `patient`|[`token`]|The logical resource ID associated with the resource.
  `patient`|This, or `_id`|[`reference`]|The patient who has the document referenced.
 `category`|No|[`token`]|The categorization for the type of document referenced. Example: `category=clinical-note`

@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
------------------------------------------------------|---------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`|Conditionally|[`token`]|The logical resource ID associated with the resource. This parameter is required if `category`, `-email-status`, `recipient`, and `received` are not used. Example: `489580643.0.-4.prsnl`
  `category`|Conditionally|[`token`]|A token for a [`CodeableConcept`] that points to the CodeableConcept used for `Communication.category`. This parameter is required with `recipient`, `received`, and `-email-status` if `_id` is not used. Example: `http://terminology.hl7.org/CodeSystem/communication-category|notification`
  `recipient:Group` or `recipient:Practitioner`|Conditionally|[`reference`]|The recipient of the communication. This parameter is required with `category`, `received`, and `-email-status` if `_id`  is not used. Example: `3456783`

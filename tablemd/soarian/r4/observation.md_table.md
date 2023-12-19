@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
----------------|---------------------|-----------------|----------------------------------------------------------------------------------------------------------------------------
  `ID`|This, or `patient`|[`token`]|The logical resource ID associated with the resource.
  `patient`	|See notes|[`reference`]|The patient the observation is about.
  `category`	|See notes|[`token`]|The observation report's category.

@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
---------------|-----------|-----------------|-----------------------------------------------------------------------------------------------------------------------------------------------
  `_id`|See notes|[`token`]|The logical resource id associated with the resource. Example: `F703726`
  `identifier`|See notes|[`token`]|Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/statement-number|500000078`
  `type`|See notes|[`token`]|The specific type of account. Example: `financial-account`

@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
------------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------
  `_id`|Yes, or `patient` or `practitioner` or `location`.|[`token`]|The logical resource id associated with the Appointment. Example: `_id=3005759`
  `patient`|Yes, or `_id` or `practitioner` or `location`.|[`reference`]|A single or comma separated list of Patient references. Example: `patient=12724066`
  `practitioner`|Yes, or `_id` or `patient` or `location`.|[`reference`]|A single or comma separated list of Practitioner references. Example: `practitioner=593923`

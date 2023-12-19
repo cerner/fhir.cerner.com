@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
--------------------|--------------------------------|---------------|-----------------------------------------------------------------------
  `_id`|This or `patient` or `subject`|[`token`]|The logical resource id associated with the resource.
  `patient`|This or `_id` or `subject`|[`reference`]|Who the condition is for. Example: `12345`
  `subject`|This or `_id` or `patient`|[`reference`]|Who the condition is for. Example: `Patient/12345`

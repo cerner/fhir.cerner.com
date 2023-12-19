@@ -1,5 +1,3 @@
-Name|Required|Type|Description
---------------|------------------|---------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------
  `_id`|Conditional|[`token`]|The logical resource ID associated with the Encounter. This parameter is required if `patient` or `subject` or `account` or `identifier` is not used. Example: `7891`
 `patient`|Conditional|[`reference`]|The patient present at the Encounter. This parameter is required if `subject` or `account` or `_id` or `identifier` is not used. Example: `12345`
 `subject`|Conditional|[`reference`]|The patient present at the Encounter. This parameter is required if `patient` or `account` or `_id` or `identifier` is not used. Example: `subject=Patient/12345` or `subject:Patient=12345`

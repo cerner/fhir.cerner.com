@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
----------------|--------------------|---------------|--------------------------------------------------------------------------------------------------------
  `_id`|Conditionally|[`token`]|The logical resource id associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `12345`
  `patient`|Conditionally|[`reference`]|The specific patient to return Document(s) for. This parameter is required if the `_id` parameter is not used. Example: `12345`
  `encounter`|No|[`reference`]|The Encounter(s) in which the document was created. Example: `12345`

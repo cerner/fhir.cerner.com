@@ -1,6 +1,5 @@
 #!/bin/bash
 
-#!/bin/bash
 new_file="$1_table.md"
 rm "$new_file" 2> /dev/null
 file="$1"
@@ -23,3 +22,8 @@ do
   echo "$line" >> "$new_file"
 
 done <"$file"
+
+# regex:
+# ^\|?\[?`?([^\|`\[\]]*)`?\]?\|([^\|]+)\|\[?`?([^\|`\[\]]+)`?\]?\|(.+)$
+# replace:
+# "    - name: $1\n      type: string\n      in: query\n      description: $3: $4"

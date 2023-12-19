@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
-----------------------|--------------------------------------------------------------|---------------|------------------------------------------------------------------------------------------------------------------------------
  `_id`|No, if populated all other parameters are ignored|[`token`]|The logical resource id associated with the resource.
  `actor`|Yes, or `_id`|[`reference`]|The actor (RelatedPerson) of the Contract. Example: `actor=RelatedPerson/1234` or `actor:RelatedPerson=1234`
  `actor.identifier`|Yes, or `_id`|[`token`]|The identifier for the actor of the Contract. Example `actor.identifier=system|1234`

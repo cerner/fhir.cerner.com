@@ -1,5 +1,3 @@
- Name|Required?|Type|Description
-----------------------|----------------------------------------------|------------|--------------------------------------------------------------------------
  `_id`|This, or any other required search parameter|[`token`]|The logical resource id associated with the resource.
  `identifier`|This and/or any other search param, or `_id`|[`token`]|A patient identifier.  Example: `urn:oid:1.1.1.1.1.1|1022228`
  `name`|This and/or any other search param, or `_id`|[`string`]|The start of either family or given name of the patient. Example: `Pete`
