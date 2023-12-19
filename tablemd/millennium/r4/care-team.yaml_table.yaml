@@ -1,0 +1,24 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource.<br>Required: Required if `patient` or `encounter` is not present
+    - name: patient
+      type: string
+      in: query
+      description: reference: Who care team is for. Example: `patient=12345`<br>Required: Required if `_id` or `encounter` is not present
+    - name: encounter
+      type: string
+      in: query
+      description: reference: Who care team is for. Example: `encounter=98765`<br>Required: Required if `_id` or `patient` is not present
+    - name: category
+      type: string
+      in: query
+      description: token: The scope of care team being searched for. Example: `category=longitudinal`<br>Required: N
+    - name: status
+      type: string
+      in: query
+      description: token: Indicates the status of the care team<br>Required: N
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`<br>Required: N

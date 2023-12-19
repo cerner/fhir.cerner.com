@@ -1,0 +1,20 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient who has the procedure.<br>Required: This, or `_id`
+    - name: date
+      type: string
+      in: query
+      description: date: Date range into which the procedure falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`<br>Required: No
+    - name: encounter
+      type: string
+      in: query
+      description: reference: The encounter associated with the procedure record.<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: _revinclude: A request to include any Provenance resource in the bundle that refers to a Procedure resource in the search results. Only supported with Provenance.<br>Required: No

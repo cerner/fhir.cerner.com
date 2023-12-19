@@ -1,0 +1,24 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource.<br>Required: See notes
+    - name: date
+      type: string
+      in: query
+      description: date: Time period plan covers. Example: `date=ge2016&date=le2017 (Jan 1, 2016 - Dec 31, 2017)` or `date=ge2016-08-24T12:00:00.000Z&date=le2017-01-24T12:00:00.000Z`<br>Required: N
+    - name: patient
+      type: string
+      in: query
+      description: reference: Who care plan is for. Example: `patient=12345`<br>Required: See notes
+    - name: category
+      type: string
+      in: query
+      description: token: The scope of care plan being searched for. Example: `category=assess-plan`<br>Required: See notes
+    - name: _count
+      type: string
+      in: query
+      description: number: Number of results per page.<br>Required: N
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`<br>Required: N

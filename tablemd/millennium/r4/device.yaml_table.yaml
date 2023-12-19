@@ -1,0 +1,12 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the Device. Example: `7890`<br>Required: This or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient to whom the device is affixed. Example: `12345`<br>Required: This or `_id`
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`<br>Required: N

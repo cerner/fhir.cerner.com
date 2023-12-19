@@ -1,0 +1,8 @@
+    - name: patient
+      type: string
+      in: query
+      description: reference: Retrieve coverages for a patient. Example: `12345`<br>Required: This or `-encounter`
+    - name: -encounter
+      type: string
+      in: query
+      description: reference: Retrieve coverages for an encounter. Example: `143242`<br>Required: This or `patient`

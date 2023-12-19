@@ -1,0 +1,12 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource. Example: `12345`<br>Required: This or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: Who the sensitivity is for. Example: `12345`<br>Required: This or `_id`
+    - name: status
+      type: string
+      in: query
+      description: token: [Certainty of the allergy or intolerance]. Example: `confirmed`<br>Required: N

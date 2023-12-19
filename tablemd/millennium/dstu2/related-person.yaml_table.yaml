@@ -1,0 +1,12 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource.<br>Required: No, if populated all other parameters are ignored
+    - name: identifier
+      type: string
+      in: query
+      description: token: A RelatedPerson identifier.<br>Required: Yes, if neither `_id` nor `patient` are set
+    - name: patient
+      type: string
+      in: query
+      description: reference: A reference to a patient related which the RelatedPerson is associated. Example: `12345`<br>Required: Yes, if neither `_id` nor `identifier` are set

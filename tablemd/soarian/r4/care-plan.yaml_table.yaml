@@ -1,0 +1,24 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient who has the care plan.<br>Required: This, or `_id`
+    - name: category
+      type: string
+      in: query
+      description: token: The scope of the care plan. Example: `category=assess-plan`<br>Required: See notes
+    - name: encounter
+      type: string
+      in: query
+      description: reference: The encounter associated with the care plan record.<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: count: The maximum number of resources returned in a page.<br>Required: No
+    - name: _revincude
+      type: string
+      in: query
+      description: _revinclude: A request to include any Provenance resource in the bundle that refers to a CarePlan resource in the search results. Only supported with Provenance.<br>Required: No

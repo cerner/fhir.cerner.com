@@ -1,0 +1,36 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.|<br>Required: This or `patient` or `subject`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The subject (Patient) that the observation is about. Example: `patient=12345`|<br>Required: This or `subject`
+    - name: subject
+      type: string
+      in: query
+      description: reference: The subject (Patient) that the observation is about. Example: `subject=Patient/12345` or `subject:Patient=12345`|<br>Required: This or `patient`
+    - name: code
+      type: string
+      in: query
+      description: token: The code or component-code of the observation type. Example: `code=http://loinc.org|3094-0,http://loinc.org|3139-3`|<br>Required: N
+    - name: date
+      type: string
+      in: query
+      description: date: Date range into which the observation falls. Example: `date=gt2014-09-24` or `date=lt2015-09-24T12:00:00.000Z`|<br>Required: N
+    - name: _lastUpdated
+      type: string
+      in: query
+      description: date: Date range in which the observation was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`|<br>Required: N
+    - name: category
+      type: string
+      in: query
+      description: token: The category of observations. Example: `category=laboratory`|<br>Required: N
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return per page. Defaults to 50 and maximum 200 observations can be returned|<br>Required: N
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target|<br>Required: No

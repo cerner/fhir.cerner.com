@@ -1,0 +1,32 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource. Example: `_id=1234`<br>Required: Conditionally
+    - name: patient
+      type: string
+      in: query
+      description: reference: The specific patient to return medication requests for. Example: `patient=5678`<br>Required: Conditionally
+    - name: status
+      type: string
+      in: query
+      description: token: The [status] of the medication. May be a list separated by commas. Example: `status=active,completed`<br>Required: No
+    - name: intent
+      type: string
+      in: query
+      description: token: Whether the medication is an authorization or a medication reported by a patient. Example: `intent=order,plan`<br>Required: No
+    - name: -timing-boundsPeriod
+      type: string
+      in: query
+      description: token: The date and time which should fall within the `dosageInstruction.timing.repeat.boundsPeriod` when the medication should be given to the patient. Example: `-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z`<br>Required: No
+    - name: _lastUpdated
+      type: string
+      in: query
+      description: date: The date and time range within which the most recent clinically relevant update was made to the medication. The time component is required. Example: `_lastUpdated=ge2014-05-19T20:54:02.000Z`<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to include on a page. Example: `_count=50`<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: The Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`<br>Required: No

@@ -1,0 +1,32 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource. Example: `12345`<br>Required: This or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The subject of the report if a patient. Example: `12345`<br>Required: This or `_id`
+    - name: encounter
+      type: string
+      in: query
+      description: reference: The Encounter when the order was made. Must represent an Encounter resource. Example: `encounter=1621910`<br>Required: N
+    - name: date
+      type: string
+      in: query
+      description: date: Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/times can be given. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`<br>Required: N
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return. Defaults to `10` and a maximum of `100` documents can be returned.<br>Required: N
+    - name: category
+      type: string
+      in: query
+      description: token: The diagnostic discipline/department which created the report. Example: `http://terminology.hl7.org/CodeSystem/v2-0074|LAB` or `http://loinc.org|LP29684-5`<br>Required: N
+    - name: code
+      type: string
+      in: query
+      description: token: The specific code for describing the report. Example: `http://loinc.org|24323-8`<br>Required: N
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`<br>Required: N

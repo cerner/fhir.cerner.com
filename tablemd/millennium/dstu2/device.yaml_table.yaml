@@ -1,0 +1,8 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the Device. Example: `7891`<br>Required: This or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient on whom the device is affixed. Example: `12345`<br>Required: This or `_id`

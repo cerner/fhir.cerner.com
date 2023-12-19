@@ -1,0 +1,20 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource. This parameter is required if `patient` or `subject` is not used. Example: `_id=7891`<br>Required: Conditionally
+    - name: patient
+      type: string
+      in: query
+      description: reference: Who the procedure is for. This parameter is required if `_id` or `subject` is not used. Example: `12345`<br>Required: Conditionally
+    - name: subject
+      type: string
+      in: query
+      description: reference: Who the procedure is for. This parameter is required if `_id` or `patient` is not used. Example: `Patient/12345`<br>Required: Conditionally
+    - name: date
+      type: string
+      in: query
+      description: dateTime: The date range that the procedure's `performedPeriod` or `performedDateTime` falls within. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: The Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target<br>Required: No

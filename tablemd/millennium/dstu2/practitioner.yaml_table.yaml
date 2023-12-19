@@ -1,0 +1,4 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: Yes

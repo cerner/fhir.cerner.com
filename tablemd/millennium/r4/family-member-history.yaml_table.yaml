@@ -1,0 +1,12 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource. This parameter is required if `patient` is not used.<br>Required: Conditionally
+    - name: patient
+      type: string
+      in: query
+      description: reference: The identity of a subject to list family member history items for. This parameter is required if `_id_` is not used. Example: `12345`<br>Required: Conditionally
+    - name: status
+      type: string
+      in: query
+      description: token: The record status for a specific family member. This parameter is only provided when the `patient` search parameter is used.<br>Required: No

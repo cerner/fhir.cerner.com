@@ -1,0 +1,24 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: No
+    - name: identifier
+      type: string
+      in: query
+      description: token: NPI, OID or FederalTAXID identifier for the organization.<br>Required: No
+    - name: type
+      type: string
+      in: query
+      description: token: The organization's type. Example: `http://terminology.hl7.org/CodeSystem/organization-type|govt`<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return. Defaults to `100`.<br>Required: No
+    - name: name
+      type: string
+      in: query
+      description: string: Name used for the organization.<br>Required: No
+    - name: address
+      type: string
+      in: query
+      description: string: An address for the organization. All organizations to be returned whose street, name, state, or postal code starts with the given string.<br>Required: No

@@ -1,0 +1,12 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient who has the allergy.<br>Required: This, or `_id`
+    - name: _revinclude
+      type: string
+      in: query
+      description: _revinclude: A request to include any Provenance resource in the bundle that refers to an AllergyIntolerance resource in the search results. Only supported with Provenance.<br>Required: No

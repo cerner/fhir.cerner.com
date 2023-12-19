@@ -1,0 +1,20 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient who has the care team.<br>Required: This, or `_id`
+    - name: encounter
+      type: string
+      in: query
+      description: reference: The encounter associated with the care team<br>Required: No
+    - name: status
+      type: string
+      in: query
+      description: token: The status of the care team. May be a list separated by commas.<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: string: A request to include any Provenance resource in the bundle that refers to an CareTeam resource in the search results. Only supported with Provenance.<br>Required: No

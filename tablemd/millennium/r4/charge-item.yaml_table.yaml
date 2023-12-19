@@ -1,0 +1,20 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the ChargeItem.<br>Required: This or context or account
+    - name: context
+      type: string
+      in: query
+      description: reference: Encounter associated with the ChargeItem.<br>Required: This or _id or account
+    - name: account
+      type: string
+      in: query
+      description: reference: Account associated with the ChargeItem.<br>Required: This or _id or context
+    - name: -status
+      type: string
+      in: query
+      description: token: The status of the ChargeItem. Example: `billable`<br>Required: See notes
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return.<br>Required: No

@@ -1,0 +1,32 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient who has the document referenced.<br>Required: This, or `_id`
+    - name: category
+      type: string
+      in: query
+      description: token: The categorization for the type of document referenced. Example: `category=clinical-note`<br>Required: No
+    - name: type
+      type: string
+      in: query
+      description: token: The kind of document referenced. Example: `https://loinc.org/11488-4`<br>Required: No
+    - name: date
+      type: string
+      in: query
+      description: date: Date range into which the document referenced falls. Example: `date=ge2020-01-01`<br>Required: No
+    - name: encounter
+      type: string
+      in: query
+      description: reference: The encounter associated with the document referenced.<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: count: The maximum number of resources returned in a page.<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: revinclude: A request to include any Provenance resource in the bundle that refers to a DocumentReference resource in the search results. Only supported with Provenance.<br>Required: No

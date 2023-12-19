@@ -1,0 +1,12 @@
+    - name: _outputFormat
+      type: string
+      in: query
+      description: string: The format for the requested bulk data files to be generated as per [FHIR Asynchronous Request Pattern](https://hl7.org/fhir/async.html). Defaults to application/fhir+ndjson. Soarian Clinicals® accepts application/fhir+ndjson as well as the abbreviated representations application/ndjson and ndjson.<br>Required: No
+    - name: _since
+      type: string
+      in: query
+      description: FHIR® instan: The response includes resources if their state changed after the supplied time (for example, if Resource.meta.lastUpdated is later than the supplied_since time).<br>Required: No
+    - name: _type
+      type: string
+      in: query
+      description: String of comma-delimited FHIR® resource type: Only resources of the specified resource types are included in the response. If this parameter is omitted, Soarian Clinicals® returns all supported resources in the scope of the client application authorization.<br>Required: No

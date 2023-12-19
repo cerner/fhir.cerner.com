@@ -24,6 +24,6 @@ do
 done <"$file"
 
 # regex:
-# ^\|?\[?`?([^\|`\[\]]*)`?\]?\|([^\|]+)\|\[?`?([^\|`\[\]]+)`?\]?\|(.+)$
+# ^ *\|?\[?`?([^\|`\[\]]*)`?\]?\|([^\|]+)\|\[?`?([^\|`\[\]]+)`?\]?[^\|]+\|(.+)$
 # replace:
-# "    - name: $1\n      type: string\n      in: query\n      description: $3: $4"
+# "    - name: $1\n      type: string\n      in: query\n      description: $3: $4<br>Required: $2"

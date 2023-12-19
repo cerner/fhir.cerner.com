@@ -1,0 +1,20 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, or any other required search parameter
+    - name: identifier
+      type: string
+      in: query
+      description: token: A practitioner identifier alias. Example: `http://hl7.org/fhir/sid/us-npi|4326587548`<br>Required: This, or any other required search parameter
+    - name: name
+      type: string
+      in: query
+      description: string: The start of either the family or the given name of the Practitioner. Example: `Smith`<br>Required: This, or any other required search parameter
+    - name: family
+      type: string
+      in: query
+      description: string: The start of the practitioner's family name. Example: `Smith`<br>Required: This, or any other required search parameter
+    - name: given
+      type: string
+      in: query
+      description: string: The start of the practitioner's given name. Example: `Jane`<br>Required: This, or any other required search parameter

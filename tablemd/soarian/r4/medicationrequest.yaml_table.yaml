@@ -1,0 +1,24 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient who has the medication request.<br>Required: This, or `_id`
+    - name: status
+      type: string
+      in: query
+      description: token: The status of the medication request. May be a list separated by commas.<br>Required: No
+    - name: intent
+      type: string
+      in: query
+      description: token: The kind of medication order. May be a list separated by commas.<br>Required: No
+    - name: encounter
+      type: string
+      in: query
+      description: reference: The encounter associated with the medication request.<br>Required: This, or `_id`
+    - name: _revinclude
+      type: string
+      in: query
+      description: _revinclude: A request to include any Provenance resource in the bundle that refers to a MedicationRequest resource in the search results. Only supported with Provenance.<br>Required: No

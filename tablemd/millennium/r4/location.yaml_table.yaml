@@ -1,0 +1,40 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource. This parameter is required if the `-physicalType` parameter is not used.<br>Required: Conditionally
+    - name: -physicalType
+      type: string
+      in: query
+      description: token: The location’s physical type. This parameter is required if the `_id` parameter is not used. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`<br>Required: Conditionally
+    - name: identifier
+      type: string
+      in: query
+      description: token: The location’s identifier. Example: `653385|FSI^~BUILD^~NU`<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return. Default: `100`<br>Required: No
+    - name: address
+      type: string
+      in: query
+      description: string: Part of the location's address. Example: `123%20Main`<br>Required: No
+    - name: address-city
+      type: string
+      in: query
+      description: string: The city specified in the address. Example: `Kansas`<br>Required: No
+    - name: address-state
+      type: string
+      in: query
+      description: string: The state specified in the address. Example: `MO`<br>Required: No
+    - name: address-postalcode
+      type: string
+      in: query
+      description: string: The postal code specified in the address. Example: `64111`<br>Required: No
+    - name: name
+      type: string
+      in: query
+      description: string: The portion of the location's name or alias. Example: `Main`<br>Required: No
+    - name: organization
+      type: string
+      in: query
+      description: reference: The Organization that manages the location. Example: `675844`<br>Required: No

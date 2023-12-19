@@ -1,0 +1,16 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource. Example: `p12345`<br>Required: This or `patient`, if populated all other parameters are not allowed
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient who has the condition. Example: `12345`<br>Required: This or `_id`
+    - name: category
+      type: string
+      in: query
+      description: token: The [category] of the condition. Example: `diagnosis`, `problem`, `health-concern`<br>Required: N
+    - name: clinicalstatus
+      type: string
+      in: query
+      description: token: The [clinical status] of the condition. Example: `resolved`<br>Required: N

@@ -1,0 +1,12 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `12345`<br>Required: Conditionally
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient for the vaccination record(s). This parameter is required if the `_id` parameter is not used. Example: `12345`<br>Required: Conditionally
+    - name: date
+      type: string
+      in: query
+      description: date: Date range for the immunization administration(s). Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`<br>Required: No

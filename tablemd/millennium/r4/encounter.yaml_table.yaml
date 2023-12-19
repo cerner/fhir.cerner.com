@@ -1,0 +1,36 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the Encounter. This parameter is required if `patient` or `subject` or `account` or `identifier` is not used. Example: `7891`<br>Required: Conditional
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient present at the Encounter. This parameter is required if `subject` or `account` or `_id` or `identifier` is not used. Example: `12345`<br>Required: Conditional
+    - name: subject
+      type: string
+      in: query
+      description: reference: The patient present at the Encounter. This parameter is required if `patient` or `account` or `_id` or `identifier` is not used. Example: `subject=Patient/12345` or `subject:Patient=12345`<br>Required: Conditional
+    - name: account
+      type: string
+      in: query
+      description: reference: The account associated with the Encounters. This parameter is required if `patient` or `subject` or `_id` or `identifier` is not used. Example: `F703726`<br>Required: Conditional
+    - name: identifier
+      type: string
+      in: query
+      description: token: An Encounter's identifier. This parameter is required if `patient` or `subject` or `account` or `_id` is not used. Example: `urn:oid:1.2.243.58|110219457`<br>Required: Conditional
+    - name: date
+      type: string
+      in: query
+      description: dateTime: Datetime range into which the Encounter's period datetime falls. Must be prefixed by 'ge', 'gt', 'le' or 'lt'.<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return.<br>Required: No
+    - name: status
+      type: string
+      in: query
+      description: token: The status of the Encounter. Example: `planned`<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`<br>Required: No

@@ -1,0 +1,24 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource.<br>Required: No, if populated all other parameters are ignored
+    - name: actor
+      type: string
+      in: query
+      description: reference: The actor (RelatedPerson) of the Contract. Example: `actor=RelatedPerson/1234` or `actor:RelatedPerson=1234`<br>Required: Yes, or `_id`
+    - name: actor.identifier
+      type: string
+      in: query
+      description: token: The identifier for the actor of the Contract. Example `actor.identifier=system|1234`<br>Required: Yes, or `_id`
+    - name: patient.identifier
+      type: string
+      in: query
+      description: token: The identifier for the patient subject of the Contract. Example `patient.identifier=system|5678`<br>Required: Yes, or `_id`
+    - name: subject
+      type: string
+      in: query
+      description: reference: The subject (Patient) of the Contract. Example `subject=Patient/1234` or `subject:Patient=1234`<br>Required: Yes, or `_id`
+    - name: _include
+      type: string
+      in: query
+      description: string: Other resource entries to be returned as part of the bundle. Example `_include=Contract:actor` or `_include=Contract:patient`<br>Required: No

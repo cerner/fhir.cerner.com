@@ -1,0 +1,8 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource.<br>Required: This or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The subject (Patient) that the questionnaire response is about. Example: `patient=12345`<br>Required: This or `_id`

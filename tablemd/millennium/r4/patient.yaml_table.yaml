@@ -1,0 +1,48 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource.<br>Required: This, or any other required search parameter
+    - name: identifier
+      type: string
+      in: query
+      description: token: A patient identifier.  Example: `urn:oid:1.1.1.1.1.1|1022228`<br>Required: This and/or any other search param, or `_id`
+    - name: name
+      type: string
+      in: query
+      description: string: The start of either family or given name of the patient. Example: `John`<br>Required: This and/or any other search param, or `_id`
+    - name: family
+      type: string
+      in: query
+      description: string: The start of the family name of the patient. Example: `Smith`<br>Required: This and/or any other search param, or `_id`
+    - name: given
+      type: string
+      in: query
+      description: string: The start of the given name of the patient. Example: `John`<br>Required: This and/or any other search param, or `_id`
+    - name: birthdate
+      type: string
+      in: query
+      description: date: The patient's date of birth.  Example: `1990-01-01`<br>Required: This and/or any other search param, or `_id`
+    - name: phone
+      type: string
+      in: query
+      description: token: The patient's phone number. Example: `1234567891`<br>Required: This and/or any other search param, or `_id`
+    - name: email
+      type: string
+      in: query
+      description: token: The patient's email address. Example: `example@example.com`<br>Required: This and/or any other search param, or `_id`
+    - name: address-postalcode
+      type: string
+      in: query
+      description: string: The postal code in the address details of the patient. Example: `12345`<br>Required: This and/or any other search param, or `_id`
+    - name: gender
+      type: string
+      in: query
+      description: token: The gender of the patient. Example: `male`<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return. Defaults to `20`.<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target<br>Required: No

@@ -1,0 +1,28 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource. Example: `F703726`<br>Required: See notes
+    - name: identifier
+      type: string
+      in: query
+      description: token: Aliases of the Account like Statement Number. Example: `https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/statement-number|500000078`<br>Required: See notes
+    - name: type
+      type: string
+      in: query
+      description: token: The specific type of account. Example: `financial-account`<br>Required: See notes
+    - name: patient
+      type: string
+      in: query
+      description: reference: The entity that caused the expenses. Example: `Patient/12345`<br>Required: See notes
+    - name: -guarantor
+      type: string
+      in: query
+      description: reference: The parties responsible for balancing the account. Example: `6330015-6330017`<br>Required: See notes
+    - name: -encounter
+      type: string
+      in: query
+      description: reference: The id to identify the encounter. Example: `98028029`<br>Required: See notes
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return. Defaults to `10`.<br>Required: no

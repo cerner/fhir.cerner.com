@@ -1,0 +1,28 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This or `patient` or `subject`
+    - name: patient
+      type: string
+      in: query
+      description: reference: Who the condition is for. Example: `12345`<br>Required: This or `_id` or `subject`
+    - name: subject
+      type: string
+      in: query
+      description: reference: Who the condition is for. Example: `Patient/12345`<br>Required: This or `_id` or `patient`
+    - name: clinical-status
+      type: string
+      in: query
+      description: token: The clinical status of the condition. Example: `active`, `inactive`, `resolved`<br>Required: No
+    - name: category
+      type: string
+      in: query
+      description: token: The category of the condition. Categories problem-list-item, encounter-diagnosis and health-concern are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`, `health-concern`<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: token: Provenance resource entries to be returned as part of the bundle. Example:`_revinclude=Provenance:target`<br>Required: No
+    - name: encounter
+      type: string
+      in: query
+      description: reference: The encounter ID/s for the patient. Encounter-diagnosis conditions that match the encounter ID/s and all problem-list-item conditions of the patient are returned. Example: `encounter=97733489`<br>Required: No

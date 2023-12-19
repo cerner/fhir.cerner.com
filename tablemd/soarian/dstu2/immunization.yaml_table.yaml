@@ -1,0 +1,4 @@
+    - name: patientId
+      type: string
+      in: query
+      description: reference: The patient identifier provided in a pre-requisite authorization step.<br>Required: Y

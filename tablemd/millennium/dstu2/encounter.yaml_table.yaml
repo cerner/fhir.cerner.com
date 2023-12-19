@@ -1,0 +1,8 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the Encounter. This parameter is required if `patient` is not used. Example: `7891`<br>Required: Conditional
+    - name: patient
+      type: string
+      in: query
+      description: reference: The Patient present at the Encounter. This parameter is required if `_id` is not used. Example: `12345`<br>Required: Conditional

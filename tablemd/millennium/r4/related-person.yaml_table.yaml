@@ -1,0 +1,20 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource.<br>Required: This or `patient` or `identifier` or `-encounter`
+    - name: identifier
+      type: string
+      in: query
+      description: token: A RelatedPerson identifier.<br>Required: This or `_id` or `patient` or `-encounter`
+    - name: patient
+      type: string
+      in: query
+      description: reference: A reference to a patient associated with the RelatedPerson. Example: `14067892`<br>Required: This or `_id` or `identifier` or `-encounter`
+    - name: -encounter
+      type: string
+      in: query
+      description: reference: A reference to an encounter associated with the RelatedPerson. Example: `97697434`<br>Required: This or `_id` or `patient` or `identifier`
+    - name: -relationship-level
+      type: string
+      in: query
+      description: token: The level of relationship for the RelatedPerson. Example: `-relationship-level= http://hl7.org/fhir/resource-types|Patient`<br>Required: no

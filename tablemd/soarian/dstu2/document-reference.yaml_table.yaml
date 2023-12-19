@@ -1,0 +1,12 @@
+    - name: patientId
+      type: string
+      in: query
+      description: reference: The patient identifier provided in a pre-requisite authorization step.<br>Required: Y
+    - name: date
+      type: string
+      in: query
+      description: date: Null or specific date or a date range.<br>Required: N
+    - name: attachment
+      type: string
+      in: query
+      description: URL encoded String: Attachment is the value that is returned in the element "content.attachment.url" as part of the response to the initial "DocumentReference" request.<br>Required: N

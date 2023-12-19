@@ -1,0 +1,32 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, or `patient`
+    - name: patient
+      type: string
+      in: query
+      description: reference: The patient that the diagnostic report is about.<br>Required: This, or `_id`
+    - name: category
+      type: string
+      in: query
+      description: token: The category of the diagnostic report.<br>Required: No
+    - name: code
+      type: string
+      in: query
+      description: token: The code of the diagnostic report.<br>Required: No
+    - name: encounter
+      type: string
+      in: query
+      description: reference: The encounter associated with the care plan record.<br>Required: No
+    - name: date
+      type: string
+      in: query
+      description: date: Date range into which the diagnostic report falls. Example: `date=gt2014-09-24 or date=lt2015-09-24T12:00:00.000Z`<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: count: The maximum number of resources returned in a page.<br>Required: No
+    - name: _revincude
+      type: string
+      in: query
+      description: _revinclude: A request to include any Provenance resource in the bundle that refers to a DiagnosticReport resource in the search results. Only supported with Provenance.<br>Required: No

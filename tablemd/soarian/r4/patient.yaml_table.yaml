@@ -1,0 +1,32 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This or any other required search parameter
+    - name: identifier
+      type: string
+      in: query
+      description: token: A patient identifier. Only MR, PI, or SB identifiers are supported and therefore searched. Example: `urn:oid:1.1.1.1.1.1`\|`1022228`<br>Required: This or any other search parameter, or `_id`
+    - name: name
+      type: string
+      in: query
+      description: string: The start of either the family or the given name of the patient. Previous name values are not searchable. Example: `Doe`<br>Required: This or any other search parameter, or `_id`
+    - name: family
+      type: string
+      in: query
+      description: string: The start of the patient's family name. Previous name values are not searchable. Example: `Doe`<br>Required: This or any other search parameter, or `_id`
+    - name: given
+      type: string
+      in: query
+      description: string: The start of the patient's given name. Previous name values are not searchable. Example: `Jane`<br>Required: This or any other search parameter, or `_id`
+    - name: birthdate
+      type: string
+      in: query
+      description: date: The patient's date of birth.  Example: `1990-01-01`<br>Required: This or any other search parameter, or `_id`
+    - name: gender
+      type: string
+      in: query
+      description: token: The patient's gender. Example: `male`<br>Required: No
+    - name: _revinclude
+      type: string
+      in: query
+      description: _revinclude: A request to include any Provenance resource in the bundle that refers to a Patient resource in the search results. Only supported with Provenance.<br>Required: No

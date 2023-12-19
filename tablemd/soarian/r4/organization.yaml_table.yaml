@@ -1,0 +1,12 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource ID associated with the resource.<br>Required: This, name, or `address`
+    - name: name
+      type: string
+      in: query
+      description: string: The start of the organization's name.<br>Required: This, _id, or `address`
+    - name: address
+      type: string
+      in: query
+      description: string: The start of either the address line, city, state, postal code, or country of the organization.<br>Required: This, id, or, name

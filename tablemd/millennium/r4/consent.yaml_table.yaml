@@ -1,0 +1,24 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the resource.<br>Required: No, if populated all other parameters are ignored
+    - name: actor
+      type: string
+      in: query
+      description: reference: The actor (RelatedPerson) of the Consent. Example: `actor=RelatedPerson/1234` or `actor:RelatedPerson=1234`<br>Required: Yes, or _id
+    - name: actor.identifier
+      type: string
+      in: query
+      description: token: The Federated Person Principal identifier for the actor of the Consent. Example `actor.identifier=system|1234`<br>Required: Yes, or _id
+    - name: patient
+      type: string
+      in: query
+      description: reference: Who the consent applies to Example `subject=Patient/1234`<br>Required: Yes, or _id
+    - name: patient.identifier
+      type: string
+      in: query
+      description: token: The identifier for the patient of the Consent. Example `patient.identifier=system|5678` (Federated Person Principal, Medical Record Number, Social Security Number, etc.)<br>Required: Yes, or _id
+    - name: _include
+      type: string
+      in: query
+      description: string: Other resource entries to be returned as part of the bundle. Example `_include=Consent:actor` or `_include=Consent:patient`<br>Required: No

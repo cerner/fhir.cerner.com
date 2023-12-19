@@ -1,0 +1,32 @@
+    - name: _id
+      type: string
+      in: query
+      description: token: The logical resource id associated with the Appointment. Example: `_id=3005759`<br>Required: Yes, or `patient` or `practitioner` or `location`.
+    - name: patient
+      type: string
+      in: query
+      description: reference: A single or comma separated list of Patient references. Example: `patient=12724066`<br>Required: Yes, or `_id` or `practitioner` or `location`.
+    - name: practitioner
+      type: string
+      in: query
+      description: reference: A single or comma separated list of Practitioner references. Example: `practitioner=593923`<br>Required: Yes, or `_id` or `patient` or `location`.
+    - name: location
+      type: string
+      in: query
+      description: reference: A single or comma separated list of Location references. Example: `location=21304876`<br>Required: Yes, or `_id` or `patient` or `practitioner`.
+    - name: date
+      type: string
+      in: query
+      description: date: The Appointment start date time with offset. Example: `date=ge2019-06-07T22:22:16.000Z`<br>Required: Yes, or `-date-or-req-period` when using `patient`, `practitioner`, or `location`.
+    - name: -date-or-req-period
+      type: string
+      in: query
+      description: date: The Appointment start date time with offset or the Appointment requested period date time with offset. Example: `-date-or-req-period=ge2019-06-07T22:22:16.000Z`<br>Required: Yes, or `date` when using `patient`, `practitioner`, or `location`.
+    - name: status
+      type: string
+      in: query
+      description: token: A single or comma separated list of appointment statuses. Example: `status=arrived`<br>Required: No
+    - name: _count
+      type: string
+      in: query
+      description: number: The maximum number of results to return.<br>Required: No

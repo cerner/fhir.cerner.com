@@ -1,4 +1,0 @@
- `_id`|Conditionally|[`token`]|The logical resource ID associated with the goal. This parameter is required if `patient` or `subject` are not used. Example: `_id=7891`
- `patient`|Conditionally|[`reference`]|The patient who has the goal. This parameter is required if `_id` or `subject` are not used. Example: `patient=12345`
- `subject:Patient`|Condtionally|[`reference`]|The subject who this goal is intended for. Must represent a Patient resource. This parameter is required if `_id` or `patient` are not used. Examples: `subject=Patient/12345` or `subject:Patient=12345`
- `targetdate`|No|[`date`]|A date or date range from which to find goals. Example: `targetdate=ge2016-10-01&targetdate=le2016-12-01`
