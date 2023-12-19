@@ -9,9 +9,9 @@ title: Patient | R4 API
 
 ## Overview
 
-The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient ID in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
+The Patient Resource provides general demographic information about a person receiving healthcare services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, primary language, and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity, and birth sex. Millennium is a patient-centric application; thus, many other resources include the patient ID in their queries. A person receiving care from multiple organizations may have information available in multiple patient resources in multiple FHIR servers.
 
-* The following [US Core Implementation Guide](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles are supported by this resource:
+* This resource supports the following [US Core Implementation Guide](https://hl7.org/fhir/us/core/STU4/){:target="_blank"} profiles:
 
   * [US Core Patient Profile](https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-patient.html){:target="_blank"}
 
@@ -35,7 +35,7 @@ The following fields are returned if valued:
 
 _Notes_
 
-* Direct secure email will not be returned.
+* Direct secure email is not returned.
 
 <%= disclaimer %>
 
@@ -58,7 +58,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Patients that meet supplied query parameters:
+Search for patients who meet supplied query parameters.
 
     GET /Patient?:parameters
 
@@ -70,9 +70,9 @@ Search for Patients that meet supplied query parameters:
 
 | Name                 | Required?     | Type       | Description                                                                                                                                                                                                                          |
 |----------------------|---------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `_id`                | Conditionally | [`token`]  | The logical resource ID associated with the resource. This parameter is required if at least one of `identifier`, `name`, `family`, `given`, `birthdate`, `phone`, `email`, or `address-postalcode` is not used. Example: `11111111` |
+| `_id`                | Conditionally | [`token`]  | The logical resource ID associated with the resource. This parameter is required if at least one of the following parameters is not used: `identifier`, `name`, `family`, `given`, `birthdate`, `phone`, `email`, or `address-postalcode`. Example: `11111111` |
 | `identifier`         | Conditionally | [`token`]  | A patient identifier. This parameter is required if `_id`, `name`, `family`, `given`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `urn:oid:1.1.1.1.1.1\|1022228`                                  |
-| `name`               | Conditionally | [`string`] | The start of either family or given name of the patient.This parameter is required if `_id`, `identifier`, `family`, `given`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `Pete`                  |
+| `name`               | Conditionally | [`string`] | The start of the family or given name of the patient. This parameter is required if `_id`, `identifier`, `family`, `given`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `Pete`                  |
 | `family`             | Conditionally | [`string`] | The start of the family name of the patient. This parameter is required if `_id`, `identifier`, `name`, `given`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `Adam`                               |
 | `given`              | Conditionally | [`string`] | The start of the given name of the patient. This parameter is required if `_id`, `identifier`, `name`, `family`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `Tim`                                |
 | `birthdate`          | Conditionally | [`date`]   | The patient's date of birth. This parameter is required if `_id`, `identifier`, `name`, `family`, `given`, `phone`, `email`, and `address-postalcode` are not used. Example: `1961-01-16`                                            |
@@ -81,25 +81,25 @@ Search for Patients that meet supplied query parameters:
 | `address-postalcode` | Conditionally | [`string`] | The postal code in the address details of the patient. This parameter is required if `_id`, `identifier`, `name`, `family`, `given`, `birthdate`, `phone`, and `email` are not used. Example: `11111`                                |
 | `gender`             | No            | [`token`]  | The administrative gender of the patient. Example: `male`                                                                                                                                                                            |
 | [`_count`]           | No            | [`number`] | The maximum number of results to return. Defaults to `20`.                                                                                                                                                                           |
-| `_revinclude`        | No            | [`token`]  | Provenance resource entries to be returned as part of the bundle. Example:`_revinclude=Provenance:target`                                                                                                                            |
+| `_revinclude`        | No            | [`token`]  | The Provenance resource entries to be returned as part of the bundle. Example:`_revinclude=Provenance:target`                                                                                                                            |
 
-Notes:
+_Notes_
 
-* A `422 - Unprocessable Entity` will be returned when more than 1,000 patients qualify for the search criteria.
-* The `name`, `family`, and `given` parameters support the [`:exact`] modifier and will search for current names only, based on the name's `period`.
-* It is not recommended to combine `family` or `given` parameters with the `name` parameter when searching for a patient. Whenever possible use the `:exact` modifier.
+* A `422 (Unprocessable Entity)` status code is returned when more than 1000 patients qualify for the search criteria.
+* The `name`, `family`, and `given` parameters support the [`:exact`] modifier and search for current names only, based on the name's `period`.
+* Oracle Cerner does not recommend combining the `family` or `given` parameters with the `name` parameter when searching for a patient. Whenever possible, use the `:exact` modifier.
 * The `identifier`, `name`, `family`, `given`, `phone`, `email`, `address-postalcode`, or `gender` parameters may be provided exactly once and may have only a single value.
-* The `birthdate` parameter
-  * May be provided once using one of the following prefixes to imply a date range: `ge`, `le`, `gt`, `lt`, `eq`
+* The `birthdate` parameter:
+  * May be provided once using one of the following prefixes to imply a date range: `ge`, `le`, `gt`, `lt`, or `eq`.
   * May be provided twice to indicate a date range and must contain one prefix each of `le` and `ge`. Example: `birthdate=ge2001-03-13&birthdate=le2001-05-01`
-  * Must not be provided with a time component
-* The `identifier` parameter
+  * Must not be provided with a time component.
+* The `identifier` parameter:
     * Requires a code, but the system is optional. If the system is not provided, the search is performed across all systems supported by the Patient resource.
     * Searches against the specific system, if it is provided.
-    * Accepts a Social Security Number (SSN), but the value will not be returned in a matching response.
-* The `_revinclude` parameter
-  * May be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
-  * Requires the OAuth2 token to include the Provenance scope corresponding to the current Patient scope, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
+    * Accepts a Social Security Number (SSN), but the value is not returned in a matching response.
+* The `_revinclude` parameter:
+  * May be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
+  * Requires the OAuth2 token to include the Provenance scope corresponding with the current Patient scope, such as `user/Provenance.read`, `patient/Provenance.read`, or `system/Provenance.read`.
 
 ### Headers
 
@@ -133,7 +133,7 @@ Notes:
 
 ## Retrieve by ID
 
-List an individual patient by their ID:
+List an individual patient by their ID.
 
     GET /Patient/:id
 
@@ -156,12 +156,12 @@ List an individual patient by their ID:
 <%= headers status: 200 %>
 <%= json(:r4_patient_entry) %>
 
-### Patient Combines Example
+### Patient Combine Example
 
-Oracle Health Millennium Platform supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
-as a patient combine. If necessary, this merging can later be undone by performing a patient uncombine. When the requested patient record has been combined into another
-record, an inactive patient entry will be returned, which has a link to the current patient entry. Entries for combined patients will only be returned when retrieving
-the entries directly by ID. They will not be returned when searching with other parameters.
+Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This action is known
+as a patient combine. If necessary, you can perform a patient uncombine to undo this merging. When the requested patient record is combined into another
+record, an inactive patient entry is returned with a link to the current patient entry. Entries for combined patients are only returned when retrieving
+the entries directly by ID. They are not returned when searching with other parameters.
 
 #### Request
 
@@ -224,7 +224,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ## Patch
 
-Patch an existing Patient.
+Patch an existing patient.
 
     PATCH /Patient/:id
 
@@ -277,7 +277,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ## Operation: $health-cards-issue
 
-Issues Health Cards for an existing Patient.
+Issues health cards for an existing patient.
 
     POST /Patient/:id/$health-cards-issue
 
