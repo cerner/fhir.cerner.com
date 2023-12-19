@@ -9,12 +9,12 @@ title: Patient | DSTU 2 API
 
 ## Overview
 
-The Patient resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, primary language, and marital status. Cerner Millennium is a patient-centric application; thus, many of the other resources will include the patient ID in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.
+The Patient resource provides general demographic information about a person receiving healthcare services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, primary language, and marital status. Millennium is a patient-centric application; thus, many other resources include the patient ID in their queries. A person receiving care from multiple organizations may have information available in multiple patient resources in multiple FHIR servers.
 
 The following fields are returned if valued:
 
 * [Patient ID](https://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
-* [name](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name){:target="_blank"}
+* [Name](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name){:target="_blank"}
 * [Extension](#extensions)
 * [Identifier](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier){:target="_blank"}
 * [Telecom](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
@@ -48,15 +48,15 @@ The common [errors] and [OperationOutcomes] may be returned.
 
 ## Search
 
-Search for Patients that meet supplied query parameters:
+Search for patients who meet supplied query parameters.
 
     GET /Patient?:parameters
 
-_Implementation Notes_
+_Notes_
 
-* The [Patient.animal] modifier element is not supported and will not be returned.
-* Direct secure email will not be returned.
-* If the current user is a patient or patient proxy, a search may be performed without providing any parameters. The search will return all patients the current user has been granted access to view.
+* The [Patient.animal] modifier element is not supported and not returned.
+* Direct secure email is not returned.
+* If the current user is a patient or patient proxy, a search may be performed without providing any parameters. The search returns all patients that the current user is granted access to view.
 
 ### Authorization Types
 
@@ -66,9 +66,9 @@ _Implementation Notes_
 
 | Name                 | Required?     | Type       | Description                                                                                                                                                                                                                          |
 |----------------------|---------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `_id`                | Conditionally | [`token`]  | The logical resource ID associated with the resource. This parameter is required if at least one of `identifier`, `name`, `family`, `given`, `birthdate`, `phone`, `email`, or `address-postalcode` is not used. Example: `11111111` |
+| `_id`                | Conditionally | [`token`]  | The logical resource ID associated with the resource. This parameter is required if at least one of the following parameters is not used: `identifier`, `name`, `family`, `given`, `birthdate`, `phone`, `email`, or `address-postalcode`. Example: `11111111` |
 | `identifier`         | Conditionally | [`token`]  | A patient identifier. This parameter is required if `_id`, `name`, `family`, `given`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `urn:oid:1.1.1.1.1.1\|1022228`                                  |
-| `name`               | Conditionally | [`string`] | The start of either family or given name of the patient.This parameter is required if `_id`, `identifier`, `family`, `given`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `Pete`                  |
+| `name`               | Conditionally | [`string`] | The start of the family or given name of the patient. This parameter is required if `_id`, `identifier`, `family`, `given`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `Pete`                  |
 | `family`             | Conditionally | [`string`] | The start of the family name of the patient. This parameter is required if `_id`, `identifier`, `name`, `given`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `Adam`                               |
 | `given`              | Conditionally | [`string`] | The start of the given name of the patient. This parameter is required if `_id`, `identifier`, `name`, `family`, `birthdate`, `phone`, `email`, and `address-postalcode` are not used. Example: `Tim`                                |
 | `birthdate`          | Conditionally | [`date`]   | The patient's date of birth. This parameter is required if `_id`, `identifier`, `name`, `family`, `given`, `phone`, `email`, and `address-postalcode` are not used. Example: `1961-01-16`                                            |
@@ -78,16 +78,16 @@ _Implementation Notes_
 | `gender`             | No            | [`token`]  | The administrative gender of the patient. Example: `male`                                                                                                                                                                            |
 | [`_count`]           | No            | [`number`] | The maximum number of results to return. Defaults to `20`.                                                                                                                                                                           |
 
-Notes:
+_Notes_
 
-* The `name`, `family`, and `given` parameters support the [`:exact`] modifier and will search for current names only, based on the name's `period`.
-* It is not recommended to combine `family` or `given` parameters with the `name` parameter when searching for a patient. Whenever possible, use the ':exact' modifier.
+* The `name`, `family`, and `given` parameters support the [`:exact`] modifier and search for current names only, based on the name's `period`.
+* Oracle Cerner does not recommend combining `family` or `given` parameters with the `name` parameter when searching for a patient. Whenever possible, use the ':exact' modifier.
 * The `address-postalcode` parameter supports the [`:exact`] modifier.
 * The `identifier`, `name`, `family`, `given`, `phone`, `email`, `address-postalcode`, or `gender` parameters may be provided exactly once and may have only a single value.
 * The `birthdate` parameter may be provided in the following formats:
   * Once with a prefix of `ge`, `le`, `gt`, `lt`, or `eq`. Example: `birthdate=ge2001-03-13`
   * Twice to indicate a date range and must contain one prefix each of `le` and `ge`. Example: `birthdate=ge2001-03-13&birthdate=le2001-05-01`
-* A `422 - Unprocessable Entity` will be returned when over 1,000 patients qualify for the search criteria.
+* A `422 - Unprocessable Entity` is returned when over 1000 patients qualify for the search criteria.
 
 ### Headers
 
@@ -106,14 +106,14 @@ Notes:
 
 ## Retrieve by ID
 
-List an individual Patient by its ID:
+List an individual patient by their ID.
 
     GET /Patient/:id
 
-_Implementation Notes_
+_Notes_
 
-* The [Patient.animal] modifier element is not supported and will not be returned.
-* Direct secure email will not be returned.
+* The [Patient.animal] modifier element is not supported and not returned.
+* Direct secure email is not returned.
 
 ### Authorization Types
 
@@ -134,12 +134,12 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:dstu2_patient_entry) %>
 
-### Patient Combines Example
+### Patient Combine Example
 
-Cerner Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
-as a patient combine. If necessary, this merging can later be undone by performing a patient uncombine. When the requested patient record has been combined into another
-record, an inactive Patient entry will be returned which has a link to the current Patient entry. Entries for combined patients will only be returned when retrieving
-the entries directly by ID. They will not be returned when searching with other parameters.
+Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This action is known
+as a patient combine. If necessary, a patient uncombine can undo this merging. When the requested patient record is combined into another
+record, an inactive patient entry is returned with a link to the current patient entry. Entries for combined patients are only returned when retrieving
+the entries directly by ID. They are not returned when searching with other parameters.
 
 #### Request
 
@@ -152,13 +152,13 @@ the entries directly by ID. They will not be returned when searching with other 
 
 ## Create
 
-Create an individual Patient:
+Create an individual patient.
 
     POST /Patient
 
-_Implementation Notes_
+_Notes_
 
-* The following elements are not supported and will cause an error to be returned if set:
+* The following elements are not supported and return an error if set:
   * [Patient.deceased]
   * [Patient.multipleBirth]
   * [Patient.photo]
@@ -177,7 +177,7 @@ _Implementation Notes_
 
 ### Body Fields
 
-Notes:
+_Notes_
 
 * Birth Sex may be recorded as an extension.
 
