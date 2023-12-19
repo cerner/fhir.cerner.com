@@ -1,0 +1,4 @@
+|Name|Required?|Description|
+|---|---|---|
+|linkToken|Y|Carries activation token provided to patient or proxy by hospitals. This value is UTF8 (STRING).|
+|dateOfBirth|Y|Carries date of birth of patient. This value is a UTF8 (STRING), structured as a full-date as specified in (RFC3339 section 5.6).|

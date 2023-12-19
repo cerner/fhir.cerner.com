@@ -1,13 +1,16 @@
 #!/bin/bash
 
 #!/bin/bash
-new_file="table.md"
+new_file="$1_table.md"
 rm "$new_file" 2> /dev/null
-file="$0.md"
+file="$1"
 created=0
 while IFS= read -r line
 do
   if [[ ! "$line" =~ ^.*\|.*\|.*$ ]]; then
+    if [[ created -eq 1 ]]; then
+      echo >> "$new_file"
+    fi
     continue
   fi
 

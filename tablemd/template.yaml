@@ -1,0 +1,15 @@
+/:
+  get:
+    description:
+    tags:
+    produces: application/json
+    parameters:
+    - name:
+      type: string
+      in: query
+      description:
+#    responses:
+#      200:
+#        description:
+#        schema:
+#          type: array

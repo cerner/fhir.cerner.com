@@ -1,0 +1,4 @@
+ ID|Value\[x] Type|Description
+---------------------------------|---------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ `clinical-instruction`|[String](https://hl7.org/fhir/r4/datatypes.html#string)|Extension to MedicationRequest.dosageInstruction. Represents instructions for an order that are intended for healthcare providers.
+ `pharmacy-verification-status`|[CodeableConcept](https://hl7.org/fhir/r4/datatypes.html#CodeableConcept)|Represents whether a medication request was verified by a pharmacist. Supported values are `Does not need pharmacy verification`, `Needs pharmacy verification`, or `Rejected by pharmacy`.

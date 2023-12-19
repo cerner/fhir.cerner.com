@@ -1,0 +1,7 @@
+ Name|Required?|Type|Description
+-----------------------------------------------------|---------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------
+ `_id`|Conditionally|[`token`]|The logical resource ID associated with the resource. This parameter is required if `category`, `-email-status`, `recipient`, and `received` are not used. Example: `489580643.0.-4.prsnl`
+ `category`|Conditionally|[`token`]|A token for a [`CodeableConcept`] that points to the CodeableConcept used for `Communication.category`. This parameter is required with `recipient`, `received`, and `-email-status` if `_id` is not used. Example: `http://terminology.hl7.org/CodeSystem/communication-category|notification`
+ `recipient:Group` or `recipient:Practitioner`|Conditionally|[`reference`]|The recipient of the communication. This parameter is required with `category`, `received`, and `-email-status` if `_id`  is not used. Example: `3456783`
+ `received`|Conditionally|[`date`]|The date range that the communication falls within. This parameter is required with `category`, `recipient`, and `-email-status` if `_id`  is not used. Example: `ge2017-02-01T10:30:00Z`
+ `-email-status`|Conditionally|[`token`]|The status of the email. This parameter is required with `category`, `recipient`, and `received` if `_id`  is not used. Example: `http://hl7.org/fhir/task-status|in-progress`
