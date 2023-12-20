@@ -57,11 +57,11 @@ class DefinitionTableGenerator
       fields: fields
     }
 
-    # out_file = File.new("/Users/am025347/workspace/fhir.cerner.com/tablemd/tables/#{@version}-#{content_key}.json", 'a')
-    # out_file.puts("{\"#{@table_name}\": #{data.to_json}},")
-    # out_file.close
-
-    puts ERB.new(File.read("lib/#{erb_name}.erb"), trim_mode: '-').result(binding)
+    out_file = File.new("/Users/am025347/workspace/fhir.cerner.com/tablemd/tables/#{@table_name}/#{@version}-#{content_key}.json", 'a')
+    out_file.puts(data.to_json.to_s)
+    out_file.close
+    #
+    # puts ERB.new(File.read("lib/#{erb_name}.erb"), trim_mode: '-').result(binding)
   end
 
   def flatten_fields(fields:, base_url:, types:, erb_name:, parent: nil) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity

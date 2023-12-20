@@ -1,4 +1,0 @@
-{
-  "tables": [
-{"terminology": {"table_name":"terminology","name":"Provenance","fields":[{"name":"agent.type","type":"<code>List</code> <code>of</code> <a target=\"_blank\" href=\"https://hl7.org/fhir/R4/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>","required":"Yes","description":"The participation the agent had with respect to the activity.","binding":{"description":"The participation the agent had with respect to the activity.","terminology":[{"display":"Provenance Participant Type","system":"https://terminology.hl7.org/CodeSystem/provenance-participant-type","info_link":"https://hl7.org/fhir/R4/valueset-provenance-agent-type.html"}]},"url":"https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type"}]}}  ]
-}

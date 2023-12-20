@@ -1,4 +1,0 @@
-{
-  "tables": [
-{"terminology": {"table_name":"terminology","name":"Immunization","fields":[{"name":"vaccineCode","type":"<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>","required":"Yes","description":"The vaccine that was administered or was to be administered.","binding":{"description":"Identifies the vaccine substance administered.","terminology":[{"display":"CVX","system":"http://hl7.org/fhir/sid/cvx","info_link":"http://hl7.org/fhir/dstu2/cvx.html"},{"display":"NDC","system":"http://hl7.org/fhir/sid/ndc","info_link":"http://hl7.org/fhir/dstu2/ndc.html"}]},"url":"http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.vaccineCode"}]}}  ]
-}

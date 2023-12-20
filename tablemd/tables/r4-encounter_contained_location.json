@@ -1,4 +1,0 @@
-{
-  "tables": [
-{"terminology": {"table_name":"terminology","name":"Location","fields":[{"name":"type","type":"<a target=\"_blank\" href=\"https://hl7.org/fhir/R4/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>","required":"No","description":"Indicates the type of function performed at the location.","binding":{"description":"Indicates the type of function performed at the location.","terminology":[{"display":"v3 Code System RoleCode","system":"http://terminology.hl7.org/CodeSystem/v3-RoleCode","info_link":"http://hl7.org/fhir/R4/v3/ServiceDeliveryLocationRoleType/vs.html"}]},"url":"http://hl7.org/fhir/R4/location-definitions.html#Location.type"}]}}  ]
-}

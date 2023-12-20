@@ -1,4 +1,0 @@
-{
-  "tables": [
-{"terminology": {"table_name":"terminology","name":"InsurancePlan","fields":[{"name":"type","type":"<a target=\"_blank\" href=\"https://hl7.org/fhir/R4/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>","required":"Yes","description":"The kind of health insurance product.","binding":{"desciption":"The kind of health insurance product.","terminology":[{"display":"Insurance Plan Type","system":"http://terminology.hl7.org/CodeSystem/insurance-plan-type","info_link":"http://hl7.org/fhir/R4/codesystem-insuranceplan-type.html"},{"display":"Millennium Health Plan Service Type","system":"https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/27137","info_link":"https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-27137-health-plan-service-type"}]},"url":"http://hl7.org/fhir/R4/insuranceplan-definitions.html#InsurancePlan.type"}]}}  ]
-}

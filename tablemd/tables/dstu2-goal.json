@@ -1,4 +1,0 @@
-{
-  "tables": [
-{"terminology": {"table_name":"terminology","name":"Goal","fields":[{"name":"category","type":"<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>","required":"No","description":"Indicates a category the goal falls within.","binding":{"description":"Codes for grouping and sorting goals.","terminology":[{"display":"Goal Category Codes","system":"http://hl7.org/fhir/goal-category","info_link":"http://hl7.org/fhir/dstu2/valueset-goal-category.html"}]},"url":"http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.category"}]}}  ]
-}
