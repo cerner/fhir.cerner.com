@@ -1,0 +1,3 @@
+|Terminology Mappings|
+|---|
+|<p>**[Appointment.type](https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type){:target="_blank"}**<hr>**Description**<br>- Additional details about where the content was created (e.g. clinical specialty).<br><br>**Details:** [Practice Setting Code Value Set](https://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html){:target="_blank"}<br><br>**System:** `http://snomed.info/sct`<br><br>**Details:** [Millennium Scheduling Appointment Synonyms or Types](https://fhir.cerner.com/millennium/dstu2/proprietary-codes/#code-set-14249-scheduling-appointment-synonyms-or-types){:target="_blank"}<br><br>**System:** `https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249`<br><br>|

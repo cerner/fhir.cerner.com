@@ -1,0 +1,4 @@
+|Terminology Mappings|
+|---|
+|<p>**[Medication.code](https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code){:target="_blank"}**<hr>**Description**<br>- A code that defines the type of medication.<br><br>**Details:** [RxNorm](https://hl7.org/fhir/dstu2/rxnorm.html){:target="_blank"}<br><br>**System:** `http://www.nlm.nih.gov/research/umls/rxnorm`<br><br>|
+|<p>**[Medication.product.form](https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form){:target="_blank"}**<hr>**Description**<br>- Describes the form of the item.<br><br>**Details:** [NCI Metathesaurus](https://hl7.org/fhir/dstu2/ncimeta.html){:target="_blank"}<br><br>**System:** `http://ncimeta.nci.nih.gov`<br><br>|

@@ -1,0 +1,3 @@
+|Terminology Mappings|
+|---|
+|<p>**[QuestionnaireResponse.answer.valueCoding](https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.value_x_){:target="_blank"}**<hr>**Description**<br>- An answer from a list of available Coding answer options.<br><br>**Details:** [Nomenclature Value](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature){:target="_blank"}<br><br>**System:** `https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature`<br><br>|

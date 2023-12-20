@@ -1,0 +1,4 @@
+|Terminology Mappings|
+|---|
+|<p>**[Procedure.code](https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.code){:target="_blank"}**<hr>**Description**<br>- A code to identify a specific procedure.<br><br>**Details:** [Procedure Codes (SNOMED CT)](https://hl7.org/fhir/R4/valueset-procedure-code.html){:target="_blank"}<br><br>**System:** `http://snomed.info/sct`<br><br>|
+|<p>**[Procedure.focalDevice.action](http://hl7.org/fhir/R4/procedure-definitions.html#Procedure.focalDevice.action){:target="_blank"}**<hr>**Description**<br>- A code to identify the kind of change that happened to the device during the procedure.<br><br>**Details:** [Procedure Device Action Codes](http://hl7.org/fhir/R4/valueset-device-action.html){:target="_blank"}<br><br>**System:** `http://snomed.info/sct`<br><br>|

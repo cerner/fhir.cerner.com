@@ -1,0 +1,3 @@
+|Terminology Mappings|
+|---|
+|<p>**[Coverage.relationship](http://hl7.org/fhir/r4/coverage-definitions.html#Coverage.relationship){:target="_blank"}**<hr>**Description**<br>- Indicates the beneficiary relationship to the subscriber.<br><br>**Details:** [Subscriber Relationship](http://hl7.org/fhir/R4/valueset-subscriber-relationship.html){:target="_blank"}<br><br>**System:** `http://terminology.hl7.org/CodeSystem/subscriber-relationship`<br><br>**Details:** [Millennium Person Relationship](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-40-person-relationships){:target="_blank"}<br><br>**System:** `https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/40`<br><br>|

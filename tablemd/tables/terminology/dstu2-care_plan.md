@@ -1,0 +1,4 @@
+|Terminology Mappings|
+|---|
+|<p>**[CarePlan.category](http://hl7.org/fhir/DSTU2/careplan-definitions.html#CarePlan.category){:target="_blank"}**<hr>**Description**<br>- Identifies what kind of plan this is. This is also used to return a CareTeam (CarePlan with participants). "assess-plan" and "careteam" both belong to the Argonaut extension codes. "longitudinal" and "encounter" are CareTeam specific values from the CareTeam category codes. Currently these are the only category bindings which are supported.
+<br><br>**Details:** [Argonaut Extension Codes](http://www.fhir.org/guides/argonaut/r2/ValueSet-argo-codesystem.html){:target="_blank"}<br><br>**System:** `http://argonaut.hl7.org`<br><br>**Details:** [CareTeam Category Codes](http://hl7.org/fhir/stu3/valueset-care-team-category.html){:target="_blank"}<br><br>**System:** `http://hl7.org/fhir/care-team-category`<br><br>|

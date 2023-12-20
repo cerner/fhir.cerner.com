@@ -1,0 +1,4 @@
+|Terminology Mappings|
+|---|
+|<p>**[Patient.identifier.type](https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type){:target="_blank"}**<hr>**Description**<br>- A coded type for an identifier that can be used to determine which identifier to use for a specific purpose.<br><br>**Details:** [Identifier Type Codes](https://hl7.org/fhir/R4/valueset-identifier-type.html){:target="_blank"}<br><br>**System:** `https://hl7.org/fhir/v2/0203/index.html`<br><br>|
+|<p>**[Patient.communication.language](https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication.language){:target="_blank"}**<hr>**Description**<br>- The language that can be used to communicate with the patient about their health.<br><br>**Details:** [Tags for the Identification of Languages](https://terminology.hl7.org/1.0.0/CodeSystem-v3-ietf3066.html){:target="_blank"}<br><br>**System:** `urn:ietf:bcp:47`<br><br>|

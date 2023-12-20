@@ -1,0 +1,3 @@
+|Terminology Mappings|
+|---|
+|<p>**[Provenance.entity.role](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role){:target="_blank"}**<hr>**Description**<br>- How the entity was used during the activity.<br><br>**Details:** [Provenance Entity Role](https://hl7.org/fhir/R4/codesystem-provenance-entity-role.html){:target="_blank"}<br><br>**System:** `http://hl7.org/fhir/provenance-entity-role`<br><br>|
