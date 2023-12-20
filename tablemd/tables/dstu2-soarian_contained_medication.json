@@ -1,0 +1,4 @@
+{
+  "tables": [
+{"terminology": {"table_name":"terminology","name":"Medication","fields":[{"name":"code","type":"<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>","required":"No","description":"Codes that identify this medication.","example":"{\n  \"code\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.nlm.nih.gov/research/umls/rxnorm\",\n        \"code\": \"2551\",\n        \"display\": \"Ciprofloxacin\",\n        \"userSelected\": false\n      }\n    ],\n    \"text\": \"ciprofloxacin\"\n  }\n}\n","binding":{"description":"A code that defines the type of medication.","terminology":[{"display":"RxNorm","system":"http://www.nlm.nih.gov/research/umls/rxnorm","info_link":"http://hl7.org/fhir/DSTU2/rxnorm.html"}]},"url":"http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code"}]}}  ]
+}

@@ -1,0 +1,40 @@
+{
+    "tables": [
+        {
+            "terminology": {
+                "fields": [
+                    {
+                        "description": "The type of FHIR<sup>®</sup> resource.",
+                        "example": "{\n  \"resourceType\": \"MedicationRequest\"\n}\n",
+                        "name": "resourceType",
+                        "note": "resourceType must be MedicationRequest",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"https://hl7.org/fhir/R4/datatypes.html#string\"><code>string</code></a>",
+                        "url": "https://hl7.org/fhir/r4/json.html#resources"
+                    },
+                    {
+                        "binding": {
+                            "description": "A code that defines the medication",
+                            "terminology": [
+                                {
+                                    "display": "RxNorm",
+                                    "info_link": "https://www.nlm.nih.gov/research/umls/rxnorm/index.html",
+                                    "system": "https://www.nlm.nih.gov/research/umls/rxnorm"
+                                }
+                            ]
+                        },
+                        "description": "A code that defines the medication",
+                        "example": "{\n  \"medicationCodeableConcept\": {\n    \"coding\": [\n      {\n        \"system\": \"https://www.nlm.nih.gov/research/umls/rxnorm\",\n        \"code\": \"352362\"\n      }\n    ],\n    \"text\": \"Acetaminophen\"\n  }\n}\n",
+                        "name": "code",
+                        "note": "Must be of type CodeableConcept. <code>text</code> and/or one <code>coding</code> with a <code>system</code> and <a target=\"_blank\" href=\"https://hl7.org/fhir/R4/datatypes.html#code\"><code>code</code></a> must be provided.",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"https://hl7.org/fhir/R4/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "https://hl7.org/fhir/R4/medicationrequest-definitions.html#Medication.code"
+                    }
+                ],
+                "name": "Medication",
+                "table_name": "terminology"
+            }
+        }
+    ]
+}

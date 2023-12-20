@@ -1,0 +1,97 @@
+{
+    "tables": [
+        {
+            "terminology": {
+                "fields": [
+                    {
+                        "binding": {
+                            "description": "Codes for high level observation categories.",
+                            "terminology": [
+                                {
+                                    "display": "Observation Category Codes",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-observation-category.html",
+                                    "system": "http://hl7.org/fhir/observation-category"
+                                }
+                            ]
+                        },
+                        "description": "A code that classifies the general type of observation being made. This is used for searching, sorting and display purposes.\n",
+                        "name": "category",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.category"
+                    },
+                    {
+                        "binding": {
+                            "description": "Codes identifying names of simple observations.",
+                            "terminology": [
+                                {
+                                    "display": "LOINC",
+                                    "info_link": "http://hl7.org/fhir/dstu2/loinc.html",
+                                    "system": "http://loinc.org"
+                                },
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "Describes what was observed. Sometimes this is called the observation \"name\".",
+                        "name": "code",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.code"
+                    },
+                    {
+                        "binding": {
+                            "description": "Codes identifying interpretations of observations.",
+                            "terminology": [
+                                {
+                                    "display": "v2 Interpretation Codes",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-observation-interpretation.html",
+                                    "system": "http://hl7.org/fhir/v2/0078"
+                                }
+                            ]
+                        },
+                        "description": "The assessment made based on the result of the observation. Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.\n",
+                        "name": "interpretation",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.interpretation"
+                    },
+                    {
+                        "description": "Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.\n",
+                        "name": "component",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.component"
+                    },
+                    {
+                        "binding": {
+                            "description": "Codes identifying names of simple observations.",
+                            "terminology": [
+                                {
+                                    "display": "LOINC",
+                                    "info_link": "http://hl7.org/fhir/dstu2/loinc.html",
+                                    "system": "http://loinc.org"
+                                },
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "Describes what was observed. Sometimes this is called the observation \"code\".",
+                        "name": "component.code",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.component.code"
+                    }
+                ],
+                "name": "Observation",
+                "table_name": "terminology"
+            }
+        }
+    ]
+}

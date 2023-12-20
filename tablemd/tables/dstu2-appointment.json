@@ -1,0 +1,385 @@
+{
+    "tables": [
+        {
+            "terminology": {
+                "fields": [
+                    {
+                        "description": "The type of the FHIR resource.",
+                        "example": "{\n  \"resourceType: \"Appointment\"\n}\n",
+                        "name": "resourceType",
+                        "note": "Must be <code>Appointment</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/json.html#resources"
+                    },
+                    {
+                        "binding": {
+                            "description": "Additional details about where the content was created (e.g. clinical specialty).",
+                            "terminology": [
+                                {
+                                    "display": "Practice Setting Code Value Set",
+                                    "info_link": "https://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html",
+                                    "system": "http://snomed.info/sct"
+                                },
+                                {
+                                    "display": "Millennium Scheduling Appointment Synonyms or Types",
+                                    "info_link": "https://fhir.cerner.com/millennium/dstu2/proprietary-codes/#code-set-14249-scheduling-appointment-synonyms-or-types",
+                                    "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249"
+                                }
+                            ]
+                        },
+                        "description": "The type of appointment that is being booked.",
+                        "example": "{\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://snomed.info/sct\",\n        \"code\": \"394581000\",\n        \"display\": \"Community medicine\",\n        \"userSelected\": false\n      }\n    ],\n   \"text\": \"Same Day\"\n  }\n}\n",
+                        "name": "type",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type"
+                    },
+                    {
+                        "description": "The availability to which the appointment is booked.",
+                        "example": "{\n  \"slot\": [\n    {\n      \"reference\": \"Slot/21265426-633867-6828001-60\"\n    }\n  ]\n}\n",
+                        "name": "slot",
+                        "note": "Exactly one Slot must be provided.",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<code>Slot</code>)",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot"
+                    },
+                    {
+                        "description": "A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.",
+                        "example": "{\n  \"status\": \"proposed\"\n}\n",
+                        "name": "status",
+                        "note": "Must be <code>proposed</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"
+                    },
+                    {
+                        "description": "A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.",
+                        "example": "{\n  \"status\": \"arrived\"\n}\n",
+                        "name": "status",
+                        "note": "Must be <code>arrived</code> or <code>cancelled</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"
+                    },
+                    {
+                        "description": "Participants involved in appointment.",
+                        "example": "{\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/4704007\",\n        \"display\": \"Smart, Barney R\"\n      },\n      \"status\": \"needs-action\"\n    }\n  ]\n}\n",
+                        "name": "participant",
+                        "note": "Exactly one participant must be provided.",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"
+                    },
+                    {
+                        "description": "A person, location, healthcare service or device that is participating in the appointment.",
+                        "example": "{\n  \"actor\": {\n    \"reference\": \"Patient/4704007\",\n    \"display\": \"Smart, Barney R\"\n  }\n}\n",
+                        "name": "participant.actor",
+                        "note": "Must be a Patient",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>)",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"
+                    },
+                    {
+                        "description": "Participation status of the Patient.",
+                        "example": "{\n  \"status\": \"needs-action\"\n}\n",
+                        "name": "participant.status",
+                        "note": "Must be <code>needs-action</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"
+                    },
+                    {
+                        "description": "Participants involved in appointment.",
+                        "example": "{\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/4704007\",\n        \"display\": \"Smart, Barney R\"\n      },\n      \"status\": \"accepted\"\n    }\n  ]\n}\n",
+                        "name": "participant",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"
+                    },
+                    {
+                        "description": "A person, location, healthcare service or device that is participating in the appointment.",
+                        "example": "{\n  \"actor\": {\n    \"reference\": \"Patient/4704007\",\n    \"display\": \"Smart, Barney R\"\n  }\n}\n",
+                        "name": "participant.actor",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"
+                    },
+                    {
+                        "description": "Participation status of the actor.",
+                        "example": "{\n  \"status\": \"accepted\"\n}\n",
+                        "name": "participant.status",
+                        "note": "Must be <code>accepted</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"
+                    },
+                    {
+                        "description": "Additional text to aid in facilitating the appointment.",
+                        "example": "{\n  \"comment: \"Further explain MRI results\"\n}\n",
+                        "name": "comment",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment"
+                    }
+                ],
+                "name": "Appointment",
+                "table_name": "terminology"
+            }
+        },
+        {
+            "create": {
+                "fields": [
+                    {
+                        "description": "The type of the FHIR resource.",
+                        "example": "{\n  \"resourceType: \"Appointment\"\n}\n",
+                        "name": "resourceType",
+                        "note": "Must be <code>Appointment</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/json.html#resources"
+                    },
+                    {
+                        "binding": {
+                            "description": "Additional details about where the content was created (e.g. clinical specialty).",
+                            "terminology": [
+                                {
+                                    "display": "Practice Setting Code Value Set",
+                                    "info_link": "https://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html",
+                                    "system": "http://snomed.info/sct"
+                                },
+                                {
+                                    "display": "Millennium Scheduling Appointment Synonyms or Types",
+                                    "info_link": "https://fhir.cerner.com/millennium/dstu2/proprietary-codes/#code-set-14249-scheduling-appointment-synonyms-or-types",
+                                    "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249"
+                                }
+                            ]
+                        },
+                        "description": "The type of appointment that is being booked.",
+                        "example": "{\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://snomed.info/sct\",\n        \"code\": \"394581000\",\n        \"display\": \"Community medicine\",\n        \"userSelected\": false\n      }\n    ],\n   \"text\": \"Same Day\"\n  }\n}\n",
+                        "name": "type",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type"
+                    },
+                    {
+                        "description": "The availability to which the appointment is booked.",
+                        "example": "{\n  \"slot\": [\n    {\n      \"reference\": \"Slot/21265426-633867-6828001-60\"\n    }\n  ]\n}\n",
+                        "name": "slot",
+                        "note": "Exactly one Slot must be provided.",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<code>Slot</code>)",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot"
+                    },
+                    {
+                        "description": "A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.",
+                        "example": "{\n  \"status\": \"proposed\"\n}\n",
+                        "name": "status",
+                        "note": "Must be <code>proposed</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"
+                    },
+                    {
+                        "description": "A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.",
+                        "example": "{\n  \"status\": \"arrived\"\n}\n",
+                        "name": "status",
+                        "note": "Must be <code>arrived</code> or <code>cancelled</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"
+                    },
+                    {
+                        "description": "Participants involved in appointment.",
+                        "example": "{\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/4704007\",\n        \"display\": \"Smart, Barney R\"\n      },\n      \"status\": \"needs-action\"\n    }\n  ]\n}\n",
+                        "name": "participant",
+                        "note": "Exactly one participant must be provided.",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"
+                    },
+                    {
+                        "description": "A person, location, healthcare service or device that is participating in the appointment.",
+                        "example": "{\n  \"actor\": {\n    \"reference\": \"Patient/4704007\",\n    \"display\": \"Smart, Barney R\"\n  }\n}\n",
+                        "name": "participant.actor",
+                        "note": "Must be a Patient",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>)",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"
+                    },
+                    {
+                        "description": "Participation status of the Patient.",
+                        "example": "{\n  \"status\": \"needs-action\"\n}\n",
+                        "name": "participant.status",
+                        "note": "Must be <code>needs-action</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"
+                    },
+                    {
+                        "description": "Participants involved in appointment.",
+                        "example": "{\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/4704007\",\n        \"display\": \"Smart, Barney R\"\n      },\n      \"status\": \"accepted\"\n    }\n  ]\n}\n",
+                        "name": "participant",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"
+                    },
+                    {
+                        "description": "A person, location, healthcare service or device that is participating in the appointment.",
+                        "example": "{\n  \"actor\": {\n    \"reference\": \"Patient/4704007\",\n    \"display\": \"Smart, Barney R\"\n  }\n}\n",
+                        "name": "participant.actor",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"
+                    },
+                    {
+                        "description": "Participation status of the actor.",
+                        "example": "{\n  \"status\": \"accepted\"\n}\n",
+                        "name": "participant.status",
+                        "note": "Must be <code>accepted</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"
+                    },
+                    {
+                        "description": "Additional text to aid in facilitating the appointment.",
+                        "example": "{\n  \"comment: \"Further explain MRI results\"\n}\n",
+                        "name": "comment",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment"
+                    }
+                ],
+                "name": "Appointment",
+                "table_name": "create"
+            }
+        },
+        {
+            "update": {
+                "fields": [
+                    {
+                        "description": "The type of the FHIR resource.",
+                        "example": "{\n  \"resourceType: \"Appointment\"\n}\n",
+                        "name": "resourceType",
+                        "note": "Must be <code>Appointment</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/json.html#resources"
+                    },
+                    {
+                        "binding": {
+                            "description": "Additional details about where the content was created (e.g. clinical specialty).",
+                            "terminology": [
+                                {
+                                    "display": "Practice Setting Code Value Set",
+                                    "info_link": "https://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html",
+                                    "system": "http://snomed.info/sct"
+                                },
+                                {
+                                    "display": "Millennium Scheduling Appointment Synonyms or Types",
+                                    "info_link": "https://fhir.cerner.com/millennium/dstu2/proprietary-codes/#code-set-14249-scheduling-appointment-synonyms-or-types",
+                                    "system": "https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/14249"
+                                }
+                            ]
+                        },
+                        "description": "The type of appointment that is being booked.",
+                        "example": "{\n  \"type\": {\n    \"coding\": [\n      {\n        \"system\": \"http://snomed.info/sct\",\n        \"code\": \"394581000\",\n        \"display\": \"Community medicine\",\n        \"userSelected\": false\n      }\n    ],\n   \"text\": \"Same Day\"\n  }\n}\n",
+                        "name": "type",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.type"
+                    },
+                    {
+                        "description": "The availability to which the appointment is booked.",
+                        "example": "{\n  \"slot\": [\n    {\n      \"reference\": \"Slot/21265426-633867-6828001-60\"\n    }\n  ]\n}\n",
+                        "name": "slot",
+                        "note": "Exactly one Slot must be provided.",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<code>Slot</code>)",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.slot"
+                    },
+                    {
+                        "description": "A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.",
+                        "example": "{\n  \"status\": \"proposed\"\n}\n",
+                        "name": "status",
+                        "note": "Must be <code>proposed</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"
+                    },
+                    {
+                        "description": "A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.",
+                        "example": "{\n  \"status\": \"arrived\"\n}\n",
+                        "name": "status",
+                        "note": "Must be <code>arrived</code> or <code>cancelled</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.status"
+                    },
+                    {
+                        "description": "Participants involved in appointment.",
+                        "example": "{\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/4704007\",\n        \"display\": \"Smart, Barney R\"\n      },\n      \"status\": \"needs-action\"\n    }\n  ]\n}\n",
+                        "name": "participant",
+                        "note": "Exactly one participant must be provided.",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"
+                    },
+                    {
+                        "description": "A person, location, healthcare service or device that is participating in the appointment.",
+                        "example": "{\n  \"actor\": {\n    \"reference\": \"Patient/4704007\",\n    \"display\": \"Smart, Barney R\"\n  }\n}\n",
+                        "name": "participant.actor",
+                        "note": "Must be a Patient",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>)",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"
+                    },
+                    {
+                        "description": "Participation status of the Patient.",
+                        "example": "{\n  \"status\": \"needs-action\"\n}\n",
+                        "name": "participant.status",
+                        "note": "Must be <code>needs-action</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"
+                    },
+                    {
+                        "description": "Participants involved in appointment.",
+                        "example": "{\n  \"participant\": [\n    {\n      \"actor\": {\n        \"reference\": \"Patient/4704007\",\n        \"display\": \"Smart, Barney R\"\n      },\n      \"status\": \"accepted\"\n    }\n  ]\n}\n",
+                        "name": "participant",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant"
+                    },
+                    {
+                        "description": "A person, location, healthcare service or device that is participating in the appointment.",
+                        "example": "{\n  \"actor\": {\n    \"reference\": \"Patient/4704007\",\n    \"display\": \"Smart, Barney R\"\n  }\n}\n",
+                        "name": "participant.actor",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.actor"
+                    },
+                    {
+                        "description": "Participation status of the actor.",
+                        "example": "{\n  \"status\": \"accepted\"\n}\n",
+                        "name": "participant.status",
+                        "note": "Must be <code>accepted</code>",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.participant.status"
+                    },
+                    {
+                        "description": "Additional text to aid in facilitating the appointment.",
+                        "example": "{\n  \"comment: \"Further explain MRI results\"\n}\n",
+                        "name": "comment",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "https://hl7.org/fhir/DSTU2/appointment-definitions.html#Appointment.comment"
+                    }
+                ],
+                "name": "Appointment",
+                "table_name": "update"
+            }
+        }
+    ]
+}

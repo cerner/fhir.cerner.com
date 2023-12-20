@@ -1,0 +1,4 @@
+{
+  "tables": [
+{"terminology": {"table_name":"terminology","name":"Questionnaire","fields":[{"name":"item.item.answerOption.valueCoding","type":"<a target=\"_blank\" href=\"https://hl7.org/fhir/R4/datatypes.html#Coding\"><code>Coding</code></a>","description":"One of the permitted answers for a \"choice\" or \"open-choice\" question.","binding":{"description":"The value of one of the permitted answers for a \"choice\" or \"open-choice\" question.","terminology":[{"display":"Nomenclature Value","system":"https://fhir.cerner.com/&lt;EHR source id&gt;/nomenclature","info_link":"https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature"}]},"url":"https://hl7.org/fhir/r4/questionnaire-definitions.html#Questionnaire.item.answerOption"}]}}  ]
+}

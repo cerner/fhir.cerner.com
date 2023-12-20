@@ -1,0 +1,4 @@
+{
+  "tables": [
+{"terminology": {"table_name":"terminology","name":"Condition","fields":[{"name":"code","type":"<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>","required":"Yes","description":"Identification of the condition, problem or diagnosis.","example":"{\n  \"code\": {\n    \"coding\": [\n      {\n        \"system\": \"http://hl7.org/fhir/sid/icd-9\",\n        \"code\": \"345.0\",\n        \"display\": \"Generalized nonconvulsive epilepsy\",\n        \"userSelected\": true\n      }\n    ],\n    \"text\": \"Absence seizures\"\n  }\n}\n","binding":{"description":"Identification of the condition or diagnosis.","terminology":[{"display":"SNOMED CT","system":"http://snomed.info/sct","info_link":"http://hl7.org/fhir/dstu2/snomedct.html"}]},"url":"http://hl7.org/fhir/DSTU2/condition-definitions.html#Condition.code"}]}}  ]
+}

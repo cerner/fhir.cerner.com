@@ -1,0 +1,201 @@
+{
+    "tables": [
+        {
+            "terminology": {
+                "fields": [
+                    {
+                        "description": "Identifier(s) by which this encounter is known.",
+                        "name": "identifier",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#Identifier\"><code>Identifier</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.identifier"
+                    },
+                    {
+                        "binding": {
+                            "description": "The type used to determine which identifier to use for a specific purpose.",
+                            "terminology": [
+                                {
+                                    "display": "Identifier Type Codes",
+                                    "info_link": "http://hl7.org/fhir/DSTU2/valueset-identifier-type.html",
+                                    "system": "http://hl7.org/fhir/identifier-type"
+                                },
+                                {
+                                    "display": "v2 Identifier Type",
+                                    "info_link": "http://hl7.org/fhir/DSTU2/valueset-identifier-type.html",
+                                    "system": "http://hl7.org/fhir/v2/0203"
+                                }
+                            ]
+                        },
+                        "description": "The type for the identifier that can be used to determine which identifier to use for a specific purpose.",
+                        "name": "identifier.type",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type"
+                    },
+                    {
+                        "binding": {
+                            "description": "The type of encounter.",
+                            "note": "Currently not bound to any terminology."
+                        },
+                        "description": "The specific type of encounter.",
+                        "name": "type",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.type"
+                    },
+                    {
+                        "binding": {
+                            "description": "Indicates the urgency of the encounter.",
+                            "terminology": [
+                                {
+                                    "display": "Encounter Priority",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-encounter-priority.html",
+                                    "system": "http://hl7.org/fhir/encounter-priority"
+                                }
+                            ]
+                        },
+                        "description": "Indicates the urgency of the encounter.",
+                        "name": "priority",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.priority"
+                    },
+                    {
+                        "description": "The list of people responsible for providing the service.",
+                        "name": "participant",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.participant"
+                    },
+                    {
+                        "binding": {
+                            "description": "Role of participant in encounter.",
+                            "terminology": [
+                                {
+                                    "display": "ParticipantType",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-encounter-participant-type.html",
+                                    "system": "http://hl7.org/fhir/participant-type"
+                                },
+                                {
+                                    "display": "v3 Code System ParticipationType",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-encounter-participant-type.html",
+                                    "system": "http://hl7.org/fhir/v3/ParticipationType"
+                                }
+                            ]
+                        },
+                        "description": "Role of participant in encounter.",
+                        "name": "participant.type",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.participant.type"
+                    },
+                    {
+                        "binding": {
+                            "description": "The type of encounter.",
+                            "note": "Currently not bound to any terminology. The value would always be returned as a free-text value."
+                        },
+                        "description": "Reason the encounter takes place.",
+                        "name": "reason",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.reason"
+                    },
+                    {
+                        "description": "Details about the admission to a healthcare service.",
+                        "name": "hospitalization",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization"
+                    },
+                    {
+                        "binding": {
+                            "description": "From where patient was admitted.",
+                            "terminology": [
+                                {
+                                    "display": "AdmitSource",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-encounter-admit-source.html",
+                                    "system": "http://hl7.org/fhir/admit-source"
+                                }
+                            ]
+                        },
+                        "description": "From where patient was admitted.",
+                        "name": "hospitalization.admitSource",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.admitSource"
+                    },
+                    {
+                        "binding": {
+                            "description": "Medical, cultural or ethical food preferences to help with catering requirements.",
+                            "terminology": [
+                                {
+                                    "display": "Diet",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-encounter-diet.html",
+                                    "system": "http://hl7.org/fhir/diet"
+                                }
+                            ]
+                        },
+                        "description": "Diet preferences reported by the patient.",
+                        "name": "hospitalization.dietPreference",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.dietPreference"
+                    },
+                    {
+                        "binding": {
+                            "description": "Special courtesies.",
+                            "terminology": [
+                                {
+                                    "display": "v3 Code System EncounterSpecialCourtesy",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-encounter-special-courtesy.html",
+                                    "system": "http://hl7.org/fhir/v3/EncounterSpecialCourtesy"
+                                }
+                            ]
+                        },
+                        "description": "The special courtesies applicable to the patient.",
+                        "name": "hospitalization.specialCourtesy",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.specialCourtesy"
+                    },
+                    {
+                        "binding": {
+                            "description": "Special arrangements.",
+                            "terminology": [
+                                {
+                                    "display": "SpecialArrangements",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-encounter-special-arrangements.html",
+                                    "system": "http://hl7.org/fhir/encounter-special-arrangements"
+                                }
+                            ]
+                        },
+                        "description": "The special arrangements made for the patient during the encounter.",
+                        "name": "hospitalization.specialArrangement",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.specialArrangement"
+                    },
+                    {
+                        "binding": {
+                            "description": "Discharge Disposition.",
+                            "terminology": [
+                                {
+                                    "display": "DischargeDisposition",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-encounter-discharge-disposition.html",
+                                    "system": "http://hl7.org/fhir/discharge-disposition"
+                                }
+                            ]
+                        },
+                        "description": "Category or kind of location after discharge.",
+                        "name": "hospitalization.dischargeDisposition",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.hospitalization.dischargeDisposition"
+                    }
+                ],
+                "name": "Encounter",
+                "table_name": "terminology"
+            }
+        }
+    ]
+}

@@ -1,0 +1,610 @@
+{
+    "tables": [
+        {
+            "terminology": {
+                "fields": [
+                    {
+                        "description": "The type of the FHIR resource.",
+                        "example": "AllergyIntolerance",
+                        "name": "resourceType",
+                        "note": "resourceType must be AllergyIntolerance",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/json.html#resources"
+                    },
+                    {
+                        "description": "The logical id of the resource to update.",
+                        "example": "{\n  \"id\": \"123412\"\n}\n",
+                        "name": "id",
+                        "note": "The id value must match the AllergyIntolerance/&lt;id> value.",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#id\"><code>id</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"
+                    },
+                    {
+                        "description": "Contained, inline Resources.",
+                        "example": "Contained RelatedPerson\n{\n  \"contained\": [\n    {\n      \"resourceType\": \"RelatedPerson\",\n      \"id\": \"5366328\",\n      \"relationship\": {\n        \"coding\": [\n          {\n            \"system\": \"http://hl7.org/fhir/v3/RoleCode\",\n            \"code\": \"SIGOTHR\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                        "example2": "Contained Practitioner\n{\n  \"contained\": [\n    {\n      \"resourceType\": \"Practitioner\",\n      \"id\": \"123\",\n      \"practitionerRole\": [\n        {\n          \"role\": {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/v2/0286\",\n                \"code\": \"RP\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "contained",
+                        "note": "These should be either <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> or <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a> resources that are referenced with the <a href=\"#terminology-reporter\">reporter</a> field.\n",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/resource.html\"><code>Resource</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained"
+                    },
+                    {
+                        "description": "Date(/time) when manifestations showed.",
+                        "example": "{\n  \"onset: \"2012-07-13T00:00:00Z\"\n}\n",
+                        "name": "onset",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.onset"
+                    },
+                    {
+                        "description": "When the sensitivity was recorded.",
+                        "example": "{\n  \"recordedDate\": \"2015-10-14T13:13:20-06:00\"\n}\n",
+                        "name": "recordedDate",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate"
+                    },
+                    {
+                        "description": "Who recorded the sensitivity.",
+                        "example": "{\n  \"recorder\": {\n    \"reference\": \"Practitioner/21500971\"\n  }\n}\n",
+                        "name": "recorder",
+                        "note": "Recorder must be a <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> reference.",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recorder"
+                    },
+                    {
+                        "description": "Who the sensitivity is for.",
+                        "example": "{\n  \"patient\": {\n    \"reference\": \"Patient/5366327\"\n  }\n}\n",
+                        "name": "patient",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.patient"
+                    },
+                    {
+                        "description": "Source of the information about the allergy.",
+                        "example": "Reporter as a Patient Reference\n{\n  \"reporter\": {\n    \"reference\": \"Patient/5366327\"\n  }\n}\n",
+                        "example2": "Reporter as a contained reference\n{\n  \"reporter\": \"#5366328\"\n}\n",
+                        "name": "reporter",
+                        "note": "If <a href=\"#terminology-reporter\">reporter</a> is a contained reference, a matching <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a> or <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> reference must be provided in the <a href=\"#terminology-contained\">contained</a> field.\n",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>) | <code>contained</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> | <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reporter"
+                    },
+                    {
+                        "binding": {
+                            "description": "Type of the substance and negation codes for reporting no known allergies.",
+                            "terminology": [
+                                {
+                                    "display": "RxNorm",
+                                    "info_link": "http://hl7.org/fhir/dstu2/rxnorm.html",
+                                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm"
+                                },
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "note": "SNOMED CT is supported for non-medication substances and for negations.",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "Substance, (or class) considered to be responsible for risk",
+                        "example": "{\n  \"substance\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.nlm.nih.gov/research/umls/rxnorm\",\n        \"code\": \"4125\",\n        \"display\": \"Ethiodized oil\"\n      }\n    ]\n  }\n}\n",
+                        "name": "substance",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.substance"
+                    },
+                    {
+                        "description": "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified <a href=\"#terminology-substance\">substance</a>.\n",
+                        "example": "{\n  \"status\": \"resolved\"\n}\n",
+                        "name": "status",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.status"
+                    },
+                    {
+                        "description": "Estimate of the potential clinical harm, or seriousness, of the reaction to the identified <a href=\"#terminology-substance\">substance</a>.",
+                        "example": "{\n  \"criticality\": \"CRITU\"\n}\n",
+                        "name": "criticality",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.criticality"
+                    },
+                    {
+                        "description": "Identification of the underlying physiological mechanism for the reaction risk.",
+                        "example": "{\n  \"type\": \"allergy\"\n}\n",
+                        "name": "type",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.type"
+                    },
+                    {
+                        "description": "Category of the identified <a href=\"#terminology-substance\">substance</a>.",
+                        "example": "{\n  \"type\": \"food\"\n}\n",
+                        "name": "category",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.category"
+                    },
+                    {
+                        "description": "Additional text not captured in other fields.",
+                        "example": "{\n  \"note\": {\n    \"authorReference\": {\n      \"reference\": \"Practitioner/21500971\"\n    },\n    \"time\": \"2015-10-14T13:13:20-06:00\",\n    \"text\": \"Patient complains of discomfort\"\n  }\n}\n",
+                        "name": "note",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#Annotation\"><code>Annotation</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.note"
+                    },
+                    {
+                        "description": "Individual responsible for the annotation.",
+                        "example": "{\n  \"note\": {\n    \"authorReference\": {\n      \"reference\": \"Practitioner/21500971\"\n    }\n  }\n}\n",
+                        "name": "note.authorReference",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.author_x_"
+                    },
+                    {
+                        "description": "When the annotation was made.",
+                        "example": "{\n  \"note\": {\n    \"time\": \"2015-10-14T13:13:20-06:00\"\n  }\n}\n",
+                        "name": "note.time",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.time"
+                    },
+                    {
+                        "description": "The text content.",
+                        "example": "{\n  \"note\": {\n    \"text\": \"Patient complains of discomfort\"\n  }\n}\n",
+                        "name": "note.text",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.text"
+                    },
+                    {
+                        "description": "Adverse reaction events linked to exposure to <a href=\"#terminology-substance\">substance</a>.",
+                        "example": "{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://snomed.info/sct\",\n              \"code\": \"39579001\",\n              \"display\": \"Anaphylactic reaction\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "reaction",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction"
+                    },
+                    {
+                        "description": "Logical id of the reaction event.",
+                        "example": "{\n  \"id\": \"543123\"\n}\n",
+                        "name": "reaction.id",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#id\"><code>id</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"
+                    },
+                    {
+                        "binding": {
+                            "description": "Clinical symptoms and/or signs that are observed or associated with an adverse reaction event.",
+                            "terminology": [
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "Clinical symptoms/signs associated with the event.",
+                        "example": "Manifestation with a coding:\n{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://snomed.info/sct\",\n              \"code\": \"39579001\",\n              \"display\": \"Anaphylactic reaction\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}\n",
+                        "example2": "Manifestation with a freetext value:\n{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"text\": \"Anaphylactic reaction\"\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "reaction.manifestation",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation"
+                    }
+                ],
+                "name": "AllergyIntolerance",
+                "table_name": "terminology"
+            }
+        },
+        {
+            "create": {
+                "fields": [
+                    {
+                        "description": "The type of the FHIR resource.",
+                        "example": "AllergyIntolerance",
+                        "name": "resourceType",
+                        "note": "resourceType must be AllergyIntolerance",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/json.html#resources"
+                    },
+                    {
+                        "description": "The logical id of the resource to update.",
+                        "example": "{\n  \"id\": \"123412\"\n}\n",
+                        "name": "id",
+                        "note": "The id value must match the AllergyIntolerance/&lt;id> value.",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#id\"><code>id</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"
+                    },
+                    {
+                        "description": "Contained, inline Resources.",
+                        "example": "Contained RelatedPerson\n{\n  \"contained\": [\n    {\n      \"resourceType\": \"RelatedPerson\",\n      \"id\": \"5366328\",\n      \"relationship\": {\n        \"coding\": [\n          {\n            \"system\": \"http://hl7.org/fhir/v3/RoleCode\",\n            \"code\": \"SIGOTHR\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                        "example2": "Contained Practitioner\n{\n  \"contained\": [\n    {\n      \"resourceType\": \"Practitioner\",\n      \"id\": \"123\",\n      \"practitionerRole\": [\n        {\n          \"role\": {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/v2/0286\",\n                \"code\": \"RP\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "contained",
+                        "note": "These should be either <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> or <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a> resources that are referenced with the <a href=\"#create-reporter\">reporter</a> field.\n",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/resource.html\"><code>Resource</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained"
+                    },
+                    {
+                        "description": "Date(/time) when manifestations showed.",
+                        "example": "{\n  \"onset: \"2012-07-13T00:00:00Z\"\n}\n",
+                        "name": "onset",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.onset"
+                    },
+                    {
+                        "description": "When the sensitivity was recorded.",
+                        "example": "{\n  \"recordedDate\": \"2015-10-14T13:13:20-06:00\"\n}\n",
+                        "name": "recordedDate",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate"
+                    },
+                    {
+                        "description": "Who recorded the sensitivity.",
+                        "example": "{\n  \"recorder\": {\n    \"reference\": \"Practitioner/21500971\"\n  }\n}\n",
+                        "name": "recorder",
+                        "note": "Recorder must be a <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> reference.",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recorder"
+                    },
+                    {
+                        "description": "Who the sensitivity is for.",
+                        "example": "{\n  \"patient\": {\n    \"reference\": \"Patient/5366327\"\n  }\n}\n",
+                        "name": "patient",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.patient"
+                    },
+                    {
+                        "description": "Source of the information about the allergy.",
+                        "example": "Reporter as a Patient Reference\n{\n  \"reporter\": {\n    \"reference\": \"Patient/5366327\"\n  }\n}\n",
+                        "example2": "Reporter as a contained reference\n{\n  \"reporter\": \"#5366328\"\n}\n",
+                        "name": "reporter",
+                        "note": "If <a href=\"#create-reporter\">reporter</a> is a contained reference, a matching <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a> or <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> reference must be provided in the <a href=\"#create-contained\">contained</a> field.\n",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>) | <code>contained</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> | <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reporter"
+                    },
+                    {
+                        "binding": {
+                            "description": "Type of the substance and negation codes for reporting no known allergies.",
+                            "terminology": [
+                                {
+                                    "display": "RxNorm",
+                                    "info_link": "http://hl7.org/fhir/dstu2/rxnorm.html",
+                                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm"
+                                },
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "note": "SNOMED CT is supported for non-medication substances and for negations.",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "Substance, (or class) considered to be responsible for risk",
+                        "example": "{\n  \"substance\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.nlm.nih.gov/research/umls/rxnorm\",\n        \"code\": \"4125\",\n        \"display\": \"Ethiodized oil\"\n      }\n    ]\n  }\n}\n",
+                        "name": "substance",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.substance"
+                    },
+                    {
+                        "description": "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified <a href=\"#create-substance\">substance</a>.\n",
+                        "example": "{\n  \"status\": \"resolved\"\n}\n",
+                        "name": "status",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.status"
+                    },
+                    {
+                        "description": "Estimate of the potential clinical harm, or seriousness, of the reaction to the identified <a href=\"#create-substance\">substance</a>.",
+                        "example": "{\n  \"criticality\": \"CRITU\"\n}\n",
+                        "name": "criticality",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.criticality"
+                    },
+                    {
+                        "description": "Identification of the underlying physiological mechanism for the reaction risk.",
+                        "example": "{\n  \"type\": \"allergy\"\n}\n",
+                        "name": "type",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.type"
+                    },
+                    {
+                        "description": "Category of the identified <a href=\"#create-substance\">substance</a>.",
+                        "example": "{\n  \"type\": \"food\"\n}\n",
+                        "name": "category",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.category"
+                    },
+                    {
+                        "description": "Additional text not captured in other fields.",
+                        "example": "{\n  \"note\": {\n    \"authorReference\": {\n      \"reference\": \"Practitioner/21500971\"\n    },\n    \"time\": \"2015-10-14T13:13:20-06:00\",\n    \"text\": \"Patient complains of discomfort\"\n  }\n}\n",
+                        "name": "note",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#Annotation\"><code>Annotation</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.note"
+                    },
+                    {
+                        "description": "Individual responsible for the annotation.",
+                        "example": "{\n  \"note\": {\n    \"authorReference\": {\n      \"reference\": \"Practitioner/21500971\"\n    }\n  }\n}\n",
+                        "name": "note.authorReference",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.author_x_"
+                    },
+                    {
+                        "description": "When the annotation was made.",
+                        "example": "{\n  \"note\": {\n    \"time\": \"2015-10-14T13:13:20-06:00\"\n  }\n}\n",
+                        "name": "note.time",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.time"
+                    },
+                    {
+                        "description": "The text content.",
+                        "example": "{\n  \"note\": {\n    \"text\": \"Patient complains of discomfort\"\n  }\n}\n",
+                        "name": "note.text",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.text"
+                    },
+                    {
+                        "description": "Adverse reaction events linked to exposure to <a href=\"#create-substance\">substance</a>.",
+                        "example": "{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://snomed.info/sct\",\n              \"code\": \"39579001\",\n              \"display\": \"Anaphylactic reaction\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "reaction",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction"
+                    },
+                    {
+                        "description": "Logical id of the reaction event.",
+                        "example": "{\n  \"id\": \"543123\"\n}\n",
+                        "name": "reaction.id",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#id\"><code>id</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"
+                    },
+                    {
+                        "binding": {
+                            "description": "Clinical symptoms and/or signs that are observed or associated with an adverse reaction event.",
+                            "terminology": [
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "Clinical symptoms/signs associated with the event.",
+                        "example": "Manifestation with a coding:\n{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://snomed.info/sct\",\n              \"code\": \"39579001\",\n              \"display\": \"Anaphylactic reaction\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}\n",
+                        "example2": "Manifestation with a freetext value:\n{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"text\": \"Anaphylactic reaction\"\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "reaction.manifestation",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation"
+                    }
+                ],
+                "name": "AllergyIntolerance",
+                "table_name": "create"
+            }
+        },
+        {
+            "update": {
+                "fields": [
+                    {
+                        "description": "The type of the FHIR resource.",
+                        "example": "AllergyIntolerance",
+                        "name": "resourceType",
+                        "note": "resourceType must be AllergyIntolerance",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/json.html#resources"
+                    },
+                    {
+                        "description": "The logical id of the resource to update.",
+                        "example": "{\n  \"id\": \"123412\"\n}\n",
+                        "name": "id",
+                        "note": "The id value must match the AllergyIntolerance/&lt;id> value.",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#id\"><code>id</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"
+                    },
+                    {
+                        "description": "Contained, inline Resources.",
+                        "example": "Contained RelatedPerson\n{\n  \"contained\": [\n    {\n      \"resourceType\": \"RelatedPerson\",\n      \"id\": \"5366328\",\n      \"relationship\": {\n        \"coding\": [\n          {\n            \"system\": \"http://hl7.org/fhir/v3/RoleCode\",\n            \"code\": \"SIGOTHR\"\n          }\n        ]\n      }\n    }\n  ]\n}\n",
+                        "example2": "Contained Practitioner\n{\n  \"contained\": [\n    {\n      \"resourceType\": \"Practitioner\",\n      \"id\": \"123\",\n      \"practitionerRole\": [\n        {\n          \"role\": {\n            \"coding\": [\n              {\n                \"system\": \"http://hl7.org/fhir/v2/0286\",\n                \"code\": \"RP\"\n              }\n            ]\n          }\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "contained",
+                        "note": "These should be either <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> or <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a> resources that are referenced with the <a href=\"#update-reporter\">reporter</a> field.\n",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/resource.html\"><code>Resource</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/domainresource-definitions.html#DomainResource.contained"
+                    },
+                    {
+                        "description": "Date(/time) when manifestations showed.",
+                        "example": "{\n  \"onset: \"2012-07-13T00:00:00Z\"\n}\n",
+                        "name": "onset",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.onset"
+                    },
+                    {
+                        "description": "When the sensitivity was recorded.",
+                        "example": "{\n  \"recordedDate\": \"2015-10-14T13:13:20-06:00\"\n}\n",
+                        "name": "recordedDate",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recordedDate"
+                    },
+                    {
+                        "description": "Who recorded the sensitivity.",
+                        "example": "{\n  \"recorder\": {\n    \"reference\": \"Practitioner/21500971\"\n  }\n}\n",
+                        "name": "recorder",
+                        "note": "Recorder must be a <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> reference.",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.recorder"
+                    },
+                    {
+                        "description": "Who the sensitivity is for.",
+                        "example": "{\n  \"patient\": {\n    \"reference\": \"Patient/5366327\"\n  }\n}\n",
+                        "name": "patient",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.patient"
+                    },
+                    {
+                        "description": "Source of the information about the allergy.",
+                        "example": "Reporter as a Patient Reference\n{\n  \"reporter\": {\n    \"reference\": \"Patient/5366327\"\n  }\n}\n",
+                        "example2": "Reporter as a contained reference\n{\n  \"reporter\": \"#5366328\"\n}\n",
+                        "name": "reporter",
+                        "note": "If <a href=\"#update-reporter\">reporter</a> is a contained reference, a matching <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a> or <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> reference must be provided in the <a href=\"#update-contained\">contained</a> field.\n",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/patient.html\"><code>Patient</code></a>) | <code>contained</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a> | <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/relatedperson.html\"><code>RelatedPerson</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reporter"
+                    },
+                    {
+                        "binding": {
+                            "description": "Type of the substance and negation codes for reporting no known allergies.",
+                            "terminology": [
+                                {
+                                    "display": "RxNorm",
+                                    "info_link": "http://hl7.org/fhir/dstu2/rxnorm.html",
+                                    "system": "http://www.nlm.nih.gov/research/umls/rxnorm"
+                                },
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "note": "SNOMED CT is supported for non-medication substances and for negations.",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "Substance, (or class) considered to be responsible for risk",
+                        "example": "{\n  \"substance\": {\n    \"coding\": [\n      {\n        \"system\": \"http://www.nlm.nih.gov/research/umls/rxnorm\",\n        \"code\": \"4125\",\n        \"display\": \"Ethiodized oil\"\n      }\n    ]\n  }\n}\n",
+                        "name": "substance",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.substance"
+                    },
+                    {
+                        "description": "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified <a href=\"#update-substance\">substance</a>.\n",
+                        "example": "{\n  \"status\": \"resolved\"\n}\n",
+                        "name": "status",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.status"
+                    },
+                    {
+                        "description": "Estimate of the potential clinical harm, or seriousness, of the reaction to the identified <a href=\"#update-substance\">substance</a>.",
+                        "example": "{\n  \"criticality\": \"CRITU\"\n}\n",
+                        "name": "criticality",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.criticality"
+                    },
+                    {
+                        "description": "Identification of the underlying physiological mechanism for the reaction risk.",
+                        "example": "{\n  \"type\": \"allergy\"\n}\n",
+                        "name": "type",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.type"
+                    },
+                    {
+                        "description": "Category of the identified <a href=\"#update-substance\">substance</a>.",
+                        "example": "{\n  \"type\": \"food\"\n}\n",
+                        "name": "category",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#code\"><code>code</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.category"
+                    },
+                    {
+                        "description": "Additional text not captured in other fields.",
+                        "example": "{\n  \"note\": {\n    \"authorReference\": {\n      \"reference\": \"Practitioner/21500971\"\n    },\n    \"time\": \"2015-10-14T13:13:20-06:00\",\n    \"text\": \"Patient complains of discomfort\"\n  }\n}\n",
+                        "name": "note",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#Annotation\"><code>Annotation</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.note"
+                    },
+                    {
+                        "description": "Individual responsible for the annotation.",
+                        "example": "{\n  \"note\": {\n    \"authorReference\": {\n      \"reference\": \"Practitioner/21500971\"\n    }\n  }\n}\n",
+                        "name": "note.authorReference",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/references.html\"><code>Reference</code></a> (<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/practitioner.html\"><code>Practitioner</code></a>)",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.author_x_"
+                    },
+                    {
+                        "description": "When the annotation was made.",
+                        "example": "{\n  \"note\": {\n    \"time\": \"2015-10-14T13:13:20-06:00\"\n  }\n}\n",
+                        "name": "note.time",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#dateTime\"><code>dateTime</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.time"
+                    },
+                    {
+                        "description": "The text content.",
+                        "example": "{\n  \"note\": {\n    \"text\": \"Patient complains of discomfort\"\n  }\n}\n",
+                        "name": "note.text",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#string\"><code>string</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Annotation.text"
+                    },
+                    {
+                        "description": "Adverse reaction events linked to exposure to <a href=\"#update-substance\">substance</a>.",
+                        "example": "{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://snomed.info/sct\",\n              \"code\": \"39579001\",\n              \"display\": \"Anaphylactic reaction\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "reaction",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction"
+                    },
+                    {
+                        "description": "Logical id of the reaction event.",
+                        "example": "{\n  \"id\": \"543123\"\n}\n",
+                        "name": "reaction.id",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#id\"><code>id</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"
+                    },
+                    {
+                        "binding": {
+                            "description": "Clinical symptoms and/or signs that are observed or associated with an adverse reaction event.",
+                            "terminology": [
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "Clinical symptoms/signs associated with the event.",
+                        "example": "Manifestation with a coding:\n{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"coding\": [\n            {\n              \"system\": \"http://snomed.info/sct\",\n              \"code\": \"39579001\",\n              \"display\": \"Anaphylactic reaction\"\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}\n",
+                        "example2": "Manifestation with a freetext value:\n{\n  \"reaction\": [\n    {\n      \"manifestation\": [\n        {\n          \"text\": \"Anaphylactic reaction\"\n        }\n      ]\n    }\n  ]\n}\n",
+                        "name": "reaction.manifestation",
+                        "required": "Yes",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/allergyintolerance-definitions.html#AllergyIntolerance.reaction.manifestation"
+                    }
+                ],
+                "name": "AllergyIntolerance",
+                "table_name": "update"
+            }
+        }
+    ]
+}

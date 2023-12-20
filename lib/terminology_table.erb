@@ -1,72 +1,71 @@
 <table style="display: table; white-space: normal">
   <tbody>
-    <% for item in data[:fields] %>
-      <% next unless item[:binding] %>
-      <% binding = item[:binding] %>
+     <%- data[:fields].each do |item| -%>
+     <%- next unless item[:binding] -%>
+     <%- binding = item[:binding] -%>
     <tr>
       <td>
-      <% if !item[:url].nil? %>
+       <%- if !item[:url].nil? -%>
           <a target="_blank" href="<%= item[:url]%>"><%= "#{data[:name]}.#{item[:name]}" %></a>
-      <% else %>
-          <%= "#{data[:name]}.#{item[:name]}" %>
-      <% end %>
+       <%- else -%>
+          <%= "#{data[:name]}.#{item[:name]}" -%>
+       <%- end -%>
       </td>
     </tr>
     <tr>
       <td>
         <ul style="list-style-type: none">
-          <% unless binding['description'].nil? %>
-            <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li><%= binding['description'] %></li></ul>
-          <% end %>
-          <% unless binding['note'].nil? %>
-            <li><i>Note</i></li>
+           <%- unless binding['description'].nil? -%>
+          <li><i>Description</i></li>
+          <ul style="list-style-type: none"><li><%= binding['description'] %></li></ul>
+           <%- end -%>
+           <%- unless binding['note'].nil? -%>
+          <li><i>Note</i></li>
             <%
               result = binding['note'].gsub(/`((\w|\s|\d|-|\.)+)`/) { |match|
               tag = match.tr('\`', '')
               "<code>#{tag}</code>" }
-            %>
-            <ul style="list-style-type: none"><li style="list-style-type: none"><%= result %></li></ul>
-          <% end %>
+            -%>
+          <ul style="list-style-type: none"><li style="list-style-type: none"><%= result %></li></ul>
+           <%- end -%>
 
-          <% unless binding['terminology'].nil? %>
-            <% binding['terminology'].each do |terminology| %>
-              <% unless terminology['system'].nil? && terminology['display'].nil? %>
-                  <li>
-                    <% #TODO: Adjust displays to be consistent once all resource differentiate system from info url %>
-                    <% if terminology['info_link'] %>
-                      <%= "<p>Details: <a target=\"_blank\" href=\"#{terminology['info_link']}\">#{terminology['display']}</a><br/>" %>
-                      <% for value in Array(terminology['system']) %>
-                        <%= "System: #{value} <br/>" %>
-                      <% end %>
-                      </p>
-                    <% elsif terminology['display'] && terminology['system'] %>
-                      <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['display']}</a>" %>
-                    <% elsif terminology['system'] %>
-                      <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['system']}</a>" %>
-                    <% else %>
-                      <%= terminology['display'] %>
-                    <% end %>
-                  </li>
-                  <ul style="list-style-type: none">
-                  <% if terminology['note'] %>
-                    <li><%= terminology['note'] %></li>
-                  <% end %>
-                  <% unless terminology['values'].nil? %>
-                      <li><i>Supported Values</i></li>
-                      <ul style="list-style-type: none">
-                      <% for value in terminology['values'] %>
-                        <li><%= value %></li>
-                      <% end %>
-                      </ul>
-                  <% end %>
-                  </ul>
-              <% end %>
-            <% end %>
-          <% end %>
+           <%- unless binding['terminology'].nil? -%>
+             <%- binding['terminology'].each do |terminology| -%>
+               <%- unless terminology['system'].nil? && terminology['display'].nil? -%>
+          <li>
+                     <%- #TODO: Adjust displays to be consistent once all resource differentiate system from info url -%>
+                     <%- if terminology['info_link'] -%>
+            <%= "<p>Details: <a target=\"_blank\" href=\"#{terminology['info_link']}\">#{terminology['display']}</a><br/>" -%>
+                       <%- Array(terminology['system']).each do |value| -%>
+            <%= "System: #{value} <br/>" -%>
+                       <%- end -%>
+                     <%- elsif terminology['display'] && terminology['system'] -%>
+            <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['display']}</a>" -%>
+                     <%- elsif terminology['system'] -%>
+            <%= "<a target=\"_blank\" href=\"#{terminology['system']}\">#{terminology['system']}</a>" -%>
+                     <%- else -%>
+            <%= terminology['display'] -%>
+                     <%- end -%>
+          </li>
+          <ul style="list-style-type: none">
+                   <%- if terminology['note'] -%>
+            <li><%= terminology['note'] %></li>
+                   <%- end -%>
+                   <%- unless terminology['values'].nil? -%>
+            <li><i>Supported Values</i></li>
+            <ul style="list-style-type: none">
+                       <%- terminology['values'].each do |value| -%>
+              <li><%= value %></li>
+                       <%- end -%>
+            </ul>
+                   <%- end -%>
+          </ul>
+               <%- end -%>
+             <%- end -%>
+           <%- end -%>
         </ul>
       </td>
     </tr>
-    <% end %>
+     <%- end -%>
   </tbody>
 </table>

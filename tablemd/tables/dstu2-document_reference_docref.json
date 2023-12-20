@@ -1,0 +1,4 @@
+{
+  "tables": [
+{"terminology": {"table_name":"terminology","name":"DocumentReference","fields":[{"name":"type","binding":{"description":"Precise type of clinical document.","terminology":[{"display":"LOINC","system":"http://loinc.org","info_link":"http://hl7.org/fhir/dstu2/loinc.html","values":["34133-9 - Summary of episode note"]}]},"url":"http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type"},{"name":"content","url":"http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content"},{"name":"content.format","binding":{"description":"Document format codes.","terminology":[{"display":"DocumentReference Format Code Set","system":"urn:oid:1.3.6.1.4.1.19376.1.2.3","info_link":"http://hl7.org/fhir/dstu2/valueset-formatcodes.html"}]},"url":"http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format"}]}}  ]
+}

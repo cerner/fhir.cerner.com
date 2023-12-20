@@ -1,0 +1,4 @@
+{
+  "tables": [
+{"terminology": {"table_name":"terminology","name":"Observation","fields":[{"name":"code","type":"<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>","required":"Yes","description":"Describes what was observed. Sometimes this is called the observation \"name\".","binding":{"description":"Codes identifying names of simple observations.","terminology":[{"display":"LOINC","system":"http://loinc.org","info_link":"http://hl7.org/fhir/dstu2/loinc.html"},{"display":"SNOMED CT","system":"http://snomed.info/","info_link":"http://hl7.org/fhir/dstu2/snomedct.html"}]},"url":"http://hl7.org/fhir/DSTU2/observation-definitions.html#Observation.code"}]}}  ]
+}

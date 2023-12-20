@@ -1,0 +1,99 @@
+{
+    "tables": [
+        {
+            "terminology": {
+                "fields": [
+                    {
+                        "binding": {
+                            "description": "Identifies the vaccine substance administered.",
+                            "note": "The CVX binding will always be returned. A NDC binding will be returned when available.",
+                            "terminology": [
+                                {
+                                    "display": "CVX",
+                                    "info_link": "http://hl7.org/fhir/dstu2/cvx.html",
+                                    "system": "http://hl7.org/fhir/sid/cvx"
+                                },
+                                {
+                                    "display": "NDC",
+                                    "info_link": "http://hl7.org/fhir/dstu2/ndc.html",
+                                    "system": "http://hl7.org/fhir/sid/ndc"
+                                }
+                            ]
+                        },
+                        "description": "The vaccine that was administered or was to be administered.",
+                        "name": "vaccineCode",
+                        "required": "Yes",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.vaccineCode"
+                    },
+                    {
+                        "binding": {
+                            "description": "The site at which the vaccine was administered.",
+                            "terminology": [
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "system": "http://snomed.info/sct"
+                                }
+                            ]
+                        },
+                        "description": "The body site where the vaccine was administered.",
+                        "name": "site",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.site"
+                    },
+                    {
+                        "binding": {
+                            "description": "The path the administered medication takes to get into the body or into contact with the body.",
+                            "terminology": [
+                                {
+                                    "display": "SNOMED CT",
+                                    "info_link": "http://hl7.org/fhir/dstu2/snomedct.html",
+                                    "system": "http://snomed.info/sct"
+                                },
+                                {
+                                    "display": "NCI Metathesaurus",
+                                    "info_link": "http://hl7.org/fhir/dstu2/ncimeta.html",
+                                    "system": "http://ncimeta.nci.nih.gov"
+                                }
+                            ]
+                        },
+                        "description": "The path by which the vaccine product is taken into the body.",
+                        "name": "route",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.route"
+                    },
+                    {
+                        "description": "Reasons why a vaccine was or was not administered.",
+                        "name": "explanation",
+                        "required": "No",
+                        "type": "<a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/backboneelement.html\"><code>BackboneElement</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.explanation"
+                    },
+                    {
+                        "binding": {
+                            "description": "The reason why a vaccine was not administered.",
+                            "terminology": [
+                                {
+                                    "display": "v3 Code System ActReason",
+                                    "info_link": "http://hl7.org/fhir/dstu2/valueset-no-immunization-reason.html",
+                                    "system": "http://hl7.org/fhir/v3/ActReason"
+                                }
+                            ]
+                        },
+                        "description": "Why immunization did not occur.",
+                        "name": "explanation.reasonNotGiven",
+                        "note": "While the FHIR Valueset currently supports SNOMED and V3, our implementation will currently only return V3 values.",
+                        "required": "No",
+                        "type": "<code>List</code> <code>of</code> <a target=\"_blank\" href=\"http://hl7.org/fhir/DSTU2/datatypes.html#CodeableConcept\"><code>CodeableConcept</code></a>",
+                        "url": "http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.explanation.reasonNotGiven"
+                    }
+                ],
+                "name": "Immunization",
+                "table_name": "terminology"
+            }
+        }
+    ]
+}

@@ -52,16 +52,16 @@ class DefinitionTableGenerator
 
     data = {
       table_name: @table_name,
-      options: options&.compact,
+      options: options,
       name: schema['name'],
       fields: fields
     }
 
-    out_file = File.new("/Users/am025347/workspace/fhir.cerner.com/tablemd/tables/#{@version}-#{content_key}.json", 'a')
-    out_file.puts("{\"#{@table_name}\": #{data.to_json}},")
-    out_file.close
+    # out_file = File.new("/Users/am025347/workspace/fhir.cerner.com/tablemd/tables/#{@version}-#{content_key}.json", 'a')
+    # out_file.puts("{\"#{@table_name}\": #{data.to_json}},")
+    # out_file.close
 
-    ERB.new(File.read("lib/#{erb_name}.erb")).result(binding)
+    puts ERB.new(File.read("lib/#{erb_name}.erb"), trim_mode: '-').result(binding)
   end
 
   def flatten_fields(fields:, base_url:, types:, erb_name:, parent: nil) # rubocop:disable Metrics/MethodLength, Metrics/CyclomaticComplexity
@@ -70,51 +70,51 @@ class DefinitionTableGenerator
     return results if fields.nil? || fields.empty?
 
     fields.each do |field| # rubocop:disable Metrics/BlockLength
-      puts "       - rendering: #{field[' name ']}"
+      puts "       - rendering: #{field['name']}"
 
       next unless supported_for_action?(field)
 
-      field_name = if erb_name == ' terminology_table '
-                     get_value(field[' terminology_name ']) || get_value(field[' name '])
+      field_name = if erb_name == 'terminology_table'
+                     get_value(field['terminology_name']) || get_value(field['name'])
                    else
-                     get_value(field[' name '])
+                     get_value(field['name'])
                    end
 
-      name = if get_value(field[' extension_child '])
+      name = if get_value(field['extension_child'])
                field_name
              else
                parent.nil? ? field_name : "#{parent}.#{field_name}"
              end
 
-      field_type = get_value(field[' type '])
+      field_type = get_value(field['type'])
 
-      url = get_value(field[' url '])
+      url = get_value(field['url'])
       url ||= "#{base_url}.#{name}" unless base_url.nil?
 
       values = {
         name: name,
         type: field_type,
-        required: get_value(field[' required ']),
-        description: get_value(field[' description ']),
-        example: get_value(field[' example ']),
-        example2: get_value(field[' example2 ']),
-        example3: get_value(field[' example3 ']),
-        example4: get_value(field[' example4 ']),
-        note: get_value(field[' note ']),
-        binding: get_value(field[' binding ']),
+        required: get_value(field['required']),
+        description: get_value(field['description']),
+        example: get_value(field['example']),
+        example2: get_value(field['example2']),
+        example3: get_value(field['example3']),
+        example4: get_value(field['example4']),
+        note: get_value(field['note']),
+        binding: get_value(field['binding']),
         url: url
       }
 
       if @action == :patch
-        values[:path] = get_value(field[' path '])
-        values[:operation] = get_value(field[' operation '])
+        values[:path] = get_value(field['path'])
+        values[:operation] = get_value(field['operation'])
       end
 
       results << values
 
-      unless field[' children '].nil?
+      unless field['children'].nil?
         results << flatten_fields(
-          fields: field[' children '],
+          fields: field['children'],
           base_url: base_url,
           types: types,
           erb_name: erb_name,
