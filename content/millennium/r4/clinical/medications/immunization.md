@@ -77,6 +77,7 @@ Search for immunizations that meet supplied query parameters:
  `_id`            | Conditionally      | [`token`]     | The logical resource ID associated with the resource. This parameter is required if the `patient` parameter is not used. Example: `M12345`
  `patient`        | Conditionally      | [`reference`] | The patient for the vaccination record. This parameter is required if the `_id` parameter is not used. Example: `12345`
  `date`           | No                 | [`date`]      | The date range for the immunization administration or administrations. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
+ `_lastUpdated`   | N                  | [`date`]      | Date on which the immunization was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=gt2014-09-24T12:00:00.000Z`
  `target-disease` | No                 | [`token`]     | The target disease that the dose is being administered against. Example: `http://hl7.org/fhir/sid/cvx|213`
  `_revinclude`    | No                 | [`token`]     | The Provenance resource entries that are returned as part of the bundle.
 
@@ -94,6 +95,10 @@ _Implementation Notes_
   - For two `date` occurrences: 
     - It must be provided with `le` and `ge` prefixes to search for vaccination records within a specific range. 
     - The time component is optional, but must be consistent. If one date has a time component, so must the other.
+- When  searching with `_lastUpdated` parameter: 
+  - It can be provided with only a single reference, and must use the `gt` prefix
+  - The time component is optional.
+  - The `date` and `_lastUpdated` parameters may not be provided together.
 - When searching with the `target-disease` parameter:
   - Searching by Cerner Millennium proprietary codes is not supported.
 - When searching with the `_revinclude` parameter:
