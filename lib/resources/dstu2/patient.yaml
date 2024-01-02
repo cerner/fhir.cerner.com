@@ -307,7 +307,7 @@ fields:
         }
       ]
     }
-  note: The careProvider must be a reference to a Practitioner
+  note: The careProvider must be a reference to a Practitioner.
   url: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider
 
 - name: Birth Sex Extension
