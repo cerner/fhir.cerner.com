@@ -1,0 +1,58 @@
+
+  description: |
+    # Patch Operations
+
+    ## Replace Status
+    _Description_
+    
+    The status of the slot.
+    
+    |Path|Operation|Value Type|
+    |---|---|---|
+    |[`/status`](https://hl7.org/fhir/R4/slot-definitions.html#Slot.status)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
+    
+    _Example_
+    
+    ````json
+    {
+      "op": "replace",
+      "path": "/status"
+      "status": "free"
+    }
+    
+    ````
+    
+    _Notes_
+    <ul>
+      <li>Only <code>free</code> and <code>busy-tentative</code> are supported.</li>
+    </ul>
+    
+  consumes: 
+  produces: 
+  parameters: 
+    - name: patchBody
+      in: body
+      required: true
+      schema: {
+        "$ref": "#definitions/PatchBody"
+      }
+  responses: 
+
+definitions:
+  PatchBody:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+      - op
+      - path
+      properties:
+        op:
+          type: string
+          enum:
+          - replace
+        path:
+          type: string
+        value:
+          type: string
