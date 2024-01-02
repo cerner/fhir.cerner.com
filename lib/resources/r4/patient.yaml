@@ -11,7 +11,7 @@ fields:
   - name: type
     type: CodeableConcept
     description: The type for the identifier that can be used to determine which identifier to use for a specific purpose.
-    url: http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
+    url: https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type
     action: terminology
     binding:
       description: The type used to determine which identifier to use for a specific purpose.
@@ -200,7 +200,7 @@ fields:
       <li>The `family` field has a character limit of 100.</li>
       <li>Each value for the `given`, `prefix`, and `suffix` fields has a character limit of 100.</li>
     </ul>
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.name
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.name
 
 - name: active
   required: 'No'
@@ -246,7 +246,7 @@ fields:
       <li>When specifying an `extension`, the `system` field must be 'phone'.</li>
       <li>When specifying an `extension`, the `extension.url` field must be 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'.</li>
     </ul>
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom
 
 - name: gender
   required: 'No'
@@ -257,7 +257,7 @@ fields:
     {
       "gender": "male"
     }
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.gender
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender
 
 - name: birthDate
   required: 'No'
@@ -268,7 +268,7 @@ fields:
     {
       "birthDate": "1990-09-15"
     }
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate
 
 - name: address
   required: 'No'
@@ -305,7 +305,7 @@ fields:
       <li>The `city`, `district`, `state`, and `country` fields have a character limit of 100.</li>
       <li>The `postalCode` field has a character limit of 25.</li>
     </ul>
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.address
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.address
 
 - name: maritalStatus
   required: 'No'
@@ -325,7 +325,7 @@ fields:
         "text": "Never Married"
       }
     }
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus
 
 - name: communication
   required: 'No'
@@ -351,7 +351,7 @@ fields:
       ]
     }
   note: Only one communication may be provided.
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.communication
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication
 
 - name: generalPractitioner
   required: 'No'
@@ -367,7 +367,7 @@ fields:
       ]
     }
   note: Must only include references to Practitioners.
-  url: http://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner
 
 - name: US Core Birth Sex Extension
   required: 'No'
