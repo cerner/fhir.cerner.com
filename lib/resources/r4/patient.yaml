@@ -152,18 +152,6 @@ fields:
     </ul>
   url: https://hl7.org/fhir/R4/datatypes.html#Identifier
 
-- name: active
-  required: 'No'
-  type: boolean
-  description: Whether this patient record is in active use.
-  action: create
-  example: |
-    {
-      "active": true
-    }
-  note: If set, value must be true.
-  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.active
-
 - name: name
   required: 'Yes'
   type: List of HumanName
@@ -213,6 +201,18 @@ fields:
       <li>Each value for the `given`, `prefix`, and `suffix` fields has a character limit of 100.</li>
     </ul>
   url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.name
+
+- name: active
+  required: 'No'
+  type: boolean
+  description: Whether this patient record is in active use.
+  action: create
+  example: |
+    {
+      "active": true
+    }
+  note: If set, the value must be `true`.
+  url: https://hl7.org/fhir/R4/patient-definitions.html#Patient.active
 
 - name: telecom
   required: 'No'

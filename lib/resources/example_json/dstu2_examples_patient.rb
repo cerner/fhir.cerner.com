@@ -295,12 +295,12 @@ module Cerner
       'maritalStatus': {
         'coding': [
           {
-            'system': 'http://hl7.org/fhir/v3/NullFlavor',
-            'code': 'UNK',
-            'display': 'Unknown'
+            'system': 'http://hl7.org/fhir/v3/MaritalStatus',
+            'code': 'S',
+            'display': 'Never Married'
           }
         ],
-        'text': 'Unknown'
+        'text': 'Single'
       },
       'communication': [
         {

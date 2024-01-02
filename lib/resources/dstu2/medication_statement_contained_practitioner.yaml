@@ -1,6 +1,6 @@
 ---
 name: Practitioner
-field_name_base_url: http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner
+field_name_base_url: https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner
 fields:
 
 - name: practitionerRole
@@ -18,3 +18,4 @@ fields:
       terminology:
           - display: Practitioner Role
             system: http://hl7.org/fhir/practitioner-role
+            info_link: https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role

@@ -5,16 +5,16 @@ module Cerner
 
     R4_PRACTITIONER_ENTRY ||= {
       'resourceType': 'Practitioner',
-      'id': '109413936',
+      'id': '4122622',
       'meta': {
-        'versionId': '0',
-        'lastUpdated': '2019-03-07T20:40:34.000Z'
+        'versionId': '20',
+        'lastUpdated': '2023-11-08T20:50:26.000Z'
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Practitioner</b></p><p><b>Name</b>: Lombardi, '\
-        'Falco Shine</p><p><b>Identifiers</b>: DOCUPIN: F88788, DOCDEA: 887887887, SPI: 16611661, NPI: 6656656, '\
-        'PRSNLPRIMID: 12332122</p><p><b>Gender</b>: Male</p><p><b>Status</b>: Active</p></div>'
+        'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Practitioner</b></p><p><b>Name</b>: Cerner Test, '\
+          'Physician - Hospitalist Cerner</p><p><b>Identifiers</b>: NPI: 1111111111</p><p><b>Gender</b>: Other</p>'\
+          '<p><b>Status</b>: Active</p></div>'
       },
       'extension': [
         {
@@ -29,67 +29,6 @@ module Cerner
             'coding': [
               {
                 'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
-                'code': 'PRN',
-                'display': 'Provider number'
-              }
-            ],
-            'text': 'DOCUPIN'
-          },
-          '_system': {
-            'extension': [
-              {
-                'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason',
-                'valueCode': 'unknown'
-              }
-            ]
-          },
-          'value': 'F88788',
-          'period': {
-            'start': '2019-03-07T20:40:35.000Z'
-          }
-        },
-        {
-          'use': 'usual',
-          'type': {
-            'coding': [
-              {
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
-                'code': 'DEA',
-                'display': 'Drug Enforcement Administration registration number'
-              }
-            ],
-            'text': 'DOCDEA'
-          },
-          'system': 'urn:oid:2.16.840.1.113883.4.814',
-          'value': '887887887',
-          'period': {
-            'start': '2019-03-07T20:40:35.000Z'
-          }
-        },
-        {
-          'use': 'usual',
-          'type': {
-            'coding': [
-              {
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
-                'code': 'PRN',
-                'display': 'Provider number'
-              }
-            ],
-            'text': 'SureScripts Prescriber Index'
-          },
-          'system': 'urn:oid:2.16.840.1.113883.3.2054',
-          'value': '16611661',
-          'period': {
-            'start': '2019-04-12T18:24:23.000Z'
-          }
-        },
-        {
-          'use': 'usual',
-          'type': {
-            'coding': [
-              {
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
                 'code': 'NPI',
                 'display': 'National provider identifier'
               }
@@ -97,20 +36,9 @@ module Cerner
             'text': 'National Provider Identifier'
           },
           'system': 'http://hl7.org/fhir/sid/us-npi',
-          'value': '6656656',
+          'value': '1111111111',
           'period': {
-            'start': '2019-03-07T20:40:35.000Z'
-          }
-        },
-        {
-          'use': 'usual',
-          'type': {
-            'text': 'Personnel Primary Identifier'
-          },
-          'system': 'urn:oid:1.2.243.58',
-          'value': '12332122',
-          'period': {
-            'start': '2019-04-12T18:24:23.000Z'
+            'start': '2015-10-14T05:00:00.000Z'
           }
         }
       ],
@@ -118,163 +46,68 @@ module Cerner
       'name': [
         {
           'use': 'usual',
-          'text': 'Lombardi, Falco Shine',
-          'family': 'Lombardi',
+          'text': 'Cerner Test, Physician - Hospitalist Cerner',
+          'family': 'Cerner Test',
           'given': [
-            'Falco',
-            'Shine'
-          ],
-          'prefix': [
-            'Dr.'
-          ],
-          'suffix': [
-            'M.D.'
+            'Physician - Hospitalist',
+            'Cerner'
           ],
           'period': {
-            'start': '2019-03-07T20:40:35.000Z'
+            'start': '2015-09-22T20:58:42.000Z'
           }
         }
       ],
       'telecom': [
         {
           'system': 'phone',
-          'value': '7861231234',
-          'use': 'work'
-        },
-        {
-          'system': 'email',
-          'value': 'falco.lombardi@sfox.com',
+          'value': '5555550001',
           'use': 'work'
         }
       ],
       'address': [
         {
-          'use': 'work',
-          'text': '111 Corneria Dr.\nTallahassee, FL 32304\nUSA',
+          'use': 'billing',
+          'text': '1989 Cornelia St\nKansas City, MO 64012\nUS',
           'line': [
-            '111 Corneria Dr.'
+            '1989 Cornelia St'
           ],
-          'city': 'Tallahassee',
-          'district': 'Leon',
-          'state': 'FL',
-          'postalCode': '32304',
-          'country': 'USA'
+          'city': 'Kansas City',
+          'district': 'Jackson',
+          'state': 'MO',
+          'postalCode': '64012',
+          'country': 'US'
+        },
+        {
+          'use': 'work',
+          'text': '1234 Main\nKansas City, MO 64111\nUS',
+          'line': [
+            '1234 Main'
+          ],
+          'city': 'Kansas City',
+          'state': 'MO',
+          'postalCode': '64111',
+          'country': 'US'
         }
       ],
-      'gender': 'male',
+      'gender': 'other',
       'qualification': [
         {
           'code': {
             'coding': [
               {
                 'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600',
-                'code': '677091',
-                'display': 'MD',
+                'code': '677018',
+                'display': 'AMA',
                 'userSelected': true
               }
             ],
-            'text': 'MD'
+            'text': 'AMA'
           },
           'period': {
-            'start': '2014-07-09T06:00:00.000Z'
-          }
-        },
-        {
-          'code': {
-            'coding': [
-              {
-                'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600',
-                'code': '677079',
-                'display': 'PhD',
-                'userSelected': true
-              }
-            ],
-            'text': 'PhD'
-          },
-          'period': {
-            'start': '2014-07-09T06:00:00.000Z'
+            'start': '2016-11-08T06:00:00.000Z'
           }
         }
       ]
-    }.freeze
-
-    R4_PRACTITIONER_PATIENT_ACCESS_ENTRY ||= {
-      'resourceType': 'Practitioner',
-      'id': '109413936',
-      'meta': {
-        'versionId': '0',
-        'lastUpdated': '2019-03-07T20:40:34.000Z'
-      },
-      'text': {
-        'status': 'generated',
-        'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Practitioner</b></p><p><b>Name</b>: Lombardi, '\
-        'Falco Shine</p><p><b>Identifiers</b>: SPI: 16611661, NPI: 6656656</p><p><b>Gender</b>: Male'\
-        '</p><p><b>Status</b>: Active</p></div>'
-      },
-      'extension': [
-        {
-          'valueBoolean': true,
-          'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician'
-        }
-      ],
-      'identifier': [
-        {
-          'use': 'usual',
-          'type': {
-            'text': 'SureScripts Prescriber Index'
-          },
-          'system': 'urn:oid:2.16.840.1.113883.3.2054',
-          'value': '16611661',
-          'period': {
-            'start': '2019-04-12T18:24:23.000Z'
-          }
-        },
-        {
-          'use': 'usual',
-          'type': {
-            'coding': [
-              {
-                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
-                'code': 'NPI',
-                'display': 'National provider identifier'
-              }
-            ],
-            'text': 'National Provider Identifier'
-          },
-          'system': 'http://hl7.org/fhir/sid/us-npi',
-          'value': '6656656',
-          'period': {
-            'start': '2019-03-07T20:40:35.000Z'
-          }
-        }
-      ],
-      'active': true,
-      'name': [
-        {
-          'use': 'usual',
-          'text': 'Lombardi, Falco Shine',
-          'family': 'Lombardi',
-          'given': [
-            'Falco',
-            'Shine'
-          ],
-          'prefix': [
-            'Dr.'
-          ],
-          'suffix': [
-            'M.D.'
-          ],
-          'period': {
-            'start': '2019-03-07T20:40:35.000Z'
-          }
-        }
-      ],
-      'telecom': [
-        {
-          'value': 'falco.lombardi@sfox.com'
-        }
-      ],
-      'gender': 'male'
     }.freeze
 
     R4_PRACTITIONER_BUNDLE ||= {
@@ -284,53 +117,14 @@ module Cerner
       'link': [
         {
           'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936'
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?'\
+            'identifier=http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Fus-npi%7C1111111111'
         }
       ],
       'entry': [
         {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936',
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/4122622',
           'resource': R4_PRACTITIONER_ENTRY
-        }
-      ]
-    }.freeze
-
-    R4_PRACTITIONER_ACTIVE_BUNDLE ||= {
-      'resourceType': 'Bundle',
-      'id': '7ec264d2-c7c7-49b2-8478-22351c82db73',
-      'type': 'searchset',
-      'link': [
-        {
-          'relation': 'self',
-          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true&_count=100'
-        },
-        {
-          "relation": 'next',
-          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true&_count=100&-offset=100'
-        }
-      ],
-      'entry': [
-        {
-          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936',
-          'resource': R4_PRACTITIONER_ENTRY
-        }
-      ]
-    }.freeze
-
-    R4_PRACTITIONER_PATIENT_ACCESS_BUNDLE ||= {
-      'resourceType': 'Bundle',
-      'id': '13230afb-0bbd-45a6-a7c9-9c6d286a2f4c',
-      'type': 'searchset',
-      'link': [
-        {
-          'relation': 'self',
-          'url': 'https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936'
-        }
-      ],
-      'entry': [
-        {
-          'fullUrl': 'https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936',
-          'resource': R4_PRACTITIONER_PATIENT_ACCESS_ENTRY
         }
       ]
     }.freeze

@@ -32,10 +32,10 @@ fields:
 - name: statusReason
   required: 'No'
   type: CodeableConcept
-  description: Reason for the current status
+  description: Reason for the current status.
   action: get
   binding:
-    description: Reason for the current status
+    description: Reason for the current status.
     terminology:
     - display: MedicationRequest Status Reason Codes
       system: http://terminology.hl7.org/CodeSystem/medicationrequest-status-reason
@@ -63,10 +63,10 @@ fields:
 - name: category
   required: 'No'
   type: CodeableConcept
-  description: Type of Medication Request
+  description: Type of Medication Request.
   action: get
   binding:
-    description: Type of Medication Request
+    description: Type of Medication Request.
     terminology:
     - display: Medication Request Category Codes
       system: http://terminology.hl7.org/CodeSystem/medicationrequest-category
@@ -80,10 +80,10 @@ fields:
 - name: priority
   required: 'No'
   type: code
-  description: Medication Request Priority
+  description: Medication Request Priority.
   action: get
   binding:
-    description: Medication Request Priority
+    description: Medication Request Priority.
     terminology:
     - display: Request Priority
       system: http://hl7.org/fhir/request-priority
@@ -101,7 +101,7 @@ fields:
 - name: reported[x]
   required: 'Yes'
   type: boolean
-  description: Indicates if this record was captured as a secondary 'reported' record rather than as an original primary source-of-truth record.
+  description: Indicates if this record was captured as a secondary `reported` record rather than as an original primary source-of-truth record.
   action: create
   note: Must be of type boolean and must be set to `true`.
   example: |
@@ -112,7 +112,7 @@ fields:
   required: 'Yes'
   type: CodeableConcept
   description: A code that defines the medication
-  note: Must be of type CodeableConcept. `text` and/or one `coding` with a `system` and `code` must be provided.
+  note: Must be of type CodeableConcept. Either `text`, or one `coding` with a `system` and `code` must be provided.
   example: |
     {
       "medicationCodeableConcept": {
@@ -126,7 +126,7 @@ fields:
       }
     }
   binding:
-    description: A code that defines the medication
+    description: A code that defines the medication.
     terminology:
     - display: RxNorm
       system: http://www.nlm.nih.gov/research/umls/rxnorm
@@ -149,7 +149,7 @@ fields:
 - name: encounter
   required: 'No'
   type: Reference (Encounter)
-  description: The Encounter this medication request was created or to which the creation of this record is tightly associated.
+  description: The `Encounter` this medication request was created or to which the creation of this record is tightly associated.
   action: create
   example: |
     {
@@ -160,10 +160,10 @@ fields:
 - name: reasonCode
   required: 'No'
   type: CodeableConcept
-  description: Reason why medication is/was taken
+  description: Reason why medication is/was taken.
   action: get
   binding:
-    description: Reason why medication is/was taken
+    description: Reason why medication is/was taken.
     terminology:
     - display: SNOMED CT
       system: http://snomed.info/sct
@@ -214,7 +214,7 @@ fields:
     type: string
     description: The supplemental instruction or warnings to the patient.
     url: https://www.hl7.org/fhir/r4/dosage-definitions.html#Dosage.additionalInstruction
-    note: If provided, can only be provided once. `text` is only supported.
+    note: If provided, can only be provided once. Only `text` supported.
     action: create
     example: |
       {
@@ -319,7 +319,7 @@ fields:
     - name: code
       required: 'No'
       type: CodeableConcept
-      description: Code for a known/defined timing pattern
+      description: Code for a known/defined timing pattern.
       note: |
         <ul>
           <li>If provided, only the `coding` field is supported.</li>
@@ -327,7 +327,7 @@ fields:
         </ul>
       url: https://www.hl7.org/fhir/r4/datatypes-definitions.html#Timing.code
       binding:
-        description: Code for a known/defined timing pattern
+        description: Code for a known/defined timing pattern.
         terminology:
         - display: TimingAbbreviation
           system: http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation

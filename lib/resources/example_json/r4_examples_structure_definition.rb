@@ -13,17 +13,17 @@ module Cerner
       'date': '2019-08-13',
       'publisher': 'Cerner',
       'description': 'Represents the sum of all credits and all debits associated with the account. '\
-                     'May be positive, zero or negative.',
+        'May be positive, zero or negative.',
       'fhirVersion': '4.0.0',
       'kind': 'complex-type',
       'abstract': false,
-      'type': 'Extension',
       'context': [
         {
           'type': 'element',
           'expression': 'Account'
         }
       ],
+      'type': 'Extension',
       'baseDefinition': 'http://hl7.org/fhir/StructureDefinition/Extension',
       'snapshot': {
         'element': [
@@ -32,7 +32,7 @@ module Cerner
             'path': 'Extension',
             'short': 'Represents the account balance',
             'definition': 'Represents the sum of all credits and all debits associated with the account. '\
-                          'May be positive, zero or negative.',
+              'May be positive, zero or negative.',
             'min': 0,
             'max': '1',
             'base': {
@@ -95,9 +95,9 @@ module Cerner
             'short': 'identifies the meaning of the extension',
             'definition': 'Source of the definition for the extension code - a logical name or a URL.',
             'comment': 'The definition may point directly to a computable or human-readable definition of the '\
-                       'extensibility codes, or it may be a logical URI as declared in some other specification. The '\
-                       'definition should be version specific.  This will ideally be the URI for the Resource Profile '\
-                       'defining the extension, with the code for the extension after a #.',
+              'extensibility codes, or it may be a logical URI as declared in some other specification. The '\
+              'definition should be version specific.  This will ideally be the URI for the Resource Profile defining '\
+              'the extension, with the code for the extension after a #.',
             'min': 1,
             'max': '1',
             'base': {
@@ -116,8 +116,8 @@ module Cerner
             'id': 'Extension.valueMoney',
             'path': 'Extension.valueMoney',
             'short': 'Value of extension',
-            'definition': 'Value of extension - may be a resource or one of a constrained set of the data '\
-                          'types (see Extensibility in the spec for list).',
+            'definition': 'Value of extension - may be a resource or one of a constrained set of the data types '\
+              '(see Extensibility in the spec for list).',
             'min': 1,
             'max': '1',
             'base': {
@@ -140,7 +140,7 @@ module Cerner
             'path': 'Extension',
             'short': 'Represents the account balance',
             'definition': 'Represents the sum of all credits and all debits associated with the account. '\
-                          'May be positive, zero or negative.',
+              'May be positive, zero or negative.',
             'min': 0,
             'max': '1',
             'type': [
