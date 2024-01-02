@@ -85,21 +85,21 @@ Search for patients who meet supplied query parameters.
 
 _Notes_
 
-* A `422 (Unprocessable Entity)` status code is returned when more than 1000 patients qualify for the search criteria.
+* A `422 Unprocessable Content` status code is returned when more than 1,000 patients qualify for the search criteria.
 * The `name`, `family`, and `given` parameters support the [`:exact`] modifier and search for current names only, based on the name's `period`.
-* Oracle Cerner does not recommend combining the `family` or `given` parameters with the `name` parameter when searching for a patient. Whenever possible, use the `:exact` modifier.
+* We do not recommend combining the `family` or `given` parameters with the `name` parameter when searching for a patient. Whenever possible, use the `:exact` modifier.
 * The `identifier`, `name`, `family`, `given`, `phone`, `email`, `address-postalcode`, or `gender` parameters may be provided exactly once and may have only a single value.
-* The `birthdate` parameter:
+* The `birthdate` parameter
   * May be provided once using one of the following prefixes to imply a date range: `ge`, `le`, `gt`, `lt`, or `eq`.
   * May be provided twice to indicate a date range and must contain one prefix each of `le` and `ge`. Example: `birthdate=ge2001-03-13&birthdate=le2001-05-01`
   * Must not be provided with a time component.
-* The `identifier` parameter:
+* The `identifier` parameter
     * Requires a code, but the system is optional. If the system is not provided, the search is performed across all systems supported by the Patient resource.
     * Searches against the specific system, if it is provided.
     * Accepts a Social Security Number (SSN), but the value is not returned in a matching response.
-* The `_revinclude` parameter:
-  * May be provided once with the `Provenance:target` value. Example: `_revinclude=Provenance:target`
-  * Requires the OAuth2 token to include the Provenance scope corresponding with the current Patient scope, such as `user/Provenance.read`, `patient/Provenance.read`, or `system/Provenance.read`.
+* The `_revinclude` parameter
+  * May be provided once with the value of `Provenance:target`. Example: `_revinclude=Provenance:target`
+  * Requires the OAuth2 token to include the Provenance scope corresponding to the current Patient scope, such as `user/Provenance.read`, `patient/Provenance.read`, or `system/Provenance.read`.
 
 ### Headers
 
@@ -277,7 +277,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 ## Operation: $health-cards-issue
 
-Issues health cards for an existing patient.
+Issues Health Cards for an existing patient.
 
     POST /Patient/:id/$health-cards-issue
 
