@@ -16,17 +16,17 @@ The following fields are returned if valued:
 * [Patient ID](https://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id){:target="_blank"}
 * [Name](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.name){:target="_blank"}
 * [Extension](#extensions)
-* [Identifier](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier){:target="_blank"}
-* [Telecom](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
-* [Contact](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact){:target="_blank"}
-* [Gender](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.gender){:target="_blank"}
-* [Date of Birth](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.birthDate){:target="_blank"}
-* [Deceased](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
-* [Address](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.address){:target="_blank"}
-* [Communication language](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.communication.language){:target="_blank"}
-* [Marital status](http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.maritalStatus){:target="_blank"}
-* [Care Provider](http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider){:target="_blank"}
-* [Multiple Birth](http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.multipleBirth_x_){:target="_blank"}
+* [Identifier](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.identifier){:target="_blank"}
+* [Telecom](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.telecom){:target="_blank"}
+* [Contact](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.contact){:target="_blank"}
+* [Gender](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.gender){:target="_blank"}
+* [Date of Birth](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.birthDate){:target="_blank"}
+* [Deceased](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.deceased_x_){:target="_blank"}
+* [Address](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.address){:target="_blank"}
+* [Communication language](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.communication.language){:target="_blank"}
+* [Marital status](https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.maritalStatus){:target="_blank"}
+* [Care Provider](https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.careProvider){:target="_blank"}
+* [Multiple Birth](https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.multipleBirth_x_){:target="_blank"}
 
 <%= disclaimer %>
 
@@ -81,13 +81,13 @@ _Notes_
 _Notes_
 
 * The `name`, `family`, and `given` parameters support the [`:exact`] modifier and search for current names only, based on the name's `period`.
-* Oracle Cerner does not recommend combining `family` or `given` parameters with the `name` parameter when searching for a patient. Whenever possible, use the ':exact' modifier.
+* We do not recommend combining `family` or `given` parameters with the `name` parameter when searching for a patient. Whenever possible, use the `:exact` modifier.
 * The `address-postalcode` parameter supports the [`:exact`] modifier.
 * The `identifier`, `name`, `family`, `given`, `phone`, `email`, `address-postalcode`, or `gender` parameters may be provided exactly once and may have only a single value.
 * The `birthdate` parameter may be provided in the following formats:
   * Once with a prefix of `ge`, `le`, `gt`, `lt`, or `eq`. Example: `birthdate=ge2001-03-13`
   * Twice to indicate a date range and must contain one prefix each of `le` and `ge`. Example: `birthdate=ge2001-03-13&birthdate=le2001-05-01`
-* A `422 - Unprocessable Entity` is returned when over 1000 patients qualify for the search criteria.
+* A `422 - Unprocessable Entity` is returned when over 1,000 patients qualify for the search criteria.
 
 ### Headers
 
@@ -217,23 +217,23 @@ Content-Type: application/json
 
 The `ETag` response header indicates the current `If-Match` version to use on subsequent updates.
 
-[Time of day of birth]: http://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
-[Argonaut Race]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-race.html
-[Argonaut Ethnicity]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-ethnicity.html
-[Argonaut Patient Birth Sex]: http://build.fhir.org/ig/Healthedata1/Argo-DSTU2/StructureDefinition-argo-birthsex.html
-[Rendered Value]: http://hl7.org/fhir/extension-rendered-value.html
-[`token`]: http://hl7.org/fhir/DSTU2/search.html#token
-[`date`]: http://hl7.org/fhir/DSTU2/search.html#date
-[`string`]: http://hl7.org/fhir/DSTU2/search.html#string
-[`_count`]: http://hl7.org/fhir/DSTU2/search.html#count
-[`number`]: http://hl7.org/fhir/DSTU2/search.html#number
+[Time of day of birth]: https://hl7.org/fhir/DSTU2/extension-patient-birthtime.html
+[Argonaut Race]: https://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-race.html
+[Argonaut Ethnicity]: https://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-ethnicity.html
+[Argonaut Patient Birth Sex]: https://www.fhir.org/guides/argonaut/r2/StructureDefinition-argo-birthsex.html
+[Rendered Value]: https://www.hl7.org/fhir/DSTU2/extensibility.html
+[`token`]: https://hl7.org/fhir/DSTU2/search.html#token
+[`date`]: https://hl7.org/fhir/DSTU2/search.html#date
+[`string`]: https://hl7.org/fhir/DSTU2/search.html#string
+[`_count`]: https://hl7.org/fhir/DSTU2/search.html#count
+[`number`]: https://hl7.org/fhir/DSTU2/search.html#number
 [`:exact`]: https://hl7.org/fhir/R4/search.html#string
-[Patient.deceased]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.deceased_x_
-[Patient.multipleBirth]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.multipleBirth_x_
-[Patient.photo]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.photo
-[Patient.contact]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.contact
-[Patient.animal]: http://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal
-[Patient.managingOrganization]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.managingOrganization
-[Patient.link]: http://hl7.org/fhir/dstu2/patient-definitions.html#Patient.link
+[Patient.deceased]: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.deceased_x_
+[Patient.multipleBirth]: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.multipleBirth_x_
+[Patient.photo]: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.photo
+[Patient.contact]: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.contact
+[Patient.animal]: https://hl7.org/fhir/DSTU2/patient-definitions.html#Patient.animal
+[Patient.managingOrganization]: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.managingOrganization
+[Patient.link]: https://hl7.org/fhir/dstu2/patient-definitions.html#Patient.link
 [errors]: ../../#client-errors
 [OperationOutcomes]: ../../#operation-outcomes
