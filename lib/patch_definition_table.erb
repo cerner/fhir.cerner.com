@@ -7,7 +7,7 @@
   </tr>
   </thead>
   <tbody>
-  <% for item in data[:fields] %>
+  <% data[:fields].each do |item| %>
     <tr>
       <td>
         <a name="<%= item[:name] %>">
