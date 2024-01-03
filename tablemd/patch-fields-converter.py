@@ -58,7 +58,6 @@ for field in patch.get('fields'):
 
 content = []
 content.append('    patch:')
-content.append('')
 content.append('      description: |')
 content.append('        # Patch Operations')
 content.append('')
