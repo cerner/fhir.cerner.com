@@ -220,6 +220,7 @@
           <li><code>Coverage.subscriber</code> supports only Patient references</li>
         </ul>
         
+      operationId: patchCoverage
       consumes:
       - application/fhir+json
       produces:

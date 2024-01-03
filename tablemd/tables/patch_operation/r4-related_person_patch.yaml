@@ -547,6 +547,7 @@
           <li> Only one suffix value may be provided. </li>
         </ul>
         
+      operationId: patchRelatedPerson
       consumes:
       - application/fhir+json
       produces:

@@ -29,7 +29,7 @@ urls = dict()
 examples = dict()
 notes = dict()
 
-name = patch.get('name')
+resourceName = patch.get('name')
 first = True
 
 for field in patch.get('fields'):
@@ -88,6 +88,7 @@ for name, path in paths.items():
     content.append('        _Notes_')
     content.append('        ' + notes[name].replace("\n","\n        "))
 
+content.append('      operationId: patch' + resourceName.replace(' ', ''))
 content.append('      consumes:')
 content.append('      - application/fhir+json')
 content.append('      produces:')

@@ -487,6 +487,7 @@
           <li>Only one value may be provided in the value array</li>
         </ul>
         
+      operationId: patchAppointment
       consumes:
       - application/fhir+json
       produces:

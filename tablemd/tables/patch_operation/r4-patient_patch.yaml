@@ -1274,6 +1274,7 @@
           <li>Test operation path and replace extension path index should be same.</li>
         </ul>
         
+      operationId: patchPatient
       consumes:
       - application/fhir+json
       produces:

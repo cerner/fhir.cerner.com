@@ -27,6 +27,7 @@
           <li>Only <code>free</code> and <code>busy-tentative</code> are supported.</li>
         </ul>
         
+      operationId: patchSlot
       consumes:
       - application/fhir+json
       produces:

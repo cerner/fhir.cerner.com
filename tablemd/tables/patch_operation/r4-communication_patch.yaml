@@ -39,6 +39,7 @@
           <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json">Email Status</a></li>
         </ul>
         
+      operationId: patchCommunication
       consumes:
       - application/fhir+json
       produces:

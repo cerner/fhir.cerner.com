@@ -48,6 +48,7 @@
           </li>
         </ul>
         
+      operationId: patchMedicationRequest
       consumes:
       - application/fhir+json
       produces:
