@@ -49,7 +49,7 @@
           in: body
           required: true
           schema:
-            $ref: "#definitions/PatchBody"
+            $ref: "#/definitions/PatchBody"
         - name: If-Match
           in: header
           required: true
