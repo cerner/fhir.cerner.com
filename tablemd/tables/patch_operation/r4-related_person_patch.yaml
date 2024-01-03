@@ -555,9 +555,12 @@
         - name: patchBody
           in: body
           required: true
-          schema: {
-            "$ref": "#definitions/PatchBody"
-          }
+          schema:
+            $ref: "#definitions/PatchBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
       responses: 
         200:
           description: OK
@@ -568,6 +571,9 @@
             opc-request-id:
               type: string
               description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
 
 definitions:
       PatchBody:
