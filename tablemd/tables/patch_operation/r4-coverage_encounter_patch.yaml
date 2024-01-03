@@ -250,20 +250,20 @@
               description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
 
 definitions:
-      PatchBody:
-        type: array
-        minItems: 1
-        items:
-          type: object
-          required:
-          - op
-          - path
-          properties:
-            op:
-              type: string
-              enum:
-              - replace
-            path:
-              type: string
-            value:
-              type: string
+  PatchBody:
+    type: array
+    minItems: 1
+    items:
+      type: object
+      required:
+      - op
+      - path
+      properties:
+        op:
+          type: string
+          enum:
+          - replace
+        path:
+          type: string
+        value:
+          type: string
