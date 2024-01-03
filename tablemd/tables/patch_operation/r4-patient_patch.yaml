@@ -56,7 +56,7 @@
         
         ````json
         {
-          "path": "/identifier/1/id",
+          "path": "/identifier/0/id",
           "op": "test",
           "value": "CI-9926250-1"
         }
@@ -124,7 +124,7 @@
         
         ````json
         {
-          "path": "/identifier/1/value",
+          "path": "/identifier/0/value",
           "op": "replace",
           "value": "&lt;unique identifier&gt;"
         }
@@ -287,7 +287,7 @@
         
         ````json
         {
-          "path": "/name/0/suffix",
+          "path": "/name/2/suffix",
           "op": "replace",
           "value": "Jr."
         }
@@ -350,6 +350,7 @@
             "system": "phone",
             "value": "8168229121",
             "use": "home",
+            "rank": 1,
             "extension": [
               {
                 "valueString": "12345",
@@ -492,7 +493,7 @@
           <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>extension</code> value is intended to be replaced.</li>
           <li>The <code>system</code> field of the telecom whose <code>extension</code> is intended to be replaced must be 'phone'.</li>
           <li>If no <code>valueString</code> is provided, the phone extension will be unset.</li>
-          <li>The url must be 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'.</li>
+          <li>The <code>url</code> value must be `http://hl7.org/fhir/StructureDefinition/contactpoint-extension`.</li>
         </ul>
         
         ## Replace Telecom Period

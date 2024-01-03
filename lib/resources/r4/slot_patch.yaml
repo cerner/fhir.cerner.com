@@ -16,5 +16,5 @@ operations:
       }
     note: >
       <ul>
-        <li>Only `free` and `busy-tentative` are supported.</li>
+        <li>Only `free` and <code>busy-tentative</code> are supported.</li>
       </ul>
