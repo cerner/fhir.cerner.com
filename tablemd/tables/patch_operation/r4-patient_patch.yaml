@@ -1,1177 +1,1254 @@
+    patch:
 
-  description: |
-    # Patch Operations
+      description: |
+        # Patch Operations
 
-    ## Add Identifier
-    _Description_
-    
-    Add a new identifier for the patient.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/-`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/-",
-      "op": "add",
-      "value": {
-        "type": {
-          "coding": [
+        ## Add Identifier
+        _Description_
+        
+        Add a new identifier for the patient.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/-`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/-",
+          "op": "add",
+          "value": {
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://hl7.org/fhir/v2/0203"
+                }
+              ]
+            },
+            "system": "urn:oid:1.1.1.1.1.1",
+            "value": "&lt;unique identifier&gt;",
+            "period": {
+              "start": "2016-01-02T00:00:00-05:00",
+              "end": "2020-01-02T00:00:00-05:00"
+            }
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Must not contain the <code>assigner</code> and <code>use</code> fields.</li>
+          <li>Must contain the <code>type</code>, <code>system</code> and <code>value</code> fields, and must include a time component with a timezone when specifying a <code>period</code>.</li>
+        </ul>
+        
+        ## Test Identifier Id
+        _Description_
+        
+        Test the value of the <code>Identifier.id</code> of the identifier at the given <code>{index}</code> in the list of patient identifiers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/1/id",
+          "op": "test",
+          "value": "CI-9926250-1"
+        }
+        
+        ````
+        ## Remove Identifier
+        _Description_
+        
+        Remove the identifier at the given <code>{index}</code> in the list of patient identifiers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/{index}`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/1",
+          "op": "remove"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier intended to be removed.</li>
+        </ul>
+        
+        ## Replace Identifier System
+        _Description_
+        
+        Replace the <code>Identifier.system</code> of the identifier at the given <code>{index}</code> in the list of patient identifiers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/{index}/system`](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.system)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#uri"><code>uri</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/1/system",
+          "op": "replace",
+          "value": "urn:oid:2.16.840.1.113883.3.13.6"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier whose <code>system</code> is intended to be replaced.</li>
+        </ul>
+        
+        ## Replace Identifier Value
+        _Description_
+        
+        Replace the <code>Identifier.value</code> of the identifier at the given <code>{index}</code> in the list of patient identifiers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/{index}/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/1/value",
+          "op": "replace",
+          "value": "&lt;unique identifier&gt;"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier whose <code>value</code> is intended to be replaced.</li>
+        </ul>
+        
+        ## Replace Identifier Period
+        _Description_
+        
+        Replace the <code>Identifier.period</code> of the identifier at the given <code>{index}</code> in the list of patient identifiers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/{index}/period`](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/1/period",
+          "op": "replace",
+          "value": {
+            "start": "2016-01-02T00:00:00-05:00",
+            "end": "2022-01-02T00:00:00-05:00"
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier whose <code>period</code> is intended to be replaced.</li>
+          <li>The <code>start</code> and <code>end</code> when provided must include a time component with a timezone.</li>
+          <li>When either <code>start</code> or <code>end</code> are not provided its value will be unset.</li>
+        </ul>
+        
+        ## Test Name Id
+        _Description_
+        
+        Test the value of the <code>HumanName.id</code> of the name at the given <code>{index}</code> in the list of patient names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/name/0/id",
+          "op": "test",
+          "value": "CI-5786010-0"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+        </ul>
+        
+        ## Replace Name Family
+        _Description_
+        
+        Replace the <code>HumanName.family</code> of the name at the given <code>{index}</code> in the list of patient names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/family`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family)|`replace`|<code>String</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/name/0/family",
+          "op": "replace",
+          "value": "Potter"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>family</code> is intended to be replaced.</li>
+          <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+        </ul>
+        
+        ## Replace Name Given
+        _Description_
+        
+        Replace the <code>HumanName.given</code> of the name at the given <code>{index}</code> in the list of patient names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/given`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given)|`replace`|<code>String</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/name/0/given",
+          "op": "replace",
+          "value": [
+            "Harry",
+            "James"
+          ]
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>given</code> is intended to be replaced.</li>
+          <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+          <li>If fewer values for given are provided in the list than previously set, the additional older values will be unset.</li>
+        </ul>
+        
+        ## Replace Name Prefix
+        _Description_
+        
+        Replace the <code>HumanName.prefix</code> of the name at the given <code>{index}</code> in the list of patient names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/prefix`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix)|`replace`|<code>String</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/name/0/prefix",
+          "op": "replace",
+          "value": "Mr."
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>prefix</code> is intended to be replaced.</li>
+          <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+          <li>If no prefix value is provided the prefix on the name will be unset.</li>
+        </ul>
+        
+        ## Replace Name Suffix
+        _Description_
+        
+        Replace the <code>HumanName.suffix</code> of the name at the given <code>{index}</code> in the list of patient names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/suffix`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix)|`replace`|<code>String</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/name/0/suffix",
+          "op": "replace",
+          "value": "Jr."
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>suffix</code> is intended to be replaced.</li>
+          <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+          <li>If no suffix value is provided the suffix on the name will be unset.</li>
+        </ul>
+        
+        ## Replace Name Period
+        _Description_
+        
+        Replace the <code>HumanName.period</code> of the name at the given <code>{index}</code> in the list of patient names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/period`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/name/0/period",
+          "op": "replace",
+          "value": {
+            "start": "2016-01-02T00:00:00-05:00"
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>period</code> is intended to be replaced.</li>
+          <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
+          <li>Must not contain the <code>end</code> field.</li>
+          <li>The <code>start</code> must include a time component with a timezone.</li>
+        </ul>
+        
+        ## Add Telecom
+        _Description_
+        
+        Add a new contact detail for the patient.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/-`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#ContactPoint"><code>ContactPoint</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/telecom/-",
+          "op": "add",
+          "value": {
+            "system": "phone",
+            "value": "8168229121",
+            "use": "home",
+            "extension": [
+              {
+                "valueString": "12345",
+                "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
+              }
+            ],  
+            "period": {
+              "start": "2012-05-17T15:33:18.000Z"
+            }
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Must contain the <code>system</code>, <code>use</code> and <code>value</code> fields, and must include a time component with a timezone when specifying a <code>period</code>.</li>
+        </ul>
+        
+        ## Test Telecom Id
+        _Description_
+        
+        Test the value of the <code>ContactPoint.id</code> of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/telecom/0/id",
+          "op": "test",
+          "value": "CI-PH-2807950-0"
+        }
+        
+        ````
+        ## Remove Telecom
+        _Description_
+        
+        Remove the telecom at the given <code>{index}</code> in the list of patient telecoms.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/{index}`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/telecom/1",
+          "op": "remove"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom intended to be removed.</li>
+        </ul>
+        
+        ## Replace Telecom Value
+        _Description_
+        
+        Replace the <code>ContactPoint.value</code> of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/{index}/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/telecom/1/value",
+          "op": "replace",
+          "value": "987-654-3210"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>value</code> is intended to be replaced.</li>
+        </ul>
+        
+        ## Replace Telecom Rank
+        _Description_
+        
+        Replace the <code>ContactPoint.rank</code> of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/{index}/rank`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.rank)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#positiveInt"><code>positiveInt</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/telecom/1/rank",
+          "op": "replace",
+          "value": 2
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>rank</code> is intended to be replaced.</li>
+        </ul>
+        
+        ## Replace Telecom Extension
+        _Description_
+        
+        Replaces the phone extension of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/{index}/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/telecom/1/extension",
+          "op": "replace",
+          "value": [
             {
-              "code": "MR",
-              "system": "http://hl7.org/fhir/v2/0203"
+              "valueString": "12345",
+              "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
             }
           ]
-        },
-        "system": "urn:oid:1.1.1.1.1.1",
-        "value": "&lt;unique identifier&gt;",
-        "period": {
-          "start": "2016-01-02T00:00:00-05:00",
-          "end": "2020-01-02T00:00:00-05:00"
         }
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Must not contain the <code>assigner</code> and <code>use</code> fields.</li>
-      <li>Must contain the <code>type</code>, <code>system</code> and <code>value</code> fields, and must include a time component with a timezone when specifying a <code>period</code>.</li>
-    </ul>
-    
-    ## Test Identifier Id
-    _Description_
-    
-    Test the value of the <code>Identifier.id</code> of the identifier at the given <code>{index}</code> in the list of patient identifiers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/1/id",
-      "op": "test",
-      "value": "CI-9926250-1"
-    }
-    
-    ````
-    ## Remove Identifier
-    _Description_
-    
-    Remove the identifier at the given <code>{index}</code> in the list of patient identifiers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/{index}`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/1",
-      "op": "remove"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier intended to be removed.</li>
-    </ul>
-    
-    ## Replace Identifier System
-    _Description_
-    
-    Replace the <code>Identifier.system</code> of the identifier at the given <code>{index}</code> in the list of patient identifiers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/{index}/system`](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.system)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#uri"><code>uri</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/1/system",
-      "op": "replace",
-      "value": "urn:oid:2.16.840.1.113883.3.13.6"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier whose <code>system</code> is intended to be replaced.</li>
-    </ul>
-    
-    ## Replace Identifier Value
-    _Description_
-    
-    Replace the <code>Identifier.value</code> of the identifier at the given <code>{index}</code> in the list of patient identifiers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/{index}/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/1/value",
-      "op": "replace",
-      "value": "&lt;unique identifier&gt;"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier whose <code>value</code> is intended to be replaced.</li>
-    </ul>
-    
-    ## Replace Identifier Period
-    _Description_
-    
-    Replace the <code>Identifier.period</code> of the identifier at the given <code>{index}</code> in the list of patient identifiers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/{index}/period`](https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/1/period",
-      "op": "replace",
-      "value": {
-        "start": "2016-01-02T00:00:00-05:00",
-        "end": "2022-01-02T00:00:00-05:00"
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier whose <code>period</code> is intended to be replaced.</li>
-      <li>The <code>start</code> and <code>end</code> when provided must include a time component with a timezone.</li>
-      <li>When either <code>start</code> or <code>end</code> are not provided its value will be unset.</li>
-    </ul>
-    
-    ## Test Name Id
-    _Description_
-    
-    Test the value of the <code>HumanName.id</code> of the name at the given <code>{index}</code> in the list of patient names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/name/0/id",
-      "op": "test",
-      "value": "CI-5786010-0"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
-    </ul>
-    
-    ## Replace Name Family
-    _Description_
-    
-    Replace the <code>HumanName.family</code> of the name at the given <code>{index}</code> in the list of patient names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/family`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family)|`replace`|<code>String</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/name/0/family",
-      "op": "replace",
-      "value": "Potter"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>family</code> is intended to be replaced.</li>
-      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
-    </ul>
-    
-    ## Replace Name Given
-    _Description_
-    
-    Replace the <code>HumanName.given</code> of the name at the given <code>{index}</code> in the list of patient names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/given`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given)|`replace`|<code>String</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/name/0/given",
-      "op": "replace",
-      "value": [
-        "Harry",
-        "James"
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>given</code> is intended to be replaced.</li>
-      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
-      <li>If fewer values for given are provided in the list than previously set, the additional older values will be unset.</li>
-    </ul>
-    
-    ## Replace Name Prefix
-    _Description_
-    
-    Replace the <code>HumanName.prefix</code> of the name at the given <code>{index}</code> in the list of patient names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/prefix`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix)|`replace`|<code>String</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/name/0/prefix",
-      "op": "replace",
-      "value": "Mr."
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>prefix</code> is intended to be replaced.</li>
-      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
-      <li>If no prefix value is provided the prefix on the name will be unset.</li>
-    </ul>
-    
-    ## Replace Name Suffix
-    _Description_
-    
-    Replace the <code>HumanName.suffix</code> of the name at the given <code>{index}</code> in the list of patient names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/suffix`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix)|`replace`|<code>String</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/name/0/suffix",
-      "op": "replace",
-      "value": "Jr."
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>suffix</code> is intended to be replaced.</li>
-      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
-      <li>If no suffix value is provided the suffix on the name will be unset.</li>
-    </ul>
-    
-    ## Replace Name Period
-    _Description_
-    
-    Replace the <code>HumanName.period</code> of the name at the given <code>{index}</code> in the list of patient names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/period`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/name/0/period",
-      "op": "replace",
-      "value": {
-        "start": "2016-01-02T00:00:00-05:00"
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>period</code> is intended to be replaced.</li>
-      <li>This operation is only supported for the first name in the list of patient names (<code>{index}</code> == 0).</li>
-      <li>Must not contain the <code>end</code> field.</li>
-      <li>The <code>start</code> must include a time component with a timezone.</li>
-    </ul>
-    
-    ## Add Telecom
-    _Description_
-    
-    Add a new contact detail for the patient.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/-`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#ContactPoint"><code>ContactPoint</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/telecom/-",
-      "op": "add",
-      "value": {
-        "system": "phone",
-        "value": "8168229121",
-        "use": "home",
-        "extension": [
-          {
-            "valueString": "12345",
-            "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
-          }
-        ],  
-        "period": {
-          "start": "2012-05-17T15:33:18.000Z"
-        }
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Must contain the <code>system</code>, <code>use</code> and <code>value</code> fields, and must include a time component with a timezone when specifying a <code>period</code>.</li>
-    </ul>
-    
-    ## Test Telecom Id
-    _Description_
-    
-    Test the value of the <code>ContactPoint.id</code> of the telecom at the given <code>{index}</code> in the list of patient telecoms.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/telecom/0/id",
-      "op": "test",
-      "value": "CI-PH-2807950-0"
-    }
-    
-    ````
-    ## Remove Telecom
-    _Description_
-    
-    Remove the telecom at the given <code>{index}</code> in the list of patient telecoms.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/{index}`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/telecom/1",
-      "op": "remove"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom intended to be removed.</li>
-    </ul>
-    
-    ## Replace Telecom Value
-    _Description_
-    
-    Replace the <code>ContactPoint.value</code> of the telecom at the given <code>{index}</code> in the list of patient telecoms.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/{index}/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/telecom/1/value",
-      "op": "replace",
-      "value": "987-654-3210"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>value</code> is intended to be replaced.</li>
-    </ul>
-    
-    ## Replace Telecom Rank
-    _Description_
-    
-    Replace the <code>ContactPoint.rank</code> of the telecom at the given <code>{index}</code> in the list of patient telecoms.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/{index}/rank`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.rank)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#positiveInt"><code>positiveInt</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/telecom/1/rank",
-      "op": "replace",
-      "value": 2
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>rank</code> is intended to be replaced.</li>
-    </ul>
-    
-    ## Replace Telecom Extension
-    _Description_
-    
-    Replaces the phone extension of the telecom at the given <code>{index}</code> in the list of patient telecoms.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/{index}/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/telecom/1/extension",
-      "op": "replace",
-      "value": [
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>extension</code> value is intended to be replaced.</li>
+          <li>The <code>system</code> field of the telecom whose <code>extension</code> is intended to be replaced must be 'phone'.</li>
+          <li>If no <code>valueString</code> is provided, the phone extension will be unset.</li>
+          <li>The url must be 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'.</li>
+        </ul>
+        
+        ## Replace Telecom Period
+        _Description_
+        
+        Replace the <code>ContactPoint.period</code> of the telecom at the given <code>{index}</code> in the list of patient telecoms.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/{index}/period`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
+        
+        _Example_
+        
+        ````json
         {
-          "valueString": "12345",
-          "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
-        }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>extension</code> value is intended to be replaced.</li>
-      <li>The <code>system</code> field of the telecom whose <code>extension</code> is intended to be replaced must be 'phone'.</li>
-      <li>If no <code>valueString</code> is provided, the phone extension will be unset.</li>
-      <li>The url must be 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'.</li>
-    </ul>
-    
-    ## Replace Telecom Period
-    _Description_
-    
-    Replace the <code>ContactPoint.period</code> of the telecom at the given <code>{index}</code> in the list of patient telecoms.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/{index}/period`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/telecom/1/period",
-      "op": "replace",
-      "value": {
-        "start": "2016-01-02T00:00:00-05:00",
-        "end": "2022-01-02T00:00:00-05:00"
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>period</code> is intended to be replaced.</li>
-      <li>The <code>start</code> and <code>end</code> when provided must include a time component with a timezone.</li>
-      <li>When either <code>start</code> or <code>end</code> are not provided its value will be unset.</li>
-    </ul>
-    
-    ## Replace Gender
-    _Description_
-    
-    Replace the gender that the patient is considered to have for administration and record keeping purposes.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/gender`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/gender",
-      "op": "replace",
-      "value": "female"
-    }
-    
-    ````
-    ## Replace Birth Date
-    _Description_
-    
-    Replace the date of birth for the individual.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/birthDate`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#date"><code>date</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/birthDate",
-      "op": "replace",
-      "value": "1990-09-15"
-    }
-    
-    ````
-    ## Add Address
-    _Description_
-    
-    Add a new address for the patient.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/-`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.address)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Address"><code>Address</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/-",
-      "op": "add",
-      "value": {
-        "use": "home",
-        "line": [
-          "1212 Faircastle Drive",
-          "Apartment 406"
-        ],
-        "city": "KC",
-        "district": "Jackson",
-        "state": "KS",
-        "postalCode": "64199",
-        "country": "United States of America",
-        "period": {
-          "start": "2012-05-17T15:33:18.000Z"
-        }
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Must not contain the <code>text</code> field.</li>
-      <li>Must contain the <code>use</code> field, and must include a time component with a timezone when specifying a <code>period</code>.</li>
-    </ul>
-    
-    ## Test Address Id
-    _Description_
-    
-    Test the value of the <code>Address.id</code> of the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/0/id",
-      "op": "test",
-      "value": "CI-2671902-0"
-    }
-    
-    ````
-    ## Remove Address
-    _Description_
-    
-    Remove the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.address)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/1",
-      "op": "remove"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address intended to be removed.</li>
-    </ul>
-    
-    ## Replace Address Line
-    _Description_
-    
-    Replace the <code>Address.line</code> of the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/line`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.line)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/1/line",
-      "op": "replace",
-      "value": [
-        "1212 Faircastle Drive",
-        "Apartment 410"
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>line</code> is intended to be replaced.</li>
-      <li>If no line is provided, all the lines on the address will be unset.</li>
-      <li>If fewer values for line are provided in the list than previously set, the additional older values will be unset.</li>
-    </ul>
-    
-    ## Replace Address City
-    _Description_
-    
-    Replace the <code>Address.city</code> of the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/city`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.city)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/1/city",
-      "op": "replace",
-      "value": "St. Louis"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>city</code> is intended to be replaced.</li>
-      <li>If no city is provided, the city on the address will be unset.</li>
-    </ul>
-    
-    ## Replace Address District
-    _Description_
-    
-    Replace the <code>Address.district</code> of the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/district`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.district)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/1/district",
-      "op": "replace",
-      "value": "Johnson"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>district</code> is intended to be replaced.</li>
-      <li>If no district is provided, the district on the address will be unset.</li>
-    </ul>
-    
-    ## Replace Address State
-    _Description_
-    
-    Replace the <code>Address.state</code> of the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/state`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.state)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/1/state",
-      "op": "replace",
-      "value": "MO"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>state</code> is intended to be replaced.</li>
-      <li>If no state is provided, the state on the address will be unset.</li>
-    </ul>
-    
-    ## Replace Address Postal Code
-    _Description_
-    
-    Replace the <code>Address.postalCode</code> of the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/postalCode`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.postalCode)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/1/postalCode",
-      "op": "replace",
-      "value": "66209"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>postalCode</code> is intended to be replaced.</li>
-      <li>If no postalCode is provided, the postalCode on the address will be unset.</li>
-    </ul>
-    
-    ## Replace Address Country
-    _Description_
-    
-    Replace the <code>Address.country</code> of the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/country`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.country)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/1/country",
-      "op": "replace",
-      "value": "Canada"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>country</code> is intended to be replaced.</li>
-      <li>If no country is provided, the country on the address will be unset.</li>
-    </ul>
-    
-    ## Replace Address Period
-    _Description_
-    
-    Replace the <code>Address.period</code> of the address at the given <code>{index}</code> in the list of patient addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/period`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/address/1/period",
-      "op": "replace",
-      "value": {
-        "start": "2016-01-02T00:00:00-05:00",
-        "end": "2022-01-02T00:00:00-05:00"
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>period</code> is intended to be replaced.</li>
-      <li>The <code>start</code> and <code>end</code> when provided must include a time component with a timezone.</li>
-      <li>When either <code>start</code> or <code>end</code> are not provided its value will be unset.</li>
-    </ul>
-    
-    ## Replace Marital Status
-    _Description_
-    
-    Replace the patient's most recent marital (civil) status.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/maritalStatus`](https://hl7.org/fhir/r4/patient-definitions.html#Patient.maritalStatus)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/maritalStatus",
-      "op": "replace",
-      "value": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
-            "code": "S"
+          "path": "/telecom/1/period",
+          "op": "replace",
+          "value": {
+            "start": "2016-01-02T00:00:00-05:00",
+            "end": "2022-01-02T00:00:00-05:00"
           }
-        ]
-      }
-    }
-    
-    ````
-    ## Replace Communication
-    _Description_
-    
-    Replace the language which may be used to communicate with the patient about his health.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/communication`](https://hl7.org/fhir/r4/patient-definitions.html#Patient.communication)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/communication",
-      "op": "replace",
-      "value": [
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>period</code> is intended to be replaced.</li>
+          <li>The <code>start</code> and <code>end</code> when provided must include a time component with a timezone.</li>
+          <li>When either <code>start</code> or <code>end</code> are not provided its value will be unset.</li>
+        </ul>
+        
+        ## Replace Gender
+        _Description_
+        
+        Replace the gender that the patient is considered to have for administration and record keeping purposes.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/gender`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
+        
+        _Example_
+        
+        ````json
         {
-          "language": {
+          "path": "/gender",
+          "op": "replace",
+          "value": "female"
+        }
+        
+        ````
+        ## Replace Birth Date
+        _Description_
+        
+        Replace the date of birth for the individual.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/birthDate`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#date"><code>date</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/birthDate",
+          "op": "replace",
+          "value": "1990-09-15"
+        }
+        
+        ````
+        ## Add Address
+        _Description_
+        
+        Add a new address for the patient.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/-`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.address)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Address"><code>Address</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/-",
+          "op": "add",
+          "value": {
+            "use": "home",
+            "line": [
+              "1212 Faircastle Drive",
+              "Apartment 406"
+            ],
+            "city": "KC",
+            "district": "Jackson",
+            "state": "KS",
+            "postalCode": "64199",
+            "country": "United States of America",
+            "period": {
+              "start": "2012-05-17T15:33:18.000Z"
+            }
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Must not contain the <code>text</code> field.</li>
+          <li>Must contain the <code>use</code> field, and must include a time component with a timezone when specifying a <code>period</code>.</li>
+        </ul>
+        
+        ## Test Address Id
+        _Description_
+        
+        Test the value of the <code>Address.id</code> of the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/0/id",
+          "op": "test",
+          "value": "CI-2671902-0"
+        }
+        
+        ````
+        ## Remove Address
+        _Description_
+        
+        Remove the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.address)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/1",
+          "op": "remove"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address intended to be removed.</li>
+        </ul>
+        
+        ## Replace Address Line
+        _Description_
+        
+        Replace the <code>Address.line</code> of the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/line`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.line)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/1/line",
+          "op": "replace",
+          "value": [
+            "1212 Faircastle Drive",
+            "Apartment 410"
+          ]
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>line</code> is intended to be replaced.</li>
+          <li>If no line is provided, all the lines on the address will be unset.</li>
+          <li>If fewer values for line are provided in the list than previously set, the additional older values will be unset.</li>
+        </ul>
+        
+        ## Replace Address City
+        _Description_
+        
+        Replace the <code>Address.city</code> of the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/city`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.city)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/1/city",
+          "op": "replace",
+          "value": "St. Louis"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>city</code> is intended to be replaced.</li>
+          <li>If no city is provided, the city on the address will be unset.</li>
+        </ul>
+        
+        ## Replace Address District
+        _Description_
+        
+        Replace the <code>Address.district</code> of the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/district`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.district)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/1/district",
+          "op": "replace",
+          "value": "Johnson"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>district</code> is intended to be replaced.</li>
+          <li>If no district is provided, the district on the address will be unset.</li>
+        </ul>
+        
+        ## Replace Address State
+        _Description_
+        
+        Replace the <code>Address.state</code> of the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/state`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.state)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/1/state",
+          "op": "replace",
+          "value": "MO"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>state</code> is intended to be replaced.</li>
+          <li>If no state is provided, the state on the address will be unset.</li>
+        </ul>
+        
+        ## Replace Address Postal Code
+        _Description_
+        
+        Replace the <code>Address.postalCode</code> of the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/postalCode`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.postalCode)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/1/postalCode",
+          "op": "replace",
+          "value": "66209"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>postalCode</code> is intended to be replaced.</li>
+          <li>If no postalCode is provided, the postalCode on the address will be unset.</li>
+        </ul>
+        
+        ## Replace Address Country
+        _Description_
+        
+        Replace the <code>Address.country</code> of the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/country`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.country)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/1/country",
+          "op": "replace",
+          "value": "Canada"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>country</code> is intended to be replaced.</li>
+          <li>If no country is provided, the country on the address will be unset.</li>
+        </ul>
+        
+        ## Replace Address Period
+        _Description_
+        
+        Replace the <code>Address.period</code> of the address at the given <code>{index}</code> in the list of patient addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/period`](https://hl7.org/fhir/R4/datatypes-definitions.html#Address.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/address/1/period",
+          "op": "replace",
+          "value": {
+            "start": "2016-01-02T00:00:00-05:00",
+            "end": "2022-01-02T00:00:00-05:00"
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> of the address whose <code>period</code> is intended to be replaced.</li>
+          <li>The <code>start</code> and <code>end</code> when provided must include a time component with a timezone.</li>
+          <li>When either <code>start</code> or <code>end</code> are not provided its value will be unset.</li>
+        </ul>
+        
+        ## Replace Marital Status
+        _Description_
+        
+        Replace the patient's most recent marital (civil) status.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/maritalStatus`](https://hl7.org/fhir/r4/patient-definitions.html#Patient.maritalStatus)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/maritalStatus",
+          "op": "replace",
+          "value": {
             "coding": [
               {
-                "system": "urn:ietf:bcp:47",
-                "code": "en",
+                "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+                "code": "S"
               }
             ]
-          },
-          "preferred": true
+          }
         }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li><code>Patient.communication</code> value should a list with only a single element.</li>
-    </ul>
-    
-    ## Add General Practitioner
-    _Description_
-    
-    Add a new nominated care provider.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/generalPractitioner/-`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/generalPractitioner/-",
-      "op": "add",
-      "value": {
-        "reference": "Practitioner/995932"
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Must be a reference to a <a target="_blank" href="https://hl7.org/fhir/R4/practitioner.html"><code>Practitioner</code></a>.</li>
-    </ul>
-    
-    ## Test General Practitioner Id
-    _Description_
-    
-    Test the value of the <code>Reference.id</code> of the general practitioner at the given <code>{index}</code> in the list of the patient's nominated care providers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/generalPractitioner/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/generalPractitioner/1/id",
-      "op": "test",
-      "value": "CI-312732-2"
-    }
-    
-    ````
-    ## Remove General Practitioner
-    _Description_
-    
-    Remove the general practitoner at the given <code>{index}</code> in the list of the patient's nominated care providers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/generalPractitioner/{index}`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/generalPractitioner/1",
-      "op": "remove"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-general-practitioner-id">test operation</a> to be provided for the <code>Reference.id</code> of the general practitioner intended to be removed.</li>
-    </ul>
-    
-    ## Replace Extension
-    _Description_
-    
-    Replace the value of an extension that adds additional information about the patient.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/extension",
-      "op": "replace",
-      "value": [
+        
+        ````
+        ## Replace Communication
+        _Description_
+        
+        Replace the language which may be used to communicate with the patient about his health.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/communication`](https://hl7.org/fhir/r4/patient-definitions.html#Patient.communication)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/backboneelement.html"><code>BackboneElement</code></a>|
+        
+        _Example_
+        
+        ````json
         {
-          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
-          "valueCode": "M"
-        },
-        {
-          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
-          "extension": [
+          "path": "/communication",
+          "op": "replace",
+          "value": [
             {
-              "url": "ombCategory",
-              "valueCoding": {
-                "system": "urn:oid:2.16.840.1.113883.6.238",
-                "code": "2106-3",
-                "display": "White"
-              }
-            },
-            {
-              "url": "detailed",
-              "valueCoding": {
-                "system": "urn:oid:2.16.840.1.113883.6.238",
-                "code": "2110-5",
-                "display": "English"
-              }
+              "language": {
+                "coding": [
+                  {
+                    "system": "urn:ietf:bcp:47",
+                    "code": "en",
+                  }
+                ]
+              },
+              "preferred": true
             }
           ]
-        },
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li><code>Patient.communication</code> value should a list with only a single element.</li>
+        </ul>
+        
+        ## Add General Practitioner
+        _Description_
+        
+        Add a new nominated care provider.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/generalPractitioner/-`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a>|
+        
+        _Example_
+        
+        ````json
         {
-          "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
-          "extension": [
+          "path": "/generalPractitioner/-",
+          "op": "add",
+          "value": {
+            "reference": "Practitioner/995932"
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Must be a reference to a <a target="_blank" href="https://hl7.org/fhir/R4/practitioner.html"><code>Practitioner</code></a>.</li>
+        </ul>
+        
+        ## Test General Practitioner Id
+        _Description_
+        
+        Test the value of the <code>Reference.id</code> of the general practitioner at the given <code>{index}</code> in the list of the patient's nominated care providers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/generalPractitioner/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/generalPractitioner/1/id",
+          "op": "test",
+          "value": "CI-312732-2"
+        }
+        
+        ````
+        ## Remove General Practitioner
+        _Description_
+        
+        Remove the general practitoner at the given <code>{index}</code> in the list of the patient's nominated care providers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/generalPractitioner/{index}`](https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/generalPractitioner/1",
+          "op": "remove"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-general-practitioner-id">test operation</a> to be provided for the <code>Reference.id</code> of the general practitioner intended to be removed.</li>
+        </ul>
+        
+        ## Replace Extension
+        _Description_
+        
+        Replace the value of an extension that adds additional information about the patient.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/extension",
+          "op": "replace",
+          "value": [
             {
-              "url": "ombCategory",
-              "valueCoding": {
-                "system": "urn:oid:2.16.840.1.113883.6.238",
-                "code": "2135-2",
-                "display": "Hispanic or Latino"
-              }
+              "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+              "valueCode": "M"
             },
             {
-              "url": "detailed",
-              "valueCoding": {
-                "system": "urn:oid:2.16.840.1.113883.6.238",
-                "code": "2156-8",
-                "display": "Costa Rican"
-              }
-            }
-          ]
-        },
-        {
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
-          "extension": [
-            {
+              "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
               "extension": [
                 {
-                  "valueCodeableConcept": {
-                    "coding": [
-                      {
-                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
-                        "code": "485602703",
-                        "display": "Appointment Reminder",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Appointment Reminder"
-                  },
-                  "url": "communication-type"
+                  "url": "ombCategory",
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.6.238",
+                    "code": "2106-3",
+                    "display": "White"
+                  }
                 },
                 {
-                  "valueCodeableConcept": {
-                    "coding": [
-                      {
-                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
-                        "code": "4054467",
-                        "display": "Phone",
-                        "userSelected": false
-                      }
-                    ]
-                  },
-                  "url": "contact-method"
-                },
-                {
-                  "valueCodeableConcept": {
-                    "coding": [
-                        {
-                        "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
-                        "code": "163",
-                        "display": "Business",
-                        "userSelected": false
-                      }
-                    ],
-                    "text": "Home" 
-                  },
-                  "url": "contact-type"
-                },
-                {
-                  "valueDateTime": "2019-12-26T15:41:52.000Z",
-                  "url": "verified-datetime"
+                  "url": "detailed",
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.6.238",
+                    "code": "2110-5",
+                    "display": "English"
+                  }
                 }
-              ],
-              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+              ]
+            },
+            {
+              "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+              "extension": [
+                {
+                  "url": "ombCategory",
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.6.238",
+                    "code": "2135-2",
+                    "display": "Hispanic or Latino"
+                  }
+                },
+                {
+                  "url": "detailed",
+                  "valueCoding": {
+                    "system": "urn:oid:2.16.840.1.113883.6.238",
+                    "code": "2156-8",
+                    "display": "Costa Rican"
+                  }
+                }
+              ]
+            },
+            {
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+              "extension": [
+                {
+                  "extension": [
+                    {
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                            "code": "485602703",
+                            "display": "Appointment Reminder",
+                            "userSelected": false
+                          }
+                        ],
+                        "text": "Appointment Reminder"
+                      },
+                      "url": "communication-type"
+                    },
+                    {
+                      "valueCodeableConcept": {
+                        "coding": [
+                          {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                            "code": "4054467",
+                            "display": "Phone",
+                            "userSelected": false
+                          }
+                        ]
+                      },
+                      "url": "contact-method"
+                    },
+                    {
+                      "valueCodeableConcept": {
+                        "coding": [
+                            {
+                            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                            "code": "163",
+                            "display": "Business",
+                            "userSelected": false
+                          }
+                        ],
+                        "text": "Home" 
+                      },
+                      "url": "contact-type"
+                    },
+                    {
+                      "valueDateTime": "2019-12-26T15:41:52.000Z",
+                      "url": "verified-datetime"
+                    }
+                  ],
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+                }
+              ]
             }
           ]
         }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    Supported extensions that can be replaced: <ul>
-      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
-      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a></li>
-      <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
-    </ul>
-    
-    ## Test Communication Preference Id
-    _Description_
-    
-    Test the value of the <code>CommunicationPreference.id</code> of the Communication Preference at the given <code>{index}</code> in the list of the patient's extensions.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/extension/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/extension/1/id",
-      "op": "test",
-      "value": "151534123"
-    }
-    
-    ````
-    ## Remove Communication Preference Id
-    _Description_
-    
-    Remove the CommunicationPreference at the given <code>{index}</code> in the list of the patient's extensions.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/extension/{index}`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/extension/1",
-      "op": "remove"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-communication-preference-id">test operation</a> to be provided for the <code>CommunicationPreference.id</code> of the Communication Preference intended to be removed.</li>
-    </ul>
-    
-    ## Add Communication Preference
-    _Description_
-    
-    Add a new Communication Preference extension for the patient.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/extension/-`](https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json)|`add`|<code>Communication</code> <code>Preference</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/extension/-",
-      "op": "add",
-      "value": {
-        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
-        "extension": [
-          {
+        
+        ````
+        
+        _Notes_
+        Supported extensions that can be replaced: <ul>
+          <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-birthsex.html">US Core Birth Sex</a></li>
+          <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-race.html">US Core Race</a></li>
+          <li> <a href="https://build.fhir.org/ig/HL7/US-Core-R4/StructureDefinition-us-core-ethnicity.html">US Core Ethnicity</a></li>
+        </ul>
+        
+        ## Test Communication Preference Id
+        _Description_
+        
+        Test the value of the <code>CommunicationPreference.id</code> of the Communication Preference at the given <code>{index}</code> in the list of the patient's extensions.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/extension/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/extension/1/id",
+          "op": "test",
+          "value": "151534123"
+        }
+        
+        ````
+        ## Remove Communication Preference Id
+        _Description_
+        
+        Remove the CommunicationPreference at the given <code>{index}</code> in the list of the patient's extensions.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/extension/{index}`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/extension/1",
+          "op": "remove"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-communication-preference-id">test operation</a> to be provided for the <code>CommunicationPreference.id</code> of the Communication Preference intended to be removed.</li>
+        </ul>
+        
+        ## Add Communication Preference
+        _Description_
+        
+        Add a new Communication Preference extension for the patient.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/extension/-`](https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json)|`add`|<code>Communication</code> <code>Preference</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/extension/-",
+          "op": "add",
+          "value": {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+            "extension": [
+              {
+                "extension": [
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                          "code": "485602703",
+                          "display": "Appointment Reminder",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Appointment Reminder"
+                    },
+                    "url": "communication-type"
+                  },
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                          "code": "4054467",
+                          "display": "Phone",
+                          "userSelected": false
+                        }
+                      ]
+                    },
+                    "url": "contact-method"
+                  },
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                          {
+                          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                          "code": "163",
+                          "display": "Business",
+                          "userSelected": false
+                        }
+                      ],
+                      "text": "Home" 
+                    },
+                    "url": "contact-type"
+                  },
+                  {
+                    "valueDateTime": "2019-12-26T15:41:52.000Z",
+                    "url": "verified-datetime"
+                  }
+                ],
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+              }
+            ]
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Must be a valid <code>CommunicationPreference</code> extension.</li>
+        </ul>
+        
+        ## Replace Communication Preference Id
+        _Description_
+        
+        Replace the CommunicationPreference at the given <code>{index}</code> in the list of the patient's extensions. At a time only one communication Preference can be changed.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/extension/{index}`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`replace`|<code>Communication</code> <code>Preference</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/extension/0",
+          "op": "replace",
+          "value": {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
             "extension": [
               {
                 "valueCodeableConcept": {
                   "coding": [
                     {
-                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
-                      "code": "485602703",
-                      "display": "Appointment Reminder",
-                      "userSelected": false
+                      "system": "https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/4640016",
+                      "code": "2572145011",
+                      "display": "Clinical Communications",
+                      "userSelected": true
                     }
-                  ],
-                  "text": "Appointment Reminder"
+                  ]
                 },
                 "url": "communication-type"
               },
@@ -1179,130 +1256,65 @@
                 "valueCodeableConcept": {
                   "coding": [
                     {
-                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
-                      "code": "4054467",
-                      "display": "Phone",
-                      "userSelected": false
+                      "system": "https://fhir.cerner.com/34fc7274-1120-4899-937d-a9ea1becc848/codeSet/23042",
+                      "code": "4054468"
                     }
                   ]
                 },
                 "url": "contact-method"
-              },
-              {
-                "valueCodeableConcept": {
-                  "coding": [
-                      {
-                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
-                      "code": "163",
-                      "display": "Business",
-                      "userSelected": false
-                    }
-                  ],
-                  "text": "Home" 
-                },
-                "url": "contact-type"
-              },
-              {
-                "valueDateTime": "2019-12-26T15:41:52.000Z",
-                "url": "verified-datetime"
               }
-            ],
-            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference"
+            ]
           }
-        ]
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Must be a valid <code>CommunicationPreference</code> extension.</li>
-    </ul>
-    
-    ## Replace Communication Preference Id
-    _Description_
-    
-    Replace the CommunicationPreference at the given <code>{index}</code> in the list of the patient's extensions. At a time only one communication Preference can be changed.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/extension/{index}`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`replace`|<code>Communication</code> <code>Preference</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/extension/0",
-      "op": "replace",
-      "value": {
-        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
-        "extension": [
-          {
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/dacc6494-e336-45ad-8729-b789ff8663c6/codeSet/4640016",
-                  "code": "2572145011",
-                  "display": "Clinical Communications",
-                  "userSelected": true
-                }
-              ]
-            },
-            "url": "communication-type"
-          },
-          {
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/34fc7274-1120-4899-937d-a9ea1becc848/codeSet/23042",
-                  "code": "4054468"
-                }
-              ]
-            },
-            "url": "contact-method"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Requires a <a href="#test-communication-preference-id">test operation</a> to be provided for the <code>CommunicationPreference.id</code> of the Communication Preference intended to be removed.</li>
+          <li>Test operation path and replace extension path index should be same.</li>
+        </ul>
+        
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json-patch+json
+      parameters: 
+        - name: patchBody
+          in: body
+          required: true
+          schema: {
+            "$ref": "#definitions/PatchBody"
           }
-        ]
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Requires a <a href="#test-communication-preference-id">test operation</a> to be provided for the <code>CommunicationPreference.id</code> of the Communication Preference intended to be removed.</li>
-      <li>Test operation path and replace extension path index should be same.</li>
-    </ul>
-    
-  consumes: 
-  produces: 
-  parameters: 
-    - name: patchBody
-      in: body
-      required: true
-      schema: {
-        "$ref": "#definitions/PatchBody"
-      }
-  responses: 
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
 
 definitions:
-  PatchBody:
-    type: array
-    minItems: 1
-    items:
-      type: object
-      required:
-      - op
-      - path
-      properties:
-        op:
-          type: string
-          enum:
-          - add
-          - test
-          - remove
-          - replace
-        path:
-          type: string
-        value:
-          type: string
+      PatchBody:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required:
+          - op
+          - path
+          properties:
+            op:
+              type: string
+              enum:
+              - add
+              - test
+              - remove
+              - replace
+            path:
+              type: string
+            value:
+              type: string

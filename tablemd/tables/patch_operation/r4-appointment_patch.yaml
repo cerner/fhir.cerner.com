@@ -1,519 +1,531 @@
+    patch:
 
-  description: |
-    # Patch Operations
+      description: |
+        # Patch Operations
 
-    ## Replace Status
-    _Description_
-    
-    The status of the appointment
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/status`](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/status",
-      "value": "cancelled"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Only <code>arrived</code>, <code>checked-in</code>, <code>cancelled</code>, <code>booked</code>, and <code>fulfilled</code> are supported</li>
-      <li>This patch operation must be accompanied by the add Slot patch operation when updating status to <code>booked</code></li>
-    </ul>
-    
-    ## Add Slot
-    _Description_
-    
-    The slot that this appointment is filling
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/slot`](https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<code>Slot</code>)|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/slot",
-      "value": [
+        ## Replace Status
+        _Description_
+        
+        The status of the appointment
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/status`](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.status)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
+        
+        _Example_
+        
+        ````json
         {
-          "reference":"Slot/1986119705-4048128-15648907-60"
+          "op": "replace",
+          "path": "/status",
+          "value": "cancelled"
         }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of <code>booked</code></li>
-      <li>Only one Slot reference may be provided in the value array</li>
-    </ul>
-    
-    ## Replace Slot
-    _Description_
-    
-    The Slot that this appointment is filling
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/slot`](https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<code>Slot</code>)|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/slot",
-      "value": [
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Only <code>arrived</code>, <code>checked-in</code>, <code>cancelled</code>, <code>booked</code>, and <code>fulfilled</code> are supported</li>
+          <li>This patch operation must be accompanied by the add Slot patch operation when updating status to <code>booked</code></li>
+        </ul>
+        
+        ## Add Slot
+        _Description_
+        
+        The slot that this appointment is filling
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/slot`](https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<code>Slot</code>)|
+        
+        _Example_
+        
+        ````json
         {
-          "reference":"Slot/1986119705-4048128-15648907-60"
+          "op": "add",
+          "path": "/slot",
+          "value": [
+            {
+              "reference":"Slot/1986119705-4048128-15648907-60"
+            }
+          ]
         }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>Not dependent on any other patch Operation</li>
-      <li>Only one Slot reference may be provided in the value array</li>
-    </ul>
-    
-    ## Add Reasoncode
-    _Description_
-    
-    The clinical reason for why this appointment is being scheduled
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/reasonCode`](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode)|`add`|<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/reasonCode",
-      "value": [
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of <code>booked</code></li>
+          <li>Only one Slot reference may be provided in the value array</li>
+        </ul>
+        
+        ## Replace Slot
+        _Description_
+        
+        The Slot that this appointment is filling
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/slot`](https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.slot)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a> (<code>Slot</code>)|
+        
+        _Example_
+        
+        ````json
         {
-          "text": "I have a headache"
+          "op": "replace",
+          "path": "/slot",
+          "value": [
+            {
+              "reference":"Slot/1986119705-4048128-15648907-60"
+            }
+          ]
         }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of <code>booked</code></li>
-      <li>Only one CodeableConcept may be provided in the value array</li>
-      <li>CodeableConcept.text is required and CodeableConcept.coding, if present, will be ignored</li>
-      <li>When the value array is empty, any existing reasonCode will be removed</li>
-    </ul>
-    
-    ## Add Cancelationreason
-    _Description_
-    
-    The coded reason for the appointment being cancelled
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/cancelationReason`](https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/cancelationReason",
-      "value": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-            "code": "oth-err"
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>Not dependent on any other patch Operation</li>
+          <li>Only one Slot reference may be provided in the value array</li>
+        </ul>
+        
+        ## Add Reasoncode
+        _Description_
+        
+        The clinical reason for why this appointment is being scheduled
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/reasonCode`](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.reasonCode)|`add`|<code>List</code> <code>of</code> <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "add",
+          "path": "/reasonCode",
+          "value": [
+            {
+              "text": "I have a headache"
+            }
+          ]
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of <code>booked</code></li>
+          <li>Only one CodeableConcept may be provided in the value array</li>
+          <li>CodeableConcept.text is required and CodeableConcept.coding, if present, will be ignored</li>
+          <li>When the value array is empty, any existing reasonCode will be removed</li>
+        </ul>
+        
+        ## Add Cancelationreason
+        _Description_
+        
+        The coded reason for the appointment being cancelled
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/cancelationReason`](https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.cancelationReason)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "add",
+          "path": "/cancelationReason",
+          "value": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+                "code": "oth-err"
+              }
+            ]
           }
-        ]
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of <code>cancelled</code></li>
-      <li>Only one coding may be provided in the value</li>
-      <li>The cancellation reason <code>value.coding</code> can be from either the standard or proprietary system</li>
-      <li>CodeableConcept.coding is required and CodeableConcept.text, if present, will be ignored</li>
-    </ul>
-    
-    ## Add Provider Vmr
-    _Description_
-    
-    The provider Video Visit link
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/contained/0/telecom/0/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/contained/0/telecom/0/value",
-      "value": "http://providerlink.vmr.net"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may only be used for Cerner Video Visit appointments</li>
-      <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>add</code></li>
-      <li>The URL length must be less than or equal to 255 characters</li>
-    </ul>
-    
-    ## Add Patient Vmr
-    _Description_
-    
-    The patient Video Visit link
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/contained/1/telecom/0/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/contained/1/telecom/0/value",
-      "value": "http://patientlink.vmr.net"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may only be used for Cerner Video Visit appointments</li>
-      <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>add</code></li>
-      <li>The URL length must be less than or equal to 255 characters</li>
-    </ul>
-    
-    ## Add Period Start
-    _Description_
-    
-    The start datetime for the Video Visit
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/contained/0/telecom/0/period/start`](http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start)|`add`|<code>datetime</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/contained/0/telecom/0/period/start",
-      "value": "2019-07-13T08:00:00.000Z"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may only be used for Cerner Video Visit appointments</li>
-      <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
-      <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>add</code></li>
-    </ul>
-    
-    ## Add Period End
-    _Description_
-    
-    The end datetime for the Video Visit
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/contained/0/telecom/0/period/end`](http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end)|`add`|<code>datetime</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/contained/0/telecom/0/period/end",
-      "value": "2019-07-13T08:30:00.000Z"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may only be used for Cerner Video Visit appointments</li>
-      <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
-      <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>add</code></li>
-    </ul>
-    
-    ## Replace Provider Vmr
-    _Description_
-    
-    The provider Video Visit link
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/contained/0/telecom/0/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/contained/0/telecom/0/value",
-      "value":  "http://providerlink.vmr.net"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may only be used for Cerner Video Visit appointments</li>
-      <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>replace</code></li>
-      <li>The URL length must be less than or equal to 255 characters</li>
-    </ul>
-    
-    ## Replace Patient Vmr
-    _Description_
-    
-    The patient Video Visit link
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/contained/1/telecom/0/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/contained/1/telecom/0/value",
-      "value":  "http://patientlink.vmr.net"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may only be used for Cerner Video Visit appointments</li>
-      <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>replace</code></li>
-      <li>The URL length must be less than or equal to 255 characters</li>
-    </ul>
-    
-    ## Replace Period Start
-    _Description_
-    
-    The start datetime for the Video Visit
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/contained/0/telecom/0/period/start`](http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start)|`replace`|<code>datetime</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/contained/0/telecom/0/period/start",
-      "value":  "2019-07-13T08:30:00.000Z"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may only be used for Cerner Video Visit appointments</li>
-      <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
-      <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>replace</code></li>
-    </ul>
-    
-    ## Replace Period End
-    _Description_
-    
-    The end datetime for the Video Visit
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/contained/0/telecom/0/period/end`](http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end)|`replace`|<code>datetime</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/contained/0/telecom/0/period/end",
-      "value":  "2019-07-14T08:30:00.000Z"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may only be used for Cerner Video Visit appointments</li>
-      <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
-      <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>replace</code></li>
-    </ul>
-    
-    ## Replace Participant Status
-    _Description_
-    
-    The participant status on Patient participant types
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/patient-status`](https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/patient-status",
-      "value":  "accepted"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This patch operation may be used only for appointments with a <code>booked</code> status</li>
-      <li>This patch operation may be used only for Patient participants with a <code>tentative</code> status</li>
-    </ul>
-    
-    ## Replace Action Comment
-    _Description_
-    
-    The comment to be associated with the action performed on the resource
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/extension",
-      "value": [
-        {
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment",
-          "valueString": "not required, cancelled"
         }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When present, this patch operation must be accompanied by add cancellation reason and replace status patch operation when updating the status to <code>cancelled</code></li>
-      <li>When present, this patch operation must be accompanied by replace slot when rescheduling the appointment.</li>
-      <li>Only one value may be provided in the value array</li>
-    </ul>
-    
-    ## Replace Comment
-    _Description_
-    
-    Additional text to aid in facilitating the appointment
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/comment`](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/comment",
-      "value": "Arrived"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When present, this patch operation must be accompanied by the replace Slot patch operation</li>
-    </ul>
-    
-    ## Add Reschedule Reason
-    _Description_
-    
-    The coded reason for the appointment being rescheduled
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/extension",
-      "value": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
-            "code": "oth-err"
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When present, this patch operation must be accompanied by the replace Status patch operation with a value of <code>cancelled</code></li>
+          <li>Only one coding may be provided in the value</li>
+          <li>The cancellation reason <code>value.coding</code> can be from either the standard or proprietary system</li>
+          <li>CodeableConcept.coding is required and CodeableConcept.text, if present, will be ignored</li>
+        </ul>
+        
+        ## Add Provider Vmr
+        _Description_
+        
+        The provider Video Visit link
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/contained/0/telecom/0/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "add",
+          "path": "/contained/0/telecom/0/value",
+          "value": "http://providerlink.vmr.net"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+          <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>add</code></li>
+          <li>The URL length must be less than or equal to 255 characters</li>
+        </ul>
+        
+        ## Add Patient Vmr
+        _Description_
+        
+        The patient Video Visit link
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/contained/1/telecom/0/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "add",
+          "path": "/contained/1/telecom/0/value",
+          "value": "http://patientlink.vmr.net"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+          <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>add</code></li>
+          <li>The URL length must be less than or equal to 255 characters</li>
+        </ul>
+        
+        ## Add Period Start
+        _Description_
+        
+        The start datetime for the Video Visit
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/contained/0/telecom/0/period/start`](http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start)|`add`|<code>datetime</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "add",
+          "path": "/contained/0/telecom/0/period/start",
+          "value": "2019-07-13T08:00:00.000Z"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+          <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+          <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>add</code></li>
+        </ul>
+        
+        ## Add Period End
+        _Description_
+        
+        The end datetime for the Video Visit
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/contained/0/telecom/0/period/end`](http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end)|`add`|<code>datetime</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "add",
+          "path": "/contained/0/telecom/0/period/end",
+          "value": "2019-07-13T08:30:00.000Z"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+          <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+          <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>add</code></li>
+        </ul>
+        
+        ## Replace Provider Vmr
+        _Description_
+        
+        The provider Video Visit link
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/contained/0/telecom/0/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/contained/0/telecom/0/value",
+          "value":  "http://providerlink.vmr.net"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+          <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>replace</code></li>
+          <li>The URL length must be less than or equal to 255 characters</li>
+        </ul>
+        
+        ## Replace Patient Vmr
+        _Description_
+        
+        The patient Video Visit link
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/contained/1/telecom/0/value`](https://hl7.org/fhir/R4/datatypes-definitions.html#ContactPoint.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/contained/1/telecom/0/value",
+          "value":  "http://patientlink.vmr.net"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+          <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>replace</code></li>
+          <li>The URL length must be less than or equal to 255 characters</li>
+        </ul>
+        
+        ## Replace Period Start
+        _Description_
+        
+        The start datetime for the Video Visit
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/contained/0/telecom/0/period/start`](http://hl7.org/fhir/R4/datatypes-definitions.html#Period.start)|`replace`|<code>datetime</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/contained/0/telecom/0/period/start",
+          "value":  "2019-07-13T08:30:00.000Z"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+          <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+          <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>replace</code></li>
+        </ul>
+        
+        ## Replace Period End
+        _Description_
+        
+        The end datetime for the Video Visit
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/contained/0/telecom/0/period/end`](http://hl7.org/fhir/R4/datatypes-definitions.html#Period.end)|`replace`|<code>datetime</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/contained/0/telecom/0/period/end",
+          "value":  "2019-07-14T08:30:00.000Z"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may only be used for Cerner Video Visit appointments</li>
+          <li>The value for this patch operation will be applied to both the provider Video Visit link and the patient Video Visit link</li>
+          <li>This patch operation must be accompanied by all other Video Visit link patch operations with an <code>op</code> of <code>replace</code></li>
+        </ul>
+        
+        ## Replace Participant Status
+        _Description_
+        
+        The participant status on Patient participant types
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/patient-status`](https://hl7.org/fhir/R4/appointment-definitions.html#Appointment.participant.status)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/patient-status",
+          "value":  "accepted"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This patch operation may be used only for appointments with a <code>booked</code> status</li>
+          <li>This patch operation may be used only for Patient participants with a <code>tentative</code> status</li>
+        </ul>
+        
+        ## Replace Action Comment
+        _Description_
+        
+        The comment to be associated with the action performed on the resource
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/extension",
+          "value": [
+            {
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/action-comment",
+              "valueString": "not required, cancelled"
+            }
+          ]
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When present, this patch operation must be accompanied by add cancellation reason and replace status patch operation when updating the status to <code>cancelled</code></li>
+          <li>When present, this patch operation must be accompanied by replace slot when rescheduling the appointment.</li>
+          <li>Only one value may be provided in the value array</li>
+        </ul>
+        
+        ## Replace Comment
+        _Description_
+        
+        Additional text to aid in facilitating the appointment
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/comment`](http://hl7.org/fhir/R4/appointment-definitions.html#Appointment.comment)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/comment",
+          "value": "Arrived"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When present, this patch operation must be accompanied by the replace Slot patch operation</li>
+        </ul>
+        
+        ## Add Reschedule Reason
+        _Description_
+        
+        The coded reason for the appointment being rescheduled
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "add",
+          "path": "/extension",
+          "value": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/appointment-cancellation-reason",
+                "code": "oth-err"
+              }
+            ]
           }
-        ]
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When present, this patch operation must be accompanied by replace slot operation</li>
-      <li>Only one value may be provided in the value array</li>
-    </ul>
-    
-  consumes: 
-  produces: 
-  parameters: 
-    - name: patchBody
-      in: body
-      required: true
-      schema: {
-        "$ref": "#definitions/PatchBody"
-      }
-  responses: 
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When present, this patch operation must be accompanied by replace slot operation</li>
+          <li>Only one value may be provided in the value array</li>
+        </ul>
+        
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json-patch+json
+      parameters: 
+        - name: patchBody
+          in: body
+          required: true
+          schema: {
+            "$ref": "#definitions/PatchBody"
+          }
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
 
 definitions:
-  PatchBody:
-    type: array
-    minItems: 1
-    items:
-      type: object
-      required:
-      - op
-      - path
-      properties:
-        op:
-          type: string
-          enum:
-          - replace
-          - add
-        path:
-          type: string
-        value:
-          type: string
+      PatchBody:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required:
+          - op
+          - path
+          properties:
+            op:
+              type: string
+              enum:
+              - replace
+              - add
+            path:
+              type: string
+            value:
+              type: string

@@ -1,79 +1,91 @@
+    patch:
 
-  description: |
-    # Patch Operations
+      description: |
+        # Patch Operations
 
-    ## Replace Status
-    _Description_
-    
-    The status of the MedicationRequest
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/status`](http://hl7.org/fhir/datatypes-definitions.html#code)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/status",
-      "value":  "stopped"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>
-        Only the statuses of <code>stopped</code> and <code>cancelled</code> are supported.
+        ## Replace Status
+        _Description_
+        
+        The status of the MedicationRequest
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/status`](http://hl7.org/fhir/datatypes-definitions.html#code)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/status",
+          "value":  "stopped"
+        }
+        
+        ````
+        
+        _Notes_
         <ul>
-          <li>The <code>stopped</code> status indicates the medication was stopped prior to all scheduled administrations occurring.</li>
-          <li>The <code>cancelled</code> status indicates that the first instance was never administered.</li>
+          <li>
+            Only the statuses of <code>stopped</code> and <code>cancelled</code> are supported.
+            <ul>
+              <li>The <code>stopped</code> status indicates the medication was stopped prior to all scheduled administrations occurring.</li>
+              <li>The <code>cancelled</code> status indicates that the first instance was never administered.</li>
+            </ul>
+          </li>
+          <li>
+            The <code>dosageInstruction.timing.repeat.boundsPeriod.start</code> field should be used to determine if the <code>stopped</code> or
+            <code>cancelled</code> status is most appropriate. If the field is in the past, then the <code>stopped</code> status should
+            be used, otherwise the <code>cancelled</code> status should be used.
+          </li>
+          <li>Using <code>stopped</code> when the <code>cancelled</code> status is most appropriate will result in the status being updated to <code>cancelled</code>.</li>
+          <li>Using <code>cancelled</code> when the <code>stopped</code> status is most appropriate will result in the status being updated to <code>stopped</code>.</li>
+          <li>Only historical documented medications in Millennium can have their status updated. In order to identify them, 
+            the client can filter the medication request using the following query parameters:
+            <ul>
+              <li>MedicationRequest.intent = order </li>
+              <li>MedicationRequest.category = patientspecified & community </li>
+              <li>MedicationRequest.reportedBoolean = true </li>
+            </ul>
+          </li>
         </ul>
-      </li>
-      <li>
-        The <code>dosageInstruction.timing.repeat.boundsPeriod.start</code> field should be used to determine if the <code>stopped</code> or
-        <code>cancelled</code> status is most appropriate. If the field is in the past, then the <code>stopped</code> status should
-        be used, otherwise the <code>cancelled</code> status should be used.
-      </li>
-      <li>Using <code>stopped</code> when the <code>cancelled</code> status is most appropriate will result in the status being updated to <code>cancelled</code>.</li>
-      <li>Using <code>cancelled</code> when the <code>stopped</code> status is most appropriate will result in the status being updated to <code>stopped</code>.</li>
-      <li>Only historical documented medications in Millennium can have their status updated. In order to identify them, 
-        the client can filter the medication request using the following query parameters:
-        <ul>
-          <li>MedicationRequest.intent = order </li>
-          <li>MedicationRequest.category = patientspecified & community </li>
-          <li>MedicationRequest.reportedBoolean = true </li>
-        </ul>
-      </li>
-    </ul>
-    
-  consumes: 
-  produces: 
-  parameters: 
-    - name: patchBody
-      in: body
-      required: true
-      schema: {
-        "$ref": "#definitions/PatchBody"
-      }
-  responses: 
+        
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json-patch+json
+      parameters: 
+        - name: patchBody
+          in: body
+          required: true
+          schema: {
+            "$ref": "#definitions/PatchBody"
+          }
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
 
 definitions:
-  PatchBody:
-    type: array
-    minItems: 1
-    items:
-      type: object
-      required:
-      - op
-      - path
-      properties:
-        op:
-          type: string
-          enum:
-          - replace
-        path:
-          type: string
-        value:
-          type: string
+      PatchBody:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required:
+          - op
+          - path
+          properties:
+            op:
+              type: string
+              enum:
+              - replace
+            path:
+              type: string
+            value:
+              type: string

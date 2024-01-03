@@ -1,70 +1,82 @@
+    patch:
 
-  description: |
-    # Patch Operations
+      description: |
+        # Patch Operations
 
-    ## Replace Extension
-    _Description_
-    
-    Replace the value of an extension.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/extension",
-      "op": "replace",
-      "value": [
+        ## Replace Extension
+        _Description_
+        
+        Replace the value of an extension.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
+        
+        _Example_
+        
+        ````json
         {
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://hl7.org/fhir/task-status",
-                "code": "completed"
-              }
-            ]
-          },
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status"
+          "path": "/extension",
+          "op": "replace",
+          "value": [
+            {
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/task-status",
+                    "code": "completed"
+                  }
+                ]
+              },
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status"
+            }
+          ]
         }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    Supported extensions that can be replaced: <ul>
-      <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json">Email Status</a></li>
-    </ul>
-    
-  consumes: 
-  produces: 
-  parameters: 
-    - name: patchBody
-      in: body
-      required: true
-      schema: {
-        "$ref": "#definitions/PatchBody"
-      }
-  responses: 
+        
+        ````
+        
+        _Notes_
+        Supported extensions that can be replaced: <ul>
+          <li> <a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json">Email Status</a></li>
+        </ul>
+        
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json-patch+json
+      parameters: 
+        - name: patchBody
+          in: body
+          required: true
+          schema: {
+            "$ref": "#definitions/PatchBody"
+          }
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
 
 definitions:
-  PatchBody:
-    type: array
-    minItems: 1
-    items:
-      type: object
-      required:
-      - op
-      - path
-      properties:
-        op:
-          type: string
-          enum:
-          - replace
-        path:
-          type: string
-        value:
-          type: string
+      PatchBody:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required:
+          - op
+          - path
+          properties:
+            op:
+              type: string
+              enum:
+              - replace
+            path:
+              type: string
+            value:
+              type: string

@@ -1,120 +1,213 @@
+    patch:
 
-  description: |
-    # Patch Operations
+      description: |
+        # Patch Operations
 
-    ## Add Identifier
-    _Description_
-    
-    Add a new identifier for the related person.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/-`](https://hl7.org/fhir/R4/related-person-definitions.html#RelatedPerson.identifier)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/-",
-      "op": "add",
-      "value": {
-        "type": {
-          "coding": [
-            {
-              "code": "MR",
-              "system": "http://hl7.org/fhir/v2/0203"
+        ## Add Identifier
+        _Description_
+        
+        Add a new identifier for the related person.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/-`](https://hl7.org/fhir/R4/related-person-definitions.html#RelatedPerson.identifier)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>Identifier</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/-",
+          "op": "add",
+          "value": {
+            "type": {
+              "coding": [
+                {
+                  "code": "MR",
+                  "system": "http://hl7.org/fhir/v2/0203"
+                }
+              ]
+            },
+            "system": "2.16.840.1.113883.6.1000",
+            "value": "&lt;unique identifier&gt;",
+            "period": {
+              "start": "2016-01-02T00:00:00-05:00",
+              "end": "2020-01-02T00:00:00-05:00"
             }
-          ]
-        },
-        "system": "2.16.840.1.113883.6.1000",
-        "value": "&lt;unique identifier&gt;",
-        "period": {
-          "start": "2016-01-02T00:00:00-05:00",
-          "end": "2020-01-02T00:00:00-05:00"
+          }
         }
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Must not contain the <code>use</code> field. </li>
-      <li> Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields. </li>
-      <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
-    </ul>
-    
-    ## Test Identifier Id
-    _Description_
-    
-    Test the value of the <code>Identifier.id</code> of the identifier at the given <code>{index}</code> in the list of related person identifiers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/1/id",
-      "op": "test",
-      "value": "CI-490151266-1"
-    }
-    
-    ````
-    ## Remove Identifier
-    _Description_
-    
-    Remove the identifier at the given <code>{index}</code> in the list of related person identifiers.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/identifier/{index}`](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/identifier/1",
-      "op": "remove"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier intended to be removed. </li>
-    </ul>
-    
-    ## Add Relationship
-    _Description_
-    
-    The nature of the relationship between a patient and the related person.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/relationship/-`](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
-    
-    _Example_
-    
-    ````json
-    [
-      {
-        "op": "add",
-        "path": "/relationship/-",
-        "value":{
-          "coding": [
-            {
-              "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-              "code": "FAMMEMB"
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Must not contain the <code>use</code> field. </li>
+          <li> Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields. </li>
+          <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+        </ul>
+        
+        ## Test Identifier Id
+        _Description_
+        
+        Test the value of the <code>Identifier.id</code> of the identifier at the given <code>{index}</code> in the list of related person identifiers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/1/id",
+          "op": "test",
+          "value": "CI-490151266-1"
+        }
+        
+        ````
+        ## Remove Identifier
+        _Description_
+        
+        Remove the identifier at the given <code>{index}</code> in the list of related person identifiers.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/identifier/{index}`](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.identifier)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/identifier/1",
+          "op": "remove"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-identifier-id">test operation</a> to be provided for the <code>Identifier.id</code> of the identifier intended to be removed. </li>
+        </ul>
+        
+        ## Add Relationship
+        _Description_
+        
+        The nature of the relationship between a patient and the related person.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/relationship/-`](https://hl7.org/fhir/r4/relatedperson-definitions.html#RelatedPerson.relationship)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
+        
+        _Example_
+        
+        ````json
+        [
+          {
+            "op": "add",
+            "path": "/relationship/-",
+            "value":{
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                  "code": "FAMMEMB"
+                }
+              ],
+              "extension": [
+                {
+                  "valuePeriod": {
+                    "start": "2016-12-19T16:44:25.000Z",
+                    "end": "2022-05-01T16:56:56.000Z"
+                  },
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+                },
+                {
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                        "code": "SIS"
+                      }
+                    ]
+                  },
+                  "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+                }
+              ]
             }
-          ],
-          "extension": [
+          }
+        ]
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+          <li> Duplicate relationships may be added, but will only be represented once on the Resource. </li>
+          <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+          <li> Only one <code>coding</code> may be provided. </li>
+        </ul>
+        
+        ## Test Relationship Id
+        _Description_
+        
+        Test the <code>Relationship.id</code> value of the relationship at the given <code>{index}</code> in the list of related person relationships.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/relationship/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "test",
+          "path": "/relationship/0/id",
+          "value": "CI-98278577-0"
+        }
+        
+        ````
+        ## Remove Relationship
+        _Description_
+        
+        Remove the relationship at the given <code>{index}</code> in the list of related person relationships.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/relationship/{index}`](https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.relationship)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "remove",
+          "path": "/relationship/0"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the <code>Relationship.id</code> field of the relationship to be removed. </li>
+        </ul>
+        
+        ## Replace Relationship Extension
+        _Description_
+        
+        Replace the relationship extension field at the given <code>{index}</code>.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/relationship/{index}/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/relationship/0/extension",
+          "value": [
             {
               "valuePeriod": {
-                "start": "2016-12-19T16:44:25.000Z",
-                "end": "2022-05-01T16:56:56.000Z"
+                "start": "2016-12-30T22:26:08.000Z",
+                "end": "2036-12-30T22:26:08.000Z"
               },
               "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
             },
@@ -127,455 +220,374 @@
                   }
                 ]
               },
-              "url": 'https://fhir-ehr.cerner.com/r4/StructureDefinition/relation'
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
             }
           ]
         }
-      }
-    ]
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
-      <li> Duplicate relationships may be added, but will only be represented once on the Resource. </li>
-      <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
-      <li> Only one <code>coding</code> may be provided. </li>
-    </ul>
-    
-    ## Test Relationship Id
-    _Description_
-    
-    Test the <code>Relationship.id</code> value of the relationship at the given <code>{index}</code> in the list of related person relationships.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/relationship/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "test",
-      "path": "/relationship/0/id",
-      "value": "CI-98278577-0"
-    }
-    
-    ````
-    ## Remove Relationship
-    _Description_
-    
-    Remove the relationship at the given <code>{index}</code> in the list of related person relationships.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/relationship/{index}`](https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.relationship)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "remove",
-      "path": "/relationship/0"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the <code>Relationship.id</code> field of the relationship to be removed. </li>
-    </ul>
-    
-    ## Replace Relationship Extension
-    _Description_
-    
-    Replace the relationship extension field at the given <code>{index}</code>.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/relationship/{index}/extension`](https://hl7.org/fhir/R4/domainresource-definitions.html#DomainResource.extension)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/extensibility.html#Extension"><code>Extension</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/relationship/0/extension",
-      "value": [
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the <code>Relationship.id</code> of the relationship whose <code>extension</code> value is intended to be replaced. </li>
+          <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+          <li> When either <code>start</code> or <code>end</code> are not provided its value will be unset. </li>
+          <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+          <li> Only one <code>coding</code> may be provided. </li>
+          <li> If either the <code>valuePeriod</code> and <code>valueCodeableConcept</code> are not provided, any existing values for the absent period and relation extensions will be removed. </li>
+        </ul>
+        
+        ## Add Address
+        _Description_
+        
+        Add a new address for the related person.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/-`](https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.address)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Address"><code>Address</code></a>|
+        
+        _Example_
+        
+        ````json
         {
-          "valuePeriod": {
-            "start": "2016-12-30T22:26:08.000Z",
-            "end": "2036-12-30T22:26:08.000Z"
-          },
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+          "op": "add",
+          "path": "/address/-",
+          "value": {
+            "use": "home",
+            "line": [
+              "1212 Faircastle Drive",
+              "Apartment 406"
+            ],
+            "city": "KC",
+            "district": "Jackson",
+            "state": "KS",
+            "postalCode": "64199",
+            "country": "United States of America",
+            "period": {
+              "start": "2012-05-17T15:33:18.000Z"
+            }
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Must not contain the <code>text</code> field. </li>
+          <li> Must contain the <code>use</code> field. </li>
+          <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+          <li> If <code>line</code> is provided, only the first four values are used. Additional values will be ignored. </li>
+        </ul>
+        
+        ## Test Address Id
+        _Description_
+        
+        Test the <code>Address.id</code> value of the address at the given <code>{index}</code> in the list of related person addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "test",
+          "path": "/address/0/id",
+          "value": "CI-24079465-0"
+        }
+        
+        ````
+        ## Remove Address
+        _Description_
+        
+        Remove the address at the given <code>{index}</code> in the list of related person addresses.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/address/{index}`](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "remove",
+          "path": "/address/0"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> field of the address to be removed. </li>
+        </ul>
+        
+        ## Add Telecom
+        _Description_
+        
+        Add a new contact detail for the related person.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/-`](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#ContactPoint"><code>ContactPoint</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "add",
+          "path": "/telecom/-",
+          "value": {
+            "use": "home",
+            "system": "email",
+            "value": "test@test.com",
+            "period": {
+              "start": "2018-01-05T22:24:32.000Z"
+            }
+          }
         },
         {
-          "valueCodeableConcept": {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                "code": "SIS"
-              }
-            ]
-          },
-          "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+          "op": "add",
+          "path": "/telecom/-",
+          "value": {
+            "use": "home",
+            "system": "phone",
+            "value": "913-444-8881",
+            "period": {
+              "start": "2018-01-05T22:24:32.000Z"
+            }
+          }
         }
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-relationship-id">test operation</a> to be provided for the <code>Relationship.id</code> of the relationship whose <code>extension</code> value is intended to be replaced. </li>
-      <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
-      <li> When either <code>start</code> or <code>end</code> are not provided its value will be unset. </li>
-      <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
-      <li> Only one <code>coding</code> may be provided. </li>
-      <li> If either the <code>valuePeriod</code> and <code>valueCodeableConcept</code> are not provided, any existing values for the absent period and relation extensions will be removed. </li>
-    </ul>
-    
-    ## Add Address
-    _Description_
-    
-    Add a new address for the related person.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/-`](https://hl7.org/fhir/r4/related-person-definitions.html#RelatedPerson.address)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Address"><code>Address</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/address/-",
-      "value": {
-        "use": "home",
-        "line": [
-          "1212 Faircastle Drive",
-          "Apartment 406"
-        ],
-        "city": "KC",
-        "district": "Jackson",
-        "state": "KS",
-        "postalCode": "64199",
-        "country": "United States of America",
-        "period": {
-          "start": "2012-05-17T15:33:18.000Z"
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields. </li>
+          <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+        </ul>
+        
+        ## Test Telecom Id
+        _Description_
+        
+        Test the value of the <code>ContactPoint.id</code> of the telecom at the given <code>{index}</code> in the list of related person telecoms.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "test",
+          "path": "/telecom/0/id",
+          "value": "CI-PH-2807950-0"
         }
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Must not contain the <code>text</code> field. </li>
-      <li> Must contain the <code>use</code> field. </li>
-      <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
-      <li> If <code>line</code> is provided, only the first four values are used. Additional values will be ignored. </li>
-    </ul>
-    
-    ## Test Address Id
-    _Description_
-    
-    Test the <code>Address.id</code> value of the address at the given <code>{index}</code> in the list of related person addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "test",
-      "path": "/address/0/id",
-      "value": "CI-24079465-0"
-    }
-    
-    ````
-    ## Remove Address
-    _Description_
-    
-    Remove the address at the given <code>{index}</code> in the list of related person addresses.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/address/{index}`](http://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.address)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "remove",
-      "path": "/address/0"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-address-id">test operation</a> to be provided for the <code>Address.id</code> field of the address to be removed. </li>
-    </ul>
-    
-    ## Add Telecom
-    _Description_
-    
-    Add a new contact detail for the related person.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/-`](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom)|`add`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#ContactPoint"><code>ContactPoint</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "add",
-      "path": "/telecom/-",
-      "value": {
-        "use": "home",
-        "system": "email",
-        "value": "test@test.com",
-        "period": {
-          "start": "2018-01-05T22:24:32.000Z"
+        
+        ````
+        ## Remove Telecom
+        _Description_
+        
+        Remove the telecom at the given <code>{index}</code> in the list of related person telecoms.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/telecom/{index}`](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom)|`remove`|<code>N</code>/<code>A</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "remove"
+          "path": "/telecom/0"
         }
-      }
-    },
-    {
-      "op": "add",
-      "path": "/telecom/-",
-      "value": {
-        "use": "home",
-        "system": "phone",
-        "value": "913-444-8881",
-        "period": {
-          "start": "2018-01-05T22:24:32.000Z"
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom intended to be removed. </li>
+        </ul>
+        
+        ## Test Name Id
+        _Description_
+        
+        Test the value of the <code>HumanName.id</code> of the name at the given <code>{index}</code> in the list of related person names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "test",
+          "path": "/name/0/id",
+          "value": "CI-12467982-0"
         }
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields. </li>
-      <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
-    </ul>
-    
-    ## Test Telecom Id
-    _Description_
-    
-    Test the value of the <code>ContactPoint.id</code> of the telecom at the given <code>{index}</code> in the list of related person telecoms.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "test",
-      "path": "/telecom/0/id",
-      "value": "CI-PH-2807950-0"
-    }
-    
-    ````
-    ## Remove Telecom
-    _Description_
-    
-    Remove the telecom at the given <code>{index}</code> in the list of related person telecoms.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/telecom/{index}`](https://hl7.org/fhir/R4/relatedperson-definitions.html#RelatedPerson.telecom)|`remove`|<code>N</code>/<code>A</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "remove"
-      "path": "/telecom/0"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom intended to be removed. </li>
-    </ul>
-    
-    ## Test Name Id
-    _Description_
-    
-    Test the value of the <code>HumanName.id</code> of the name at the given <code>{index}</code> in the list of related person names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/id`](https://hl7.org/fhir/R4/element-definitions.html#Element.id)|`test`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "test",
-      "path": "/name/0/id",
-      "value": "CI-12467982-0"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
-    </ul>
-    
-    ## Replace Name Family
-    _Description_
-    
-    Replace the <code>HumanName.family</code> of the name at the given <code>{index}</code> in the list of related person names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/family`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/name/0/family",
-      "op": "replace",
-      "value": "Potter"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>family</code> is intended to be replaced. </li>
-      <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
-    </ul>
-    
-    ## Replace Name Prefix
-    _Description_
-    
-    Replace the <code>HumanName.prefix</code> of the name at the given <code>{index}</code> in the list of related person names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/prefix`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix)|`replace`|<code>String</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/name/0/prefix",
-      "value": ["Mr."]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>prefix</code> is intended to be replaced. </li>
-      <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
-      <li> If no prefix value is provided, the prefix on the name will be unset. </li>
-      <li> Only one prefix value may be provided. </li>
-    </ul>
-    
-    ## Replace Name Given
-    _Description_
-    
-    Replace the <code>HumanName.given</code> of the name at the given <code>{index}</code> in the list of related person names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/given`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given)|`replace`|<code>String</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "path": "/name/0/given",
-      "op": "replace",
-      "value": [
-        "Harry",
-        "James"
-      ]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>given</code> is intended to be replaced. </li>
-      <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
-      <li> If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed. </li>
-      <li> Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
-    </ul>
-    
-    ## Replace Name Suffix
-    _Description_
-    
-    Replace the <code>HumanName.suffix</code> of the name at the given <code>{index}</code> in the list of related person names.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/name/{index}/suffix`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix)|`replace`|<code>String</code>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/name/0/suffix",
-      "value": ["Jr."]
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>suffix</code> is intended to be replaced. </li>
-      <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
-      <li> If no suffix value is provided, the suffix on the name will be unset. </li>
-      <li> Only one suffix value may be provided. </li>
-    </ul>
-    
-  consumes: 
-  produces: 
-  parameters: 
-    - name: patchBody
-      in: body
-      required: true
-      schema: {
-        "$ref": "#definitions/PatchBody"
-      }
-  responses: 
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+        </ul>
+        
+        ## Replace Name Family
+        _Description_
+        
+        Replace the <code>HumanName.family</code> of the name at the given <code>{index}</code> in the list of related person names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/family`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.family)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/name/0/family",
+          "op": "replace",
+          "value": "Potter"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>family</code> is intended to be replaced. </li>
+          <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+        </ul>
+        
+        ## Replace Name Prefix
+        _Description_
+        
+        Replace the <code>HumanName.prefix</code> of the name at the given <code>{index}</code> in the list of related person names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/prefix`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.prefix)|`replace`|<code>String</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/name/0/prefix",
+          "value": ["Mr."]
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>prefix</code> is intended to be replaced. </li>
+          <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+          <li> If no prefix value is provided, the prefix on the name will be unset. </li>
+          <li> Only one prefix value may be provided. </li>
+        </ul>
+        
+        ## Replace Name Given
+        _Description_
+        
+        Replace the <code>HumanName.given</code> of the name at the given <code>{index}</code> in the list of related person names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/given`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.given)|`replace`|<code>String</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "path": "/name/0/given",
+          "op": "replace",
+          "value": [
+            "Harry",
+            "James"
+          ]
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>given</code> is intended to be replaced. </li>
+          <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+          <li> If there are fewer values provided than the HumanName.given list currently has, the additional existing values will be removed. </li>
+          <li> Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
+        </ul>
+        
+        ## Replace Name Suffix
+        _Description_
+        
+        Replace the <code>HumanName.suffix</code> of the name at the given <code>{index}</code> in the list of related person names.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/name/{index}/suffix`](https://hl7.org/fhir/R4/datatypes-definitions.html#HumanName.suffix)|`replace`|<code>String</code>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/name/0/suffix",
+          "value": ["Jr."]
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li> Requires a <a href="#test-name-id">test operation</a> to be provided for the <code>HumanName.id</code> of the name whose <code>suffix</code> is intended to be replaced. </li>
+          <li> This operation is only supported for the first name in the list of related person names (<code>{index}</code> == 0). </li>
+          <li> If no suffix value is provided, the suffix on the name will be unset. </li>
+          <li> Only one suffix value may be provided. </li>
+        </ul>
+        
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json-patch+json
+      parameters: 
+        - name: patchBody
+          in: body
+          required: true
+          schema: {
+            "$ref": "#definitions/PatchBody"
+          }
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
 
 definitions:
-  PatchBody:
-    type: array
-    minItems: 1
-    items:
-      type: object
-      required:
-      - op
-      - path
-      properties:
-        op:
-          type: string
-          enum:
-          - add
-          - test
-          - remove
-          - replace
-        path:
-          type: string
-        value:
-          type: string
+      PatchBody:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required:
+          - op
+          - path
+          properties:
+            op:
+              type: string
+              enum:
+              - add
+              - test
+              - remove
+              - replace
+            path:
+              type: string
+            value:
+              type: string

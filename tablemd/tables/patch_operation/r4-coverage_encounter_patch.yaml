@@ -1,251 +1,263 @@
+    patch:
 
-  description: |
-    # Patch Operations
+      description: |
+        # Patch Operations
 
-    ## Replace Class 0 Value
-    _Description_
-    
-    The alphanumeric string value associated with the insurer issued label.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/class/0/value`](https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/class/0/value",
-      "value": "729825"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>For Private Coverages, the <code>Coverage.class</code> at index 0 represents the plan for the Coverage.</li>
-      <li>For Public Coverages, the <code>Coverage.class</code> at index 0 represents the charging category for the Coverage.</li>
-    </ul>
-    
-    ## Replace Class 1 Value
-    _Description_
-    
-    The alphanumeric string value associated with the insurer issued label.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/class/1/value`](https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/class/1/value",
-      "value": "729825"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>This path should be used only to replace the policy group number.</li>
-      <li>The <code>Coverage.class</code> at index 1 represents the group for the Coverage.</li>
-      <li>When no value is provided for this patch operation, <code>Coverage.class[1].value</code> will be unset.</li>
-    </ul>
-    
-    ## Replace Class Name
-    _Description_
-    
-    A short description for the class.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/class/1/name`](https://hl7.org/fhir/coverage-definitions.html#Coverage.class.name)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/class/1/name",
-      "value": "name"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>The <code>Coverage.class</code> at index 1 represents the group for the Coverage.</li>
-      <li>When no value is provided for this patch operation, <code>Coverage.class[1].name</code> will be unset.</li>
-    </ul>
-    
-    ## Replace Dependent
-    _Description_
-    
-    A unique identifier for a dependent under the coverage.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/dependent`](https://hl7.org/fhir/coverage-definitions.html#Coverage.dependent)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/dependent",
-      "value": "9816564"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When no value is provided for this patch operation, <code>Coverage.dependent</code> will be unset.</li>
-    </ul>
-    
-    ## Replace Period
-    _Description_
-    
-    Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/period`](https://hl7.org/fhir/coverage-definitions.html#Coverage.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/period",
-      "value": {
-        "start": "2014-09-05T14:30:12.000Z",
-        "end": "2015-09-05T14:30:12.000Z"
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When no <code>start</code> value is provided for this patch operation, <code>Coverage.period.start</code> will be unset.</li>
-      <li>When no <code>end</code> value is provided for this patch operation, <code>Coverage.period.end</code> will be unset.</li>
-      <li>When <code>start</code> or <code>end</code> values are provided, time components must be provided.</li>
-    </ul>
-    
-    ## Replace Relationship
-    _Description_
-    
-    The relationship of beneficiary (patient) to the subscriber.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/relationship`](https://hl7.org/fhir/coverage-definitions.html#Coverage.relationship)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/relationship",
-      "value": {
-        "coding": [
-          {
-            "system": "https://terminology.hl7.org/CodeSystem/subscriber-relationship",
-            "code": "parent"
+        ## Replace Class 0 Value
+        _Description_
+        
+        The alphanumeric string value associated with the insurer issued label.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/class/0/value`](https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/class/0/value",
+          "value": "729825"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>For Private Coverages, the <code>Coverage.class</code> at index 0 represents the plan for the Coverage.</li>
+          <li>For Public Coverages, the <code>Coverage.class</code> at index 0 represents the charging category for the Coverage.</li>
+        </ul>
+        
+        ## Replace Class 1 Value
+        _Description_
+        
+        The alphanumeric string value associated with the insurer issued label.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/class/1/value`](https://hl7.org/fhir/coverage-definitions.html#Coverage.class.value)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/class/1/value",
+          "value": "729825"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>This path should be used only to replace the policy group number.</li>
+          <li>The <code>Coverage.class</code> at index 1 represents the group for the Coverage.</li>
+          <li>When no value is provided for this patch operation, <code>Coverage.class[1].value</code> will be unset.</li>
+        </ul>
+        
+        ## Replace Class Name
+        _Description_
+        
+        A short description for the class.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/class/1/name`](https://hl7.org/fhir/coverage-definitions.html#Coverage.class.name)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/class/1/name",
+          "value": "name"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>The <code>Coverage.class</code> at index 1 represents the group for the Coverage.</li>
+          <li>When no value is provided for this patch operation, <code>Coverage.class[1].name</code> will be unset.</li>
+        </ul>
+        
+        ## Replace Dependent
+        _Description_
+        
+        A unique identifier for a dependent under the coverage.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/dependent`](https://hl7.org/fhir/coverage-definitions.html#Coverage.dependent)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/dependent",
+          "value": "9816564"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When no value is provided for this patch operation, <code>Coverage.dependent</code> will be unset.</li>
+        </ul>
+        
+        ## Replace Period
+        _Description_
+        
+        Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/period`](https://hl7.org/fhir/coverage-definitions.html#Coverage.period)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Period"><code>Period</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/period",
+          "value": {
+            "start": "2014-09-05T14:30:12.000Z",
+            "end": "2015-09-05T14:30:12.000Z"
           }
-        ]
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When no value is provided for this patch operation, <code>Coverage.relationship</code> will be unset.</li>
-    </ul>
-    
-    ## Replace Subscriberid
-    _Description_
-    
-    The insurer assigned ID for the Subscriber.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/subscriberId`](https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriberId)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/subscriberId",
-      "value": "4655446"
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li>When no value is provided for this patch operation, <code>Coverage.subscriberId</code> will be unset.</li>
-    </ul>
-    
-    ## Replace Subscriber
-    _Description_
-    
-    The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due.
-    
-    |Path|Operation|Value Type|
-    |---|---|---|
-    |[`/subscriber`](https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriber)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a>|
-    
-    _Example_
-    
-    ````json
-    {
-      "op": "replace",
-      "path": "/subscriber",
-      "value": {
-        "reference": "Patient/1626016"
-      }
-    }
-    
-    ````
-    
-    _Notes_
-    <ul>
-      <li><code>Coverage.subscriber</code> supports only Patient references</li>
-    </ul>
-    
-  consumes: 
-  produces: 
-  parameters: 
-    - name: patchBody
-      in: body
-      required: true
-      schema: {
-        "$ref": "#definitions/PatchBody"
-      }
-  responses: 
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When no <code>start</code> value is provided for this patch operation, <code>Coverage.period.start</code> will be unset.</li>
+          <li>When no <code>end</code> value is provided for this patch operation, <code>Coverage.period.end</code> will be unset.</li>
+          <li>When <code>start</code> or <code>end</code> values are provided, time components must be provided.</li>
+        </ul>
+        
+        ## Replace Relationship
+        _Description_
+        
+        The relationship of beneficiary (patient) to the subscriber.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/relationship`](https://hl7.org/fhir/coverage-definitions.html#Coverage.relationship)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#CodeableConcept"><code>CodeableConcept</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/relationship",
+          "value": {
+            "coding": [
+              {
+                "system": "https://terminology.hl7.org/CodeSystem/subscriber-relationship",
+                "code": "parent"
+              }
+            ]
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When no value is provided for this patch operation, <code>Coverage.relationship</code> will be unset.</li>
+        </ul>
+        
+        ## Replace Subscriberid
+        _Description_
+        
+        The insurer assigned ID for the Subscriber.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/subscriberId`](https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriberId)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#string"><code>string</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/subscriberId",
+          "value": "4655446"
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li>When no value is provided for this patch operation, <code>Coverage.subscriberId</code> will be unset.</li>
+        </ul>
+        
+        ## Replace Subscriber
+        _Description_
+        
+        The party who has signed-up for or 'owns' the contractual relationship to the policy or to whom the benefit of the policy for services rendered to them or their family is due.
+        
+        |Path|Operation|Value Type|
+        |---|---|---|
+        |[`/subscriber`](https://hl7.org/fhir/coverage-definitions.html#Coverage.subscriber)|`replace`|<a target="_blank" href="https://hl7.org/fhir/R4/references.html"><code>Reference</code></a>|
+        
+        _Example_
+        
+        ````json
+        {
+          "op": "replace",
+          "path": "/subscriber",
+          "value": {
+            "reference": "Patient/1626016"
+          }
+        }
+        
+        ````
+        
+        _Notes_
+        <ul>
+          <li><code>Coverage.subscriber</code> supports only Patient references</li>
+        </ul>
+        
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json-patch+json
+      parameters: 
+        - name: patchBody
+          in: body
+          required: true
+          schema: {
+            "$ref": "#definitions/PatchBody"
+          }
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
 
 definitions:
-  PatchBody:
-    type: array
-    minItems: 1
-    items:
-      type: object
-      required:
-      - op
-      - path
-      properties:
-        op:
-          type: string
-          enum:
-          - replace
-        path:
-          type: string
-        value:
-          type: string
+      PatchBody:
+        type: array
+        minItems: 1
+        items:
+          type: object
+          required:
+          - op
+          - path
+          properties:
+            op:
+              type: string
+              enum:
+              - replace
+            path:
+              type: string
+            value:
+              type: string
