@@ -143,10 +143,10 @@ class DefinitionTableGenerator
 
   # Determine whether the field is supported for the current action in context.
   def supported_for_action?(field)
-    return true if field[' action '].nil? || @action.nil?
-    return field[' action '].include?(@action.to_s) if field[' action '].is_a?(Array)
+    return true if field['action'].nil? || @action.nil?
+    return field['action'].include?(@action.to_s) if field['action'].is_a?(Array)
 
-    field[' action '] == @action.to_s
+    field['action'] == @action.to_s
   end
 
   # Replace the embedded link tags with active hyperlinks.
