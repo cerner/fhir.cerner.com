@@ -1,0 +1,143 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateAllergyIntolerance
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - code
+    - patient
+    - reaction.manifestation
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        resourceType must be AllergyIntolerance.
+        ## Contained
+        _Description_
+        
+        Contained, inline Resources.
+        
+        _Notes_
+        These should be either <code>PractitionerRole</code> or <a target="_blank" href="https://hl7.org/fhir/R4/relatedperson.html"><code>RelatedPerson</code></a> resources that are relative references from the <a href="#update-asserter">asserter</a> field.
+        
+        ## Clinicalstatus
+        _Description_
+        
+        The clinical status of the AllergyIntolerance.
+        ## Verificationstatus
+        _Description_
+        
+        The verification status to support or decline the clinical status of allergy.
+        
+        _Notes_
+        verificationStatus code of <code>refuted</code> is not supported during AllergyIntolerance updates.
+        ## Type
+        _Description_
+        
+        allergy | intolerance - Underlying mechanism (if known)
+        ## Category
+        _Description_
+        
+        Category of the identified <a href="#update-code">code</a>.
+        
+        _Notes_
+        <ul>
+          <li> Category code of <code>biologic</code> is not supported</li>
+          <li> Only a single category will be written to the allergy </li>
+          <li> When multiple categories are provided, the category to be picked is based on precedence. medication > food > environment. </li>
+        </ul>
+        
+        ## Criticality
+        _Description_
+        
+        low | high | unable-to-assess
+        ## Code
+        _Description_
+        
+        Code that identifies the allergy or intolerance
+        
+        _Notes_
+        A code must always be provided while creating an allergy.
+        ## Patient
+        _Description_
+        
+        Indicates the patient who the sensitivity is for.
+        ## Encounter
+        _Description_
+        
+        Indicates the encounter when the allergy or intolerance was asserted.
+        ## Onset[X]
+        _Description_
+        
+        Estimated or actual date or date-time the allergy began, in the opinion of the clinician.
+        
+        _Notes_
+        <ul>
+          <li> Only a type of dateTime is supported.</li>
+          <li> The dateTime is converted to a GMT date. </li>
+        </ul>
+        
+        ## Asserter
+        _Description_
+        
+        Indicates the source of information about the allergy.
+        
+        _Notes_
+        Asserter must be provided and linked to the contained resource, if a contained resource is specified.
+        ## Note
+        _Description_
+        
+        Additional narrative about the allergy not captured in other fields.
+        
+        _Notes_
+        Updates do not allow an author to be specified. One will be infered from the authorization token. If an id is not provided with the note it will be assumed to be a new note and will be written as such. If an id is provided, then it will be assumed to be an existing note and will not be updated or re-created.
+        ## Reaction
+        _Description_
+        
+        Adverse Reaction Events linked to exposure to substance
+        ## Reaction.Manifestation
+        _Description_
+        
+        Clinical symptoms/signs associated with the Event
+        
+        _Notes_
+        Only one manifestation can be provided.
+        ## Reaction.Severity
+        _Description_
+        
+        mild | moderate | severe (of event as a whole).

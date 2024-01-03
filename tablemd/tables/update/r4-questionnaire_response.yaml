@@ -1,0 +1,117 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateQuestionnaireResponse
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - id
+    - questionnaire
+    - status
+    - subject
+    - item
+    - item.linkId
+    - item.item.linkId
+    - item.item.answer
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        resourceType must be QuestionnaireResponse
+        ## Id
+        _Description_
+        
+        The logical id of the resource.
+        ## Questionnaire
+        _Description_
+        
+        The Questionnaire that defines and organizes the questions for which answers are being provided.
+        ## Status
+        _Description_
+        
+        The position of the questionnaire response within its overall lifecycle.
+        
+        _Notes_
+        Status must be 'in-progress'.
+        ## Subject
+        _Description_
+        
+        The subject of the questionnaire response. This is the patient the answers apply to, but is not necessarily the source of information.
+        ## Item
+        _Description_
+        
+        A group or question item from the original questionnaire for which answers are provided.
+        ## Item.Id
+        _Description_
+        
+        Unique id for inter-element referencing.
+        
+        _Notes_
+        If an item.id is returned on a read, it must be provided on an update.
+        ## Item.Linkid
+        _Description_
+        
+        The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
+        ## Item.Extension
+        _Description_
+        
+        Additional details about a given QuestionnaireResponse group item.
+        
+        _Notes_
+        Only the 'note' extension is supported for this field. Notes can only be added, not replaced or deleted.
+        ## Item.Item
+        _Description_
+        
+        Questions nested beneath a group.
+        ## Item.Item.Linkid
+        _Description_
+        
+        The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
+        ## Item.Item.Extension
+        _Description_
+        
+        Whether the answers come from a list of options.
+        
+        _Notes_
+        Only the 'choice-answer' extension is supported for this field. Extension must be provided and true when answering a question of type choice or open choice.
+        ## Item.Item.Answer
+        _Description_
+        
+        The respondent's answer(s) to the question.
+        
+        _Notes_
+        Only answer value types of String, Quantity, and Coding are supported.

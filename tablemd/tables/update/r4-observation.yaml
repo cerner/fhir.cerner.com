@@ -1,0 +1,255 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateObservation
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - id
+    - status
+    - category
+    - code
+    - subject
+    - effective[x]
+    - value[x]
+    - component.code
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        <ul>
+          <li> resourceType must be Observation. </li>
+        </ul>
+        
+        ## Id
+        _Description_
+        
+        The logical id of the resource to update.
+        
+        _Notes_
+        The id value must match the Observation/&lt;id> value.
+        ## Identifier
+        _Description_
+        
+        A unique identifier assigned to the observation.
+        
+        _Notes_
+        Identifier is required for <code>VitalSigns</code> and it can't be modified. Identifier is optional for <code>Laboratory</code>
+        ## Status
+        _Description_
+        
+        Codes identifying the lifecycle stage of an event.
+        
+        _Notes_
+        <ul>
+          <li> Status codes <code>amended</code> and <code>corrected</code> are supported. </li>
+        </ul>
+        
+        ## Category
+        _Description_
+        
+        A code that classifies the general type of observation being made.
+        
+        _Notes_
+        <ul>
+          <li> Updating a category is not allowed. </li>
+        </ul>
+        
+        ## Code
+        _Description_
+        
+        Describes what was observed. Sometimes this is called the observation "name".
+        ## Subject
+        _Description_
+        
+        Indicates the patient who the observation record is associated with.
+        
+        _Notes_
+        <ul>
+          <li> Must only include references to Patient. </li>
+        </ul>
+        <ul>
+          <li> Updates on Patient reference is not allowed. </li>
+        </ul>
+        
+        ## Encounter
+        _Description_
+        
+        Encounter during which the observation was first made.
+        ## Effective[X]
+        _Description_
+        
+        Date and time the observation was made.
+        
+        _Notes_
+        <ul>
+          <li> Only a type of dateTime is supported. </li>
+        </ul>
+        
+        ## Issued
+        _Description_
+        
+        Instant the observation was made.
+        ## Performer
+        _Description_
+        
+        Limited to "real" people rather than equipment.
+        
+        _Notes_
+        <ul>
+          <li> Must be a reference to Practitioner. </li>
+        </ul>
+        
+        ## Performer.Extension
+        _Description_
+        
+        Distinguishes the type of involvement of the performer in the event.
+        
+        _Notes_
+        <ul>
+           <li>Vital Signs supports <code>LA</code> and <code>PPRF</code> codes.</li>
+           <li> Laboratory supports <code>LA</code> , `<code>PRF</code> , <code>PPRF</code> , <code>AUTHEN</code> and <code>OP</code> extensions. </li>
+        </ul>
+        
+        ## Value[X]
+        _Description_
+        
+        Value of the observation.
+        
+        _Notes_
+        <ul>
+           <li> Laboratory support updating <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code> and <code>valueDateTime</code> to the same value type. </li>
+        </ul>
+        <ul>
+           <li> Vital Signs support only updating observations with <code>valueQuantity</code> to <code>valueQuantity</code> type</li>
+        </ul>
+        <ul>
+           <li> Updating value type to another is supported only for the <code>Laboratory</code>. The exception is valueDateTime cannot be updated to another value type and vice-versa</li>
+        </ul>
+        
+        ## Interpretation
+        _Description_
+        
+        A categorical assessment of an observation value. For example, high, low, normal.
+        
+        _Notes_
+        <ul>
+          <li> Only one interpretation may be supplied. </li>
+        </ul>
+        
+        ## Note
+        _Description_
+        
+        Comments about the observation
+        ## Referencerange
+        _Description_
+        
+        Provides guidance for interpretating the observation.
+        
+        _Notes_
+        <ul>
+          <li> Only one referenceRange is supported </li>
+          <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided. Only a referenceRange.type of <code>normal</code> is supported. </li>
+        </ul>
+        
+        ## Referencerange.Low
+        _Description_
+        
+        Lower bound of the reference range.
+        ## Referencerange.High
+        _Description_
+        
+        Upper bound of the reference range.
+        ## Referencerange.Text
+        _Description_
+        
+        Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.
+        ## Referencerange.Type
+        _Description_
+        
+        Codes to indicate the what part of the targeted reference population it applies to.
+        
+        _Notes_
+        <ul>
+          <li> Only a <code>ReferenceRange.type</code> of normal is supported </li>
+        </ul>
+        
+        ## Component
+        _Description_
+        
+        Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
+        
+        _Notes_
+        <ul>
+          <li> Component is required to create blood pressure. </li>
+        </ul>
+        
+        ## Component.Code
+        _Description_
+        
+        Describes what was observed. Sometimes this is called the observation "name".
+        ## Component.Value[X]
+        _Description_
+        
+        The information determined as a result of making the observation, if the information has a simple value.
+        
+        _Notes_
+        <ul>
+          <li> Supports writing observations with only valueQuantity. </li>
+        </ul>
+        
+        ## Component.Interpretation
+        _Description_
+        
+        A categorical assessment of an observation value. For example, high, low, normal.
+        
+        _Notes_
+        <ul>
+          <li> Only one interpretation may be supplied. </li>
+        </ul>
+        
+        ## Component.Referencerange
+        _Description_
+        
+        Guidance on how to interpret the value by comparison to a normal or recommended range.
+        
+        _Notes_
+        <ul>
+          <li> Only one referenceRange is supported </li>
+          <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided. Only a referenceRange.type of <code>normal</code> is supported. </li>
+        </ul>
+        

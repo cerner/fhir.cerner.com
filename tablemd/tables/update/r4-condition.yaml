@@ -1,0 +1,138 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateCondition
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - id
+    - category
+    - code
+    - subject
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        resourceType must be Condition.
+        ## Id
+        _Description_
+        
+        The logical id of the resource to update.
+        
+        _Notes_
+        The id value must match the Condition/&lt;id> value.
+        ## Clinicalstatus
+        _Description_
+        
+        The clinical status of the condition.
+        
+        _Notes_
+        <ul>
+          <li> A clinicalStatus must always be provided when updating a Condition, unless verificationStatus is <code>entered-in-error</code> or <code>refuted</code>. </li>
+          <li> Only the <code>active</code> code is supported when the category is <code>encounter-diagnosis</code>. </li>
+        </ul>
+        
+        ## Verificationstatus
+        _Description_
+        
+        The verification status to support or decline the clinical status of the condition or diagnosis.
+        ## Category
+        _Description_
+        
+        A category assigned to the condition.
+        
+        _Notes_
+        <ul>
+          <li> Only a single category may be provided. </li>
+          <li> Category codes <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported. </li>
+          <li> Classification codes are not supported. </li>
+        </ul>
+        
+        ## Severity
+        _Description_
+        
+        A subjective assessment of the severity of the condition as evaluated by the clinician.
+        ## Code
+        _Description_
+        
+        Identification of the condition, problem or diagnosis.
+        
+        _Notes_
+        A code must be provided.
+        ## Subject
+        _Description_
+        
+        Indicates the patient who the condition record is associated with.
+        
+        _Notes_
+        subject must be a reference to a Patient.
+        ## Encounter
+        _Description_
+        
+        Encounter during which the condition was first asserted.
+        
+        _Notes_
+        <ul>
+          <li> encounter must be a reference to an Encounter. </li>
+          <li> encounter is only supported for Conditions with a category of <code>encounter-diagnosis</code>. </li>
+        </ul>
+        
+        ## Onset[X]
+        _Description_
+        
+        Estimated or actual date or date-time the condition began, in the opinion of the clinician.
+        
+        _Notes_
+        <ul>
+          <li> Only a type of dateTime is supported. </li>
+          <li> The dateTime is converted to a GMT date. </li>
+        </ul>
+        
+        ## Abatement[X]
+        _Description_
+        
+        The date or estimated date that the condition resolved or went into remission.
+        
+        _Notes_
+        <code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>.
+        ## Note
+        _Description_
+        
+        Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.
+        
+        _Notes_
+        note cannot be added if note already exists. An existing note field cannot be modified.

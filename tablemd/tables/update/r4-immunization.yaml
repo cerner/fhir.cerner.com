@@ -1,0 +1,141 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateImmunization
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - id
+    - status
+    - vaccineCode
+    - patient
+    - encounter
+    - occurrenceDateTime
+    - performer.actor
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        resourceType must be Immunization
+        ## Id
+        _Description_
+        
+        The logical id of the resource.
+        ## Status
+        _Description_
+        
+        Indicates the current status of the immunization event.
+        ## Statusreason
+        _Description_
+        
+        Reason the immunization was not performed.
+        
+        _Notes_
+        This is generally only used for the status of "not-done".
+        ## Vaccinecode
+        _Description_
+        
+        The vaccine that was administered or was to be administered.
+        ## Patient
+        _Description_
+        
+        The patient who either received or did not receive the immunization.
+        ## Encounter
+        _Description_
+        
+        The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
+        ## Occurrencedatetime
+        _Description_
+        
+        Date vaccine administered or was to be administered.
+        ## Reportorigin
+        _Description_
+        
+        The source of an immunization record when not reported by the person who administered the vaccine.
+        
+        _Notes_
+        Should not be supplied when primarySource is set to true.
+        ## Manufacturer
+        _Description_
+        
+        Name of vaccine manufacturer.
+        ## Lotnumber
+        _Description_
+        
+        Lot number of the vaccine product.
+        ## Expirationdate
+        _Description_
+        
+        Date vaccine batch expires.
+        ## Site
+        _Description_
+        
+        The body site where the vaccine was administered.
+        ## Route
+        _Description_
+        
+        The path by which the vaccine product was taken into the body.
+        ## Dosequantity
+        _Description_
+        
+        The quantity of vaccine product that was administered.
+        ## Performer
+        _Description_
+        
+        Indicates who performed the immunization event.
+        ## Performer.Function
+        _Description_
+        
+        Describes the type of performance (e.g. ordering provider, administering provider, etc.).
+        ## Performer.Actor
+        _Description_
+        
+        The practitioner or organization who performed the action.
+        ## Note
+        _Description_
+        
+        Extra information about the immunization that is not conveyed by the other attributes.
+        ## Primarysource
+        _Description_
+        
+        An indication that the content of the record is based on information from the person who administered the vaccine.
+        
+        _Notes_
+        Will be set to true if not specified.
+        For CREATE action should not be set to true when reportOrigin is populated.
+        For UPDATE action should not be set to true.
+        

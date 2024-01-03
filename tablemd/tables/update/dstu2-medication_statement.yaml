@@ -1,0 +1,77 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateMedicationStatement
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - id
+    - patient
+    - status
+    - medication[x]
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        resourceType must be MedicationStatement.
+        ## Id
+        _Description_
+        
+        The logical ID of the resource to update.
+        ## Patient
+        _Description_
+        
+        Who is/was taking the medication.
+        ## Status
+        _Description_
+        
+        A code representing the patient or other source's judgment about the state of the medication that this statement is about.
+      
+        
+        _Notes_
+        <ul>
+          <li> When <b>creating</b> a medication statement, only the <code>active</code> status is supported. </li>
+          <li> When <b>updating</b> a medication statement, only the <code>completed</code> status is supported. </li>
+        </ul>  
+        
+        ## Medication[X]
+        _Description_
+        
+        Identifies the medication being administered.
+        
+        _Notes_
+        This must be the current medication. It cannot be modified.

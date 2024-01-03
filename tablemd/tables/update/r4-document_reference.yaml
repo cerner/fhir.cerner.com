@@ -1,0 +1,156 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateDocumentReference
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - status
+    - docStatus
+    - subject
+    - author
+    - content
+    - content.attachment
+    - content.attachment.contentType
+    - content.attachment.data
+    - context
+    - context.period
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        resourceType must be DocumentReference.
+        ## Status
+        _Description_
+        
+        The status of this document reference.
+        
+        _Notes_
+        Both <code>current</code> and <code>entered-in-error</code> are supported. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+        ## Docstatus
+        _Description_
+        
+        The status of the underlying document.
+        
+        _Notes_
+        Allowed values for docStatus are&#58; <code>final</code>, <code>amended</code>, and <code>entered-in-error</code>. If either status or docStatus are updated to "entered-in-error", the document will be treated as a document that was entered in error, regardless of the values of the other fields.
+        ## Type
+        _Description_
+        
+        Specifies the particular kind of document referenced.
+        
+        _Notes_
+        The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided. <br/><br/> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium code set 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'. <br/><br/>
+        ## Subject
+        _Description_
+        
+        Who the document is about.
+        
+        _Notes_
+        The patient has to match the original document.
+        ## Author
+        _Description_
+        
+        Identifies who is responsible for adding the information to the document.
+        
+        _Notes_
+        Must contain only Practitioner references with valid millennium ids.  Optional for system access.  For provider access, only a single author can be provided, and it must be the authorized provider.
+        ## Authenticator
+        _Description_
+        
+        Which person authenticates that this document is valid.
+        
+        _Notes_
+        If set, must be a Practitioner reference with valid millennium id. Only supported with system access. Cannot be populated for provider access.
+        ## Content
+        _Description_
+        
+        The document and format referenced.
+        
+        _Notes_
+        Must contain only one entry
+        ## Content.Attachment
+        _Description_
+        
+        The document or URL of the document along with critical metadata to prove content has integrity.
+        
+        _Notes_
+        Data and content type must be provided.
+        ## Content.Attachment.Contenttype
+        _Description_
+        
+        Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes MIME type parameters such as charset where appropriate.
+        
+        _Notes_
+        Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
+        ## Content.Attachment.Data
+        _Description_
+        
+        The actual data of the attachment - a sequence of bytes, base64 encoded.
+        
+        _Notes_
+        Please refer <a href="http://fhir.cerner.com/millennium/faq/common-issues/#posting-documents-using-documentreference-resource" target="_blank"> common issues </a> section for more info.
+        
+        ## Content.Attachment.Title
+        _Description_
+        
+        A label or set of text to display in place of the data.
+        ## Content.Attachment.Creation
+        _Description_
+        
+        The date that the attachment was first created.
+        
+        _Notes_
+        A time component must be provided with the date. The new date must not be earlier than the previous content.attachment.creation date.
+        ## Context
+        _Description_
+        
+        The clinical context in which the document was prepared.
+        ## Context.Encounter
+        _Description_
+        
+        Describes the clinical encounter that the document content is associated with.
+        
+        _Notes_
+        The encounter has to match the original document encounter.
+        ## Context.Period
+        _Description_
+        
+        The time period over which the service that is described by the document was provided.
+        
+        _Notes_
+        The period.end field is required; the period.start field is optional.  All dates require a time component.

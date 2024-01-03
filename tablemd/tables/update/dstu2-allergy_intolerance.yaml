@@ -1,0 +1,148 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateAllergyIntolerance
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - id
+    - recordedDate
+    - patient
+    - reporter
+    - substance
+    - status
+    - criticality
+    - category
+    - note.text
+    - reaction.id
+    - reaction.manifestation
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        resourceType must be AllergyIntolerance
+        ## Id
+        _Description_
+        
+        The logical id of the resource to update.
+        
+        _Notes_
+        The id value must match the AllergyIntolerance/&lt;id> value.
+        ## Contained
+        _Description_
+        
+        Contained, inline Resources.
+        
+        _Notes_
+        These should be either <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> or <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a> resources that are referenced with the <a href="#update-reporter">reporter</a> field.
+        
+        ## Onset
+        _Description_
+        
+        Date(/time) when manifestations showed.
+        ## Recordeddate
+        _Description_
+        
+        When the sensitivity was recorded.
+        ## Recorder
+        _Description_
+        
+        Who recorded the sensitivity.
+        
+        _Notes_
+        Recorder must be a <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference.
+        ## Patient
+        _Description_
+        
+        Who the sensitivity is for.
+        ## Reporter
+        _Description_
+        
+        Source of the information about the allergy.
+        
+        _Notes_
+        If <a href="#update-reporter">reporter</a> is a contained reference, a matching <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a> or <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference must be provided in the <a href="#update-contained">contained</a> field.
+        
+        ## Substance
+        _Description_
+        
+        Substance, (or class) considered to be responsible for risk
+        ## Status
+        _Description_
+        
+        Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified <a href="#update-substance">substance</a>.
+      
+        ## Criticality
+        _Description_
+        
+        Estimate of the potential clinical harm, or seriousness, of the reaction to the identified <a href="#update-substance">substance</a>.
+        ## Type
+        _Description_
+        
+        Identification of the underlying physiological mechanism for the reaction risk.
+        ## Category
+        _Description_
+        
+        Category of the identified <a href="#update-substance">substance</a>.
+        ## Note
+        _Description_
+        
+        Additional text not captured in other fields.
+        ## Note.Authorreference
+        _Description_
+        
+        Individual responsible for the annotation.
+        ## Note.Time
+        _Description_
+        
+        When the annotation was made.
+        ## Note.Text
+        _Description_
+        
+        The text content.
+        ## Reaction
+        _Description_
+        
+        Adverse reaction events linked to exposure to <a href="#update-substance">substance</a>.
+        ## Reaction.Id
+        _Description_
+        
+        Logical id of the reaction event.
+        ## Reaction.Manifestation
+        _Description_
+        
+        Clinical symptoms/signs associated with the event.

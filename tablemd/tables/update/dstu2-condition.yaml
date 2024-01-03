@@ -1,0 +1,115 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateCondition
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - resourceType
+    - id
+    - patient
+    - code
+    - verificationStatus
+    properties:
+        ## Resourcetype
+        _Description_
+        
+        The type of the FHIR resource.
+        
+        _Notes_
+        resourceType must be Condition
+        ## Id
+        _Description_
+        
+        The logical id of the resource to update.
+        
+        _Notes_
+        The id value must match the Condition/&lt;id> value.
+        ## Patient
+        _Description_
+        
+        Who has the condition.
+        ## Encounter
+        _Description_
+        
+        Encounter during which the condition was first asserted.
+        
+        _Notes_
+        Encounter is required for Conditions with a category code of diagnosis.
+        ## Daterecorded
+        _Description_
+        
+        Estimated or actual date the condition/problem/diagnosis was first entered.
+        ## Code
+        _Description_
+        
+        Identification of the condition, problem, diagnosis or health concern.
+        ## Category
+        _Description_
+        
+        A category assigned to the condition.
+        ## Clinicalstatus
+        _Description_
+        
+        The clinical status of the condition.
+        
+        _Notes_
+        <ul>
+          <li> When the category is <code>encounter-diagnosis</code>, a clinicalStatus with the value of <code>active</code> must be provided, unless the verificationStatus is <code>entered-in-error</code>. </li>
+          <li> When the category is <code>encounter-diagnosis</code> and the verificationStatus is <code>entered-in-error</code>, the clinicalStatus must not be provided. </li>
+        </ul>  
+        
+        ## Verificationstatus
+        _Description_
+        
+        The verification status of the condition.
+        ## Severity
+        _Description_
+        
+        Assessment of the severity of the condition as evaluated by the clinician.
+        ## Onsetdatetime
+        _Description_
+        
+        Estimated or actual date the condition began, in the opinion of the clinician.
+        ## Abatementboolean
+        _Description_
+        
+        Indicates if the condition is resolved or has gone into remission.
+        ## Abatementdatetime
+        _Description_
+        
+        Indicates the date and time the condition was resolved or has gone into remission.
+        ## Notes
+        _Description_
+        
+        Additional information about the Condition.

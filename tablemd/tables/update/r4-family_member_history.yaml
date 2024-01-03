@@ -1,0 +1,168 @@
+    put:
+      description: |
+        # Update Operations
+
+      operationId: updateFamilyMemberHistory
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/json
+      parameters: 
+        - name: updateBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/UpdateBody"
+        - name: If-Match
+          in: header
+          required: true
+          type: string
+      responses: 
+        200:
+          description: OK
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+
+definitions:
+  UpdateBody:
+    type: object
+    required:
+    - id
+    - status
+    - patient
+    - relationship
+    - condition.code
+    - condition.modifierExension(condition-result)
+    properties:
+        ## Id
+        _Description_
+        
+        The logical ID of the resource to update.
+        ## Extension(Patient Adopted)
+        _Description_
+        
+        Indication of whether a patient is adopted.
+        
+        _Notes_
+        Only returned when relationship is FAMMEMB and value is true.
+        ## Status
+        _Description_
+        
+        A code specifying the status of the record of the family history of a specific family member.
+        ## Dataabsentreason
+        _Description_
+        
+        Describes why the family member's history is not available.
+        ## Patient
+        _Description_
+        
+        The person who this history concerns.
+        ## Name
+        _Description_
+        
+        The family member's name.
+        ## Relationship
+        _Description_
+        
+        The type of relationship this person has to the patient (father, mother, brother etc.).
+        
+        _Notes_
+        <ul>
+          <li>A relationship of FAMMEMB indicates a FamilyMemberHistory that contains information specific to the patient that pertains to all relations of the patient.</li>
+        </ul>
+        
+        ## Sex
+        _Description_
+        
+        The birth sex of the family member.
+        ## Born[X]
+        _Description_
+        
+        The actual or approximate date of birth of the relative.
+        ## Deceased[X]
+        _Description_
+        
+        Deceased flag or the approximate age of the relative at the time of death for the family member history record.
+        
+        _Notes_
+        <ul>
+          <li>When deceased field is not provided, it is defaulted to deceasedBoolean false.</li>
+          <li>When deceasedAge is provided without the precision extension, it is defaulted to 'Age'</li>
+        </ul>
+        
+        ## Deceasedage.Extension(Precision)
+        _Description_
+        
+        Indication of the precision of a given value.
+        
+        _Notes_
+        <ul>
+          <li>When precision is not provided, it is defaulted to 'Age'</li>
+        </ul>
+        
+        ## Condition
+        _Description_
+        
+        The significant Conditions (or condition) that the family member had.
+        
+        _Notes_
+        Each item in the list must represent a distinct condition.
+        ## Condition.Id
+        _Description_
+        
+        Unique id for inter-element referencing.
+        
+        _Notes_
+        If a condition.id is returned on a read, it must be provided on an update.
+        ## Condition.Code
+        _Description_
+        
+        The actual condition specified.
+        ## Condition.Onset[X]
+        _Description_
+        
+        The age of onset.
+        
+        _Notes_
+        <ul>
+          <li>When onsetAge is provided without the precision extension, it is defaulted to 'Age'</li>
+        </ul>
+        
+        ## Condition.Onsetage.Extension(Precision)
+        _Description_
+        
+        Indication of the precision of a given value.
+        
+        _Notes_
+        <ul>
+          <li>When precision is not provided, it is defaulted to 'Age'</li>
+        </ul>
+        
+        ## Condition.Note
+        _Description_
+        
+        An area where general notes can be placed about this specific condition.
+        ## Condition.Modifierexension(Condition Result)
+        _Description_
+        
+        Indication of the presence (positive) or absence (negative) of a given condition. Must be provided. The result may indicate the absence of a condition which may lead to different clinical decisions than if the result were positive.
+        ## Condition.Modifierexension(Condition Lifecycle Status)
+        _Description_
+        
+        Indication of whether a condition is active, inactive, resolved, etc. The lifecycle status indicates the relevance of a given condition. If a condition is resolved or inactivated, it may no longer be clinically relevant. The lifecycle status may not be returned if it is not applicable to the given condition.
+        ## Condition.Extension(Condition Course)
+        _Description_
+        
+        Indication of a condition's progress since diagnosis.
+        ## Condition.Extension(Familymemberhistory Severity)
+        _Description_
+        
+        A qualification of the seriousness or impact on health of the family member condition.
