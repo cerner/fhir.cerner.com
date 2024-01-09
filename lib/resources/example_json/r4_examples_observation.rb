@@ -494,6 +494,151 @@ module Cerner
             ]
           }
         },
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-206310347',
+          'resource': {
+            'resourceType': 'Observation',
+            'id': 'L-206310347',
+            'meta': {
+              'versionId': '1',
+              'lastUpdated': '2023-10-30T17:04:50.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Observation</b></p>'\
+              '<p><b>Patient Id</b>: 12724066</p><p><b>Status</b>: Final</p>'\
+              '<p><b>Code</b>: Glucose Level POC</p><p><b>Result</b>: 181 mg/dL</p>'\
+              '<p><b>Effective Date</b>: Oct 30, 2023  5:04 P.M. UTC</p></div>'
+            },
+            'identifier': [
+              {
+                'system': 'https://fhir.cerner.com/ceuuid',
+                'value': 'CE87caf4b7-9397-4667-9897-702218017c9e-206310347-2023103017044900'
+              }
+            ],
+            'status': 'final',
+            'category': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            'code': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '2552299163',
+                  'display': 'Glucose Level POC',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '2339-0',
+                  'display': 'Glucose [Mass/volume] in Blood',
+                  'userSelected': false
+                }
+              ],
+              'text': 'Glucose Level POC'
+            },
+            'subject': {
+              'reference': 'Patient/12724066'
+            },
+            'effectiveDateTime': '2023-10-30T17:04:46.000Z',
+            'valueQuantity': {
+              'value': 181,
+              'unit': 'mg/dL'
+            },
+            'note': [
+              {
+                'authorReference': {
+                  'reference': 'Practitioner/1'
+                },
+                'time': '2023-10-30T17:04:49Z',
+                'text': 'Time : 2023-10-30T17:04:49.464400Z\n'\
+                'Author : SYSTEM, SYSTEM Cerner\nComment : Filed via Accuhealth'
+              }
+            ]
+          },
+          'search': {
+            'mode': 'match'
+          }
+        },
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Observation/L-206310341',
+          'resource': {
+            'resourceType': 'Observation',
+            'id': 'L-206310341',
+            'meta': {
+              'versionId': '1',
+              'lastUpdated': '2023-10-30T17:04:45.000Z'
+            },
+            'text': {
+              'status': 'generated',
+              'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Observation</b></p>'\
+              '<p><b>Patient Id</b>: 12724066</p><p><b>Status</b>: Final</p>'\
+              '<p><b>Code</b>: Glucose Level POC</p><p><b>Result</b>: 189 mg/dL</p>'\
+              '<p><b>Effective Date</b>: Oct 30, 2023  5:04 P.M. UTC</p></div>'
+            },
+            'identifier': [
+              {
+                'system': 'https://fhir.cerner.com/ceuuid',
+                'value': 'CE87caf4b7-9397-4667-9897-702218017c9e-206310341-2023103017044500'
+              }
+            ],
+            'status': 'final',
+            'category': [
+              {
+                'extension': [
+                  {
+                    'valueCode': 'unknown',
+                    'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+                  }
+                ]
+              }
+            ],
+            'code': {
+              'coding': [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '2552299163',
+                  'display': 'Glucose Level POC',
+                  'userSelected': true
+                },
+                {
+                  'system': 'http://loinc.org',
+                  'code': '2339-0',
+                  'display': 'Glucose [Mass/volume] in Blood',
+                  'userSelected': false
+                }
+              ],
+              'text': 'Glucose Level POC'
+            },
+            'subject': {
+              'reference': 'Patient/12724066'
+            },
+            'effectiveDateTime': '2023-10-30T17:04:42.000Z',
+            'valueQuantity': {
+              'value': 189
+            },
+            'note': [
+              {
+                'authorReference': {
+                  'reference': 'Practitioner/1'
+                },
+                'time': '2023-10-30T17:04:45Z',
+                'text': 'Time : 2023-10-30T17:04:45.459189Z\n'\
+                'Author : SYSTEM, SYSTEM Cerner\nComment : Filed via Accuhealth'
+              }
+            ]
+          },
+          'search': {
+            'mode': 'match'
+          }
+        },
         R4_OBSERVATION_ENTRY
       ]
     }.freeze
