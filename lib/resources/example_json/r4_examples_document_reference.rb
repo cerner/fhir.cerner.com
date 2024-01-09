@@ -388,6 +388,124 @@ module Cerner
               }
             }
           }
+        },
+        {
+          'resourceType': 'DocumentReference',
+          'id': '201318478',
+          'meta': {
+            'versionId': '1',
+            'lastUpdated': '2022-12-08T08: 26: 36.000Z'
+          },
+          'text': {
+            'status': 'generated',
+            'div': '<div xmlns=\'http: //www.w3.org/1999/xhtml\'><p><b>Document Reference</b></p>'\
+            '<p><b>Patient Name</b>: GETEST, PatientOneHundredSixtySix</p>'\
+            '<p><b>Document Type</b>: Admission Note Physician</p>'\
+            '<p><b>Service Start Date</b>: Dec  7, 2022  6:51 A.M. UTC</p>'\
+            '<p><b>Service End Date</b>: Dec  7, 2022  6:51 A.M. UTC</p>'\
+            '<p><b>Document Status</b>: Final</p><p><b>Verifying Provider</b>: SYSTEM, SYSTEM Cerner</p></div>'
+          },
+          'identifier': [
+            {
+              'system': 'https: //fhir.cerner.com/ceuuid',
+              'value': 'CE87caf4b7-9397-4667-9897-702218017c9e-201318478-2022120808263700'
+            }
+          ],
+          'status': 'current',
+          'docStatus': 'final',
+          'type': {
+            'coding': [
+              {
+                'system': 'https: //fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                'code': '2820507',
+                'display': 'Admission Note Physician',
+                'userSelected': true
+              },
+              {
+                'system': 'http: //loinc.org',
+                'code': '83805-2',
+                'display': 'Physician Admission evaluation note',
+                'userSelected': false
+              }
+            ],
+            'text': 'Admission Note Physician'
+          },
+          'category': [
+            {
+              'coding': [
+                {
+                  'system': 'http://loinc.org',
+                  'code': 'LP29684-5',
+                  'display': 'Radiology',
+                  'userSelected': false
+                }
+              ],
+              'text': 'Radiology'
+            },
+            {
+              'coding': [
+                {
+                  'system': 'http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category',
+                  'code': 'clinical-note',
+                  'display': 'Clinical Note',
+                  'userSelected': false
+                }
+              ],
+              'text': 'Clinical Note'
+            }
+          ],
+          'subject': {
+            'reference': 'Patient/12769853',
+            'display': 'GETEST, PatientOneHundredSixtySix'
+          },
+          'date': '2022-12-08T08: 26: 36Z',
+          'author': [
+            {
+              'reference': 'Practitioner/1',
+              'display': 'SYSTEM, SYSTEM Cerner'
+            }
+          ],
+          'authenticator': {
+            'reference': 'Practitioner/1',
+            'display': 'SYSTEM, SYSTEM Cerner'
+          },
+          'content': [
+            {
+              'attachment': {
+                'contentType': 'application/xhtml+xml',
+                'url': 'https: //fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/R-201318478',
+                'creation': '2022-12-07T06: 51: 22.000Z'
+              },
+              'format': {
+                'system': 'http: //ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem',
+                'code': 'urn:ihe:iti:xds: 2017:mimeTypeSufficient',
+                'display': 'mimeType Sufficient'
+              }
+            },
+            {
+              'attachment': {
+                'contentType': 'application/xml',
+                'url': 'https: //fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XML-201318478',
+                'creation': '2022-12-07T06: 51: 22.000Z'
+              },
+              'format': {
+                'system': 'http: //ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem',
+                'code': 'urn:ihe:iti:xds: 2017:mimeTypeSufficient',
+                'display': 'mimeType Sufficient'
+              }
+            }
+          ],
+          'context': {
+            'period': {
+              'start': '2022-12-07T06: 51: 22Z',
+              'end': '2022-12-07T06: 51: 22Z'
+            },
+            'related': [
+              {
+                'reference': 'DiagnosticReport/201318478'
+              }
+            ]
+          }
         }
       ]
     }.freeze
