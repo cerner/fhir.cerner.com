@@ -1,3 +1,3 @@
 |Terminology Bindings|
 |---|
-|<p>**[QuestionnaireResponse.answer.valueCoding](https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.value_x_)**<hr>**Description**<br>- An answer from a list of available Coding answer options.<br><br>**Details:** [Nomenclature Value](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/nomenclature`<br><br>|
+|<p>**[QuestionnaireResponse.answer.valueCoding](https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.item.answer.value_x_)**<hr>**Description**<br>- An answer from a list of available Coding answer options.<br><br>**Details:** [Nomenclature Value](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#nomenclature)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/nomenclature`|

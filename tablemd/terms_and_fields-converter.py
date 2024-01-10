@@ -46,7 +46,7 @@ for field in terms.get('fields'):
   if url is None:
     fieldRow.append('|<p>**' + fieldName + '**')
   else:
-    fieldRow.append('|<p>**[' + fieldName + '](' + url + '){:target="_blank"}**')
+    fieldRow.append('|<p>**[' + fieldName + '](' + url + ')**')
 
   fieldRow.append('<hr>')
 
@@ -74,7 +74,7 @@ for field in terms.get('fields'):
 
       if info_link is not None:
         fieldInfo.append('')
-        fieldInfo.append('**Details:** [' + display + '](' + info_link + '){:target="_blank"}<br>')
+        fieldInfo.append('**Details:** [' + display + '](' + info_link + ')<br>')
         if system is not None:
           if isinstance(system, str):
             fieldInfo.append('**System:** `' + system + '`')
@@ -83,14 +83,14 @@ for field in terms.get('fields'):
               fieldInfo.append('**System:** `' + sys + '`')
       elif display is not None and system is not None:
         fieldInfo.append('')
-        fieldInfo.append('[' + display + '](' + system + '){:target="_blank"}')
+        fieldInfo.append('[' + display + '](' + system + ')')
       elif system is not None:
         fieldInfo.append('')
-        fieldInfo.append('[' + system + '](' + system + '){:target="_blank"}')
+        fieldInfo.append('[' + system + '](' + system + ')')
       else:
         fieldInfo.append('')
         fieldInfo.append(display)
-  fieldRow.append('<br>'.join(fieldInfo) + '<br><br>|')
+  fieldRow.append('<br>'.join(fieldInfo) + '|')
   outputMd.append(''.join(fieldRow))
 
 outputMd = '\n'.join(outputMd)
