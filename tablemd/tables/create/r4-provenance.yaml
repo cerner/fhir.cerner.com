@@ -1,0 +1,290 @@
+    post:
+      tags:
+        - Provenance Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4ProvenanceCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - target
+    - recorded
+    - agent
+    - agent.who
+    - entity.role
+    - entity.what
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Provenance
+      target:
+        description: |
+          The Reference(s) that were generated or updated by the activity described in this resource.
+          
+          _Notes_
+          <ul>
+            <li>Only one target may be provided.</li>
+            <li>The following resources are supported</li>
+              <ul>
+                  <li>AllergyIntolerance</li>
+                  <li>CarePlan</li>
+                  <li>CareTeam</li>
+                  <li>Condition</li>
+                  <li>DiagnosticReport</li>
+                  <li>DocumentReference</li>
+                  <li>Encounter</li>
+                  <li>Goal</li>
+                  <li>Immunization</li>
+                  <li>MedicationRequest</li>
+                  <li>Observation</li>
+                  <li>Patient</li>
+                  <li>Procedure</li>
+              </ul>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "target": [
+              {
+                "reference": "DocumentReference/881049"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      recorded:
+        description: |
+          The instant of time at which the activity was recorded.
+          _Examples_
+          
+          ````json
+          {
+            "recorded": "2019-10-25T14:57:43Z"
+          }
+          
+          ````
+          
+        type: string
+      agent:
+        description: |
+          An actor taking a role in an activity for which it can be assigned some degree of responsibility for the activity taking place.
+          
+          _Notes_
+          <ul><li> Only one agent may be provided.</li></ul>
+          
+          _Examples_
+          
+          ````json
+          {
+            "agent": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+                      "code": "transmitter"
+                    }
+                  ]
+                },
+                "role": [
+                  {
+                    "coding": [
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+                        "code": "SOURCE"
+                      }
+                    ]
+                  }
+                ],
+                "who": {
+                  "reference": "Organization/619848"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: BackboneElement
+      agent.type:
+        description: |
+          The participation the agent had with respect to the activity.
+          _Examples_
+          
+          ````json
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-provenance-participant-type",
+                  "code": "transmitter"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      agent.role:
+        description: |
+          The function of the agent with respect to the activity.
+          _Examples_
+          
+          ````json
+          {
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/contractsignertypecodes",
+                    "code": "SOURCE"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      agent.who:
+        description: |
+          The individual, device or organization that participated in the event.
+          _Examples_
+          
+          ````json
+          {
+            "who": {
+              "reference": "Organization/619848"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      entity:
+        description: |
+          An entity used in this activity.
+          _Examples_
+          
+          ````json
+          {
+            "entity": [
+              {
+                "role": "source",
+                "what": {
+                  "reference": "DocumentReference/S-201"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: BackboneElement
+      entity.role:
+        description: |
+          How the entity was used during the activity.
+          _Examples_
+          
+          ````json
+          {
+            "role": "source"
+          }
+          
+          ````
+          
+        type: string
+      entity.what:
+        description: |
+          Identity of the Entity used.
+          _Examples_
+          
+          ````json
+          {
+            "what": {
+              "reference": "DocumentReference/S-201"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string

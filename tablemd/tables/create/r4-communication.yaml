@@ -1,0 +1,308 @@
+    post:
+      tags:
+        - Communication Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4CommunicationCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Communication/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - status
+    - category
+    - recipient
+    - sender
+    - payload
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Communication
+      status:
+        description: |
+          The status of the communication.
+          
+          _Notes_
+          All communications must be in 'completed' status.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "completed"
+          }
+          
+          ````
+          
+        type: string
+      category:
+        description: |
+          Codeable definition of the communication type.
+          
+          _Notes_
+          <ul>
+            <li>Only CommunicationCategory values of <code>notification</code> and <code>reminder</code> and SNOMED CT <code>312853008</code> are supported.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+                    "code": "notification"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      priority:
+        description: |
+          The priority of the communication.
+          
+          _Notes_
+          Only 'routine' and 'urgent' priorities are supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "priority": "routine"
+          }
+          
+          ````
+          
+        type: string
+      subject:
+        description: |
+          The patient that is the focus of the communication.
+          
+          _Notes_
+          Only Patient is supported as subject.
+          
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/9836548"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      topic:
+        description: |
+          The topic of the communication, similar to the subject field of an email.
+          
+          _Notes_
+          Currently only free-text topics are supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "topic" : {
+               "text": "Patient Consult Request"
+            }
+          }
+          
+          ````
+          
+        type: string
+      encounter:
+        description: |
+          The encounter associated to the communication.
+          
+          _Notes_
+          Subject is required when writing an encounter.
+          
+          _Examples_
+          
+          ````json
+          {
+            "encounter" : {
+              "reference" : "Encounter/89363836"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      recipient:
+        description: |
+          The entity receiving the communication.
+          
+          _Notes_
+          Each recipient must be a Practitioner or Group.
+          
+          _Examples_
+          
+          ````json
+          {
+            "recipient": [
+              {
+                "reference" : "Practitioner/6373634"
+              },
+              {
+                "reference" : "Group/44466678"
+              }
+            ]
+          }
+          
+          ````
+          
+      sender:
+        description: |
+          The entity sending the communication.
+          
+          _Notes_
+          The sender must be a Practitioner.
+          
+          _Examples_
+          
+          ````json
+          {
+            "sender": {
+              "reference": "Practitioner/631923"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      payload:
+        description: |
+          The text of the communication.
+          
+          _Notes_
+          <ul>
+            <li>content must be supplied as a contentAttachment with contentType and data defined</li>
+            <li>contentType can be set to:
+              <ul>
+                <li>application/xhtml+xml</li>
+                <li>text/plain</li>
+              </ul>
+            </li>
+            <li>contentType can contain a charset set to:
+              <ul>
+                <li>utf-8</li>
+                <li>us-ascii</li>
+              </ul>
+            </li>
+            <li>data should be base64 encoded</li>
+            <li>If the contentType is "application/xhtml+xml", then the data (when decoded) should at least contain the
+                following:
+                <pre><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+                "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><body></body></html></pre>
+            </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "payload" : [
+              {
+                "contentAttachment" : {
+                  "contentType" : "application/xhtml+xml",
+                  "data" : "PCFET0NUWVBFIGh0bWwgUFVCTElDICItLy9XM0MvL0RURCBYSFRNTCAxLjAgVHJhbnNpdGlvbmFsLy9FTiIKImh0dHA6Ly93d3cudzMub3JnL1RSL3hodG1sMS9EVEQveGh0bWwxLXRyYW5zaXRpb25hbC5kdGQiPjxodG1sPjxib2R5PjwvYm9keT48L2h0bWw+"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: BackboneElement
+      reply-to:
+        description: |
+          The entity replies will be directed to.
+          
+          _Notes_
+          The reply-to must be a Group.
+          
+          _Examples_
+          
+          ````json
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to",
+            "valueReference": {
+              "reference": "Group/123"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string

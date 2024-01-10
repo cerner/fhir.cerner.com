@@ -41,7 +41,7 @@ fields:
     }
 - name: status
   required: 'Yes'
-  type: Code
+  type: code
   description: Status for the Diagnostic Report
   action: terminology
   url: http://hl7.org/fhir/diagnosticreport-definitions.html#DiagnosticReport.status

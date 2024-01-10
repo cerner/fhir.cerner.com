@@ -1,13 +1,21 @@
     put:
+      tags:
+        - MedicationStatement Write
       description: |
         # Update Operations
 
-      operationId: updateMedicationStatement
+      operationId: millenniumDSTU2MedicationStatementUpdate
       consumes:
-      - application/fhir+json
+      - application/json+fhir
       produces:
-      - application/json
-      parameters: 
+      - application/json+fhir
+      parameters:
+        - name: id
+          in: path
+          description: |
+            The logical resource ID associated with the resource.
+          required: true
+          type: string
         - name: updateBody
           in: body
           required: true
@@ -18,8 +26,9 @@
           required: true
           type: string
       responses: 
-        200:
-          description: OK
+        '200':
+          description: |
+            **OK**
           headers:
             X-Request-Id:
               type: string
@@ -30,6 +39,8 @@
             ETag:
               type: string
               description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+        default:
+          $ref: '#/responses/OperationOutcome'
 
 definitions:
   UpdateBody:
@@ -41,37 +52,91 @@ definitions:
     - status
     - medication[x]
     properties:
-        ## Resourcetype
-        _Description_
-        
-        The type of the FHIR resource.
-        
-        _Notes_
-        resourceType must be MedicationStatement.
-        ## Id
-        _Description_
-        
-        The logical ID of the resource to update.
-        ## Patient
-        _Description_
-        
-        Who is/was taking the medication.
-        ## Status
-        _Description_
-        
-        A code representing the patient or other source's judgment about the state of the medication that this statement is about.
-      
-        
-        _Notes_
-        <ul>
-          <li> When <b>creating</b> a medication statement, only the <code>active</code> status is supported. </li>
-          <li> When <b>updating</b> a medication statement, only the <code>completed</code> status is supported. </li>
-        </ul>  
-        
-        ## Medication[X]
-        _Description_
-        
-        Identifies the medication being administered.
-        
-        _Notes_
-        This must be the current medication. It cannot be modified.
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - MedicationStatement
+      id:
+        description: |
+          The logical ID of the resource to update.
+          _Examples_
+          
+          ````json
+          {
+            "id": "123412"
+          }
+          
+          ````
+        type: string
+      patient:
+        description: |
+          Who is/was taking the medication.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/5366327"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      status:
+        description: |
+          A code representing the patient or other source's judgment about the state of the medication that this statement is about.
+          
+          
+          _Notes_
+          <ul>
+            <li> When <b>creating</b> a medication statement, only the <code>active</code> status is supported. </li>
+            <li> When <b>updating</b> a medication statement, only the <code>completed</code> status is supported. </li>
+          </ul>  
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "active"
+          }
+          
+          ````
+        type: string
+      medication[x]:
+        description: |
+          Identifies the medication being administered.
+          
+          _Notes_
+          This must be the current medication. It cannot be modified.
+          
+          _Examples_
+          
+          ````json
+          {
+            "medicationReference": {
+              "reference": "#456235",
+              "display": "Ibuprofen"
+            }
+          }
+          
+          {
+            "medicationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                   "code": "2551",
+                   "display": "Ciprofloxacin",
+                   "userSelected": false
+                }
+              ],
+              "text": "ciprofloxacin"
+            }
+          }
+          
+          ````

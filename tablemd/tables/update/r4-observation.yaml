@@ -1,13 +1,21 @@
     put:
+      tags:
+        - Observation Write
       description: |
         # Update Operations
 
-      operationId: updateObservation
+      operationId: millenniumR4ObservationUpdate
       consumes:
       - application/fhir+json
       produces:
-      - application/json
-      parameters: 
+      - application/fhir+json
+      parameters:
+        - name: id
+          in: path
+          description: |
+            The logical resource ID associated with the resource.
+          required: true
+          type: string
         - name: updateBody
           in: body
           required: true
@@ -18,8 +26,9 @@
           required: true
           type: string
       responses: 
-        200:
-          description: OK
+        '200':
+          description: |
+            **OK**
           headers:
             X-Request-Id:
               type: string
@@ -30,6 +39,8 @@
             ETag:
               type: string
               description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+        default:
+          $ref: '#/responses/OperationOutcome'
 
 definitions:
   UpdateBody:
@@ -45,211 +56,953 @@ definitions:
     - value[x]
     - component.code
     properties:
-        ## Resourcetype
-        _Description_
-        
-        The type of the FHIR resource.
-        
-        _Notes_
-        <ul>
-          <li> resourceType must be Observation. </li>
-        </ul>
-        
-        ## Id
-        _Description_
-        
-        The logical id of the resource to update.
-        
-        _Notes_
-        The id value must match the Observation/&lt;id> value.
-        ## Identifier
-        _Description_
-        
-        A unique identifier assigned to the observation.
-        
-        _Notes_
-        Identifier is required for <code>VitalSigns</code> and it can't be modified. Identifier is optional for <code>Laboratory</code>
-        ## Status
-        _Description_
-        
-        Codes identifying the lifecycle stage of an event.
-        
-        _Notes_
-        <ul>
-          <li> Status codes <code>amended</code> and <code>corrected</code> are supported. </li>
-        </ul>
-        
-        ## Category
-        _Description_
-        
-        A code that classifies the general type of observation being made.
-        
-        _Notes_
-        <ul>
-          <li> Updating a category is not allowed. </li>
-        </ul>
-        
-        ## Code
-        _Description_
-        
-        Describes what was observed. Sometimes this is called the observation "name".
-        ## Subject
-        _Description_
-        
-        Indicates the patient who the observation record is associated with.
-        
-        _Notes_
-        <ul>
-          <li> Must only include references to Patient. </li>
-        </ul>
-        <ul>
-          <li> Updates on Patient reference is not allowed. </li>
-        </ul>
-        
-        ## Encounter
-        _Description_
-        
-        Encounter during which the observation was first made.
-        ## Effective[X]
-        _Description_
-        
-        Date and time the observation was made.
-        
-        _Notes_
-        <ul>
-          <li> Only a type of dateTime is supported. </li>
-        </ul>
-        
-        ## Issued
-        _Description_
-        
-        Instant the observation was made.
-        ## Performer
-        _Description_
-        
-        Limited to "real" people rather than equipment.
-        
-        _Notes_
-        <ul>
-          <li> Must be a reference to Practitioner. </li>
-        </ul>
-        
-        ## Performer.Extension
-        _Description_
-        
-        Distinguishes the type of involvement of the performer in the event.
-        
-        _Notes_
-        <ul>
-           <li>Vital Signs supports <code>LA</code> and <code>PPRF</code> codes.</li>
-           <li> Laboratory supports <code>LA</code> , `<code>PRF</code> , <code>PPRF</code> , <code>AUTHEN</code> and <code>OP</code> extensions. </li>
-        </ul>
-        
-        ## Value[X]
-        _Description_
-        
-        Value of the observation.
-        
-        _Notes_
-        <ul>
-           <li> Laboratory support updating <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code> and <code>valueDateTime</code> to the same value type. </li>
-        </ul>
-        <ul>
-           <li> Vital Signs support only updating observations with <code>valueQuantity</code> to <code>valueQuantity</code> type</li>
-        </ul>
-        <ul>
-           <li> Updating value type to another is supported only for the <code>Laboratory</code>. The exception is valueDateTime cannot be updated to another value type and vice-versa</li>
-        </ul>
-        
-        ## Interpretation
-        _Description_
-        
-        A categorical assessment of an observation value. For example, high, low, normal.
-        
-        _Notes_
-        <ul>
-          <li> Only one interpretation may be supplied. </li>
-        </ul>
-        
-        ## Note
-        _Description_
-        
-        Comments about the observation
-        ## Referencerange
-        _Description_
-        
-        Provides guidance for interpretating the observation.
-        
-        _Notes_
-        <ul>
-          <li> Only one referenceRange is supported </li>
-          <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided. Only a referenceRange.type of <code>normal</code> is supported. </li>
-        </ul>
-        
-        ## Referencerange.Low
-        _Description_
-        
-        Lower bound of the reference range.
-        ## Referencerange.High
-        _Description_
-        
-        Upper bound of the reference range.
-        ## Referencerange.Text
-        _Description_
-        
-        Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.
-        ## Referencerange.Type
-        _Description_
-        
-        Codes to indicate the what part of the targeted reference population it applies to.
-        
-        _Notes_
-        <ul>
-          <li> Only a <code>ReferenceRange.type</code> of normal is supported </li>
-        </ul>
-        
-        ## Component
-        _Description_
-        
-        Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
-        
-        _Notes_
-        <ul>
-          <li> Component is required to create blood pressure. </li>
-        </ul>
-        
-        ## Component.Code
-        _Description_
-        
-        Describes what was observed. Sometimes this is called the observation "name".
-        ## Component.Value[X]
-        _Description_
-        
-        The information determined as a result of making the observation, if the information has a simple value.
-        
-        _Notes_
-        <ul>
-          <li> Supports writing observations with only valueQuantity. </li>
-        </ul>
-        
-        ## Component.Interpretation
-        _Description_
-        
-        A categorical assessment of an observation value. For example, high, low, normal.
-        
-        _Notes_
-        <ul>
-          <li> Only one interpretation may be supplied. </li>
-        </ul>
-        
-        ## Component.Referencerange
-        _Description_
-        
-        Guidance on how to interpret the value by comparison to a normal or recommended range.
-        
-        _Notes_
-        <ul>
-          <li> Only one referenceRange is supported </li>
-          <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided. Only a referenceRange.type of <code>normal</code> is supported. </li>
-        </ul>
-        
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Observation
+      id:
+        description: |
+          The logical id of the resource to update.
+          
+          _Notes_
+          The id value must match the Observation/&lt;id> value.
+          
+          _Examples_
+          
+          ````json
+          {
+            "id": "L-197391609"
+          }
+          
+          ````
+        type: string
+      identifier:
+        description: |
+          A unique identifier assigned to the observation.
+          
+          _Notes_
+          Identifier is required for <code>VitalSigns</code> and it can't be modified. Identifier is optional for <code>Laboratory</code>
+          
+          _Examples_
+          
+          ````json
+          {
+            "system":"https://fhir.cerner.com/ceuuid",
+            "value":"CE87caf4b7-9397-4667-9897-702218017c9e-197356031-2021061619245900"
+          }
+          
+          ````
+        type: object
+        properties:
+          use:
+            type: string
+          type:
+            type: object
+            properties:
+              text:
+                type: string
+              coding:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    system:
+                      type: string
+                    code:
+                      type: string
+          system:
+            type: string
+          value:
+            type: string
+          period:
+            type: object
+            properties:
+              start:
+                type: string
+              end:
+                type: string
+          assigner:
+            type: object
+            properties:
+              reference:
+                type: string
+      status:
+        description: |
+          Codes identifying the lifecycle stage of an event.
+          
+          _Notes_
+          <ul>
+            <li> Status codes <code>amended</code> and <code>corrected</code> are supported. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "corrected"
+          }
+          
+          ````
+        type: string
+      category:
+        description: |
+          A code that classifies the general type of observation being made.
+          
+          _Notes_
+          <ul>
+            <li> Updating a category is not allowed. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'laboratory',
+                    "display": 'Laboratory'
+                  }
+                ],
+                "text": 'Laboratory'
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/observation-category',
+                    "code": 'vital-signs',
+                    "display": 'Vital Signs'
+                  }
+                ],
+                "text": 'Vital Signs'
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      code:
+        description: |
+          Describes what was observed. Sometimes this is called the observation "name".
+          _Examples_
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+                  "code": "21704910",
+                  "display": "Potassium Level",
+                  "userSelected": true
+                }
+              ],
+              "text": 'Potassium Level'
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                {
+                    "system": "http://loinc.org",
+                    "code": "2823-3"
+                }
+            ],
+            "text": "Potassium Level"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      subject:
+        description: |
+          Indicates the patient who the observation record is associated with.
+          
+          _Notes_
+          <ul>
+            <li> Must only include references to Patient. </li>
+          </ul>
+          <ul>
+            <li> Updates on Patient reference is not allowed. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/631923"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      encounter:
+        description: |
+          Encounter during which the observation was first made.
+          _Examples_
+          
+          ````json
+          {
+            "encounter": {
+              "reference": "Encounter/631923"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      effective[x]:
+        description: |
+          Date and time the observation was made.
+          
+          _Notes_
+          <ul>
+            <li> Only a type of dateTime is supported. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "effectiveDateTime": "2020-07-07T20:37:00.000Z"
+          }
+          
+          ````
+      issued:
+        description: |
+          Instant the observation was made.
+          _Examples_
+          
+          ````json
+          {
+            "issued": "2020-07-06T21:02:47.000Z"
+          }
+          
+          ````
+        type: string
+      performer:
+        description: |
+          Limited to "real" people rather than equipment.
+          
+          _Notes_
+          <ul>
+            <li> Must be a reference to Practitioner. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+          "performer": [
+              {
+                  "reference": 'Practitioner/12724064'
+                }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            reference:
+              type: string
+      performer.extension:
+        description: |
+          Distinguishes the type of involvement of the performer in the event.
+          
+          _Notes_
+          <ul>
+             <li>Vital Signs supports <code>LA</code> and <code>PPRF</code> codes.</li>
+             <li> Laboratory supports <code>LA</code> , `<code>PRF</code> , <code>PPRF</code> , <code>AUTHEN</code> and <code>OP</code> extensions. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+             "extension": [
+               {
+                 "valueCodeableConcept": {
+                   "coding": [
+                     {
+                       "system": 'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                       "code": 'LA',
+                       "display": 'legal authenticator'
+                     }
+                   ],
+                   "text": 'legal authenticator'
+                 },
+                 "url": 'http://hl7.org/fhir/StructureDefinition/event-performerFunction'
+               }
+             ],
+           }
+          
+          ````
+          
+          ````json
+          {
+          "extension":[
+             {
+                "valueCodeableConcept":{
+                   "coding":[
+                      {
+                         "system":"http://terminology.hl7.org/CodeSystem/v2-0912",
+                         "code":"OP",
+                         "display":"ordering provider"
+                      }
+                   ],
+                   "text":"ordering provider"
+                },
+                "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+             },
+             {
+                "valueCodeableConcept":{
+                   "coding":[
+                      {
+                         "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                         "code":"PPRF",
+                         "display":"primary performer"
+                      }
+                   ],
+                   "text":"primary performer"
+                },
+                "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+             },
+             {
+                "valueCodeableConcept":{
+                   "coding":[
+                      {
+                         "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                         "code":"PRF",
+                         "display":"performer"
+                      }
+                   ],
+                   "text":"performer"
+                },
+                "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+             },
+             {
+                "valueCodeableConcept":{
+                   "coding":[
+                      {
+                         "system":"http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                         "code":"AUTHEN",
+                         "display":"authenticator"
+                      }
+                   ],
+                   "text":"authenticator"
+                },
+                "url":"http://hl7.org/fhir/StructureDefinition/event-performerFunction"
+             }
+          ]
+          }
+          
+          ````
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      value[x]:
+        description: |
+          Value of the observation.
+          
+          _Notes_
+          <ul>
+             <li> Laboratory support updating <code>valueQuantity</code>, <code>valueCodeableConcept</code>, <code>valueString</code> and <code>valueDateTime</code> to the same value type. </li>
+          </ul>
+          <ul>
+             <li> Vital Signs support only updating observations with <code>valueQuantity</code> to <code>valueQuantity</code> type</li>
+          </ul>
+          <ul>
+             <li> Updating value type to another is supported only for the <code>Laboratory</code>. The exception is valueDateTime cannot be updated to another value type and vice-versa</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "valueQuantity":
+            {
+              "value": 162,
+              "unit": 'cm',
+              "system": 'http://unitsofmeasure.org',
+              "code": 'cm'
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": 'http://snomed.info/sct',
+                  "code": '373066001',
+                  "display": 'Yes (qualifier value)'
+                }
+              ],
+              "text": 'Yes'
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": 'http://snomed.info/sct',
+                  "code": '373066001',
+                  "display": 'Yes (qualifier value)'
+                }
+              ],
+              "text": 'Yes'
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": 'http://snomed.info/sct',
+                  "code": '373066001',
+                  "display": 'Yes (qualifier value)'
+                }
+              ],
+              "text": 'Yes'
+            }
+          }
+          
+          ````
+      interpretation:
+        description: |
+          A categorical assessment of an observation value. For example, high, low, normal.
+          
+          _Notes_
+          <ul>
+            <li> Only one interpretation may be supplied. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "interpretation": [
+              {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/52',
+                    "code": '211',
+                    "display": 'LOW',
+                    "userSelected": true
+                  }
+                ],
+                "text": 'LOW'
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "interpretation": [
+              {
+                "coding": [
+                  {
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                      "code": 'L',
+                      "display": 'Low'
+                    }
+                  ],
+                  "text": 'LOW'
+                }
+              ]
+            }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      note:
+        description: |
+          Comments about the observation
+          _Examples_
+          
+          ````json
+          {
+            "note": [
+              {
+                "authorReference": {
+                  "reference": 'Practitioner/62955753'
+                },
+                "time": '2018-08-17T09:55:42.000Z',
+                "text": 'Charted at Incorrect Time'
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            authorReference:
+              type: object
+              properties:
+                reference:
+                  type: string
+            time:
+              type: string
+            text:
+              type: string
+      referenceRange:
+        description: |
+          Provides guidance for interpretating the observation.
+          
+          _Notes_
+          <ul>
+            <li> Only one referenceRange is supported </li>
+            <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided. Only a referenceRange.type of <code>normal</code> is supported. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "referenceRange": [
+              {
+                "low": {
+                  "value": 3.6,
+                  "unit": "mmol/L",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mmol/L"
+              },
+              "high": {
+                  "value": 5.2,
+                  "unit": "mmol/L",
+                  "system": "http://unitsofmeasure.org",
+                  "code": "mmol/L"
+              },
+              "type": {
+                  "coding": [
+                      {
+                          "system": "http://terminology.hl7.org/CodeSystem/referencerange-meaning",
+                          "code": "normal",
+                          "display": "Normal Range"
+                      }
+                  ],
+                  "text": "Normal Range"
+                }
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: object
+            properties:
+      referenceRange.low:
+        description: |
+          Lower bound of the reference range.
+          _Examples_
+          
+          ````json
+          {
+            "low": {
+              "value": 35.2,
+              "unit": 'degC',
+              "system": 'http://unitsofmeasure.org',
+              "code": 'Cel'
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          value:
+            type: number
+          unit:
+            type: string
+          system:
+            type: string
+          code:
+            type: string
+      referenceRange.high:
+        description: |
+          Upper bound of the reference range.
+          _Examples_
+          
+          ````json
+          {
+            "low": {
+              "value": 36.7,
+              "unit": 'degC',
+              "system": 'http://unitsofmeasure.org',
+              "code": 'Cel'
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          value:
+            type: number
+          unit:
+            type: string
+          system:
+            type: string
+          code:
+            type: string
+      referenceRange.text:
+        description: |
+          Text based reference range in an observation which may be used when a quantitative range is not appropriate for an observation.
+          _Examples_
+          
+          ````json
+          {
+            "text": 'Negative'
+          }
+          
+          ````
+        type: string
+      referenceRange.type:
+        description: |
+          Codes to indicate the what part of the targeted reference population it applies to.
+          
+          _Notes_
+          <ul>
+            <li> Only a <code>ReferenceRange.type</code> of normal is supported </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                  "code": 'normal',
+                  "display": 'Normal Range'
+                }
+              ],
+              "text": 'Normal Range'
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      component:
+        description: |
+          Some observations have multiple component observations. These component observations are expressed as separate code value pairs that share the same attributes. Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.
+          
+          _Notes_
+          <ul>
+            <li> Component is required to create blood pressure. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": 'http://loinc.org',
+                  "code": '8480-6'
+                }
+              ],
+              "text": 'Systolic Blood Pressure Invasive'
+            },
+            "valueQuantity": {
+              "value": 120,
+              "unit": 'mmHg',
+              "system": 'http://unitsofmeasure.org',
+              "code": 'mm[Hg]'
+            },
+            "interpretation": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                    "code": 'N'
+                  }
+                ]
+              }
+            ],
+            "referenceRange": [
+              {
+                "low": {
+                  "value": 45.0,
+                  "unit": 'mmHg',
+                  "system": 'http://unitsofmeasure.org',
+                  "code": 'mm[Hg]'
+                },
+                "high": {
+                  "value": 75.0,
+                  "unit": 'mmHg',
+                  "system": 'http://unitsofmeasure.org',
+                  "code": 'mm[Hg]'
+                },
+                "type": {
+                  "coding": [
+                    {
+                      "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                      "code": 'normal'
+                    }
+                  ],
+                  "text": 'Normal Range'
+                }
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: object
+            properties:
+      component.code:
+        description: |
+          Describes what was observed. Sometimes this is called the observation "name".
+          _Examples_
+          
+          ````json
+          {
+            "coding": [
+              {
+                "system": 'http://loinc.org',
+                "code": '8480-6'
+              }
+            ],
+            "text": 'Systolic Blood Pressure Invasive'
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      component.value[x]:
+        description: |
+          The information determined as a result of making the observation, if the information has a simple value.
+          
+          _Notes_
+          <ul>
+            <li> Supports writing observations with only valueQuantity. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "value": 120,
+            "unit": 'mmHg',
+            "system": 'http://unitsofmeasure.org',
+            "code": 'mm[Hg]'
+          }
+          
+          ````
+        type: [multi]
+      component.interpretation:
+        description: |
+          A categorical assessment of an observation value. For example, high, low, normal.
+          
+          _Notes_
+          <ul>
+            <li> Only one interpretation may be supplied. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+             "coding": [
+               {
+                 "system": 'http://terminology.hl7.org/CodeSystem/v3-ObservationInterpretation',
+                 "code": 'N'
+               }
+             ],
+             "text": 'NORMAL'
+           }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      component.referenceRange:
+        description: |
+          Guidance on how to interpret the value by comparison to a normal or recommended range.
+          
+          _Notes_
+          <ul>
+            <li> Only one referenceRange is supported </li>
+            <li> <code>ReferenceRange.text</code> is not supported when <code>referenceRange.high</code> and/or <code>referenceRange.low</code> are provided. Only a referenceRange.type of <code>normal</code> is supported. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "low": {
+              "value": 45.0,
+              "unit": 'mmHg',
+              "system": 'http://unitsofmeasure.org',
+              "code": 'mm[Hg]'
+            },
+            "high": {
+              "value": 75.0,
+              "unit": 'mmHg',
+              "system": 'http://unitsofmeasure.org',
+              "code": 'mm[Hg]'
+            },
+            "type": {
+              "coding": [
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/referencerange-meaning',
+                  "code": 'normal'
+                }
+              ],
+              "text": 'Normal Range'
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string

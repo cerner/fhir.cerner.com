@@ -1,0 +1,285 @@
+    post:
+      tags:
+        - Appointment Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4AppointmentCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - status
+    - participant
+    - participant.actor
+    - participant.status
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Appointment
+      status:
+        description: |
+          A code representing the status of the new Appointment.
+          
+          _Notes_
+          When creating a new appointment, the status must be <code>booked</code> or <code>proposed</code>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "booked"
+          }
+          
+          ````
+          
+        type: string
+      serviceCategory:
+        description: |
+          A broad categorization of the service that is to be performed during this appointment.
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      serviceType:
+        description: |
+          The specific service that is to be performed during this appointment.
+          
+          _Notes_
+          Required when <code>Appointment.status</code> is set to <code>proposed</code>. Must contain exactly one CodeableConcept.
+          
+          _Examples_
+          
+          ````json
+          {
+            "serviceType": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "408443003",
+                    "display": "General medical practice",
+                    "userSelected": false
+                  }
+                ],
+                "text": "General medical practice"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      reasonCode:
+        description: |
+          Coded reason this appointment is scheduled.
+          
+          _Notes_
+          The <code>reasonCode.text</code> is required.
+          
+          _Examples_
+          
+          ````json
+          {
+            "reasonCode": [
+              {
+                "text": "I have a cramp"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      slot:
+        description: |
+          The availability to which the appointment is booked.
+          
+          _Notes_
+          Required when <code>Appointment.status</code> is set to <code>booked</code>. Must contain exactly one Reference.
+          
+          _Examples_
+          
+          ````json
+          {
+            "slot": [
+              {
+                "reference": "Slot/21265426-633867-6828001-60"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      participant:
+        description: |
+          Participants involved in appointment.
+          
+          _Notes_
+          Participant.type must not be set.
+          
+          _Examples_
+          
+          ````json
+          {
+            "participant": [
+              {
+                "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
+                },
+                "status": "accepted"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: BackboneElement
+      participant.actor:
+        description: |
+          A Patient or Location that is participating in the Appointment.
+          
+          _Notes_
+          See Implementation Notes above for more information. Reference.display is not required.
+          
+          _Examples_
+          
+          ````json
+          {
+            "actor": {
+              "reference": "Patient/4704007",
+              "display": "Smart, Barney R"
+            }
+          }
+          
+          ````
+          
+      participant.status:
+        description: |
+          Participation status of the Patient or Location.
+          
+          _Notes_
+          When creating a new appointment with a status of <code>booked</code>, this value must be <code>accepted</code>. When creating a new appointment with a status of <code>proposed</code>, this value must be `needs-action`.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "accepted"
+          }
+          
+          ````
+          
+        type: string
+      comment:
+        description: |
+          Additional text to aid in facilitating the appointment.
+          _Examples_
+          
+          ````json
+          {
+            "comment: "Further explain MRI results"
+          }
+          
+          ````
+          
+        type: string
+      requestedPeriod:
+        description: |
+          Potential date/time interval(s) requested to allocate the appointment within.
+          
+          _Notes_
+          Required when <code>Appointment.status</code> is set to <code>proposed</code>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "requestedPeriod": [
+              {
+                "start": "2015-02-07T13:28:17-05:00",
+                "end": "2016-02-07T13:28:17-05:00"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: [Period]

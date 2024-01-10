@@ -1,0 +1,465 @@
+    post:
+      tags:
+        - AllergyIntolerance Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumDSTU2AllergyIntoleranceCreate
+      consumes:
+      - application/json+fhir
+      produces:
+      - application/json+fhir
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - recordedDate
+    - patient
+    - reporter
+    - substance
+    - status
+    - criticality
+    - category
+    - note.text
+    - reaction.manifestation
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - AllergyIntolerance
+      contained:
+        description: |
+          Contained, inline Resources.
+          
+          _Notes_
+          These should be either <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> or <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a> resources that are referenced with the <a href="#create-reporter">reporter</a> field.
+          
+          
+          _Examples_
+          
+          ````json
+          Contained RelatedPerson
+          {
+            "contained": [
+              {
+                "resourceType": "RelatedPerson",
+                "id": "5366328",
+                "relationship": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/v3/RoleCode",
+                      "code": "SIGOTHR"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          Contained Practitioner
+          {
+            "contained": [
+              {
+                "resourceType": "Practitioner",
+                "id": "123",
+                "practitionerRole": [
+                  {
+                    "role": {
+                      "coding": [
+                        {
+                          "system": "http://hl7.org/fhir/v2/0286",
+                          "code": "RP"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+        type: []
+      onset:
+        description: |
+          Date(/time) when manifestations showed.
+          _Examples_
+          
+          ````json
+          {
+            "onset: "2012-07-13T00:00:00Z"
+          }
+          
+          ````
+          
+        type: string
+      recordedDate:
+        description: |
+          When the sensitivity was recorded.
+          _Examples_
+          
+          ````json
+          {
+            "recordedDate": "2015-10-14T13:13:20-06:00"
+          }
+          
+          ````
+          
+        type: string
+      recorder:
+        description: |
+          Who recorded the sensitivity.
+          
+          _Notes_
+          Recorder must be a <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference.
+          
+          _Examples_
+          
+          ````json
+          {
+            "recorder": {
+              "reference": "Practitioner/21500971"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      patient:
+        description: |
+          Who the sensitivity is for.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/5366327"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      reporter:
+        description: |
+          Source of the information about the allergy.
+          
+          _Notes_
+          If <a href="#create-reporter">reporter</a> is a contained reference, a matching <a target="_blank" href="http://hl7.org/fhir/DSTU2/relatedperson.html"><code>RelatedPerson</code></a> or <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner.html"><code>Practitioner</code></a> reference must be provided in the <a href="#create-contained">contained</a> field.
+          
+          
+          _Examples_
+          
+          ````json
+          Reporter as a Patient Reference
+          {
+            "reporter": {
+              "reference": "Patient/5366327"
+            }
+          }
+          
+          ````
+          
+          ````json
+          Reporter as a contained reference
+          {
+            "reporter": "#5366328"
+          }
+          
+          ````
+      substance:
+        description: |
+          Substance, (or class) considered to be responsible for risk
+          _Examples_
+          
+          ````json
+          {
+            "substance": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "4125",
+                  "display": "Ethiodized oil"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      status:
+        description: |
+          Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified <a href="#create-substance">substance</a>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "resolved"
+          }
+          
+          ````
+          
+        type: string
+      criticality:
+        description: |
+          Estimate of the potential clinical harm, or seriousness, of the reaction to the identified <a href="#create-substance">substance</a>.
+          _Examples_
+          
+          ````json
+          {
+            "criticality": "CRITU"
+          }
+          
+          ````
+          
+        type: string
+      type:
+        description: |
+          Identification of the underlying physiological mechanism for the reaction risk.
+          _Examples_
+          
+          ````json
+          {
+            "type": "allergy"
+          }
+          
+          ````
+          
+        type: string
+      category:
+        description: |
+          Category of the identified <a href="#create-substance">substance</a>.
+          _Examples_
+          
+          ````json
+          {
+            "type": "food"
+          }
+          
+          ````
+          
+        type: string
+      note:
+        description: |
+          Additional text not captured in other fields.
+          _Examples_
+          
+          ````json
+          {
+            "note": {
+              "authorReference": {
+                "reference": "Practitioner/21500971"
+              },
+              "time": "2015-10-14T13:13:20-06:00",
+              "text": "Patient complains of discomfort"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          authorReference:
+            type: object
+            properties:
+              reference:
+                type: string
+          time:
+            type: string
+          text:
+            type: string
+      note.authorReference:
+        description: |
+          Individual responsible for the annotation.
+          _Examples_
+          
+          ````json
+          {
+            "note": {
+              "authorReference": {
+                "reference": "Practitioner/21500971"
+              }
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      note.time:
+        description: |
+          When the annotation was made.
+          _Examples_
+          
+          ````json
+          {
+            "note": {
+              "time": "2015-10-14T13:13:20-06:00"
+            }
+          }
+          
+          ````
+          
+        type: string
+      note.text:
+        description: |
+          The text content.
+          _Examples_
+          
+          ````json
+          {
+            "note": {
+              "text": "Patient complains of discomfort"
+            }
+          }
+          
+          ````
+          
+        type: string
+      reaction:
+        description: |
+          Adverse reaction events linked to exposure to <a href="#create-substance">substance</a>.
+          _Examples_
+          
+          ````json
+          {
+            "reaction": [
+              {
+                "manifestation": [
+                  {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "39579001",
+                        "display": "Anaphylactic reaction"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      reaction.manifestation:
+        description: |
+          Clinical symptoms/signs associated with the event.
+          _Examples_
+          
+          ````json
+          Manifestation with a coding:
+          {
+            "reaction": [
+              {
+                "manifestation": [
+                  {
+                    "coding": [
+                      {
+                        "system": "http://snomed.info/sct",
+                        "code": "39579001",
+                        "display": "Anaphylactic reaction"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          Manifestation with a freetext value:
+          {
+            "reaction": [
+              {
+                "manifestation": [
+                  {
+                    "text": "Anaphylactic reaction"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string

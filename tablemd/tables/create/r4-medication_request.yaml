@@ -1,0 +1,657 @@
+    post:
+      tags:
+        - MedicationRequest Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4MedicationRequestCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationRequest/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - status
+    - intent
+    - reported[x]
+    - medication[x]
+    - subject
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - MedicationRequest
+      status:
+        description: |
+          The current state of the medication request.
+          
+          _Notes_
+          When creating a new MedicationRequest, the status must be <code>active</code>
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "active"
+          }
+          
+          ````
+          
+        type: string
+      intent:
+        description: |
+          Whether the request is a proposal, plan, or an original order.
+          
+          _Notes_
+          <ul>
+            <li>When creating a MedicationRequest, the intent must be <code>order</code> or <code>plan</code>.</li>
+            <li>When read back, the created MedicationRequest will always have an intent of <code>order</code> or <code>plan</code>. The reported field can be used to determine if a medication is an authorization or a medication reported by a patient. MedicationRequests with intents of <code>order</code> and <code>plan</code> is supported in accordance with the changes to the US Core Profile.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "intent": "order"
+          }
+          
+          ````
+          
+        type: string
+      doNotPerform:
+        description: |
+          Indicates whether or not the provider is asking for the medication request not to occur.
+          
+          _Notes_
+          If provided, must be set to <code>false</code>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "doNotPerform": false
+          }
+          
+          ````
+          
+        type: boolean
+      reported[x]:
+        description: |
+          Indicates if this record was captured as a secondary <code>reported</code> record rather than as an original primary source-of-truth record.
+          
+          _Notes_
+          Must be of type boolean and must be set to <code>true</code>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "reportedBoolean": true
+          }
+          
+          ````
+          
+      medication[x]:
+        description: |
+          A code that defines the medication
+          
+          _Notes_
+          Must be of type CodeableConcept. Either <code>text</code>, or one <code>coding</code> with a <code>system</code> and <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> must be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "medicationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "352362"
+                }
+              ],
+              "text": "Acetaminophen"
+            }
+          }
+          
+          ````
+          
+      subject:
+        description: |
+          A link to a resource representing the person or set of individuals to whom the medication will be given.
+          
+          _Notes_
+          Must be a <a target="_blank" href="https://hl7.org/fhir/R4/patient.html"><code>Patient</code></a> reference.
+          
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/12742400"
+            }
+          }
+          
+          ````
+          
+      encounter:
+        description: |
+          The <a target="_blank" href="https://hl7.org/fhir/R4/encounter.html"><code>Encounter</code></a> this medication request was created or to which the creation of this record is tightly associated.
+          _Examples_
+          
+          ````json
+          {
+            "encounter": {
+              "reference": "Encounter/1621910"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      note:
+        description: |
+          Information about the medication request.
+          _Examples_
+          
+          ````json
+          {
+            "note": [
+              {
+                "authorString": "Leslie Knope",
+                "time": "2020-03-03T20:07:53Z",
+                "text": "Patient has had medication in past."
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          authorReference:
+            type: object
+            properties:
+              reference:
+                type: string
+          time:
+            type: string
+          text:
+            type: string
+      dosageInstruction:
+        description: |
+          Indicates how the medication is to be used by the patient.
+          
+          _Notes_
+          Can only be provided once.
+          
+        type: string
+      dosageInstruction.text:
+        description: |
+          The free text dosage instructions.
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "text": "5 mL, Oral, Daily."
+              }
+            ]
+          }
+          
+          ````
+          
+        type: string
+      dosageInstruction.additionalInstruction:
+        description: |
+          The supplemental instruction or warnings to the patient.
+          
+          _Notes_
+          If provided, can only be provided once. Only <code>text</code> supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "additionalInstruction": [
+                  {
+                    "text": "Take with food."
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: string
+      dosageInstruction.timing:
+        description: |
+          When the medication should be administered.
+        type: string
+      dosageInstruction.timing.repeat:
+        description: |
+          When the event is to occur.
+        type: string
+      dosageInstruction.timing.repeat.bounds[x]:
+        description: |
+          The outer bounds for start and/or end limits of the timing schedule.
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "boundsPeriod": {
+                      "start": "2020-03-03T20:07:53Z",
+                      "end": "2021-03-03T20:07:53Z"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+      dosageInstruction.timing.repeat.count:
+        description: |
+          The number of times to repeat.
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "count": 1
+                  }
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: string
+      dosageInstruction.timing.repeat.duration:
+        description: |
+          How long when it happens.
+          
+          _Notes_
+          If provided, <code>durationUnit</code> must be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "duration": 1,
+                    "durationUnit": "d"
+                  }
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: string
+      dosageInstruction.timing.repeat.durationUnit:
+        description: |
+          The units of time for the duration.
+          
+          _Notes_
+          If provided, <code>duration</code> must be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "repeat": {
+                    "duration": 5,
+                    "durationUnit": "h"
+                  }
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: string
+      dosageInstruction.timing.code:
+        description: |
+          Code for a known/defined timing pattern.
+          
+          _Notes_
+          <ul>
+            <li>If provided, only the <code>coding</code> field is supported.</li>
+            <li>When the <code>coding</code> field is provided, <code>system</code> and <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> must be provided together.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "timing": {
+                  "code": {
+                    "coding": [
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-GTSAbbreviation",
+                        "code": "BID"
+                      }
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      dosageInstruction.asNeeded[x]:
+        description: |
+          Indicates whether the Medication is only taken when needed or the preconditions for taking the medication.
+          
+          _Notes_
+          When providing the <code>asNeededCodeableConcept</code> field, and the <code>coding</code> field is provided, <code>system</code> and <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> must be provided together.
+          
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "asNeededBoolean": true
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "asNeededCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "25064002"
+                    }
+                  ],
+                  "text": "For headaches"
+                }
+              }
+            ]
+          }
+          
+          ````
+      dosageInstruction.site:
+        description: |
+          The anatomic site where the medication first enters the body.
+          
+          _Notes_
+          <ul>
+            <li>If provided, only the <code>coding</code> field is supported.</li>
+            <li>When the <code>coding</code> field is provided, <code>system</code> and <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> must be provided together.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "site": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "368208006"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      dosageInstruction.route:
+        description: |
+          Route or physiological path of administration of a therapeutic agent into or onto the body of a subject.
+          
+          _Notes_
+          <ul>
+            <li>If provided, only the <code>coding</code> field is supported.</li>
+            <li>When the <code>coding</code> field is provided, <code>system</code> and <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> must be provided together.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "route": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "41974700"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      dosageInstruction.doseAndRate:
+        description: |
+          How drug should enter body.
+          
+          _Notes_
+          Can only be provided once.
+          
+        type: string
+      dosageInstruction.doseAndRate.dose[x]:
+        description: |
+          Amount of medication per dose.
+          
+          _Notes_
+          Must be of type <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#SimpleQuantity"><code>SimpleQuantity</code></a>. Must contain the <code>system</code> and <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> fields if either are provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "dosageInstruction": [
+              {
+                "doseAndRate": [
+                  {
+                    "doseQuantity": {
+                      "value": 5,
+                      "unit": "tabs",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "tbl"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+      dispenseRequest:
+        description: |
+          Medication supply authorization.
+        type: BackboneElement
+      dispenseRequest.numberOfRepeatsAllowed:
+        description: |
+          Number of refills authorized.
+          _Examples_
+          
+          ````json
+          {
+            "dispenseRequest": {
+              "numberOfRepeatsAllowed": 5
+            }
+          }
+          
+          ````
+          
+        type: string
+      dispenseRequest.quantity:
+        description: |
+          Amount of medication to supply per dispense.
+          
+          _Notes_
+          <ul>
+            <li>Must contain the <code>system</code> and <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#code"><code>code</code></a> fields if either are provided.</li>
+            <li>The <code>unit</code> field is not supported.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "dispenseRequest": {
+              "quantity": {
+                "value": 12,
+                "system": "http://unitsofmeasure.org",
+                "code": "tbl"
+              }
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          value:
+            type: number
+          unit:
+            type: string
+          system:
+            type: string
+          code:
+            type: string
+      substitution:
+        description: |
+          Any restrictions on medication substitution.
+        type: BackboneElement
+      substitution.allowed[x]:
+        description: |
+          Whether substitution is allowed or not.
+          
+          _Notes_
+          Only type of <a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#boolean"><code>boolean</code></a> is supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "substitution": {
+              "allowedBoolean": true
+            }
+          }
+          
+          ````
+          

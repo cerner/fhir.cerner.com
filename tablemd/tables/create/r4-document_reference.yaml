@@ -1,0 +1,421 @@
+    post:
+      tags:
+        - DocumentReference Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4DocumentReferenceCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - status
+    - docStatus
+    - type
+    - subject
+    - author
+    - content
+    - content.attachment
+    - content.attachment.contentType
+    - content.attachment.data
+    - context
+    - context.period
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - DocumentReference
+      status:
+        description: |
+          The status of this document reference.
+          
+          _Notes_
+          Only <code>current</code> is supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "current"
+          }
+          
+          ````
+          
+        type: string
+      docStatus:
+        description: |
+          The status of the underlying document.
+          
+          _Notes_
+          Only <code>final</code> is supported for provider access. <code>final</code> and <code>amended</code> are supported for system access.
+          
+          _Examples_
+          
+          ````json
+          {
+            "docStatus": "final"
+          }
+          
+          ````
+          
+        type: string
+      type:
+        description: |
+          Specifies the particular kind of document referenced.
+          
+          _Notes_
+          The type must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided. <br/><br/> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'. <br/><br/>
+          
+          _Examples_
+          
+          ````json
+          {
+            "type": {
+              "coding": [
+                {
+                  'system': 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  'code': '2820507',
+                  'display': 'Admission Note Physician',
+                  'userSelected': true
+                }
+              ],
+              'text': 'Admission Note Physician'
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      subject:
+        description: |
+          Who the document is about.
+          
+          _Notes_
+          Only patient references are supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/12457977"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      author:
+        description: |
+          Identifies who is responsible for adding the information to the document.
+          
+          _Notes_
+          Must contain only Practitioner references with valid millennium ids.  Optional for system access.  For provider access, only a single author can be provided, and it must be the authorized provider.
+          
+          _Examples_
+          
+          ````json
+          {
+            "author": [
+              {
+                "reference": "Practitioner/3332064"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      authenticator:
+        description: |
+          Which person authenticates that this document is valid.
+          
+          _Notes_
+          If set, must be a Practitioner reference with valid millennium id. Only supported with system access. Cannot be populated for provider access.
+          
+          _Examples_
+          
+          ````json
+          {
+            "authenticator": {
+              "reference": "Practitioner/3332064"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      content:
+        description: |
+          The document and format referenced.
+          
+          _Notes_
+          Must contain only one entry
+          
+          _Examples_
+          
+          ````json
+          {
+             "content": [
+               {
+                 "attachment": {
+                   "contentType": "text/xml;charset=utf-8",
+                   "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+                   "title": "Height Weight Allergy Rule",
+                   "creation": "2020-07-29T21:02:04.000Z"
+                 }
+               }
+             ]
+          }
+          
+          ````
+          
+        type: BackboneElement
+      content.attachment:
+        description: |
+          The document or URL of the document along with critical metadata to prove content has integrity.
+          
+          _Notes_
+          Data and content type must be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "attachment": {
+                   "contentType": "application/xml;charset=utf-8",
+                   "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+                   "title": "Height Weight Allergy Rule",
+                   "creation": "2020-07-29T21:02:04.000Z"
+                 }
+          }
+          
+          ````
+          
+        type: object
+        description: The document or URL of the document along with critical metadata to prove content has integrity.
+        required:
+        - contentType
+        - data
+        properties:
+          contentType:
+            type: string
+            description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes MIME type parameters such as charset where appropriate.
+          data:
+            type: string
+            description: The actual data of the attachment - a sequence of bytes, base64 encoded.
+          title:
+            type: string
+            description: A label or set of text to display in place of the data.
+          creation:
+            type: string
+            description: The date that the attachment was first created.
+      content.attachment.contentType:
+        description: |
+          Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes MIME type parameters such as charset where appropriate.
+          
+          _Notes_
+          Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/plain;charset=utf-8`, `text/richtext;charset=utf-8`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
+          
+          _Examples_
+          
+          ````json
+          {
+            "contentType": "application/xml;charset=utf-8"
+          }
+          
+          ````
+          
+        type: string
+      content.attachment.data:
+        description: |
+          The actual data of the attachment - a sequence of bytes, base64 encoded.
+          
+          _Notes_
+          Please refer <a href="http://fhir.cerner.com/millennium/faq/common-issues/#posting-documents-using-documentreference-resource" target="_blank"> common issues </a> section for more info.
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+          }
+          
+          ````
+          
+        type: string
+      content.attachment.title:
+        description: |
+          A label or set of text to display in place of the data.
+          _Examples_
+          
+          ````json
+          {
+            "title": "Height Weight Allergy Rule",
+          }
+          
+          ````
+          
+        type: object
+        description: The document or URL of the document along with critical metadata to prove content has integrity.
+        required:
+        - contentType
+        - data
+        properties:
+          contentType:
+            type: string
+            description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes MIME type parameters such as charset where appropriate.
+          data:
+            type: string
+            description: The actual data of the attachment - a sequence of bytes, base64 encoded.
+          title:
+            type: string
+            description: A label or set of text to display in place of the data.
+          creation:
+            type: string
+            description: The date that the attachment was first created.
+      content.attachment.creation:
+        description: |
+          The date that the attachment was first created.
+          
+          _Notes_
+          A time component must be provided with the date.
+          
+          _Examples_
+          
+          ````json
+          {
+            "creation": "2020-07-29T21:02:04.000Z"
+          }
+          
+          ````
+          
+        type: string
+      context:
+        description: |
+          The clinical context in which the document was prepared.
+          _Examples_
+          
+          ````json
+          {
+            "encounter": [
+               {
+                 "reference": "Encounter/97987761"
+               }
+             ],
+            "period": {
+               "start": "2020-01-01T00:00:00.000Z",
+               "end": "2020-01-01T01:00:00.000Z"
+            }
+          }
+          
+          ````
+          
+        type: BackboneElement
+      context.encounter:
+        description: |
+          Describes the clinical encounter that the document content is associated with.
+          
+          _Notes_
+          Only a single encounter reference is supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "encounter": [
+              {
+                "reference": "Encounter/97987761"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      context.period:
+        description: |
+          The time period over which the service that is described by the document was provided.
+          
+          _Notes_
+          The period.end field is required; the period.start field is optional.  All dates require a time component.
+          
+          _Examples_
+          
+          ````json
+          {
+            "period": {
+              "start": "2020-01-01T00:00:00.000Z",
+              "end": "2020-01-01T01:00:00.000Z"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          start:
+            type: string
+          end:
+            type: string

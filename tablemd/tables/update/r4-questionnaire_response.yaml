@@ -1,13 +1,21 @@
     put:
+      tags:
+        - QuestionnaireResponse Write
       description: |
         # Update Operations
 
-      operationId: updateQuestionnaireResponse
+      operationId: millenniumR4QuestionnaireResponseUpdate
       consumes:
       - application/fhir+json
       produces:
-      - application/json
-      parameters: 
+      - application/fhir+json
+      parameters:
+        - name: id
+          in: path
+          description: |
+            The logical resource ID associated with the resource.
+          required: true
+          type: string
         - name: updateBody
           in: body
           required: true
@@ -18,8 +26,9 @@
           required: true
           type: string
       responses: 
-        200:
-          description: OK
+        '200':
+          description: |
+            **OK**
           headers:
             X-Request-Id:
               type: string
@@ -30,6 +39,8 @@
             ETag:
               type: string
               description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+        default:
+          $ref: '#/responses/OperationOutcome'
 
 definitions:
   UpdateBody:
@@ -45,73 +56,287 @@ definitions:
     - item.item.linkId
     - item.item.answer
     properties:
-        ## Resourcetype
-        _Description_
-        
-        The type of the FHIR resource.
-        
-        _Notes_
-        resourceType must be QuestionnaireResponse
-        ## Id
-        _Description_
-        
-        The logical id of the resource.
-        ## Questionnaire
-        _Description_
-        
-        The Questionnaire that defines and organizes the questions for which answers are being provided.
-        ## Status
-        _Description_
-        
-        The position of the questionnaire response within its overall lifecycle.
-        
-        _Notes_
-        Status must be 'in-progress'.
-        ## Subject
-        _Description_
-        
-        The subject of the questionnaire response. This is the patient the answers apply to, but is not necessarily the source of information.
-        ## Item
-        _Description_
-        
-        A group or question item from the original questionnaire for which answers are provided.
-        ## Item.Id
-        _Description_
-        
-        Unique id for inter-element referencing.
-        
-        _Notes_
-        If an item.id is returned on a read, it must be provided on an update.
-        ## Item.Linkid
-        _Description_
-        
-        The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
-        ## Item.Extension
-        _Description_
-        
-        Additional details about a given QuestionnaireResponse group item.
-        
-        _Notes_
-        Only the 'note' extension is supported for this field. Notes can only be added, not replaced or deleted.
-        ## Item.Item
-        _Description_
-        
-        Questions nested beneath a group.
-        ## Item.Item.Linkid
-        _Description_
-        
-        The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
-        ## Item.Item.Extension
-        _Description_
-        
-        Whether the answers come from a list of options.
-        
-        _Notes_
-        Only the 'choice-answer' extension is supported for this field. Extension must be provided and true when answering a question of type choice or open choice.
-        ## Item.Item.Answer
-        _Description_
-        
-        The respondent's answer(s) to the question.
-        
-        _Notes_
-        Only answer value types of String, Quantity, and Coding are supported.
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - QuestionnaireResponse
+      id:
+        description: |
+          The logical id of the resource.
+          _Examples_
+          
+          ````json
+          {
+            "id": "SH-12508041"
+          }
+          
+          ````
+        type: string
+      questionnaire:
+        description: |
+          The Questionnaire that defines and organizes the questions for which answers are being provided.
+          _Examples_
+          
+          ````json
+          {
+            "questionnaire": "https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Questionnaire/SH-12508041"
+          }
+          
+          ````
+        type: string
+      status:
+        description: |
+          The position of the questionnaire response within its overall lifecycle.
+          
+          _Notes_
+          Status must be 'in-progress'.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "in-progress"
+          }
+          
+          ````
+        type: string
+      subject:
+        description: |
+          The subject of the questionnaire response. This is the patient the answers apply to, but is not necessarily the source of information.
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/12508041"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      item:
+        description: |
+          A group or question item from the original questionnaire for which answers are provided.
+          _Examples_
+          
+          ````json
+          {
+            "item": [
+              {
+                "id": "111",
+                "linkId": "93",
+                "extension": [
+                  {​​​​​​​​​​​​
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+                    "valueAnnotation": {​​​​​​​​​​​​​​​​​​​
+                      "text": "category/group comment"
+                    }​​​​​​​​​​​​​​​​​​​​​​​​​​
+                  }​​​​​​​​​​​​​​​​​​​​​​​​​​
+                ],
+                "item": [
+                  {
+                    "linkId": "93-123",
+                    "extension": [
+                      {​​​​​​​​​​​​
+                        "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+                        "valueBoolean": true
+                      }​​​​​​​​​​​​​​​​​​​​​​​​​​
+                    ],
+                    "answer": [
+                      {
+                        "valuestring": "Answer text"
+                      }
+                    ]
+                  }
+                ] 
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: object
+            properties:
+      item.id:
+        description: |
+          Unique id for inter-element referencing.
+          
+          _Notes_
+          If an item.id is returned on a read, it must be provided on an update.
+          
+          _Examples_
+          
+          ````json
+          {
+            "id": "111"
+          }
+          
+          ````
+        type: string
+      item.linkId:
+        description: |
+          The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
+          _Examples_
+          
+          ````json
+          {
+            "linkId": "93"
+          }
+          
+          ````
+        type: string
+      item.extension:
+        description: |
+          Additional details about a given QuestionnaireResponse group item.
+          
+          _Notes_
+          Only the 'note' extension is supported for this field. Notes can only be added, not replaced or deleted.
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {​​​​​​​​​​​​
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/note",
+                "valueAnnotation": {​​​​​​​​​​​​​​​​​​​
+                  "text": "category/group comment"
+                }​​​​​​​​​​​​​​​​​​​​​​​​​​
+              }​​​​​​​​​​​​​​​​​​​​​​​​​​
+            ]
+          }
+          
+          ````
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      item.item:
+        description: |
+          Questions nested beneath a group.
+          _Examples_
+          
+          ````json
+          {
+            "item": [
+              {
+                "linkId": "93-123",
+                "extension": [
+                  {​​​​​​​​​​​​
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+                    "valueBoolean": true
+                  }​​​​​​​​​​​​​​​​​​​​​​​​​​
+                ],
+                "answer": [
+                  {
+                    "valuestring": "Answer text"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: object
+            properties:
+      item.item.linkId:
+        description: |
+          The item from the Questionnaire that corresponds to this item in the QuestionnaireResponse resource.
+          _Examples_
+          
+          ````json
+          {
+            "linkId": "93-123"
+          }
+          
+          ````
+        type: string
+      item.item.extension:
+        description: |
+          Whether the answers come from a list of options.
+          
+          _Notes_
+          Only the 'choice-answer' extension is supported for this field. Extension must be provided and true when answering a question of type choice or open choice.
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {​​​​​​​​​​​​
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer",
+                "valueBoolean": true
+              }​​​​​​​​​​​​​​​​​​​​​​​​​​
+            ]
+          }
+          
+          ````
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      item.item.answer:
+        description: |
+          The respondent's answer(s) to the question.
+          
+          _Notes_
+          Only answer value types of String, Quantity, and Coding are supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "answer": [
+              {
+                "valueString": "Answer text"
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                  "code": "960439"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "answer": [
+              {
+                "valueCoding": {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/nomenclature",
+                  "code": "960439"
+                }
+              }
+            ]
+          }
+          
+          ````

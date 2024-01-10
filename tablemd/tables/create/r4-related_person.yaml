@@ -1,0 +1,447 @@
+    post:
+      tags:
+        - RelatedPerson Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4RelatedPersonCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/RelatedPerson/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - relationship
+    - patient
+    - name
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - RelatedPerson
+      relationship:
+        description: |
+          The nature of the relationship between a patient and the related person.
+          
+          _Notes_
+          <ul>
+            <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+            <li> The <code>coding</code> field can contain codings from the standard or proprietary system, but not both. </li>
+            <li> Only one <code>coding</code> may be provided. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                    "code": "FAMMEMB"
+                  }
+                ]
+              }
+              {
+                "extension": [
+                  {
+                    "valuePeriod": {
+                      "start": "2016-12-19T16:44:25.000Z",
+                      "end": "2022-05-01T16:56:56.000Z"
+                    },
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/period"
+                  },
+                  {
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                          "code": "SIS"
+                        }
+                      ]
+                    },
+                    "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relation"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      patient:
+        description: |
+          Patient that the individual is related to for the Encounter-level RelatedPerson.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/12724066"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      name:
+        description: |
+          The name associated with the individual.
+          
+          _Notes_
+          <ul>
+            <li> Exactly one name <b>must</b> be provided. The provided name must meet the following conditions:
+              <ul>
+                <li> Must have a <code>use</code> of 'official'. </li>
+                <li> Cannot contain the <code>text</code> field. </li>
+                <li> Must contain either the <code>given</code> or <code>family</code> fields. </li>
+                <li> Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces. </li>
+                <li> Only one <code>prefix</code> and one <code>suffix</code> may be provided. </li>
+                <li> <code>period.end</code> is not supported. </li>
+                <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+              </ul>
+            </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "name": [
+              {
+                "use": "official",
+                "family": "Doe",
+                "given": [
+                  "John",
+                  "Smith"
+                ],
+                "period": {
+                  "start": "2010-05-17T14:54:31.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      Related Person Encounter:
+        description: |
+          A reference to an Encounter.
+          
+          _Notes_
+          <ul>
+            <li>The <code>valueReference.reference</code> must be an Encounter reference.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter",
+                "valueReference": {
+                  "reference": "Encounter/97939518"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      Relationship Level:
+        description: |
+          The resource's relationship to either the patient or encounter level.
+          
+          _Notes_
+          <ul>
+            <li> The <code>valueCodeableConcept.coding[0].code</code> can be <a target="_blank" href="https://hl7.org/fhir/R4/encounter.html"><code>Encounter</code></a> or <a target="_blank" href="https://hl7.org/fhir/R4/patient.html"><code>Patient</code></a>. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/relationship-level",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/resource-types",
+                      "code": "Encounter",
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      identifier:
+        description: |
+          The identifiers for the related person.
+          
+          _Notes_
+          <ul>
+              <li> Each identifier must not contain the <code>use</code> fields. </li>
+              <li> Each identifier must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields. </li>
+              <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "identifier": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "code": "MR",
+                      "system": "http://hl7.org/fhir/v2/0203"
+                    }
+                  ]
+                },
+                "system": "urn:oid:5.5.5.5.5.5",
+                "value": "&lt;UNIQUE IDENTIFIER&gt;",
+                "period": {
+                  "start": "2016-01-02T00:00:00-05:00",
+                  "end": "2020-01-02T00:00:00-05:00"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: [Identifier]
+      address:
+        description: |
+          Addresses for the individual.
+          
+          _Notes_
+          <ul>
+            <li> Each address must contain the <code>use</code> field. </li>
+            <li> Each address must not contain the <code>text</code> field. </li>
+            <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+            <li> If <code>line</code> is provided, only the first four values are used. Additional values will be ignored. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "address": [
+              {
+                "use": "home",
+                "line": [
+                   "1212 Faircastle Drive",
+                   "Apartment 406"
+                ],
+                "city": "KC",
+                "district": "Jackson",
+                "state": "KS",
+                "postalCode": "64199",
+                "country": "United States of America",
+                "period": {
+                  "start": "2012-05-17T15:33:18.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      telecom:
+        description: |
+          A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
+          
+          _Notes_
+          <ul>
+            <li> Each telecom must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields. </li>
+            <li> System must be a <code>phone</code> or an <code>email</code>. </li>
+            <li> When specifying a <code>period</code>, the fields must include a time component with a timezone. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "8168229121",
+                "use": "home",
+                "period": {
+                  "start": "2012-05-17T15:33:18.000Z"
+                }
+              },
+              {
+                "system": "email",
+                "value": "testemail@example.com",
+                "use": "home",
+                "period": {
+                  "start": "2008-01-10T15:33:18.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      active:
+        description: |
+          Whether this related person record is in active use.
+          
+          _Notes_
+          If set, value must be true.
+          
+          _Examples_
+          
+          ````json
+          {
+            "active": true
+          }
+          
+          ````
+          
+        type: boolean
+      gender:
+        description: |
+          Administrative Gender - the gender that the related person is considered to have for administration and record keeping purposes.
+          _Examples_
+          
+          ````json
+          {
+            "gender": "male"
+          }
+          
+          ````
+          
+        type: string
+      birthDate:
+        description: |
+          The date of birth for the individual.
+          _Examples_
+          
+          ````json
+          {
+            "birthDate": "1990-09-15"
+          }
+          
+          ````
+          
+        type: string
+      communication:
+        description: |
+          Language which may be used to communicate with the related person.
+          
+          _Notes_
+          <ul>
+            <li> Only one communication may be provided. </li>
+            <li> <code>communication.prefered</code> if provided should be <code>true</code> </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "communication": [
+              {
+                "language": {
+                  "coding": [
+                    {
+                      "system": "urn:ietf:bcp:47",
+              	    "code": "en",
+                      "display": "English"
+                    }
+                  ]
+                },
+                "preferred": true
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement

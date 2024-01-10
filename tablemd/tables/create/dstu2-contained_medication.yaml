@@ -1,0 +1,106 @@
+    post:
+      tags:
+        - Medication Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumDSTU2MedicationCreate
+      consumes:
+      - application/json+fhir
+      produces:
+      - application/json+fhir
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Medication/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    properties:
+      code:
+        description: |
+          Codes that identify this medication.
+          _Examples_
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                  "code": "2551",
+                  "display": "Ciprofloxacin",
+                  "userSelected": false
+                }
+              ],
+              "text": "ciprofloxacin"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      product:
+        description: |
+          Information that applies only to products (not packages).
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      product.form:
+        description: |
+          Describes the form of the item.
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string

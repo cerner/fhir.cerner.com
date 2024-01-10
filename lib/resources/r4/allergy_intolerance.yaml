@@ -413,7 +413,7 @@ fields:
 
   - name: severity
     required: 'No'
-    type: Code
+    type: code
     description: mild | moderate | severe (of event as a whole).
     url: https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.reaction.severity
     example: |

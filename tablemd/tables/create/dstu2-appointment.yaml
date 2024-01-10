@@ -1,0 +1,184 @@
+    post:
+      tags:
+        - Appointment Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumDSTU2AppointmentCreate
+      consumes:
+      - application/json+fhir
+      produces:
+      - application/json+fhir
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Appointment/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - slot
+    - status
+    - participant
+    - participant.actor
+    - participant.status
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Appointment
+      slot:
+        description: |
+          The availability to which the appointment is booked.
+          
+          _Notes_
+          Exactly one Slot must be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "slot": [
+              {
+                "reference": "Slot/21265426-633867-6828001-60"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            reference:
+              type: string
+      status:
+        description: |
+          A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
+          
+          _Notes_
+          Must be <code>proposed</code>
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "proposed"
+          }
+          
+          ````
+          
+        type: string
+      participant:
+        description: |
+          Participants involved in appointment.
+          
+          _Notes_
+          Exactly one participant must be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "participant": [
+              {
+                "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
+                },
+                "status": "needs-action"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      participant.actor:
+        description: |
+          A person, location, healthcare service or device that is participating in the appointment.
+          
+          _Notes_
+          Must be a Patient
+          
+          _Examples_
+          
+          ````json
+          {
+            "actor": {
+              "reference": "Patient/4704007",
+              "display": "Smart, Barney R"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      participant.status:
+        description: |
+          Participation status of the Patient.
+          
+          _Notes_
+          Must be <code>needs-action</code>
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "needs-action"
+          }
+          
+          ````
+          
+        type: string
+      comment:
+        description: |
+          Additional text to aid in facilitating the appointment.
+          _Examples_
+          
+          ````json
+          {
+            "comment: "Further explain MRI results"
+          }
+          
+          ````
+          
+        type: string

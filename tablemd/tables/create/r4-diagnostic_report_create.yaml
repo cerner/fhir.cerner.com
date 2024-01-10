@@ -1,0 +1,591 @@
+    post:
+      tags:
+        - DiagnosticReport Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4DiagnosticReportCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DiagnosticReport/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - status
+    - category
+    - code
+    - subject
+    - performer
+    - identifier
+    - effectivePeriod
+    - effectiveDateTime
+    - presentedForm
+    - presentedForm.contentType
+    - presentedForm.data
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - DiagnosticReport
+      status:
+        description: |
+          The status of the diagnostic report.
+          
+          _Notes_
+          Must be one of amended, cancelled, entered-in-error, final, partial, preliminary, registered, superseded, or unknown.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "final"
+          }
+          
+          ````
+          
+        type: string
+      category:
+        description: |
+          A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. Cardiology, Anatomic Pathology). This is used for searching, sorting and display purposes.
+          
+          _Notes_
+          The code must be LP29708-2 for Cardiology concept, LP7839-6 for Anatomic Pathology concept.
+          
+          _Examples_
+          
+          ````json
+          {
+            "category": [
+              {
+                  "coding": [
+                      {
+                          "code": "LP29708-2",
+                          "display": "Cardiology",
+                          "isUserSelected": false,
+                          "system": "http://loinc.org"
+                      }
+                  ],
+                  "text": "string"
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "category": [
+              {
+                  "coding": [
+                      {
+                          "code": "LP7839-6",
+                          "display": "Pathology study",
+                          "isUserSelected": false,
+                          "system": "http://loinc.org"
+                      }
+                  ],
+                  "text": "string"
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      code:
+        description: |
+          Specifies the particular kind of diagnostic report.
+          
+          _Notes_
+          The code must include a LOINC or a proprietary coding but not both together. Multiple LOINC codings or a single proprietary coding can be provided. <br/><br/> When providing proprietary code system, it should be of format 'https://fhir.cerner.com/&lt;your EHR source id&gt;/codeSet/&lt;code set&gt;' (where code set is Millennium codeset 72). Example&#58; 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72'. <br/><br/>
+          
+          _Examples_
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                  {
+                      "code": "703535",
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+                      "userSelected": true,
+                      "display": "Temperature Axillary"
+                  }
+              ],
+              "text": "Cardiology"
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                  {
+                      "code": "4187236",
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+                      "userSelected": true,
+                      "display": "Anatomic Pathology"
+                  }
+              ],
+              "text": "Anatomic Pathology"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      subject:
+        description: |
+          The subject of the report. Usually, but not always, this is a patient. However, diagnostic services also perform analyses on specimens collected from a variety of other sources.
+          
+          _Notes_
+          Only patient references are supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/12457977"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      performer:
+        description: |
+          The diagnostic service that is responsible for issuing the report.
+          
+          _Notes_
+          Must contain Practitioner or Organization references with valid millennium ids.
+          
+          _Examples_
+          
+          ````json
+          {
+            "performer": [
+              {
+                "reference": "Practitioner/3332064"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      resultsInterpreter:
+        description: |
+          The practitioner or organization that is responsible for the report's conclusions and interpretations.
+          
+          _Notes_
+          <li> <ul> <li>Only concept Cardiology supports resultsInterpreter field.</li> <li>Must contain Practitioner or Organization references with valid millennium ids.</li> <li>Diagnostic Report cardiology Create API requires <ul> <li>A default user to be setup in the domain to chart a document</li> <li>If not default user is defined in the domain, a results_interpreter attribute is mandatory to chart a cardiology document.</li> </ul> </li> </ul> </li>
+          
+          _Examples_
+          
+          ````json
+          {
+            "resultsInterpreter": {
+              "reference": "Practitioner/3332064"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      identifier:
+        description: |
+          Identifiers assigned to this report by the performer or other systems.
+          
+          _Notes_
+          <ul>
+             <li>The identifier for concept Cardiology must include fields- use, type, system, value.
+              <br/><br/>
+              The type would include coding. Coding internally would include code, system, version, display, userSelected.
+              <br/><br/></li>
+             <li>The identifier for concept Anatomic Pathology must include fields- system, value.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "identifier": [
+              {
+                  "use": "usual",
+                  "type": {
+                      "coding": [
+                          {
+                              "code": "Coding",
+                              "system": "http://snomed.info/sct",
+                              "version": "4.0.1",
+                              "display": "test",
+                              "userSelected": true
+                          }
+                      ]
+                  },
+                  "system": "http://hl7.org/fhir/sid/us-ssn",
+                  "value": "11182456"
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "identifier": [
+              {
+                  "system": "https://fhir.cerner.com/ceuuid",
+                  "value": "CEfda49233-ccfa-4ed4-afbc-9f5082c2bf0c-34824240-2022051205454801"
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          use:
+            type: string
+          type:
+            type: object
+            properties:
+              text:
+                type: string
+              coding:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    system:
+                      type: string
+                    code:
+                      type: string
+          system:
+            type: string
+          value:
+            type: string
+          period:
+            type: object
+            properties:
+              start:
+                type: string
+              end:
+                type: string
+          assigner:
+            type: object
+            properties:
+              reference:
+                type: string
+      effectivePeriod:
+        description: |
+          The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
+          
+          _Notes_
+          Only concept Cardiology supports effectivePeriod field.
+          
+          _Examples_
+          
+          ````json
+          {
+            "effectivePeriod": {
+              "start": "2020-09-14T09:05:12.000Z",
+              "end": "2020-09-14T09:05:12.000Z"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          start:
+            type: string
+          end:
+            type: string
+      effectiveDateTime:
+        description: |
+          The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.
+          
+          _Notes_
+          Only concept Anatomic Pathology supports effectiveDateTime field.
+          
+          _Examples_
+          
+          ````json
+          {
+            "effectiveDateTime": "2020-12-27T09:12:28Z",
+          }
+          
+          ````
+          
+        type: string
+      presentedForm:
+        description: |
+          Rich text representation of the entire result as issued by the diagnostic service. Multiple formats are allowed but they SHALL be semantically equivalent.
+          
+          _Notes_
+          Data and content type must be provided. Concept Cardiology supports fields contentType, data, url, title, creation fields under presented forms, whereas concept Anatomic Pathology supports contentType and data fields under present forms.
+          
+          _Examples_
+          
+          ````json
+          {
+            "presentedForm": {
+                   "contentType": "application/pdf;charset=utf-8",
+                   "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4=",
+                   "url": "http://snomed.info/sct"
+                   "title": "CT image",
+                   "creation": "2020-07-29T21:02:04.000Z"
+                 }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "presentedForm": {
+                   "contentType": "application/pdf;charset=utf-8",
+                   "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+                 }
+          }
+          
+          ````
+        type: object
+        description: The document or URL of the document along with critical metadata to prove content has integrity.
+        required:
+        - contentType
+        - data
+        properties:
+          contentType:
+            type: string
+            description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes MIME type parameters such as charset where appropriate.
+          data:
+            type: string
+            description: The actual data of the attachment - a sequence of bytes, base64 encoded.
+          title:
+            type: string
+            description: A label or set of text to display in place of the data.
+          creation:
+            type: string
+            description: The date that the attachment was first created.
+      presentedForm.contentType:
+        description: |
+          Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.
+          
+          _Notes_
+          Must be provided. Content Type must include a supported MIME type and character set. The supported values are `application/pdf`, `text/plain;charset=utf-8`, `text/richtext;charset=utf-8`, `text/rtf;charset=utf-8`, `text/html;charset=utf-8`, `application/xml;charset=utf-8`, and `application/xhtml+xml;charset=utf-8`
+          
+          _Examples_
+          
+          ````json
+          {
+            "contentType": "application/pdf;charset=utf-8"
+          }
+          
+          ````
+          
+        type: string
+      presentedForm.data:
+        description: |
+          The actual data of the attachment - a sequence of bytes, base64 encoded.
+          _Examples_
+          
+          ````json
+          {
+            "data": "PGh0bWw+Cjx0aXRsZT4gVGVzdCBEb2N1bWVudCA8L3RpdGxlPgoKRG9jdW1lbnQgY29udGVudCEKCjwvaHRtbD4="
+          }
+          
+          ````
+          
+        type: string
+      presentedForm.url:
+        description: |
+          A location where the data can be accessed.
+          _Examples_
+          
+          ````json
+          {
+            "title": "http://snomed.info/sct",
+          }
+          
+          ````
+          
+        type: string
+      presentedForm.title:
+        description: |
+          A label or set of text to display in place of the data.
+          _Examples_
+          
+          ````json
+          {
+            "title": "CT image",
+          }
+          
+          ````
+          
+        type: string
+      presentedForm.creation:
+        description: |
+          The date that the attachment was first created.
+          
+          _Notes_
+          A time component must be provided with the date.
+          
+          _Examples_
+          
+          ````json
+          {
+            "creation": "2020-07-29T21:02:04.000Z"
+          }
+          
+          ````
+          
+        type: string
+      encounter:
+        description: |
+          The healthcare event (e.g. a patient and healthcare provider interaction) which this DiagnosticReport is about.
+          
+          _Notes_
+          The encounter has to match the original document encounter.
+          
+          _Examples_
+          
+          ````json
+          {
+            "encounter": {
+              "reference": "Encounter/98041577"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      issued:
+        description: |
+          The date and time that this version of the report was made available to providers, typically after the report was reviewed and verified.
+          
+          _Notes_
+          A time component must be provided with the date.
+          
+          _Examples_
+          
+          ````json
+          {
+            "issued": "2020-07-29T21:02:04.000Z"
+          }
+          
+          ````
+          
+        type: string
+      conclusion:
+        description: |
+          Concise and clinically contextualized summary conclusion (interpretation/impression) of the diagnostic report.
+          
+          _Notes_
+          Only concept Cardiology supports conclusion field. Need to be able to provide a conclusion that is not lost among the basic result data.
+          
+          _Examples_
+          
+          ````json
+          {
+            "conclusion": "conclusion string"
+          }
+          
+          ````
+          
+        type: string
+      basedOn:
+        description: |
+          Details concerning a service requested.
+          
+          _Notes_
+          Only concept Anatomic Pathology supports basedOn field. Must contain ServiceRequest references with valid millennium ids.
+          
+          _Examples_
+          
+          ````json
+          {
+            "basedOn": [
+              {
+                  "reference": "ServiceRequest/99928073"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string

@@ -1,0 +1,295 @@
+    post:
+      tags:
+        - FamilyMemberHistory Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4FamilyMemberHistoryCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/FamilyMemberHistory/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - status
+    - patient
+    - relationship
+    properties:
+      status:
+        description: |
+          A code specifying the status of the record of the family history of a specific family member.
+          _Examples_
+          
+          ````json
+          {
+            "status": "partial"
+          }
+          
+          ````
+          
+        type: string
+      dataAbsentReason:
+        description: |
+          Describes why the family member's history is not available.
+          _Examples_
+          
+          ````json
+          {
+            "dataAbsentReason": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/history-absent-reason",
+                  "code": "subject-unknown"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      patient:
+        description: |
+          The person who this history concerns.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/631923",
+              "display": "Nilsson, Christine"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      name:
+        description: |
+          The family member's name.
+          _Examples_
+          
+          ````json
+          {
+            "name": "Halpert, Simothy"
+          }
+          
+          ````
+          
+        type: string
+      relationship:
+        description: |
+          The type of relationship this person has to the patient (father, mother, brother etc.).
+          
+          _Notes_
+          <ul>
+            <li>A relationship of FAMMEMB indicates a FamilyMemberHistory that contains information specific to the patient that pertains to all relations of the patient.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "relationship": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                  "code": "BRO"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      sex:
+        description: |
+          The birth sex of the family member.
+          _Examples_
+          
+          ````json
+          {
+            "sex": {
+              "coding": [
+                {
+                  "code": "male",
+                  "system": "http://hl7.org/fhir/administrative-gender"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      born[x]:
+        description: |
+          The actual or approximate date of birth of the relative.
+          _Examples_
+          
+          ````json
+          {
+            "bornDate": "1998-12-07"
+          }
+          
+          ````
+          
+      deceased[x]:
+        description: |
+          Deceased flag or the approximate age of the relative at the time of death for the family member history record.
+          
+          _Notes_
+          <ul>
+            <li>When deceased field is not provided, it is defaulted to deceasedBoolean false.</li>
+            <li>When deceasedAge is provided without the precision extension, it is defaulted to 'Age'</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "deceasedAge": {
+              "value": 42,
+              "system": "http://unitsofmeasure.org",
+              "code": "a",
+              "extension": [
+                {
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "code": "26175008",
+                        "system": "http://snomed.info/sct"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "deceasedBoolean": true
+          }
+          
+          ````
+      deceasedAge.extension(precision):
+        description: |
+          Indication of the precision of a given value.
+          
+          _Notes_
+          <ul>
+            <li>When precision is not provided, it is defaulted to 'Age'</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "26175008",
+                      "system": "http://snomed.info/sct"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string

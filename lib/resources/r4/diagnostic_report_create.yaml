@@ -297,7 +297,7 @@ fields:
 
 - name: presentedForm.contentType
   required: 'Yes'
-  type: Code
+  type: code
   action:
     - create
   description: Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.

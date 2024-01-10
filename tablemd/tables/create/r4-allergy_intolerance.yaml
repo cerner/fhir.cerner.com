@@ -1,0 +1,484 @@
+    post:
+      tags:
+        - AllergyIntolerance Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4AllergyIntoleranceCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/AllergyIntolerance/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - clinicalStatus
+    - code
+    - patient
+    - reaction.manifestation
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - AllergyIntolerance
+      contained:
+        description: |
+          Contained, inline Resources.
+          
+          _Notes_
+          These should be either <code>PractitionerRole</code> or <a target="_blank" href="https://hl7.org/fhir/R4/relatedperson.html"><code>RelatedPerson</code></a> resources that are relative references from the <a href="#create-asserter">asserter</a> field.
+          
+          
+          _Examples_
+          
+          ````json
+          Contained RelatedPerson
+          {
+            "contained": [
+              {
+                "resourceType":"RelatedPerson",
+                "id":"638996",
+                "relationship":[
+                  {
+                    "coding":[
+                      {
+                        "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                        "code": "PRN",
+                      }
+                    ]
+                  }
+                ],
+                "patient":{
+                  "reference":"Patient/12742400"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          Contained PractitionerRole
+          {
+            "contained": [
+              {
+                "resourceType":"PractitionerRole",
+                "id":"638994",
+                "code":[
+                  {
+                    "coding":[
+                      {
+                        "system":"http://terminology.hl7.org/CodeSystem/practitioner-role",
+                        "code":"doctor"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+        type: []
+      clinicalStatus:
+        description: |
+          The clinical status of the AllergyIntolerance.
+          
+          _Notes_
+          A clinicalStatus must always be provided while creating an allergy.
+          
+          _Examples_
+          
+          ````json
+          {
+            "clinicalStatus": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+                  "code": "resolved"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      verificationStatus:
+        description: |
+          The verification status to support or decline the clinical status of allergy.
+          
+          _Notes_
+          verificationStatus codes of <code>entered-in-error</code> and <code>refuted</code> are not supported during AllergyIntolerance creates.
+          
+          _Examples_
+          
+          ````json
+          {
+            "verificationStatus": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+                  "code": "confirmed"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      type:
+        description: |
+          allergy | intolerance - Underlying mechanism (if known)
+          _Examples_
+          
+          ````json
+          {
+            "type": "allergy"
+          }
+          
+          ````
+          
+        type: string
+      category:
+        description: |
+          Category of the identified <a href="#create-code">code</a>.
+          
+          _Notes_
+          <ul>
+            <li> Category code of <code>biologic</code> is not supported</li>
+            <li> Only a single category will be written to the allergy </li>
+            <li> When multiple categories are provided, the category to be picked is based on precedence. medication > food > environment. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "category":[
+              "environment",
+              "food",
+              "medication"
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: string
+      criticality:
+        description: |
+          low | high | unable-to-assess
+          _Examples_
+          
+          ````json
+          {
+            "criticality": "high"
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: string
+      code:
+        description: |
+          Code that identifies the allergy or intolerance
+          
+          _Notes_
+          A code must always be provided while creating an allergy.
+          
+          _Examples_
+          
+          ````json
+          {
+            "code":{
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "9220005"
+                }
+              ],
+              "text": "Plant phenol oil"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      patient:
+        description: |
+          Indicates the patient who the sensitivity is for.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/631923"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      encounter:
+        description: |
+          Indicates the encounter when the allergy or intolerance was asserted.
+          _Examples_
+          
+          ````json
+          {
+            "encounter": {
+              "reference":"Encounter/1693915"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      onset[x]:
+        description: |
+          Estimated or actual date or date-time the allergy began, in the opinion of the clinician.
+          
+          _Notes_
+          <ul>
+            <li> Only a type of dateTime is supported.</li>
+            <li> The dateTime is converted to a GMT date. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "onsetDateTime": "2015-10-14T13:13:20-06:00"
+          }
+          
+          ````
+          
+      asserter:
+        description: |
+          Indicates the source of information about the allergy.
+          
+          _Notes_
+          Asserter must be provided and linked to the contained resource, if a contained resource is specified.
+          
+          _Examples_
+          
+          ````json
+          {
+            "asserter":{
+              "reference":"#638994"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      note:
+        description: |
+          Additional narrative about the allergy not captured in other fields.
+          
+          _Notes_
+          An author and text can be specified but note.time will always be defaulted.
+          
+          _Examples_
+          
+          ````json
+          {
+            "note": [
+              {
+                "authorReference": {
+                  "reference": "Practitioner/2578010"
+                },
+                "text": "Allergy reported by patient."
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            authorReference:
+              type: object
+              properties:
+                reference:
+                  type: string
+            time:
+              type: string
+            text:
+              type: string
+      reaction:
+        description: |
+          Adverse Reaction Events linked to exposure to substance
+          _Examples_
+          
+          ````json
+          {
+            "reaction":[
+              {
+                "manifestation":[
+                  {
+                    "coding":[
+                      {
+                        "system":"http://snomed.info/sct",
+                        "code":"414322003"
+                      }
+                    ],
+                    "text":"Blastobacter"
+                  }
+                ],
+                "severity":"severe"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      reaction.manifestation:
+        description: |
+          Clinical symptoms/signs associated with the Event
+          
+          _Notes_
+          Only one manifestation can be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            {
+              "manifestation":[
+                {
+                  "coding":[
+                    {
+                      "system":"http://snomed.info/sct",
+                      "code":"414322003"
+                    }
+                  ],
+                  "text":"Blastobacter"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      reaction.severity:
+        description: |
+          mild | moderate | severe (of event as a whole).
+          _Examples_
+          
+          ````json
+          {
+            "severity":"severe"
+          }
+          
+          ````
+          
+        type: string

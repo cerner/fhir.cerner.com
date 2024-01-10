@@ -1,0 +1,287 @@
+    post:
+      tags:
+        - Condition Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumDSTU2ConditionCreate
+      consumes:
+      - application/json+fhir
+      produces:
+      - application/json+fhir
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - patient
+    - code
+    - verificationStatus
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Condition
+      patient:
+        description: |
+          Who has the condition.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/2744123",
+              "display": "Joe, Test"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      encounter:
+        description: |
+          Encounter during which the condition was first asserted.
+          
+          _Notes_
+          Encounter is required for Conditions with a category code of diagnosis.
+          
+          _Examples_
+          
+          ````json
+          {
+            "encounter": {
+              "reference": "Encounter/1309819"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      code:
+        description: |
+          Identification of the condition, problem, diagnosis or health concern.
+          _Examples_
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/sid/icd-9-cm",
+                  "code": "345.0",
+                  "display": "Generalized nonconvulsive epilepsy",
+                  "userSelected": true
+                }
+              ],
+              "text": "Absence seizures"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      category:
+        description: |
+          A category assigned to the condition.
+          _Examples_
+          
+          ````json
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/condition-category",
+                  "code": "diagnosis",
+                  "display": "Diagnosis"
+                }
+              ],
+              "text": "Diagnosis"
+            }
+          }
+          OR
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://argonaut.hl7.org",
+                  "code": "problem",
+                  "display": "Problem"
+                }
+              ],
+              "text": "Problem"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      clinicalStatus:
+        description: |
+          The clinical status of the condition.
+          _Examples_
+          
+          ````json
+          {"clinicalStatus": "resolved"}
+          ````
+          
+        type: string
+      verificationStatus:
+        description: |
+          The verification status of the condition.
+          _Examples_
+          
+          ````json
+          {
+            "verificationStatus": "confirmed"
+          }
+          
+          ````
+          
+        type: string
+      severity:
+        description: |
+          Assessment of the severity of the condition as evaluated by the clinician.
+          _Examples_
+          
+          ````json
+          {
+            "severity": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "371923003",
+                  "display": "Mild to moderate"
+                }
+              ],
+              "text": "Mild to moderate"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      onsetDateTime:
+        description: |
+          Estimated or actual date the condition began, in the opinion of the clinician.
+          _Examples_
+          
+          ````json
+          {
+            "onsetDateTime": "2015-10-14T13:13:20-06:00"
+          }
+          
+          ````
+          
+        type: string
+      abatementBoolean:
+        description: |
+          Indicates if the condition is resolved or has gone into remission.
+          _Examples_
+          
+          ````json
+          {
+            "abatementBoolean": true
+          }
+          
+          ````
+          
+        type: boolean
+      abatementDateTime:
+        description: |
+          Indicates the date and time the condition was resolved or has gone into remission.
+          _Examples_
+          
+          ````json
+          {
+            "abatementDateTime": "2015-10-14T13:13:20-06:00"
+          }
+          
+          ````
+          
+        type: string
+      notes:
+        description: |
+          Additional information about the Condition.
+          _Examples_
+          
+          ````json
+          {
+            "notes": "Information related to condition"
+          }
+          
+          ````
+          
+        type: string

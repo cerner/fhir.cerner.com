@@ -40,7 +40,7 @@ fields:
 
   - name: questionnaire
     required: 'Yes'
-    type: Questionnaire
+    type: canonical(Questionnaire)
     url: https://hl7.org/fhir/r4/questionnaireresponse-definitions.html#QuestionnaireResponse.questionnaire
     description: The Questionnaire that defines and organizes the questions for which answers are being provided.
     action: update

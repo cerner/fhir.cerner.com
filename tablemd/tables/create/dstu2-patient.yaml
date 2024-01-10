@@ -1,0 +1,386 @@
+    post:
+      tags:
+        - Patient Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumDSTU2PatientCreate
+      consumes:
+      - application/json+fhir
+      produces:
+      - application/json+fhir
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - identifier
+    - name
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Patient
+      identifier:
+        description: |
+          The identifiers for the patient.
+          
+          _Notes_
+          <ul>
+            <li>At least one identifier <b>must</b> be provided. The provided identifier must meet the following conditions:
+              <ul>
+                <li>Must contain only an <code>assigner</code> field with a reference to the Organization in which the patient is being enrolled.</li>
+              </ul>
+            </li>
+            <li>Subsequent identifiers may be provided but have the following constraints:
+              <ul>
+                <li>Must not contain the <code>assigner</code> and <code>use</code> fields.</li>
+                <li>Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields.</li>
+                <li>When specifying a <code>period</code>, must include a time component with a timezone.</li>
+              </ul>
+            </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "identifier": [
+              {
+                "assigner": {
+                  "reference": "Organization/685844"
+                }
+              },
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "code": "MR",
+                      "system": "http://hl7.org/fhir/v2/0203"
+                    }
+                  ]
+                },
+                "system": "urn:oid:1.1.1.1.1.1",
+                "value": "THIS:IS:A:UNIQUE:IDENTIFIER",
+                "period": {
+                  "start": "2016-01-02T00:00:00-05:00",
+                  "end": "2020-01-02T00:00:00-05:00"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: [Identifier]
+      name:
+        description: |
+          The names associated with the individual.
+          
+          _Notes_
+          Must have one value that is current and has a <code>use</code> of 'official', without an end date, and both a given and family name are present.
+          Names must include the <code>use</code> field, and must contain either the <code>given</code> or <code>family</code> field. All names cannot contain the <code>text</code> field.
+          Only one <code>family</code> name. If additional family names are required they must be provided as a single string separated by blank spaces.
+          Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single
+          string separated by blank spaces. Only one <code>prefix</code> and one <code>suffix</code> may be provided.
+          <ul>
+            <li>At least one name <b>must</b> be provided. The provided name must meet the following conditions:
+            <ul>
+              <li>Must have a <code>use</code> of <code>official</code>.</li>
+              <li>Must include both <code>given</code> and <code>family</code>.</li>
+              <li>If set, <code>period</code> must not have an <code>end</code> date.</li>
+            </ul>
+            </li>
+            <li>Subsequent names may be provided but have the following constraints:</li>
+            <ul>
+              <li>The name must include the <code>use</code> field.</li>
+              <li>The name must contain either the <code>given</code> or <code>family</code> fields.</li>
+              <li>The name cannot contain the <code>text</code> field.</li>
+              <li>Up to two <code>given</code> names may be provided. If additional given names are required, they must be provided in the second value as a single string separated by blank spaces.</li>
+              <li>Only one <code>prefix</code> and one <code>suffix</code> may be provided.</li>
+              <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+              <li>The <code>family</code> field has a character limit of 100.</li>
+              <li>Each value for the <code>given</code>, <code>prefix</code>, and <code>suffix</code> fields has a character limit of 100.</li>
+            </ul>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "name": [
+              {
+                "use": "official",
+                "family": [
+                  "Wolf"
+                ],
+                "given": [
+                  "Big",
+                  "Bad"
+                ],
+                "period": {
+                  "start": "2010-05-17T14:54:31.000Z"
+                }
+              },
+              {
+                "use": "usual",
+                "given": [
+                  "Bigby"
+                ],
+                "period": {
+                  "start": "2012-05-22T15:45:50.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      active:
+        description: |
+          Whether this patient record is in active use.
+          
+          _Notes_
+          If set, the value must be <code>true</code>
+          
+          _Examples_
+          
+          ````json
+          {
+            "active": true
+          }
+          
+          ````
+          
+        type: boolean
+      telecom:
+        description: |
+          A contact detail (e.g., a telephone number or an email address) by which the patient may be contacted.
+          
+          _Notes_
+          All values must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields.
+          
+          _Examples_
+          
+          ````json
+          {
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "8168229121",
+                "use": "home",
+                "period": {
+                  "start": "2012-05-17T15:33:18.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      gender:
+        description: |
+          Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
+          _Examples_
+          
+          ````json
+          {
+            "gender": "male"
+          }
+          
+          ````
+          
+        type: string
+      birthDate:
+        description: |
+          The date of birth for the individual.
+          _Examples_
+          
+          ````json
+          {
+            "birthDate": "1989-09-17"
+          }
+          
+          ````
+          
+        type: string
+      address:
+        description: |
+          Addresses for the individual.
+          
+          _Notes_
+          Each address must contain the <code>use</code> field and must not contain the <code>text</code> field.
+          
+          _Examples_
+          
+          ````json
+          {
+            "address": [
+              {
+                "use": "home",
+                "line": [
+                   "1212 Faircastle Drive",
+                   "Apartment 406"
+                ],
+                "city": "KC",
+                "district": "Jackson",
+                "state": "KS",
+                "postalCode": "64199",
+                "country": "United States of America",
+                "period": {
+                  "start": "2012-05-17T15:33:18.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      maritalStatus:
+        description: |
+          The patient's most recent marital (civil) status.
+          _Examples_
+          
+          ````json
+          {
+            "maritalStatus": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+                  "code": "S",
+                  "display": "Never Married"
+                }
+              ],
+              "text": "Single"
+            },
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      communication:
+        description: |
+          Language which may be used to communicate with the patient about his or her health.
+          
+          _Notes_
+          Only one communication may be provided. <br/><br/> All the language codes must use ISO-639-1 alpha 2 code in lower case, e.g. "en" for English.
+          
+          _Examples_
+          
+          ````json
+          {
+            "communication": [
+              {
+                "language": {
+                  "coding": [
+                    {
+                      "system": "urn:ietf:bcp:47",
+              	      "code": "en",
+                      "display": "English"
+                    }
+                  ],
+                  "text": "English"
+                },
+                "preferred": true
+              }
+            ]
+          }
+          
+          ````
+          
+        type: BackboneElement
+      careProvider:
+        description: |
+          Patient's nominated care provider.
+          
+          _Notes_
+          The careProvider must be a reference to a Practitioner.
+          
+          _Examples_
+          
+          ````json
+          {
+            "careProvider": [
+              {
+                "reference": "Practitioner/4594010"
+              },
+              {
+                "reference": "Practitioner/4646007"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            reference:
+              type: string
+      Birth Sex Extension:
+        description: |
+          The sex of the patient at birth.
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "http://fhir.org/guides/argonaut/StructureDefinition/argo-birthsex",
+                "valueCode": "F"
+              }
+            ],
+          }
+          
+          ````
+          
+        type: string

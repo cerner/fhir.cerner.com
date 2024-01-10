@@ -1,13 +1,21 @@
     put:
+      tags:
+        - Appointment Write
       description: |
         # Update Operations
 
-      operationId: updateAppointment
+      operationId: millenniumDSTU2AppointmentUpdate
       consumes:
-      - application/fhir+json
+      - application/json+fhir
       produces:
-      - application/json
-      parameters: 
+      - application/json+fhir
+      parameters:
+        - name: id
+          in: path
+          description: |
+            The logical resource ID associated with the resource.
+          required: true
+          type: string
         - name: updateBody
           in: body
           required: true
@@ -18,8 +26,9 @@
           required: true
           type: string
       responses: 
-        200:
-          description: OK
+        '200':
+          description: |
+            **OK**
           headers:
             X-Request-Id:
               type: string
@@ -30,6 +39,8 @@
             ETag:
               type: string
               description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+        default:
+          $ref: '#/responses/OperationOutcome'
 
 definitions:
   UpdateBody:
@@ -41,32 +52,86 @@ definitions:
     - participant.actor
     - participant.status
     properties:
-        ## Resourcetype
-        _Description_
-        
-        The type of the FHIR resource.
-        
-        _Notes_
-        Must be <code>Appointment</code>
-        ## Status
-        _Description_
-        
-        A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
-        
-        _Notes_
-        Must be <code>arrived</code> or <code>cancelled</code>
-        ## Participant
-        _Description_
-        
-        Participants involved in appointment.
-        ## Participant.Actor
-        _Description_
-        
-        A person, location, healthcare service or device that is participating in the appointment.
-        ## Participant.Status
-        _Description_
-        
-        Participation status of the actor.
-        
-        _Notes_
-        Must be <code>accepted</code>
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Appointment
+      status:
+        description: |
+          A code representing the overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
+          
+          _Notes_
+          Must be <code>arrived</code> or <code>cancelled</code>
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "arrived"
+          }
+          
+          ````
+        type: string
+      participant:
+        description: |
+          Participants involved in appointment.
+          _Examples_
+          
+          ````json
+          {
+            "participant": [
+              {
+                "actor": {
+                  "reference": "Patient/4704007",
+                  "display": "Smart, Barney R"
+                },
+                "status": "accepted"
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: object
+            properties:
+      participant.actor:
+        description: |
+          A person, location, healthcare service or device that is participating in the appointment.
+          _Examples_
+          
+          ````json
+          {
+            "actor": {
+              "reference": "Patient/4704007",
+              "display": "Smart, Barney R"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      participant.status:
+        description: |
+          Participation status of the actor.
+          
+          _Notes_
+          Must be <code>accepted</code>
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "accepted"
+          }
+          
+          ````
+        type: string

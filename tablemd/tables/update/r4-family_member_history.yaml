@@ -1,13 +1,21 @@
     put:
+      tags:
+        - FamilyMemberHistory Write
       description: |
         # Update Operations
 
-      operationId: updateFamilyMemberHistory
+      operationId: millenniumR4FamilyMemberHistoryUpdate
       consumes:
       - application/fhir+json
       produces:
-      - application/json
-      parameters: 
+      - application/fhir+json
+      parameters:
+        - name: id
+          in: path
+          description: |
+            The logical resource ID associated with the resource.
+          required: true
+          type: string
         - name: updateBody
           in: body
           required: true
@@ -18,8 +26,9 @@
           required: true
           type: string
       responses: 
-        200:
-          description: OK
+        '200':
+          description: |
+            **OK**
           headers:
             X-Request-Id:
               type: string
@@ -30,6 +39,8 @@
             ETag:
               type: string
               description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+        default:
+          $ref: '#/responses/OperationOutcome'
 
 definitions:
   UpdateBody:
@@ -42,127 +53,602 @@ definitions:
     - condition.code
     - condition.modifierExension(condition-result)
     properties:
-        ## Id
-        _Description_
-        
-        The logical ID of the resource to update.
-        ## Extension(Patient Adopted)
-        _Description_
-        
-        Indication of whether a patient is adopted.
-        
-        _Notes_
-        Only returned when relationship is FAMMEMB and value is true.
-        ## Status
-        _Description_
-        
-        A code specifying the status of the record of the family history of a specific family member.
-        ## Dataabsentreason
-        _Description_
-        
-        Describes why the family member's history is not available.
-        ## Patient
-        _Description_
-        
-        The person who this history concerns.
-        ## Name
-        _Description_
-        
-        The family member's name.
-        ## Relationship
-        _Description_
-        
-        The type of relationship this person has to the patient (father, mother, brother etc.).
-        
-        _Notes_
-        <ul>
-          <li>A relationship of FAMMEMB indicates a FamilyMemberHistory that contains information specific to the patient that pertains to all relations of the patient.</li>
-        </ul>
-        
-        ## Sex
-        _Description_
-        
-        The birth sex of the family member.
-        ## Born[X]
-        _Description_
-        
-        The actual or approximate date of birth of the relative.
-        ## Deceased[X]
-        _Description_
-        
-        Deceased flag or the approximate age of the relative at the time of death for the family member history record.
-        
-        _Notes_
-        <ul>
-          <li>When deceased field is not provided, it is defaulted to deceasedBoolean false.</li>
-          <li>When deceasedAge is provided without the precision extension, it is defaulted to 'Age'</li>
-        </ul>
-        
-        ## Deceasedage.Extension(Precision)
-        _Description_
-        
-        Indication of the precision of a given value.
-        
-        _Notes_
-        <ul>
-          <li>When precision is not provided, it is defaulted to 'Age'</li>
-        </ul>
-        
-        ## Condition
-        _Description_
-        
-        The significant Conditions (or condition) that the family member had.
-        
-        _Notes_
-        Each item in the list must represent a distinct condition.
-        ## Condition.Id
-        _Description_
-        
-        Unique id for inter-element referencing.
-        
-        _Notes_
-        If a condition.id is returned on a read, it must be provided on an update.
-        ## Condition.Code
-        _Description_
-        
-        The actual condition specified.
-        ## Condition.Onset[X]
-        _Description_
-        
-        The age of onset.
-        
-        _Notes_
-        <ul>
-          <li>When onsetAge is provided without the precision extension, it is defaulted to 'Age'</li>
-        </ul>
-        
-        ## Condition.Onsetage.Extension(Precision)
-        _Description_
-        
-        Indication of the precision of a given value.
-        
-        _Notes_
-        <ul>
-          <li>When precision is not provided, it is defaulted to 'Age'</li>
-        </ul>
-        
-        ## Condition.Note
-        _Description_
-        
-        An area where general notes can be placed about this specific condition.
-        ## Condition.Modifierexension(Condition Result)
-        _Description_
-        
-        Indication of the presence (positive) or absence (negative) of a given condition. Must be provided. The result may indicate the absence of a condition which may lead to different clinical decisions than if the result were positive.
-        ## Condition.Modifierexension(Condition Lifecycle Status)
-        _Description_
-        
-        Indication of whether a condition is active, inactive, resolved, etc. The lifecycle status indicates the relevance of a given condition. If a condition is resolved or inactivated, it may no longer be clinically relevant. The lifecycle status may not be returned if it is not applicable to the given condition.
-        ## Condition.Extension(Condition Course)
-        _Description_
-        
-        Indication of a condition's progress since diagnosis.
-        ## Condition.Extension(Familymemberhistory Severity)
-        _Description_
-        
-        A qualification of the seriousness or impact on health of the family member condition.
+      id:
+        description: |
+          The logical ID of the resource to update.
+          _Examples_
+          
+          ````json
+          {
+            "id": "12504018-12764234"
+          }
+          
+          ````
+        type: string
+      extension(patient-adopted):
+        description: |
+          Indication of whether a patient is adopted.
+          
+          _Notes_
+          Only returned when relationship is FAMMEMB and value is true.
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-adopted",
+                "valueBoolean": true
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      status:
+        description: |
+          A code specifying the status of the record of the family history of a specific family member.
+          _Examples_
+          
+          ````json
+          {
+            "status": "partial"
+          }
+          
+          ````
+        type: string
+      dataAbsentReason:
+        description: |
+          Describes why the family member's history is not available.
+          _Examples_
+          
+          ````json
+          {
+            "dataAbsentReason": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/history-absent-reason",
+                  "code": "subject-unknown"
+                }
+              ]
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      patient:
+        description: |
+          The person who this history concerns.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/631923",
+              "display": "Nilsson, Christine"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      name:
+        description: |
+          The family member's name.
+          _Examples_
+          
+          ````json
+          {
+            "name": "Halpert, Simothy"
+          }
+          
+          ````
+        type: string
+      relationship:
+        description: |
+          The type of relationship this person has to the patient (father, mother, brother etc.).
+          
+          _Notes_
+          <ul>
+            <li>A relationship of FAMMEMB indicates a FamilyMemberHistory that contains information specific to the patient that pertains to all relations of the patient.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "relationship": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                  "code": "BRO"
+                }
+              ]
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      sex:
+        description: |
+          The birth sex of the family member.
+          _Examples_
+          
+          ````json
+          {
+            "sex": {
+              "coding": [
+                {
+                  "code": "male",
+                  "system": "http://hl7.org/fhir/administrative-gender"
+                }
+              ]
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      born[x]:
+        description: |
+          The actual or approximate date of birth of the relative.
+          _Examples_
+          
+          ````json
+          {
+            "bornDate": "1998-12-07"
+          }
+          
+          ````
+      deceased[x]:
+        description: |
+          Deceased flag or the approximate age of the relative at the time of death for the family member history record.
+          
+          _Notes_
+          <ul>
+            <li>When deceased field is not provided, it is defaulted to deceasedBoolean false.</li>
+            <li>When deceasedAge is provided without the precision extension, it is defaulted to 'Age'</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "deceasedAge": {
+              "value": 42,
+              "system": "http://unitsofmeasure.org",
+              "code": "a",
+              "extension": [
+                {
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "code": "26175008",
+                        "system": "http://snomed.info/sct"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "deceasedBoolean": true
+          }
+          
+          ````
+      deceasedAge.extension(precision):
+        description: |
+          Indication of the precision of a given value.
+          
+          _Notes_
+          <ul>
+            <li>When precision is not provided, it is defaulted to 'Age'</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "26175008",
+                      "system": "http://snomed.info/sct"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      condition:
+        description: |
+          The significant Conditions (or condition) that the family member had.
+          
+          _Notes_
+          Each item in the list must represent a distinct condition.
+          
+        type: object
+        properties:
+      condition.id:
+        description: |
+          Unique id for inter-element referencing.
+          
+          _Notes_
+          If a condition.id is returned on a read, it must be provided on an update.
+          
+          _Examples_
+          
+          ````json
+          {
+            "id": "111"
+          }
+          
+          ````
+        type: string
+      condition.code:
+        description: |
+          The actual condition specified.
+          _Examples_
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "57054005"
+                }
+              ]
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      condition.onset[x]:
+        description: |
+          The age of onset.
+          
+          _Notes_
+          <ul>
+            <li>When onsetAge is provided without the precision extension, it is defaulted to 'Age'</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "onsetAge": {
+              "value": 42,
+              "system": "http://unitsofmeasure.org",
+              "code": "a",
+              "extension": [
+                {
+                  "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+                  "valueCodeableConcept": {
+                    "coding": [
+                      {
+                        "code": "26175008",
+                        "system": "http://snomed.info/sct"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+          
+          ````
+      condition.onsetAge.extension(precision):
+        description: |
+          Indication of the precision of a given value.
+          
+          _Notes_
+          <ul>
+            <li>When precision is not provided, it is defaulted to 'Age'</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/precision",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "code": "26175008",
+                      "system": "http://snomed.info/sct"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      condition.note:
+        description: |
+          An area where general notes can be placed about this specific condition.
+          _Examples_
+          
+          ````json
+          {
+            "note": [
+              {
+                "text": "Comment about condition"
+              }
+            ],
+          }
+          
+          ````
+        type: object
+        properties:
+          authorReference:
+            type: object
+            properties:
+              reference:
+                type: string
+          time:
+            type: string
+          text:
+            type: string
+      condition.modifierExension(condition-result):
+        description: |
+          Indication of the presence (positive) or absence (negative) of a given condition. Must be provided. The result may indicate the absence of a condition which may lead to different clinical decisions than if the result were positive.
+          _Examples_
+          
+          ````json
+          {
+            "modifierExtension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "10828004"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      condition.modifierExension(condition-lifecycle-status):
+        description: |
+          Indication of whether a condition is active, inactive, resolved, etc. The lifecycle status indicates the relevance of a given condition. If a condition is resolved or inactivated, it may no longer be clinically relevant. The lifecycle status may not be returned if it is not applicable to the given condition.
+          _Examples_
+          
+          ````json
+          {
+            "modifierExtension": [
+               {
+                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status",
+                 "valueCodeableConcept": {
+                   "coding": [
+                     {
+                       "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                       "code": "active"
+                     }
+                   ]
+                 }
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "modifierExtension": [
+               {
+                 "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status",
+                 "valueCodeableConcept": {
+                   "coding": [
+                     {
+                       "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                       "code": "entered-in-error"
+                     }
+                   ]
+                 }
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      condition.extension(condition-course):
+        description: |
+          Indication of a condition's progress since diagnosis.
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "58158008"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      condition.extension(familymemberhistory-severity):
+        description: |
+          A qualification of the seriousness or impact on health of the family member condition.
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity",
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "24484000"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string

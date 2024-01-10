@@ -1,0 +1,825 @@
+    post:
+      tags:
+        - Encounter Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4EncounterCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Encounter/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - identifier.type
+    - identifier.system
+    - identifier.value
+    - status
+    - type
+    - subject
+    - participant.type
+    - participant.individual
+    - serviceProvider
+    - location
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Encounter
+      identifier:
+        description: |
+          Identifier(s) by which this encounter is known.
+          _Examples_
+          
+          ````json
+          {
+            "identifier": [
+              {
+                "use": "usual",
+                "type": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
+                      "code": "1077",
+                      "display": "FIN NBR"
+                    }
+                  ]
+                },
+                "system": "urn:oid:3.3.3.3.3.3",
+                "value": "2009",
+                "period": {
+                  "start": "2017-01-17T20:39:40.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: [Identifier]
+      identifier.type:
+        description: |
+          The type for the identifier that can be used to determine which identifier to use for a specific purpose.
+          
+          _Notes_
+          Required if identifier is given.
+          
+          _Examples_
+          
+          ````json
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
+                  "code": "1077",
+                  "display": "FIN NBR"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/319",
+                  "code": "1077"
+                }
+              ]
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      identifier.system:
+        description: |
+          The namespace of the identifier.
+          
+          _Notes_
+          Required if identifier is given.
+          
+          _Examples_
+          
+          ````json
+          {
+            "system": "urn:oid:3.3.3.3.3.3"
+          }
+          
+          ````
+          
+        type: string
+      identifier.value:
+        description: |
+          The unique value of the identifier
+          
+          _Notes_
+          Required if identifier is given.
+          
+          _Examples_
+          
+          ````json
+          {
+            "value": "2009"
+          }
+          
+          ````
+          
+        type: string
+      status:
+        description: |
+          The status of the encounter.
+          
+          _Notes_
+          Currently do not support <code>cancelled</code> or <code>entered-in-error</code>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "in-progress"
+          }
+          
+          ````
+          
+        type: string
+      class:
+        description: |
+          The classification of the encounter.
+          
+          _Notes_
+          Direct writing of class is not supported. This field will be inferred on a write.
+          
+          _Examples_
+          
+          ````json
+          {
+            "class": "inpatient"
+          }
+          
+          ````
+          
+        type: string
+      type:
+        description: |
+          The specific type of encounter.
+          _Examples_
+          
+          ````json
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v2-0004",
+                    "code": "O"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/71",
+                    "code": "309310"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      priority:
+        description: |
+          Indicates the urgency of the encounter.
+          _Examples_
+          
+          ````json
+          {
+            "priority": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ActPriority",
+                    "code": "O"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "priority": [
+              {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/3",
+                    "code": "309203"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      subject:
+        description: |
+          The patient present at the encounter.
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/4342011"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      participant:
+        description: |
+          The list of people responsible for providing the service.
+          _Examples_
+          
+          ````json
+          {
+            "participant": [
+              {
+                "type": [
+                  {
+                    "coding": [
+                      {
+                        "system": "http://hl7.org/fhir/v3/ParticipationType",
+                        "code": "ATND"
+                      }
+                    ]
+                  }
+                ],
+                "period": {
+                  "start": "2017-03-02T20:01:13.000Z"
+                },
+                "individual": {
+                  "reference": "Practitioner/1912007"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      participant.type:
+        description: |
+          Role of participant in encounter.
+          
+          _Notes_
+          Required if participant is given.
+          
+          _Examples_
+          
+          ````json
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/v3/ParticipationType",
+                    "code": "ATND"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+          ````json
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/333",
+                    "code": "1126"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      participant.period:
+        description: |
+          The start and end times for the period the participant was involved in the encounter.
+          _Examples_
+          
+          ````json
+          {
+            "period": {
+              "start": "2017-03-02T01:13:00Z"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          start:
+            type: string
+          end:
+            type: string
+      participant.individual:
+        description: |
+          The personnel present at the encounter.
+          
+          _Notes_
+          Required if participant is given.
+          
+          _Examples_
+          
+          ````json
+          {
+            "reference": "Practitioner/1912007"
+          }
+          
+          ````
+          
+      period:
+        description: |
+          The start and end times of the encounter.
+          
+          _Notes_
+          A date with time must be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "period": {
+              "start": "2017-03-02T01:13:00Z",
+              "end": "2017-03-05T00:00:00Z"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          start:
+            type: string
+          end:
+            type: string
+      reasonCode:
+        description: |
+          The reason that the encounter is taking place.
+          
+          _Notes_
+          ICD-10 and SNOMED codes along with text fields are supported for reasonCode.
+          
+          _Examples_
+          
+          ````json
+          {
+            "reasonCode": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "208388003",
+                    "display": "Fracture At Wrist And/Or Hand Level",
+                    "userSelected": true
+                  }
+                ]
+              }, {
+                "text": "Neck pain"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      hospitalization:
+        description: |
+          Details about the admission to a healthcare service.
+          
+          _Notes_
+          Only the admitSource and dischargeDisposition fields are supported on write.
+          
+          _Examples_
+          
+          ````json
+          {
+            "hospitalization": {
+              "admitSource": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                    "code": "born"
+                  }
+                ]
+              },
+              "dischargeDisposition": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                    "code": "other-hcf"
+                  }
+                ]
+              }
+            }
+          }
+          
+          ````
+          
+        type: BackboneElement
+      hospitalization.admitSource:
+        description: |
+          From where patient was admitted.
+          _Examples_
+          
+          ````json
+          {
+            "admitSource": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/admit-source",
+                  "code": "born"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "admitSource": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/2",
+                  "code": "670834"
+                }
+              ]
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      hospitalization.dischargeDisposition:
+        description: |
+          Category or kind of location after discharge.
+          _Examples_
+          
+          ````json
+          {
+            "dischargeDisposition": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/discharge-disposition",
+                  "code": "other-hcf"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "dischargeDisposition": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/19",
+                  "code": "638660"
+                }
+              ]
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      serviceProvider:
+        description: |
+          The organization (facility) responsible for this encounter.
+          
+          _Notes_
+          <ul>
+            <li><code>serviceProvider</code> cannot be provided when <code>location</code> is present.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "serviceProvider": {
+              "reference": "Organization/619848"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      location:
+        description: |
+          The location where the encounter takes place.
+          
+          _Notes_
+          <ul>
+            <li>Only one <code>location</code> reference is permitted.</li>
+            <li><code>location</code> cannot be provided when <code>serviceProvider</code> is present.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "location": [
+              {
+                "location": {
+                  "reference": "Location/21250409"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      custom-attribute:
+        description: |
+          A client defined custom attribute for the encounter.
+          
+          _Notes_
+          <ul>
+            <li>The custom-attribute id field cannot be set.</li>
+            <li>custom-attribute-name and custom-attribute-value are both required.</li>
+            <li>id and valueString for custom-attribute-name are required.</li>
+            <li>custom-attribute-value can be of type string, integer, dateTime, or CodeableConcept.</li>
+            <li>CodeableConcept can have the following systems:</li>
+            <ul>
+              <li>https://fhir.cerner.com/<EHR_source_id>/nomenclature</li>
+              <li>https://fhir.cerner.com/<EHR_source_id>/codeSet/&lt;code set&gt;</li>
+            </ul>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "id": "ENCNTR:2822522",
+                "valueString": "ICD-9 Code",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueString": "test string",
+                "url": "custom-attribute-value"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          },
+          {
+            "extension": [
+              {
+                "id": "ENCNTR:4047481",
+                "valueString": "Conversation",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueCodeableConcept": {
+                    "coding": [
+                        {
+                          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/100040",
+                          "code": "4630114",
+                          "display": "Register Patient",
+                          "userSelected": true
+                        }
+                    ],
+                    "text": "Register Patient"
+                },
+            ],
+              "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          },
+          {
+            "extension": [
+              {
+                "id": "ENCNTR:970558313",
+                "valueString": "Gestational AGE",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueInteger": 256,
+                "url": "custom-attribute-value"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          },
+          {
+            "extension": [
+              {
+                "id": "ENCNTR:3339152",
+                "valueString": "Self-Pay Follow Up Date",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueDateTime": "2020-07-03T12:00:00.000Z",
+                "url": "custom-attribute-value"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          }
+          
+          ````
+          
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      meta.security:
+        description: |
+          Security labels applied to this resource.
+          
+          _Notes_
+          Encounters created with meta.security set with code 'UNCERTREL' will be returned with an external encounter type.
+          
+          _Examples_
+          
+          ````json
+          {
+            "meta": [
+              {
+                "security": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ObservationValue",
+                    "code": "UNCERTREL"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []

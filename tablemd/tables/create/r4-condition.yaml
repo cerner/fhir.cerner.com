@@ -1,0 +1,387 @@
+    post:
+      tags:
+        - Condition Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4ConditionCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Condition/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - clinicalStatus
+    - category
+    - code
+    - subject
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Condition
+      clinicalStatus:
+        description: |
+          The clinical status of the condition.
+          
+          _Notes_
+          <ul>
+            <li> A clinicalStatus must always be provided while creating a Condition. </li>
+            <li> Only the <code>active</code> code is supported when the category is <code>encounter-diagnosis</code>. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "clinicalStatus": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                  "code": "resolved",
+                  "display": "Resolved"
+                }
+              ],
+              "text": "Resolved"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      verificationStatus:
+        description: |
+          The verification status to support or decline the clinical status of the condition or diagnosis.
+          
+          _Notes_
+          verificationStatus codes of <code>entered-in-error</code> and <code>refuted</code> are not supported during Condition creates.
+          
+          _Examples_
+          
+          ````json
+          {
+            "verificationStatus": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                  "code": "confirmed",
+                  "display": "Confirmed"
+                }
+              ],
+              "text": "Confirmed"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      category:
+        description: |
+          A category assigned to the condition.
+          
+          _Notes_
+          <ul>
+            <li> Only a single category may be provided. </li>
+            <li> Category codes <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported. </li>
+            <li> Classification codes are not supported. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                    "code": "problem-list-item",
+                    "display": "Problem List Item"
+                  }
+                ],
+                "text": "Problem List Item"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string
+      severity:
+        description: |
+          A subjective assessment of the severity of the condition as evaluated by the clinician.
+          _Examples_
+          
+          ````json
+          {
+            "severity": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "255604002",
+                  "display": "Mild"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "severity": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/12022",
+                  "code": "3293",
+                  "display": "Mild"
+                }
+              ]
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      code:
+        description: |
+          Identification of the condition, problem or diagnosis.
+          
+          _Notes_
+          A code must be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "209832007",
+                  "display": "Concussion NOS (disorder)",
+                  "userSelected": true
+                }
+              ],
+              "text": "Concussion with loss of consciousness"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      subject:
+        description: |
+          Indicates the patient who the condition record is associated with.
+          
+          _Notes_
+          subject must be a reference to a Patient.
+          
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/631923",
+              "display": "Nilsson, Christine"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      encounter:
+        description: |
+          Encounter during which the condition was first asserted.
+          
+          _Notes_
+          <ul>
+            <li> encounter must be a reference to an Encounter. </li>
+            <li> encounter is required when the condition category code is <code>encounter-diagnosis</code>. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "encounter": {
+              "reference": "Encounter/631923"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      onset[x]:
+        description: |
+          Estimated or actual date or date-time the condition began, in the opinion of the clinician.
+          
+          _Notes_
+          <ul>
+            <li> Only a type of dateTime is supported. </li>
+            <li> The dateTime is converted to a GMT date. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "onsetDateTime": "2015-10-14T13:13:20-06:00"
+          }
+          
+          ````
+          
+      abatement[x]:
+        description: |
+          The date or estimated date that the condition resolved or went into remission.
+          
+          _Notes_
+          <code>abatementDateTime</code> is not supported for Conditions with a category of <code>encounter-diagnosis</code>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "abatementDateTime": "2015-10-14T13:13:20-06:00"
+          }
+          
+          ````
+          
+      note:
+        description: |
+          Additional information about the Condition. This is a general notes/comments entry for description of the Condition, its diagnosis and prognosis.
+          _Examples_
+          
+          ````json
+          {
+            "note": [
+              {
+                "authorReference": {
+                  "reference": "Practitioner/4594011",
+                  "display": "Leroux, Erik"
+                },
+                "text": "Test Comment 2"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            authorReference:
+              type: object
+              properties:
+                reference:
+                  type: string
+            time:
+              type: string
+            text:
+              type: string

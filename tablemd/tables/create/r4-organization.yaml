@@ -1,0 +1,164 @@
+    post:
+      tags:
+        - Organization Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4OrganizationCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Organization/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - name
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Organization
+      identifier:
+        description: |
+          The identifiers for the Organization.
+          
+          _Notes_
+          <ul>
+            <li> If set, The provided identifier must meet the following conditions:
+              <ul>
+                <li> Must contain the <code>system</code>, <code>value</code>, and <code>type</code> fields.</li>
+                <li> Must contain only an NPI, OID or TAXID system. </li>
+              </ul>
+            </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "identifier": [
+              {
+                "system": "http://hl7.org/fhir/sid/us-npi",
+                "value": "FHIR-NPI-10191",
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                      "code": "NPI"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: [Identifier]
+      active:
+        description: |
+          Whether the organization's record is still in active use.
+          
+          _Notes_
+          If set, value must be true.
+          
+          _Examples_
+          
+          ````json
+          {
+            "active": true
+          }
+          
+          ````
+          
+        type: boolean
+      name:
+        description: |
+          Name used for the organization.
+          
+          _Notes_
+          <ul>
+            <li> At least one name <b>must</b> be provided and should be unique. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "name": "example-organization"
+          }
+          
+          ````
+          
+        type: string
+      type:
+        description: |
+          The Organization Type.
+          _Examples_
+          
+          ````json
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                    "code": "govt"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            text:
+              type: string
+            coding:
+              type: array
+              items:
+                type: object
+                properties:
+                  system:
+                    type: string
+                  code:
+                    type: string

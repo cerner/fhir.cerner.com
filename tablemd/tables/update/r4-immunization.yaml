@@ -1,13 +1,21 @@
     put:
+      tags:
+        - Immunization Write
       description: |
         # Update Operations
 
-      operationId: updateImmunization
+      operationId: millenniumR4ImmunizationUpdate
       consumes:
       - application/fhir+json
       produces:
-      - application/json
-      parameters: 
+      - application/fhir+json
+      parameters:
+        - name: id
+          in: path
+          description: |
+            The logical resource ID associated with the resource.
+          required: true
+          type: string
         - name: updateBody
           in: body
           required: true
@@ -18,8 +26,9 @@
           required: true
           type: string
       responses: 
-        200:
-          description: OK
+        '200':
+          description: |
+            **OK**
           headers:
             X-Request-Id:
               type: string
@@ -30,6 +39,8 @@
             ETag:
               type: string
               description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+        default:
+          $ref: '#/responses/OperationOutcome'
 
 definitions:
   UpdateBody:
@@ -44,98 +55,460 @@ definitions:
     - occurrenceDateTime
     - performer.actor
     properties:
-        ## Resourcetype
-        _Description_
-        
-        The type of the FHIR resource.
-        
-        _Notes_
-        resourceType must be Immunization
-        ## Id
-        _Description_
-        
-        The logical id of the resource.
-        ## Status
-        _Description_
-        
-        Indicates the current status of the immunization event.
-        ## Statusreason
-        _Description_
-        
-        Reason the immunization was not performed.
-        
-        _Notes_
-        This is generally only used for the status of "not-done".
-        ## Vaccinecode
-        _Description_
-        
-        The vaccine that was administered or was to be administered.
-        ## Patient
-        _Description_
-        
-        The patient who either received or did not receive the immunization.
-        ## Encounter
-        _Description_
-        
-        The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
-        ## Occurrencedatetime
-        _Description_
-        
-        Date vaccine administered or was to be administered.
-        ## Reportorigin
-        _Description_
-        
-        The source of an immunization record when not reported by the person who administered the vaccine.
-        
-        _Notes_
-        Should not be supplied when primarySource is set to true.
-        ## Manufacturer
-        _Description_
-        
-        Name of vaccine manufacturer.
-        ## Lotnumber
-        _Description_
-        
-        Lot number of the vaccine product.
-        ## Expirationdate
-        _Description_
-        
-        Date vaccine batch expires.
-        ## Site
-        _Description_
-        
-        The body site where the vaccine was administered.
-        ## Route
-        _Description_
-        
-        The path by which the vaccine product was taken into the body.
-        ## Dosequantity
-        _Description_
-        
-        The quantity of vaccine product that was administered.
-        ## Performer
-        _Description_
-        
-        Indicates who performed the immunization event.
-        ## Performer.Function
-        _Description_
-        
-        Describes the type of performance (e.g. ordering provider, administering provider, etc.).
-        ## Performer.Actor
-        _Description_
-        
-        The practitioner or organization who performed the action.
-        ## Note
-        _Description_
-        
-        Extra information about the immunization that is not conveyed by the other attributes.
-        ## Primarysource
-        _Description_
-        
-        An indication that the content of the record is based on information from the person who administered the vaccine.
-        
-        _Notes_
-        Will be set to true if not specified.
-        For CREATE action should not be set to true when reportOrigin is populated.
-        For UPDATE action should not be set to true.
-        
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Immunization
+      id:
+        description: |
+          The logical id of the resource.
+          _Examples_
+          
+          ````json
+          {
+            "id": "M43434511"
+          }
+          
+          ````
+        type: string
+      status:
+        description: |
+          Indicates the current status of the immunization event.
+          _Examples_
+          
+          ````json
+          {
+            "status": "completed"
+          }
+          
+          ````
+        type: string
+      statusReason:
+        description: |
+          Reason the immunization was not performed.
+          
+          _Notes_
+          This is generally only used for the status of "not-done".
+          
+          _Examples_
+          
+          ````json
+          {
+            "statusReason": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/30440",
+                  "code": "679607",
+                  "display": "Patient Refuses",
+                  "userSelected": true
+                }
+              ],
+              "text": "Patient Refuses"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      vaccineCode:
+        description: |
+          The vaccine that was administered or was to be administered.
+          _Examples_
+          
+          ````json
+          {
+            "vaccineCode": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+                  "code": "2797921",
+                  "display": "hepatitis A-hepatitis B vaccine",
+                  "userSelected": false
+                }
+              ],
+              "text": "hepatitis A-hepatitis B vaccine"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      patient:
+        description: |
+          The patient who either received or did not receive the immunization.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/123820084",
+              "display": "Immun, Test1"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      encounter:
+        description: |
+          The visit or admission or other contact between patient and health care provider the immunization was performed as part of.
+          _Examples_
+          
+          ````json
+          {
+            "encounter": {
+              "reference": "Encounter/36209678"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      occurrenceDateTime:
+        description: |
+          Date vaccine administered or was to be administered.
+          _Examples_
+          
+          ````json
+          {
+            "occurrenceDateTime": "2019-07-05T10:35:00-05:00"
+          }
+          
+          ````
+        type: string
+      reportOrigin:
+        description: |
+          The source of an immunization record when not reported by the person who administered the vaccine.
+          
+          _Notes_
+          Should not be supplied when primarySource is set to true.
+          
+          _Examples_
+          
+          ````json
+          {
+            "reportOrigin": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/30200",
+                  "code": "20738688",
+                  "display": "Primary Care Provider",
+                  "userSelected": false
+                }
+              ],
+              "text": "Primary Care Provider"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      manufacturer:
+        description: |
+          Name of vaccine manufacturer.
+          _Examples_
+          
+          ````json
+          {
+            "manufacturer": {
+              "display": "Adams Laboratories"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      lotNumber:
+        description: |
+          Lot number of the vaccine product.
+          _Examples_
+          
+          ````json
+          {
+            "lotNumber": "123ab",
+          }
+          
+          ````
+        type: string
+      expirationDate:
+        description: |
+          Date vaccine batch expires.
+          _Examples_
+          
+          ````json
+          {
+            "expirationDate": "2019-07-30"
+          }
+          
+          ````
+        type: string
+      site:
+        description: |
+          The body site where the vaccine was administered.
+          _Examples_
+          
+          ````json
+          {
+            "site": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/97",
+                  "code": "576",
+                  "display": "Left Arm",
+                  "userSelected": false
+                }
+              ],
+              "text": "Left Arm"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      route:
+        description: |
+          The path by which the vaccine product was taken into the body.
+          _Examples_
+          
+          ````json
+          {
+            "route": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4001",
+                  "code": "318167",
+                  "display": "IM",
+                  "userSelected": false
+                }
+              ],
+              "text": "IM"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      doseQuantity:
+        description: |
+          The quantity of vaccine product that was administered.
+          _Examples_
+          
+          ````json
+          {
+            "doseQuantity": {
+              "value": 1.5,
+              "unit": "mL",
+              "system": "http://unitsofmeasure.org",
+              "code": "mL"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          value:
+            type: number
+          unit:
+            type: string
+          system:
+            type: string
+          code:
+            type: string
+      performer:
+        description: |
+          Indicates who performed the immunization event.
+          _Examples_
+          
+          ````json
+          {
+            "performer": [
+              {
+                "function": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                      "code": "AP",
+                      "display": "Administering Provider"
+                    }
+                  ],
+                  "text": "Administering Provider"
+                },
+                "actor": {
+                  "reference": "Practitioner/7750958",
+                  "display": "Doe, John"
+                }
+              }
+            ]
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: object
+            properties:
+      performer.function:
+        description: |
+          Describes the type of performance (e.g. ordering provider, administering provider, etc.).
+          _Examples_
+          
+          ````json
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0443",
+                  "code": "OP",
+                  "display": "Ordering Provider"
+                }
+              ],
+              "text": "Ordering Provider"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      performer.actor:
+        description: |
+          The practitioner or organization who performed the action.
+          _Examples_
+          
+          ````json
+          {
+            "actor": {
+              "reference": "Practitioner/7750958",
+              "display": "Doe, John"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          reference:
+            type: string
+      note:
+        description: |
+          Extra information about the immunization that is not conveyed by the other attributes.
+          _Examples_
+          
+          ````json
+          {
+            "authorReference": {
+              "reference": "Practitioner/2028012",
+              "display": "Doe, Jane"
+            },
+            "time": "2019-06-09T14:03:26-05:00",
+            "text": "Additional details"
+          }
+          
+          ````
+        type: array
+        items:
+          type: object
+          properties:
+            authorReference:
+              type: object
+              properties:
+                reference:
+                  type: string
+            time:
+              type: string
+            text:
+              type: string
+      primarySource:
+        description: |
+          An indication that the content of the record is based on information from the person who administered the vaccine.
+          
+          _Notes_
+          Will be set to true if not specified.
+          For CREATE action should not be set to true when reportOrigin is populated.
+          For UPDATE action should not be set to true.
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "primarySource": true
+          }
+          
+          ````
+        type: boolean

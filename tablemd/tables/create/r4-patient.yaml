@@ -1,0 +1,539 @@
+    post:
+      tags:
+        - Patient Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4PatientCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - identifier
+    - name
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Patient
+      identifier:
+        description: |
+          The identifiers for the patient.
+          
+          _Notes_
+          <ul>
+            <li>At least one identifier <b>must</b> be provided. The provided identifier must meet the following conditions:
+              <ul>
+                <li>Must contain only an <code>assigner</code> field with a reference to the Organization in which the patient is being enrolled.</li>
+              </ul>
+            </li>
+            <li>Subsequent identifiers may be provided, but have the following constraints:
+              <ul>
+                <li>Must not contain the <code>assigner</code> and <code>use</code> fields.</li>
+                <li>Must contain the <code>type</code>, <code>system</code>, and <code>value</code> fields.</li>
+                <li>When specifying a <code>period</code>, must include a time component with a timezone.</li>
+              </ul>
+            </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "identifier": [
+              {
+                "assigner": {
+                  "reference": "Organization/619848"
+                }
+              },
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "code": "MR",
+                      "system": "http://hl7.org/fhir/v2/0203"
+                    }
+                  ]
+                },
+                "system": "urn:oid:1.1.1.1.1.1",
+                "value": "&lt;unique identifier&gt;",
+                "period": {
+                  "start": "2016-01-02T00:00:00-05:00",
+                  "end": "2020-01-02T00:00:00-05:00"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: [Identifier]
+      name:
+        description: |
+          The names associated with the individual.
+          
+          _Notes_
+          <ul>
+            <li>At least one name <b>must</b> be provided. The provided name must meet the following conditions:
+              <ul>
+                <li>Must have a <code>use</code> of 'official'.</li>
+                <li>Must not have an <code>end</code> date on <code>period</code>, or must not include <code>period</code>.</li>
+                <li>Must include both <code>given</code> and <code>family</code>.</li>
+              </ul>
+            </li>
+            <li>Each name must include the <code>use</code> field.</li>
+            <li>Each name must contain either the <code>given</code> or <code>family</code> fields.</li>
+            <li>Each name cannot contain the <code>text</code> field.</li>
+            <li>Up to two <code>given</code> names may be provided. If additional given names are required they must be provided in the second value as a single string separated by blank spaces.</li>
+            <li>Only one <code>prefix</code> and one <code>suffix</code> may be provided.</li>
+            <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+            <li>The <code>family</code> field has a character limit of 100.</li>
+            <li>Each value for the <code>given</code>, <code>prefix</code>, and <code>suffix</code> fields has a character limit of 100.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "name": [
+              {
+                "use": "official",
+                "family": "Wolf",
+                "given": [
+                  "Big",
+                  "Bad"
+                ],
+                "period": {
+                  "start": "2010-05-17T14:54:31.000Z"
+                }
+              },
+              {
+                "use": "usual",
+                "given": [
+                  "Bigby"
+                ],
+                "period": {
+                  "start": "2012-05-22T15:45:50.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      active:
+        description: |
+          Whether this patient record is in active use.
+          
+          _Notes_
+          If set, the value must be <code>true</code>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "active": true
+          }
+          
+          ````
+          
+        type: boolean
+      telecom:
+        description: |
+          A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.
+          
+          _Notes_
+          <ul>
+            <li>Each telecom must contain the <code>system</code>, <code>use</code>, and <code>value</code> fields.</li>
+            <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+            <li>The <code>value</code> and <code>extension.valueString</code> fields have a character limit of 100.</li>
+            <li>When specifying an <code>extension</code>, the <code>system</code> field must be 'phone'.</li>
+            <li>When specifying an <code>extension</code>, the <code>extension.url</code> field must be 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "telecom": [
+              {
+                "system": "phone",
+                "value": "8168229121",
+                "use": "home",
+                "extension": [
+                  {
+                    "valueString": "12345",
+                    "url": "http://hl7.org/fhir/StructureDefinition/contactpoint-extension"
+                  }
+                ],
+                "period": {
+                  "start": "2012-05-17T15:33:18.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      gender:
+        description: |
+          Administrative Gender - the gender that the patient is considered to have for administration and record keeping purposes.
+          _Examples_
+          
+          ````json
+          {
+            "gender": "male"
+          }
+          
+          ````
+          
+        type: string
+      birthDate:
+        description: |
+          The date of birth for the individual.
+          _Examples_
+          
+          ````json
+          {
+            "birthDate": "1990-09-15"
+          }
+          
+          ````
+          
+        type: string
+      address:
+        description: |
+          Addresses for the individual.
+          
+          _Notes_
+          <ul>
+            <li>Each address must contain the <code>use</code> field.</li>
+            <li>Each address should contain at least one of the <code>line</code>, <code>city</code>, <code>district</code>, <code>state</code>, <code>postalCode</code>, <code>country</code> fields, otherwise address will be ignored by the server.</li>
+            <li>Each address must not contain the <code>text</code> field.</li>
+            <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
+            <li>Each value for the <code>line</code> field has a character limit of 100.</li>
+            <li>The <code>city</code>, <code>district</code>, <code>state</code>, and <code>country</code> fields have a character limit of 100.</li>
+            <li>The <code>postalCode</code> field has a character limit of 25.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "address": [
+              {
+                "use": "home",
+                "line": [
+                   "1212 Faircastle Drive",
+                   "Apartment 406"
+                ],
+                "city": "KC",
+                "district": "Jackson",
+                "state": "KS",
+                "postalCode": "64199",
+                "country": "United States of America",
+                "period": {
+                  "start": "2012-05-17T15:33:18.000Z"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: []
+      maritalStatus:
+        description: |
+          The patient's most recent marital (civil) status.
+          _Examples_
+          
+          ````json
+          {
+            "maritalStatus": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
+                  "code": "S",
+                  "display": "Never Married"
+                }
+              ],
+              "text": "Never Married"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      communication:
+        description: |
+          Language which may be used to communicate with the patient about his or her health.
+          
+          _Notes_
+          Only one communication may be provided.
+          
+          _Examples_
+          
+          ````json
+          {
+            "communication": [
+              {
+                "language": {
+                  "coding": [
+                    {
+                      "system": "urn:ietf:bcp:47",
+              	    "code": "en",
+                      "display": "English"
+                    }
+                  ],
+                  "text": "English"
+                },
+                "preferred": true
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      generalPractitioner:
+        description: |
+          Patient's nominated care provider.
+          
+          _Notes_
+          Must only include references to Practitioners.
+          
+          _Examples_
+          
+          ````json
+          {
+            "generalPractitioner": [
+              {
+                "reference": "Practitioner/995932"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            reference:
+              type: string
+      US Core Birth Sex Extension:
+        description: |
+          The sex of the patient at birth.
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex",
+                "valueCode": "F"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      US Core Ethnicity Extension:
+        description: |
+          The ethnicity of the patient.
+          _Examples_
+          
+          ````json
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "ombCategory",
+                "valueCoding": {
+                  "system": "urn:oid:2.16.840.1.113883.6.238",
+                  "code": "2186-5",
+                  "display": "Non Hispanic or Latino"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      US Core Race Extension:
+        description: |
+          The race of the patient.
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+                "extension": [
+                  {
+                    "url": "ombCategory",
+                    "valueCoding": {
+                      "system": "urn:oid:2.16.840.1.113883.6.238",
+                      "code": "2028-9",
+                      "display": "Asian"
+                    }
+                  },
+                  {
+                    "url": "detailed",
+                    "valueCoding": {
+                      "system": "urn:oid:2.16.840.1.113883.6.238",
+                      "code": "2039-6",
+                      "display": "Japanese"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      Communication Preference Extension:
+        description: |
+          The communication preference for the patient.
+          _Examples_
+          
+          ````json
+          {
+            "extension": [
+              {
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+                "extension": [
+                  {
+                    "extension": [
+                      {
+                        "valueCodeableConcept": {
+                          "coding": [
+                            {
+                              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4640016",
+                              "code": "485602703",
+                              "display": "Appointment Reminder",
+                              "userSelected": false
+                            }
+                          ],
+                          "text": "Appointment Reminder"
+                        },
+                        "url": "communication-type"
+                      },
+                      {
+                        "valueCodeableConcept": {
+                          "coding": [
+                            {
+                              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/23042",
+                              "code": "4054467",
+                              "display": "Phone",
+                              "userSelected": false
+                            }
+                          ]
+                          },
+                        "url": "contact-method"
+                      },
+                      {
+                        "valueCodeableConcept": {
+                          "coding": [
+                            {
+                              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/43",
+                              "code": "163",
+                              "display": "Business",
+                              "userSelected": false
+                            }
+                          ],
+                          "text": "Home"
+                        },
+                        "url": "contact-type"
+                      }
+                    ],
+                "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference",
+                "verified": "2019-12-26T15:41:52.000Z"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string

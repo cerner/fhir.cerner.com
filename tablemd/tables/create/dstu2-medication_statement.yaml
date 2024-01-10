@@ -1,0 +1,396 @@
+    post:
+      tags:
+        - MedicationStatement Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumDSTU2MedicationStatementCreate
+      consumes:
+      - application/json+fhir
+      produces:
+      - application/json+fhir
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationStatement/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - patient
+    - status
+    - medication[x]
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - MedicationStatement
+      patient:
+        description: |
+          Who is/was taking the medication.
+          _Examples_
+          
+          ````json
+          {
+            "patient": {
+              "reference": "Patient/5366327"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      status:
+        description: |
+          A code representing the patient or other source's judgment about the state of the medication that this statement is about.
+          
+          
+          _Notes_
+          <ul>
+            <li> When <b>creating</b> a medication statement, only the <code>active</code> status is supported. </li>
+            <li> When <b>updating</b> a medication statement, only the <code>completed</code> status is supported. </li>
+          </ul>  
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "active"
+          }
+          
+          ````
+          
+        type: string
+      effectivePeriod:
+        description: |
+          The interval of time during which it is being asserted that the patient was taking the medication.
+          
+          _Notes_
+          If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated, they must be the same value.
+          
+          _Examples_
+          
+          ````json
+          {
+            "effectivePeriod": {
+              "start": "2015-05-05T14:00:00.000Z",
+              "end": "2015-05-06T01:00:00.000Z"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          start:
+            type: string
+          end:
+            type: string
+      note:
+        description: |
+          Provides extra information about the medication statement that is not conveyed by the other attributes.
+          _Examples_
+          
+          ````json
+          {
+            "note": "do not take with alcohol"
+          }
+          
+          ````
+          
+        type: string
+      medication[x]:
+        description: |
+          Identifies the medication being administered.
+          _Examples_
+          
+          ````json
+          {
+            "medicationReference": {
+              "reference": "#456235",
+              "display": "Ibuprofen"
+            }
+          }
+          
+          {
+            "medicationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+                   "code": "2551",
+                   "display": "Ciprofloxacin",
+                   "userSelected": false
+                }
+              ],
+              "text": "ciprofloxacin"
+            }
+          }
+          
+          ````
+          
+      dosage:
+        description: |
+          How the medication is/was used by the patient.
+          
+          _Notes_
+          At most one dosage can be populated.
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      dosage.text:
+        description: |
+          Free text dosage information as reported about a patient's medication use.
+          _Examples_
+          
+          ````json
+          {
+            "text": "2, Oral, 2x/Wk, first dose 05/05/15 10:00:00 EDT"
+          }
+          
+          ````
+          
+        type: string
+      dosage.timing:
+        description: |
+          The timing schedule for giving the medication to the patient.
+        type: string
+      dosage.timing.repeat:
+        description: |
+          A set of rules that describe when the event should occur.
+        type: string
+      dosage.timing.repeat.bounds[x]:
+        description: |
+          Either the length of timing schedule or the outer bounds for start and/or end limits of the timing schedule.
+          
+          
+          _Notes_
+          If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated, they must be the same value.
+          
+          _Examples_
+          
+          ````json
+          {
+            "boundsPeriod": {
+              "start": "2014-11-03T14:38:00.000-05:00"
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "boundsQuantity": {
+              "value": 10,
+              "unit": "days",
+              "system": "http://unitsofmeasure.org",
+              "code": "d"
+            }
+          }
+          
+          ````
+      dosage.timing.repeat.count:
+        description: |
+          A total count of the desired number of repetitions.
+          _Examples_
+          
+          ````json
+          {
+            "count": 5
+          }
+          
+          ````
+          
+        type: integer
+      dosage.timing.code:
+        description: |
+          A code for the timing pattern.
+          _Examples_
+          
+          ````json
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v3/vs/GTSAbbreviation",
+                  "code": "TID",
+                  "display": "TID"
+                }
+              ],
+              "text": "TID"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      dosage.asNeeded[x]:
+        description: |
+          Whether the Medication is only taken when needed within a specific dosing schedule.
+          _Examples_
+          
+          ````json
+          {
+            "asNeededCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "25064002",
+                  "display": "for headache"
+                }
+              ]
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "asNeededBoolean" : true
+          }
+          
+          ````
+      dosage.siteCodeableConcept:
+        description: |
+          Where on the body the medication is/was administered.
+          _Examples_
+          
+          ````json
+          {
+            "siteCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "368208006",
+                  "display": "left upper arm structure (body structure)"
+                }
+              ],
+              "text": "Left Arm"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      dosage.route:
+        description: |
+          A code specifying the route or physiological path of administration of a therapeutic agent into or onto a subject.
+          
+          _Examples_
+          
+          ````json
+          {
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "41974700",
+                  "display": "Chew (qualifier value)"
+                }
+              ],
+              "text": "Chewed"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      dosage.quantityQuantity:
+        description: |
+          The amount of therapeutic or other substance given at one administration event.
+          _Examples_
+          
+          ````json
+          {
+            "quantityQuantity": {
+              "value": 2,
+              "unit": "tabs",
+              "system": "http://unitsofmeasure.org",
+              "code": "tbl"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          value:
+            type: number
+          unit:
+            type: string
+          system:
+            type: string
+          code:
+            type: string

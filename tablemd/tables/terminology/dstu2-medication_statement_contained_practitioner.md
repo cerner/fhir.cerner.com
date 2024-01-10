@@ -1,3 +1,3 @@
 |Terminology Mappings|
 |---|
-|<p>**[Practitioner.practitionerRole.role](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role){:target="_blank"}**<hr>**Description**<br>- The roles which this practitioner is authorized to perform for the organization.<br><br>**Details:** [Practitioner Role](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role){:target="_blank"}<br><br>**System:** `http://hl7.org/fhir/practitioner-role`<br><br>|
+|<p>**[Practitioner.practitionerRole.role](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role)**<hr>**Description**<br>- The roles which this practitioner is authorized to perform for the organization.<br><br>**Details:** [Practitioner Role](https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role)<br><br>**System:** `http://hl7.org/fhir/practitioner-role`<br><br>|

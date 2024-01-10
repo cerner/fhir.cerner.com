@@ -1,0 +1,386 @@
+    post:
+      tags:
+        - Coverage Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4CoverageCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - status
+    - subscriber
+    - beneficiary
+    - payor
+    - class.type
+    - class.value
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Coverage
+      Coverage Encounter Extension:
+        description: |
+          Reference to the Encounter associated to the Encounter-level Coverage.
+          
+          _Notes_
+          <ul>
+            <li>The <code>valueReference.reference</code> must be an Encounter reference.</li>
+            <li>If provided, an Encounter-level Coverage will be created.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter",
+            "valueReference": {
+              "reference": "Encounter/31363178"
+            }
+          }
+          
+          ````
+          
+        type: object
+        description: See the StructureDefinition of this extension for further formatting details.
+        properties:
+          url:
+            type: string
+      status:
+        description: |
+          The status of the coverage.
+          
+          _Notes_
+          Currently supports only <code>active</code>.
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "active"
+          }
+          
+          ````
+          
+        type: string
+      subscriber:
+        description: |
+          Subscriber to the policy.
+          
+          _Notes_
+          <ul>
+            <li>Currently supports only Patient references.</li>
+            <li>Not required for Public Healthcare Writes.</li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "subscriber": {
+              "reference": "Patient/1626016"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      subscriberId:
+        description: |
+          ID assigned to the subscriber.
+          _Examples_
+          
+          ````json
+          {
+            "subscriberId": "1626016"
+          }
+          
+          ````
+          
+        type: string
+      beneficiary:
+        description: |
+          Plan beneficiary.
+          _Examples_
+          
+          ````json
+          {
+            "beneficiary": {
+              "reference": "Patient/1626016"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      dependent:
+        description: |
+          Dependent number.
+          
+          _Notes_
+          Not required for Public Healthcare Writes.
+          
+          _Examples_
+          
+          ````json
+          {
+            "dependent": "1626016"
+          }
+          
+          ````
+          
+        type: string
+      relationship:
+        description: |
+          Indicates the beneficiary relationship to the subscriber.
+          
+          _Notes_
+          Not required for Public Healthcare Writes.
+          
+          _Examples_
+          
+          ````json
+          {
+            "relationship": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+                    "code": "child"
+                  }
+                ]
+              }
+            ]
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      period:
+        description: |
+          Coverage start and end dates.
+          
+          _Notes_
+          Both period.start and period.end must contain date and time components.
+          
+          _Examples_
+          
+          ````json
+          {
+            "period": {
+              "start": "2014-09-05T14:30:12.000Z",
+              "end": "2015-09-05T14:30:12.000Z"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          start:
+            type: string
+          end:
+            type: string
+      payor:
+        description: |
+          Issuer of the policy.
+          
+          _Notes_
+          For Public Coverages, payor[0].reference is not supported.
+          
+          _Examples_
+          
+          ````json
+          {
+            "payor": [
+              {
+                "reference": "Organization/643847",
+                "display": "Aetna Missouri POS - Open"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            reference:
+              type: string
+      class:
+        description: |
+          Additional coverage classifications.
+          _Examples_
+          
+          ````json
+          {
+            "class": [
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                      "code": "plan"
+                    }
+                  ],
+                  "text": "plan"
+                },
+                "value": "729825",
+                "name": "Aetna Missouri POS Open"
+              },
+              {
+                "type": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                      "code": "group"
+                    }
+                  ],
+                  "text": "group"
+                },
+                "value": "7298139",
+                "name": "Aetna Missouri POS Open group"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      class.type:
+        description: |
+          Type of class such as <code>group</code> or <code>plan</code>.
+          _Examples_
+          
+          ````json
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                  "code": "group"
+                }
+              ],
+              "text": "group"
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/ValueSet/coverage-class",
+                  "code": "plan"
+                }
+              ],
+              "text": "plan"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      class.value:
+        description: |
+          Value associated with type.
+          _Examples_
+          
+          ````json
+          {
+            "value": "7298139"
+          }
+          
+          ````
+          
+        type: string
+      class.name:
+        description: |
+          Human readable description of the type and value.
+          _Examples_
+          
+          ````json
+          {
+            "name": "Aetna Missouri POS Open group"
+          }
+          
+          ````
+          
+        type: string

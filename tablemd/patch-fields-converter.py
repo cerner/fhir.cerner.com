@@ -131,7 +131,7 @@ content.append('        op:')
 content.append('          type: string')
 content.append('          enum:')
 
-list(set(ops)).sort()
+ops = sorted(list(set(ops)))
 for op in ops:
   content.append('          - ' + op)
 

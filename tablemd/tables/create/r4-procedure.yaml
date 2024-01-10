@@ -1,0 +1,390 @@
+    post:
+      tags:
+        - Procedure Write
+      description: |
+        # Create Operations
+
+      operationId: millenniumR4ProcedureCreate
+      consumes:
+      - application/fhir+json
+      produces:
+      - application/fhir+json
+      parameters: 
+        - name: createBody
+          in: body
+          required: true
+          schema:
+            $ref: "#/definitions/CreateBody"
+      responses: 
+        '200':
+          description: |
+            **OK**
+          headers:
+            X-Request-Id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            opc-request-id:
+              type: string
+              description: Oracle troubleshooting identifier.
+            ETag:
+              type: string
+              description: The identifier for a specific version of a resource. This will be formatted as `W/"<etag_value>"` and is used to specify the `If-Match` header value on subsequent updates.
+            Location:
+              type: string
+              description: |
+                The URL location of the created entity.
+                
+                Example: `https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Procedure/642774`
+        default:
+          $ref: '#/responses/OperationOutcome'
+
+definitions:
+  CreateBody:
+    type: object
+    required:
+    - resourceType
+    - status
+    - code
+    - subject
+    - performer.actor
+    properties:
+      resourceType:
+        description: |
+          The type of the FHIR resource.
+        type: string
+        enum:
+        - Procedure
+      status:
+        description: |
+          Codes identifying the lifecycle stage of an event.
+          
+          _Notes_
+          <ul>
+            <li> Only status code <code>completed</code> is supported. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "status": "completed"
+          }
+          
+          ````
+          
+        type: string
+      code:
+        description: |
+          A code to identify a specific procedure.
+          
+          _Notes_
+          <ul>
+            <li> Must be provided. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "119954001",
+                "display": "Adenoid excision (procedure)",
+                "userSelected": true
+              }
+            ],
+            "text": "Adenoid excision (text)"
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      subject:
+        description: |
+          Indicates the patient who the procedure record is associated with.
+          
+          _Notes_
+          <ul>
+            <li> Must only include references to Patient. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "subject": {
+              "reference": "Patient/631923",
+              "display": "Nilsson, Christine"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      encounter:
+        description: |
+          Indicates the encounter when the procedure was performed.
+          
+          _Notes_
+          <ul>
+            <li> Must only include references to Encounter. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "encounter": {
+              "reference":"Encounter/26070829"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      performed[x]:
+        description: |
+          Estimated or actual date or date-time when the procedure was performed.
+          
+          _Notes_
+          <ul>
+            <li> Only a type of dateTime is supported. </li>
+            <li> The dateTime is converted to a GMT date. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "performedDateTime": "2015-10-14T13:13:20-06:00"
+          }
+          
+          ````
+          
+      performedPeriod:
+        description: |
+          Estimated or actual period when the procedure was performed.
+          
+          _Notes_
+          <ul>
+            <li> Only a period with valid start and end dateTimes is supported. </li>
+            <li> Either performedPeriod or performedDateTime can be supplied. If both are present, performedPeriod will take precedence. </li>
+            <li> The dateTimes are converted to a GMT date. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "performedPeriod": {
+              "start": "2015-10-14T13:13:20-06:00",
+              "end": "2015-10-14T14:12:20-06:00"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          start:
+            type: string
+          end:
+            type: string
+      performer:
+        description: |
+          Limited to "real" people rather than equipment.
+          _Examples_
+          
+          ````json
+          {
+            "performer": [
+              {
+                "function": {
+                  "coding": [
+                    {
+                      "system": "http://snomed.info/sct",
+                      "code": "223366009",
+                      "display": "Healthcare professional (occupation)",
+                      "userSelected": true
+                    }
+                  ],
+                  "text": "Healthcare professional (occupation)"
+                },
+                "actor": {
+                  "reference": "Practitioner/2150097",
+                  "display": "Strecker, Bradley"
+                }
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            :
+              type: 
+            type: BackboneElement
+      performer.function:
+        description: |
+          Distinguishes the type of involvement of the performer in the procedure.
+          _Examples_
+          
+          ````json
+          {
+            "function": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "223366009",
+                  "display": "Healthcare professional (occupation)",
+                  "userSelected": true
+                }
+              ],
+              "text": "Healthcare professional (occupation)"
+            }
+          }
+          
+          ````
+          
+          ````json
+          {
+            "severity": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/388",
+                  "code": "1207",
+                  "display": "Anesthesiologist",
+                  "userSelected": true
+                }
+              ],
+              "text": "Anesthesiologist"
+            }
+          }
+          
+          ````
+        type: object
+        properties:
+          text:
+            type: string
+          coding:
+            type: array
+            items:
+              type: object
+              properties:
+                system:
+                  type: string
+                code:
+                  type: string
+      performer.actor:
+        description: |
+          The practitioner who was involved in the procedure.
+          
+          _Notes_
+          <ul>
+            <li> Must only include references to Practitioner. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "actor": {
+              "reference": "Practitioner/2150097",
+              "display": "Strecker, Bradley"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      location:
+        description: |
+          The location where the procedure actually happened.
+          
+          _Notes_
+          <ul>
+            <li> Must only include references to Location. </li>
+          </ul>
+          
+          
+          _Examples_
+          
+          ````json
+          {
+            "location": {
+              "reference":"Location/1693915",
+              "display": "Baseline East"
+            }
+          }
+          
+          ````
+          
+        type: object
+        properties:
+          reference:
+            type: string
+      note:
+        description: |
+          Any other notes and comments about the procedure.
+          _Examples_
+          
+          ````json
+          {
+            "note": [
+              {
+                "authorReference": {
+                  "reference": "Practitioner/4594011",
+                  "display": "Leroux, Erik"
+                },
+                "text": "Test Comment"
+              }
+            ]
+          }
+          
+          ````
+          
+        type: array
+        items:
+          type: object
+          properties:
+            authorReference:
+              type: object
+              properties:
+                reference:
+                  type: string
+            time:
+              type: string
+            text:
+              type: string
