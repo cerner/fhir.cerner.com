@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[CareTeam.category](https://hl7.org/fhir/R4/careteam-definitions.html#CareTeam.category)**<hr>**Description**<br>- Identifies the type of team.
 <br><br>**Details:** [LOINC](https://hl7.org/fhir/R4/loinc.html)<br><br>**System:** `https://loinc.org`<br><br>|

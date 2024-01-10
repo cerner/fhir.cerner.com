@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Encounter.type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.type)**<hr>**Description**<br>- The type of encounter.<br><br>**Details:** [CPT](https://hl7.org/fhir/R4/cpt.html)<br><br>**System:** `https://www.ama-assn.org/go/cpt`<br><br>|
 |<p>**[Encounter.participant.type](https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.participant.type)**<hr>**Description**<br>- Role of participant in encounter.<br><br>**Details:** [ParticipantType](https://hl7.org/fhir/r4/valueset-encounter-participant-type.html)<br><br>**System:** `https://terminology.hl7.org/CodeSystem/v3-ParticipationType`<br><br>|

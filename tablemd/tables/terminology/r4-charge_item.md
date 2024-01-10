@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Chargeitem.code](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.code)**<hr>**Description**<br>- A code that identifies the charge, like a billing code. <code>Bill code type</code> can be either <code>CDM_SCHED</code>, <code>CPT</code>, <code>HCPCS</code>, or <code>PROCCODE</code>.<br><br>**Details:** [Bill Codes Types](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/CodeSystem/BillCodes-&lt;Bill code type&gt;`<br><br>|
 |<p>**[Chargeitem.reason](https://hl7.org/fhir/r4/chargeitem-definitions.html#ChargeItem.reason)**<hr>**Description**<br>- Describes why the event occurred in coded or textual form.<br><br>**Details:** [Bill Codes Types](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#bill-codes-types)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/CodeSystem/BillCodes-ICD`<br><br>|

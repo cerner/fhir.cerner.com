@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Consent.status](http://hl7.org/fhir/R4/consent-definitions.html#Consent.status)**<hr>**Description**<br>- Indicates the state of the consent.
 <br><br>**Details:** [Request Status](http://hl7.org/fhir/valueset-consent-state-codes.html)<br><br>**System:** `http://hl7.org/fhir/consent-state-codes`<br><br>|

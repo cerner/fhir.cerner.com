@@ -1,5 +1,5 @@
 
-    |Terminology Mappings|
+    |Terminology Bindings|
 
     |---|
 

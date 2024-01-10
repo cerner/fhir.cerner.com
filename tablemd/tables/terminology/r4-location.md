@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Location.identifier.type](http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type)**<hr>**Description**<br>- The type used to determine which identifier to use for a specific purpose.<br><br>**Details:** [Contributor Source](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-73-location-contributor-source)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/codeSet/73`<br><br>|
 |<p>**[Location.physicalType](http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType)**<hr>**Description**<br>- Physical form of the location.<br><br>**Details:** [Location physicalType](http://hl7.org/fhir/R4/valueset-location-physical-type.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/location-physical-type`<br><br>**Details:** [Millennium Location Types](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-222-location-type)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/codeSet/222`<br><br>|

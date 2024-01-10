@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[CarePlan.status](http://hl7.org/fhir/R4/careplan-definitions.html#CarePlan.status)**<hr>**Description**<br>- Indicates whether the plan is currently being acted upon, represents future intentions or is now a historical record.
 <br><br>**Details:** [Request Status](http://hl7.org/fhir/R4/valueset-request-status.html)<br><br>**System:** `http://hl7.org/fhir/request-status`<br><br>|

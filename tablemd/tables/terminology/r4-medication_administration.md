@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[MedicationAdministration.status](https://hl7.org/fhir/R4/medicationadministration-definitions.html#MedicationAdministration.status)**<hr>**Description**<br>- The medication administration status.<br><br>**Details:** [MedicationAdministration Status](https://hl7.org/fhir/r4/valueset-medication-admin-status.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/medication-admin-status`<br><br>|
 |<p>**[MedicationAdministration.statusReason](https://hl7.org/fhir/R4/medicationadministration-definitions.html#MedicationAdministration.statusReason)**<hr>**Description**<br>- A code indicating why the administration was not performed.<br><br>**Details:** [MedicationAdministration Status Reason Codes](http://hl7.org/fhir/r4/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>|

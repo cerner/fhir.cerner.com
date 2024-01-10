@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[CareTeam.status](http://hl7.org/fhir/R4/careteam-definitions.html#CareTeam.status)**<hr>**Description**<br>- Indicates the current state of the care team.
 <br><br>**Details:** [Request Status](http://hl7.org/fhir/ValueSet/care-team-status|4.0.1)<br><br>**System:** `http://hl7.org/fhir/request-status`<br><br>|

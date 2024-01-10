@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[FamilyMemberHistory.status](https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.status)**<hr>**Description**<br>- A code that identifies the status of the family history record.<br><br>**Details:** [FamilyHistoryStatus](https://hl7.org/fhir/valueset-history-status.html)<br><br>**System:** `http://hl7.org/fhir/history-status`<br><br>|
 |<p>**[FamilyMemberHistory.dataAbsentReason](https://hl7.org/fhir/familymemberhistory-definitions.html#FamilyMemberHistory.dataAbsentReason)**<hr>**Description**<br>- Codes describing the reason why a family member's history is not available.<br>**Note**<br>- Can be subject-unknown or unable-to-obtain<br><br>**Details:** [FamilyHistoryAbsentReason](https://hl7.org/fhir/valueset-history-absent-reason.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/history-absent-reason`<br><br>|

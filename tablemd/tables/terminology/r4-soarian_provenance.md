@@ -1,3 +1,3 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Provenance.agent.type](https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type)**<hr>**Description**<br>- The participation the agent had with respect to the activity.<br><br>**Details:** [Provenance Participant Type](https://hl7.org/fhir/R4/valueset-provenance-agent-type.html)<br><br>**System:** `https://terminology.hl7.org/CodeSystem/provenance-participant-type`<br><br>|

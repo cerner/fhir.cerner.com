@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[ProcedureRequest.code](http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.code)**<hr>**Description**<br>- A code to identify a specific procedure.<br><br>**Details:** [SNOMED CT](http://hl7.org/fhir/dstu2/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>|
 |<p>**[ProcedureRequest.bodySite](http://hl7.org/fhir/dstu2/procedurerequest-definitions.html#ProcedureRequest.bodySite)**<hr>**Description**<br>- A code that identifies the anatomical location.<br><br>**Details:** [SNOMED CT](http://hl7.org/fhir/dstu2/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>|

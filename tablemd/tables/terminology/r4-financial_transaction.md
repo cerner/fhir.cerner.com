@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Basic.extension[x].valueCodeableConcept](https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-type?_format=json)**<hr>**Description**<br>- The Category of Payment Type Codes. Whether this is a payment or adjustment. This binding is used in <code>financial-transaction-type</code> extensions.<br><br>**Details:** [Payment Type Codes](https://www.hl7.org/fhir/r4/valueset-payment-type.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/payment-type`<br><br>|
 |<p>**[Basic.extension[x].valueCodeableConcept](https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method?_format=json)**<hr>**Description**<br>- The payment method of the transaction. This binding is used in <code>financial-transaction-method</code> extensions.<br><br>**Details:** [v2 Payment Method Code](https://www.hl7.org/fhir/v2/0570/index.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/v2-0570`<br><br>|

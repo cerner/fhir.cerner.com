@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Immunization.vaccineCode](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.vaccineCode)**<hr>**Description**<br>- Identifies the vaccine substance administered.<br>**Note**<br>- The CVX binding will always be returned. A NDC binding will be returned when available.<br><br>**Details:** [CVX](http://hl7.org/fhir/dstu2/cvx.html)<br><br>**System:** `http://hl7.org/fhir/sid/cvx`<br><br>**Details:** [NDC](http://hl7.org/fhir/dstu2/ndc.html)<br><br>**System:** `http://hl7.org/fhir/sid/ndc`<br><br>|
 |<p>**[Immunization.site](http://hl7.org/fhir/DSTU2/immunization-definitions.html#Immunization.site)**<hr>**Description**<br>- The site at which the vaccine was administered.<br><br>**Details:** [SNOMED CT](http://hl7.org/fhir/dstu2/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>|

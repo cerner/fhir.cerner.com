@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Contract.type](http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.type)**<hr>**Description**<br>- List of overall contract codes.<br><br>**Details:** [SNOMED CT](http://hl7.org/fhir/dstu2/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>|
 |<p>**[Contract.subType](http://hl7.org/fhir/DSTU2/contract-definitions.html#Contract.subType)**<hr>**Description**<br>- Detailed codes within the above.<br><br>**Details:** [SNOMED CT](http://hl7.org/fhir/dstu2/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>|

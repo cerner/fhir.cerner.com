@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Observation.category](https://hl7.org/fhir/R4/observation-definitions.html#Observation.category)**<hr>**Description**<br>- Codes for high level observation categories.<br><br>**Details:** [Observation Category Codes](https://hl7.org/fhir/R4/valueset-observation-category.html)<br><br>**System:** `https://terminology.hl7.org/CodeSystem/observation-category`<br><br>|
 |<p>**[Observation.code](https://hl7.org/fhir/R4/observation-definitions.html#Observation.code)**<hr>**Description**<br>- Codes identifying names of simple observations.<br><br>**Details:** [LOINC](https://hl7.org/fhir/R4/loinc.html)<br><br>**System:** `https://loinc.org`<br><br>**Details:** [SNOMED CT](https://hl7.org/fhir/R4/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>**Details:** [CPT](https://hl7.org/fhir/R4/cpt.html)<br><br>**System:** `https://www.ama-assn.org/go/cpt`<br><br>|

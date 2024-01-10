@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Communication.category](https://hl7.org/fhir/r4/communication-definitions.html#Communication.category)**<hr>**Description**<br>- The category of the communication.<br><br>**Details:** [Communication Category](https://hl7.org/fhir/R4/valueset-communication-category.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/communication-category`<br><br>**Details:** [SNOMED CT](https://hl7.org/fhir/r4/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>|
 |<p>**[Communication.email-status](https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json)**<hr>**Description**<br>- The status of the email. May be received, in-progress or completed.<br><br>**Details:** [Communication Email Status Extension](https://www.hl7.org/fhir/r4/valueset-task-status.html)<br><br>**System:** `http://hl7.org/fhir/task-status`<br><br>|

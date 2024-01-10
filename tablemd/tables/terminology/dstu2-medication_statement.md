@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[MedicationStatement.reasonForUse[x]](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_)**<hr>**Description**<br>- A reason for why the medication is being/was taken.<br><br>**Details:** [SNOMED CT](https://hl7.org/fhir/dstu2/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>**Details:** [ICD-9](https://terminology.hl7.org/ICD.html#icd-9-variants)<br><br>**System:** `http://hl7.org/fhir/sid/icd-9`<br><br>**Details:** [ICD-10](https://terminology.hl7.org/CodeSystem-icd10CM.html)<br><br>**System:** `http://hl7.org/fhir/sid/icd-10`<br><br>|
 |<p>**[MedicationStatement.medication[x]](https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_)**<hr>**Description**<br>- A code that defines the type of medication.<br><br>**Details:** [RxNorm](https://hl7.org/fhir/dstu2/rxnorm.html)<br><br>**System:** `http://www.nlm.nih.gov/research/umls/rxnorm`<br><br>|

@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[MedicationAdministration.medicationCodeableConcept](http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medicationCodeableConcept)**<hr>**Description**<br>- A code that defines the type of medication.<br><br>**Details:** [RxNorm](http://hl7.org/fhir/dstu2/rxnorm.html)<br><br>**System:** `http://www.nlm.nih.gov/research/umls/rxnorm`<br><br>|
 |<p>**[MedicationAdministration.dosage.siteCodeableConcept](http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.site_x_)**<hr>**Description**<br>- The anatomic site where the medication first enters the body.<br><br>**Details:** [SNOMED CT](http://hl7.org/fhir/dstu2/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>|

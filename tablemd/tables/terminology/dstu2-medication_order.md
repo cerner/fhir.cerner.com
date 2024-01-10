@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[MedicationOrder.reasonCodeableConcept](https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.reason_x_)**<hr>**Description**<br>- The reason or indication for writing the prescription.<br><br>**Details:** [SNOMED CT](https://hl7.org/fhir/dstu2/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>**Details:** [ICD-9-CM](https://terminology.hl7.org/ICD.html#icd-9-variants)<br><br>**System:** `http://hl7.org/fhir/sid/icd-9-cm`<br><br>**Details:** [ICD-10-CM](https://terminology.hl7.org/CodeSystem-icd10CM.html)<br><br>**System:** `http://hl7.org/fhir/sid/icd-10-cm`<br><br>|
 |<p>**[MedicationOrder.medicationCodeableConcept](http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_)**<hr>**Description**<br>- Identifies the medication being administered.<br><br>**Details:** [RxNorm](https://hl7.org/fhir/dstu2/rxnorm.html)<br><br>**System:** `http://www.nlm.nih.gov/research/umls/rxnorm`<br><br>|

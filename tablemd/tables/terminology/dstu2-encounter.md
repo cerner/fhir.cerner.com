@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Encounter.identifier.type](http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type)**<hr>**Description**<br>- The type used to determine which identifier to use for a specific purpose.<br><br>**Details:** [Identifier Type Codes](http://hl7.org/fhir/DSTU2/valueset-identifier-type.html)<br><br>**System:** `http://hl7.org/fhir/identifier-type`<br><br>**Details:** [v2 Identifier Type](http://hl7.org/fhir/DSTU2/valueset-identifier-type.html)<br><br>**System:** `http://hl7.org/fhir/v2/0203`<br><br>|
 |<p>**[Encounter.type](http://hl7.org/fhir/DSTU2/encounter-definitions.html#Encounter.type)**<hr>**Description**<br>- The type of encounter.<br>**Note**<br>- Currently not bound to any terminology.<br><br>|

@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[DocumentReference.type](https://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.type)**<hr>**Description**<br>- Specifies the particular kind of document referenced.<br><br>**Details:** [US Core DocumentReference Type](https://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-type)<br><br>**System:** `https://loinc.org`<br><br>|
 |<p>**[DocumentReference.category](https://www.hl7.org/fhir/documentreference-definitions.html#DocumentReference.category)**<hr>**Description**<br>- A categorization for the type of document referenced.<br><br>**Details:** [US Core DocumentReference Category](https://hl7.org/fhir/us/core/ValueSet/us-core-documentreference-category)<br><br>**System:** `https://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category`<br><br>|

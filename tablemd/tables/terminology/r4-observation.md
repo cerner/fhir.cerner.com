@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Observation.category](https://hl7.org/fhir/R4/observation-definitions.html#Observation.category)**<hr>**Description**<br>- Codes for high level observation categories.<br><br>**Details:** [Observation Category Codes](https://hl7.org/fhir/R4/valueset-observation-category.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/observation-category`<br><br>|
 |<p>**[Observation.code](https://hl7.org/fhir/R4/observation-definitions.html#Observation.code)**<hr>**Description**<br>- Codes identifying names of simple observations.<br><br>**Details:** [LOINC](https://hl7.org/fhir/R4/loinc.html)<br><br>**System:** `http://loinc.org`<br><br>**Details:** [SNOMED CT](https://hl7.org/fhir/R4/snomedct.html)<br><br>**System:** `http://snomed.info/sct`<br><br>**Details:** [Millennium Clinical Event Code](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-72-clinical-event-codes)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/codeSet/72`<br><br>|

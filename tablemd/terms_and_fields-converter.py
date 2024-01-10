@@ -24,7 +24,7 @@ if (terms.get('table_name') != 'terminology'):
 
 name = terms.get('name')
 first = True
-outputMd = ['|Terminology Mappings|', '|---|']
+outputMd = ['|Terminology Bindings|', '|---|']
 
 for field in terms.get('fields'):
   binding = field.get('binding')

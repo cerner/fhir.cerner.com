@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Account.identifier](https://hl7.org/fhir/R4/account-definitions.html#Account.identifier)**<hr>**Description**<br>- A business identifier of the account.<br><br>**Details:** [PFT Bill Alias Type](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-28200-pft-bill-alias-type)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/statement-number`<br><br>**Details:** [Account Number](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#account-number)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/account-number`<br><br>|
 |<p>**[Account.type](https://hl7.org/fhir/R4/account-definitions.html#Account.type)**<hr>**Description**<br>- Categorizes the account for searching purposes.<br><br>**Details:** [Account Types](https://hl7.org/fhir/R4/valueset-account-type.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/v3-ActCode`<br><br>**Details:** [Account Types](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-18736-account-types)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/codeSet/18736`<br><br>|

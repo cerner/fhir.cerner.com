@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[DocumentReference.type](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.type)**<hr>**Description**<br>- Precise type of clinical document.<br><br>**Details:** [LOINC](http://hl7.org/fhir/r4/loinc.html)<br><br>**System:** `http://loinc.org`<br><br>|
 |<p>**[DocumentReference.content.format](http://hl7.org/fhir/DSTU2/documentreference-definitions.html#DocumentReference.content.format)**<hr>**Description**<br>- Document format codes.<br><br>**Details:** [DocumentReference Format Code Set](http://hl7.org/fhir/r4/valueset-formatcodes.html)<br><br>**System:** `urn:oid:1.3.6.1.4.1.19376.1.2.3`<br><br>|

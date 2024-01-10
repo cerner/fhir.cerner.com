@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[AllergyIntolerance.clinicalStatus](https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.clinicalStatus)**<hr>**Description**<br>- The clinical status of the allergy.<br><br>**Details:** [AllergyIntolerance Clinical Status Codes](https://hl7.org/fhir/r4/valueset-allergyintolerance-clinical.html)<br><br>**System:** `https://terminology.hl7.org/CodeSystem/allergyintolerance-clinical`<br><br>|
 |<p>**[AllergyIntolerance.verificationStatus](https://hl7.org/fhir/r4/allergyintolerance-definitions.html#AllergyIntolerance.verificationStatus)**<hr>**Description**<br>- An assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).<br><br>**Details:** [AllergyIntolerance Verification Status Codes](https://hl7.org/fhir/r4/valueset-allergyintolerance-verification.html)<br><br>**System:** `https://terminology.hl7.org/CodeSystem/allergyintolerance-verification`<br><br>|

@@ -1,3 +1,3 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Slot.type](http://hl7.org/fhir/DSTU2/slot-definitions.html#Slot.type)**<hr>**Description**<br>- Additional details about where the content was created (e.g. clinical specialty).<br><br>**Details:** [Practice Setting Code Value Set](http://hl7.org/fhir/dstu2/valueset-c80-practice-codes.html)<br><br>**System:** `http://snomed.info/sct`<br><br>**Details:** [Millennium Scheduling Appointment Synonyms or Types](/millennium/dstu2/proprietary-codes/#code-set-14249-scheduling-appointment-synonyms-or-types)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/codeSet/14249`<br><br>|

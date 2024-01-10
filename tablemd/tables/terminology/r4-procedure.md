@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Procedure.status](https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.status)**<hr>**Description**<br>- Codes identifying the lifecycle stage of an event.<br><br>**Details:** [EventStatus](https://hl7.org/fhir/r4/valueset-event-status.html)<br><br>**System:** `http://hl7.org/fhir/event-status`<br><br>|
 |<p>**[Procedure.code](https://hl7.org/fhir/r4/procedure-definitions.html#Procedure.code)**<hr>**Description**<br>- A code to identify a specific procedure.<br><br>**Details:** [Procedure Codes (SNOMED CT)](https://hl7.org/fhir/R4/valueset-procedure-code.html)<br><br>**System:** `https://snomed.info/sct`<br><br>**Details:** [CPT](https://hl7.org/fhir/R4/cpt.html)<br><br>**System:** `https://www.ama-assn.org/go/cpt`<br><br>**Details:** [ICD-10-PCS](https://www.icd10data.com/icd10pcs)<br><br>**System:** `https://www.icd10data.com/icd10pcs`<br><br>|

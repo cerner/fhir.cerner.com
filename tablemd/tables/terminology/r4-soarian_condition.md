@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[Condition.clinicalStatus](https://hl7.org/fhir/r4/valueset-condition-clinical.html)**<hr>**Description**<br>- The clinical status of the condition.<br><br>**Details:** [Condition Clinical Status Codes](https://hl7.org/fhir/r4/valueset-condition-clinical.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/condition-clinical`<br><br>|
 |<p>**[Condition.verificationStatus](https://hl7.org/fhir/r4/valueset-condition-ver-status.html)**<hr>**Description**<br>- The verification status to support or decline the clinical status of the condition or diagnosis.<br><br>**Details:** [Condition Verification Status Codes](https://hl7.org/fhir/r4/valueset-condition-ver-status.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/condition-ver-status`<br><br>|

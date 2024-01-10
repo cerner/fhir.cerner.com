@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[ServiceRequest.status](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.status)**<hr>**Description**<br>- The status of a service order.<br><br>**Details:** [Request Status](https://www.hl7.org/fhir/valueset-request-status.html)<br><br>**System:** `http://hl7.org/fhir/request-status`<br><br>|
 |<p>**[ServiceRequest.intent](https://www.hl7.org/fhir/r4/servicerequest-definitions.html#ServiceRequest.intent)**<hr>**Description**<br>- The kind of service request.<br><br>**Details:** [Request Intent](https://www.hl7.org/fhir/r4/valueset-request-intent.html)<br><br>**System:** `http://hl7.org/fhir/request-intent`<br><br>|

@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[NutritionOrder.status](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.status)**<hr>**Description**<br>- The status of the nutrition order.<br><br>**Details:** [Request Status](https://www.hl7.org/fhir/r4/valueset-request-status.html)<br><br>**System:** `http://hl7.org/fhir/request-status`<br><br>|
 |<p>**[NutritionOrder.intent](https://www.hl7.org/fhir/r4/nutritionorder-definitions.html#NutritionOrder.intent)**<hr>**Description**<br>- The degree of authority/intentionality associated to the order.<br><br>**Details:** [Request Intent](https://www.hl7.org/fhir/r4/valueset-request-intent.html)<br><br>**System:** `http://hl7.org/fhir/request-intent`<br><br>|

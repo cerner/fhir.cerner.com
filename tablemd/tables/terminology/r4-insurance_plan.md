@@ -1,3 +1,3 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[InsurancePlan.type](http://hl7.org/fhir/R4/insuranceplan-definitions.html#InsurancePlan.type)**<hr><br>**Details:** [Insurance Plan Type](http://hl7.org/fhir/R4/codesystem-insuranceplan-type.html)<br><br>**System:** `http://terminology.hl7.org/CodeSystem/insurance-plan-type`<br><br>**Details:** [Millennium Health Plan Service Type](https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-27137-health-plan-service-type)<br><br>**System:** `https://fhir.cerner.com/<EHR_source_id>/codeSet/27137`<br><br>|

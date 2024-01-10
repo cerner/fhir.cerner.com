@@ -1,4 +1,4 @@
-|Terminology Mappings|
+|Terminology Bindings|
 |---|
 |<p>**[DocumentReference.status](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.status)**<hr>**Description**<br>- The status of the document reference.<br><br>**Details:** [DocumentReference status](https://www.hl7.org/fhir/r4/valueset-document-reference-status.html)<br><br>**System:** `http://hl7.org/fhir/document-reference-status`<br><br>|
 |<p>**[DocumentReference.docStatus](http://hl7.org/fhir/r4/documentreference-definitions.html#DocumentReference.docStatus)**<hr>**Description**<br>- Status of the underlying document.<br><br>**Details:** [DocumentReference docStatus](http://hl7.org/fhir/r4/valueset-composition-status.html)<br><br>**System:** `http://hl7.org/fhir/r4/codesystem-composition-status.html`<br><br>|
