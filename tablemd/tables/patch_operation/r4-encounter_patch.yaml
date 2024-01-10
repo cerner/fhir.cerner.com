@@ -252,8 +252,8 @@ definitions:
         op:
           type: string
           enum:
-          - replace
-          - add
+            - add
+            - replace
         path:
           type: string
         value:

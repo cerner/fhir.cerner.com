@@ -133,7 +133,7 @@ content.append('          enum:')
 
 ops = sorted(list(set(ops)))
 for op in ops:
-  content.append('          - ' + op)
+  content.append('            - ' + op)
 
 content.append('        path:')
 content.append('          type: string')

@@ -589,10 +589,10 @@ definitions:
         op:
           type: string
           enum:
-          - add
-          - test
-          - remove
-          - replace
+            - add
+            - remove
+            - replace
+            - test
         path:
           type: string
         value:

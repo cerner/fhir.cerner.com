@@ -90,7 +90,7 @@ definitions:
         op:
           type: string
           enum:
-          - replace
+            - replace
         path:
           type: string
         value:

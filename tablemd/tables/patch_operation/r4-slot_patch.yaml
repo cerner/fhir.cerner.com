@@ -24,7 +24,7 @@
         
         _Notes_
         <ul>
-          <li>Only <code>free</code> and `busy-tentative` are supported.</li>
+          <li>Only <code>free</code> and <code>busy-tentative</code> are supported.</li>
         </ul>
         
       operationId: patchSlot
@@ -69,7 +69,7 @@ definitions:
         op:
           type: string
           enum:
-          - replace
+            - replace
         path:
           type: string
         value:
