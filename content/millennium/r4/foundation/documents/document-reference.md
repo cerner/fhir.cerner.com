@@ -99,7 +99,7 @@ _Implementation Notes_
   - When searching with the `period` parameter:
     - It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
     - Date precision must be consistent.
-- The `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix. The lower value date/time should be of occurance before than the higher value date/time occurance.
+- The `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
 
 - The `date`, `period` and `_lastUpdated` parameters may not be provided together.
 
