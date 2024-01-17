@@ -75,15 +75,15 @@ module Cerner
       },
       "type": [
         {
-            "coding": [
-                {
-                    "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
-                    "code": "783",
-                    "display": "Facility(s)",
-                    "userSelected": true
-                }
-            ],
-            "text": "Facility(s)"
+          "coding": [
+            {
+              "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
+              "code": '783',
+              "display": 'Facility(s)',
+              "userSelected": true
+            }
+          ],
+          "text": 'Facility(s)'
         }
       ],
       "physicalType": {
@@ -149,12 +149,14 @@ module Cerner
       "link": [
         {
           "relation": 'self',
-          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si'
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?'\
+          '-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si'
         }
       ],
       "entry": [
         {
-          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si',
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?'\
+          '-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si',
           "resource": R4_LOCATION_ENTRY
         }
       ]
@@ -200,20 +202,20 @@ module Cerner
         },
         "type": [
           {
-              "coding": [
-                  {
-                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
-                      "code": "783",
-                      "display": "Facility(s)",
-                      "userSelected": true
-                  },
-                  {
-                    "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
-                    "code": "Facility",
-                    "display": "Facility"
-                }
-              ],
-              "text": "Facility(s)"
+            "coding": [
+              {
+                "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
+                "code": '783',
+                "display": 'Facility(s)',
+                "userSelected": true
+              },
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                "code": 'Facility',
+                "display": 'Facility'
+              }
+            ],
+            "text": 'Facility(s)'
           }
         ],
         "physicalType": {
@@ -325,15 +327,15 @@ module Cerner
             "mode": 'instance',
             "type": [
               {
-                  "coding": [
-                      {
-                          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
-                          "code": "783",
-                          "display": "Facility(s)",
-                          "userSelected": true
-                      }
-                  ],
-                  "text": "Facility(s)"
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
+                    "code": '783',
+                    "display": 'Facility(s)',
+                    "userSelected": true
+                  }
+                ],
+                "text": 'Facility(s)'
               }
             ],
             "telecom": [
