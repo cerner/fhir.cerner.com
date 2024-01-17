@@ -26,6 +26,7 @@ The following fields are returned if valued:
 * [Telecom](http://hl7.org/fhir/R4/location-definitions.html#Location.telecom){:target="_blank"}
 * [Address](http://hl7.org/fhir/R4/location-definitions.html#Location.address){:target="_blank"}
 * [Physical Type](http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType){:target="_blank"}
+* [Type](https://www.hl7.org/fhir/R4/location-definitions.html#Location.type){:target="_blank"}
 * [Managing Organization](http://hl7.org/fhir/R4/location-definitions.html#Location.managingOrganization){:target="_blank"}
 * [Part Of](http://hl7.org/fhir/R4/location-definitions.html#Location.partOf){:target="_blank"}
 * [Extensions including custom attribute](#extensions){:target="_blank"}
@@ -62,6 +63,7 @@ Search for locations that meet supplied query parameters:
 ----------------------|-------------------------|--------------|-------------------------------------------------------
  `_id`                | Conditionally           | [`token`]    | The logical resource ID associated with the resource. This parameter is required if the `-physicalType` parameter is not used.
  `-physicalType`      | Conditionally           | [`token`]    | The location’s physical type. This parameter is required if the `_id` parameter is not used. Example: `http://terminology.hl7.org/CodeSystem/location-physical-type|ro`
+ `type`               | Conditionally           | [`token`]    | The location’s type. This parameter is required if the `_id` parameter is not used. Example: `PHARM`
  `identifier`         | No                      | [`token`]    | The location’s identifier. Example: `653385|FSI^~BUILD^~NU` 
  [`_count`]           | No                      | [`number`]   | The maximum number of results to return. Default: `100`
  `address`            | No                      | [`string`]   | Part of the location's address. Example: `123%20Main`
@@ -75,6 +77,8 @@ Search for locations that meet supplied query parameters:
  Notes:
 
 - When searching with the `-physicalType` parameter:
+  - Searching by Cerner Millennium proprietary codes is not supported.
+- The `type` parameter
   - Searching by Cerner Millennium proprietary codes is not supported.
 - When searching with the `-address-city` parameter:
   - Must include any of the following parameters: `address-state` or `address-postalcode`.
@@ -97,6 +101,28 @@ Search for locations that meet supplied query parameters:
 <%= json(:r4_location_bundle) %>
 
 <%= disclaimer %>
+
+### Example with physicalType
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|wa
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_location_physical_type_bundle) %>
+
+### Example with type
+
+#### Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?type=Facility
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_location_physical_type_bundle) %>
 
 ### Example with identifier
 
