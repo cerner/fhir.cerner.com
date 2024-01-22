@@ -73,6 +73,19 @@ module Cerner
         "state": 'AA',
         "country": 'Ireland'
       },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
+              "code": '783',
+              "display": 'Facility(s)',
+              "userSelected": true
+            }
+          ],
+          "text": 'Facility(s)'
+        }
+      ],
       "physicalType": {
         "coding": [
           {
@@ -106,6 +119,44 @@ module Cerner
       "entry": [
         {
           "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/21250409',
+          "resource": R4_LOCATION_ENTRY
+        }
+      ]
+    }.freeze
+
+    R4_LOCATION_TYPE_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": 'f4749f7a-e67d-49d1-8b92-ddbef46eae15',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?type=PHARM'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?type=PHARM',
+          "resource": R4_LOCATION_ENTRY
+        }
+      ]
+    }.freeze
+
+    R4_LOCATION_PHYSICAL_TYPE_BUNDLE ||= {
+      "resourceType": 'Bundle',
+      "id": 'f4749f7a-e67d-49d1-8b92-ddbef46eae15',
+      "type": 'searchset',
+      "link": [
+        {
+          "relation": 'self',
+          "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?'\
+          '-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si'
+        }
+      ],
+      "entry": [
+        {
+          "fullUrl": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?'\
+          '-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si',
           "resource": R4_LOCATION_ENTRY
         }
       ]
@@ -149,6 +200,24 @@ module Cerner
           "postalCode": '64111',
           "country": 'US'
         },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
+                "code": '783',
+                "display": 'Facility(s)',
+                "userSelected": true
+              },
+              {
+                "system": 'http://terminology.hl7.org/CodeSystem/v3-RoleCode',
+                "code": 'Facility',
+                "display": 'Facility'
+              }
+            ],
+            "text": 'Facility(s)'
+          }
+        ],
         "physicalType": {
           "coding": [
             {
@@ -256,6 +325,19 @@ module Cerner
               'ABC Taxi'
             ],
             "mode": 'instance',
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222',
+                    "code": '783',
+                    "display": 'Facility(s)',
+                    "userSelected": true
+                  }
+                ],
+                "text": 'Facility(s)'
+              }
+            ],
             "telecom": [
               {
                 "system": 'phone',
