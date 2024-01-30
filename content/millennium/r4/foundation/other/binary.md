@@ -140,6 +140,7 @@ Requires both the appropriate `Binary.read` and `DocumentReference.read` scopes 
 `patient` | Y         | [`reference`] | A reference to the patient that is the subject of the CCD. Example: `12345`
 `start`   | N         | [`dateTime`]  | The start of the date range for which the CCD is to be generated. If not provided, then all records from the beginning of time are included. Example: `2014-09-24T12:00:00.000Z`
 `end`     | N         | [`dateTime`]  | The end of the date range for which the CCD is to be generated. If not provided, then all records up to the current date are included. Example: `2016-09-24T12:00:00.000Z`
+`encounter`| N        | [`reference`] | A reference to the encounter that is the subject of the CCD. Example: `12345`
 
 Notes:   
 
@@ -176,6 +177,19 @@ An `Accept` header of `application/xml` could be supplied instead, if the XML Bi
 
 <%= headers status: 200 %>
 <%= json(:r4_binary_ccd_entry) %>
+
+<%= disclaimer %>
+
+### Example
+
+#### Request
+
+    GET https://fhir-ehr.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/$autogen-ccd-if?patient=24545967&encounter=41545215
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_BINARY_CCD_ENCOUNTER_ENTRY) %>
 
 <%= disclaimer %>
 
