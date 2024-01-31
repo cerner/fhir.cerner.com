@@ -75,6 +75,7 @@ Search for DocumentReferences that meet supplied query parameters:
  `_revinclude` | No            | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
  `date`        | No            | [`date`]      | When this document reference was created. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
  `period`      | No            | [`date`]      | Time of service that is being documented. Example: `period=ge2017-01-01&period=lt2017-01-05`
+ `_lastUpdated`| No            | [`date`]      | Date range in which the document was last updated. Either 1 or 2 date/times can be given. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
  
 _Implementation Notes_
 
@@ -98,6 +99,12 @@ _Implementation Notes_
   - When searching with the `period` parameter:
     - It must be provided twice, once with the `ge` prefix, and once with the `lt` prefix.
     - Date precision must be consistent.
+- The `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+
+- The `date`, `period` and `_lastUpdated` parameters may not be provided together.
+
+- The `_lastUpdated` query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.
+
 - When searching with the `_revinclude` parameter:
   - It may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
   - It may be provided with the `_id` or `patient` parameter. Example: `_id=214938095&_revinclude=Provenance:target`

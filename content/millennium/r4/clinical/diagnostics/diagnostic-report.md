@@ -73,6 +73,7 @@ Search for DiagnosticReports that meet supplied query parameters:
  `patient`        | This or `_id`     | [`reference`] | The subject of the report if a patient. Example: `12345`
  `encounter`      | N                 | [`reference`] | The Encounter when the order was made. Must represent an Encounter resource. Example: `encounter=1621910`
  `date`           | N                 | [`date`]      | Date range into which the diagnostic report falls (effectiveDateTime). Either 1 or 2 date/times can be given. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
+ `_lastUpdated`   | N                 | [`date`]      | Date range in which the diagnostic report was last updated. Either 1 or 2 date/times can be given. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
  `_count`         | N                 | [`number`]    | The maximum number of results to return. Defaults to `10` and a maximum of `100` documents can be returned.
  `category`       | N                 | [`token`]     | The diagnostic discipline/department which created the report. Example: `http://terminology.hl7.org/CodeSystem/v2-0074|LAB` or `http://loinc.org|LP29684-5`
  `code`           | N                 | [`token`]     | The specific code for describing the report. Example: `http://loinc.org|24323-8`
@@ -87,6 +88,12 @@ _Implementation Notes_
   * For two `date` occurences: 
     * It must be provided with `le` or `lt` and `ge` or `gt` prefixes to search for report(s) within a specific range. 
     * The `time` component is required for both parameters.
+
+* The `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+
+* The `date` and `_lastUpdated` parameters may not be provided together.
+
+* The `_lastUpdated` query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.
 
 * When searching with the `encounter` parameter:
   * Patient level documents are filtered out from responses when the encounter id is zero/blank.
