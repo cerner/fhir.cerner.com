@@ -75,7 +75,7 @@ Search for DocumentReferences that meet supplied query parameters:
  `_revinclude` | No            | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
  `date`        | No            | [`date`]      | When this document reference was created. Example: `date=ge2020-01-01T08:00:00.000Z&date=le2020-01-31T17:00:00.000Z`
  `period`      | No            | [`date`]      | Time of service that is being documented. Example: `period=ge2017-01-01&period=lt2017-01-05`
- `_lastUpdated`| N             | [`date`]      | Date range in which the document was last updated. Either 1 or 2 date/times can be given. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
+ `_lastUpdated`| No            | [`date`]      | Date range in which the document was last updated. Either 1 or 2 date/times can be given. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
  
 _Implementation Notes_
 
