@@ -184,7 +184,7 @@ An `Accept` header of `application/xml` could be supplied instead, if the XML Bi
 
 #### Request
 
-    GET https://fhir-ehr.devcerner.com/r4/eb2384f8-839e-4c6e-8b29-18e71db1a0b1/Binary/$autogen-ccd-if?patient=24545967&encounter=41545215
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/$autogen-ccd-if?patient=12458002&encounter=97697440
 
 #### Response
 
