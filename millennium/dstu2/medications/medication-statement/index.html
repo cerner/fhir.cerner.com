@@ -71,6 +71,7 @@
   <li>
 <a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
       <li><a href="#querying-for-active-medications" id="markdown-toc-querying-for-active-medications">Querying for Active Medications</a></li>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -90,15 +91,13 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -107,7 +106,6 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -116,40 +114,39 @@
       <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#body-fields-1" id="markdown-toc-body-fields-1">Body fields</a></li>
       <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
-      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Medication Statement resource provides a snapshot in time of known medications taken by the patient now or in the past reported by either the patient, significant other or a provider. Future orders are not returned. Documented historical/past/home medications are commonly captured when taking the patient’s medical history. Prescriptions without documented compliance are Intended, since we may not know if the patient is actively taking the medication or has filled the prescription. Medications are assumed to be Taken unless documented otherwise.</p>
+<p>The MedicationStatement resource provides a snapshot in time of known medications taken by the patient now or in the past, which were reported by the patient, a significant other, or a provider. Future orders are not returned.</p>
 
-<p>References to implicitRules and modifierExtensions are NOT supported and will fail a Create or Update request.</p>
+<p>Historical, past, or home medications are commonly captured when documenting the patient’s medical history. Prescriptions without documented compliance are considered intended because whether the patient is actively taking the medication or has filled the prescription is unknown. Medications are assumed to be taken unless documented otherwise.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient" target="_blank">Patient</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource" target="_blank">Source of information</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dateAsserted" target="_blank">Date/Time recorded</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken" target="_blank">Was or Was Not Taken</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_" target="_blank">Date/Time started and ended</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_" target="_blank">Medication</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.supportingInformation" target="_blank">Reference to source MedicationOrder, if applicable</a></li>
+  <li><a href="https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Medication Statement ID</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient" target="_blank">Patient</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource" target="_blank">Source of information</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dateAsserted" target="_blank">Date/Time recorded</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken" target="_blank">Was or Was Not Taken</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_" target="_blank">Date/Time started and ended</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_" target="_blank">Medication</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.supportingInformation" target="_blank">Reference to source MedicationOrder, if applicable</a></li>
   <li><a href="#extensions">Category Extension</a></li>
   <li>Details of medication taken:
     <ul>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage" target="_blank">Dosage</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route" target="_blank">Route</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing" target="_blank">Frequency</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_" target="_blank">Quantity</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_" target="_blank">Reason for use</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_" target="_blank">Site</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.rate_x_" target="_blank">Rate</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note" target="_blank">Order comments/special instructions</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage" target="_blank">Dosage</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route" target="_blank">Route</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing" target="_blank">Frequency</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_" target="_blank">Quantity</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_" target="_blank">Reason for use</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_" target="_blank">Site</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.rate_x_" target="_blank">Rate</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note" target="_blank">Order comments/special instructions</a></li>
       <li><a href="#extensions">Patient friendly display Extension</a></li>
     </ul>
   </li>
@@ -157,9 +154,15 @@
 
 <h3 id="querying-for-active-medications">Querying for Active Medications</h3>
 
-<p>To get all possible current medications, an application should query <code>MedicationStatement</code> with the <code>status</code> query parameter set to <code>active,intended</code>. Since <code>MedicationStatement</code> is a snapshot in time, this is only a representation of what the system knew of during the last contact with the patient, and will not include things that have happened since the patient last visited with their provider.</p>
+<p>To get all possible current medications, an application should query the MedicationStatement resource with the <code>status</code> query parameter set to <code>active,intended</code>. Because the MedicationStatement resource provides a snapshot in time, the reponse includes only the information that was in the system as of the last contact with the patient. Changes in medications that occurred after the patient last visited their provider are not included.</p>
 
-<p>To get the list of current medications that would likely be shown by default to a practitioner, the <code>MedicationOrder</code> resource should be used in addition to the query above in order to ensure that <code>draft</code> orders are included. Duplicates can be removed using the <code>MedicationStatement.supportingInformation</code> reference. A duplicate is identified when <code>MedicationOrder.id</code> is equivalent to the <code>supportingInformation</code> referenced <code>MedicationOrder/[id]</code></p>
+<p>To get the list of current medications that would likely be shown by default to a practitioner, use the [MedicationOrder] resource and the query above to ensure that <code>draft</code> orders are included. You can use the <code>MedicationStatement.supportingInformation</code> reference to remove duplicates. A duplicate is identified when the <code>MedicationOrder.id</code> is equivalent to the <code>MedicationOrder/[id]</code> in the <code>supportingInformation</code> reference.</p>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -175,7 +178,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_">MedicationStatement.reasonForUse[x]</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.reasonForUse_x_">MedicationStatement.reasonForUse[x]</a>
       
       </td>
     </tr>
@@ -193,7 +196,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -205,7 +212,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/sid/icd-9">ICD-9</a>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/ICD.html#icd-9-variants">ICD-9</a><br>
+                      
+                        System: http://hl7.org/fhir/sid/icd-9 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -217,7 +228,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/sid/icd-10">ICD-10</a>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/CodeSystem-icd10CM.html">ICD-10</a><br>
+                      
+                        System: http://hl7.org/fhir/sid/icd-10 <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -238,7 +253,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication[x]</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication[x]</a>
       
       </td>
     </tr>
@@ -256,7 +271,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://www.nlm.nih.gov/research/umls/rxnorm">RxNorm</a>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
+                      
+                        System: http://www.nlm.nih.gov/research/umls/rxnorm <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -281,7 +300,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code">MedicationStatement.dosage.timing.code</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code">MedicationStatement.dosage.timing.code</a>
       
       </td>
     </tr>
@@ -299,7 +318,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/timing-abbreviation">TimingAbbreviation</a>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/valueset-timing-abbreviation.html">TimingAbbreviation</a><br>
+                      
+                        System: http://hl7.org/fhir/timing-abbreviation <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -311,7 +334,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -330,7 +357,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_">MedicationStatement.dosage.asNeeded[x]</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_">MedicationStatement.dosage.asNeeded[x]</a>
       
       </td>
     </tr>
@@ -349,7 +376,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -368,7 +399,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_">MedicationStatement.dosage.siteCodeableConcept</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_">MedicationStatement.dosage.siteCodeableConcept</a>
       
       </td>
     </tr>
@@ -386,7 +417,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://snomed.info/sct">SNOMED CT</a>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      
+                        System: http://snomed.info/sct <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -405,7 +440,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route">MedicationStatement.dosage.route</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route">MedicationStatement.dosage.route</a>
       
       </td>
     </tr>
@@ -472,7 +507,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">Medication.code</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">Medication.code</a>
       
       </td>
     </tr>
@@ -490,7 +525,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
                       
                         System: http://www.nlm.nih.gov/research/umls/rxnorm <br>
                       
@@ -514,7 +549,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form">Medication.product.form</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form">Medication.product.form</a>
       
       </td>
     </tr>
@@ -532,7 +567,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/ncimeta.html">NCI Metathesaurus</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/ncimeta.html">NCI Metathesaurus</a><br>
                       
                         System: http://ncimeta.nci.nih.gov <br>
                       
@@ -564,7 +599,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role">Practitioner.practitionerRole.role</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role">Practitioner.practitionerRole.role</a>
       
       </td>
     </tr>
@@ -582,7 +617,11 @@
               
                   <li>
                     
-                      <a target="_blank" href="http://hl7.org/fhir/practitioner-role">Practitioner Role</a>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.practitionerRole.role">Practitioner Role</a><br>
+                      
+                        System: http://hl7.org/fhir/practitioner-role <br>
+                      
+                      </p>
                     
                   </li>
                   <ul style="list-style-type: none">
@@ -621,32 +660,23 @@
   <tbody>
     <tr>
       <td><code>patient-friendly-display</code></td>
-      <td><a href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a></td>
-      <td>The display that can be used for this field when producing a view suitable for a patient.</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a></td>
+      <td>Extension to MedicationRequest.dosageInstruction. The display name that can be used for this field when producing a view suitable for a patient.</td>
     </tr>
     <tr>
       <td><code>medication-statement-category</code></td>
-      <td><a href="http://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
-      <td>The <a href="http://hl7.org/fhir/stu3/valueset-medication-statement-category.html">category</a> of the order, for example: patientspecified, outpatient, etc.</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
+      <td>The <a href="https://hl7.org/fhir/stu3/valueset-medication-statement-category.html">category</a> of the order, for example: patientspecified, outpatient, and so on.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="search">Search</h2>
 
-<p>Search for MedicationStatements that meet supplied query parameters:</p>
+<p>Search for medication statements that meet supplied query parameters.</p>
 
 <pre><code>GET /MedicationStatement?:parameters
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource">MedicationStatement.informationSource</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.</li>
-  <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.</li>
-</ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
 
@@ -668,39 +698,46 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or <code>patient</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the <code>patient</code> parameter is not used. Example: <code>_id=1234</code>
 </td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The identifier of a patient to list statements for. Example: <code>12345</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>The specific patient to return medication statements for. This parameter is required if the <code>_id</code> parameter is not used. Example: <code>patient=5678</code>
 </td>
     </tr>
     <tr>
       <td><code>status</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The status of the medication statement, may be a list separated by commas. Example: <code>active,completed</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The status of the medication statement. It may be a list separated by commas. Example: <code>status=active,completed</code>
 </td>
     </tr>
     <tr>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return. Defaults to <code>50</code>.</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to return. Defaults to <code>_count=50</code>.</td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:</p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Either the <code>_id</code> parameter or a combination of the <code>patient</code>, <code>status</code>, and <code>_count</code> parameters must be provided.</li>
+  <li>
+<a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource">MedicationStatement.informationSource</a> may be a reference to a <a href="https://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Practitioner or RelatedPerson. Only the relationship between the patient and information source is known; therefore, a specific practitioner or related person cannot be referenced.</li>
+  <li>
+<a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> may be a reference to a <a href="https://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the medication cannot be represented by a <a href="https://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept"><code>CodeableConcept</code></a> because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication statement and cannot be be referenced independently.</li>
+  <li>When searching with the <code>_id</code> parameter:
+    <ul>
+      <li>It must not be provided with any other parameters.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -956,27 +993,12 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual MedicationStatement by its id:</p>
+<p>List an individual medication statement by its ID.</p>
 
 <pre><code>GET /MedicationStatement/:id
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.informationSource">MedicationStatement.informationSource</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Practitioner or RelatedPerson. Only the relationship between the patient and information source is known, therefore a specific Practitioner or RelatedPerson cannot be referenced.</li>
-  <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationStatement and cannot be be referenced independently.</li>
-</ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
@@ -1112,28 +1134,19 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="create">Create</h2>
 
-<p>Create a new MedicationStatement.</p>
+<p>Create a new medication statement.</p>
 
 <pre><code>POST /MedicationStatement
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a> must be set to <code>active</code>.</li>
-  <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.wasNotTaken">MedicationStatement.wasNotTaken</a> set to <code>true</code> is not supported.</li>
-  <li>If <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> is a reference, it must refer to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication with the code field populated and cannot have any product.ingredients populated.</li>
-  <li>Only MedicationStatements about home medications or historical medications can be created. MedicationStatements about prescribed medications cannot be created because MedicationStatement isn’t used to capture compliance information.</li>
+  <li>If <a href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_">MedicationStatement.medication</a> is a reference, it must refer to a <a href="https://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication with the code field populated and cannot have any product.ingredients populated.</li>
+  <li>Only medication statements about home medications or historical medications can be created. Medication statements about prescribed medications cannot be created because the MedicationStatement resource is not used to capture compliance information.</li>
+  <li>Only the body fields mentioned below are supported. Unsupported fields are ignored or result in errors.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1164,7 +1177,7 @@
       <td>
         <a name="create-resourceType">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -1191,7 +1204,7 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>resourceType must be MedicationStatement</li></ul>
+        <ul style="list-style-type: none"><li>resourceType must be MedicationStatement.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1202,7 +1215,7 @@
       <td>
         <a name="create-patient">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient"><code>patient</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient"><code>patient</code></a>
         
         
       </td>
@@ -1239,7 +1252,7 @@
       <td>
         <a name="create-status">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status"><code>status</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status"><code>status</code></a>
         
         
       </td>
@@ -1252,7 +1265,7 @@
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>A code representing the patient or other source's judgment about the state of the medication used that this statement is about.
+        <ul style="list-style-type: none"><li>A code representing the patient or other source's judgment about the state of the medication that this statement is about.
 </li></ul>
       
       
@@ -1266,6 +1279,14 @@
       
       
       
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> When <b>creating</b> a medication statement, only the <code>active</code> status is supported. </li>
+  <li> When <b>updating</b> a medication statement, only the <code>completed</code> status is supported. </li>
+</ul>  
+</li></ul>
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1275,7 +1296,7 @@
       <td>
         <a name="create-effectivePeriod">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_"><code>effectivePeriod</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.effective_x_"><code>effectivePeriod</code></a>
         
         
       </td>
@@ -1305,7 +1326,7 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated they need to be the same value.</li></ul>
+        <ul style="list-style-type: none"><li>If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated, they must be the same value.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1316,7 +1337,7 @@
       <td>
         <a name="create-note">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note"><code>note</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.note"><code>note</code></a>
         
         
       </td>
@@ -1351,7 +1372,7 @@
       <td>
         <a name="create-medication%5Bx%5D">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medication[x]</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medication[x]</code></a>
         
         
       </td>
@@ -1403,7 +1424,7 @@
       <td>
         <a name="create-dosage">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage"><code>dosage</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage"><code>dosage</code></a>
         
         
       </td>
@@ -1435,7 +1456,7 @@
       <td>
         <a name="create-dosage.text">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.text"><code>dosage.text</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.text"><code>dosage.text</code></a>
         
         
       </td>
@@ -1470,7 +1491,7 @@
       <td>
         <a name="create-dosage.timing">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing"><code>dosage.timing</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.timing"><code>dosage.timing</code></a>
         
         
       </td>
@@ -1499,7 +1520,7 @@
       <td>
         <a name="create-dosage.timing.repeat">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat"><code>dosage.timing.repeat</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat"><code>dosage.timing.repeat</code></a>
         
         
       </td>
@@ -1528,7 +1549,7 @@
       <td>
         <a name="create-dosage.timing.repeat.bounds%5Bx%5D">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_"><code>dosage.timing.repeat.bounds[x]</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.bounds_x_"><code>dosage.timing.repeat.bounds[x]</code></a>
         
         
       </td>
@@ -1568,6 +1589,9 @@
       
       
       
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If effectivePeriod and dosage.timing.repeat.boundsPeriod are both populated, they must be the same value.</li></ul>
+      
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
       </td>
@@ -1577,7 +1601,7 @@
       <td>
         <a name="create-dosage.timing.repeat.count">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.count"><code>dosage.timing.repeat.count</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.repeat.count"><code>dosage.timing.repeat.count</code></a>
         
         
       </td>
@@ -1612,7 +1636,7 @@
       <td>
         <a name="create-dosage.timing.code">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code"><code>dosage.timing.code</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code"><code>dosage.timing.code</code></a>
         
         
       </td>
@@ -1656,7 +1680,7 @@
       <td>
         <a name="create-dosage.asNeeded%5Bx%5D">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_"><code>dosage.asNeeded[x]</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_"><code>dosage.asNeeded[x]</code></a>
         
         
       </td>
@@ -1705,7 +1729,7 @@
       <td>
         <a name="create-dosage.siteCodeableConcept">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_"><code>dosage.siteCodeableConcept</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.site_x_"><code>dosage.siteCodeableConcept</code></a>
         
         
       </td>
@@ -1749,7 +1773,7 @@
       <td>
         <a name="create-dosage.route">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route"><code>dosage.route</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.route"><code>dosage.route</code></a>
         
         
       </td>
@@ -1794,7 +1818,7 @@
       <td>
         <a name="create-dosage.quantityQuantity">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_"><code>dosage.quantityQuantity</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.quantity_x_"><code>dosage.quantityQuantity</code></a>
         
         
       </td>
@@ -1849,7 +1873,7 @@
       <td>
         <a name="create-code">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code"><code>code</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code"><code>code</code></a>
         
         
       </td>
@@ -1894,7 +1918,7 @@
       <td>
         <a name="create-product">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product"><code>product</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product"><code>product</code></a>
         
         
       </td>
@@ -1923,7 +1947,7 @@
       <td>
         <a name="create-product.form">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form"><code>product.form</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form"><code>product.form</code></a>
         
         
       </td>
@@ -2022,32 +2046,32 @@ etag: W/"0"
 location: https://fhir-ehr-code.cerner.com/dstu2/ec2458f2-1e24-41c8-b71b-0e701af7583d/MedicationStatement/20465903
 strict-transport-security: max-age=631152000
 vary: Origin,User-Agent,Accept-Encoding
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
 x-content-type-options: nosniff
 x-frame-options: SAMEORIGIN
-x-request-id: 682c633c-b20f-4f6f-8fae-c58b3aeffe04
+x-request-id: 11111111-1111-1111-1111-111111111111
 x-xss-protection: 1; mode=block
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="update">Update</h2>
 
-<p>Update a MedicationStatement.</p>
+<p>Update a medication statement.</p>
 
 <pre><code>PUT /MedicationStatement/:id
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>The only supported change is to update the <a href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a> to <code>completed</code>.</li>
-  <li>Only MedicationStatements that have no reference to a MedicationOrder can be updated. When a MedicationStatement is tied to a prescription or order, its status is updated when the order itself is completed or cancelled.</li>
+  <li>Only medication statements without a reference to a medication order can be updated. When a medication statement is associated with a prescription or order, its status is updated when the order itself is completed or canceled.</li>
+  <li>Only the body fields mentioned below are supported. Unsupported fields are ignored or result in errors.</li>
+  <li>In addition to the common <a href="../../#client-errors">errors</a>, the following error may be returned:
+    <ul>
+      <li>Updating a medication statement without sending the <code>If-Match</code> header returns a <code>412 Precondition Failed</code> response.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>
@@ -2079,7 +2103,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       <td>
         <a name="update-resourceType">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -2106,7 +2130,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>resourceType must be MedicationStatement</li></ul>
+        <ul style="list-style-type: none"><li>resourceType must be MedicationStatement.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
@@ -2117,7 +2141,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       <td>
         <a name="update-id">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"><code>id</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id"><code>id</code></a>
         
         
       </td>
@@ -2130,7 +2154,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>The logical id of the resource to update.</li></ul>
+        <ul style="list-style-type: none"><li>The logical ID of the resource to update.</li></ul>
       
       
         <li><i>Example</i></li>
@@ -2152,7 +2176,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       <td>
         <a name="update-patient">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient"><code>patient</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.patient"><code>patient</code></a>
         
         
       </td>
@@ -2189,7 +2213,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       <td>
         <a name="update-status">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status"><code>status</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.status"><code>status</code></a>
         
         
       </td>
@@ -2202,7 +2226,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       <ul style="list-style-type: none; margin: 1.2em">
       
         <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>A code representing the patient or other source's judgment about the state of the medication used that this statement is about.
+        <ul style="list-style-type: none"><li>A code representing the patient or other source's judgment about the state of the medication that this statement is about.
 </li></ul>
       
       
@@ -2216,6 +2240,14 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       
       
       
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>
+<ul>
+  <li> When <b>creating</b> a medication statement, only the <code>active</code> status is supported. </li>
+  <li> When <b>updating</b> a medication statement, only the <code>completed</code> status is supported. </li>
+</ul>  
+</li></ul>
+      
       </ul>
       <div style="float: right"><a href="#update">top of section</a></div>
       </td>
@@ -2225,7 +2257,7 @@ If-Match: W/"&lt;Current version of the MedicationStatement resource&gt;"</code>
       <td>
         <a name="update-medication%5Bx%5D">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medication[x]</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.medication_x_"><code>medication[x]</code></a>
         
         
       </td>
@@ -2328,25 +2360,14 @@ cache-control: no-cache
 etag: W/"1"
 strict-transport-security: max-age=631152000
 vary: Origin,User-Agent,Accept-Encoding
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
 x-content-type-options: nosniff
 x-frame-options: SAMEORIGIN
-x-request-id: 9dba8326-899a-406f-a125-3fc3d6605dad
+x-request-id: 11111111-1111-1111-1111-111111111111
 x-xss-protection: 1; mode=block
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-3">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<p>In addition, the following error may be returned:</p>
-
-<ul>
-  <li>Updating a MedicationStatement without sending the <code>If-Match</code> header will result in a <code>412 Precondition Failed</code> response.</li>
-</ul>
 
 
     </div>

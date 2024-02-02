@@ -427,6 +427,13 @@ This resource can retrieve reports of various <code>Status</code> types which ma
 </td>
     </tr>
     <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>N</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
+      <td>Date range in which the diagnostic report was last updated. Either 1 or 2 date/times can be given. Example: <code>_lastUpdated=gt2014-09-24</code> or <code>_lastUpdated=lt2015-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
       <td><code>_count</code></td>
       <td>N</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
@@ -474,6 +481,15 @@ This resource can retrieve reports of various <code>Status</code> types which ma
         </ul>
       </li>
     </ul>
+  </li>
+  <li>
+    <p>The <code>_lastUpdated</code> parameters may be provided up to two times, and must use the <code>eq</code>, <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> prefixes. When a value is provided without a prefix, an implied <code>eq</code> prefix is used. When provided twice, the lower value must have a <code>ge</code> or <code>gt</code> prefix and the higher value must have an <code>le</code> or <code>lt</code> prefix.</p>
+  </li>
+  <li>
+    <p>The <code>date</code> and <code>_lastUpdated</code> parameters may not be provided together.</p>
+  </li>
+  <li>
+    <p>The <code>_lastUpdated</code> query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.</p>
   </li>
   <li>When searching with the <code>encounter</code> parameter:
     <ul>

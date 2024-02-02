@@ -68,7 +68,11 @@
       <h1 id="practitioner">Practitioner</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
@@ -76,34 +80,38 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Practitioner resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include and are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.</p>
+<p>The Practitioner resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include but are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id" target="_blank">Practitioner id</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.identifier" target="_blank">Identifiers/Aliases such as NPI and DEA</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.active" target="_blank">Active</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.name" target="_blank">Name</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.telecom" target="_blank">Contact (secure email and phone)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.address" target="_blank">Address</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.gender" target="_blank">Gender</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/resource-definitions.html#Resource.id" target="_blank">Practitioner ID</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.identifier" target="_blank">Identifier</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.active" target="_blank">Active</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.name" target="_blank">Name</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.telecom" target="_blank">Contact</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.address" target="_blank">Address</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/practitioner-definitions.html#Practitioner.gender" target="_blank">Gender</a></li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -116,7 +124,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type">Practitioner.identifier.type</a>
+          <a target="_blank" href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type">Practitioner.identifier.type</a>
       
       </td>
     </tr>
@@ -134,7 +142,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
                       
                         System: http://hl7.org/fhir/identifier-type <br>
                       
@@ -150,7 +158,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">v2 Identifier Type</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/DSTU2/valueset-identifier-type.html">v2 Identifier Type</a><br>
                       
                         System: http://hl7.org/fhir/v2/0203 <br>
                       
@@ -173,7 +181,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Practitioners that meet supplied query parameters:</p>
+<p>Search for practitioners that meet supplied query parameters.</p>
 
 <pre><code>GET /Practitioner?:parameters
 </code></pre>
@@ -200,7 +208,7 @@
       <td><code>_id</code></td>
       <td>Yes</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>The logical resource ID associated with the resource.</td>
     </tr>
   </tbody>
 </table>
@@ -238,42 +246,30 @@
         "resourceType": "Practitioner",
         "id": "4122622",
         "meta": {
-          "versionId": "18",
-          "lastUpdated": "2016-04-28T15:01:59.000Z"
+          "versionId": "19",
+          "lastUpdated": "2021-07-01T13:16:02.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: EXTERNALID: CERNERPHYSHOSP, NPI: 1111111111, MESSAGING: 4122622&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: NPI: 1111111111&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
         "identifier": [
           {
             "use": "usual",
             "type": {
-              "text": "External Identifier"
-            },
-            "value": "CERNERPHYSHOSP",
-            "period": {
-              "start": "2016-04-28T15:01:59.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/v2/0203",
+                  "code": "NPI",
+                  "display": "National provider identifier"
+                }
+              ],
               "text": "National Provider Identifier"
             },
+            "system": "http://hl7.org/fhir/sid/us-npi",
             "value": "1111111111",
             "period": {
               "start": "2015-10-14T05:00:00.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "text": "Messaging"
-            },
-            "value": "4122622",
-            "period": {
-              "start": "2015-08-18T05:00:00.000Z"
             }
           }
         ],
@@ -289,7 +285,7 @@
             "Cerner"
           ],
           "period": {
-            "start": "2016-04-28T15:01:59.000Z"
+            "start": "2015-09-22T20:58:42.000Z"
           }
         }
       }
@@ -297,15 +293,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Practitioner by its id:</p>
+<p>List an individual practitioner by their ID.</p>
 
 <pre><code>GET /Practitioner/:id
 </code></pre>
@@ -335,42 +325,30 @@
   "resourceType": "Practitioner",
   "id": "4122622",
   "meta": {
-    "versionId": "18",
-    "lastUpdated": "2016-04-28T15:01:59.000Z"
+    "versionId": "19",
+    "lastUpdated": "2021-07-01T13:16:02.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: EXTERNALID: CERNERPHYSHOSP, NPI: 1111111111, MESSAGING: 4122622&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: NPI: 1111111111&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
   },
   "identifier": [
     {
       "use": "usual",
       "type": {
-        "text": "External Identifier"
-      },
-      "value": "CERNERPHYSHOSP",
-      "period": {
-        "start": "2016-04-28T15:01:59.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/v2/0203",
+            "code": "NPI",
+            "display": "National provider identifier"
+          }
+        ],
         "text": "National Provider Identifier"
       },
+      "system": "http://hl7.org/fhir/sid/us-npi",
       "value": "1111111111",
       "period": {
         "start": "2015-10-14T05:00:00.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
-        "text": "Messaging"
-      },
-      "value": "4122622",
-      "period": {
-        "start": "2015-08-18T05:00:00.000Z"
       }
     }
   ],
@@ -386,16 +364,10 @@
       "Cerner"
     ],
     "period": {
-      "start": "2016-04-28T15:01:59.000Z"
+      "start": "2015-09-22T20:58:42.000Z"
     }
   }
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

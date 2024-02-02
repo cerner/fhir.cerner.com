@@ -68,7 +68,11 @@
       <h1 id="goal">Goal</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
@@ -76,28 +80,26 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#example-search-by-id" id="markdown-toc-example-search-by-id">Example Search by Id</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+      <li><a href="#example-search-by-id" id="markdown-toc-example-search-by-id">Example Search by ID</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Goal resource describes intended objectives for a patient.  A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time.  A Goal may address preventative health or mitigation of a diagnosis or problem.  Goals can be non-health care related (e.g. dance at a wedding).</p>
+<p>The Goal resource describes intended objectives for a patient. A goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time. A goal may address preventative health or mitigation of a diagnosis or problem. Goals can be non-healthcare related (for example, dance at a wedding).</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">id</a></li>
+  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Goal ID</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.subject" target="_blank">Subject (patient)</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.start_x_" target="_blank">Start date</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.target_x_" target="_blank">Target date</a></li>
@@ -108,6 +110,12 @@
   <li><a href="http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.author" target="_blank">Author</a></li>
   <li><a href="http://hl7.org/fhir/DSTU2/goal-definitions.html#Goal.note" target="_blank">Note</a></li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -160,7 +168,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Goals that meet supplied query parameters:</p>
+<p>Search for goals that meet supplied query parameters.</p>
 
 <pre><code>GET /Goal?:parameters
 </code></pre>
@@ -185,30 +193,30 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or one of <code>patient</code>, or <code>subject</code>.</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Goal. Example: <code>_id=7891</code>
+      <td>The logical resource ID associated with the goal. This parameter is required if <code>patient</code> or <code>subject</code> are not used. Example: <code>_id=7891</code>
 </td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This, or one of <code>_id</code>, or <code>subject</code>.</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient who has the goal. Example: <code>patient=12345</code>
+      <td>The patient who has the goal. This parameter is required if <code>_id</code> or <code>subject</code> are not used. Example: <code>patient=12345</code>
 </td>
     </tr>
     <tr>
       <td><code>subject:Patient</code></td>
-      <td>This, or one of <code>_id</code>, or <code>patient</code>.</td>
+      <td>Condtionally</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The subject who this goal is intended for. Must represent a Patient resource. May use the <code>:Patient</code> modifier. Example: <code>subject=Patient/12345</code> or <code>subject:Patient=12345</code>
+      <td>The subject who this goal is intended for. Must represent a Patient resource. This parameter is required if <code>_id</code> or <code>patient</code> are not used. Examples: <code>subject=Patient/12345</code> or <code>subject:Patient=12345</code>
 </td>
     </tr>
     <tr>
       <td><code>targetdate</code></td>
-      <td>N</td>
+      <td>No</td>
       <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
-      <td>A date or date range from which to find Goals. Example: <code>targetdate=ge2016-10-01&amp;targetdate=le2016-12-01</code>
+      <td>A date or date range from which to find goals. Example: <code>targetdate=ge2016-10-01&amp;targetdate=le2016-12-01</code>
 </td>
     </tr>
   </tbody>
@@ -217,11 +225,11 @@
 <p>Notes:</p>
 
 <ul>
-  <li>
-    <p>The <code>_id</code> parameter may not be provided at the same time as the <code>patient</code>, <code>subject</code>, or <code>targetdate</code> parameters.</p>
-  </li>
-  <li>
-    <p>The <code>targetdate</code> parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with <code>le</code>, <code>lt</code>, <code>ge</code>, or <code>gt</code> prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.</p>
+  <li>The <code>targetdate</code> parameter:
+    <ul>
+      <li>May be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date.</li>
+      <li>Alternatively, it may be provided twice with <code>le</code>, <code>lt</code>, <code>ge</code>, or <code>gt</code> prefixes to search for goals within a specific range. The date and prefix pairs must create a closed range.</li>
+    </ul>
   </li>
 </ul>
 
@@ -289,9 +297,7 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="example-search-by-id">Example Search by Id</h3>
+<h3 id="example-search-by-id">Example Search by ID</h3>
 
 <h4 id="request-1">Request</h4>
 
@@ -350,15 +356,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Goal by its id:</p>
+<p>List an individual goal by its ID.</p>
 
 <pre><code>GET /Goal/:id
 </code></pre>
@@ -415,12 +415,6 @@
     "display": "SMART, NANCY"
   }
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

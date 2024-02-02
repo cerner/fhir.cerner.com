@@ -68,7 +68,11 @@
       <h1 id="communication">Communication</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
@@ -81,11 +85,10 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
@@ -97,7 +100,6 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -106,21 +108,20 @@
       <li><a href="#headers-3" id="markdown-toc-headers-3">Headers</a></li>
       <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
       <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Communication resource is a conveyance of information from one entity, a sender, to another entity, a receiver. The information includes encoded data and optionally a related Patient and a related Encounter.</p>
+<p>The Communication resource is a conveyance of information from one entity, a sender, to another entity, a receiver. The information includes encoded data and optionally a related <a href="../../../base/individuals/patient/"><code>Patient</code></a> and a related <a href="../../../base/management/encounter/"><code>Encounter</code></a>.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.identifier">Communication Id</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.identifier">ID</a></li>
   <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.inResponseTo">In Response To</a></li>
-  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.status">Status (Completed)</a></li>
+  <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.status">Status</a></li>
   <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.category">Category</a></li>
   <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.priority">Priority</a></li>
   <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.subject">Subject</a></li>
@@ -132,6 +133,12 @@
   <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.sender">Sender</a></li>
   <li><a href="https://hl7.org/FHIR/r4/communication-definitions.html#Communication.payload">Payload</a></li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -267,28 +274,28 @@
     <tr>
       <td><code>reply-to</code></td>
       <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>Reference</code></a></td>
-      <td>Used to direct where replies to the communication should be sent. Must be a Group.</td>
+      <td>Directs where replies to the communication are sent. Must be a group.</td>
     </tr>
     <tr>
       <td><code>email-status</code></td>
       <td><a href="https://hl7.org/fhir/R4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a></td>
-      <td>Status of the electronic communication (in-progress, completed, received).</td>
+      <td>The status of the electronic communication (in-progress, completed, or received).</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="search">Search</h2>
 
-<p>Search for communications that meet supplied query parameters:</p>
+<p>Search for communications that meet supplied query parameters.</p>
 
 <pre><code>GET /Communication?:parameters
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>The Content of a communication will be returned through the binary resource. A reference to the payload will be provided in the Payload section.</li>
-  <li>Only 1000 elements max will be returned based on the date range.</li>
+  <li>The content of a communication is returned through the Binary resource. A reference to the payload is provided in <code>Communication.payload.contentReference</code>.</li>
+  <li>Only a maximum of 1000 elements are returned based on the date range.</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -311,41 +318,39 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or (<code>category</code>, <code>-email-status</code>, <code>recipient</code> and <code>received</code>)</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource. Example: <code>489580643.0.-4.prsnl</code>
+      <td>The logical resource ID associated with the resource. This parameter is required if <code>category</code>, <code>-email-status</code>, <code>recipient</code>, and <code>received</code> are not used. Example: <code>489580643.0.-4.prsnl</code>
 </td>
     </tr>
     <tr>
       <td><code>category</code></td>
-      <td>(This, <code>recipient</code>, <code>received</code> and <code>-email-status</code>) or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>A token for a <a href="https://hl7.org/fhir/R4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a> that points to the CodeableConcept used for Communication.category. Example: <code>http://terminology.hl7.org/CodeSystem/communication-category|notification</code>
+      <td>A token for a <a href="https://hl7.org/fhir/R4/datatypes.html#codeableconcept"><code>CodeableConcept</code></a> that points to the CodeableConcept used for <code>Communication.category</code>. This parameter is required with <code>recipient</code>, <code>received</code>, and <code>-email-status</code> if <code>_id</code> is not used. Example: <code>http://terminology.hl7.org/CodeSystem/communication-category|notification</code>
 </td>
     </tr>
     <tr>
-      <td><code>recipient</code></td>
-      <td>(This, <code>category</code>, <code>received</code> and <code>-email-status</code>) or <code>_id</code>
+      <td>
+<code>recipient:Group</code> or <code>recipient:Practitioner</code>
 </td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#reference"><code>reference</code></a></td>
-      <td>The recipient of the communication. Example: <code>Practitioner/3456783</code>
+      <td>The recipient of the communication. This parameter is required with <code>category</code>, <code>received</code>, and <code>-email-status</code> if <code>_id</code>  is not used. Example: <code>3456783</code>
 </td>
     </tr>
     <tr>
       <td><code>received</code></td>
-      <td>(This, <code>category</code>, <code>recipient</code> and <code>-email-status</code>) or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
-      <td>Date range into which the communication falls. Example: <code>le2017-02-01T10:30:00Z</code>
+      <td>The date range that the communication falls within. This parameter is required with <code>category</code>, <code>recipient</code>, and <code>-email-status</code> if <code>_id</code>  is not used. Example: <code>ge2017-02-01T10:30:00Z</code>
 </td>
     </tr>
     <tr>
       <td><code>-email-status</code></td>
-      <td>(This, <code>category</code>, <code>recipient</code> and <code>received</code>) or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The status of the email. Example: <code>http://hl7.org/fhir/task-status|in-progress</code>
+      <td>The status of the email. This parameter is required with <code>category</code>, <code>recipient</code>, and <code>received</code> if <code>_id</code>  is not used. Example: <code>http://hl7.org/fhir/task-status|in-progress</code>
 </td>
     </tr>
   </tbody>
@@ -354,11 +359,11 @@
 <p>Notes:</p>
 
 <ul>
-  <li>The <code>recipient</code> parameter must represent a Practitioner or a Group.</li>
   <li>The <code>received</code> parameter may be provided:
     <ul>
-      <li>once with the <code>ge</code> prefix.</li>
-      <li>twice with the lower value prefixed by <code>ge</code> and the higher value prefixed by <code>le</code>.</li>
+      <li>Once with the <code>ge</code> prefix.</li>
+      <li>Twice with the lower value prefixed by <code>ge</code> and the higher value prefixed by <code>le</code>.</li>
+      <li>Must be provided with a time component.</li>
     </ul>
   </li>
 </ul>
@@ -474,15 +479,10 @@
     }
   ]
 }</code></pre>
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="errors">Errors</h3>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual communication by its id:</p>
+<p>List an individual communication by its ID.</p>
 
 <pre><code>GET /Communication/:id
 </code></pre>
@@ -588,7 +588,6 @@
     }
   ]
 }</code></pre>
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h2 id="create">Create</h2>
 
@@ -597,11 +596,10 @@
 <pre><code>POST /Communication
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
-  <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
+  <li>Only the body fields mentioned below are supported. Unsupported fields are ignored, or can cause errors.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1191,12 +1189,6 @@ X-Runtime: 0.022706
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="patch">Patch</h2>
 
 <p>Patch an existing communication.</p>
@@ -1204,10 +1196,10 @@ X-Runtime: 0.022706
 <pre><code>PATCH /Communication/:id
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON PATCH</a> spec.</li>
+  <li>This implementation follows RFC 6902, <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a>.</li>
   <li>Only operations on the paths listed below are supported.</li>
 </ul>
 
@@ -1341,12 +1333,6 @@ X-Runtime: 0.826616
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

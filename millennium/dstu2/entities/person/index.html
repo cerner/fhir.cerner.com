@@ -68,7 +68,11 @@
       <h1 id="person">Person</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
@@ -76,37 +80,40 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
       <li><a href="#person-combines-example" id="markdown-toc-person-combines-example">Person Combines Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Person resource identifies an individual outside of a specific health care context providing a mechanism to link person resources across different facilities or organizations.</p>
+<p>The Person resource identifies an individual outside of a specific healthcare context and provides a mechanism to associate person resources across different facilities or organizations.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Person id</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.identifier" target="_blank">Identifier (Cerner alias Federated Person Principal)</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.name" target="_blank">Name</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.telecom" target="_blank">Telecom</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.gender" target="_blank">Gender</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.birthDate" target="_blank">Date of birth</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.address" target="_blank">Address</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/person-definitions.html#Person.active" target="_blank">Active</a></li>
+  <li><a href="https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Person ID</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/person-definitions.html#Person.identifier" target="_blank">Identifier</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/person-definitions.html#Person.name" target="_blank">Name</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/person-definitions.html#Person.telecom" target="_blank">Telecom</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/person-definitions.html#Person.gender" target="_blank">Gender</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/person-definitions.html#Person.birthDate" target="_blank">Date of birth</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/person-definitions.html#Person.address" target="_blank">Address</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/person-definitions.html#Person.active" target="_blank">Active</a></li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -119,7 +126,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type">Person.identifier.type</a>
+          <a target="_blank" href="https://hl7.org/fhir/dstu2/datatypes-definitions.html#Identifier.type">Person.identifier.type</a>
       
       </td>
     </tr>
@@ -137,7 +144,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/DSTU2/valueset-identifier-type.html">Identifier Type Codes</a><br>
                       
                         System: http://hl7.org/fhir/identifier-type <br>
                       
@@ -153,7 +160,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/DSTU2/valueset-identifier-type.html">v2 Identifier Type</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/DSTU2/v2/0203/index.html">v2 Identifier Type</a><br>
                       
                         System: http://hl7.org/fhir/v2/0203 <br>
                       
@@ -176,7 +183,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Persons that meet supplied query parameters:</p>
+<p>Search for persons that meet supplied query parameters.</p>
 
 <pre><code>GET /Person?:parameters
 </code></pre>
@@ -193,7 +200,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Required?</th>
+      <th>Required</th>
       <th>Type</th>
       <th>Description</th>
     </tr>
@@ -201,16 +208,16 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>No, if populated all other parameters are ignored</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>The logical resource ID associated with the resource. This parameter is required if the <code>identifier</code> parameter is not used. Example: <code>_id=12345</code>
+</td>
     </tr>
     <tr>
       <td><code>identifier</code></td>
-      <td>Yes, or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The person identifier.  Example: <code>urn:oid:2.16.840.1.113883.3.13.6|01022228</code>
+      <td>The person identifier. This parameter is required if the <code>_id</code> parameter is not used.  Example: <code>urn:oid:2.16.840.1.113883.3.13.6|01022228</code>
 </td>
     </tr>
   </tbody>
@@ -219,8 +226,7 @@
 <p>Notes:</p>
 
 <ul>
-  <li>
-<code>identifier</code> value must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN</code>
+  <li>The <code>identifier</code> value must include both a system and a code. Example: <code>identifier=urn:oid:2.16.840.1.113883.3.13.6|URN:CERNER:...:PI98N2FK5TN</code>
 </li>
 </ul>
 
@@ -315,15 +321,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Person by its id:</p>
+<p>List an individual person by their ID.</p>
 
 <pre><code>GET /Person/:id
 </code></pre>
@@ -408,20 +408,9 @@
   "active": true
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h3 id="person-combines-example">Person Combines Example</h3>
 
-<p>Cerner Millennium supports the ability to logically merge a person record into another person record when both records are describing the same person. This is known
-as a “person combine”. If necessary, this merging can later be undone by performing a “person uncombine”. When the requested person record has been combined into another
-record, an inactive Person entry will be returned which has a link to the current Person entry. Entries for combined patients will only be returned when retrieving
-the entries directly by id. They will not be returned when searching with other parameters.</p>
-
-<p>The ability to perform person combine or uncombine operations is not available through the Cerner Ignite platform.</p>
+<p>Oracle Health Millennium Platform supports the ability to logically merge a person record into another person record when both records are describing the same person. This merge is known as a person combine. If necessary, you can perform a person uncombine to undo the merge. When the requested person record is combined into another record, an inactive person entry is returned with a link to the current person entry. Entries for combined patients are only returned when retrieving the entries directly by ID. They are not returned when searching with other parameters.</p>
 
 <h4 id="request-2">Request</h4>
 
@@ -444,12 +433,6 @@ the entries directly by id. They will not be returned when searching with other 
     }
   ]
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

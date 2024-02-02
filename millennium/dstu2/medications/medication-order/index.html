@@ -68,7 +68,11 @@
       <h1 id="medicationorder">MedicationOrder</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li>
 <a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
       <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
@@ -85,55 +89,59 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Medication Order resource provides orders for all medications along with administration instructions for a patient in both the inpatient and outpatient setting (orders/prescriptions filled by a pharmacy and discharge medication orders). This resource does NOT include historical or home medications documented or reported to have been taken by patient, significant other or another provider.</p>
+<p>The MedicationOrder resource provides orders for all medications with administration instructions for a patient in both the inpatient and outpatient settings (orders or prescriptions filled by a pharmacy and discharge medication orders). This resource does not include historical or home medications documented or reported to have been taken by the patient, significant other, or another provider.</p>
 
-<p>If the Medication Order represents a prescription (something the patient takes at home), the start, stop, and other data may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled.</p>
+<p>If the medication order represents a prescription the patient takes at home, then the start, stop, and other information may not be a representation of when the medication was taken. For example, the system may not know if the patient ever filled or took the prescribed medication, or when the prescription was filled.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Medication order id</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dateWritten" target="_blank">Date/Time order written</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dateEnded" target="_blank">Date/Time order stopped or to stop</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.patient" target="_blank">Patient</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.prescriber" target="_blank">Prescriber</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.encounter" target="_blank">Patient encounter</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.medication_x_" target="_blank">Medication</a></li>
+  <li><a href="https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Medication order ID</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dateWritten" target="_blank">Date/Time order written</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dateEnded" target="_blank">Date/Time order stopped or to stop</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.patient" target="_blank">Patient</a></li>
+  <li><a href="http:s//hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.prescriber" target="_blank">Prescriber</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.encounter" target="_blank">Patient encounter</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.medication_x_" target="_blank">Medication</a></li>
   <li>Details of medication taken:
     <ul>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction" target="_blank">Dosage Instructions:</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction" target="_blank">Dosage Instructions:</a></li>
       <li><a href="#custom-extensions" target="_blank">Patient friendly dosage display</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.additionalInstructions" target="_blank">Additional instructions</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.timing" target="_blank">Time period and frequency</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.asNeeded_x_" target="_blank">As needed (such as PRN for pain)</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.route" target="_blank">Route</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.dose_x_" target="_blank">Dosage</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.additionalInstructions" target="_blank">Additional instructions</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.timing" target="_blank">Time period and frequency</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.asNeeded_x_" target="_blank">As needed (such as PRN for pain)</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.route" target="_blank">Route</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.dose_x_" target="_blank">Dosage</a></li>
     </ul>
   </li>
   <li>Dispensing details:
     <ul>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.validityPeriod" target="_blank">Validity period</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.numberOfRepeatsAllowed" target="_blank">Number of refills</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.quantity" target="_blank">Amount of medication to supply/dispense</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.validityPeriod" target="_blank">Validity period</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.numberOfRepeatsAllowed" target="_blank">Number of refills</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dispenseRequest.quantity" target="_blank">Amount of medication to supply/dispense</a></li>
     </ul>
   </li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -145,7 +153,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.reason_x_">MedicationOrder.reasonCodeableConcept</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.reason_x_">MedicationOrder.reasonCodeableConcept</a>
       
       </td>
     </tr>
@@ -163,7 +171,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -179,7 +187,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/icd.html">ICD-9-CM</a><br>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/ICD.html#icd-9-variants">ICD-9-CM</a><br>
                       
                         System: http://hl7.org/fhir/sid/icd-9-cm <br>
                       
@@ -195,7 +203,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/icd.html">ICD-10-CM</a><br>
+                      <p>Details: <a target="_blank" href="https://terminology.hl7.org/CodeSystem-icd10CM.html">ICD-10-CM</a><br>
                       
                         System: http://hl7.org/fhir/sid/icd-10-cm <br>
                       
@@ -236,7 +244,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
                       
                         System: http://www.nlm.nih.gov/research/umls/rxnorm <br>
                       
@@ -260,7 +268,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.additionalInstructions">MedicationOrder.dosageInstruction.additionalInstructions</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.additionalInstructions">MedicationOrder.dosageInstruction.additionalInstructions</a>
       
       </td>
     </tr>
@@ -288,7 +296,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code">MedicationOrder.dosageInstruction.timing.code</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/datatypes-definitions.html#Timing.code">MedicationOrder.dosageInstruction.timing.code</a>
       
       </td>
     </tr>
@@ -306,7 +314,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/valueset-timing-abbreviation.html">TimingAbbreviation</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/valueset-timing-abbreviation.html">TimingAbbreviation</a><br>
                       
                         System: http://hl7.org/fhir/timing-abbreviation <br>
                       
@@ -322,7 +330,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -345,7 +353,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_">MedicationOrder.dosageInstruction.asNeeded[x]</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationstatement-definitions.html#MedicationStatement.dosage.asNeeded_x_">MedicationOrder.dosageInstruction.asNeeded[x]</a>
       
       </td>
     </tr>
@@ -364,7 +372,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -387,7 +395,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.site_x_">MedicationOrder.dosageInstruction.siteCodeableConcept</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.site_x_">MedicationOrder.dosageInstruction.siteCodeableConcept</a>
       
       </td>
     </tr>
@@ -405,7 +413,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -428,7 +436,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.route">MedicationOrder.dosageInstruction.route</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medicationorder-definitions.html#MedicationOrder.dosageInstruction.route">MedicationOrder.dosageInstruction.route</a>
       
       </td>
     </tr>
@@ -447,7 +455,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/snomedct.html">SNOMED CT</a><br>
                       
                         System: http://snomed.info/sct <br>
                       
@@ -463,7 +471,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/ncimeta.html">NCI Metathesaurus</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/ncimeta.html">NCI Metathesaurus</a><br>
                       
                         System: http://ncimeta.nci.nih.gov <br>
                       
@@ -494,7 +502,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">Medication.code</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.code">Medication.code</a>
       
       </td>
     </tr>
@@ -512,7 +520,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/rxnorm.html">RxNorm</a><br>
                       
                         System: http://www.nlm.nih.gov/research/umls/rxnorm <br>
                       
@@ -536,7 +544,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form">Medication.product.form</a>
+          <a target="_blank" href="https://hl7.org/fhir/DSTU2/medication-definitions.html#Medication.product.form">Medication.product.form</a>
       
       </td>
     </tr>
@@ -554,7 +562,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/dstu2/ncimeta.html">NCI Metathesaurus</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/dstu2/ncimeta.html">NCI Metathesaurus</a><br>
                       
                         System: http://ncimeta.nci.nih.gov <br>
                       
@@ -585,6 +593,8 @@
 
 <p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}</code></p>
 
+<p>For more information, see the StructureDefinition resource.</p>
+
 <table>
   <thead>
     <tr>
@@ -596,24 +606,18 @@
   <tbody>
     <tr>
       <td><code>patient-friendly-display</code></td>
-      <td><a href="http://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a></td>
-      <td>The display that can be used for this field when producing a view suitable for a patient.</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/datatypes.html#string"><code>string</code></a></td>
+      <td>Extension to MedicationRequest.dosageInstruction. The display name that can be used for this field when producing a view suitable for a patient.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="search">Search</h2>
 
-<p>Search for MedicationOrders that meet supplied query parameters:</p>
+<p>Search for medication orders that meet supplied query parameters.</p>
 
 <pre><code>GET /MedicationOrder?:parameters
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>MedicationOrder may have a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationOrder and cannot be be referenced independently.</li>
-</ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
 
@@ -635,61 +639,85 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>Y or <code>patient</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the <code>patient</code> parameter is not used. Example: <code>_id=1234</code>
 </td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>Y or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
-      <td>The identity of a patient to list orders for. Example: <code>12345</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#reference"><code>reference</code></a></td>
+      <td>The specific patient to return orders for. This parameter is required if the <code>_id</code> parameter is not used. Example: <code>patient=5678</code>
 </td>
     </tr>
     <tr>
       <td><code>status</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#token"><code>token</code></a></td>
-      <td>The status of the medication order, may be a list separated by commas. Example: <code>active,draft</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#token"><code>token</code></a></td>
+      <td>The <a href="https://www.hl7.org/fhir/dstu2/valueset-medication-order-status.html">status</a> of the medication order. It may be a list separated by commas. Example: <code>status=active,draft</code>
 </td>
     </tr>
     <tr>
       <td><code>-timing-boundsPeriod</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
-      <td>The date-time which should fall within the <a href="http://hl7.org/fhir/DSTU2/MedicationOrder-definitions.html#MedicationOrder.dosageInstruction.timing">period</a> the medication should be given to the patient. Must be prefixed by ‘ge’. Example: <code>ge2014-05-19T20:54:02.000Z</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
+      <td>The date and time that should fall within the <a href="https://hl7.org/fhir/DSTU2/MedicationOrder-definitions.html#MedicationOrder.dosageInstruction.timing">period</a> when the medication should be given to the patient. This parameter cannot be provided at the same time as the <code>_lastUpdated</code> parameter. Example: <code>-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z</code>
 </td>
     </tr>
     <tr>
       <td><code>_lastUpdated</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
-      <td>An explicit or implied date-time range within which the most recent clinically relevant update was made to the medication. Must be prefixed by ‘ge’ or ‘le’. Example: <code>ge2014-05-19T20:54:02.000Z</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#date"><code>date</code></a></td>
+      <td>An explicit or implied date and time range within which the most recent clinically relevant update was made to the medication. This parameter cannot be provided at the same time as the <code>-timing-boundsPeriod</code> parameter. Example: <code>_lastUpdated=ge2014-05-19T20:54:02.000Z</code>
 </td>
     </tr>
     <tr>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#count"><code>_count</code></a></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/dstu2/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to include in a page. Example: <code>50</code>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#count"><code>_count</code></a></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/dstu2/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to include on a page. Example: <code>_count=50</code>
 </td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:</p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>
-    <p>The <code>-timing-boundsPeriod</code> and <code>_lastUpdated</code> parameters may not be provided at the same time.</p>
+  <li>MedicationOrder.medication may be a reference to a <a href="https://hl7.org/fhir/DSTU2/references.html#contained">contained</a> medication when the medication cannot be represented by a <a href="https://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept">CodeableConcept</a> because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication order and cannot be referenced independently.</li>
+  <li>When searching with the <code>_id</code> parameter:
+    <ul>
+      <li>It must not be provided with any other parameters.</li>
+    </ul>
   </li>
-  <li>
-    <p>The <code>_lastUpdated</code> parameter must have a time, may be provided up to two times, and must use the <code>ge</code> or <code>le</code> prefixes. When provided twice, the lower value must have the <code>ge</code> prefix and the higher value must have the <code>le</code> prefix.</p>
+  <li>When searching with the <code>-timing-boundsPeriod</code> parameter:
+    <ul>
+      <li>It must be provided with a <code>ge</code> prefix to imply the date range for the medication orders search.</li>
+      <li>The time component is optional.</li>
+      <li>Example: <code>-timing-boundsPeriod=ge2014-05-19T20:54:02.000Z</code>
+</li>
+    </ul>
   </li>
-  <li>
-    <p>Searching with the <code>_lastUpdated</code> parameter will only detect changes to fields that affect the clinical meaning of the order. An example of the types of changes that won’t be caught by this query are changes that would affect the version, but not the FHIR content.</p>
+  <li>When searching with the <code>_lastUpdated</code> parameter:
+    <ul>
+      <li>The time component is required.</li>
+      <li>For a single <code>_lastUpdated</code> occurence:
+        <ul>
+          <li>It must be provided with a <code>le</code> or <code>ge</code> prefix to imply the date range for the medication orders search.</li>
+          <li>Example: <code>_lastUpdated=ge2014-05-19T20:54:02.000Z</code>
+</li>
+        </ul>
+      </li>
+      <li>For two <code>_lastUpdated</code> occurences:
+        <ul>
+          <li>It must be provided with the <code>le</code> and <code>ge</code> prefixes to search for medication orders within the given upper and lower timestamps, respectively.</li>
+          <li>Example: <code>_lastUpdated=ge2014-05-19T20:54:02.000Z&amp;_lastUpdated=le2014-05-20T12:00:00.000Z</code>
+</li>
+        </ul>
+      </li>
+      <li>It only detects changes that affect the clinical meaning of the order. An example of changes that are not caught by this query are changes that would affect the version, but not the FHIR content.</li>
+    </ul>
   </li>
 </ul>
 
@@ -914,15 +942,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual MedicationOrder by its id:</p>
+<p>List an individual medication order by its ID.</p>
 
 <pre><code>GET /MedicationOrder/:id
 </code></pre>
@@ -1044,12 +1066,6 @@
     }
   }
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

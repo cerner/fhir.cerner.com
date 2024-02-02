@@ -515,6 +515,13 @@ For fields supported on write or update operations, see the <a href="#create">Cr
       <td>Time of service that is being documented. Example: <code>period=ge2017-01-01&amp;period=lt2017-01-05</code>
 </td>
     </tr>
+    <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
+      <td>Date range in which the document was last updated. Either 1 or 2 date/times can be given. Example: <code>_lastUpdated=gt2014-09-24</code> or <code>_lastUpdated=lt2015-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
@@ -565,6 +572,15 @@ For fields supported on write or update operations, see the <a href="#create">Cr
         </ul>
       </li>
     </ul>
+  </li>
+  <li>
+    <p>The <code>_lastUpdated</code> parameters may be provided up to two times, and must use the <code>eq</code>, <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> prefixes. When a value is provided without a prefix, an implied <code>eq</code> prefix is used. When provided twice, the lower value must have a <code>ge</code> or <code>gt</code> prefix and the higher value must have an <code>le</code> or <code>lt</code> prefix.</p>
+  </li>
+  <li>
+    <p>The <code>date</code>, <code>period</code> and <code>_lastUpdated</code> parameters may not be provided together.</p>
+  </li>
+  <li>
+    <p>The <code>_lastUpdated</code> query will only qualify clinically significant updates. For example, changes to the value or code, and other significant fields. Minor updates, like some non-clinically relevant note updates, will not qualify.</p>
   </li>
   <li>When searching with the <code>_revinclude</code> parameter:
     <ul>
@@ -776,6 +792,119 @@ For fields supported on write or update operations, see the <a href="#create">Cr
             "end": "2022-07-07T09:43:56.000Z"
           }
         }
+      }
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "201318478",
+      "meta": {
+        "versionId": "1",
+        "lastUpdated": "2022-12-08T08: 26: 36.000Z"
+      },
+      "text": {
+        "status": "generated",
+        "div": "&lt;div xmlns='http: //www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: GETEST, PatientOneHundredSixtySix&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Admission Note Physician&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Start Date&lt;/b&gt;: Dec  7, 2022  6:51 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Dec  7, 2022  6:51 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: SYSTEM, SYSTEM Cerner&lt;/p&gt;&lt;/div&gt;"
+      },
+      "identifier": [
+        {
+          "system": "https: //fhir.cerner.com/ceuuid",
+          "value": "CE87caf4b7-9397-4667-9897-702218017c9e-201318478-2022120808263700"
+        }
+      ],
+      "status": "current",
+      "docStatus": "final",
+      "type": {
+        "coding": [
+          {
+            "system": "https: //fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+            "code": "2820507",
+            "display": "Admission Note Physician",
+            "userSelected": true
+          },
+          {
+            "system": "http: //loinc.org",
+            "code": "83805-2",
+            "display": "Physician Admission evaluation note",
+            "userSelected": false
+          }
+        ],
+        "text": "Admission Note Physician"
+      },
+      "category": [
+        {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "LP29684-5",
+              "display": "Radiology",
+              "userSelected": false
+            }
+          ],
+          "text": "Radiology"
+        },
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+              "code": "clinical-note",
+              "display": "Clinical Note",
+              "userSelected": false
+            }
+          ],
+          "text": "Clinical Note"
+        }
+      ],
+      "subject": {
+        "reference": "Patient/12769853",
+        "display": "GETEST, PatientOneHundredSixtySix"
+      },
+      "date": "2022-12-08T08: 26: 36Z",
+      "author": [
+        {
+          "reference": "Practitioner/1",
+          "display": "SYSTEM, SYSTEM Cerner"
+        }
+      ],
+      "authenticator": {
+        "reference": "Practitioner/1",
+        "display": "SYSTEM, SYSTEM Cerner"
+      },
+      "content": [
+        {
+          "attachment": {
+            "contentType": "application/xhtml+xml",
+            "url": "https: //fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/R-201318478",
+            "creation": "2022-12-07T06: 51: 22.000Z"
+          },
+          "format": {
+            "system": "http: //ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+            "code": "urn:ihe:iti:xds: 2017:mimeTypeSufficient",
+            "display": "mimeType Sufficient"
+          }
+        },
+        {
+          "attachment": {
+            "contentType": "application/xml",
+            "url": "https: //fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XML-201318478",
+            "creation": "2022-12-07T06: 51: 22.000Z"
+          },
+          "format": {
+            "system": "http: //ihe.net/fhir/ValueSet/IHE.FormatCode.codesystem",
+            "code": "urn:ihe:iti:xds: 2017:mimeTypeSufficient",
+            "display": "mimeType Sufficient"
+          }
+        }
+      ],
+      "context": {
+        "period": {
+          "start": "2022-12-07T06: 51: 22Z",
+          "end": "2022-12-07T06: 51: 22Z"
+        },
+        "related": [
+          {
+            "reference": "DiagnosticReport/201318478"
+          }
+        ]
       }
     }
   ]

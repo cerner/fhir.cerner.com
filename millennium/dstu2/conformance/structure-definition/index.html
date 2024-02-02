@@ -70,7 +70,7 @@
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
@@ -81,42 +81,42 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The StructureDefinition resource describes a FHIR structure including data elements and their usage. Our current implementation uses this resource to define custom extensions.</p>
+<p>The StructureDefinition resource describes a FHIR structure including data elements and their usage. This resource is used to define custom extensions.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.publisher" target="_blank">Publisher</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.snapshot" target="_blank">Snapshot</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.date" target="_blank">Date</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.fhirVersion" target="_blank">Fhir version</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.constrainedType" target="_blank">Constrained type</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.description" target="_blank">Description</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.contextType" target="_blank">Context type</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.context" target="_blank">Context</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.url" target="_blank">URL</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.kind" target="_blank">Kind</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.differential" target="_blank">Differential</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.abstract" target="_blank">Abstract</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.base" target="_blank">Base</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.name" target="_blank">Name</a></li>
+  <li><a href="https://hl7.org/fhir/dstu2/resource-definitions.html#Resource.id" target="_blank">ID</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.publisher" target="_blank">Publisher</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.snapshot" target="_blank">Snapshot</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.date" target="_blank">Date</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.fhirVersion" target="_blank">FHIR version</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.constrainedType" target="_blank">Constrained type</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.description" target="_blank">Description</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.contextType" target="_blank">Context type</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.context" target="_blank">Context</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.url" target="_blank">URL</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.kind" target="_blank">Kind</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.differential" target="_blank">Differential</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.abstract" target="_blank">Abstract</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.base" target="_blank">Base</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/structuredefinition-definitions.html#StructureDefinition.name" target="_blank">Name</a></li>
 </ul>
 
-<h2 id="retrieve-by-id">Retrieve by id</h2>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<p>List an individual StructureDefinition by its id:</p>
+<p>List an individual structure definition by its ID.</p>
 
 <pre><code>GET /StructureDefinition/:id
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Authentication is not required to access the StructureDefinition resource</li>
+  <li>Authentication is not required to access the StructureDefinition resource.</li>
   <li>
-    <p>This resource can be retrieved by its defining URL or from the StructureDefinition resource located at the <a href="../../#service-root-url">service root URL</a>. For example, both of these URLs work:</p>
+    <p>You can retrieve this resource by its defining URL or from the StructureDefinition resource located at the <a href="../../#service-root-url">service root URL</a>. For example, both of these URLs work:</p>
 
     <p><code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display</code></p>
 
@@ -127,10 +127,6 @@
 <h3 id="authorization-types">Authorization Types</h3>
 
 <p>Authorization is not required.</p>
-
-<div class="auth-types">
-<a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
-</div>
 
 <h3 id="headers">Headers</h3>
 
@@ -304,8 +300,6 @@
   }
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
 <h2 id="list-of-structuredefinitions">List of StructureDefinitions</h2>
 
 <table>
@@ -318,23 +312,23 @@
   <tbody>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/dstu2/StructureDefinition/patient-friendly-display?_format=json"><code>patient-friendly-display</code></a></td>
-      <td>Display string suitable for patient viewing.</td>
+      <td>The display name suitable for patient viewing.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/dstu2/StructureDefinition/scheduling-location?_format=json"><code>scheduling-location</code></a></td>
-      <td>Reference to the location of an appointment being scheduled.</td>
+      <td>The reference to the location of a scheduled appointment.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/dstu2/StructureDefinition/medication-statement-category?_format=json"><code>medication-statement-category</code></a></td>
-      <td>Category of an order.</td>
+      <td>The category of an order.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/dstu2/StructureDefinition/infuse-over-time?_format=json"><code>infuse-over-time</code></a></td>
-      <td>The length of time in minutes it took to infuse a medication.</td>
+      <td>The length of time in minutes to infuse a medication.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/dstu2/StructureDefinition/encounter-guarantor?_format=json"><code>encounter-guarantor</code></a></td>
-      <td>The guarantors of an encounter. Contains a reference to a Patient, Person, or Organization and a period when the guarantor is effective.</td>
+      <td>The guarantors of an encounter. Contains a reference to a patient, person, or organization and a period when the guarantor is effective.</td>
     </tr>
   </tbody>
 </table>

@@ -70,53 +70,53 @@
 <ul id="markdown-toc">
   <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
     </ul>
   </li>
-  <li><a href="#list-of-structuredefinitions" id="markdown-toc-list-of-structuredefinitions">List of StructureDefinitions</a></li>
+  <li><a href="#list-of-structure-definitions" id="markdown-toc-list-of-structure-definitions">List of Structure Definitions</a></li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The StructureDefinition resource describes a FHIR structure including data elements and their usage. Our current implementation uses this resource to define custom extensions.</p>
+<p>The StructureDefinition resource describes a FHIR structure including data elements and their usage. This resource is used to define custom extensions.</p>
 
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Id</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.url" target="_blank">URL</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.name" target="_blank">Name</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.title" target="_blank">Title</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.date" target="_blank">Date</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.publisher" target="_blank">Publisher</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.description" target="_blank">Description</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.fhirVersion" target="_blank">Fhir version</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.kind" target="_blank">Kind</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.abstract" target="_blank">Abstract</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.type" target="_blank">Type</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.context" target="_blank">Context</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.baseDefinition" target="_blank">Base definition</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.snapshot" target="_blank">Snapshot</a></li>
-  <li><a href="http://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.differential" target="_blank">Differential</a></li>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">ID</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.url" target="_blank">URL</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.name" target="_blank">Name</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.title" target="_blank">Title</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.date" target="_blank">Date</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.publisher" target="_blank">Publisher</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.description" target="_blank">Description</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.fhirVersion" target="_blank">FHIR version</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.kind" target="_blank">Kind</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.abstract" target="_blank">Abstract</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.type" target="_blank">Type</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.context" target="_blank">Context</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.baseDefinition" target="_blank">Base definition</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.snapshot" target="_blank">Snapshot</a></li>
+  <li><a href="https://hl7.org/fhir/r4/structuredefinition-definitions.html#StructureDefinition.differential" target="_blank">Differential</a></li>
 </ul>
 
-<h2 id="retrieve-by-id">Retrieve by id</h2>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<p>List an individual StructureDefinition by its id:</p>
+<p>List an individual structure definition by its ID.</p>
 
 <pre><code>GET /StructureDefinition/:id
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Authentication is not required to access the StructureDefinition resource</li>
+  <li>Authentication is not required to access the StructureDefinition resource.</li>
   <li>
-    <p>This resource can be retrieved by its defining URL or from the StructureDefinition resource located at the <a href="../../#service-root-url">service root URL</a>. For example, both of these URLs work:</p>
+    <p>You can retrieve this resource by its defining URL or from the StructureDefinition resource located at the <a href="../../#service-root-url">service root URL</a>. For example, both of these URLs work:</p>
 
     <p><code>https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance</code></p>
 
@@ -127,10 +127,6 @@
 <h3 id="authorization-types">Authorization Types</h3>
 
 <p>Authorization is not required.</p>
-
-<div class="auth-types">
-<a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="patient">Patient</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
-</div>
 
 <h3 id="headers">Headers</h3>
 
@@ -160,13 +156,13 @@
   "fhirVersion": "4.0.0",
   "kind": "complex-type",
   "abstract": false,
-  "type": "Extension",
   "context": [
     {
       "type": "element",
       "expression": "Account"
     }
   ],
+  "type": "Extension",
   "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
   "snapshot": {
     "element": [
@@ -316,7 +312,7 @@
   }
 }</code></pre>
 
-<h2 id="list-of-structuredefinitions">List of StructureDefinitions</h2>
+<h2 id="list-of-structure-definitions">List of Structure Definitions</h2>
 
 <table>
   <thead>
@@ -328,31 +324,31 @@
   <tbody>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/account-balance?_format=json"><code>account-balance</code></a></td>
-      <td>Represents the account balance.</td>
+      <td>The account balance.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/account-presented-form?_format=json"><code>account-presented-form</code></a></td>
-      <td>Link to the PDF statement image related to the statement account.</td>
+      <td>The link to the PDF statement image related to the statement account.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/account-related-parts?_format=json"><code>account-related-parts</code></a></td>
-      <td>A reference to other related Accounts.</td>
+      <td>The reference to other related accounts.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/account-state?_format=json"><code>account-state</code></a></td>
-      <td>The status of the Account within the billing or correspondence workflow.</td>
+      <td>The status of the account in the billing or correspondence workflow.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/bill-code-schedule?_format=json"><code>bill-code-schedule</code></a></td>
-      <td>A defined group of bill codes that drives billing behavior.</td>
+      <td>The defined group of bill codes that drives billing behavior.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/choice-answer?_format=json"><code>choice-answer</code></a></td>
-      <td>Indicates answers come from a list of options.</td>
+      <td>The indication that answers come from a list of options.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/client-instruction?_format=json"><code>client-instruction</code></a></td>
-      <td>Represents instructions for an order that are intended for healthcare providers.</td>
+      <td>The instructions for an order that are intended for healthcare providers.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/client-organization?_format=json"><code>client-organization</code></a></td>
@@ -364,35 +360,35 @@
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-course?_format=json"><code>condition-course</code></a></td>
-      <td>Indication of a condition’s progress since diagnosis.</td>
+      <td>The indication of a condition’s progress since diagnosis.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-lifecycle-status?_format=json"><code>condition-lifecycle-status</code></a></td>
-      <td>Indication of whether a condition is active, inactive, resolved, etc.</td>
+      <td>The indication of whether a condition is active, inactive, resolved, and so on.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/condition-result?_format=json"><code>condition-result</code></a></td>
-      <td>Indication of the presence (positive) or absence (negative) of a given condition.</td>
+      <td>The indication of the presence (positive) or absence (negative) of a given condition.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/converted-measurement?_format=json"><code>converted-measurement</code></a></td>
-      <td>Returns a converted measurement of a different measurement system than the original quantity.</td>
+      <td>The converted measurement of a different measurement system than the original quantity.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter?_format=json"><code>coverage-encounter</code></a></td>
-      <td>Reference to the Encounter associated to the encounter level Coverage.</td>
+      <td>The encounter associated with the encounter-level coverage.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/communication-preference?_format=json"><code>communication-preference</code></a></td>
-      <td>Defines communication methods preferred by a patient.</td>
+      <td>The communication methods preferred by a patient.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json"><code>custom-attribute</code></a></td>
-      <td>A client defined custom attribute for the resource.</td>
+      <td>The client-defined custom attribute for the resource.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/description?_format=json"><code>description</code></a></td>
-      <td>A description providing additional details of the resource.</td>
+      <td>The description providing additional details of the resource.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json"><code>email-status</code></a></td>
@@ -408,15 +404,15 @@
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-account-number?_format=json"><code>financial-transaction-account-number</code></a></td>
-      <td>A value associated to the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number or Lockbox number.</td>
+      <td>The value associated with the specific payment method usually represented as the last four digits of a credit card, the check number, the EFT number, or the lockbox number.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-alias?_format=json"><code>financial-transaction-alias</code></a></td>
-      <td>Client defined value to represent the combination of the type, subtype, and reason describing the financial transaction.</td>
+      <td>The client-defined value to represent the combination of the type, subtype, and reason describing the financial transaction.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-allocation?_format=json"><code>financial-transaction-allocation</code></a></td>
-      <td>Defines how the payment or adjustment is to be allocated across other resources.</td>
+      <td>The indication of how the payment or adjustment is to be allocated across other resources.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-amount?_format=json"><code>financial-transaction-amount</code></a></td>
@@ -424,19 +420,19 @@
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-card-brand?_format=json"><code>financial-transaction-card-brand</code></a></td>
-      <td>Identifies the brand of credit card when credit card is used as a payment method.</td>
+      <td>The brand of credit card when a credit card is used as a payment method.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-date?_format=json"><code>financial-transaction-date</code></a></td>
-      <td>Represents the expiration date if method is card, check date if method is check, EFT date if method is EFT or Lockbox date if method is lockbox.</td>
+      <td>The expiration date if the method is card, check date if the method is check, EFT date if the method is EFT, or lockbox date if the method is lockbox.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-location?_format=json"><code>financial-transaction-location</code></a></td>
-      <td>Client configured value representing the location or workflow that the payment was received in.</td>
+      <td>The client-configured value representing the location or workflow that the payment was received in.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-method?_format=json"><code>financial-transaction-method</code></a></td>
-      <td>Describes the method of payment for the financial transaction.</td>
+      <td>The method of payment for the financial transaction.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/financial-transaction-tendered-amount?_format=json"><code>financial-transaction-tendered-amount</code></a></td>
@@ -448,27 +444,27 @@
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/formatted-text?_format=json"><code>formatted-text</code></a></td>
-      <td>Link to the formatted text for a note. It is used in cases when the note is not a plain text.</td>
+      <td>The link to the formatted text for a note. This link is used when the note is not in plain text.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/infuse-over-time?_format=json"><code>infuse-over-time</code></a></td>
-      <td>The length of time in minutes it took to infuse a medication.</td>
+      <td>The length of time in minutes to infuse a medication.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/is-modifiable?_format=json"><code>is-modifiable</code></a></td>
-      <td>Indication of whether data is modifiable or not.</td>
+      <td>The indication of whether data is modifiable.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician?_format=json"><code>is-physician</code></a></td>
-      <td>Indication of whether the provider is a physician or not.</td>
+      <td>The indication of whether the provider is a physician.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/military-service-connected-indicator?_format=json"><code>military-service-connected-indicator</code></a></td>
-      <td>Identifies whether an encounter is connected to military service.</td>
+      <td>The indication of whether an encounter is connected to military service.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/modifier-code?_format=json"><code>modifier-code</code></a></td>
-      <td>A code providing additional detail about a product or service.</td>
+      <td>The code providing additional detail about a product or service.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/national-drug-product?_format=json"><code>national-drug-product</code></a></td>
@@ -480,27 +476,27 @@
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/note?_format=json"><code>note</code></a></td>
-      <td>Additional details related to an element within the resource along with author and date/time information.</td>
+      <td>The additional details related to an element in the resource with author and date and time information.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/note-allowed?_format=json"><code>note-allowed</code></a></td>
-      <td>Indication of whether an additional comment is permitted.</td>
+      <td>The indication of whether an additional comment is permitted.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/note-type?_format=json"><code>note-type</code></a></td>
-      <td>Describes the type of note represented. This can be useful when there are multiple notes.</td>
+      <td>The type of note represented. Note type can be useful when multiple notes exist.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/offset-by?_format=json"><code>offset-by</code></a></td>
-      <td>Indicates a resource that this resource is offset by. This resource is no longer active when offset.</td>
+      <td>The indication of another resource that offets this resource. This resource is no longer active when offset.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-adopted?_format=json"><code>patient-adopted</code></a></td>
-      <td>Indication of whether a patient is adopted.</td>
+      <td>The indication of whether a patient is adopted.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/patient-friendly-display?_format=json"><code>patient-friendly-display</code></a></td>
-      <td>An expression of the original string in terminology that patients should be able to understand.</td>
+      <td>The display name suitable for patient viewing.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json"><code>payment-collection-status</code></a></td>
@@ -508,27 +504,27 @@
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json"><code>performing-location</code></a></td>
-      <td>A location where the resource was performed.</td>
+      <td>The location where the resource was performed.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json"><code>period</code></a></td>
-      <td>A time period defined by a start and end date/time.</td>
+      <td>The time period defined by a start and end date and time.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status"><code>pharmacy-verification-status</code></a></td>
-      <td>Represents whether a MedicationRequest has been verified by a pharmacist.</td>
+      <td>The indication of whether a medication request is verified by a pharmacist.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/precision?_format=json"><code>precision</code></a></td>
-      <td>Indication of the precision of a given value.</td>
+      <td>The indication of the precision of a given value.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/priority?_format=json"><code>priority</code></a></td>
-      <td>The priority of the element within a list.</td>
+      <td>The priority of the element in a list.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code?_format=json"><code>procedure-code</code></a></td>
-      <td>A code providing information about the procedure performed on the patient associated to the resource.</td>
+      <td>The code providing information about the procedure performed on the patient associated with the resource.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/quantity-conversion-factor?_format=json"><code>quantity-conversion-factor</code></a></td>
@@ -536,7 +532,7 @@
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/related-person-encounter?_format=json"><code>related-person-encounter</code></a></td>
-      <td>Reference to the Encounter associated to the encounter level RelatedPerson.</td>
+      <td>The encounter associated with the encounter-level related person.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/relation?_format=json"><code>relation</code></a></td>
@@ -548,23 +544,23 @@
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/replaced-by?_format=json"><code>replaced-by</code></a></td>
-      <td>The resource containing this link must no longer be used. The link points forward to another resource that must be used in lieu of the resource that contains this link.</td>
+      <td>The resource containing this link must no longer be used. The link points to another resource that must be used in lieu of the resource that contains this link.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/replacing?_format=json"><code>replacing</code></a></td>
-      <td>A reference to a resource that this resource is replacing.</td>
+      <td>The reference to a resource that this resource is replacing.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/reply-to?_format=json"><code>reply-to</code></a></td>
-      <td>A link to a resource that the reply should be directed to.</td>
+      <td>The link to a resource that the reply should be directed to.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/revenue-code?_format=json"><code>revenue-code</code></a></td>
-      <td>The type of revenue or cost center providing the product and/or service.</td>
+      <td>The type of revenue or cost center providing the product, service, or both.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/transmitting-organization?_format=json"><code>transmitting-organization</code></a></td>
-      <td>An organization that transmitted or participated in the creation of a resource, but not the author.</td>
+      <td>The organization that transmitted or participated in the creation of a resource, but not the author.</td>
     </tr>
     <tr>
       <td><a href="https://fhir-ehr.cerner.com/r4/StructureDefinition/unit-price?_format=json"><code>unit-price</code></a></td>

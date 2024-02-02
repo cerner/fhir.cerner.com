@@ -68,7 +68,11 @@
       <h1 id="patient">Patient</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li><a href="#extensions" id="markdown-toc-extensions">Extensions</a></li>
   <li>
@@ -79,16 +83,14 @@
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
       <li><a href="#example-with-revinclude" id="markdown-toc-example-with-revinclude">Example with RevInclude</a></li>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#patient-combines-example" id="markdown-toc-patient-combines-example">Patient Combines Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
+      <li><a href="#patient-combine-example" id="markdown-toc-patient-combine-example">Patient Combine Example</a></li>
     </ul>
   </li>
   <li>
@@ -97,7 +99,6 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -107,7 +108,6 @@
       <li><a href="#patch-operations" id="markdown-toc-patch-operations">Patch Operations</a></li>
       <li><a href="#example-3" id="markdown-toc-example-3">Example</a></li>
       <li><a href="#response-5" id="markdown-toc-response-5">Response</a></li>
-      <li><a href="#errors-3" id="markdown-toc-errors-3">Errors</a></li>
     </ul>
   </li>
   <li><a href="#operation-health-cards-issue" id="markdown-toc-operation-health-cards-issue">Operation: $health-cards-issue</a></li>
@@ -115,14 +115,14 @@
 
 <h2 id="overview">Overview</h2>
 
-<p>The Patient Resource provides general demographic information about a person receiving health care services from a specific organization. Common demographic fields include patient id, patient name, gender, date of birth, address, phone, primary language and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity and birth sex. Cerner Millennium is a patient centric application: thus, many of the other resources will include the patient id in their queries. A person receiving care from multiple organizations may have data available in multiple patient resources in multiple FHIR servers.</p>
+<p>The Patient Resource provides general demographic information about a person receiving healthcare services from a specific organization. Common demographic fields include patient ID, patient name, gender, date of birth, address, phone, primary language, and marital status. Additional concepts returned as extensions and not part of the base resource include time of birth, preferred contact, race, ethnicity, and birth sex. Millennium is a patient-centric application; thus, many other resources include the patient ID in their queries. A person receiving care from multiple organizations may have information available in multiple patient resources in multiple FHIR servers.</p>
 
 <ul>
   <li>
-    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+    <p>This resource supports the following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">US Core Implementation Guide</a> profiles:</p>
 
     <ul>
-      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-patient.html" target="_blank">US Core Patient Profile</a></li>
+      <li><a href="https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-patient.html" target="_blank">US Core Patient Profile</a></li>
     </ul>
   </li>
 </ul>
@@ -130,40 +130,34 @@
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Patient id</a></li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier" target="_blank">Patient Identifier</a></li>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Patient ID</a></li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.identifier" target="_blank">Identifiers</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.active" target="_blank">Active</a></li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.name" target="_blank">Patient name</a></li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom" target="_blank">Telecom Information (may include phone and email)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender" target="_blank">Gender (administrative)</a></li>
-  <li><a href="#extensions" target="_blank">Extensions including birth time, preferred contact, birth sex, ethnicity, communication preference and race</a></li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.name" target="_blank">Name</a></li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom" target="_blank">Telecom</a></li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender" target="_blank">Gender</a></li>
+  <li><a href="#extensions">Extensions</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate" target="_blank">Date of Birth</a></li>
-  <li>
-<a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_" target="_blank">Deceased</a>
-    <ul>
-      <li><a href="https://hl7.org/fhir/R4/datatypes.html#boolean" target="_blank">Boolean</a></li>
-      <li><a href="https://hl7.org/fhir/R4/datatypes.html#dateTime" target="_blank">dateTime</a></li>
-    </ul>
-  </li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.deceased_x_" target="_blank">Deceased</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.address" target="_blank">Address</a></li>
   <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus" target="_blank">Marital status</a></li>
-  <li>
-<a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.multipleBirth_x_" target="_blank">Multiple Birth Information</a>
-    <ul>
-      <li><a href="https://hl7.org/fhir/R4/datatypes.html#boolean" target="_blank">Boolean</a></li>
-      <li><a href="https://hl7.org/fhir/R4/datatypes.html#integer" target="_blank">Integer</a></li>
-    </ul>
-  </li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.contact" target="_blank">Contact person (guardian, parent or emergency)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication" target="_blank">Communication (preferred language)</a></li>
-  <li>
-<a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner" target="_blank">Primary Care Providers</a>
-    <ul>
-      <li>
-<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a>)</li>
-    </ul>
-  </li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.multipleBirth_x_" target="_blank">Multiple Birth information</a></li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.contact" target="_blank">Contact person</a></li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication" target="_blank">Communication</a></li>
+  <li><a href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner" target="_blank">Primary Care Providers</a></li>
 </ul>
+
+<p><em>Notes</em></p>
+
+<ul>
+  <li>Direct secure email is not returned.</li>
+</ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -176,7 +170,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type">Patient.identifier.type</a>
+          <a target="_blank" href="https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type">Patient.identifier.type</a>
       
       </td>
     </tr>
@@ -512,18 +506,10 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Patients that meet supplied query parameters:</p>
+<p>Search for patients who meet supplied query parameters.</p>
 
 <pre><code>GET /Patient?:parameters
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>Direct secure email will not be returned.</li>
-  <li>
-<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use" target="_blank">Patient.identifier.use</a> will have a value of ‘usual’</li>
-</ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
 
@@ -545,125 +531,119 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or any other required search parameter</td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource ID associated with the resource. This parameter is required if at least one of the following parameters is not used: <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>birthdate</code>, <code>phone</code>, <code>email</code>, or <code>address-postalcode</code>. Example: <code>11111111</code>
+</td>
     </tr>
     <tr>
       <td><code>identifier</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>A patient identifier.  Example: <code>urn:oid:1.1.1.1.1.1|1022228</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>A patient identifier. This parameter is required if <code>_id</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>birthdate</code>, <code>phone</code>, <code>email</code>, and <code>address-postalcode</code> are not used. Example: <code>urn:oid:1.1.1.1.1.1\|1022228</code>
 </td>
     </tr>
     <tr>
       <td><code>name</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
-      <td>The start of either family or given name of the patient. Example: <code>John</code>
+      <td>The start of the family or given name of the patient. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>family</code>, <code>given</code>, <code>birthdate</code>, <code>phone</code>, <code>email</code>, and <code>address-postalcode</code> are not used. Example: <code>Pete</code>
 </td>
     </tr>
     <tr>
       <td><code>family</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
-      <td>The start of the family name of the patient. Example: <code>Smith</code>
+      <td>The start of the family name of the patient. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>name</code>, <code>given</code>, <code>birthdate</code>, <code>phone</code>, <code>email</code>, and <code>address-postalcode</code> are not used. Example: <code>Adam</code>
 </td>
     </tr>
     <tr>
       <td><code>given</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
-      <td>The start of the given name of the patient. Example: <code>John</code>
+      <td>The start of the given name of the patient. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>name</code>, <code>family</code>, <code>birthdate</code>, <code>phone</code>, <code>email</code>, and <code>address-postalcode</code> are not used. Example: <code>Tim</code>
 </td>
     </tr>
     <tr>
       <td><code>birthdate</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
-      <td>The patient’s date of birth.  Example: <code>1990-01-01</code>
+      <td>The patient’s date of birth. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>phone</code>, <code>email</code>, and <code>address-postalcode</code> are not used. Example: <code>1961-01-16</code>
 </td>
     </tr>
     <tr>
       <td><code>phone</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The patient’s phone number. Example: <code>1234567891</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The patient’s phone number. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>birthdate</code>, <code>email</code>, and <code>address-postalcode</code> are not used. Example: <code>1111111111</code>
 </td>
     </tr>
     <tr>
       <td><code>email</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The patient’s email address. Example: <code>example@example.com</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The patient’s email address. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>birthdate</code>, <code>phone</code>, and <code>address-postalcode</code> are not used. Example: <code>example@example.com</code>
 </td>
     </tr>
     <tr>
       <td><code>address-postalcode</code></td>
-      <td>This and/or any other search param, or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
-      <td>The postal code in the address details of the patient. Example: <code>12345</code>
+      <td>The postal code in the address details of the patient. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>birthdate</code>, <code>phone</code>, and <code>email</code> are not used. Example: <code>11111</code>
 </td>
     </tr>
     <tr>
       <td><code>gender</code></td>
       <td>No</td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The gender of the patient. Example: <code>male</code>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The administrative gender of the patient. Example: <code>male</code>
 </td>
     </tr>
     <tr>
-      <td><a href="http://hl7.org/fhir/R4/search.html#count"><code>_count</code></a></td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#count"><code>_count</code></a></td>
       <td>No</td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#number"><code>number</code></a></td>
       <td>The maximum number of results to return. Defaults to <code>20</code>.</td>
     </tr>
     <tr>
       <td><code>_revinclude</code></td>
       <td>No</td>
-      <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
+      <td>The Provenance resource entries to be returned as part of the bundle. Example:<code>_revinclude=Provenance:target</code>
+</td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:</p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Either the <code>_id</code>, or a combination of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters must be provided.</li>
-  <li>The <code>gender</code> parameter may only be provided if at least one of <code>identifier</code> , <code>birthdate</code>, <code>name</code>, <code>given</code>, <code>family</code>, <code>address-postalcode</code>, <code>phone</code>, or <code>email</code> parameters is provided.</li>
-  <li>The <code>name</code>, <code>family</code>, and <code>given</code> parameters support the ‘:exact’ modifier and will search for current names only.</li>
-  <li>It is not recommended to combine <code>family</code> or <code>given</code> parameters with <code>name</code> parameter when searching for a patient. Whenever possible use the ‘:exact’ modifier.</li>
+  <li>A <code>422 Unprocessable Content</code> status code is returned when more than 1,000 patients qualify for the search criteria.</li>
+  <li>The <code>name</code>, <code>family</code>, and <code>given</code> parameters support the [<code>:exact</code>] modifier and search for current names only, based on the name’s <code>period</code>.</li>
+  <li>We do not recommend combining the <code>family</code> or <code>given</code> parameters with the <code>name</code> parameter when searching for a patient. Whenever possible, use the <code>:exact</code> modifier.</li>
   <li>The <code>identifier</code>, <code>name</code>, <code>family</code>, <code>given</code>, <code>phone</code>, <code>email</code>, <code>address-postalcode</code>, or <code>gender</code> parameters may be provided exactly once and may have only a single value.</li>
   <li>The <code>birthdate</code> parameter
     <ul>
-      <li>May be provided twice using the prefixes <code>le</code> and <code>ge</code> to indicate a date range</li>
-      <li>May be provided once using one of the following prefixes to imply a date range: <code>ge</code>, <code>le</code>, <code>gt</code>, <code>lt</code>, <code>eq</code>
+      <li>May be provided once using one of the following prefixes to imply a date range: <code>ge</code>, <code>le</code>, <code>gt</code>, <code>lt</code>, or <code>eq</code>.</li>
+      <li>May be provided twice to indicate a date range and must contain one prefix each of <code>le</code> and <code>ge</code>. Example: <code>birthdate=ge2001-03-13&amp;birthdate=le2001-05-01</code>
 </li>
-      <li>Must not be provided with a time component</li>
+      <li>Must not be provided with a time component.</li>
     </ul>
   </li>
   <li>The <code>identifier</code> parameter
     <ul>
-      <li>Code details are required. System is optional. If system is not provided, search is performed across all systems supported by the
-Patient resource.</li>
-      <li>When valid system is provided, search is performed against the specific system.</li>
+      <li>Requires a code, but the system is optional. If the system is not provided, the search is performed across all systems supported by the Patient resource.</li>
+      <li>Searches against the specific system, if it is provided.</li>
+      <li>Accepts a Social Security Number (SSN), but the value is not returned in a matching response.</li>
     </ul>
   </li>
-  <li>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code>
+  <li>The <code>_revinclude</code> parameter
+    <ul>
+      <li>May be provided once with the value of <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code>
 </li>
-  <li>The <code>_revinclude</code> parameter may be provided with any required search param. Example: <code>_id=629928&amp;_revinclude=Provenance:target</code>
-</li>
-  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</li>
-  <li>FHIR does not return the SSN. It can be passed in as a query parameter but it won’t come back in the JSON response.</li>
+      <li>Requires the OAuth2 token to include the Provenance scope corresponding to the current Patient scope, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code>, or <code>system/Provenance.read</code>.</li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -675,7 +655,7 @@ Patient resource.</li>
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?_id=12724067
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient?family=smart&amp;given=joe&amp;birthdate=1990-09-15
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -1421,26 +1401,13 @@ Patient resource.</li>
     }
   ]
 }</code></pre>
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="errors">Errors</h3>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned. In addition, a <code>422 Unprocessable Entity</code> will be returned when too many (&gt;1000) patients qualify for the search criteria.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Patient by its id:</p>
+<p>List an individual patient by their ID.</p>
 
 <pre><code>GET /Patient/:id
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>Direct secure email will not be returned.</li>
-  <li>
-<a href="https://hl7.org/fhir/R4/datatypes-definitions.html#Identifier.use" target="_blank">Patient.identifier.use</a> will have a value of ‘usual’</li>
-</ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
 
@@ -1884,14 +1851,12 @@ Patient resource.</li>
   ]
 }</code></pre>
 
-<h3 id="patient-combines-example">Patient Combines Example</h3>
+<h3 id="patient-combine-example">Patient Combine Example</h3>
 
-<p>Cerner Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This is known
-as a “patient combine”. If necessary, this merging can later be undone by performing a “patient uncombine”. When the requested patient record has been combined into another
-record, an inactive Patient entry will be returned which has a link to the current Patient entry. Entries for combined patients will only be returned when retrieving
-the entries directly by id. They will not be returned when searching with other parameters.</p>
-
-<p>The ability to perform patient combine or uncombine operations is not available through the Cerner Ignite platform.</p>
+<p>Millennium supports the ability to logically merge a patient record into another patient record when both records are describing the same patient. This action is known
+as a patient combine. If necessary, you can perform a patient uncombine to undo this merging. When the requested patient record is combined into another
+record, an inactive patient entry is returned with a link to the current patient entry. Entries for combined patients are only returned when retrieving
+the entries directly by ID. They are not returned when searching with other parameters.</p>
 
 <h4 id="request-3">Request</h4>
 
@@ -1951,23 +1916,12 @@ the entries directly by id. They will not be returned when searching with other 
   ]
 }</code></pre>
 
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="create">Create</h2>
 
-<p>Create a new Patient.</p>
+<p>Create a new patient.</p>
 
 <pre><code>POST /Patient
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
-  <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
-</ul>
 
 <h3 id="authorization-types-3">Authorization Types</h3>
 
@@ -1982,10 +1936,10 @@ the entries directly by id. They will not be returned when searching with other 
 <a href="../../#media-types">Content-Type</a>: application/fhir+json</code></pre>
 
 <h3 id="body-fields">Body Fields</h3>
-
-<p>Notes:</p>
+<p><em>Notes</em></p>
 
 <ul>
+  <li>Only the body fields mentioned below are supported. Unsupported fields are ignored.</li>
   <li>Birth Sex, Ethnicity, and Race may be recorded as extensions.</li>
 </ul>
 
@@ -2003,7 +1957,7 @@ the entries directly by id. They will not be returned when searching with other 
       <td>
         <a name="create-resourceType">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/json.html#resources"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -2041,7 +1995,7 @@ the entries directly by id. They will not be returned when searching with other 
       <td>
         <a name="create-identifier">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/datatypes.html#Identifier"><code>identifier</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#Identifier"><code>identifier</code></a>
         
         
       </td>
@@ -2114,47 +2068,9 @@ the entries directly by id. They will not be returned when searching with other 
     
     <tr>
       <td>
-        <a name="create-active">
-        
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.active"><code>active</code></a>
-        
-        
-      </td>
-      <td>No </td>
-      <td>
-<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#boolean"><code>boolean</code></a> </td>
-    </tr>
-    <tr>
-      <td colspan="4">
-      <ul style="list-style-type: none; margin: 1.2em">
-      
-        <li><i>Description</i></li>
-        <ul style="list-style-type: none"><li>Whether this patient record is in active use.</li></ul>
-      
-      
-        <li><i>Example</i></li>
-        <ul style="list-style-type: none"><li><pre>{
-  "active": true
-}
-</pre></li></ul>
-      
-      
-      
-      
-      
-        <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>If set, value must be true.</li></ul>
-      
-      </ul>
-      <div style="float: right"><a href="#create">top of section</a></div>
-      </td>
-    </tr>
-    
-    <tr>
-      <td>
         <a name="create-name">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.name"><code>name</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.name"><code>name</code></a>
         
         
       </td>
@@ -2229,9 +2145,47 @@ the entries directly by id. They will not be returned when searching with other 
     
     <tr>
       <td>
+        <a name="create-active">
+        
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.active"><code>active</code></a>
+        
+        
+      </td>
+      <td>No </td>
+      <td>
+<a target="_blank" href="https://hl7.org/fhir/R4/datatypes.html#boolean"><code>boolean</code></a> </td>
+    </tr>
+    <tr>
+      <td colspan="4">
+      <ul style="list-style-type: none; margin: 1.2em">
+      
+        <li><i>Description</i></li>
+        <ul style="list-style-type: none"><li>Whether this patient record is in active use.</li></ul>
+      
+      
+        <li><i>Example</i></li>
+        <ul style="list-style-type: none"><li><pre>{
+  "active": true
+}
+</pre></li></ul>
+      
+      
+      
+      
+      
+        <li><i>Notes</i></li>
+        <ul style="list-style-type: none"><li>If set, the value must be <code>true</code>.</li></ul>
+      
+      </ul>
+      <div style="float: right"><a href="#create">top of section</a></div>
+      </td>
+    </tr>
+    
+    <tr>
+      <td>
         <a name="create-telecom">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom"><code>telecom</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.telecom"><code>telecom</code></a>
         
         
       </td>
@@ -2292,7 +2246,7 @@ the entries directly by id. They will not be returned when searching with other 
       <td>
         <a name="create-gender">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.gender"><code>gender</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.gender"><code>gender</code></a>
         
         
       </td>
@@ -2327,7 +2281,7 @@ the entries directly by id. They will not be returned when searching with other 
       <td>
         <a name="create-birthDate">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate"><code>birthDate</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.birthDate"><code>birthDate</code></a>
         
         
       </td>
@@ -2362,7 +2316,7 @@ the entries directly by id. They will not be returned when searching with other 
       <td>
         <a name="create-address">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.address"><code>address</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.address"><code>address</code></a>
         
         
       </td>
@@ -2426,7 +2380,7 @@ the entries directly by id. They will not be returned when searching with other 
       <td>
         <a name="create-maritalStatus">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus"><code>maritalStatus</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.maritalStatus"><code>maritalStatus</code></a>
         
         
       </td>
@@ -2470,7 +2424,7 @@ the entries directly by id. They will not be returned when searching with other 
       <td>
         <a name="create-communication">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.communication"><code>communication</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.communication"><code>communication</code></a>
         
         
       </td>
@@ -2522,7 +2476,7 @@ the entries directly by id. They will not be returned when searching with other 
       <td>
         <a name="create-generalPractitioner">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner"><code>generalPractitioner</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/patient-definitions.html#Patient.generalPractitioner"><code>generalPractitioner</code></a>
         
         
       </td>
@@ -3004,28 +2958,26 @@ Etag: W/"0"
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Patient/5786010
 Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
 Vary: Origin
-X-Request-Id: 11111111111111111111111111111111
+X-Request-Id: 6aa99cae-2ee5-4529-8cb2-1aa73f818207
+opc-request-id: /4B7BCF043117301F1B647EF553C7F250/A326F573558AD7570F63BFC19D88739A
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="patch">Patch</h2>
 
-<p>Patch an existing Patient.</p>
+<p>Patch an existing patient.</p>
 
 <pre><code>PATCH /Patient/:id
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>This implementation follows the <a href="https://tools.ietf.org/html/rfc6902">JSON PATCH</a> spec.</li>
+  <li>This implementation follows RFC 6902 <a href="https://tools.ietf.org/html/rfc6902">JSON Patch</a>.</li>
   <li>Only operations on the paths listed below are supported.</li>
-  <li>When a path includes <code>{index}</code>, it refers to the index of the element in the list of elements. The indexes here are 0 based.</li>
+  <li>When a path includes <code>{index}</code>, it refers to the index of the element in the list of elements.</li>
+  <li>All indexes are 0 based.</li>
 </ul>
 
 <h3 id="authorization-types-4">Authorization Types</h3>
@@ -3133,7 +3085,7 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
           
             <li><i>Example</i></li>
             <ul style="list-style-type: none"><li><pre>{
-  "path": "/identifier/1/id",
+  "path": "/identifier/0/id",
   "op": "test",
   "value": "CI-9926250-1"
 }
@@ -3251,7 +3203,7 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
           
             <li><i>Example</i></li>
             <ul style="list-style-type: none"><li><pre>{
-  "path": "/identifier/1/value",
+  "path": "/identifier/0/value",
   "op": "replace",
   "value": "&lt;unique identifier&gt;"
 }
@@ -3516,7 +3468,7 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
           
             <li><i>Example</i></li>
             <ul style="list-style-type: none"><li><pre>{
-  "path": "/name/0/suffix",
+  "path": "/name/2/suffix",
   "op": "replace",
   "value": "Jr."
 }
@@ -3613,6 +3565,7 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
     "system": "phone",
     "value": "8168229121",
     "use": "home",
+    "rank": 1,
     "extension": [
       {
         "valueString": "12345",
@@ -3841,7 +3794,7 @@ If-Match: W/"&lt;Current version of the Patient resource&gt;"</code></pre>
   <li>Requires a <a href="#test-telecom-id">test operation</a> to be provided for the <code>ContactPoint.id</code> of the telecom whose <code>extension</code> value is intended to be replaced.</li>
   <li>The <code>system</code> field of the telecom whose <code>extension</code> is intended to be replaced must be 'phone'.</li>
   <li>If no <code>valueString</code> is provided, the phone extension will be unset.</li>
-  <li>The url must be 'http://hl7.org/fhir/StructureDefinition/contactpoint-extension'.</li>
+  <li>The <code>url</code> value must be `http://hl7.org/fhir/StructureDefinition/contactpoint-extension`.</li>
 </ul>
 </li></ul>
           
@@ -5167,23 +5120,20 @@ Date: Wed, 27 Mar 2019 17:23:14 GMT
 Etag: W/"1"
 Last-Modified: Wed, 27 Mar 2019 17:23:14 GMT
 Vary: Origin
-X-Request-Id: 81c05ba01b2c19e5bf421449ff8e97eb
+X-Request-Id: 02352eda-9574-4f23-9ab7-5915d5b09627
+opc-request-id: /4B7BCF043117301F1B647EF553C7F250/A326F573558AD7570F63BFC19D88739A
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
 
-<h3 id="errors-3">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="operation-health-cards-issue">Operation: $health-cards-issue</h2>
 
-<p>Issues Health Cards for an existing Patient.</p>
+<p>Issues Health Cards for an existing patient.</p>
 
 <pre><code>POST /Patient/:id/$health-cards-issue
 </code></pre>
 
-<p>See <a href="../../../foundation/other/health-cards/">Health Cards</a> documentation for more details about this operation.</p>
+<p>See <a href="../../foundation/other/health-cards">Health Cards</a> documentation for more details about this operation.</p>
 
 
     </div>

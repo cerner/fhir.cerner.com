@@ -68,7 +68,11 @@
       <h1 id="provenance">Provenance</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
@@ -76,15 +80,13 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -93,16 +95,15 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Provenance resource tracks the source of external data and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter.  Entities are Continuity of Care DocumentReferences (CCDs).</p>
+<p>The Provenance resource tracks the source of external information and is used to assess the trustworthiness and reliability of a resource. Sources can be an organization author or organization transmitter. The <code>target</code> field references a resource that this Provenance entry is related to. Entities are Continuity of Care Documents (CCDs) generated through the <a href="../../documents/document-reference/#overview">DocumentReference</a> resource.</p>
 
-<p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+<p>This resource supports the following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> profiles:</p>
 
 <ul>
   <li><a href="https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-provenance.html" target="_blank">US Core Provenance Profile</a></li>
@@ -111,16 +112,27 @@
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Provenance id</a></li>
+  <li><a href="https://hl7.org/fhir/R4/resource-definitions.html#Resource.id" target="_blank">Provenance ID</a></li>
   <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.target" target="_blank">Target</a></li>
   <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.recorded" target="_blank">Recorded</a></li>
-  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type" target="_blank">Agent type (author or transmitter)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role" target="_blank">Agent role (source or informant)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who" target="_blank">Agent who (Practitioner, Device, or Organization)</a></li>
-  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf" target="_blank">Agent on behalf of (when Agent.who is of type Practitioner)</a></li>
+  <li>
+<a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent" target="_blank">Agent</a>
+    <ul>
+      <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type" target="_blank">Agent type</a></li>
+      <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role" target="_blank">Agent role</a></li>
+      <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who" target="_blank">Agent who</a></li>
+      <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.onBehalfOf" target="_blank">Agent on behalf of (only when Agent.who is of type Practitioner)</a></li>
+    </ul>
+  </li>
   <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.role" target="_blank">Entity role</a></li>
-  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what" target="_blank">Entity what (Continuity of Care DocumentReference id)</a></li>
+  <li><a href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what" target="_blank">Entity what</a></li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -182,7 +194,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Provenances that meet supplied query parameters:</p>
+<p>Search for provenances that meet the supplied query parameters.</p>
 
 <pre><code>GET /Provenance?:parameters
 </code></pre>
@@ -207,22 +219,51 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or <code>target</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource. Example: <code>doc-7845</code>
+      <td>The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the <code>target</code> parameter is not used. Example: <code>_id=doc-1234</code>
 </td>
     </tr>
     <tr>
       <td><code>target</code></td>
-      <td>This or <code>_id</code>
-</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>Target Reference(s) (usually version specific). The AllergyIntolerance, CarePlan, CareTeam, Condition, DiagnosticReport, DocumentReference, Encounter, Goal, Immunization, MedicationRequest, Observation, Patient and Procedure resources are supported. Example: <code>DocumentReference/66547</code>
+      <td>The target references, which can be version-specific. See Notes for list of supported resources. Example: <code>target=DocumentReference/66547</code>
 </td>
     </tr>
   </tbody>
 </table>
+
+<p><em>Notes</em></p>
+
+<ul>
+  <li>When searching with the <code>_id</code> parameter:
+    <ul>
+      <li>Must not include any other parameters.</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>target</code> parameter:
+    <ul>
+      <li>The following resources are supported at this time:
+        <ul>
+          <li>AllergyIntolerance</li>
+          <li>CarePlan</li>
+          <li>CareTeam</li>
+          <li>Condition</li>
+          <li>DiagnosticReport</li>
+          <li>DocumentReference</li>
+          <li>Encounter</li>
+          <li>Goal</li>
+          <li>Immunization</li>
+          <li>MedicationRequest</li>
+          <li>Observation</li>
+          <li>Patient</li>
+          <li>Procedure</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="headers">Headers</h3>
 
@@ -312,8 +353,6 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
 <h4 id="patient-authorization-request">Patient Authorization Request</h4>
 
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance?_id=all-1595070
@@ -378,15 +417,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Provenance by its id:</p>
+<p>List an individual provenance by its ID.</p>
 
 <pre><code>GET /Provenance/:id
 </code></pre>
@@ -467,8 +500,6 @@
     }
   ]
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
 
@@ -551,25 +582,18 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="create">Create</h2>
 
-<p>Create a new Provenance.</p>
+<p>Create a new provenance.</p>
 
 <pre><code>POST /Provenance
 </code></pre>
 
-<p><em>Implementation Notes</em></p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Only the body fields mentioned below are supported. Unsupported fields will be ignored.</li>
-  <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
-  <li>The <code>Provenance.write</code> scopes must be provided in order to create a Provenance with an Observation Measurement target.</li>
+  <li>Only the body fields mentioned below are supported. Unsupported fields are ignored or can result in errors.</li>
+  <li>The <code>Provenance.write</code> scope must be provided to create a provenance with an Observation Measurement Target.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -671,9 +695,23 @@
         <li><i>Notes</i></li>
         <ul style="list-style-type: none"><li>
 <ul>
-  <li> Only one target may be provided.</li>
-  <li> The AllergyIntolerance, Condition, DocumentReference, Encounter, Immunization, MedicationRequest,
-    Observation, Patient and Procedure resources are supported.</li>
+  <li>Only one target may be provided.</li>
+  <li>The following resources are supported</li>
+    <ul>
+        <li>AllergyIntolerance</li>
+        <li>CarePlan</li>
+        <li>CareTeam</li>
+        <li>Condition</li>
+        <li>DiagnosticReport</li>
+        <li>DocumentReference</li>
+        <li>Encounter</li>
+        <li>Goal</li>
+        <li>Immunization</li>
+        <li>MedicationRequest</li>
+        <li>Observation</li>
+        <li>Patient</li>
+        <li>Procedure</li>
+    </ul>
 </ul>
 </li></ul>
       
@@ -783,7 +821,7 @@
       <td>
         <a name="create-agent.type">
         
-          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.type"><code>agent.type</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.type"><code>agent.type</code></a>
         
         
       </td>
@@ -825,7 +863,7 @@
       <td>
         <a name="create-agent.role">
         
-          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.role"><code>agent.role</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.role"><code>agent.role</code></a>
         
         
       </td>
@@ -869,7 +907,7 @@
       <td>
         <a name="create-agent.who">
         
-          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.agent.who"><code>agent.who</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent.who"><code>agent.who</code></a>
         
         
       </td>
@@ -983,7 +1021,7 @@
       <td>
         <a name="create-entity.what">
         
-          </a><a target="_blank" href="https://hl7.org/fhir//R4/provenance-definitions.html#Provenance.entity.what"><code>entity.what</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.entity.what"><code>entity.what</code></a>
         
         
       </td>
@@ -1084,16 +1122,11 @@ Etag: W/"881057"
 Location: https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Provenance/doc-881057
 Last-Modified: Tue, 31 Mar 2020 15:37:25 GMT
 Vary: Origin
-X-Request-Id: 11111111111111111111111111111111
+opc-request-id: /11111111111111111111111111111111/11111111111111111111111111111111
+X-Request-Id: 11111111-1111-1111-1111-111111111111
 </pre>
 
 <p>The <code>ETag</code> response header indicates the current <code>If-Match</code> version to use on subsequent updates.</p>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

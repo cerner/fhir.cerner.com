@@ -68,28 +68,26 @@
       <h1 id="practitioner">Practitioner</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
-  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
-<a href="#extensions" id="markdown-toc-extensions">Extensions</a>    <ul>
-      <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
+  <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
+  <li><a href="#custom-extensions" id="markdown-toc-custom-extensions">Custom Extensions</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
   <li>
@@ -98,20 +96,19 @@
       <li><a href="#headers-2" id="markdown-toc-headers-2">Headers</a></li>
       <li><a href="#body-fields" id="markdown-toc-body-fields">Body Fields</a></li>
       <li><a href="#example-2" id="markdown-toc-example-2">Example</a></li>
-      <li><a href="#errors-2" id="markdown-toc-errors-2">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Practitioner Resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include but are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.</p>
+<p>The Practitioner resource provides information about a person formally involved in the care of a patient on behalf of a healthcare facility. Practitioners include but are not limited to physicians, nurses, pharmacists, therapists, technologists, and social workers.</p>
 
-<p>Not all practitioners have access to the EHR but can be referenced by other resources to indicate they are in some way involved in a patient’s care.</p>
+<p>Not all practitioners have access to the electronic health record (EHR) but can be referenced by other resources to indicate that they are in some way involved in a patient’s care.</p>
 
 <ul>
   <li>
-    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+    <p>This resource supports the following <a href="https://hl7.org/fhir/us/core/STU4/" target="_blank">HL7 FHIR US Core Implementation Guide STU 4.0.0</a> profiles:</p>
 
     <ul>
       <li><a href="https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-practitioner.html" target="_blank">US Core Practitioner Profile</a></li>
@@ -122,16 +119,22 @@
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Practitioner id</a></li>
-  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.identifier" target="_blank">Identifiers/Aliases such as NPI and DEA</a></li>
-  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.active" target="_blank">Active (true/false)</a></li>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Practitioner ID</a></li>
+  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.identifier" target="_blank">Identifier</a></li>
+  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.active" target="_blank">Active</a></li>
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.name" target="_blank">Name</a></li>
-  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.telecom" target="_blank">Telecom Information (secure email and phone)</a></li>
-  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address" target="_blank">Address (Provider and System Authorization Only)</a></li>
+  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.telecom" target="_blank">Telecom</a></li>
+  <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.address" target="_blank">Address</a></li>
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.gender" target="_blank">Gender</a></li>
   <li><a href="https://hl7.org/fhir/r4/practitioner-definitions.html#Practitioner.qualification" target="_blank">Qualification</a></li>
   <li><a href="#extensions">Is Physician Extension</a></li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -146,7 +149,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type">Practitioner.identifier.type</a>
+          <a target="_blank" href="https://hl7.org/fhir/r4/datatypes-definitions.html#Identifier.type">Practitioner.identifier.type</a>
       
       </td>
     </tr>
@@ -204,7 +207,7 @@
     <tr>
       <td>
       
-          <a target="_blank" href="http://hl7.org/fhir/r4/datatypes-definitions.html#Coding.code">Practitioner.qualification.code</a>
+          <a target="_blank" href="https://hl7.org/fhir/r4/datatypes-definitions.html#Coding.code">Practitioner.qualification.code</a>
       
       </td>
     </tr>
@@ -222,7 +225,7 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/v2/0360/2.7/index.html">Qualification codes</a><br>
+                      <p>Details: <a target="_blank" href="https://hl7.org/fhir/R4/v2/0360/2.7/index.html">Qualification codes</a><br>
                       
                         System: http://terminology.hl7.org/CodeSystem/v2-0360|2.7 <br>
                       
@@ -244,13 +247,7 @@
   </tbody>
 </table>
 
-<h2 id="extensions">Extensions</h2>
-
-<ul>
-  <li><a href="#custom-extensions">Is Physician</a></li>
-</ul>
-
-<h3 id="custom-extensions">Custom Extensions</h3>
+<h2 id="custom-extensions">Custom Extensions</h2>
 
 <p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}</code></p>
 
@@ -265,15 +262,15 @@
   <tbody>
     <tr>
       <td><code>is-physician</code></td>
-      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>Boolean</code></a></td>
-      <td>Indication of whether the provider is a physician or not.</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#boolean"><code>boolean</code></a></td>
+      <td>Indicates whether the practitioner is a physician.</td>
     </tr>
   </tbody>
 </table>
 
 <h2 id="search">Search</h2>
 
-<p>Search for Practitioners that meet supplied query parameters:</p>
+<p>Search for practitioners that meet supplied query parameters.</p>
 
 <pre><code>GET /Practitioner?:parameters
 </code></pre>
@@ -298,50 +295,50 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This or any other required search parameter</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
-    </tr>
-    <tr>
-      <td><code>identifier</code></td>
-      <td>This or any other required search parameter</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>A practitioner identifier/alias. Example: <code>http://hl7.org/fhir/sid/us-npi|4326587548</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource ID associated with the resource. This parameter is required if <code>identifier</code>, <code>family</code>, <code>name</code>, or <code>active</code> is not used. Example: <code>12345</code>
 </td>
     </tr>
     <tr>
+      <td><code>identifier</code></td>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The practitioner identifier. This parameter is required if <code>_id</code>, <code>family</code>, <code>name</code>, or <code>active</code> is not used.</td>
+    </tr>
+    <tr>
       <td><code>family</code></td>
-      <td>This or any other required search parameter</td>
+      <td>Conditionally</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
-      <td>The start of the family name of the practitioner. Example: <code>Smith</code>
+      <td>The start of the family name of the practitioner. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>name</code>, or <code>active</code> is not used. Example: <code>Smith</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>name</code></td>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
+      <td>The start of the given name or the family name of the practitioner. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>family,</code> or <code>active</code> is not used. Example: <code>Riley</code>
+</td>
+    </tr>
+    <tr>
+      <td><code>active</code></td>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The indication of whether this practitioner’s record is in active use. This parameter is required if <code>_id</code>, <code>identifier</code>, <code>family</code>, or <code>name</code> is not used. Example: <code>active=true</code>
 </td>
     </tr>
     <tr>
       <td><code>given</code></td>
-      <td>This and <code>family</code>, or any other required search parameter</td>
+      <td>No</td>
       <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
       <td>The start of the given name of the practitioner. Example: <code>John</code>
 </td>
     </tr>
     <tr>
-      <td><code>name</code></td>
-      <td>This or any other required search parameter</td>
-      <td><a href="https://hl7.org/fhir/R4/search.html#string"><code>string</code></a></td>
-      <td>The start of the first, middle or last name of the practitioner. Example: <code>John</code> or <code>Smith</code>
-</td>
-    </tr>
-    <tr>
-      <td><code>active</code></td>
-      <td>This or any other required search parameter</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>true or false. Example: <code>active=true</code>
-</td>
-    </tr>
-    <tr>
-      <td><a href="http://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#count"><code>_count</code></a></td>
       <td>No</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
-      <td>Number of results per page.</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#number"><code>number</code></a></td>
+      <td>The number of results per page.</td>
     </tr>
   </tbody>
 </table>
@@ -349,10 +346,16 @@
 <p>Notes:</p>
 
 <ul>
-  <li>When provided, the <code>identifier</code> query parameter must include both a system and a code.</li>
-  <li>The <code>given</code> parameter may only be provided if <code>family</code> parameter is provided.</li>
-  <li>The <code>name</code> parameter must have at least 2 characters</li>
-  <li>When provided, the <code>active</code> query parameter must not include system. It accepts only true or false code.</li>
+  <li>The <code>identifier</code> query parameter must include both a system and a code.
+    <ul>
+      <li>Example: <code>http://hl7.org/fhir/sid/us-npi|4326587548</code>
+</li>
+    </ul>
+  </li>
+  <li>If the <code>given</code> parameter is provided, the <code>family</code> parameter is required.</li>
+  <li>The <code>name</code> parameter must have at least two characters.</li>
+  <li>The <code>active</code> query parameter must not include a system, and the code must be <code>true</code> or <code>false</code>. Example: <code>active=false</code>
+</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -364,7 +367,7 @@
 
 <h4 id="request">Request</h4>
 
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?identifier=http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Fus-npi%7C1111111111
 </code></pre>
 
 <h4 id="response">Response</h4>
@@ -378,22 +381,22 @@
   "link": [
     {
       "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936"
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?identifier=http%3A%2F%2Fhl7.org%2Ffhir%2Fsid%2Fus-npi%7C1111111111"
     }
   ],
   "entry": [
     {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936",
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/4122622",
       "resource": {
         "resourceType": "Practitioner",
-        "id": "109413936",
+        "id": "4122622",
         "meta": {
-          "versionId": "0",
-          "lastUpdated": "2019-03-07T20:40:34.000Z"
+          "versionId": "20",
+          "lastUpdated": "2023-11-08T20:50:26.000Z"
         },
         "text": {
           "status": "generated",
-          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCUPIN: F88788, DOCDEA: 887887887, SPI: 16611661, NPI: 6656656, PRSNLPRIMID: 12332122&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: NPI: 1111111111&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Other&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
         },
         "extension": [
           {
@@ -408,67 +411,6 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PRN",
-                  "display": "Provider number"
-                }
-              ],
-              "text": "DOCUPIN"
-            },
-            "_system": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                  "valueCode": "unknown"
-                }
-              ]
-            },
-            "value": "F88788",
-            "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "DEA",
-                  "display": "Drug Enforcement Administration registration number"
-                }
-              ],
-              "text": "DOCDEA"
-            },
-            "system": "urn:oid:2.16.840.1.113883.4.814",
-            "value": "887887887",
-            "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PRN",
-                  "display": "Provider number"
-                }
-              ],
-              "text": "SureScripts Prescriber Index"
-            },
-            "system": "urn:oid:2.16.840.1.113883.3.2054",
-            "value": "16611661",
-            "period": {
-              "start": "2019-04-12T18:24:23.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
                   "code": "NPI",
                   "display": "National provider identifier"
                 }
@@ -476,20 +418,9 @@
               "text": "National Provider Identifier"
             },
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "6656656",
+            "value": "1111111111",
             "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "text": "Personnel Primary Identifier"
-            },
-            "system": "urn:oid:1.2.243.58",
-            "value": "12332122",
-            "period": {
-              "start": "2019-04-12T18:24:23.000Z"
+              "start": "2015-10-14T05:00:00.000Z"
             }
           }
         ],
@@ -497,81 +428,65 @@
         "name": [
           {
             "use": "usual",
-            "text": "Lombardi, Falco Shine",
-            "family": "Lombardi",
+            "text": "Cerner Test, Physician - Hospitalist Cerner",
+            "family": "Cerner Test",
             "given": [
-              "Falco",
-              "Shine"
-            ],
-            "prefix": [
-              "Dr."
-            ],
-            "suffix": [
-              "M.D."
+              "Physician - Hospitalist",
+              "Cerner"
             ],
             "period": {
-              "start": "2019-03-07T20:40:35.000Z"
+              "start": "2015-09-22T20:58:42.000Z"
             }
           }
         ],
         "telecom": [
           {
             "system": "phone",
-            "value": "7861231234",
-            "use": "work"
-          },
-          {
-            "system": "email",
-            "value": "falco.lombardi@sfox.com",
+            "value": "5555550001",
             "use": "work"
           }
         ],
         "address": [
           {
-            "use": "work",
-            "text": "111 Corneria Dr.\\nTallahassee, FL 32304\\nUSA",
+            "use": "billing",
+            "text": "1989 Cornelia St\\nKansas City, MO 64012\\nUS",
             "line": [
-              "111 Corneria Dr."
+              "1989 Cornelia St"
             ],
-            "city": "Tallahassee",
-            "district": "Leon",
-            "state": "FL",
-            "postalCode": "32304",
-            "country": "USA"
+            "city": "Kansas City",
+            "district": "Jackson",
+            "state": "MO",
+            "postalCode": "64012",
+            "country": "US"
+          },
+          {
+            "use": "work",
+            "text": "1234 Main\\nKansas City, MO 64111\\nUS",
+            "line": [
+              "1234 Main"
+            ],
+            "city": "Kansas City",
+            "state": "MO",
+            "postalCode": "64111",
+            "country": "US"
           }
         ],
-        "gender": "male",
+        "gender": "other",
         "qualification": [
           {
             "code": {
               "coding": [
                 {
                   "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
-                  "code": "677091",
-                  "display": "MD",
+                  "code": "677018",
+                  "display": "AMA",
                   "userSelected": true
                 }
               ],
-              "text": "MD"
+              "text": "AMA"
             },
             "period": {
-              "start": "2014-07-09T06:00:00.000Z"
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
-                  "code": "677079",
-                  "display": "PhD",
-                  "userSelected": true
-                }
-              ],
-              "text": "PhD"
-            },
-            "period": {
-              "start": "2014-07-09T06:00:00.000Z"
+              "start": "2016-11-08T06:00:00.000Z"
             }
           }
         ]
@@ -580,343 +495,9 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h4 id="request-1">Request</h4>
-
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true
-</code></pre>
-
-<h4 id="response-1">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "7ec264d2-c7c7-49b2-8478-22351c82db73",
-  "type": "searchset",
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true&amp;_count=100"
-    },
-    {
-      "relation": "next",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?active=true&amp;_count=100&amp;-offset=100"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936",
-      "resource": {
-        "resourceType": "Practitioner",
-        "id": "109413936",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2019-03-07T20:40:34.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCUPIN: F88788, DOCDEA: 887887887, SPI: 16611661, NPI: 6656656, PRSNLPRIMID: 12332122&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "extension": [
-          {
-            "valueBoolean": true,
-            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician"
-          }
-        ],
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PRN",
-                  "display": "Provider number"
-                }
-              ],
-              "text": "DOCUPIN"
-            },
-            "_system": {
-              "extension": [
-                {
-                  "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-                  "valueCode": "unknown"
-                }
-              ]
-            },
-            "value": "F88788",
-            "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "DEA",
-                  "display": "Drug Enforcement Administration registration number"
-                }
-              ],
-              "text": "DOCDEA"
-            },
-            "system": "urn:oid:2.16.840.1.113883.4.814",
-            "value": "887887887",
-            "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PRN",
-                  "display": "Provider number"
-                }
-              ],
-              "text": "SureScripts Prescriber Index"
-            },
-            "system": "urn:oid:2.16.840.1.113883.3.2054",
-            "value": "16611661",
-            "period": {
-              "start": "2019-04-12T18:24:23.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "NPI",
-                  "display": "National provider identifier"
-                }
-              ],
-              "text": "National Provider Identifier"
-            },
-            "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "6656656",
-            "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "text": "Personnel Primary Identifier"
-            },
-            "system": "urn:oid:1.2.243.58",
-            "value": "12332122",
-            "period": {
-              "start": "2019-04-12T18:24:23.000Z"
-            }
-          }
-        ],
-        "active": true,
-        "name": [
-          {
-            "use": "usual",
-            "text": "Lombardi, Falco Shine",
-            "family": "Lombardi",
-            "given": [
-              "Falco",
-              "Shine"
-            ],
-            "prefix": [
-              "Dr."
-            ],
-            "suffix": [
-              "M.D."
-            ],
-            "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          }
-        ],
-        "telecom": [
-          {
-            "system": "phone",
-            "value": "7861231234",
-            "use": "work"
-          },
-          {
-            "system": "email",
-            "value": "falco.lombardi@sfox.com",
-            "use": "work"
-          }
-        ],
-        "address": [
-          {
-            "use": "work",
-            "text": "111 Corneria Dr.\\nTallahassee, FL 32304\\nUSA",
-            "line": [
-              "111 Corneria Dr."
-            ],
-            "city": "Tallahassee",
-            "district": "Leon",
-            "state": "FL",
-            "postalCode": "32304",
-            "country": "USA"
-          }
-        ],
-        "gender": "male",
-        "qualification": [
-          {
-            "code": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
-                  "code": "677091",
-                  "display": "MD",
-                  "userSelected": true
-                }
-              ],
-              "text": "MD"
-            },
-            "period": {
-              "start": "2014-07-09T06:00:00.000Z"
-            }
-          },
-          {
-            "code": {
-              "coding": [
-                {
-                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
-                  "code": "677079",
-                  "display": "PhD",
-                  "userSelected": true
-                }
-              ],
-              "text": "PhD"
-            },
-            "period": {
-              "start": "2014-07-09T06:00:00.000Z"
-            }
-          }
-        ]
-      }
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h4 id="patient-authorization-request">Patient Authorization Request</h4>
-
-<pre><code>GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936
-</code></pre>
-
-<h4 id="response-2">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "13230afb-0bbd-45a6-a7c9-9c6d286a2f4c",
-  "type": "searchset",
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner?_id=109413936"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936",
-      "resource": {
-        "resourceType": "Practitioner",
-        "id": "109413936",
-        "meta": {
-          "versionId": "0",
-          "lastUpdated": "2019-03-07T20:40:34.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: SPI: 16611661, NPI: 6656656&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-        },
-        "extension": [
-          {
-            "valueBoolean": true,
-            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician"
-          }
-        ],
-        "identifier": [
-          {
-            "use": "usual",
-            "type": {
-              "text": "SureScripts Prescriber Index"
-            },
-            "system": "urn:oid:2.16.840.1.113883.3.2054",
-            "value": "16611661",
-            "period": {
-              "start": "2019-04-12T18:24:23.000Z"
-            }
-          },
-          {
-            "use": "usual",
-            "type": {
-              "coding": [
-                {
-                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "NPI",
-                  "display": "National provider identifier"
-                }
-              ],
-              "text": "National Provider Identifier"
-            },
-            "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "6656656",
-            "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          }
-        ],
-        "active": true,
-        "name": [
-          {
-            "use": "usual",
-            "text": "Lombardi, Falco Shine",
-            "family": "Lombardi",
-            "given": [
-              "Falco",
-              "Shine"
-            ],
-            "prefix": [
-              "Dr."
-            ],
-            "suffix": [
-              "M.D."
-            ],
-            "period": {
-              "start": "2019-03-07T20:40:35.000Z"
-            }
-          }
-        ],
-        "telecom": [
-          {
-            "value": "falco.lombardi@sfox.com"
-          }
-        ],
-        "gender": "male"
-      }
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Practitioner by its id:</p>
+<p>List an individual practitioner by their ID.</p>
 
 <pre><code>GET /Practitioner/:id
 </code></pre>
@@ -934,25 +515,25 @@
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-1">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/4122622
 </code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-1">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
 <pre class="body-response"><code class="language-javascript">{
   "resourceType": "Practitioner",
-  "id": "109413936",
+  "id": "4122622",
   "meta": {
-    "versionId": "0",
-    "lastUpdated": "2019-03-07T20:40:34.000Z"
+    "versionId": "20",
+    "lastUpdated": "2023-11-08T20:50:26.000Z"
   },
   "text": {
     "status": "generated",
-    "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: DOCUPIN: F88788, DOCDEA: 887887887, SPI: 16611661, NPI: 6656656, PRSNLPRIMID: 12332122&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+    "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Cerner Test, Physician - Hospitalist Cerner&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: NPI: 1111111111&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Other&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
   },
   "extension": [
     {
@@ -967,67 +548,6 @@
         "coding": [
           {
             "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "PRN",
-            "display": "Provider number"
-          }
-        ],
-        "text": "DOCUPIN"
-      },
-      "_system": {
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
-            "valueCode": "unknown"
-          }
-        ]
-      },
-      "value": "F88788",
-      "period": {
-        "start": "2019-03-07T20:40:35.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "DEA",
-            "display": "Drug Enforcement Administration registration number"
-          }
-        ],
-        "text": "DOCDEA"
-      },
-      "system": "urn:oid:2.16.840.1.113883.4.814",
-      "value": "887887887",
-      "period": {
-        "start": "2019-03-07T20:40:35.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "PRN",
-            "display": "Provider number"
-          }
-        ],
-        "text": "SureScripts Prescriber Index"
-      },
-      "system": "urn:oid:2.16.840.1.113883.3.2054",
-      "value": "16611661",
-      "period": {
-        "start": "2019-04-12T18:24:23.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
             "code": "NPI",
             "display": "National provider identifier"
           }
@@ -1035,20 +555,9 @@
         "text": "National Provider Identifier"
       },
       "system": "http://hl7.org/fhir/sid/us-npi",
-      "value": "6656656",
+      "value": "1111111111",
       "period": {
-        "start": "2019-03-07T20:40:35.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
-        "text": "Personnel Primary Identifier"
-      },
-      "system": "urn:oid:1.2.243.58",
-      "value": "12332122",
-      "period": {
-        "start": "2019-04-12T18:24:23.000Z"
+        "start": "2015-10-14T05:00:00.000Z"
       }
     }
   ],
@@ -1056,183 +565,73 @@
   "name": [
     {
       "use": "usual",
-      "text": "Lombardi, Falco Shine",
-      "family": "Lombardi",
+      "text": "Cerner Test, Physician - Hospitalist Cerner",
+      "family": "Cerner Test",
       "given": [
-        "Falco",
-        "Shine"
-      ],
-      "prefix": [
-        "Dr."
-      ],
-      "suffix": [
-        "M.D."
+        "Physician - Hospitalist",
+        "Cerner"
       ],
       "period": {
-        "start": "2019-03-07T20:40:35.000Z"
+        "start": "2015-09-22T20:58:42.000Z"
       }
     }
   ],
   "telecom": [
     {
       "system": "phone",
-      "value": "7861231234",
-      "use": "work"
-    },
-    {
-      "system": "email",
-      "value": "falco.lombardi@sfox.com",
+      "value": "5555550001",
       "use": "work"
     }
   ],
   "address": [
     {
-      "use": "work",
-      "text": "111 Corneria Dr.\\nTallahassee, FL 32304\\nUSA",
+      "use": "billing",
+      "text": "1989 Cornelia St\\nKansas City, MO 64012\\nUS",
       "line": [
-        "111 Corneria Dr."
+        "1989 Cornelia St"
       ],
-      "city": "Tallahassee",
-      "district": "Leon",
-      "state": "FL",
-      "postalCode": "32304",
-      "country": "USA"
+      "city": "Kansas City",
+      "district": "Jackson",
+      "state": "MO",
+      "postalCode": "64012",
+      "country": "US"
+    },
+    {
+      "use": "work",
+      "text": "1234 Main\\nKansas City, MO 64111\\nUS",
+      "line": [
+        "1234 Main"
+      ],
+      "city": "Kansas City",
+      "state": "MO",
+      "postalCode": "64111",
+      "country": "US"
     }
   ],
-  "gender": "male",
+  "gender": "other",
   "qualification": [
     {
       "code": {
         "coding": [
           {
             "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
-            "code": "677091",
-            "display": "MD",
+            "code": "677018",
+            "display": "AMA",
             "userSelected": true
           }
         ],
-        "text": "MD"
+        "text": "AMA"
       },
       "period": {
-        "start": "2014-07-09T06:00:00.000Z"
-      }
-    },
-    {
-      "code": {
-        "coding": [
-          {
-            "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/29600",
-            "code": "677079",
-            "display": "PhD",
-            "userSelected": true
-          }
-        ],
-        "text": "PhD"
-      },
-      "period": {
-        "start": "2014-07-09T06:00:00.000Z"
+        "start": "2016-11-08T06:00:00.000Z"
       }
     }
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
-
-<pre><code>GET https://fhir-myrecord.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/109413936
-</code></pre>
-
-<h4 id="response-4">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Practitioner",
-  "id": "109413936",
-  "meta": {
-    "versionId": "0",
-    "lastUpdated": "2019-03-07T20:40:34.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div xmlns='http://www.w3.org/1999/xhtml'&gt;&lt;p&gt;&lt;b&gt;Practitioner&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: Lombardi, Falco Shine&lt;/p&gt;&lt;p&gt;&lt;b&gt;Identifiers&lt;/b&gt;: SPI: 16611661, NPI: 6656656&lt;/p&gt;&lt;p&gt;&lt;b&gt;Gender&lt;/b&gt;: Male&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
-  },
-  "extension": [
-    {
-      "valueBoolean": true,
-      "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/is-physician"
-    }
-  ],
-  "identifier": [
-    {
-      "use": "usual",
-      "type": {
-        "text": "SureScripts Prescriber Index"
-      },
-      "system": "urn:oid:2.16.840.1.113883.3.2054",
-      "value": "16611661",
-      "period": {
-        "start": "2019-04-12T18:24:23.000Z"
-      }
-    },
-    {
-      "use": "usual",
-      "type": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-            "code": "NPI",
-            "display": "National provider identifier"
-          }
-        ],
-        "text": "National Provider Identifier"
-      },
-      "system": "http://hl7.org/fhir/sid/us-npi",
-      "value": "6656656",
-      "period": {
-        "start": "2019-03-07T20:40:35.000Z"
-      }
-    }
-  ],
-  "active": true,
-  "name": [
-    {
-      "use": "usual",
-      "text": "Lombardi, Falco Shine",
-      "family": "Lombardi",
-      "given": [
-        "Falco",
-        "Shine"
-      ],
-      "prefix": [
-        "Dr."
-      ],
-      "suffix": [
-        "M.D."
-      ],
-      "period": {
-        "start": "2019-03-07T20:40:35.000Z"
-      }
-    }
-  ],
-  "telecom": [
-    {
-      "value": "falco.lombardi@sfox.com"
-    }
-  ],
-  "gender": "male"
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
 <h2 id="create">Create</h2>
 
-<p>Create an individual Practitioner that can be referenced by other resources. This API is not used for user provisioning.</p>
+<p>Create an individual practitioner that can be referenced by other resources. This API is not used for user provisioning.</p>
 
 <pre><code>POST /Practitioner
 </code></pre>
@@ -1264,7 +663,7 @@
       <td>
         <a name="create-resourceType">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/json.html#resources"><code>resourceType</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/json.html#resources"><code>resourceType</code></a>
         
         
       </td>
@@ -1291,7 +690,7 @@
       
       
         <li><i>Notes</i></li>
-        <ul style="list-style-type: none"><li>resourceType must be Practitioner.</li></ul>
+        <ul style="list-style-type: none"><li>resourceType must be <a target="_blank" href="https://hl7.org/fhir/R4/practitioner.html"><code>Practitioner</code></a>.</li></ul>
       
       </ul>
       <div style="float: right"><a href="#create">top of section</a></div>
@@ -1352,7 +751,7 @@
       <li>Must include both <code>given</code> and <code>family</code>.</li>
       <li>Up to two values may be present in the <code>given</code> names array. If more than two given names are required, the second value in the array accepts whitespace-delimited strings.</li>
       <li>Only one <code>prefix</code> and one <code>suffix</code> may be provided.</li>
-      <li>Cannot contain the <code>text</code> field.</li>
+      <li>Must not contain the <code>text</code> field.</li>
       <li>Must not have an <code>end</code> date on <code>period</code>.</li>
       <li>When specifying a <code>period</code>, the fields must include a time component with a timezone.</li>
     </ul>
@@ -1437,7 +836,7 @@
       <td>
         <a name="create-active">
         
-          </a><a target="_blank" href="http://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.active"><code>active</code></a>
+          </a><a target="_blank" href="https://hl7.org/fhir/R4/practitioner-definitions.html#Practitioner.active"><code>active</code></a>
         
         
       </td>
@@ -1476,7 +875,7 @@
 
 <h3 id="example-2">Example</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-2">Request</h4>
 
 <pre><code>POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner
 </code></pre>
@@ -1524,7 +923,7 @@
   ]
 }</code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -1538,11 +937,8 @@ Last-Modified: Mon, 09 Dec 2019 18:57:39 GMT
 Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Practitioner/7118008
 Vary: Origin
 X-Request-Id: 9d3aecfa-c846-4ce2-825a-7ba2fce4813f
+opc-request-id: /D14ABE620D8D0DBB4D5970966EED037B/6A781B5941C550741C19E1AE1E795C33
 </pre>
-
-<h3 id="errors-2">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

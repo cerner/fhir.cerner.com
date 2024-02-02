@@ -81,6 +81,8 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-with-physicaltype" id="markdown-toc-example-with-physicaltype">Example with physicalType</a></li>
+      <li><a href="#example-with-type" id="markdown-toc-example-with-type">Example with type</a></li>
       <li><a href="#example-with-identifier" id="markdown-toc-example-with-identifier">Example with identifier</a></li>
       <li><a href="#example-with-address" id="markdown-toc-example-with-address">Example with address</a></li>
       <li><a href="#example-address-city-with-address-state" id="markdown-toc-example-address-city-with-address-state">Example address-city with address-state</a></li>
@@ -125,6 +127,7 @@
   <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.telecom" target="_blank">Telecom</a></li>
   <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.address" target="_blank">Address</a></li>
   <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.physicalType" target="_blank">Physical Type</a></li>
+  <li><a href="https://www.hl7.org/fhir/R4/location-definitions.html#Location.type" target="_blank">Type</a></li>
   <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.managingOrganization" target="_blank">Managing Organization</a></li>
   <li><a href="http://hl7.org/fhir/R4/location-definitions.html#Location.partOf" target="_blank">Part Of</a></li>
   <li><a href="#extensions" target="_blank">Extensions including custom attribute</a></li>
@@ -445,7 +448,7 @@
         <ul style="list-style-type: none">
           
             <li><i>Description</i></li>
-            <ul style="list-style-type: none"><li>Distinguishes between physical addresses (those you can visit) and mailing addresses (e.g. PO Boxes and care-of addresses). Most addresses are both.</li></ul>
+            <ul style="list-style-type: none"><li>Type of function performed at the location.</li></ul>
           
           
 
@@ -454,7 +457,25 @@
               
                   <li>
                     
-                      <p>Details: <a target="_blank" href="http://hl7.org/fhir/R4/datatypes-definitions.html#Address.type">Location Address Type</a><br>
+                      <p>Details: <a target="_blank" href="https://www.hl7.org/fhir/R4/v3/ServiceDeliveryLocationRoleType/vs.html">Location type</a><br>
+                      
+                        System: http://terminology.hl7.org/ValueSet/v3-ServiceDeliveryLocationRoleType <br>
+                      
+                      </p>
+                    
+                  </li>
+                  <ul style="list-style-type: none">
+                  
+                  
+                  </ul>
+              
+            
+              
+                  <li>
+                    
+                      <p>Details: <a target="_blank" href="https://fhir.cerner.com/millennium/r4/proprietary-codes-and-systems/#code-set-222-location-type">Millennium Location Types</a><br>
+                      
+                        System: https://fhir.cerner.com/&lt;EHR source id&gt;/codeSet/222 <br>
                       
                       </p>
                     
@@ -578,6 +599,13 @@
 </td>
     </tr>
     <tr>
+      <td><code>type</code></td>
+      <td>Conditionally</td>
+      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The location’s type. This parameter is required if the <code>_id</code> parameter is not used. Example: <code>PHARM</code>
+</td>
+    </tr>
+    <tr>
       <td><code>identifier</code></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
@@ -640,6 +668,11 @@
 
 <ul>
   <li>When searching with the <code>-physicalType</code> parameter:
+    <ul>
+      <li>Searching by Cerner Millennium proprietary codes is not supported.</li>
+    </ul>
+  </li>
+  <li>The <code>type</code> parameter
     <ul>
       <li>Searching by Cerner Millennium proprietary codes is not supported.</li>
     </ul>
@@ -758,6 +791,19 @@
           "state": "AA",
           "country": "Ireland"
         },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                "code": "783",
+                "display": "Facility(s)",
+                "userSelected": true
+              }
+            ],
+            "text": "Facility(s)"
+          }
+        ],
         "physicalType": {
           "coding": [
             {
@@ -783,14 +829,280 @@
 
 <p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
-<h3 id="example-with-identifier">Example with identifier</h3>
+<h3 id="example-with-physicaltype">Example with physicalType</h3>
 
 <h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|wa
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "f4749f7a-e67d-49d1-8b92-ddbef46eae15",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si",
+      "resource": {
+        "resourceType": "Location",
+        "id": "21250409",
+        "meta": {
+          "versionId": "6",
+          "lastUpdated": "2018-06-12T18:45:00Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Location&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Name&lt;/b&gt;: BE 1 North&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alias&lt;/b&gt;: BE 1N&lt;/p&gt;&lt;p&gt;&lt;b&gt;Managing Organization&lt;/b&gt;: Baseline East Medical Center&lt;/p&gt;&lt;p&gt;&lt;b&gt;Part Of&lt;/b&gt;: 21250403&lt;/p&gt;&lt;p&gt;&lt;b&gt;Physical Type&lt;/b&gt;: Facility(s)&lt;/p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;/div&gt;"
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "id": "20356268",
+                "valueString": "Core Measure Locations",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4678015",
+                      "code": "20140683",
+                      "display": "ED",
+                      "userSelected": true
+                    }
+                  ],
+                  "text": "ED"
+                },
+                "url": "custom-attribute-value"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73",
+                  "code": "ACCTRECEIVABLE",
+                  "display": "FIN NBR",
+                  "userSelected": true
+                }
+              ]
+            },
+            "system": "FIN NBR",
+            "value": "16000"
+          }
+        ],
+        "status": "active",
+        "name": "BE 1 North",
+        "alias": [
+          "BE 1N"
+        ],
+        "mode": "instance",
+        "address": {
+          "text": "Cerner H2 building\nLevel 4\nManyata embassy business park\nNagawara cicle\nBangalore, AA \nIreland",
+          "line": [
+            "Cerner H2 building",
+            "Level 4",
+            "Manyata embassy business park",
+            "Nagawara cicle"
+          ],
+          "city": "Bangalore",
+          "district": "Indian River",
+          "state": "AA",
+          "country": "Ireland"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                "code": "783",
+                "display": "Facility(s)",
+                "userSelected": true
+              }
+            ],
+            "text": "Facility(s)"
+          }
+        ],
+        "physicalType": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+              "code": "783",
+              "display": "Facility(s)",
+              "userSelected": true
+            }
+          ],
+          "text": "Facility(s)"
+        },
+        "managingOrganization": {
+          "reference": "Organization/13971625",
+          "display": "Baseline East Medical Center"
+        },
+        "partOf": {
+          "reference": "Location/21250403"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="example-with-type">Example with type</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?type=Facility
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "f4749f7a-e67d-49d1-8b92-ddbef46eae15",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?-physicalType=http://terminology.hl7.org/CodeSystem/location-physical-type|si",
+      "resource": {
+        "resourceType": "Location",
+        "id": "21250409",
+        "meta": {
+          "versionId": "6",
+          "lastUpdated": "2018-06-12T18:45:00Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&amp;lt;div xmlns=&amp;quot;http://www.w3.org/1999/xhtml&amp;quot;&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Location&amp;lt;/b&amp;gt;&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Name&amp;lt;/b&amp;gt;: BE 1 North&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Alias&amp;lt;/b&amp;gt;: BE 1N&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Managing Organization&amp;lt;/b&amp;gt;: Baseline East Medical Center&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Part Of&amp;lt;/b&amp;gt;: 21250403&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Physical Type&amp;lt;/b&amp;gt;: Facility(s)&amp;lt;/p&amp;gt;&amp;lt;p&amp;gt;&amp;lt;b&amp;gt;Status&amp;lt;/b&amp;gt;: Active&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;"
+        },
+        "extension": [
+          {
+            "extension": [
+              {
+                "id": "20356268",
+                "valueString": "Core Measure Locations",
+                "url": "custom-attribute-name"
+              },
+              {
+                "valueCodeableConcept": {
+                  "coding": [
+                    {
+                      "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4678015",
+                      "code": "20140683",
+                      "display": "ED",
+                      "userSelected": true
+                    }
+                  ],
+                  "text": "ED"
+                },
+                "url": "custom-attribute-value"
+              }
+            ],
+            "url": "https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute"
+          }
+        ],
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/73",
+                  "code": "ACCTRECEIVABLE",
+                  "display": "FIN NBR",
+                  "userSelected": true
+                }
+              ]
+            },
+            "system": "FIN NBR",
+            "value": "16000"
+          }
+        ],
+        "status": "active",
+        "name": "BE 1 North",
+        "alias": [
+          "BE 1N"
+        ],
+        "mode": "instance",
+        "address": {
+          "text": "Cerner H2 building\nLevel 4\nManyata embassy business park\nNagawara cicle\nBangalore, AA \nIreland",
+          "line": [
+            "Cerner H2 building",
+            "Level 4",
+            "Manyata embassy business park",
+            "Nagawara cicle"
+          ],
+          "city": "Bangalore",
+          "district": "Indian River",
+          "state": "AA",
+          "country": "Ireland"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                "code": "783",
+                "display": "Facility(s)",
+                "userSelected": true
+              }
+            ],
+            "text": "Facility(s)"
+          }
+        ],
+        "physicalType": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+              "code": "783",
+              "display": "Facility(s)",
+              "userSelected": true
+            }
+          ],
+          "text": "Facility(s)"
+        },
+        "managingOrganization": {
+          "reference": "Organization/13971625",
+          "display": "Baseline East Medical Center"
+        },
+        "partOf": {
+          "reference": "Location/21250403"
+        }
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="example-with-identifier">Example with identifier</h3>
+
+<h4 id="request-3">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?identifier=653385|FSI^~BUILD^~NU
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -880,6 +1192,19 @@
           "state": "AA",
           "country": "Ireland"
         },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                "code": "783",
+                "display": "Facility(s)",
+                "userSelected": true
+              }
+            ],
+            "text": "Facility(s)"
+          }
+        ],
         "physicalType": {
           "coding": [
             {
@@ -907,12 +1232,12 @@
 
 <h3 id="example-with-address">Example with address</h3>
 
-<h4 id="request-2">Request</h4>
+<h4 id="request-4">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=MO
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -965,6 +1290,24 @@
             "postalCode": "64111",
             "country": "US"
           },
+          "type": [
+            {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                  "code": "783",
+                  "display": "Facility(s)",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                  "code": "Facility",
+                  "display": "Facility"
+                }
+              ],
+              "text": "Facility(s)"
+            }
+          ],
           "physicalType": {
             "coding": [
               {
@@ -995,12 +1338,12 @@
 
 <h3 id="example-address-city-with-address-state">Example address-city with address-state</h3>
 
-<h4 id="request-3">Request</h4>
+<h4 id="request-5">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address-state=MO&amp;address-city=Kansas
 </code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1053,6 +1396,24 @@
             "postalCode": "64111",
             "country": "US"
           },
+          "type": [
+            {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                  "code": "783",
+                  "display": "Facility(s)",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                  "code": "Facility",
+                  "display": "Facility"
+                }
+              ],
+              "text": "Facility(s)"
+            }
+          ],
           "physicalType": {
             "coding": [
               {
@@ -1083,12 +1444,12 @@
 
 <h3 id="example-with-name">Example with name</h3>
 
-<h4 id="request-4">Request</h4>
+<h4 id="request-6">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;name=ABC
 </code></pre>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-6">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1139,6 +1500,19 @@
           "ABC Taxi"
         ],
         "mode": "instance",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                "code": "783",
+                "display": "Facility(s)",
+                "userSelected": true
+              }
+            ],
+            "text": "Facility(s)"
+          }
+        ],
         "telecom": [
           {
             "system": "phone",
@@ -1185,12 +1559,12 @@
 
 <h3 id="example-with-organization">Example with organization</h3>
 
-<h4 id="request-5">Request</h4>
+<h4 id="request-7">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location?address=kansas&amp;organization=667844
 </code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1243,6 +1617,24 @@
             "postalCode": "64111",
             "country": "US"
           },
+          "type": [
+            {
+              "coding": [
+                {
+                  "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+                  "code": "783",
+                  "display": "Facility(s)",
+                  "userSelected": true
+                },
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                  "code": "Facility",
+                  "display": "Facility"
+                }
+              ],
+              "text": "Facility(s)"
+            }
+          ],
           "physicalType": {
             "coding": [
               {
@@ -1295,12 +1687,12 @@
 
 <h3 id="example-1">Example</h3>
 
-<h4 id="request-6">Request</h4>
+<h4 id="request-8">Request</h4>
 
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Location/21250409
 </code></pre>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1377,6 +1769,19 @@
     "state": "AA",
     "country": "Ireland"
   },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/222",
+          "code": "783",
+          "display": "Facility(s)",
+          "userSelected": true
+        }
+      ],
+      "text": "Facility(s)"
+    }
+  ],
   "physicalType": {
     "coding": [
       {

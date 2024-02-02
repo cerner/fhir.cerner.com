@@ -68,41 +68,43 @@
       <h1 id="goal">Goal</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li><a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a></li>
   <li>
 <a href="#search" id="markdown-toc-search">Search</a>    <ul>
       <li><a href="#authorization-types" id="markdown-toc-authorization-types">Authorization Types</a></li>
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
+      <li><a href="#example-search-by-id" id="markdown-toc-example-search-by-id">Example Search by ID</a></li>
+      <li><a href="#example-search-by-patient" id="markdown-toc-example-search-by-patient">Example Search by Patient</a></li>
+      <li><a href="#example-search-by-patient-and-target-date" id="markdown-toc-example-search-by-patient-and-target-date">Example Search by Patient and Target Date</a></li>
       <li><a href="#example-with-revinclude" id="markdown-toc-example-with-revinclude">Example with RevInclude</a></li>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
-      <li><a href="#example-search-by-patient" id="markdown-toc-example-search-by-patient">Example Search by Patient</a></li>
-      <li><a href="#example-search-by-id" id="markdown-toc-example-search-by-id">Example Search by Id</a></li>
-      <li><a href="#example-search-by-patient-and-target-date" id="markdown-toc-example-search-by-patient-and-target-date">Example Search by Patient and Target Date</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Goal resource describes intended objectives for a patient. A Goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time. A Goal may address preventative health or mitigation of a diagnosis or problem. Goals can be non-health care related (e.g. dance at a wedding).</p>
+<p>The Goal resource describes intended objectives for a patient. A goal is typically expressed as a desired outcome or health state to be achieved by a patient over a period or at a specific point in time. A goal may address preventative health or mitigation of a diagnosis or problem. Goals can be non-healthcare related (for example, dance at a wedding).</p>
 
 <ul>
   <li>
-    <p>The following <a href="https://hl7.org/fhir/us/core/STU4/">HL7® FHIR® US Core Implementation Guide STU 4.0.0</a> Profiles are supported by this resource:</p>
+    <p>This resource supports the following <a href="https://hl7.org/fhir/us/core/STU4/">HL7 FHIR US Core Implementation Guide STU 4.0.0</a> profiles:</p>
 
     <ul>
-      <li><a href="http://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-goal.html">US Core Goal Profile</a></li>
+      <li><a href="https://hl7.org/fhir/us/core/STU4/StructureDefinition-us-core-goal.html">US Core Goal Profile</a></li>
     </ul>
   </li>
 </ul>
@@ -110,38 +112,44 @@
 <p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Goal id</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.lifecycleStatus" target="_blank">Lifecycle Status</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.achievementStatus" target="_blank">Achievement Status</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.category" target="_blank">Category</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.description" target="_blank">Description</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.subject" target="_blank">Subject (patient)</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.start_x_" target="_blank">Start Date</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.target.due_x_" target="_blank">Target Due (Date only)</a></li>
-  <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.statusDate" target="_blank">Status Date</a></li>
+  <li><a href="https://hl7.org/fhir/r4/resource-definitions.html#Resource.id" target="_blank">Goal ID</a></li>
+  <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.lifecycleStatus" target="_blank">Lifecycle Status</a></li>
+  <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.achievementStatus" target="_blank">Achievement Status</a></li>
+  <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.category" target="_blank">Category</a></li>
+  <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.description" target="_blank">Description</a></li>
+  <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.subject" target="_blank">Subject (patient)</a></li>
+  <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.start_x_" target="_blank">Start Date</a></li>
+  <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.target.due_x_" target="_blank">Target Due</a></li>
+  <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.statusDate" target="_blank">Status Date</a></li>
   <li>
-<a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.expressedBy" target="_blank">Expressed By</a>
+<a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.expressedBy" target="_blank">Expressed By</a>
     <ul>
       <li>
-<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="http://hl7.org/fhir/r4/patient.html" target="_blank">Patient</a> | <a href="http://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a> | <a href="http://hl7.org/fhir/r4/relatedperson.html" target="_blank">Related Person</a>)</li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/patient.html" target="_blank">Patient</a> | <a href="https://hl7.org/fhir/r4/practitioner.html" target="_blank">Practitioner</a> | <a href="https://hl7.org/fhir/r4/relatedperson.html" target="_blank">Related Person</a>)</li>
     </ul>
   </li>
   <li>
 <a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.addresses" target="_blank">Addresses</a>
     <ul>
       <li>
-<a href="http://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/condition-definitions.html" target="_blank">Condition</a>)</li>
+<a href="https://hl7.org/fhir/r4/references.html#Reference" target="_blank">Reference</a> (<a href="https://hl7.org/fhir/r4/condition-definitions.html" target="_blank">Condition</a>)</li>
     </ul>
   </li>
   <li>
-<a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.note" target="_blank">Note</a>
+<a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.note" target="_blank">Note</a>
     <ul>
-      <li><a href="http://hl7.org/fhir/r4/goal-definitions.html#Goal.note" target="_blank">Author Reference</a></li>
-      <li><a href="http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.text" target="_blank">Text</a></li>
-      <li><a href="http://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.time" target="_blank">Time</a></li>
+      <li><a href="https://hl7.org/fhir/r4/goal-definitions.html#Goal.note" target="_blank">Author Reference</a></li>
+      <li><a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.text" target="_blank">Text</a></li>
+      <li><a href="https://hl7.org/fhir/r4/datatypes-definitions.html#Annotation.time" target="_blank">Time</a></li>
     </ul>
   </li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -276,7 +284,7 @@
 
 <h2 id="search">Search</h2>
 
-<p>Search for Goals that meet supplied query parameters:</p>
+<p>Search for goals that meet supplied query parameters.</p>
 
 <pre><code>GET /Goal?:parameters
 </code></pre>
@@ -301,29 +309,29 @@
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or patient.</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the Goal. Example: <code>_id=7891</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td>The logical resource ID associated with the goal. This parameter is required if <code>patient</code> is not used. Example: <code>_id=7891</code>
 </td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This, or _id.</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
-      <td>The patient who has the goal. Example: <code>patient=12345</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#reference"><code>reference</code></a></td>
+      <td>The patient who has the goal. This parameter is required if <code>_id</code> is not used. Example: <code>patient=12345</code>
 </td>
     </tr>
     <tr>
       <td><code>target-date</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#date"><code>date</code></a></td>
-      <td>A date or date range from which to find Goals. Example: <code>target-date=ge2016-10-01&amp;target-date=le2016-12-01</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#date"><code>date</code></a></td>
+      <td>A date or date range from which to find goals. Example: <code>target-date=ge2016-10-01&amp;target-date=le2016-12-01</code>
 </td>
     </tr>
     <tr>
       <td><code>_revinclude</code></td>
       <td>No</td>
-      <td><a href="http://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
+      <td><a href="https://hl7.org/fhir/r4/search.html#token"><code>token</code></a></td>
       <td>Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
     </tr>
   </tbody>
@@ -332,20 +340,22 @@
 <p>Notes:</p>
 
 <ul>
-  <li>
-    <p>The <code>_id</code> parameter may not be provided at the same time as the <code>patient</code> or <code>target-date</code></p>
+  <li>The <code>target-date</code> parameter:
+    <ul>
+      <li>May be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date.</li>
+      <li>Alternatively, it may be provided twice with <code>le</code>, <code>lt</code>, <code>ge</code>, or <code>gt</code> prefixes to search for goals within a specific range. The date and prefix pairs must create a closed range.</li>
+    </ul>
   </li>
-  <li>
-    <p>The <code>target-date</code> parameter may be provided once with a prefix to imply a date range or without a prefix to search for goals at a specific date. Alternately it may be provided twice with <code>le</code>, <code>lt</code>, <code>ge</code>, or <code>gt</code> prefixes to search for goals within specific range. The date and prefix pairs must create a closed range.</p>
-  </li>
-  <li>
-    <p>The <code>_revinclude</code> parameter may be provided once with the value <code>Provenance:target</code>. Example: <code>_revinclude=Provenance:target</code></p>
-  </li>
-  <li>
-    <p>The <code>_revinclude</code> parameter may be provided with the <code>_id/patient</code> parameter. Example: <code>_id=178866310&amp;_revinclude=Provenance:target</code></p>
-  </li>
-  <li>
-    <p>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</p>
+  <li>The <code>_revinclude</code> parameter:
+    <ul>
+      <li>May be provided once with the <code>Provenance:target</code> value. Example: <code>_revinclude=Provenance:target</code>
+</li>
+      <li>May be provided with the <code>_id</code> parameter. Example: <code>_id=178866310&amp;_revinclude=Provenance:target</code>
+</li>
+      <li>May be provided with the <code>patient</code> parameter. Example <code>patient=1234&amp;__revinclude=Provenance:target</code>
+</li>
+      <li>If provided in a request to the closed endpoint, the OAuth2 token must include the <code>user/Provenance.read</code> scope. Currently, <code>patient/Provenance.read</code> is not supported; hence, <code>_revinclude</code> cannot be used for patient persona.</li>
+    </ul>
   </li>
 </ul>
 
@@ -353,6 +363,300 @@
 
 <pre class="headers"><code><a href="../../#media-types">Accept</a>: application/json+fhir
 <a href="../../#authorization">Authorization</a>: &lt;OAuth2 Bearer Token&gt;</code></pre>
+
+<h3 id="example-search-by-id">Example Search by ID</h3>
+
+<h4 id="request">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=187042107
+</code></pre>
+
+<h4 id="response">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "b399773c-51f2-43f1-a539-ec85e5d6609c",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=187042107"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042107",
+      "resource": {
+        "resourceType": "Goal",
+        "id": "187042107",
+        "meta": {
+          "versionId": "1607035687000",
+          "lastUpdated": "2020-12-03T22:48:07.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Maintain a healthy weight&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expressed By&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Dec  3, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Dec 31, 2020&lt;/p&gt;&lt;/div&gt;"
+        },
+        "lifecycleStatus": "active",
+        "achievementStatus": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/goal-achievement",
+              "code": "achieved",
+              "display": "Achieved"
+            }
+          ],
+          "text": "Achieved"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003016",
+                "code": "25481501",
+                "display": "Physiologic",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/goal-category",
+                "code": "physiotherapy",
+                "display": "Physiotherapy",
+                "userSelected": false
+              }
+            ],
+            "text": "Physiologic"
+          }
+        ],
+        "description": {
+          "text": "Maintain a healthy weight"
+        },
+        "subject": {
+          "reference": "Patient/12724069",
+          "display": "SMART, TIMMY"
+        },
+        "startDate": "2020-12-03",
+        "target": [
+          {
+            "dueDate": "2020-12-31"
+          }
+        ],
+        "statusDate": "2020-12-03",
+        "expressedBy": {
+          "reference": "Patient/12724069",
+          "display": "SMART, TIMMY"
+        },
+        "note": [
+          {
+            "authorReference": {
+              "reference": "Practitioner/995932",
+              "display": "Smart, John"
+            },
+            "time": "2020-11-12T16:14:20.000Z",
+            "text": "Daily exercise"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="example-search-by-patient">Example Search by Patient</h3>
+
+<h4 id="request-1">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724069
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "c0dab9bc-3a6e-4f0f-b0b7-213ed80c3d4b",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724069"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042107",
+      "resource": {
+        "resourceType": "Goal",
+        "id": "187042107",
+        "meta": {
+          "versionId": "1607035687000",
+          "lastUpdated": "2020-12-03T22:48:07.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Maintain a healthy weight&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expressed By&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Dec  3, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Dec 31, 2020&lt;/p&gt;&lt;/div&gt;"
+        },
+        "lifecycleStatus": "active",
+        "achievementStatus": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/goal-achievement",
+              "code": "achieved",
+              "display": "Achieved"
+            }
+          ],
+          "text": "Achieved"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003016",
+                "code": "25481501",
+                "display": "Physiologic",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/goal-category",
+                "code": "physiotherapy",
+                "display": "Physiotherapy",
+                "userSelected": false
+              }
+            ],
+            "text": "Physiologic"
+          }
+        ],
+        "description": {
+          "text": "Maintain a healthy weight"
+        },
+        "subject": {
+          "reference": "Patient/12724069",
+          "display": "SMART, TIMMY"
+        },
+        "startDate": "2020-12-03",
+        "target": [
+          {
+            "dueDate": "2020-12-31"
+          }
+        ],
+        "statusDate": "2020-12-03",
+        "expressedBy": {
+          "reference": "Patient/12724069",
+          "display": "SMART, TIMMY"
+        },
+        "note": [
+          {
+            "authorReference": {
+              "reference": "Practitioner/995932",
+              "display": "Smart, John"
+            },
+            "time": "2020-11-12T16:14:20.000Z",
+            "text": "Daily exercise"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
+
+<h3 id="example-search-by-patient-and-target-date">Example Search by Patient and Target Date</h3>
+
+<h4 id="request-2">Request</h4>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724069&amp;target-date=gt2021-01-12
+</code></pre>
+
+<h4 id="response-2">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "b399773c-51f2-43f1-a539-ec85e5d6609c",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724069&amp;target-date=gt2021-01-12"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042107",
+      "resource": {
+        "resourceType": "Goal",
+        "id": "187042107",
+        "meta": {
+          "versionId": "1607035687000",
+          "lastUpdated": "2020-12-03T22:48:07.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Maintain a healthy weight&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expressed By&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Dec  3, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Dec 31, 2020&lt;/p&gt;&lt;/div&gt;"
+        },
+        "lifecycleStatus": "active",
+        "achievementStatus": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/goal-achievement",
+              "code": "achieved",
+              "display": "Achieved"
+            }
+          ],
+          "text": "Achieved"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003016",
+                "code": "25481501",
+                "display": "Physiologic",
+                "userSelected": true
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/goal-category",
+                "code": "physiotherapy",
+                "display": "Physiotherapy",
+                "userSelected": false
+              }
+            ],
+            "text": "Physiologic"
+          }
+        ],
+        "description": {
+          "text": "Maintain a healthy weight"
+        },
+        "subject": {
+          "reference": "Patient/12724069",
+          "display": "SMART, TIMMY"
+        },
+        "startDate": "2020-12-03",
+        "target": [
+          {
+            "dueDate": "2020-12-31"
+          }
+        ],
+        "statusDate": "2020-12-03",
+        "expressedBy": {
+          "reference": "Patient/12724069",
+          "display": "SMART, TIMMY"
+        },
+        "note": [
+          {
+            "authorReference": {
+              "reference": "Practitioner/995932",
+              "display": "Smart, John"
+            },
+            "time": "2020-11-12T16:14:20.000Z",
+            "text": "Daily exercise"
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
 
 <h3 id="example-with-revinclude">Example with RevInclude</h3>
 
@@ -362,12 +666,12 @@
 <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-user" class="provider">Provider</a> | <a href="../../../../../authorization/#requesting-authorization-on-behalf-of-a-system" class="system">System</a>
 </div>
 
-<h4 id="request">Request</h4>
+<h4 id="request-3">Request</h4>
 
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=498290085&amp;_revinclude=Provenance:target
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=498290085&amp;_revinclude=Provenance:target
 </code></pre>
 
-<h4 id="response">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -530,311 +834,10 @@
     }
   ]
 }</code></pre>
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="example-search-by-patient">Example Search by Patient</h3>
-
-<h4 id="request-1">Request</h4>
-
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724069
-</code></pre>
-
-<h4 id="response-1">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "c0dab9bc-3a6e-4f0f-b0b7-213ed80c3d4b",
-  "type": "searchset",
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724069"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042107",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "187042107",
-        "meta": {
-          "versionId": "1607035687000",
-          "lastUpdated": "2020-12-03T22:48:07.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Maintain a healthy weight&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expressed By&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Dec  3, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Dec 31, 2020&lt;/p&gt;&lt;/div&gt;"
-        },
-        "lifecycleStatus": "active",
-        "achievementStatus": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/goal-achievement",
-              "code": "achieved",
-              "display": "Achieved"
-            }
-          ],
-          "text": "Achieved"
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003016",
-                "code": "25481501",
-                "display": "Physiologic",
-                "userSelected": true
-              },
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/goal-category",
-                "code": "physiotherapy",
-                "display": "Physiotherapy",
-                "userSelected": false
-              }
-            ],
-            "text": "Physiologic"
-          }
-        ],
-        "description": {
-          "text": "Maintain a healthy weight"
-        },
-        "subject": {
-          "reference": "Patient/12724069",
-          "display": "SMART, TIMMY"
-        },
-        "startDate": "2020-12-03",
-        "target": [
-          {
-            "dueDate": "2020-12-31"
-          }
-        ],
-        "statusDate": "2020-12-03",
-        "expressedBy": {
-          "reference": "Patient/12724069",
-          "display": "SMART, TIMMY"
-        },
-        "note": [
-          {
-            "authorReference": {
-              "reference": "Practitioner/995932",
-              "display": "Smart, John"
-            },
-            "time": "2020-11-12T16:14:20.000Z",
-            "text": "Daily exercise"
-          }
-        ]
-      }
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="example-search-by-id">Example Search by Id</h3>
-
-<h4 id="request-2">Request</h4>
-
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=187042107
-</code></pre>
-
-<h4 id="response-2">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "b399773c-51f2-43f1-a539-ec85e5d6609c",
-  "type": "searchset",
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?_id=187042107"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042107",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "187042107",
-        "meta": {
-          "versionId": "1607035687000",
-          "lastUpdated": "2020-12-03T22:48:07.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Maintain a healthy weight&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expressed By&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Dec  3, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Dec 31, 2020&lt;/p&gt;&lt;/div&gt;"
-        },
-        "lifecycleStatus": "active",
-        "achievementStatus": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/goal-achievement",
-              "code": "achieved",
-              "display": "Achieved"
-            }
-          ],
-          "text": "Achieved"
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003016",
-                "code": "25481501",
-                "display": "Physiologic",
-                "userSelected": true
-              },
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/goal-category",
-                "code": "physiotherapy",
-                "display": "Physiotherapy",
-                "userSelected": false
-              }
-            ],
-            "text": "Physiologic"
-          }
-        ],
-        "description": {
-          "text": "Maintain a healthy weight"
-        },
-        "subject": {
-          "reference": "Patient/12724069",
-          "display": "SMART, TIMMY"
-        },
-        "startDate": "2020-12-03",
-        "target": [
-          {
-            "dueDate": "2020-12-31"
-          }
-        ],
-        "statusDate": "2020-12-03",
-        "expressedBy": {
-          "reference": "Patient/12724069",
-          "display": "SMART, TIMMY"
-        },
-        "note": [
-          {
-            "authorReference": {
-              "reference": "Practitioner/995932",
-              "display": "Smart, John"
-            },
-            "time": "2020-11-12T16:14:20.000Z",
-            "text": "Daily exercise"
-          }
-        ]
-      }
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="example-search-by-patient-and-target-date">Example Search by Patient and Target Date</h3>
-
-<h4 id="request-3">Request</h4>
-
-<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724069&amp;target-date=gt2021-01-12
-</code></pre>
-
-<h4 id="response-3">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Bundle",
-  "id": "b399773c-51f2-43f1-a539-ec85e5d6609c",
-  "type": "searchset",
-  "link": [
-    {
-      "relation": "self",
-      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724069&amp;target-date=gt2021-01-12"
-    }
-  ],
-  "entry": [
-    {
-      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042107",
-      "resource": {
-        "resourceType": "Goal",
-        "id": "187042107",
-        "meta": {
-          "versionId": "1607035687000",
-          "lastUpdated": "2020-12-03T22:48:07.000Z"
-        },
-        "text": {
-          "status": "generated",
-          "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Maintain a healthy weight&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expressed By&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Dec  3, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Dec 31, 2020&lt;/p&gt;&lt;/div&gt;"
-        },
-        "lifecycleStatus": "active",
-        "achievementStatus": {
-          "coding": [
-            {
-              "system": "http://hl7.org/fhir/goal-achievement",
-              "code": "achieved",
-              "display": "Achieved"
-            }
-          ],
-          "text": "Achieved"
-        },
-        "category": [
-          {
-            "coding": [
-              {
-                "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003016",
-                "code": "25481501",
-                "display": "Physiologic",
-                "userSelected": true
-              },
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/goal-category",
-                "code": "physiotherapy",
-                "display": "Physiotherapy",
-                "userSelected": false
-              }
-            ],
-            "text": "Physiologic"
-          }
-        ],
-        "description": {
-          "text": "Maintain a healthy weight"
-        },
-        "subject": {
-          "reference": "Patient/12724069",
-          "display": "SMART, TIMMY"
-        },
-        "startDate": "2020-12-03",
-        "target": [
-          {
-            "dueDate": "2020-12-31"
-          }
-        ],
-        "statusDate": "2020-12-03",
-        "expressedBy": {
-          "reference": "Patient/12724069",
-          "display": "SMART, TIMMY"
-        },
-        "note": [
-          {
-            "authorReference": {
-              "reference": "Practitioner/995932",
-              "display": "Smart, John"
-            },
-            "time": "2020-11-12T16:14:20.000Z",
-            "text": "Daily exercise"
-          }
-        ]
-      }
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
 
 <h4 id="patient-authorization-request">Patient Authorization Request</h4>
 
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724066
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal?patient=12724066
 </code></pre>
 
 <h4 id="response-4">Response</h4>
@@ -928,17 +931,11 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
+<p>List an individual goal by its ID.</p>
 
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual Goal by its id:</p>
-
-<pre><code>GET /Goal/:id
+<pre><code>GET /Goal/:ID
 </code></pre>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
@@ -1034,96 +1031,12 @@
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h4 id="patient-authorization-request-for-entered-in-error-status">Patient Authorization Request For Entered in Error Status</h4>
 
-<h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
-
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042107
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042111
 </code></pre>
 
 <h4 id="response-6">Response</h4>
-
-<pre class="headers"><code>Status: 200 OK</code></pre>
-
-<pre class="body-response"><code class="language-javascript">{
-  "resourceType": "Goal",
-  "id": "187042107",
-  "meta": {
-    "versionId": "1607035687000",
-    "lastUpdated": "2020-12-03T22:48:07.000Z"
-  },
-  "text": {
-    "status": "generated",
-    "div": "&lt;div xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;p&gt;&lt;b&gt;Goal&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Subject&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;b&gt;Description&lt;/b&gt;: Maintain a healthy weight&lt;/p&gt;&lt;p&gt;&lt;b&gt;Expressed By&lt;/b&gt;: SMART, TIMMY&lt;/p&gt;&lt;p&gt;&lt;p&gt;&lt;b&gt;Status&lt;/b&gt;: Active&lt;/p&gt;&lt;p&gt;&lt;b&gt;Start Date&lt;/b&gt;: Dec  3, 2020&lt;/p&gt;&lt;p&gt;&lt;b&gt;Target Date&lt;/b&gt;: Dec 31, 2020&lt;/p&gt;&lt;/div&gt;"
-  },
-  "lifecycleStatus": "active",
-  "achievementStatus": {
-    "coding": [
-      {
-        "system": "http://hl7.org/fhir/goal-achievement",
-        "code": "achieved",
-        "display": "Achieved"
-      }
-    ],
-    "text": "Achieved"
-  },
-  "category": [
-    {
-      "coding": [
-        {
-          "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/4003016",
-          "code": "25481501",
-          "display": "Physiologic",
-          "userSelected": true
-        },
-        {
-          "system": "http://terminology.hl7.org/CodeSystem/goal-category",
-          "code": "physiotherapy",
-          "display": "Physiotherapy",
-          "userSelected": false
-        }
-      ],
-      "text": "Physiologic"
-    }
-  ],
-  "description": {
-    "text": "Maintain a healthy weight"
-  },
-  "subject": {
-    "reference": "Patient/12724069",
-    "display": "SMART, TIMMY"
-  },
-  "startDate": "2020-12-03",
-  "target": [
-    {
-      "dueDate": "2020-12-31"
-    }
-  ],
-  "statusDate": "2020-12-03",
-  "expressedBy": {
-    "reference": "Patient/12724069",
-    "display": "SMART, TIMMY"
-  },
-  "note": [
-    {
-      "authorReference": {
-        "reference": "Practitioner/995932",
-        "display": "Smart, John"
-      },
-      "time": "2020-11-12T16:14:20.000Z",
-      "text": "Daily exercise"
-    }
-  ]
-}</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h4 id="patient-authorization-request-for-entered-in-error-status">Patient Authorization Request For Entered in Error Status</h4>
-
-<pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Goal/187042111
-</code></pre>
-
-<h4 id="response-7">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1154,12 +1067,6 @@
     "display": "SMART, TIMMY"
   }
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../../#client-errors">errors</a> and <a href="../../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>

@@ -68,7 +68,11 @@
       <h1 id="medicationadministration">MedicationAdministration</h1>
 
 <ul id="markdown-toc">
-  <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+  <li>
+<a href="#overview" id="markdown-toc-overview">Overview</a>    <ul>
+      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
+    </ul>
+  </li>
   <li>
 <a href="#terminology-bindings" id="markdown-toc-terminology-bindings">Terminology Bindings</a>    <ul>
       <li><a href="#contained-medication-bindings" id="markdown-toc-contained-medication-bindings">Contained Medication Bindings</a></li>
@@ -85,54 +89,55 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
-      <li><a href="#errors" id="markdown-toc-errors">Errors</a></li>
     </ul>
   </li>
   <li>
-<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by id</a>    <ul>
+<a href="#retrieve-by-id" id="markdown-toc-retrieve-by-id">Retrieve by ID</a>    <ul>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
-      <li><a href="#errors-1" id="markdown-toc-errors-1">Errors</a></li>
     </ul>
   </li>
 </ul>
 
 <h2 id="overview">Overview</h2>
 
-<p>The Medication Administration resource provides information about medications and vaccines administered to a patient or consumed by a patient including injections, intravenous solutions, and self administered oral medications.
-<br><br></p>
+<p>The MedicationAdministration resource provides information about medications administered to a patient or consumed by a patient including injections, intravenous solutions, and self-administered oral medications. You can use this resource to search for full administration details for vaccinations administered by the current healthcare system. For historically administered vaccines, or vaccines adminstered by other healthcare disciplines, care settings, or regions, you must use the <a href="../immunization/"><code>Immunization</code></a> resource to retrieve information.</p>
 
 <ul>
   <li>
-<strong>IMPORTANT NOTE</strong>: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.</li>
-  <li>
-<strong>NOTE</strong>:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.</li>
+<strong>Important!</strong>: Infuse or bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage dose does not equal the <a href="https://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication ingredient strength denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This result is the actual amount of medication administered.</li>
 </ul>
 
-<p><br><br>
-The following fields are returned if valued:</p>
+<p>The following fields are returned if valued:</p>
 
 <ul>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.identifier" target="_blank">Medication Administration id</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.identifier" target="_blank">Medication Administration id</a></li>
   <li><a href="#extensions">Infuse Over Time Extension</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.status" target="_blank">Status</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.patient" target="_blank">Patient</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.practitioner" target="_blank">Practitioner</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.encounter" target="_blank">Encounter</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.prescription" target="_blank">Prescription</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.effectiveTime_x_" target="_blank">Effective Time</a></li>
-  <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_" target="_blank">Medication</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.status" target="_blank">Status</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.patient" target="_blank">Patient</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.practitioner" target="_blank">Practitioner</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.encounter" target="_blank">Encounter</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.prescription" target="_blank">Prescription</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.effectiveTime_x_" target="_blank">Effective Time</a></li>
+  <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_" target="_blank">Medication</a></li>
   <li>Details of medication administered:
     <ul>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.text" target="_blank">Text</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.route" target="_blank">Route</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.quantity" target="_blank">Quantity</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.site_x_" target="_blank">Site</a></li>
-      <li><a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.rate_x_" target="_blank">Rate</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.text" target="_blank">Text</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.route" target="_blank">Route</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.quantity" target="_blank">Quantity</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.site_x_" target="_blank">Site</a></li>
+      <li><a href="https://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.dosage.rate_x_" target="_blank">Rate</a></li>
     </ul>
   </li>
+  <li>MedicationAdministration.medication may be a reference to a <a href="https://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a <a href="https://hl7.org/fhir/DSTU2/datatypes.html#codeableconcept">CodeableConcept</a> because it contains a unique combination of ingredients. Medications in the system always exist in the context of a medication administration and cannot be referenced independently.</li>
 </ul>
+
+<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+
+<h3 id="errors">Errors</h3>
+
+<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 <h2 id="terminology-bindings">Terminology Bindings</h2>
 
@@ -340,7 +345,8 @@ The following fields are returned if valued:</p>
 
 <h3 id="custom-extensions">Custom Extensions</h3>
 
-<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}</code></p>
+<p>All URLs for custom extensions are defined as <code>https://fhir-ehr.cerner.com/dstu2/StructureDefinition/{id}</code>
+For more information, see the <a href="../../conformance/structure-definition/#overview"><code>StructureDefinition</code></a> resource.</p>
 
 <table>
   <thead>
@@ -353,7 +359,7 @@ The following fields are returned if valued:</p>
   <tbody>
     <tr>
       <td><code>infuse-over-time</code></td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#quantity"><code>Quantity</code></a></td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#quantity"><code>Quantity</code></a></td>
       <td>The length of time in minutes it took to infuse a medication.</td>
     </tr>
   </tbody>
@@ -361,21 +367,10 @@ The following fields are returned if valued:</p>
 
 <h2 id="search">Search</h2>
 
-<p>Search for MedicationAdministrations that meet supplied query parameters:</p>
+<p>Search for medication administrations that meet supplied query parameters.</p>
 
 <pre><code>GET /MedicationAdministration?:parameters
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_">MedicationAdministration.medication</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be referenced independently.</li>
-  <li>
-<strong>IMPORTANT NOTE</strong>: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.</li>
-  <li>
-<strong>NOTE</strong>:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.</li>
-</ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
 
@@ -397,60 +392,83 @@ The following fields are returned if valued:</p>
   <tbody>
     <tr>
       <td><code>_id</code></td>
-      <td>This, or <code>patient</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The logical resource ID associated with the resource. It may be a list separated by commas. This parameter is required if the <code>patient</code> parameter is not used. Example: <code>_id=12345</code>
 </td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The logical resource id associated with the resource.</td>
     </tr>
     <tr>
       <td><code>patient</code></td>
-      <td>This, or <code>_id</code>
-</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The patient who has received the medication administration. Example: <code>patient=12345</code>
+      <td>Conditionally</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>The specific patient to return medication administrations for. This parameter is required if the <code>_id</code> parameter is not used. Example: <code>patient=1234</code>
 </td>
     </tr>
     <tr>
       <td><code>status</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>The status of the medication administration, may be a list separated by commas.  Example: <code>status=completed</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>The status of the medication administration event. It may be a list separated by commas. Example: <code>status=completed,not-done</code>
 </td>
     </tr>
     <tr>
       <td><code>practitioner</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
-      <td>The performing clinician, may be a list separated by commas. Example: <code>practitioner=12345</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#reference"><code>reference</code></a></td>
+      <td>The logical resource ID of the practitioner who administered the medication. It may be a list separated by commas. Example: <code>practitioner=1245,7659</code>
 </td>
     </tr>
     <tr>
       <td><code>notgiven</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
-      <td>Administrations that were not made. A value of ‘true’ will search for these, and a value of ‘false’ will exclude them. Example: <code>true</code>
-</td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#token"><code>token</code></a></td>
+      <td>Administrations that were not made. A value of <code>true</code> includes these administrations in the search results, and a value of <code>false</code> excludes them.</td>
     </tr>
     <tr>
       <td><code>effectivetime</code></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#date"><code>date</code></a></td>
-      <td>The effectivetime search may be provided once with either the ge or le prefix or twice with the ge and le prefixes to indicate a specific range. Example: <code>effectivetime=ge2010-08-18</code> or <code>effectivetime=le2015-07-17</code> or <code>effectivetime=ge2010-08-18&amp;effectivetime=le2015-07-17</code>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/datatypes.html#dateTime"><code>dateTime</code></a></td>
+      <td>A date range for when the administration happened. Example: <code>effectivetime=ge2014-05-19T20:54:02.000Z</code>
 </td>
     </tr>
     <tr>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
-      <td>N</td>
-      <td><a href="http://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
-      <td>The maximum number of results to return.</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#count"><code>_count</code></a></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/DSTU2/search.html#number"><code>number</code></a></td>
+      <td>The maximum number of results to return. Example: <code>_count=50</code>
+</td>
     </tr>
   </tbody>
 </table>
 
-<p>Notes:</p>
+<p><em>Notes</em></p>
 
 <ul>
-  <li>Either the <code>_id</code>, or a combination of <code>patient</code>, <code>status</code>, <code>practitioner</code>, <code>notgiven</code>, <code>effectivetime</code>, or <code>_count</code> parameters must be provided. Default sort is by administration end date time.</li>
+  <li>When searching with the <code>_id</code> parameter:
+    <ul>
+      <li>It must not be provided with any other parameters.</li>
+    </ul>
+  </li>
+  <li>When searching with the <code>effectivetime</code> parameter:
+    <ul>
+      <li>For a single <code>effectivetime</code> occurrence:
+        <ul>
+          <li>It must be provided with a <code>ge</code> <code>gt</code> <code>le</code> or <code>lt</code> prefix to imply the date range for an administrations search.</li>
+          <li>The time component is required.</li>
+          <li>Example: <code>effectivetime=ge2014-05-19T20:54:02.000Z</code>
+</li>
+        </ul>
+      </li>
+      <li>For two <code>effectivetime</code> occurences:
+        <ul>
+          <li>It must be provided with <code>le</code> or <code>lt</code> and <code>ge</code> or <code>gt</code> prefixes to search for administrations within a specific range.</li>
+          <li>The time component is required for both parameters.</li>
+          <li>Example: <code>effectivetime=ge2014-05-19T20:54:02.000Z&amp;effectivetime=le2014-05-20T20:54:02.000Z</code>
+</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -749,29 +767,12 @@ The following fields are returned if valued:</p>
   ]
 }</code></pre>
 
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
+<h2 id="retrieve-by-id">Retrieve by ID</h2>
 
-<h3 id="errors">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
-
-<h2 id="retrieve-by-id">Retrieve by id</h2>
-
-<p>List an individual MedicationAdministration by its id:</p>
+<p>List an individual medication administration by its ID.</p>
 
 <pre><code>GET /MedicationAdministration/:id
 </code></pre>
-
-<p><em>Implementation Notes</em></p>
-
-<ul>
-  <li>
-<a href="http://hl7.org/fhir/DSTU2/medicationadministration-definitions.html#MedicationAdministration.medication_x_">MedicationAdministration.medication</a> may be a reference to a <a href="http://hl7.org/fhir/DSTU2/references.html#contained">contained</a> Medication when the Medication cannot be represented by a CodeableConcept because it contains a unique combination of ingredients. Medications in the system always exist within the context of a MedicationAdministration and cannot be be referenced independently.</li>
-  <li>
-<strong>IMPORTANT NOTE</strong>: Infuse or Bolus administration results for continuous infusion orders may require additional calculations to determine the actual amount of medication administered per ingredient. An additional calculation is required when the dosage quantity does not equal the contained Medication product ingredient amount denominator. In this case, calculate the ratio between the ingredient’s numerator divided by the denominator and multiply by dosage quantity. This will be the actual amount of medication administered.</li>
-  <li>
-<strong>NOTE</strong>:  These corrections may be breaking changes for your use cases.  Current users of the MedicationAdministration API should test in their non-production domains.  Cerner will coordinate with you and your developers of 3rd party applications to enable in your production domains.</li>
-</ul>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
 
@@ -1041,12 +1042,6 @@ The following fields are returned if valued:</p>
     }
   }
 }</code></pre>
-
-<p>Note: The examples provided here are non-normative and replaying them in the public sandbox is not guaranteed to yield the results shown on the site.</p>
-
-<h3 id="errors-1">Errors</h3>
-
-<p>The common <a href="../../#client-errors">errors</a> and <a href="../../#operation-outcomes">OperationOutcomes</a> may be returned.</p>
 
 
     </div>
