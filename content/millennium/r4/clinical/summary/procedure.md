@@ -65,7 +65,8 @@ Search for procedures that meet supplied query parameters.
  `subject`         | Conditionally | [`reference`] | Who the procedure is for. This parameter is required if `_id` or `patient` is not used. Example: `Patient/12345`
  `date`            | No            | [`dateTime`]  | The date range that the procedure's `performedPeriod` or `performedDateTime` falls within. Example: `date=gt2015-09-24T12:00:00.000Z&date=le2020-07-15T16:00:00.000Z`
  `_revinclude`     | No            | [`token`]     | The Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target 
-
+ `_lastUpdated`    | No            | [`date`]      | Date range in which the procedures was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
+ 
 Notes:
 
 * The `date` parameter: 
@@ -76,6 +77,8 @@ Notes:
   * May be provided in combination with the `_id` or `patient` parameter. Example: `_id=570007845&_revinclude=Provenance:target` or `patient=12345&_revinclude=Provenance:target`.
   * When provided in a request to a closed endpoint, the OAuth2 token must include the `user/Provenance.read` scope.
 * Currently, the `patient/Provenance.read` scope is not supported; hence, `_revinclude` cannot be used for patient persona.
+* The `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
+* The `date` and `_lastUpdated` parameters may not be provided together.
 
 ### Headers
 
@@ -209,6 +212,7 @@ X-Request-Id: 2e11665d-618d-4017-9a90-c3c1afeeac00
 
 The `ETag` response header indicates the current `If-Match` version to use on a subsequent update.
 
+[`date`]: https://hl7.org/fhir/R4/search.html#date
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [`dateTime`]: https://hl7.org/fhir/r4/datatypes.html#dateTime
