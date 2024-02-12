@@ -126,6 +126,15 @@ _Implementation Notes_
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE_BUNDLE) %>
 
+### Example with Nil Status Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DOCUMENT_REFERENCE_NIL_STATUS_BUNDLE) %>
+
 ### Example with RevInclude
 
 ### Authorization Types
@@ -191,6 +200,15 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:R4_DOCUMENT_REFERENCE) %>
+
+### Example with Nil Status Request
+
+    GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/206098371
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_DOCUMENT_REFERENCE_NIL_STATUS) %>
 
 #### Patient Authorization Request
 
