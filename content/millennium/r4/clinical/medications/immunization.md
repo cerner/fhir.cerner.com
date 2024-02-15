@@ -96,7 +96,7 @@ _Implementation Notes_
     - It must be provided with `le` and `ge` prefixes to search for vaccination records within a specific range. 
     - The time component is optional, but must be consistent. If one date has a time component, so must the other.
 - When  searching with `_lastUpdated` parameter: 
-  - It can be provided with only a single reference, and must use the `ge` and `gt` prefix
+  - It can be provided with only a single reference, and must use the `ge` or `gt` prefix
   - The time component is optional.
   - The `date` and `_lastUpdated` parameters may not be provided together.
 - When searching with the `target-disease` parameter:
