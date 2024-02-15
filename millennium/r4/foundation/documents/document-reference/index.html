@@ -80,6 +80,7 @@
       <li><a href="#parameters" id="markdown-toc-parameters">Parameters</a></li>
       <li><a href="#headers" id="markdown-toc-headers">Headers</a></li>
       <li><a href="#example" id="markdown-toc-example">Example</a></li>
+      <li><a href="#example-with-nil-status-request" id="markdown-toc-example-with-nil-status-request">Example with Nil Status Request</a></li>
       <li><a href="#example-with-revinclude" id="markdown-toc-example-with-revinclude">Example with RevInclude</a></li>
       <li><a href="#authorization-types-1" id="markdown-toc-authorization-types-1">Authorization Types</a></li>
       <li><a href="#example-search-by-encounter-filters-patients-level-documents" id="markdown-toc-example-search-by-encounter-filters-patients-level-documents">Example: search by encounter filters patients level documents</a></li>
@@ -90,6 +91,7 @@
       <li><a href="#authorization-types-2" id="markdown-toc-authorization-types-2">Authorization Types</a></li>
       <li><a href="#headers-1" id="markdown-toc-headers-1">Headers</a></li>
       <li><a href="#example-1" id="markdown-toc-example-1">Example</a></li>
+      <li><a href="#example-with-nil-status-request-1" id="markdown-toc-example-with-nil-status-request-1">Example with Nil Status Request</a></li>
     </ul>
   </li>
   <li>
@@ -910,6 +912,219 @@ For fields supported on write or update operations, see the <a href="#create">Cr
   ]
 }</code></pre>
 
+<h3 id="example-with-nil-status-request">Example with Nil Status Request</h3>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853
+</code></pre>
+
+<h4 id="response-1">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "Bundle",
+  "id": "271fc608-6a12-48f3-a9f8-2d1bfe395328",
+  "type": "searchset",
+  "link": [
+    {
+      "relation": "self",
+      "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853"
+    }
+  ],
+  "entry": [
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381924",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "198381924",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2022-07-07T09:43:56.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: GETEST, PatientOneHundredSixtySix&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Waveform Strip&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Category&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: test1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Start Date&lt;/b&gt;: Jul  7, 2022  9:43 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Jul  7, 2022  9:43 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;p&gt;&lt;b&gt;Verifying Provider&lt;/b&gt;: Model, User 154 Cerner&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "system": "https://fhir.cerner.com/ceuuid",
+            "value": "CE87caf4b7-9397-4667-9897-702218017c9e-198381924-2022070709435600"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+              "code": "2574499721",
+              "display": "Waveform Strip",
+              "userSelected": true
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+              "code": "UNK",
+              "display": "unknown"
+            }
+          ],
+          "text": "Waveform Strip"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+                "code": "unknown",
+                "display": "Unknown"
+              }
+            ],
+            "text": "Unknown"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/12769853",
+          "display": "GETEST, PatientOneHundredSixtySix"
+        },
+        "date": "2022-07-07T09:43:56Z",
+        "author": [
+          {
+            "reference": "Practitioner/11638428",
+            "display": "Model, User 154 Cerner"
+          }
+        ],
+        "authenticator": {
+          "reference": "Practitioner/11638428",
+          "display": "Model, User 154 Cerner"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-198381924",
+              "title": "test1",
+              "creation": "2022-07-07T09:43:56.000Z"
+            },
+            "format": {
+              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+              "code": "unknown",
+              "display": "Unknown"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/97966172"
+            }
+          ],
+          "period": {
+            "start": "2022-07-07T09:43:56.000Z",
+            "end": "2022-07-07T09:43:56.000Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381926",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "198381926",
+        "meta": {
+          "versionId": "1",
+          "lastUpdated": "2022-07-07T09:43:56.000Z"
+        },
+        "text": {
+          "status": "generated",
+          "div": "&lt;div xmlns=\\"http://www.w3.org/1999/xhtml\\"&gt;&lt;p&gt;&lt;b&gt;Document Reference&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Patient Name&lt;/b&gt;: GETEST, PatientOneHundredSixtySix&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Type&lt;/b&gt;: Waveform Strip&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Category&lt;/b&gt;: Unknown&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Title&lt;/b&gt;: test1&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service Start Date&lt;/b&gt;: Jul  7, 2022  9:43 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Service End Date&lt;/b&gt;: Jul  7, 2022  9:43 A.M. UTC&lt;/p&gt;&lt;p&gt;&lt;b&gt;Document Status&lt;/b&gt;: Final&lt;/p&gt;&lt;/div&gt;"
+        },
+        "identifier": [
+          {
+            "system": "https://fhir.cerner.com/ceuuid",
+            "value": "CE87caf4b7-9397-4667-9897-702218017c9e-198381926-2022070709435600"
+          }
+        ],
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72",
+              "code": "2574499721",
+              "display": "Waveform Strip",
+              "userSelected": true
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+              "code": "UNK",
+              "display": "unknown"
+            }
+          ],
+          "text": "Waveform Strip"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+                "code": "unknown",
+                "display": "Unknown"
+              }
+            ],
+            "text": "Unknown"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/12769853",
+          "display": "GETEST, PatientOneHundredSixtySix"
+        },
+        "date": "2022-07-07T09:43:56Z",
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-198381926",
+              "title": "test1",
+              "creation": "2022-07-07T09:43:56.000Z"
+            },
+            "format": {
+              "system": "http://terminology.hl7.org/CodeSystem/data-absent-reason",
+              "code": "unknown",
+              "display": "Unknown"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/97966172"
+            }
+          ],
+          "period": {
+            "start": "2022-07-07T09:43:56.000Z",
+            "end": "2022-07-07T09:43:56.000Z"
+          }
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:98ae7843-46b7-4792-8613-a0b9cf196b27",
+      "resource": {
+        "resourceType": "OperationOutcome",
+        "issue": [
+          {
+            "severity": "warning",
+            "code": "suppressed",
+            "diagnostics": "Other search results were found but could not be compliantly expressed and hence have been suppressed"
+          }
+        ]
+      },
+      "search": {
+        "mode": "outcome"
+      }
+    }
+  ]
+}</code></pre>
+
 <h3 id="example-with-revinclude">Example with RevInclude</h3>
 
 <h3 id="authorization-types-1">Authorization Types</h3>
@@ -923,7 +1138,7 @@ For fields supported on write or update operations, see the <a href="#create">Cr
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?_id=198449751&amp;_revinclude=Provenance:target
 </code></pre>
 
-<h4 id="response-1">Response</h4>
+<h4 id="response-2">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1121,7 +1336,7 @@ For fields supported on write or update operations, see the <a href="#create">Cr
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853&amp;encounter=97966172
 </code></pre>
 
-<h4 id="response-2">Response</h4>
+<h4 id="response-3">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1219,7 +1434,7 @@ For fields supported on write or update operations, see the <a href="#create">Cr
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853
 </code></pre>
 
-<h4 id="response-3">Response</h4>
+<h4 id="response-4">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1445,7 +1660,7 @@ For fields supported on write or update operations, see the <a href="#create">Cr
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381924
 </code></pre>
 
-<h4 id="response-4">Response</h4>
+<h4 id="response-5">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -1539,12 +1754,34 @@ For fields supported on write or update operations, see the <a href="#create">Cr
   }
 }</code></pre>
 
+<h3 id="example-with-nil-status-request-1">Example with Nil Status Request</h3>
+
+<pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/206098371
+</code></pre>
+
+<h4 id="response-6">Response</h4>
+
+<pre class="headers"><code>Status: 200 OK</code></pre>
+
+<pre class="body-response"><code class="language-javascript">{
+  "resourceType": "OperationOutcome",
+  "issue": [
+    {
+      "severity": "error",
+      "code": "not-found",
+      "details": {
+        "text": "Resource not found"
+      }
+    }
+  ]
+}</code></pre>
+
 <h4 id="patient-authorization-request-1">Patient Authorization Request</h4>
 
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381924
 </code></pre>
 
-<h4 id="response-5">Response</h4>
+<h4 id="response-7">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -2394,7 +2631,7 @@ For fields supported on write or update operations, see the <a href="#create">Cr
   }
 }</code></pre>
 
-<h4 id="response-6">Response</h4>
+<h4 id="response-8">Response</h4>
 
 <pre class="headers"><code>Status: 201 Created</code></pre>
 
@@ -3176,7 +3413,7 @@ If-Match: W/"&lt;Current version of the DocumentReference resource&gt;"</code></
   }
 }</code></pre>
 
-<h4 id="response-7">Response</h4>
+<h4 id="response-9">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -3380,7 +3617,7 @@ X-Request-Id: 11111111-1111-1111-1111-111111111111
 <pre><code>GET https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351&amp;type=http%3A%2F%2Floinc.org%7C34133-9
 </code></pre>
 
-<h4 id="response-8">Response</h4>
+<h4 id="response-10">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 
@@ -3438,7 +3675,7 @@ X-Request-Id: 11111111-1111-1111-1111-111111111111
 <pre><code>GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/$docref?patient=13160351&amp;type=http%3A%2F%2Floinc.org%7C34133-9
 </code></pre>
 
-<h4 id="response-9">Response</h4>
+<h4 id="response-11">Response</h4>
 
 <pre class="headers"><code>Status: 200 OK</code></pre>
 

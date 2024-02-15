@@ -654,6 +654,13 @@
       <td>Provenance resource entries to be returned as part of the bundle. Example: <code>_revinclude=Provenance:target</code>
 </td>
     </tr>
+    <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
+      <td>Date range in which the allergy or intolerance was last updated. Either 1 or 2 date/times can be given. Example: <code>_lastUpdated=gt2014-09-24</code> or <code>_lastUpdated=lt2015-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
@@ -675,7 +682,10 @@
 </li>
     </ul>
   </li>
-  <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</li>
+  <li>
+    <p>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</p>
+  </li>
+  <li>The <code>_lastUpdated</code> parameters may be provided up to two times, and must use the <code>eq</code>, <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> prefixes. When a value is provided without a prefix, an implied <code>eq</code> prefix is used. When provided twice, the lower value must have a <code>ge</code> or <code>gt</code> prefix and the higher value must have an <code>le</code> or <code>lt</code> prefix.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>

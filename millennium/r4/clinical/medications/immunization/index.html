@@ -633,6 +633,13 @@
 </td>
     </tr>
     <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>No</td>
+      <td><a href="http://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
+      <td>Date on which the immunization was last updated. Example: <code>_lastUpdated=gt2014-09-24</code> or <code>_lastUpdated=gt2014-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
+    <tr>
       <td><code>target-disease</code></td>
       <td>No</td>
       <td><a href="http://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
@@ -677,6 +684,13 @@
           <li>The time component is optional, but must be consistent. If one date has a time component, so must the other.</li>
         </ul>
       </li>
+    </ul>
+  </li>
+  <li>When  searching with <code>_lastUpdated</code> parameter:
+    <ul>
+      <li>It can be provided with only a single reference, and must use the <code>gt</code> prefix</li>
+      <li>The time component is optional.</li>
+      <li>The <code>date</code> and <code>_lastUpdated</code> parameters may not be provided together.</li>
     </ul>
   </li>
   <li>When searching with the <code>target-disease</code> parameter:
