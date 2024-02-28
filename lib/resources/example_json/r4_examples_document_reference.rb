@@ -98,6 +98,19 @@ module Cerner
       }
     }.freeze
 
+    R4_DOCUMENT_REFERENCE_NIL_STATUS ||= {
+      "resourceType": 'OperationOutcome',
+      "issue": [
+        {
+          "severity": 'error',
+          "code": 'not-found',
+          "details": {
+            "text": 'Resource not found'
+          }
+        }
+      ]
+    }.freeze
+
     R4_DOCUMENT_REFERENCE_SEARCH_BY_ENCOUNTER_FILTER_PATIENT_DOCUMENTS ||= {
       "resourceType": 'DocumentReference',
       "id": '198381924',
@@ -505,6 +518,129 @@ module Cerner
                 'reference': 'DiagnosticReport/201318478'
               }
             ]
+          }
+        }
+      ]
+    }.freeze
+
+    R4_DOCUMENT_REFERENCE_NIL_STATUS_BUNDLE ||= {
+      'resourceType': 'Bundle',
+      'id': '271fc608-6a12-48f3-a9f8-2d1bfe395328',
+      'type': 'searchset',
+      'link': [
+        {
+          'relation': 'self',
+          'url': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference?patient=12769853'
+        }
+      ],
+      'entry': [
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381924',
+          'resource': R4_DOCUMENT_REFERENCE
+        },
+        {
+          'fullUrl': 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/DocumentReference/198381926',
+          'resource': {
+            "resourceType": 'DocumentReference',
+            "id": '198381926',
+            "meta": {
+              "versionId": '1',
+              "lastUpdated": '2022-07-07T09:43:56.000Z'
+            },
+            "text": {
+              "status": 'generated',
+              "div": '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Document Reference</b></p>'\
+              '<p><b>Patient Name</b>: '\
+              'GETEST, PatientOneHundredSixtySix</p><p><b>Document Type</b>: '\
+              'Waveform Strip</p><p><b>Document Category</b>: '\
+              'Unknown</p><p><b>Document Title</b>: test1</p><p><b>Service Start Date</b>: '\
+              'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Service End Date</b>: '\
+              'Jul  7, 2022  9:43 A.M. UTC</p><p><b>Document Status</b>: Final</p></div>'
+            },
+            "identifier": [
+              {
+                "system": 'https://fhir.cerner.com/ceuuid',
+                "value": 'CE87caf4b7-9397-4667-9897-702218017c9e-198381926-2022070709435600'
+              }
+            ],
+            "status": 'current',
+            "docStatus": 'final',
+            "type": {
+              "coding": [
+                {
+                  "system": 'https://fhir.cerner.com/ec2458f2-1e24-41c8-b71b-0e701af7583d/codeSet/72',
+                  "code": '2574499721',
+                  "display": 'Waveform Strip',
+                  "userSelected": true
+                },
+                {
+                  "system": 'http://terminology.hl7.org/CodeSystem/v3-NullFlavor',
+                  "code": 'UNK',
+                  "display": 'unknown'
+                }
+              ],
+              "text": 'Waveform Strip'
+            },
+            "category": [
+              {
+                "coding": [
+                  {
+                    "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                    "code": 'unknown',
+                    "display": 'Unknown'
+                  }
+                ],
+                "text": 'Unknown'
+              }
+            ],
+            "subject": {
+              "reference": 'Patient/12769853',
+              "display": 'GETEST, PatientOneHundredSixtySix'
+            },
+            "date": '2022-07-07T09:43:56Z',
+            "content": [
+              {
+                "attachment": {
+                  "contentType": 'application/pdf',
+                  "url": 'https://fhir-open.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Binary/XR-198381926',
+                  "title": 'test1',
+                  "creation": '2022-07-07T09:43:56.000Z'
+                },
+                "format": {
+                  "system": 'http://terminology.hl7.org/CodeSystem/data-absent-reason',
+                  "code": 'unknown',
+                  "display": 'Unknown'
+                }
+              }
+            ],
+            "context": {
+              "encounter": [
+                {
+                  "reference": 'Encounter/97966172'
+                }
+              ],
+              "period": {
+                "start": '2022-07-07T09:43:56.000Z',
+                "end": '2022-07-07T09:43:56.000Z'
+              }
+            }
+          }
+        },
+        {
+          "fullUrl": 'urn:uuid:98ae7843-46b7-4792-8613-a0b9cf196b27',
+          "resource": {
+            "resourceType": 'OperationOutcome',
+            "issue": [
+              {
+                "severity": 'warning',
+                "code": 'suppressed',
+                "diagnostics": 'Other search results were found but could not be compliantly expressed and hence have'\
+                 ' been suppressed'
+              }
+            ]
+          },
+          "search": {
+            "mode": 'outcome'
           }
         }
       ]
