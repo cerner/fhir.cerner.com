@@ -30,6 +30,12 @@
   </div>
 <!-- /#top-header -->
 
+  <div id="notification-header">
+    <div class="header-wrapper">
+      <marquee style="color: #FF0000;"> Soon we will be migrating this site content to Oracle Help Center. </marquee>
+    </div>
+  </div>
+
   <div id="bottom-header">
     <div class="header-wrapper">
 
@@ -423,6 +429,13 @@
       <td><a href="https://hl7.org/fhir/R4/search.html#token"><code>token</code></a></td>
       <td>The Provenance resource entries to be returned as part of the bundle. Example:_revinclude=Provenance:target</td>
     </tr>
+    <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
+      <td>Date range in which the procedures was last updated. Example: <code>_lastUpdated=gt2014-09-24</code> or <code>_lastUpdated=lt2015-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
@@ -445,6 +458,8 @@
     </ul>
   </li>
   <li>Currently, the <code>patient/Provenance.read</code> scope is not supported; hence, <code>_revinclude</code> cannot be used for patient persona.</li>
+  <li>The <code>_lastUpdated</code> parameters may be provided up to two times, and must use the <code>eq</code>, <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> prefixes. When a value is provided without a prefix, an implied <code>eq</code> prefix is used. When provided twice, the lower value must have a <code>ge</code> or <code>gt</code> prefix and the higher value must have an <code>le</code> or <code>lt</code> prefix.</li>
+  <li>The <code>date</code> and <code>_lastUpdated</code> parameters may not be provided together.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>

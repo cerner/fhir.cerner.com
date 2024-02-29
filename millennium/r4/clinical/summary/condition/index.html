@@ -30,6 +30,12 @@
   </div>
 <!-- /#top-header -->
 
+  <div id="notification-header">
+    <div class="header-wrapper">
+      <marquee style="color: #FF0000;"> Soon we will be migrating this site content to Oracle Help Center. </marquee>
+    </div>
+  </div>
+
   <div id="bottom-header">
     <div class="header-wrapper">
 
@@ -625,6 +631,13 @@
       <td>The encounter ID/s for the patient. Encounter-diagnosis conditions that match the encounter ID/s and all problem-list-item conditions of the patient are returned. Example: <code>encounter=97733489</code>
 </td>
     </tr>
+    <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/R4/search.html#date"><code>date</code></a></td>
+      <td>Date range in which the conditions was last updated. Example: <code>_lastUpdated=gt2014-09-24</code> or <code>_lastUpdated=lt2015-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
@@ -642,6 +655,7 @@
   </li>
   <li>When <code>_revinclude</code> is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as <code>user/Provenance.read</code>, <code>patient/Provenance.read</code> or <code>system/Provenance.read</code>.</li>
   <li>When <code>encounter</code> is provided, encounter-diagnosis for the matched encounter/s and all problem-list-item conditions of the patient will be returned. No HealthConcerns are returned.</li>
+  <li>The <code>_lastUpdated</code> parameters may be provided up to two times, and must use the <code>eq</code>, <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> prefixes. When a value is provided without a prefix, an implied <code>eq</code> prefix is used. When provided twice, the lower value must have a <code>ge</code> or <code>gt</code> prefix and the higher value must have an <code>le</code> or <code>lt</code> prefix.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
@@ -1855,14 +1869,7 @@
 <ul>
   <li>The Condition Create API supports only the API fields mentioned below. Unsupported fields will be ignored.</li>
   <li>Modifier fields should not be provided, and will cause the transaction to fail.</li>
-  <li>The code.coding field can have at most 2 codings.
-    <ul>
-      <li>One of the codings must have <code>userSelected: true</code>
-</li>
-      <li>The other coding must have <code>userSelected: false</code>
-</li>
-    </ul>
-  </li>
+  <li>The code.coding field can have multiple codings. However only one for userSelected=true and one for userSelected=false will be written to millennium.</li>
   <li>The Condition Create API currently supports only Conditions with a category of <code>problem-list-item</code> or <code>encounter-diagnosis</code>.</li>
   <li>An <code>encounter-diagnosis</code> Condition will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.</li>
   <li>On FHIR write of an encounter-diagnosis, the diagnosis will automatically receive the next available diagnosis priority within the problem list component.</li>
@@ -2517,7 +2524,7 @@ X-Request-Id: 11111111111111111111111111111111
 <ul>
   <li>Currently <code>problem-list-item</code> and <code>encounter-diagnosis</code> are supported.</li>
   <li>Any field which is missing will be interpreted as nulling out or removing data from the resource. See <a href="https://hl7.org/fhir/R4/http.html#update">FHIR<sup>®</sup> Update</a> for additional details about update operations.</li>
-  <li>The code.coding field can have at most 2 codings, one of which must be set as <code>userSelected: true</code> and the other one must be set as <code>userSelected: false</code>.</li>
+  <li>The code.coding field can have multiple codings. However only one for userSelected=true and one for userSelected=false will be written to millennium.</li>
 </ul>
 
 <h3 id="authorization-types-4">Authorization Types</h3>
