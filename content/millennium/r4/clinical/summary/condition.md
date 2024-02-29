@@ -71,7 +71,8 @@ _Implementation Notes_
  `category`        | No                             | [`token`]     | The category of the condition. Categories problem-list-item, encounter-diagnosis and health-concern are supported as of now. Example: `problem-list-item`, `encounter-diagnosis`, `health-concern`
  `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example:`_revinclude=Provenance:target`
  `encounter`       | No                             | [`reference`] | The encounter ID/s for the patient. Encounter-diagnosis conditions that match the encounter ID/s and all problem-list-item conditions of the patient are returned. Example: `encounter=97733489`
-
+ `_lastUpdated`    | No                             | [`date`]      | Date range in which the conditions was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=lt2015-09-24T12:00:00.000Z`
+ 
 Notes:
 
 * If `_id` is provided, no other parameters may be provided.
@@ -80,6 +81,7 @@ Notes:
   * be provided with the `_id/patient` parameter. Example: `_id=82c1c95c-83bb-47d2-86d7-7961aa996082&_revinclude=Provenance:target`
 * When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
 * When `encounter` is provided, encounter-diagnosis for the matched encounter/s and all problem-list-item conditions of the patient will be returned. No HealthConcerns are returned.
+* The `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
 
 ### Headers
 
@@ -312,6 +314,7 @@ The `ETag` response header indicates the current `If-Match` version to use on su
 
 The common [errors] and [OperationOutcomes] may be returned.
 
+[`date`]: https://hl7.org/fhir/R4/search.html#date
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
 [errors]: ../../../#client-errors
