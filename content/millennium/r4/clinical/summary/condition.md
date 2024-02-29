@@ -206,9 +206,7 @@ _Implementation Notes_
 
 * The Condition Create API supports only the API fields mentioned below. Unsupported fields will be ignored.
 * Modifier fields should not be provided, and will cause the transaction to fail.
-* The code.coding field can have at most 2 codings.
-  * One of the codings must have `userSelected: true`
-  * The other coding must have `userSelected: false`
+* The code.coding field can have multiple codings. However only one for userSelected=true and one for userSelected=false will be written to millennium.
 * The Condition Create API currently supports only Conditions with a category of `problem-list-item` or `encounter-diagnosis`.
 * An `encounter-diagnosis` Condition will be automatically prioritized to the least significant priority by the Cerner Millennium EHR.
 * On FHIR write of an encounter-diagnosis, the diagnosis will automatically receive the next available diagnosis priority within the problem list component.
@@ -268,7 +266,7 @@ _Implementation Notes_
 
 * Currently `problem-list-item` and `encounter-diagnosis` are supported.
 * Any field which is missing will be interpreted as nulling out or removing data from the resource. See [FHIR<sup>®</sup> Update] for additional details about update operations.
-* The code.coding field can have at most 2 codings, one of which must be set as `userSelected: true` and the other one must be set as `userSelected: false`.
+* The code.coding field can have multiple codings. However only one for userSelected=true and one for userSelected=false will be written to millennium.
 
 ### Authorization Types
 
