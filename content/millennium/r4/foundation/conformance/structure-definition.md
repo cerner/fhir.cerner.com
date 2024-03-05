@@ -177,7 +177,7 @@ Authorization is not required.
 [`payment-collection-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/payment-collection-status?_format=json
 [`performing-location`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/performing-location?_format=json
 [`period`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/period?_format=json
-[`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status
+[`pharmacy-verification-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/pharmacy-verification-status?_format=json
 [`precision`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/precision?_format=json
 [`priority`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/priority?_format=json
 [`procedure-code`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/procedure-code?_format=json
