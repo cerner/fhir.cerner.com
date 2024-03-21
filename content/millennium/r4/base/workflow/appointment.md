@@ -93,7 +93,7 @@ _Implementation Notes_
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Parameters
 
@@ -117,6 +117,7 @@ Notes:
 * Search by `date` returns appointments with a status other than `proposed` that start or end within the date range provided.
 * Search by `-date-or-req-period` returns the same appointments as the `date` parameter, but also returns appointments with a status of `proposed` that either are requested to start or end between the dates provided.
 * The retrieved appointments are sorted by `start` date ascending (earliest first).
+* When searching with a patient authorization type, sensitive appointments will not be returned.
 
 ### Headers
 
@@ -141,7 +142,7 @@ List an individual Appointment by its ID:
 
 ### Authorization Types
 
-<%= authorization_types(provider: true, system: true) %>
+<%= authorization_types(provider: true, patient: true, system: true) %>
 
 ### Headers
 
