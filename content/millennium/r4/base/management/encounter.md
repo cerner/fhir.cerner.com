@@ -109,6 +109,7 @@ Name          | Required         | Type          | Description
 [`_count`]    | No               | [`number`]    | The maximum number of results to return.
 `status`      | No               | [`token`]     | The status of the Encounter. Example: `planned`
 `_revinclude` | No               | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
+`_lastUpdated`| No               | [`dateTime`]  | Datetime on which the Encounter was last updated. Example: `_lastUpdated=gt2014-09-24` or `_lastUpdated=gt2014-09-24T12:00:00.000Z`
   
 Notes:
 
@@ -134,6 +135,7 @@ Notes:
   * Code details are required. System is optional. If a system is not provided, search is performed across all systems supported by the
     Encounter resource.
   * When a valid system is provided, search is performed against the specific system.
+* The `_lastUpdated` parameters may be provided up to two times, and must use the `eq`, `ge`, `gt`, `le`, or `lt` prefixes. When a value is provided without a prefix, an implied `eq` prefix is used. When provided twice, the lower value must have a `ge` or `gt` prefix and the higher value must have an `le` or `lt` prefix.
 
 ### Headers
 

@@ -60,6 +60,7 @@ Search for nutrition orders that meet the supplied query parameters.
  `status`          | No                             | [`token`]     | The status of the nutrition order. Example: `active`
  `_lastUpdated`    | No                             | [`date`]      | An explicit or implied date and time range during which the most recent clinically relevant update was made to the nutrition order. Must include a time, and must be prefixed by ‘ge’ or ‘le’. Example: `ge2014-05-19T20:54:02.000Z`
 [`_count`]         | No                             | [`number`]    | The maximum number of nutrition orders to include on a page.
+ `_revinclude`     | No                             | [`token`]     | Provenance resource entries to be returned as part of the bundle. Example: `_revinclude=Provenance:target`
 
 Notes:
 
@@ -67,6 +68,11 @@ Notes:
 * The `_lastUpdated` parameter may be provided in the following formats:
     * Once with a prefix of ‘ge’ or ‘le’ representing the earliest date or latest date (for example, `date=ge2015-01-01` or `date=le2016-01-01`).
     * Twice with the prefixes of ‘ge’ and ‘le’ to indicate a specific range (for example, `date=ge2015-01-01&date=le2016-01-01`).
+* When searching with the `_revinclude` parameter 
+    * It may be provided once with the value `Provenance:target`. Example: `_revinclude=Provenance:target`
+    * It may be provided with the `_id` or `patient` parameters. Example: `_id=214938095&_revinclude=Provenance:target`
+
+* When `_revinclude` is provided in a request to the closed endpoint, the OAuth2 token must include the scope corresponding to the Authorization Type, such as `user/Provenance.read`, `patient/Provenance.read` or `system/Provenance.read`.
 
 ### Headers
 
@@ -96,6 +102,26 @@ Notes:
 
 <%= disclaimer %>
 
+### Example Search by _id with RevInclude
+
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: true, system: true) %>
+
+
+### Headers
+
+<%= headers %>
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/NutritionOrder?_id=328575687,328575703&_revinclude=Provenance:target
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:R4_NUTRITION_ORDER_SEARCH_BY_REVINCLUDE) %>
+<%= disclaimer %>
 
 ### Errors
 
