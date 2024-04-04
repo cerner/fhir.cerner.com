@@ -54,6 +54,8 @@ _Implementation Notes_
 
 * Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan. If there are any public coverages, they will return with an id prefixed with 'PH' or 'PHP' and will be returned in the payload with the rest of the coverages (private coverages).
 
+* Search with `_id` is not supported.
+
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: false, system: true) %>
@@ -73,7 +75,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
 
 #### Response
 
@@ -86,7 +88,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
 
 #### Response
 
@@ -99,7 +101,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97954095
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97954095
 
 #### Response
 
@@ -112,12 +114,82 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467
 
 #### Response
 
 <%= headers status: 200 %>
 <%= json(:r4_coverage_encounter_social_healthcare_bundle) %>
+
+<%= disclaimer %>
+
+### Errors
+
+The common [errors] and [OperationOutcomes] may be returned.
+
+## Retrieve by id
+
+List an individual Coverage by its id:
+
+    GET /Coverage/:id
+
+### Authorization Types
+
+<%= authorization_types(provider: true, patient: false, system: true) %>
+
+### Headers
+
+<%= headers fhir_json: true %>
+
+### Example - Patient-level Private Coverage
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/12724066-490016987-490016987
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_patient_bundle_entry) %>
+
+<%= disclaimer %>
+
+### Example - Patient-level Public Coverage
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-490218084-12724066
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_patient_social_healthcare_bundle_entry) %>
+
+<%= disclaimer %>
+
+### Example - Encounter-level Private Coverage
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/97954095-98320174
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_encounter_bundle_entry) %>
+
+<%= disclaimer %>
+
+### Example - Encounter-level Public Coverage
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-98371617-97701467
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_encounter_social_healthcare_bundle_entry) %>
 
 <%= disclaimer %>
 
@@ -147,7 +219,7 @@ Create new Patient-level or Encounter-level Coverages.
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 
 #### Body
 
@@ -163,7 +235,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0$0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/589763-11500257-11500257
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/589763-11500257-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
@@ -174,7 +246,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 
 #### Body
 
@@ -190,7 +262,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"135-0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-1626016-11500257
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-1626016-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
@@ -201,7 +273,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 
 #### Body
 
@@ -217,7 +289,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/31363178-11500257
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/31363178-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
@@ -228,7 +300,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 
 #### Body
 
@@ -244,7 +316,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"42-0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-31363178-11500257
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-31363178-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
@@ -285,7 +357,7 @@ _Implementation Notes_
 
 #### Request
 
-    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
+    PATCH https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 
 #### Body
 
@@ -331,7 +403,7 @@ Delete an existing Encounter-level or Patient-level Coverage.
 
 #### Request
 
-    DELETE https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
+    DELETE https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 
 #### Response
 
