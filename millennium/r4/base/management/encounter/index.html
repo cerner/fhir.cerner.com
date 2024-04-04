@@ -1304,6 +1304,13 @@
       <td>Provenance resource entries to be returned as part of the bundle. Example: <code>_revinclude=Provenance:target</code>
 </td>
     </tr>
+    <tr>
+      <td><code>_lastUpdated</code></td>
+      <td>No</td>
+      <td><a href="https://hl7.org/fhir/r4/datatypes.html#dateTime"><code>dateTime</code></a></td>
+      <td>Datetime on which the Encounter was last updated. Example: <code>_lastUpdated=gt2014-09-24</code> or <code>_lastUpdated=gt2014-09-24T12:00:00.000Z</code>
+</td>
+    </tr>
   </tbody>
 </table>
 
@@ -1346,6 +1353,7 @@ Encounter resource.</li>
       <li>When a valid system is provided, search is performed against the specific system.</li>
     </ul>
   </li>
+  <li>The <code>_lastUpdated</code> parameters may be provided up to two times, and must use the <code>eq</code>, <code>ge</code>, <code>gt</code>, <code>le</code>, or <code>lt</code> prefixes. When a value is provided without a prefix, an implied <code>eq</code> prefix is used. When provided twice, the lower value must have a <code>ge</code> or <code>gt</code> prefix and the higher value must have an <code>le</code> or <code>lt</code> prefix.</li>
 </ul>
 
 <h3 id="headers">Headers</h3>
