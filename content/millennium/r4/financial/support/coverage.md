@@ -75,7 +75,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
 
 #### Response
 
@@ -88,7 +88,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?patient=12724066
 
 #### Response
 
@@ -101,7 +101,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97954095
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97954095
 
 #### Response
 
@@ -114,7 +114,7 @@ _Implementation Notes_
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?-encounter=97701467
 
 #### Response
 
@@ -145,7 +145,7 @@ List an individual Coverage by its id:
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/12724066-490016987-490016987
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/12724066-490016987-490016987
 
 #### Response
 
@@ -158,7 +158,7 @@ List an individual Coverage by its id:
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-490218084-12724066
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-490218084-12724066
 
 #### Response
 
@@ -171,7 +171,7 @@ List an individual Coverage by its id:
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/97954095-98320174
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/97954095-98320174
 
 #### Response
 
@@ -184,7 +184,7 @@ List an individual Coverage by its id:
 
 #### Request
 
-    GET https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-98371617-97701467
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-98371617-97701467
 
 #### Response
 
@@ -219,7 +219,7 @@ Create new Patient-level or Encounter-level Coverages.
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 
 #### Body
 
@@ -235,7 +235,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0$0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/589763-11500257-11500257
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/589763-11500257-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
@@ -246,7 +246,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 
 #### Body
 
@@ -262,7 +262,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"135-0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-1626016-11500257
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PHP-1626016-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
@@ -273,7 +273,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 
 #### Body
 
@@ -289,7 +289,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/31363178-11500257
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/31363178-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
@@ -300,7 +300,7 @@ X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 
 #### Request
 
-    POST https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
+    POST https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage
 
 #### Body
 
@@ -316,7 +316,7 @@ Content-Type: text/html
 Date: Tue, 22 Oct 2019 15:59:33 GMT
 Etag: W/"42-0"
 Last-Modified: Tue, 22 Oct 2019 15:59:30 GMT
-Location: https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-31363178-11500257
+Location: https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/PH-31363178-11500257
 Vary: Origin
 X-Request-Id: ef7c0ee60a8cf431403fe82d9009640b
 </pre>
@@ -357,7 +357,7 @@ _Implementation Notes_
 
 #### Request
 
-    PATCH https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
+    PATCH https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 
 #### Body
 
@@ -403,7 +403,7 @@ Delete an existing Encounter-level or Patient-level Coverage.
 
 #### Request
 
-    DELETE https://fhir-ehr-code.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
+    DELETE https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage/623884-674012
 
 #### Response
 
