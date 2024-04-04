@@ -60,7 +60,7 @@ module Cerner
           'name': 'Self Pay'
         }
       ]
-    }
+    }.freeze
 
     R4_COVERAGE_ENCOUNTER_BUNDLE_ENTRY ||= {
       'resourceType': 'Coverage',
@@ -132,7 +132,7 @@ module Cerner
           'name': 'Aetna'
         }
       ]
-    }
+    }.freeze
 
     R4_COVERAGE_ENCOUNTER_SOCIAL_HEALTHCARE_BUNDLE_ENTRY ||= {
       'resourceType': 'Coverage',
@@ -196,7 +196,7 @@ module Cerner
           'name': 'Charging Category'
         }
       ]
-    }
+    }.freeze
 
     R4_COVERAGE_PATIENT_SOCIAL_HEALTHCARE_BUNDLE_ENTRY ||= {
       'resourceType': 'Coverage',
@@ -244,7 +244,7 @@ module Cerner
           'name': '10-OPC, Class II'
         }
       ]
-    }
+    }.freeze
 
     R4_COVERAGE_BUNDLE ||= {
       'resourceType': 'Bundle',
