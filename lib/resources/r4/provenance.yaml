@@ -97,7 +97,7 @@ fields:
         }
       ]
     }
-  note: <ul><li> Only one agent may be provided.</li></ul>
+  note: <ul><li>At least one agent should be provided.</li></ul>
   url: https://hl7.org/fhir/R4/provenance-definitions.html#Provenance.agent
   children:
 
