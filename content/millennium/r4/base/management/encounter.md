@@ -91,7 +91,8 @@ _Implementation Notes_
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
 * A populated Encounter response bundle will not have any guaranteed sort order within the page.  However, if the results are split into multiple pages, the pages will be sorted by the start of the [Encounter.period] from oldest to newest.  That is, all encounters on a page will have an older [Encounter.period] start date than all the encounters on the next page.
-* The [Encounter.class] filed will first return any mapped v3 code; if no v3 code is found, a v2 code (or other code) will be returned.
+* The Encounter R4 resource gives preference to v3 ActEncounterCodes for the [Encounter.class] field. v2ActEncounterCodes (or other code) will only be returned if no v3 ActEncounterCodes are mapped.
+
 
 ### Authorization Types
 
@@ -195,7 +196,7 @@ _Implementation Notes_
 
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
-* The [Encounter.class] filed will first return any mapped v3 code; if no v3 code is found, a v2 code (or other code) will be returned.
+* The Encounter R4 resource gives preference to v3 ActEncounterCodes for the [Encounter.class] field. v2ActEncounterCodes (or other code) will only be returned if no v3 ActEncounterCodes are mapped.
 
 ### Authorization Types
 
