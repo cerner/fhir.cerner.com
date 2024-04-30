@@ -43,7 +43,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  ID                    | Value\[x] Type | Description
 -----------------------|----------------|------------------------------------------------------------------------------------------------
  `scheduling-location` | [`Reference`]  | Reference to the location corresponding to this schedule, where the appointment can be booked.
- `general-resource`    | [`String`]     | Value String referencing to the General Resource corresponding to this schedule.
+ `general-resource`    | [`String`]     | Value String referencing a General Resource corresponding to this schedule.
 
 ## Search
 
