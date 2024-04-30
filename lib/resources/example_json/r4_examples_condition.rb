@@ -403,6 +403,22 @@ module Cerner
                  ' Medical</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p>'\
                  '<p><b>Onset</b>: Jun 10, 2020  5:00 P.M. UTC</p></div>'
         },
+        'extension': [
+          {
+            'valueCodeableConcept': {
+              'coding': [
+                {
+                  'system': 'http://snomed.info/sct',
+                  'code': '89100005',
+                  'display': 'Final diagnosis (discharge) (contextual qualifier) (qualifier value)',
+                  'userSelected': false
+                }
+              ],
+              'text': 'Discharge'
+            },
+            'url': 'https://fhir-ehr.cerner.com/r4/StructureDefinition/diagnosis-type'
+          }
+        ],
         'clinicalStatus': {
           'coding': [
             {
