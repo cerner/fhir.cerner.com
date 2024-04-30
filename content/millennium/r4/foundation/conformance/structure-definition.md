@@ -85,6 +85,7 @@ Authorization is not required.
  [`communication-preference`]                                | The communication methods preferred by a patient.
  [`custom-attribute`]                                        | The client-defined custom attribute for the resource.
  [`description`]                                             | The description providing additional details of the resource.
+ [`diagnosis-type`]                                          | Represents the type of diagnosis.
  [`email-status`]                                            | The status of the electronic communication.
  [`estimated-financial-responsibility-amount`]               | The estimated amount to be collected for the encounter.
  [`estimated-financial-responsibility-not-collected-reason`] | The reason no estimated amount is collected for the encounter.
@@ -147,6 +148,7 @@ Authorization is not required.
 [`coverage-encounter`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/coverage-encounter?_format=json
 [`custom-attribute`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/custom-attribute?_format=json
 [`description`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/description?_format=json
+[`diagnosis-type`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/diagnosis-type?_format=json
 [`email-status`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/email-status?_format=json
 [`estimated-financial-responsibility-amount`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-amount?_format=json
 [`estimated-financial-responsibility-not-collected-reason`]: https://fhir-ehr.cerner.com/r4/StructureDefinition/estimated-financial-responsibility-not-collected-reason?_format=json
