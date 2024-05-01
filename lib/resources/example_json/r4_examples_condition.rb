@@ -399,9 +399,9 @@ module Cerner
         'text': {
           'status': 'generated',
           'div': '<div xmlns="http://www.w3.org/1999/xhtml"><p><b>Condition</b></p><p><b>Patient</b>: '\
-                 'SMART, NANCY</p><p><b>Diagnosis</b>: Anemia, Anemia (disorder)</p><p><b>Category Classification</b>:'\
-                 ' Medical</p><p><b>Clinical Status</b>: Active</p><p><b>Verification Status</b>: Confirmed</p>'\
-                 '<p><b>Onset</b>: Jun 10, 2020  5:00 P.M. UTC</p></div>'
+                 'SMART, NANCY</p><p><b>Diagnosis</b>: Anemia, Anemia (disorder)</p><p><b>Diagnosis Type</b>'\
+                 ': Discharge</p><p><b>Category Classification</b>: Medical</p><p><b>Clinical Status</b>: Active</p>'\
+                 '<p><b>Verification Status</b>: Confirmed</p><p><b>Onset</b>: Jun 10, 2020  5:00 P.M. UTC</p></div>'
         },
         'extension': [
           {
