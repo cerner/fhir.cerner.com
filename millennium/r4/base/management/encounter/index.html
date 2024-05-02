@@ -1223,6 +1223,7 @@
   <li>The <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination">Encounter.hospitalization.destination</a> will be returned as a reference to a <a href="https://hl7.org/fhir/r4/references.html#contained">contained</a> location resource.</li>
   <li>The <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location">Encounter.location.location</a> may be returned as a reference to a <a href="https://hl7.org/fhir/r4/references.html#contained">contained</a> location resource.</li>
   <li>A populated Encounter response bundle will not have any guaranteed sort order within the page.  However, if the results are split into multiple pages, the pages will be sorted by the start of the <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period">Encounter.period</a> from oldest to newest.  That is, all encounters on a page will have an older <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period">Encounter.period</a> start date than all the encounters on the next page.</li>
+  <li>The Encounter R4 resource gives preference to v3 ActEncounterCodes for the <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.class">Encounter.class</a> field. v2ActEncounterCodes (or other code) will only be returned if no v3 ActEncounterCodes are mapped.</li>
 </ul>
 
 <h3 id="authorization-types">Authorization Types</h3>
@@ -3329,6 +3330,7 @@ Encounter resource.</li>
 <ul>
   <li>The <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination">Encounter.hospitalization.destination</a> will be returned as a reference to a <a href="https://hl7.org/fhir/r4/references.html#contained">contained</a> location resource.</li>
   <li>The <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location">Encounter.location.location</a> may be returned as a reference to a <a href="https://hl7.org/fhir/r4/references.html#contained">contained</a> location resource.</li>
+  <li>The Encounter R4 resource gives preference to v3 ActEncounterCodes for the <a href="https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.class">Encounter.class</a> field. v2ActEncounterCodes (or other code) will only be returned if no v3 ActEncounterCodes are mapped.</li>
 </ul>
 
 <h3 id="authorization-types-2">Authorization Types</h3>
