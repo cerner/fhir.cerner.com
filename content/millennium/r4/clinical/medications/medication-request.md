@@ -94,6 +94,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 * [NLLPrescriptionFormat](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
 * [NLLRegistrationBasis](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
 * [NLLDosePackaging](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
+* [NLLConditionsPharmaceuticalBenefitsAct](https://simplifier.net/guide/swedishnationalmedicationlist/MedicationRequest)
 
 ### Custom Extensions
 
@@ -113,6 +114,7 @@ All URLs for Swedish extensions are defined as `http://electronichealth.se/fhir/
  `NLLPrescriptionFormat` | [Coding](https://hl7.org/fhir/r4/datatypes.html#codesystem) | Current prescription format.
  `NLLRegistrationBasis`  | [Coding](https://hl7.org/fhir/r4/datatypes.html#codesystem) | Format for prescription registration.
  `NLLDosePackaging`      | [Boolean](https://hl7.org/fhir/r4/datatypes.html#boolean)   | Dose dispensed prescription.
+ `NLLConditionsPharmaceuticalBenefitsAct` | [Boolean](https://hl7.org/fhir/r4/datatypes.html#boolean) | Pharmaceutical benefits act conditions.
 
 ## Search
 
