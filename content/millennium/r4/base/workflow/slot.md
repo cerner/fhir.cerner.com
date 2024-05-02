@@ -34,6 +34,7 @@ The following fields are returned if valued:
 ## Extensions
 
 * [Scheduling Location]
+* [General Resource]
 
 ### Custom Extensions
 
@@ -42,6 +43,7 @@ All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/St
  ID                    | Value\[x] Type | Description
 -----------------------|----------------|------------------------------------------------------------------------------------------------
  `scheduling-location` | [`Reference`]  | Reference to the location corresponding to this schedule, where the appointment can be booked.
+ `general-resource`    | [`String`]     | Value String referencing a General Resource corresponding to this schedule.
 
 ## Search
 
@@ -286,3 +288,4 @@ The common [errors] and [OperationOutcomes] may be returned.
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
 [Scheduling Location]: #custom-extensions
+[General Resource]: #custom-extensions
