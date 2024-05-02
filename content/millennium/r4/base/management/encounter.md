@@ -91,6 +91,7 @@ _Implementation Notes_
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
 * A populated Encounter response bundle will not have any guaranteed sort order within the page.  However, if the results are split into multiple pages, the pages will be sorted by the start of the [Encounter.period] from oldest to newest.  That is, all encounters on a page will have an older [Encounter.period] start date than all the encounters on the next page.
+* The Encounter R4 resource gives preference to v3 ActEncounterCodes for the [Encounter.class] field. v2ActEncounterCodes (or other code) will only be returned if no v3 ActEncounterCodes are mapped.
 
 ### Authorization Types
 
@@ -194,6 +195,7 @@ _Implementation Notes_
 
 * The [Encounter.hospitalization.destination] will be returned as a reference to a [contained] location resource.
 * The [Encounter.location.location] may be returned as a reference to a [contained] location resource.
+* The Encounter R4 resource gives preference to v3 ActEncounterCodes for the [Encounter.class] field. v2ActEncounterCodes (or other code) will only be returned if no v3 ActEncounterCodes are mapped.
 
 ### Authorization Types
 
@@ -361,6 +363,7 @@ The common [errors] and [OperationOutcomes] may be returned.
 [Client Organization]: #custom-extensions
 [Custom Attribute]: #custom-extensions
 [contained]: https://hl7.org/fhir/r4/references.html#contained
+[Encounter.class]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.class
 [Encounter.hospitalization.destination]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.hospitalization.destination
 [Encounter.location.location]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.location.location
 [Encounter.period]: https://hl7.org/fhir/r4/encounter-definitions.html#Encounter.period
