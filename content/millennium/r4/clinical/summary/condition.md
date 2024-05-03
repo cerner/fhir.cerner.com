@@ -46,6 +46,18 @@ The following fields are returned if valued:
 
 <%= terminology_table(:condition, :r4) %>
 
+## Extensions
+
+* [Diagnosis Type]
+
+### Custom Extensions
+
+All URLs for custom extensions are defined as `https://fhir-ehr.cerner.com/r4/StructureDefinition/{id}`
+
+ ID                         | Value\[x] Type      | Description
+----------------------------|---------------------|---------------------------------------
+ `diagnosis-type`           | [`CodeableConcept`] | Represents the type of diagnosis.
+
 ## Search
 
 Search for Conditions that meet supplied query parameters:
@@ -315,6 +327,8 @@ The common [errors] and [OperationOutcomes] may be returned.
 [`date`]: https://hl7.org/fhir/R4/search.html#date
 [`reference`]: https://hl7.org/fhir/r4/search.html#reference
 [`token`]: https://hl7.org/fhir/R4/search.html#token
+[`CodeableConcept`]: http://hl7.org/fhir/r4/datatypes.html#CodeableConcept
 [errors]: ../../../#client-errors
 [OperationOutcomes]: ../../../#operation-outcomes
 [FHIR<sup>®</sup> Update]: https://hl7.org/fhir/R4/http.html#update
+[Diagnosis Type]: https://fhir-ehr.cerner.com/r4/StructureDefinition/diagnosis-type?_format=json
