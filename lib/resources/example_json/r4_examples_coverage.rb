@@ -297,7 +297,7 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Coverage</b></p><p><b>Status</b>: Active</p>'\
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage</b></p><p><b>Status</b>: Active</p>'\
         '<p><b>Beneficiary</b>: SMART, NANCY</p><p><b>Coverage Start Date</b>: Mar 16, 2021  8:04 P.M. UTC</p>'\
         '<p><b>Payor</b>: Government</p><p><b>Class</b>:</p><dl><dt>Charging Category</dt><dd><b>Value</b>:'\
          '2572940471</dd><dd><b>Name</b>: 10-OPC, Class II</dd></dl><p><b>Type</b>: public healthcare</p></div>'
