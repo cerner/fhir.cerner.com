@@ -17,6 +17,30 @@ module Cerner
                      '</p><p><b>Coverage Start Date</b>: Aug 14, 2015  7:07 P.M. UTC</p><p><b>Payor</b>: '\
                      'SELF PAY</p><p><b>Class</b>: plan: Value: 2800235 Name: Self Pay</p></div>'
       },
+      'identifier': [
+        {
+          'type': {
+            'coding': [
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                'code': 'MB'
+              }
+            ]
+          },
+          'value': '123'
+        },
+        {
+          'type': {
+            'coding': [
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/v2-0203',
+                'code': 'MB'
+              }
+            ]
+          },
+          'value': '123'
+        }
+      ],
       'status': 'active',
       'subscriber': {
         'reference': 'Patient/12724066',
@@ -134,6 +158,72 @@ module Cerner
       ]
     }.freeze
 
+    R4_COVERAGE_ID_BUNDLE_ENTRY ||= {
+      'resourceType': 'Coverage',
+      'id': '12724066-491651736-491651736',
+      'meta': {
+        'versionId': '4-4',
+        'lastUpdated': '2024-01-10T19:33:27.000Z'
+      },
+      'text': {
+        'status': 'generated',
+        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage</b></p><p><b>Status</b>: Active</p><p><b>Subscriber</b>: SMART II, NANCY</p><p><b>Beneficiary</b>: SMART II, NANCY</p><p><b>Relationship</b>: Self</p><p><b>Coverage Start Date</b>: Jun  6, 2021 12:00 A.M. UTC</p><p><b>Payor</b>: MEDICARE</p><p><b>Class</b>:</p><dl><dt>Plan</dt><dd><b>Value</b>: 3132243</dd><dd><b>Name</b>: Medicare Part B</dd></dl></div>'
+      },
+      'identifier': [
+        {
+          'extension': [
+            {
+              'valueCode': 'unknown',
+              'url': 'http://hl7.org/fhir/StructureDefinition/data-absent-reason'
+            }
+          ]
+        }
+      ],
+      'status': 'active',
+      'subscriber': {
+        'reference': 'Patient/12724066',
+        'display': 'SMART II, NANCY'
+      },
+      'beneficiary': {
+        'reference': 'Patient/12724066',
+        'display': 'SMART II, NANCY'
+      },
+      'relationship': {
+        'coding': [
+          {
+            'system': 'http://terminology.hl7.org/CodeSystem/subscriber-relationship',
+            'code': 'self',
+            'display': 'Self',
+            'userSelected': false
+          }
+        ],
+        'text': 'Self'
+      },
+      'period': {
+        'start': '2021-06-06T00:00:00.000Z'
+      },
+      'payor': [
+        {
+          'reference': 'Organization/589783',
+          'display': 'MEDICARE'
+        }
+      ],
+      'class': [
+        {
+          'type': {
+            'coding': [
+              {
+                'system': 'http://terminology.hl7.org/CodeSystem/coverage-class',
+                'code': 'plan'
+              }
+            ]
+          },
+          'value': '3132243',
+          'name': 'Medicare Part B'
+        }
+      ]
+    }.freeze
+
     R4_COVERAGE_ENCOUNTER_SOCIAL_HEALTHCARE_BUNDLE_ENTRY ||= {
       'resourceType': 'Coverage',
       'id': 'PH-98371617-97701467',
@@ -207,7 +297,7 @@ module Cerner
       },
       'text': {
         'status': 'generated',
-        'div': '<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Coverage</b></p><p><b>Status</b>: Active</p>'\
+        'div': '<div xmlns=\'http://www.w3.org/1999/xhtml\'><p><b>Coverage</b></p><p><b>Status</b>: Active</p>'\
         '<p><b>Beneficiary</b>: SMART, NANCY</p><p><b>Coverage Start Date</b>: Mar 16, 2021  8:04 P.M. UTC</p>'\
         '<p><b>Payor</b>: Government</p><p><b>Class</b>:</p><dl><dt>Charging Category</dt><dd><b>Value</b>:'\
          '2572940471</dd><dd><b>Name</b>: 10-OPC, Class II</dd></dl><p><b>Type</b>: public healthcare</p></div>'
