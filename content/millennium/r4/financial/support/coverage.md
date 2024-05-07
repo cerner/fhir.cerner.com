@@ -54,8 +54,6 @@ _Implementation Notes_
 
 * Public Healthcare represents an insurance policy funded by a public health system such as a provincial or national health plan. If there are any public coverages, they will return with an id prefixed with 'PH' or 'PHP' and will be returned in the payload with the rest of the coverages (private coverages).
 
-* Search with `_id` is not supported.
-
 ### Authorization Types
 
 <%= authorization_types(provider: true, patient: false, system: true) %>
@@ -64,6 +62,7 @@ _Implementation Notes_
 
  Name         | Required?            | Type          | Description
 --------------|----------------------|---------------|--------------------------------------------------------
+ `_id`        | Required if `patient` or `encounter` is not present | [`reference`]     | The logical resource id associated with the resource.
  `patient`    | This or `-encounter` | [`reference`] | Retrieve coverages for a patient. Example: `12345`
  `-encounter` | This or `patient`    | [`reference`] | Retrieve coverages for an encounter. Example: `143242`
 
@@ -81,6 +80,19 @@ _Implementation Notes_
 
 <%= headers status: 200 %>
 <%= json(:r4_coverage_bundle) %>
+
+<%= disclaimer %>
+
+### Example - Id-level Private Coverage
+
+#### Request
+
+    GET https://fhir-ehr.cerner.com/r4/ec2458f2-1e24-41c8-b71b-0e701af7583d/Coverage?_id=12724066-491651736-491651736
+
+#### Response
+
+<%= headers status: 200 %>
+<%= json(:r4_coverage_id_bundle_entry) %>
 
 <%= disclaimer %>
 
